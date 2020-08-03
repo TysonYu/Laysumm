@@ -29,12 +29,6 @@ def train(model, training_data, validation_data, optimizer, checkpoint, args):
             logits = model(input_ids=src_ids, attention_mask=mask, decoder_input_ids=decoder_ids, labels=label_ids)
             masked_lm_loss = logits[0]
             loss = masked_lm_loss
-#             decoder_outputs = logits[1]
-#             encoder_outputs = logits[2]
-#             print(encoder_outputs)
-#             print(encoder_outputs.shape)
-#             print(decoder_outputs.shape)
-#             exit()
             total_loss += loss.item()
             loss = loss / args.accumulation_steps
             # backward
@@ -46,10 +40,10 @@ def train(model, training_data, validation_data, optimizer, checkpoint, args):
                 model.zero_grad()
             # write to log file
             if iteration % 20 == 0:
-                logger.info("iteration: {} loss_per_word: {:4f} learning rate: {:4f}".format(iteration, total_loss/50, optimizer.learning_rate))
+                logger.info("iteration: {} loss_per_word: {:4f} learning rate: {:4f}".format(iteration, total_loss/20, optimizer.learning_rate))
                 total_loss = 0
             # save model
-            if iteration % 2000 == 0 and iteration > 2000:
+            if iteration % 100 == 0 and iteration >= 2000:
                 temp_F1 = evaluation(model, validation_data, args)
                 if temp_F1 > F1:
                     logger.info("saving model")

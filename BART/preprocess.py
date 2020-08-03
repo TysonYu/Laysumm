@@ -59,8 +59,8 @@ class MultiNewsDataset(Dataset):
         decoder_ids = [[0]+i for i in tgt]
         label_ids = [i+[2] for i in tgt]
 
-        decoder_ids = torch.tensor(pad_sents(decoder_ids, 1, max_len=200)[0])
-        label_ids = torch.tensor(pad_sents(label_ids, -100, max_len=200)[0])
+        decoder_ids = torch.tensor(pad_sents(decoder_ids, 1, max_len=256)[0])
+        label_ids = torch.tensor(pad_sents(label_ids, -100, max_len=256)[0])
         return src_ids, decoder_ids, mask, label_ids
 
 class MultiNewsReader(object):

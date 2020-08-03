@@ -107,5 +107,8 @@ if __name__ == '__main__':
     optim = build_optim(args, model, checkpoint)
 
     # training
-    train_multi(model, train_loader, valid_loader, optim, checkpoint, args)
+    if args.customiza_model:
+        train_multi(model, train_loader, valid_loader, optim, checkpoint, args)
+    else:
+        train(model, train_loader, valid_loader, optim, checkpoint, args)
 
