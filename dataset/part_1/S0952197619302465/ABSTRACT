@@ -1,0 +1,31 @@
+10.1016/j.engappai.2019.103285
+
+ABSTRACT
+
+TITLE
+
+ElHealth: Using Internet of Things and data prediction for elastic management of human resources in smart hospitals
+
+PARAGRAPH
+
+Hospitals play an important role towards ensuring proper health treatment to human beings.
+
+One of the major challenges faced in this context refers to the increasingly overcrowded patients queues, which contribute to a potential deterioration of patients health conditions.
+
+One of the reasons of such an inefficiency is a poor allocation of health professionals.
+
+In particular, such allocation process is usually unable to properly adapt to unexpected changes in the patients demand.
+
+As a consequence, it is frequently the case where underused rooms have idle professionals whilst overused rooms have less professionals than necessary.
+
+Previous works addressed this issue by analyzing the evolution of supply (doctors) and demand (patients) so as to better adjust one to the other, though none of them focused on proposing effective counter-measures to mitigate poor allocations.
+
+In this paper, we build upon the concept of smart hospitals and introduce elastic allocation of human resources in healthcare environments (ElHealth), an IoT-focused model able to monitor patients usage of hospital rooms and to adapt the allocation of health professionals to these rooms so as to meet patients needs.
+
+ElHealth employs data prediction techniques to anticipate when the demand of a given room will exceeds its capacity, and to propose actions to allocate health professionals accordingly.
+
+We also introduce the concept of multi-level predictive elasticity of human resources (which is an extension of the concept of resource elasticity, from cloud computing) to manage the use of human resources at different levels of a healthcare environment.
+
+Furthermore, we devise the concept of proactive human resources elastic speedup (which is an extension of the speedup concept, from parallel computing) to properly measure the gain of healthcare time with dynamic parallel use of human resources within hospital environments.
+
+ElHealth was thoroughly evaluated based on simulations of a hospital environment using data from a Brazilian polyclinic, and obtained promising results, decreasing the waiting time by up to 96.71%.

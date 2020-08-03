@@ -1,0 +1,447 @@
+10.1016/j.jhep.2017.12.007
+
+FULLTEXT
+
+TITLE
+
+Toll-like receptor 7 agonist GS-9620 induces prolonged inhibition of HBV via a type I interferon-dependent mechanism
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Approximately 240 million individuals are chronically infected with hepatitis B virus and over 650,000 people die each year because of HBV-associated liver diseases, such as cirrhosis and hepatocellular carcinoma.
+
+Immunologic control of chronic hepatitis B (CHB), recognized as a “functional cure”, is defined as sustained loss of HBV surface antigen (HBsAg) off therapy with or without seroconversion to anti-HBs antibody.
+
+Current therapies for CHB are limited to nucleos(t)ides inhibitors and interferon-alpha (IFN-α).
+
+These agents reduce viral load and improve long-term outcome, but they rarely lead to cure.
+
+Therefore, there is an urgent need for new therapies that induce durable immune control of chronic HBV infection.
+
+PARAGRAPH
+
+GS-9620 is a potent, orally bioavailable small molecule agonist of toll-like receptor 7 (TLR7) in clinical development for the treatment of CHB.1
+
+TLR7 is expressed in a subset of human immune cells, primarily plasmacytoid dendritic cells (pDCs) and B cells, and recognizes single-stranded RNA as well as small molecule agonists.2
+
+TLR7 activation induces innate and adaptive immune responses via induction of various cytokines (including multiple IFN-α subtypes) and chemokines, direct activation of B cells, and cross-priming of cytotoxic CD8+ T cells.3–5
+
+GS-9620 was previously shown to induce prolonged suppression of serum viral DNA and antigens in the chimpanzee and woodchuck models of CHB.6,7
+
+Various immunomodulatory activities may account for the antiviral effects of GS-9620 in these animal models (e.g., induction of antiviral cytokines, activation of natural killer (NK)_cells, CD8+ T cells and B cells).
+
+However, the exact mechanism remains unclear.
+
+Defining the molecular basis for response is an important goal because mechanistic understanding of GS-9620 activity could guide rational design of novel immunotherapeutic strategies.
+
+PARAGRAPH
+
+In the current study we investigated the molecular mechanisms responsible for the antiviral response to GS-9620 using in vitro models of HBV infection in cryopreserved primary human hepatocytes (PHH), as well as differentiated HepaRG (dHepaRG) cells.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Ethics statement
+
+PARAGRAPH
+
+Consent was obtained from the donor or the donor’s legal next of kin for use of PHH, buffy coats from healthy human volunteers and whole blood from healthy human volunteers and patients with CHB for research purposes using IRB-approved authorizations.
+
+Additional details are provided in the supplementary information and the supplementary CTAT Table.
+
+SECTION
+
+Additional materials and methods
+
+PARAGRAPH
+
+Chemical and reagent details are provided in the supplementary information and the supplementary CTAT Table.
+
+Methods for production and characterization of conditioned media, infection and treatment of PHH and dHepaRG cells, hepatitis B e antigen (HBeAg) and HBsAg analysis, quantitative reverse transcription PCR (qRT-PCR), HBV DNA analysis, cell viability analysis, HBV covalently closed circular DNA (cccDNA) analysis, epifluorescence microscopy, confocal microscopy, western blotting, peptide/major histocompatibility complex class I (pMHC) complex analysis and RNA sequencing (RNA-Seq) are provided in the supplementary information.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Data is expressed as mean ± standard error of the mean (SEM).
+
+Statistical significance was tested using a two-tailed t test (for two sample comparisons) or either one-way or two-way ANOVA with multiple comparison correction (for multiple comparisons).
+
+A value of p <0.05 was considered significant.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Cytokines induced by GS-9620 reduce HBV DNA, RNA and antigens, but do not alter cccDNA levels
+
+PARAGRAPH
+
+We first determined that GS-9620 has no antiviral activity in HBV-infected PHH, consistent with low level TLR7 mRNA expression in human hepatocytes (Figs. S1–3).
+
+These data are described in the supplementary information.
+
+We then evaluated whether cytokines induced by GS-9620 in human peripheral blood mononuclear cells (PBMCs) can suppress HBV after infection of PHH and dHepaRG cells.
+
+For these studies, PBMCs were stimulated with 10 nM GS-9620 since this concentration strongly induces IFN-α, a prototypic TLR7 cytokine with antiviral activities (Fig. S4A).
+
+HBV-infected PHH were continuously treated (day 3–20 post-infection) with IFN-α or with conditioned media from PBMCs stimulated with GS-9620 (GS-9620-CM) or DMSO (Mock-CM).
+
+Treatment with both GS-9620-CM and 100 IU/ml IFN-α strongly reduced the levels of HBV DNA and HBeAg (>75%), as well as HBV RNA (>70%) and HBsAg (>60%), with only a very modest effect (<3% reduction) on cell viability (Fig. 1A–E, Fig. S2B).
+
+GS-9620-CM and IFN-α also had antiviral activity in HBV-infected PHH when treatment was delayed (day 13–20 post-infection) (Fig. 1A–D).
+
+PHH viability was not affected by this shorter treatment duration (Fig. 1E, Fig. S2B).
+
+GS-9620-CM also had antiviral activity in HBV-infected dHepaRG cells, although the HBsAg reduction was relatively modest (30%) (Fig. 1F).
+
+Importantly, Mock-CM did not have antiviral activity in either HBV-infected PHH or dHepaRG cells (Fig. 1).
+
+PARAGRAPH
+
+In contrast to the other viral parameters, GS-9620-CM treatment did not alter cccDNA levels in HBV-infected PHH or dHepaRG cells (Fig. 2).
+
+However, even though cccDNA levels were not changed by GS-9620-CM and IFN-α, all other viral endpoints were still significantly reduced seven days after cessation of treatment (day 3–13 post-infection) of HBV-infected PHH (Fig. 1A–D).
+
+Similarly, HBV DNA levels were significantly reduced 11 days after cessation of GS-9620-CM treatment of HBV-infected dHepaRG cells, whereas viral DNA rebounded to control levels after tenofovir treatment was stopped (Fig. S5A).
+
+A longer duration study in HBV-infected dHepaRG cells revealed that HBV DNA and HBsAg levels were still significantly suppressed 35 days after cessation of GS-9620-CM treatment (Fig. S6).
+
+Collectively, these data demonstrate that GS-9620-CM can induce a prolonged antiviral effect in HBV-infected PHH and dHepaRG cells without reducing cccDNA levels.
+
+In contrast to IFN-α, TNF-α did not induce prolonged suppression of viral RNA in HBV-infected PHH once treatment was stopped (Fig. S5B).
+
+This suggests important mechanistic differences underlie the antiviral response to these cytokines.
+
+SECTION
+
+GS-9620-induced cytokines inhibit HBV via a type I IFN-dependent mechanism
+
+PARAGRAPH
+
+We then characterized GS-9620-CM by luminex analysis to identify the cytokine(s) responsible for the antiviral activity observed in HBV-infected PHH and dHepaRG cells.
+
+As expected, IFN-α was the predominant cytokine in GS-9620-CM, although lower amounts of other cytokines (e.g. IFN-γ, IL-1β, IL-6 and TNF-α) with antiviral activity against HBV were also present (Fig. 3A).8
+
+IFN-β, like IFN-α, is a type I IFN that signals via the IFN-α/β receptor (IFNAR).
+
+In contrast to IFN-α, there were very low levels of IFN-β in GS-9620-CM (<0.5 pg/ml).
+
+Importantly, the antiviral cytokine profile of GS-9620-CM was similar to the serum cytokine profile in chimpanzees dosed orally with GS-9620.6
+
+Moreover, GS-9620 induced comparable IFN-α levels in vitro in human PBMCs from healthy donors and patients with CHB (Fig. S4B).
+
+Collectively, these data support the use of GS-9620-CM from healthy human donor PBMCs in these studies.
+
+PARAGRAPH
+
+In line with the PBMC cytokine profile, antibody blockade of the type I IFN receptor (IFNAR) or knock-down of IFNAR1 by RNA interference abrogated the antiviral activity of GS-9620-CM in HBV-infected PHH (Fig. 3B–E).
+
+The antiviral activity of GS-9620-CM in HBV-infected dHepaRG cells was also blocked by an anti-IFNAR antibody, but not by TNF-α or IFN-γ neutralizing antibodies (Fig. S7).
+
+Taken together, these data indicate that type I IFN (most likely IFN-α) is the cytokine responsible for the HBV suppressive activity of GS-9620-CM.
+
+SECTION
+
+Established HBV infection does not significantly modulate the transcriptional response to GS-9620-induced cytokines
+
+PARAGRAPH
+
+A recent study suggested that HBV can inhibit IFN-α signaling in a humanized mouse model.9
+
+Since GS-9620-CM is principally composed of IFN-α and mediates its antiviral effect via the type I IFN receptor, we evaluated whether HBV suppresses the global transcriptional response to GS-9620-CM in PHH.
+
+The experimental set-up was designed to evaluate the potential impact of established HBV infection on the hepatocyte innate immune response, since this scenario is clinically relevant to the treatment of CHB (Fig. 4A).
+
+High-level infection (∼80–90% PHH infected) was confirmed by HBV core antigen staining (Fig. 4B).
+
+GS-9620-CM induced the greatest transcriptional response eight hours post-treatment, with >1,000 genes being differentially expressed (FDR <0.05, fold-change >2) in each PHH donor (Fig. 4C, Table S5).
+
+Interestingly, the number of differentially expressed genes (DEGs) and the overall transcriptional profile were comparable in mock-infected and HBV-infected PHH, as well as in different PHH donors (Fig. 4C and D).
+
+PARAGRAPH
+
+Ingenuity Pathway Analysis (IPA) and Gene Set Enrichment Analysis both identified IFN signaling as the top transcriptional pathway induced by GS-9620-CM in HBV-infected PHH (Fig. 5A, Table S1).
+
+In line with the whole transcriptome analyses, GS-9620-CM induced a comparable interferon-stimulated gene (ISG) response in mock-infected and HBV-infected PHH, with no ISG being differentially modulated by GS-9620-CM in mock-infected vs. HBV-infected PHH in both donors (Fig. 5B and C, Table S7).
+
+Taken together, these data suggest that established HBV infection does not modulate the transcriptional response to IFN-α in our cell culture system.
+
+SECTION
+
+Established HBV infection does not significantly modulate the transcriptional response to various innate immune stimuli
+
+PARAGRAPH
+
+In light of the GS-9620-CM transcriptome analysis, we evaluated whether the PHH response to diverse innate immune stimuli is influenced by established HBV infection (Fig. 6A).
+
+In addition to GS-9620-CM and IFN-α, this study evaluated the ISG response to poly(I:C) and Sendai virus (SeV), which are agonists of TLR3/MDA5 and RIG-I, respectively.
+
+The transcriptional response was measured by qRT-PCR at eight hours post-treatment, since this was the peak (or close to the peak) of the response in PHH to various innate immune stimuli in previous studies (Fig. 5B).10
+
+High-level infection (∼80–90% PHH infected) at the time of innate immune stimulation was confirmed by HBV core antigen staining (Fig. 6B).
+
+Consistent with the GS-9620-CM RNA-Seq data, HBV infection did not significantly reduce the ISG response to any of the innate immune stimuli tested (Fig. 6C, Fig. S8).
+
+This was the case whether the magnitude of ISG induction was high (e.g. RSAD2 (viperin), >100-fold induction) or low (e.g. EIF2AK2 (PKR), <10-fold induction).
+
+Of note, although not statistically significant, there was a trend towards lower ISG induction in HBV-infected PHH for certain ISGs.
+
+However, this equated to only a 10 ± 3% (mean ± SEM) difference in fold-change for the multiple genes evaluated (n = 8) in three different PHH donors with various innate immune stimuli.
+
+This lack of significant, coordinated ISG repression suggests that established HBV infection does not interfere with the hepatocyte transcriptional response to IFN-α or TLR3/MDA5 and RIG-I agonists in our cell culture system.
+
+SECTION
+
+GS-9620-induced cytokines strongly increase the expression of various HBV restriction factors, but not APOBEC3A or the Smc5/6 complex
+
+PARAGRAPH
+
+GS-9620-CM induced the expression of a large number of ISGs in PHH (Fig. 5B, Table S6), many of which have antiviral effector functions.11
+
+The ISG expression profile in HBV-infected PHH treated with GS-9620-CM was similar to the intrahepatic ISG signature in CHB chimpanzees treated with GS-9620, although a subset of ISGs (including several chemokines) was differentially induced in the two systems (Fig. S9).
+
+Importantly, none of the ISGs that were strongly induced in PHH but not chimpanzee liver (i.e. ANGPTL1, BCL2L14 and CXCL9) have been reported to possess direct antiviral effector function.
+
+This suggests that the differential induction of these genes does not impact the utility of the in vitro PHH model for investigating the molecular mechanisms responsible for the antiviral response to GS-9620 in vivo.
+
+PARAGRAPH
+
+The HBV restriction factors MxA (MX1) and tetherin (BST2) were amongst the ISGs induced by GS-9620-CM in HBV-infected PHH (Table S6).
+
+However, MxA and tetherin do not reduce total HBV RNA levels,12,13 suggesting that other HBV restriction factors were also induced by GS-9620-CM.
+
+We therefore evaluated expression of APOBEC3 proteins, which have been reported to mediate cccDNA deamination and degradation,14,15 as well as the structural maintenance of chromosome 5/6 complex (Smc5/6), which suppresses cccDNA transcription when localized to intranuclear structures known as nuclear domain 10 (ND10).10,16
+
+PARAGRAPH
+
+We determined that GS-9620-CM and IFN-α treatment induced expression of the ND10 components PML and SP100, but not Smc5/6 subunits (Table S2, Fig. S10A and B).
+
+Interestingly, IFN-α altered the nuclear distribution of Smc6 by significantly increasing the number of ND10 (i.e. PML foci) in uninfected PHH (Fig. S10C and D).
+
+However, since Smc5/6 is effectively degraded in HBV-infected PHH and is not induced by IFN-α, suppression of HBV RNA by GS-9620-CM is likely independent of this restriction factor.
+
+PARAGRAPH
+
+In contrast to Smc5/6, APOBEC3B (A3B) was modestly induced by GS-9620-CM (Table S3).
+
+However, APOBEC3A (A3A) expression was not increased by GS-9620-induced cytokines in these PHH donors (Table S3).
+
+Analysis of additional PHH identified a donor in which A3A expression was significantly induced by GS-9620-CM as well other innate immune stimuli (Fig. S11); however, A3A induction by GS-9620-CM treatment of this donor was substantially lower than observed with IFN-α treatment of freshly isolated PHH in a previous study.14
+
+Consistent with the antiviral response in the other PHH, GS-9620-CM did not reduce cccDNA levels in this donor (Fig. S12, PHH donor 1).
+
+Treatment with a high concentration of IFN-α (1,000 IU/ml) also did not reduce cccDNA levels in this or other PHH donors (Fig. S12).
+
+Taken together, these data demonstrate that GS-9620-CM did not strongly increase the expression of A3A and A3B and did not induce cccDNA degradation in our cell culture system.
+
+SECTION
+
+Cytokines induced by GS-9620 enhance presentation of an immunodominant HBV peptide
+
+PARAGRAPH
+
+Antigen presentation by human hepatocytes is thought to be generally inefficient.17
+
+It was therefore interesting that transcriptional pathway analysis revealed GS-9620-CM induced antigen processing and presentation signatures in HBV-infected PHH (Fig. 5A, Table S1).
+
+In line with the pathway analysis, GS-9620-CM induced expression of immunoproteasome subunits (PSMB8, PSMB9 and PSMB10) as well as various MHC class I antigen presentation genes (e.g. TAP1, TAP2, HLA genes) and a regulator of class I MHC expression (NLRC5) in PHH (Table S4).
+
+In contrast, constitutive proteasome subunits (PSMB5, PSMB6 and PSMB7) were not identified as GS-9620-CM DEGs (Table S4).
+
+Consistent with the analysis of other ISGs, induction of these antigen processing and presentation genes was comparable in mock-infected and HBV-infected PHH (Table S7).
+
+PARAGRAPH
+
+A previous study determined that immunoproteasome subunits do not play a role in IFN-mediation inhibition of viral replication in HBV transgenic mice, but influence both the magnitude and specificity of the CD8+ T cells response to HBV proteins.18
+
+Since presentation of the immunodominant HBsAg 183-191 (Env183-191) peptide by MHC class I is enhanced by expression of immunoproteasome subunits in transgenic mice,18 we used an antibody which recognizes the Env183-191 peptide:HLA-A0201 (pMHC) complex19 to determine whether GS-9620-CM influences presentation of this peptide by HBV-infected PHH.
+
+This monoclonal antibody (Env183-191 mAb) was validated by demonstrating specific binding to the cognate pMHC in peptide-pulsed T2 cells (Fig. 7A and B).
+
+Using the Env183-191 mAb, we determined that GS-9620-CM significantly induced presentation of Env183-191 by HBV-infected HLA-A0201+ PHH (Fig. 7C).
+
+Notably, this immunodominant viral peptide was not detected on HBV-infected PHH in the absence of IFN-γ or GS-9620-CM treatment (Fig. 7C), in line with previous data indicating that this peptide is most efficiently processed by the immunoproteasome.18
+
+Together, these data suggest that GS-9620-induced cytokines can modulate HBV peptide presentation in HBV-infected PHH.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The oral TLR7 agonist GS-9620 induced prolonged suppression of serum viral DNA and antigens in both the woodchuck and chimpanzee models of CHB.6,7
+
+In the current study, we characterized the response of HBV-infected human hepatocytes to GS-9620 and GS-9620-induced cytokines to provide insights into the molecular mechanisms that contribute to the antiviral response in vivo.
+
+We demonstrated that GS-9620 has no direct antiviral activity in HBV-infected PHH, consistent with the low level TLR7 mRNA expression in human hepatocytes.
+
+In contrast, type I IFN – most likely IFN-α – induced by GS-9620 in PBMCs suppressed HBV RNA, DNA and antigens in HBV-infected PHH and dHepaRG cells, although it did not reduce cccDNA levels.
+
+Importantly, this antiviral response to GS-9620-induced IFN-α is consistent with previous studies with recombinant IFN-α in PHH, as well as a humanized mouse model.8,20
+
+Our data are also in line with a previous study demonstrating type I IFN-dependent inhibition of HBV by a TLR7 agonist in a transgenic mouse model.21
+
+PARAGRAPH
+
+It has previously been reported that treatment with high dose recombinant IFN-α (1,000 U/ml) triggers non-cytolytic degradation of cccDNA in human hepatocytes by APOBEC3 deaminases.14
+
+The current study was primarily focused on characterizing the antiviral response to lower doses of IFN-α, either in GS-9620-CM (mean: 35 pg/ml) or as recombinant IFN-α (100 IU/ml).
+
+These lower amounts of IFN-α were evaluated because they were comparable to the serum IFN-α levels (mean: 119 pg/ml) in CHB chimpanzees at the GS-9620 dose (1 mg/kg) that induced intrahepatic ISGs without modulating CD8+ T and B cell responses.6,22
+
+Importantly, the ISG expression profile in HBV-infected PHH treated with GS-9620-induced IFN-α was similar to the intrahepatic ISG signature in CHB chimpanzees treated with GS-9620, indicating these cytokine levels are translationally relevant.
+
+Nonetheless, it is important to note that, in contrast to the aforementioned study, high dose recombinant IFN-α (1,000 IU/ml) did not reduce cccDNA levels in our cryopreserved PHH.
+
+However, A3A expression was not induced by GS-9620-CM in most of our PHH donors, while A3B expression was only modestly increased.
+
+Moreover, even in a PHH donor in which A3A expression was increased by GS-9620-CM treatment, the magnitude of induction was lower than observed with IFN-α treatment of freshly isolated PHH in the previous study.14
+
+This suggests that there may be differential effects of IFN-α on ISG expression (and hence cccDNA stability) in cryopreserved vs. freshly isolated PHH.
+
+Differences in the cccDNA qPCR quantitation protocols (e.g. DNA extraction method, T5 exonuclease treatment, primers/probes and HBV standards) may also have contributed to the discrepancy between the studies.
+
+Accordingly, once the ongoing efforts to harmonize cccDNA quantification methods have been completed, it will be important to perform additional studies (e.g. in hepatocytes freshly isolated from patients with CHB) to further investigate APOBEC3-mediated cccDNA degradation.
+
+PARAGRAPH
+
+Identification of the key molecular effectors of HBV suppression by IFN-α has been challenging.
+
+The scale of this task is illustrated by the fact that GS-9620-CM strongly induced the expression of hundreds of ISGs in HBV-infected PHH, including various well-characterized HBV restriction factors (e.g. MxA [MX1], tetherin [BST2]).12,13
+
+Additional layers of complexity are that intracellular localization (and not just expression level) can be important for the antiviral activity of HBV restriction factors10 and that IFN-α treatment can induce epigenetic modification of cccDNA.23,24
+
+Indeed, epigenetic regulation of cccDNA may underlie the prolonged effect of GS-9620-CM treatment in our cell culture system.
+
+Interestingly, the epigenetic state of cccDNA in the absence of HBx (i.e. when the viral genome is transcriptionally repressed by Smc5/6), is similar to that induced by IFN-α treatment.25
+
+However, the lack of Smc5/6 induction by GS-9620-CM is consistent with this complex being an intrinsic antiviral restriction factor10 and suggests it does not play a role in type I IFN-mediated HBV suppression.
+
+However, if IFN-α reduces HBx protein levels and leads to reappearance of Smc5/6 in HBV-infected PHH, then this complex may play a role in maintaining cccDNA transcriptional suppression after cessation of treatment.
+
+Unfortunately, it is challenging to analyze HBx in HBV-infected PHH because of the lack of an antibody suitable for imaging studies.
+
+PARAGRAPH
+
+The prolonged antiviral effect observed in vitro with GS-9620-CM may contribute to the sustained antiviral response induced by GS-9620 in animal models of CHB.
+
+However, the lack of cccDNA reduction by GS-9620-induced cytokines in our cell culture model suggests that additional components of the TLR7-induced immune response may have contributed to the antiviral response to GS-9620 in vivo.
+
+This interpretation is in line with recent transcriptomic and immunohistochemical analyses of liver tissue from the GS-9260 chimpanzee study, which suggests that cytolytic CD8+ T cell effector mechanisms played a key role in the antiviral response to treatment.22
+
+Consequently, it is interesting that GS-9620-CM induced expression of antigen processing and presentation genes (including immunoproteasome subunits) and enhanced presentation of an immunodominant viral peptide in HBV-infected PHH.
+
+Intrahepatic expression of many of the same genes was induced during clearance of acute HBV infection in chimpanzees26 and during the peak of antiviral response in GS-9620-treated chimpanzees.22
+
+This raises the possibility that GS-9620 may modulate the CD8+ T cell response to infected cells by altering presentation of HBV epitopes.
+
+However, GS-9620-CM also strongly induced PD-L1 (CD274) expression in HBV-infected hepatocytes (Table S4) and reduced viral protein levels within infected cells, both of which would be expected to influence the antiviral function of virus-specific CD8+ T cells.17,27
+
+GS-9620 may also impact the antiviral function of HBV-specific CD8+ T cells by other mechanisms, for example by inducing immune cell migration, interactions and/or survival (as discussed in reference22), or by reducing HBV-mediated suppression of antiviral immunity by lowering HBV antigen levels.
+
+Further studies are required to evaluate these various hypotheses.
+
+PARAGRAPH
+
+Another notable finding from this study is that established HBV infection does not inhibit the innate immune response of human hepatocytes in our cell culture model.
+
+Taken together with recent studies demonstrating that HBV infection does not induce a detectable innate immune response in PHH, these data suggest that HBV may passively evade innate immune detection in hepatocytes.10,28
+
+These in vitro observations are in line with acute infection studies in chimpanzees, woodchucks and humans, as well as with the recently described STING deficiency of PHH.26,29–31
+
+However, it is important to note that the levels of innate immune stimulation used in this study may have been sufficient to breach modest HBV-mediated inhibition of innate immune signaling.9,20
+
+In such a scenario, it is envisaged that HBV actively suppresses the (presumably low level) innate immune response induced by viral infection, but cannot counter the strong response induced by IFN-α or the innate immune activators used in this study.
+
+Additionally, our study did not examine whether HBV inhibits innate immune responses in hepatocytes early after infection, as has previously been reported.32
+
+These differences in experimental set-up may explain the discrepancy between our data and previous studies which have reported inhibition of hepatocyte innate immunity by HBV.
+
+PARAGRAPH
+
+It is also possible that genetic and/or environmental factors influenced the PHH used in this study so that they did not accurately model the hepatocyte innate immune response in vivo.
+
+However, this is considered unlikely for several reasons.
+
+Firstly, the PHH were isolated from healthy donor livers and were selected based on the ability of the cells to plate and maintain high viability in culture.
+
+Mirroring the clinical situation when infected early in life, we have found that PHH from the vast majority of donors evaluated to-date can be efficiently infected when plating and viability conditions are achieved.
+
+Secondly, all PHH donors strongly responded to diverse innate immune stimuli.
+
+Thirdly, the wide age range of PHH donors used in this study (3, 8, 28 and 66 years old) would be expected to mitigate any potential role of environmental factors in the hepatocyte innate immune response.
+
+Nevertheless, it is very challenging to experimentally model chronic HBV infection in vitro.
+
+Effective in vitro modeling is further complicated by potential differences in the innate immune response and/or viral replication capacity of freshly isolated vs. cryopreserved hepatocytes.
+
+Therefore, studies in hepatocytes freshly isolated from patients with CHB will be required to confirm the validity of our findings using cryopreserved PHH from healthy donor livers.
+
+PARAGRAPH
+
+In summary, our data provide important insights into the mechanisms underlying the antiviral response to GS-9620 in animal models of CHB.
+
+In addition, this study suggests that established HBV infection does not actively inhibit innate immunity in our cell culture model.
+
+This has important implications for how HBV establishes chronicity, as well as for the therapeutic response to innate immune agonists such as GS-9620.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This study was sponsored by Gilead Sciences, Inc.
+
+INSERM U1052 also received institutional funding from INSERM, as well as external grants from ANRS, FRM (Foundation for medical research; DEQ20110421327), and DEVweCAN LABEX (ANR-10-LABX-0061) of the “Université de Lyon”, within the program “Investissements d’Avenir” (ANR-11-IDEX-0007) operated by the French National Research Agency (ANR).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+C. Niu, L. Li, S. Daffis, E. Salas, R. Chu, H. Ramos, C. Livingston, R. Beran, A. Garg, S. Balsitis, W. Delaney and S. Fletcher are employees of Gilead Sciences, Inc.
+
+J. Lucifora, M. Bonnin, S. Maadadi, D. Durantel and F. Zoulim have nothing to declare.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Conceived study: S. Fletcher.
+
+Participated in research design: S. Daffis, H. Ramos, S. Fletcher, A. Garg, S. Balsitis, W. Delaney, J. Lucifora, D. Durantel, F. Zoulim.
+
+Provided supervision: S. Daffis, S. Balsitis, W. Delaney, S. Fletcher.
+
+Conducted experiments: C. Niu, S. Daffis, J. Lucifora, M. Bonnin, S. Maadadi, E. Salas, R. Chu, C. Livingston, R. Beran.
+
+Performed data analysis: L. Li, S. Daffis, J. Lucifora, D. Durantel, S. Fletcher.
+
+Wrote or contributed to the writing of the manuscript: S. Daffis, D. Durantel, J. Lucifora, S. Fletcher.
+
+All authors reviewed and approved the final manuscript.

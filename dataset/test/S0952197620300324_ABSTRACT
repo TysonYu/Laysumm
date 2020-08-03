@@ -1,0 +1,25 @@
+10.1016/j.engappai.2020.103525
+
+ABSTRACT
+
+TITLE
+
+A novel policy gradient algorithm with PSO-based parameter exploration for continuous control
+
+PARAGRAPH
+
+Continuous control has attracted enormous attention due to its essential role in real-world applications.
+
+However, it is considerably difficult to be addressed through explicitly modeling in practice.
+
+As promising approaches, model-free policy gradient (PG) based methods in reinforcement learning (RL), however, suffer from slow convergence and complex computation owing to the high variance of gradient estimating and sophisticated backpropagation.
+
+Therefore, in this paper, a gradient-free policy gradient algorithm with PSO-based parameter exploration (PG-PSOPE) is proposed for continuous control tasks.
+
+To reduce variance and improve convergence rate, the PSO is combined with PG to provide a novel way for training policy network in RL.
+
+Experimental results of simulated physical control tasks verify the effectiveness of the proposed algorithm.
+
+Besides, the PG-PSOPE is superior in both convergence speed and final performance to the typical on-policy PG and the off-policy deep RL method.
+
+Furthermore, the PG-PSOPE exhibits the simplicity and high effectiveness by comparison of training time under different tasks, and its running time is reduced by 58 times compared with other gradient-based methods for the best case.

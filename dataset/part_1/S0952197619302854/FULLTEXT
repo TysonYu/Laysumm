@@ -1,0 +1,683 @@
+10.1016/j.engappai.2019.103346
+
+FULLTEXT
+
+TITLE
+
+Fault prognostics by an ensemble of Echo State Networks in presence of event based measurements
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Prognostics aims at predicting the degradation of equipment for estimating the Remaining Useful Life (RUL) (Zio and Di Maio, 2010; Zio, 2012; Liao and Köttig, 2014; Palacios et al., 2015; Prytz et al., 2015; Lei et al., 2018).
+
+Prognostic methods are classified into model-based and data-driven (Schwabacher and Goebel, 2007; Zio and Di Maio, 2010).
+
+Model-based approaches, which are based on the use of physics-based models of the degradation processes, are typically applied to safety-critical and slow-degrading equipment whose degradation mechanisms have been extensively studied (Cai et al., 2017b).
+
+By contrast, data-driven approaches are typically used when accurate physics-based models of the, possibly competing, degradation processes which the components of industrial systems are subjected to are not available (Hu et al., 2012a, b; Medjaher et al., 2012; Rigamonti et al., 2017; Sardá-Espinosa et al., 2017; Huang et al., 2019).
+
+Since they require a large amount of run-to-failure degradation trajectories for model training (Hu et al., 2012a, b), data-driven approaches are typically applied to non-safety critical systems characterized by relatively short mean times to failure.
+
+They are distinguished into two approaches (i) degradation-based, which indirectly predict the system RUL by estimating the future evolution of the component degradation until a failure threshold is reached (Rigamonti et al., 2016a, b; Lim et al., 2017) and (ii) direct RUL prediction-based, which predict the system RUL by developing a direct mapping from the condition monitoring signals to the system RUL (Khelif et al., 2017).
+
+Although degradation-based approaches are closer to physics-based reasoning, they are more difficult to develop than direct RUL prediction-based approaches when the quantification of the component degradation and the identification of a failure threshold are not straightforward (Medjaher et al., 2012).
+
+PARAGRAPH
+
+Since prognostics requires to catch the dynamic behavior of the degradation process, static approaches based on the prediction of the equipment RUL at a given time as a function of the signal measurements at the same time typically provide unsatisfactory performances.
+
+An attempt to catch the system dynamics is to provide in input to the prognostic model the current and past signal values collected in a sliding time window.
+
+The main limitation of this approach is the difficulty in identifying a proper length of the time window, which allows representing the degradation dynamics without dramatically increasing the computational cost of the models, particularly if there are many input variables (Geraci and Gnabo, 2018).
+
+An alternative solution to the problem of learning the system dynamic for RUL prediction is the use of Recurrent Neural Networks (RNNs) (Zio et al., 2009; Malhi et al., 2011; Guo et al., 2017).
+
+The recurrent nature of RNNs, obtained by using feedback connections between the neurons of a layer and those of the preceding layers, allows processing dynamic information and makes them different from Feedforward Artificial Neural Networks (FANNs), which provide only a direct functional mapping between input and output data (Samanta and Al-Balushi, 2003; Moustapha and Selmic, 2008).
+
+Among the various types of recurrent networks that have been proposed in the last years, Echo State Networks (ESNs) are emerging due to their intrinsic dynamic properties, generalization capability, ability to handle noisy data and easiness of training (Jaeger, 2004).
+
+An extensive literature review on the use of RNNs in fault prognostics is reported in Section 2.
+
+PARAGRAPH
+
+The objectives of the present work are (i) to predict the RUL of a system made by non-repairable interacting components, in which the measurements are collected only when triggering events, such as component faults or extreme operational conditions occur, and (ii) to estimate the uncertainty affecting the RUL prediction.
+
+These “snapshot” datasets are often encountered in industrial applications, dominated by the necessity of cost saving in storing and managing the databases (Weijters and van der Aalst, 2003; Liu et al., 2017), and of reducing energy consumption and bandwidth sources (Tsividis, 2010).
+
+Since failure events rarely occur during the lifetime of a system, event-based datasets are dominated by the presence of a large number of missing measurements (Fink et al., 2015).
+
+Furthermore, the values of all the signals are missing at the same time.
+
+Given these characteristics, traditional methods for missing data management, e.g. case deletion (Schafer and Graham, 2002), imputation (Eekhout et al., 2012; Ranjbar et al., 2015; Cheng et al., 2019; Razavi-Far et al., 2019) and maximum likelihood estimation (Baraldi and Enders, 2010), are difficult to apply.
+
+For instance, since Case Deletion methods discard patterns whose information is incomplete, they are not useful in case of event-based datasets where a pattern is either present or absent for all signals (Baraldi and Enders, 2010).
+
+Imputation techniques, which are based on the idea that a missing value can be replaced by a statistical indicator of the probability distribution generating the data, such as the signal mean (Donders et al., 2006) or a value predicted by a multivariable regression model (Schafer and Graham, 2002), have been shown to be inaccurate in case of large fractions of missing values (Schafer, 1999; Vergouw et al., 2010).
+
+Maximum Likelihood methods use the available data to identify the values of the probability distribution parameters with the largest probability of producing the sample data (Schafer, 1999).
+
+They typically require the Missing At Random (MAR) assumption, i.e. the probability of having a missing value is not dependent on the missing values (Little and Rubin, 2002; Donders et al., 2006; Honaker and King, 2010), which is not met in event-based datasets.
+
+PARAGRAPH
+
+To the best of our knowledge, few research works have considered fault prognostics in presence of missing data.
+
+A model based on Auto-Regressive Moving Average (ARMA) and an auto-associative neural networks, is developed for fault diagnostics and prognostics of water processes with incomplete data (Xiao et al., 2017) and an hybrid architecture including physics-based and data-driven approaches are proposed to deal with missing data in case of rotating machinery (Leturiondo et al., 2017).
+
+In the medical field, a Bayesian simulator is used to generate missing data for developing prognostic models (Marshall et al., 2010) and a Multiple Imputation approach is used within a prognostic model for assessing overall survival of ovarian cancer in presence of missing covariate data (Clark and Altman, 2003).
+
+Notice that all these methods are based on the two successive steps of missing data reconstruction and prediction.
+
+PARAGRAPH
+
+In this work, we consider the possibility of developing a method which is able to directly predict the equipment RUL without requiring a missing data reconstruction step.
+
+To this aim, the use of ESNs is considered due to their ability of maintaining information about the input history inside the reservoir state.
+
+The main difficulty to be addressed is that, contrarily to the typical applications of ESNs, the time intervals at which the data become available are irregular.
+
+Two different strategies are considered to cope with the event-based data collection.
+
+In strategy 1, the ESN receives an input pattern only when an event occurs.
+
+The pattern is formed by the measured signals and the time at which the event has occurred.
+
+In strategy 2, the reservoir states are excited at each time step.
+
+If an event has occurred, the reservoir states are excited both by the previous reservoir states and the measured signals, whereas, if an event has not occurred, they are excited only by the previous reservoir states.
+
+Therefore, it is expected that the connection loops in the reservoir allow reconstructing the dynamic degradation behavior of the system at those time steps in which events do not occur.
+
+PARAGRAPH
+
+In both proposed strategies, a Multi-Objective Differential Evolution (MODE) algorithm based on a Self-adaptive Differential Evolution with Neighborhood Search (SaNSDE) (Yang et al., 2008) is used to optimize the ESN hyper-parameters.
+
+The Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS) (Yoon and Hwang, 1995) is, then, used to select the optimal solution from the obtained Pareto solutions.
+
+Furthermore, a bootstrap aggregating (Bagging) ensemble method is applied to improve the RUL prediction accuracy and estimate the RUL prediction uncertainty.
+
+Given that ESNs cannot be fed by random sequences of patterns, the traditional Bagging sampling mechanism used to create the bootstrap training sets has been modified.
+
+In the proposed solution, the bootstrap training sets are obtained by concatenating entire run-to-failure trajectories, randomly sampled with replacement,
+
+PARAGRAPH
+
+The two proposed strategies are applied to a synthetic case study, properly designed to mimic run-to-failure trajectories of a system of non-repairable interacting components in which the measurements are collected when events occur.
+
+The benefits of the proposed approaches are further shown by their application to a real-world case study concerning the prediction of the RUL of a sliding bearing of a turbine unit.
+
+The accuracy of the two strategies is evaluated considering the Cumulative Relative Accuracy (CRA) and Alpha-Lambda (α-λ) metrics (Saxena et al., 2010), and compared to that of a traditional feedforward neural network and a state-of-the-art ensemble of ESNs.
+
+PARAGRAPH
+
+The original contributions of this work are:
+
+PARAGRAPH
+
+The remaining of this paper is organized as follows: Section 2 reports an extensive literature review on the use of RNNs in fault prognostics; Section 3 illustrates the work objectives and problem setting; Section 4 describes the proposed method for fault prognostics; Sections 5 and 6 introduces the synthetic case study and the real-world case study and discusses the obtained results; finally, some conclusions and remarks are drawn in Section 7.
+
+SECTION
+
+Recurrent neural networks in fault prognostics
+
+PARAGRAPH
+
+Various types of RNNs, such as Long Short-Term Memory network (LSTM), Gated Recurrent Unit (GRU) RNN, have been used with success in prognostic applications (Zhang et al., 2018; Chen et al., 2019).
+
+A RNN-based model has been developed for predicting machine deterioration evolution using vibration data (Tse and Atherton, 1999).
+
+A Long Short-Term Memory (LSTM) RNN has been used to predict the remaining useful life of lithium-ion batteries (Zhang et al., 2018).
+
+A RNN Encoder–Decoder network, which transforms multivariate time series subsequences into fixed-dimensional vectors, has been used to define health indicators and to predict the RUL of turbofan engines (Gugulothu et al., 2017).
+
+A health indicator defined by using a RNN has been used for the prediction of bearing RUL (Guo et al., 2017).
+
+Infinite impulse response locally recurrent neural networks has been employed for forecasting failures and predicting the reliability of components and systems (Zio et al., 2012).
+
+Also, RNNs have been used in the domain of physical security information management (Rosenberg et al., 2017; Tuor et al., 2017; Azzouni and Pujolle, 2018; Rekik et al., 2018; KP, 2019).
+
+RNNs have been used to build intrusion detection models for protecting from cyber-security threats (Kim et al., 2016; Vinayakumar et al., 2017) and have been applied to cyber-security for decreasing malware attack losses (Tobiyama et al., 2016; Rosenberg et al., 2017; Teoh et al., 2018; KP, 2019).
+
+A framework based on LSTM RNNs has been developed for traffic prediction in railway and used for information management and network security (De Bruin et al., 2017; Azzouni and Pujolle, 2018).
+
+PARAGRAPH
+
+The main challenges for practical prognostic applications of RNNs are: (i) the slow and computationally intensive training procedure, which cannot guarantee the final convergence of the algorithm towards an accurate and robust model (Jaeger et al., 2007; Lukoševičius and Jaeger, 2009), and (ii) the lack of guidelines for defining the RNN architecture, e.g. number of hidden layers and number of neurons.
+
+PARAGRAPH
+
+To overcome these challenges, the Reservoir Computing (RC) paradigm has been proposed (Lukoševičius and Jaeger, 2009).
+
+RC involves randomly creating a RNN, called Reservoir, which remains unchanged during the training and is passively excited by the input signals.
+
+Among RC approaches, Echo State Networks (ESNs) have shown intrinsic dynamic properties, generalization capability and ability to handle noisy data (Jaeger, 2004).
+
+Considering PHM applications, ESNs have been mainly used for assessing component current health state and predicting health state evolution.
+
+An ESN-based echo state kernel recursive least squares algorithm is developed for tracking the health state of a turbofan engine (Zhou et al., 2018).
+
+A genetic algorithm optimized double-reservoir echo state network has been developed for multi-regime time series prediction on turbofan engine (Zhong et al., 2017).
+
+Echo State Networks have been used for the health monitoring of a test footbridge (Wootton et al., 2015).
+
+Fuel cell aging has been predicted using a method which combines ESNs and ANalysis Of VAriance (ANOVA) for the estimation of the importance of the model parameters (Morando et al., 2015).
+
+With respect to RUL prediction, there are few applications of ESNs.
+
+An ensemble of ESNs has been developed for RUL prediction with uncertainty estimation, and applied to turbofan engines (Rigamonti et al., 2016a, b).
+
+Also, ESNs have been used for predicting the RUL of industrial Fuel Cells (FC) (Morando et al., 2017).
+
+It has been clarified that all these approaches focus on a single component and on signals measured at regular time steps.
+
+This has motivated the methodological development of the work.
+
+SECTION
+
+Problem setting
+
+PARAGRAPH
+
+This work assumes the availability of the measurements of P signals collected in correspondence of the occurrence of events during R run-to-failure degradation trajectories.
+
+The generic rth trajectory is formed by the measurements collected at the occurrence of nr events before the failure of the system (see Fig. 1).
+
+The time of occurrence of the jth event of the rth trajectory, j=1, …, nr, will be referred to as τjr and the corresponding measurement vector zr(τjr).
+
+The objective of this work is to develop a direct data-driven prognostic method for the prediction of the ground-truth RUL of a test system at time t, RULtest(t) = tftest − t, with tftest indicating the ground-truth failure time of the system, on the basis of the signal measurements ztest (τj) collected in correspondence of the occurred events j=1, 2, …, ntest, with τntest < t indicating the last time at which signal measurements have been acquired.
+
+The RUL prediction at time t is indicated as RÛL(t).
+
+SECTION
+
+PARAGRAPH
+
+Methodology
+
+PARAGRAPH
+
+The ESN is a RNN characterized by recurrent loops in its synaptic connection pathways (Jaeger, 2004).
+
+Differently from traditional RNNs, the internal neurons, which form the ESN reservoir, are sparsely connected (Lukoševičius and Jaeger, 2009).
+
+This architecture, which mimics the biological neural networks, allows maintaining an ongoing activation of the neurons even in absence of input to the ESN and, thus, it provides dynamic memory (Inubushi and Yoshimura, 2017).
+
+PARAGRAPH
+
+The ESN architecture considered in this work is characterized by P input neurons, a reservoir with Nx≫1 internal neurons and one output neuron representing the system RUL (Fig. 2).
+
+Matrix Win of size Nx×P contains the weights of the connections from the input neurons to the internal neurons, matrix W of size Nx×Nx contains the weights of the connections among the internal neurons, matrix Wofb of size Nx×1 contains the weights of the connections from the output back to the reservoir internal neurons and matrix Wout of size 1×(P+Nx) contains the weights of the connections from the input and the reservoir internal neurons to the output.
+
+This work considers a reservoir with leaky-integrator neurons, whose state is updated according to xt=(1−a)x(t−1)+f(Winu(t)+Wx(t−1)+Wofby(t−1))where x(t) is the activation vector of the reservoir neurons at the generic time t, f(⋅) is the internal neurons activation function, which is typically tanh(⋅), ut is the P dimensional input vector ut=ztest(t), and yt=RÛL(t) is the output vector.
+
+The leaky rate a∈0,1 is a hyper-parameter controlling the decaying potential of neurons (Jaeger, 2005).
+
+PARAGRAPH
+
+The output provided by the ESN at time t is: y(t)=fout(Wout⋅[u(t)|x(t)])where fout(⋅) is the output neuron activation function, which is typically the identity function, fx=x and the symbol ⋅|⋅ represents the vertical concatenation operation.
+
+PARAGRAPH
+
+The elements of Win, W and Wofb are randomly sampled from uniform distributions according to the RC principles.
+
+To ensure the Echo State Property (Jaeger, 2004; Yildiz et al., 2012; Barancok and Farkas, 2014) which implies that the effect of the current states of the reservoir internal neurons and of the input on a future state vanishes gradually as time passes and does not amplify or persist, the reservoir connection matrix is typically scaled as (ρ|λmax|)⋅W, where |λmax| is the magnitude of the largest eigenvalue of W and ρ∈(0,1) is a model hyper-parameter indicating the spectral radius.
+
+According to Jaeger (2010), the spectral radius is set to a value in the range (0,1), for ensuring the echo state property.
+
+PARAGRAPH
+
+The ESN training aims at finding optimal values for Wout and is performed by minimizing the quadratic error between the target output and the ESN output.
+
+To do that, the reservoir state x(t), the input u(t) and the output y(t) are stacked into the matrixes X, U and Y, whose generic tth column represents the reservoir state and the input and output acquired at time t.
+
+Then, Wout is obtained by solving the linear regression problem U,X→Y (Lukoševičius and Jaeger, 2009).
+
+SECTION
+
+ESN hyper-parameter setting
+
+PARAGRAPH
+
+ESN main hyper-parameters are spectral radius ρ (Lukoševičius and Jaeger, 2009), leaky rate a (Jaeger et al., 2007), connectivity c (Büsing, Schrauwen and Legenstein, 2010), reservoir size Nx, scaling factors of Win, IS, and Wofb, OFB, (Jaeger et al., 2007).
+
+The spectral radius determines how fast the influence of an input in a reservoir dies out with time (Jaeger et al., 2007).
+
+The leaky rate controls the decaying potential of neurons: small values allow long retainment of past states (Jaeger et al., 2007).
+
+Connectivity is defined by the ratio between the number of connections in the ESN reservoir and the number Nx2 of all the possible connections.
+
+Small connectivity values characterize reservoirs with few connections among internal neurons, and, therefore, with a reduced capacity of representing the dynamic temporal behavior of the signals (Büsing et al., 2010).
+
+On the other hand, the use of large connectivity values is limited by the associated large computational burdens.
+
+A proper setting of Nx is fundamental for obtaining accurate ESN predictions.
+
+According to Büsing et al. (2010), a critical ESN hyper-parameter is the reservoir size Nx: larger the reservoir size Nx, larger the reservoir Memory Capacity (MC) which quantifies the memory span of the ESN, i.e. its capability of encapsulating a certain input span within its internal states, being able to “remember” and recall it.
+
+If the connectivity satisfies c⋅Nx=M with M∈R+, i.e. the ESN connectivity is inversely proportional to the reservoir size, the echo state property is maintained and large reservoir Nx≫1 can be used to guarantee proper memory capacity without extensively increasing the computational burden (Qiao et al., 2016).
+
+The scaling factors IS depends on the degree of nonlinearity of the input–output relationship (Jaeger, 2010).
+
+If the neuron inputs are close to zero, the reservoir neurons, which have a tanh(⋅) activation function, tend to provide outputs linearly dependent to the inputs, whereas when the neuron inputs are far from 0, the neurons tend to operate in a saturation zone of the activation function, where they exhibit more nonlinear behaviors with output values close to +1 or −1.
+
+The scaling of Wofb is limited by an upper threshold at which the ESN starts exhibiting an unstable behavior, i.e. the output feedback loop starts to amplify the output creating a diverging generative mode (Jaeger, 2005).
+
+PARAGRAPH
+
+Given the lack of guidelines for setting the ESN hyper-parameters and the importance of this task for obtaining stable and accurate ESN predictions, this work resorts to a Multi-Objective Differential Evolution (MODE)-based approach.
+
+MODE is a parallel, direct, genetic algorithm-based search method which perturbs the current members of the population using the scaled differences of other two randomly selected members (Das and Suganthan, 2011).
+
+In particular, A Self-adaptive Differential Evolution with Neighborhood Search (SaNSDE) algorithm (Yang et al., 2008) is used, given its capabilities of automatically and adaptively setting the MODE control parameters, F and CR, and of escaping from local optima.
+
+Fig. 3 shows the main steps of the SaNSDE search.
+
+A fixed random seed is set to initialize matrices W, Win and Wofb, whose values are kept fixed during ESN training.
+
+Thus, ESN hyper-parameters ρ, a, c, Nx, IS, OFB univocally determine W, Win and Wofb.
+
+The initial population is obtained by randomly sampling the hyper-parameters values from uniform distributions on the ranges reported in Table 1.
+
+The spectral radius ρ is set in the range [0,1] to satisfy the echo state property.
+
+Leaky rate a is set in the range [0,1] according to the principle of reservoir computing (Jaeger et al., 2007; Goudarzi et al., 2015; Inubushi and Yoshimura, 2017).
+
+The reservoir size Nx is set in the range [50,600], since larger reservoir sizes would lead to unfeasible computational burden (Barancok and Farkas, 2014).
+
+The input scaling factors IS and the Output Feedback (OFB) values are set in large ranges considering the typical values of the signals and the response of the activation function.
+
+Given the values of the signals and the use of a tanh activation function, the ranges of the input scaling factors IS are taken equal to [10−3,103], and the range of OFB is taken equal to [10−5,102], being the output values larger than the input ones.
+
+More details of the SaNSDE algorithm can be found in (Yang et al., 2008).
+
+PARAGRAPH
+
+The objectives of the search are the maximization of the accuracy metrics typically employed in prognostics, such as Cumulative Relative Accuracy (CRA) and Alpha-Lambda (α−λ) (Saxena et al., 2010).
+
+The CRA provides an estimation of the average relative RUL prediction error and, being a relative measure, tends to overestimate errors made at the end of the system life.
+
+The α−λ accuracy indicates how many times, on average, the RUL prediction falls within two relative confidence bounds.
+
+Notice that the computation of the MODE objective functions requires the division of the available run-to-failure trajectories into a training set used to optimize the ESN output weights Wout and a validation set used to estimate the CRA and α−λ metrics.
+
+Once the Pareto front solutions have been identified by the SaNSDE algorithm, the Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS) is used to select among them a compromise solution, to be used for setting the ESN architecture (Behzadian et al., 2012).
+
+SECTION
+
+PARAGRAPH
+
+Strategies to deal with event-based measurements
+
+PARAGRAPH
+
+Sections 4.2.1 and 4.2.2 describe the two proposed strategies to deal with event-based measurements.
+
+SECTION
+
+Strategy 1
+
+PARAGRAPH
+
+The ESN is fed by a pattern only when an event occurs, i.e. at time τj,j=1,2,…,nr.
+
+The P+1 dimensional input vector is made by the P signal measurements, z(τj), and the time τj of the jth event.
+
+The ESN output is the system RUL prediction, RÛLτj.
+
+The training set is obtained by concatenating the input–output data extracted from the R training run-to-failure trajectories, as shown in Fig. 4.
+
+This strategy is similar to the one employed in the work of Choi et al. (2015) who models event-based data characterized by temporal irregularity in the clinical event prediction research.
+
+Since no measurements are acquired at a generic time t∈(tj,tj+1), i.e. between the jth and j+1th events, the corresponding RUL prediction is: RÛLt=RÛLτj−t−tj∀t∈(tj,tj+1)The MODE objectives considered for searching the optimal ESN hyper-parameter setting are mean CRA and mean α−λ computed over a set of validation trajectories.
+
+SECTION
+
+PARAGRAPH
+
+Strategy 2
+
+PARAGRAPH
+
+The reservoir neurons are excited at each time step t=1,2,…,τntest, independently from the occurrence of events in the monitored system.
+
+In particular, if at time t the event has not occurred and, therefore, the signal values zrt are not measured, Eq. (1) becomes (Fig. 5): xt=(1−a)x(t−1)+f(Wx(t−1)+Wofby(t−1)),whereas, if at time t an event has occurred, i.e. t=τjr,j=1,…,nr, Eq. (1) is applied.
+
+Notice that Eq. (4) is used in the different context of RNN training by the teacher forcing method (Williams and Zipser, 1989; Lamb et al., 2016) to speed up the convergence by forcing the reservoir to stay close to the ground-truth sequence.
+
+The pseudocode of the proposed algorithm is reported in the Algorithm (Fig. 6).
+
+The training set is obtained by concatenating the input–output data according to the scheme shown in Fig. 7.
+
+In this case, the RUL prediction, RÛL(t), is directly set equal to the ESN output y(t).
+
+The considered MODE objectives are the mean CRA computed over a set of validation trajectories and the CRA measuring the prognostic accuracy of the ESN when it is used without input vectors: RÛLtft=fout(Wouttf⋅x(t))where Wouttf∈R1×Nx is obtained according to the principle of the teacher forcing method, by applying a linear regression of the target RUL sequence RUL(t),t=1,2,…,tfr and the corresponding reservoir state sequence x(t),t=1,2,…,tfr obtained by Eq. (4).
+
+PARAGRAPH
+
+Lines 2–4 generate the input matrix Ur using the data in the generic rth trajectory, whose τjrth column contains the measurement at event time τjr.
+
+Lines 5–11 conditionally update the reservoir state x(t) by applying Eq. (1) if an event occurs at time t, or Eq. (4) otherwise.
+
+Once the reservoir state has been updated using all the data of the rth run-to-failure trajectory, in Line 12, the input matrix Ur∈RP×tfr is horizontally concatenated into the training matrix Utrain, the matrix Xr to Xtrain and the output matrix Yr to Ytrain.
+
+Once all the training run-to-failure trajectories have been processed, the sizes of matrixes Utrain, Xtrain, Ytrain are P×(tf1+tf2+⋯+tfR), Nx×(tf1+tf2+⋯+tfR), 1×(tf1+tf2+⋯+tfR) respectively.
+
+Line 14 vertically concatenates Utrain and Xtrain into the assembled matrix Utrain|Xtrain with size (P+Nx)×(tf1+tf2+⋯+tfR) and find the matrix of weights Wout by solving the linear regression problem Utrain|Xtrain→Ytrain.
+
+Lines 16–22 report the algorithm used for estimating the RUL of a test trajectory.
+
+If an event occurs at time t, Eq. (1) is used (Lines 16–18), otherwise Eq. (4) is used (Lines 18–20).
+
+SECTION
+
+PARAGRAPH
+
+Ensemble of ESNs
+
+PARAGRAPH
+
+An ensemble of ESNs is used in both strategies 1 and 2 to improve model accuracy and estimate the uncertainty of the RUL predictions.
+
+Ensemble methods combine multiple models suited for a particular problem to generate an aggregated model, which can provide results more accurate than those provided by the individual models of the ensemble (Mendes-Moreira et al., 2012).
+
+Bootstrap aggregating (Bagging) (Hauskrecht, 2004) and Boosting (Friedman, 2002) are two of the most commonly used approaches to build ensemble methods (Xing and Liu, 2019).
+
+This work considers Bagging, due to its capability of estimating the uncertainty of the prediction in the form of Prediction Intervals (PI) (Khosravi et al., 2011a, b).
+
+A prediction interval is an interval defined by a lower bound and an upper bound [Lαt,Uα(t)], in which the unknown value of the ground-truth RUL at time t, RULGT(t), is expected to lie with a predetermined probability (1−α): PLαt<RULGTt<Uαt=1−α
+
+PARAGRAPH
+
+Bagging is preferred to other methods for prediction interval estimation, such as Delta (Hwang and Ding, 1997; De Veaux et al., 1998) and Bayesian Networks (Cai et al., 2014, 2017a, b), due to its simplicity, ease of implementation and reduced computational complexity (Khosravi et al., 2011a, b).
+
+Bagging is based on the bootstrap generation of B new training sets Db, obtained by uniformly sampling with replacement the input–output patterns from the original training set D.
+
+PARAGRAPH
+
+Since the use of recursive models does not allow providing in input to the models random sequences of patterns originated from different trajectories, the sampling mechanism has been modified.
+
+Each bootstrap training set Db,b=1,…,B, is obtained by randomly sampling entire run-to-failure trajectories, with replacement.
+
+The final RUL prediction of the ensemble is: RÛLEt=1B∑b=1BRÛLbtwhere RÛLbt is the RUL predicted at time t by the bth bootstrap model.
+
+PARAGRAPH
+
+The Bagging approach reported in the Appendix has been used to estimate the RUL prediction interval.
+
+PARAGRAPH
+
+To assess the performance of the Bagging approach in estimating effective prediction intervals, this work considers the PI coverage probability (PICP) and Normalized Mean PI Width (NMPIW) metrics.
+
+The former has a value in the range [0 1] and is the relative number of ground-truth RUL values lying in the PI Lαt,Uαt (Khosravi et al., 2011a, b): PICP=1∕tf∑t=1tfC(t) with Ct=1,RULGTt∈Lαt,Uαt0,RULGTt∉Lαt,Uαt
+
+PARAGRAPH
+
+NMPIW quantifies the average PI width normalized with respect to the target RUL (Khosravi et al., 2011a, b): NMPIW=1∕tf∑t=1tfUαt−LαtRULGTtA satisfied PI estimation should simultaneously have a large PICP value [0,1] and a small NMPIW value [0,+∞].
+
+SECTION
+
+Synthetic case study
+
+SECTION
+
+Simulation step and data description
+
+PARAGRAPH
+
+This case study, which is inspired from by the case study in Al-Dahidi et al. (2016), considers a system made by four non-repairable electrolytic capacitors working in parallel (Fig. 8).
+
+The system load, L, is equally shared by the healthy components, i.e. the load on a healthy component is: LS=L∕(4−nf)where nf∈{0,1,2,3} is the number of failed components.
+
+The system fails when the last operating component fails.
+
+PARAGRAPH
+
+The degradation of the ith component of the system is simulated by using (Rigamonti et al., 2016a, b): dti=dt−1i.eLSt−1∗C(Tt−1)+wt−1where dti represents the ith component degradation level at time t, LSt the load of the ith component at time t, wt the process noise describing the degradation process stochasticity, and CTt is a function of the temperature experienced by the component at time t.
+
+Eq. (11) is used by Perisse et al. (2006) to describe the degradation process of an electrolytic capacitor.
+
+Function CTt represents the degradation dependence from temperature, which is typically based on the Arrhenius law (Perisse et al., 2006): CTt=ln(2)Lifenorm⋅expEak⋅273−Tt273⋅Ttwhere Ea is the activation energy of the component, k is the Boltzmann constant, and Lifenorm is the nominal life of the component aged at the constant nominal temperature 273 K.
+
+PARAGRAPH
+
+The simulation of a system run-to-failure trajectory starts assuming at t=1 a degradation level di=1 (in arbitrary units) for all the system components, i=1,…,4, and proceeds by randomly sampling the noise wt−1 from a zero-mean Gaussian distribution with standard deviation σw and applying Eq. (11).
+
+The temperature Tt experienced by the components at time t is influenced by the environment temperature Ttenv and the effect of the operational condition, which is represented by an additive temperature term Γt: Tt=Ttenv+ΓtThe environmental temperature is assumed to have a periodic triangular wave behavior, which reproduces its seasonality: Ttenv=2Tmaxenv−Tminenv|tp−floortp+12|+Tminenvwhere Tmaxenv and Tminenv are the maximum and minimum annual environment temperatures, respectively, and p is the period of the environment temperature cycle.
+
+The term Γt is sampled from a uniform distribution in the range (1,9].
+
+Fig. 9 (top) shows a simulated evolution of the temperature experienced by the system during a run-to-failure trajectory.
+
+PARAGRAPH
+
+A component fails when its degradation level dt reaches the failure threshold, here set to 1.25, 1.50, 1.75 and 1.77 for components 1, 2, 3 and 4, respectively.
+
+The failure threshold values have been taken from Venet et al. (1993), Al-Dahidi et al. (2016) and Rigamonti et al. (2016a, b), where values in the range [1.3 3] are reported for different types of electrolytic capacitors.
+
+Notice that the threshold values are independent on the operating mode Γt, which, on the other side, influences the evolution of the degradation process.
+
+PARAGRAPH
+
+The events in correspondence of which the measurements are taken are:
+
+PARAGRAPH
+
+(1) when the temperature Ttenv experienced by the system exceeds either a lower or an upper temperature bound, set to 320 K and 380 K respectively;
+
+PARAGRAPH
+
+(2) when the degradation level of any one of the components exceeds their thresholds of 1.25, 1.50, 1.75, 1.77, respectively.
+
+PARAGRAPH
+
+The following 6 measurements are assumed to be available in correspondence of events: ziτj=dm,τji=dτji⋅α+βe−Tτj−273γ+ητj,i=1,…,4,j=1,…,nrz5τj=Tτj,z6τj=Γτj where ητj represents the measurement noise which is sampled from a zero-mean Gaussian distribution with standard deviation ση, and α, β and γ are parameters characteristics of the component.
+
+Table 3 reports the values of the parameters in Eqs. (10)–(14) used for the system run-to-failure trajectory simulations, which are taken from Rigamonti et al. (2016a, b).
+
+The activation energy Ea and parameters α,β,γ are set with reference to experimental laboratory tests on an electrolytic capacitor using a FLUKE PM6306 RLC meter (Rigamonti et al., 2016a, b).
+
+The parameter Lifenorm is set equal to the expected life of the component at the nominal temperature, as in Rigamonti et al. (2016a, b).
+
+The period of the environment temperature cycle p is set equal to one year (8760 h), to simulate the seasonal temperature modifications.
+
+PARAGRAPH
+
+Fig. 9 shows the evolution of the measured quantities during one of the simulated system run-to-failure trajectories and the events at which measurements are collected (vertical lines).
+
+PARAGRAPH
+
+150 run-to-failure simulation trajectories, partitioned into a training (50 trajectories), a validation (50 trajectories) and a test (50 trajectories) sets have been generated.
+
+On average, an event generates the measurements of the 6 quantities every 55 time units.
+
+Thus, the dataset is characterized by a fraction of missing data equal to nearly 98%.
+
+The simulated trajectories are characterized by large variability, with a minimum lifetime of 1.45×104 h, a maximum lifetime of 3.5×104 h and a obtained deviation of 1.0258×104 h (Table 2).
+
+PARAGRAPH
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+The simulated measurements are linearly normalized in the range [0,1].
+
+The hyper-parameters of the ESNs developed for strategies 1 and 2 have been set by performing the MODE search described in Section 4.1 with a population of 500 chromosomes and considering 300 generations.
+
+The objective functions have been computed using the 50 run-to-failure trajectories of the validation set.
+
+A reservoir washing out procedure (Jaeger, 2005) is applied each time a new degradation trajectory is processed to avoid the influence of data collected from different systems on the neuron states (Lukoševičius and Jaeger, 2009).
+
+PARAGRAPH
+
+Table 4 reports the optimal hyper-parameters of Strategy 1 ESN and Strategy 2 ESN.
+
+Being the reservoir size of strategy 2 ESN (hereafter referred to a ESN2) larger than strategy 1 ESN (hereafter referred to a ESN1), ESN2 is characterized by a larger memory capacity (15 time units) than ESN1 (11 events).
+
+Since there is on average one event every 55 time units, the memory capacity of ESN1 is of about 11×55=605 time units which is much larger than that of ESN2.
+
+All input scaling factors of ESN2 are larger than those of ESN1.
+
+This is due to the fact that the input stream of ESN1 is continuous, which requires smaller input scaling factors to avoid internal neuron saturation.
+
+The spectral radius of ESN2 is smaller than that of ESN1, to decrease the risk of instability in presence of large input scaling factors.
+
+Fig. 10 shows the RUL predictions obtained by ESN1 and ESN2 on two run-to-failure trajectories.
+
+According to Eq. (3), the RUL predictions of ESN1 linearly decreases with time in the time span between two consecutive events, τj and τj+1, whereas ESN2 provides a RUL prediction at each time step by using the Algorithm proposed in Fig. 6 (Lines 16–21).
+
+Notice that despite the variability of the trajectory lengths (Table 2), the two strategies are able to accurately predict the RUL.
+
+PARAGRAPH
+
+Table 5 compares the accuracy metrics CRA and α−λ of the developed ESN1, ESN2, strategy 1 Ensemble (hereafter referred to as Ens1), and strategy 2 Ensemble (hereafter referred to as Ens2), with that of a Feedforward Artificial Neural Network (FANN) and of an ensemble of traditional ESNs (hereafter referred to as Ens).
+
+The FANN architecture, which is characterized by two hidden layers with ten neurons each, has been set by trial and error using the random search algorithm (Bergstra and Bengio, 2012).
+
+The hyper-parameters of the ESNs of the literature approach have been set using the procedure described in Section 4.1.
+
+The ensembles Ens Ens1 and Ens2 have been created by generating B=50 ESN bootstrap models.
+
+The CRA and α−λ metrics have been computed on the 50 run-to-failure trajectories of the test set.
+
+The FANN predicts the RUL at time τj, using the signal measurements zτj.
+
+PARAGRAPH
+
+Notice that ESN1, ESN2, Ens1 and Ens2 provide more accurate predictions than FANN and Ens. Fig. 10 shows that the RUL predictions of FANN are less satisfactory at the end of the system life, when the use of the historical degradation information becomes more relevant.
+
+Ens1 provides more accurate and stable RUL predictions than Ens2, given the different performances of the ensemble individual models.
+
+Ens1 and Ens2 tend to provide more accurate predictions than Ens at the end of the run-to-failure trajectories, when the presence of event-based measurements makes the latter ensemble unstable.
+
+Furthermore, strategy 1 outperforms strategy 2 in all cases, i.e. when it is applied to both a single ESN and to an ensemble of ESNs.
+
+This is due to the fact that the reservoir of ESN2 tends to gradually forget during the time span between two consecutive events, τj and τj+1, when no measurements are acquired.
+
+In practice, since ESN2 reservoir has a MC equal to 15 time units and the measurements are acquired on average every 55 time units, the ESN is not able to retain the collected information for enough time.
+
+The reservoir forgetting phenomenon is shown in Fig. 11: the occurrence of an event modifies the neuron state for a short interval of time after which they return to a stable value.
+
+PARAGRAPH
+
+A possible solution to increase the memory capacity of ESN2 reservoir is to further increase the number of internal neurons, Nx.
+
+Since the reservoir memory capacity, MC, tends to increase with the logarithm of the number of internal neurons, Nx, Büsing et al. (2010), the use of large reservoirs is in practice unfeasible for the computational efforts necessary for their construction.
+
+PARAGRAPH
+
+Table 6 reports the metrics PICP and NMPIW used to assess the performance of the proposed methods for the identification of prediction intervals of Ens1 and Ens2.
+
+Fig. 12 shows the 95% PI of Ens1 and Ens2.
+
+Notice that the coverage of both methods is satisfactory, being larger than the target value 0.95, although ESN2 tends to provide better coverage probability, ESN1 has narrower PI.
+
+PARAGRAPH
+
+SECTION
+
+Case study II: real industrial case
+
+SECTION
+
+Data description
+
+PARAGRAPH
+
+This case study considers the degradation and failure process of bearings used in large turbine units.
+
+The dataset, which can be download from Dataset (2019), contains signal measurements collected from five turbine units, U1, U2, U3, U4 and U5.
+
+Vibration signals are measured by a set of seven sensors, which include four eddy current displacement sensors measuring the radial vibration of the rotor at both ends, two eddy current displacement sensors measuring axial vibration of the rotor and one sensor measuring the unit rotating speed.
+
+Measurements are triggered by abnormal behaviors of the units, such as large environmental noise and anomalous vibration behavior.
+
+A number between 200 and 300 waves is collected for a time interval of around 10 min by each sensor with a sampling frequency of 3.2 kHz.
+
+Each wave is composed by 1024 samples.
+
+The acquisition time of all sensors is synchronized.
+
+Fig. 13 shows an example of signal measurements performed during a run-to-failure trajectory.
+
+Notice that the anomalies occur at irregular time period, whereas after each anomaly measurements package are acquired at regular frequency.
+
+SECTION
+
+PARAGRAPH
+
+Data preprocessing
+
+PARAGRAPH
+
+To reduce the dimension of the 1024 values collected in the time domain during a single wave and the effects of phase shifts in different acquisitions, two features, i.e. the energy and the Shannon entropy, are extracted from each wavelet to characterize the bearing degradation, according to Heidari Bafroui and Ohadi (2014).
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+The hyper-parameters of ESN1 and ESN2 have been set by performing the SaNSDE search described in Fig. 3 (Section 4.1) with a population of 100 chromosomes, 50 generations and the hyper-parameter ranges reported in Table 1.
+
+The objective function has been computed using a leave-one-out cross validation procedure.
+
+The reservoir washing out procedure described in Section 5.2 is applied each time a new degradation trajectory is processed.
+
+Table 7 reports the obtained optimal ESN hyper-parameters.
+
+Similar to the synthetic case study of Section 5, ESN1 is characterized by smaller reservoir size than that of ESN2.
+
+Differently, the leaky rate of ESN2 is smaller than that of ESN1 and the spectral radius of ESN2 larger than that of ESN1.
+
+These differences among the two case studies are due to the very different average number of consecutive missing values, which is nearly 55 in the synthetic case study and nearly 1000 in the present case study.
+
+The very large number of consecutive missing measurements causes an increase of the memory capacity and a decrease of the leaky rate.
+
+PARAGRAPH
+
+Table 8 compares the accuracy metrics CRA and α−λ of ESN1, ESN2, Ens1, Ens2, FANN an Ens. The metrics are evaluated resorting to a twice nested leave-one-out cross validation approach, in which the outer loop has been used to compute the metrics and the inner loop to optimize the ESN hyper-parameters.
+
+Fig. 14 shows the obtained RUL predictions.
+
+Table 8 shows that ESN1, ESN2, Ens1, Ens2 provide a more accurate RUL prediction than FANN.
+
+The Ens overperforms ESN2 and Ens2, given the large memory required by strategy 2 to learn the RUL evolution pattern during the period of missing measurements.
+
+Given the very large average number of consecutive missing values, a very large reservoir size is needed, which is, in practice, unfeasible due to the computational efforts necessary for its construction.
+
+PARAGRAPH
+
+Table 9 reports the metrics PICP and NMPIW of Ens1 and Ens2.
+
+Ens2 shows a more satisfactory PICP but a less satisfactory NMPIW than Ens1. Fig. 15 shows the 95% PI confidence intervals.
+
+It is worth noting that the PI of Ens2 become narrower as time passes because the teacher forcing method of ESN2 can learn the evolution of RUL when the measurement is not available.
+
+PARAGRAPH
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Two strategies for predicting the remaining useful life of a system of non-repairable interacting components in case of data collected at irregular time step have been proposed.
+
+They are based on the use of a Bagging ensemble of ESNs, which have been adapted to deal with data collected at irregular time steps.
+
+In Strategy 1, the ESNs use the time of the measurement as additional input, whereas in Strategy 2 the ESN reservoir neurons internal states at the time in which the measurements are not collected are excited only by the previous time internal states.
+
+A Self-adaptive Differential Evolution with Neighborhood Search (SaNSDE) algorithm is employed to set the ESN hyper-parameters.
+
+The two ESN strategies have been verified using a synthetic case study which mimics the behavior of a system in which measurements are collected only when events at the system components or extreme operational conditions occur and a real-world case study concerning the prediction of the RUL of a sliding bearing of a turbine unit.
+
+The obtained results have shown that both the proposed ESN strategies overperform a FANN and a state-of-the-art ensemble of ESNs and that strategy 1 provides more satisfactory performances than strategy 2.
+
+The main drawback of strategy 2 is that the memory capacity of the obtained ESN is not enough large and, therefore, the reservoir tends to forget the system state in the time span between two events.

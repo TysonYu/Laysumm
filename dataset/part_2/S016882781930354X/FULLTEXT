@@ -1,0 +1,629 @@
+10.1016/j.jhep.2019.05.033
+
+FULLTEXT
+
+TITLE
+
+Intelligent liver function testing (iLFT): A trial of automated diagnosis and staging of liver disease in primary care
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+There has been an exponential increase in the number of liver function tests (LFTs) requested in general practice.1,2
+
+A proportion are checked for the investigation of liver disease but most are for investigating undifferentiated illness, or monitoring non-hepatic long-term health conditions.3–5
+
+It is unknown how significant a solitary abnormal LFT result is;1 does it signify current or future liver disease, disease in other organs, or is it a temporary phenomenon of little clinical relevance?6
+
+PARAGRAPH
+
+Studies have shown that approximately 20% of initial LFTs are abnormal.1
+
+The cause of LFT abnormalities vary geographically and the cost effectiveness of additional testing will vary also.
+
+Additional diagnostic tests such as ultrasound or screening blood tests may still leave many abnormal LFTs unexplained.2,7
+
+Further investigations such as liver biopsy are invasive and expensive.8
+
+Primary care guidelines on the evaluation of abnormal liver enzyme results, in asymptomatic individuals, do not take the costs to the patient or the health service into account.8,9
+
+PARAGRAPH
+
+The commonest causes of abnormal LFTs leading to chronic liver disease in the UK and most developed countries are non-alcoholic fatty liver disease (NAFLD),10 alcohol-related liver disease (ALD),11 and hepatitis C virus (HCV) infection.12
+
+All pose a considerable economic burden on the health service.13,14
+
+However there are many other causes of abnormal LFTs that need to be considered; including biliary disease, drug reactions, systemic illness, malignancy and hepatic infections.15,16
+
+Despite the increasing use of LFTs, patients continue to present with undiagnosed end-stage liver disease, which may have been preventable by earlier diagnosis.6
+
+Early detection may improve prognosis and treatment options, whilst diagnostic delay may be damaging to patients and to professional reputations.
+
+PARAGRAPH
+
+There have been few population studies to date that have quantified liver disease following abnormal LFTs.17–20
+
+Duh et al.17 quantified the incidence of liver enzyme abnormalities in the general population in Massachusetts, USA.
+
+There was no long-term follow-up to eventual liver disease diagnosis.
+
+A large cohort study in Korea (n = 142,055) reported the association between the LFT serum aminotransferases (aspartate aminotransferase and alanine aminotransferase [ALT]) and mortality from liver disease, indicating that even values that were in the upper quartile of the normal range were associated with worse outcome.1,18
+
+Our previous study used electronic case record linkage to diagnose liver disease and this project showed that 20% of all LFTs measured were found to be abnormal with less than 10% of these explained by existing liver disease.21
+
+PARAGRAPH
+
+To investigate this further we studied the outcomes of individuals up to 15 years post LFT measurement in primary care.22
+
+Over 60% of the catchment population had LFTs measured.
+
+A total of 2,189,152 LFTs were first checked in primary care in 95,992 people.
+
+Of these 21.7% were abnormal and 1.26% went on to have a diagnosis of chronic liver disease (hepatocellular causes) while 1.61% developed biliary disease (including gallbladder and biliary tract disease).
+
+PARAGRAPH
+
+Current practice when managing abnormal LFTs in primary care is variable with general practitioner (GP) strategies ranging from ignoring abnormal LFT results, repeat sampling, requesting additional tests or referring to specialist services.23,24
+
+Recently published guidelines advocate more active investigation of abnormal LFTs, but clinical practice does not yet reflect this.25
+
+PARAGRAPH
+
+The intelligent liver function test (iLFT) system was developed to promote appropriate investigation of abnormal LFTs in primary care by utilising minimum diagnostic criteria, the availability of automated tracked analysers and liver fibrosis markers with high negative predictive values.
+
+A working group convened by the Scottish Government Liver Care Pathway Advisory group used an extensive literature review and expert opinion to achieve professional consensus on minimum diagnostic criteria for liver diseases.
+
+Highly specific diagnostic criteria have been identified for each liver disease based on a few simple clinical observations e.g. body mass index (BMI), alcohol intake, presence or absence of metabolic syndrome, and blood test results.
+
+This allows diagnosis using a minimal range of robust diagnostic criteria but gives confidence that those identified do indeed have the disease.
+
+The system is not designed to put everyone in a diagnostic group, just those that meet the criteria.
+
+It is designed to fail safe, always defaulting to further clinical evaluation if there is diagnostic uncertainty.6
+
+Technological developments within diagnostic laboratories have led to the use of automated tracked analysers where patient samples are passed between analysers to deliver a wide repertoire of tests under computer control.
+
+In real time the system can change a sample’s journey based on the preceding results (reflexive testing) i.e. if a result outside of a threshold value is detected, the system can use a pre-programmed algorithm to trigger additional tests automatically.
+
+Combining results with clinical information provided through the electronic ordering system enables the laboratory information management system to calculate prognostic indices and allocate a suggested diagnosis.
+
+The crucial point in determining management and need for referral to hepatology for expert review and further investigation for the common liver diseases is the degree of liver fibrosis or cirrhosis, as many with no fibrosis can be treated with lifestyle advice.
+
+Non-invasive fibrosis indices are effective at excluding significant fibrosis and many of these indices can be calculated using routinely available clinical laboratory analytes.26–28
+
+PARAGRAPH
+
+By integrating these 3 steps we designed a system that enables an intelligent automated response to abnormal LFT results.
+
+This study compares this new iLFT system to routine clinical practice in primary care.
+
+We hypothesised that iLFT would deliver early identification of treatable liver disease, reduce GP consultations, and be cost-effective.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Study population
+
+PARAGRAPH
+
+Patients were purposively recruited from 6 general practices in Tayside, Scotland, UK between September 2015 and November 2016 to ensure a mix of urban and rural practices.
+
+Each practice has an average of 5 thousand registered patients.
+
+Consent was sought from each patient who had LFTs sampled in the intervention group.
+
+The inclusion criteria were people aged 18–75 in whom their GP requested LFTs.
+
+They were excluded if they had; jaundice, pre-existing liver disease, previously known abnormal LFTs, or LFTs required for monitoring of a specific side effect of a drug or treatment.
+
+Review of the post-enrolment clinical records confirmed the absence of exclusion criteria and validated BMI and the presence/absence of metabolic syndrome.
+
+Confirmation of alcohol intake was not possible as it was self-reported to the health care professional at the time of consent.
+
+PARAGRAPH
+
+The study was conducted in accordance with the 1975 Declaration of Helsinki and the principles of good clinical practice.
+
+The study was co-sponsored by the University of Dundee and NHS Tayside, and was ethically reviewed and approved by the East of Scotland Research Ethics Service.
+
+SECTION
+
+Study design
+
+PARAGRAPH
+
+A stepped wedge design was used with all 6 participating practices receiving the iLFT intervention.
+
+Each practice was randomised to 1 of 3 different start dates, at monthly intervals.
+
+Each practice functioned as their own control in a mixed model analysis, over the duration of the trial (6 months control, 6 months intervention) (Fig. S1).
+
+PARAGRAPH
+
+The control population were people with LFTs above the NHS Tayside reference limits (Table S4) in the participating practices during the 6 months before the iLFT intervention.
+
+They were retrospectively assessed, all who fulfilled inclusion and exclusion criteria were included as controls.
+
+In the intervention arm GPs requesting LFTs during the intervention period could select the iLFT option.
+
+All patients with abnormal LFTs were followed up.
+
+PARAGRAPH
+
+Outcomes for all individuals in both groups were accessed via their GP records 6 months after initial LFT sampling, to allow GPs to record and action iLFT recommendations.
+
+The final liver diagnosis recorded in the GP notes was extracted and numbers of visits, referrals, and tests performed during the 6 months were recorded.
+
+The control period was scheduled first in all practices to avoid confounding by the potential educational effect of iLFT.
+
+PARAGRAPH
+
+The intervention phase worked as follows:
+
+GP requests LFTs on their electronic requesting system.
+
+A prompt asks if they want to screen for liver disease if LFTs are abnormal.
+
+A positive response prompts the GP to enter data about patients’ alcohol consumption, BMI and features of metabolic syndrome.
+
+If components of the LFT results (bilirubin, ALT, alkaline phosphatase or gamma-glutamyltransferase) are above the NHS Tayside reference limits (“abnormal”) this triggers an automated reflexive cascade of additional tests in the laboratory to characterise aetiology.
+
+These include viral serology (anti-HCV antibody, HBV surface antigen – positive tests confirmed with PCR), liver immunology (anti-nuclear antibody, anti-mitochondrial antibody, anti-smooth muscle antibody and anti-liver kidney microsomal antibodies), iron studies (ferritin, iron, transferrin and percentage saturation of transferrin), alpha 1 anti-trypsin (with phenotyping if result of <1.0 g/L), and caeruloplasmin.
+
+Fibrosis staging algorithms (Fibrosis-4 and NAFLD fibrosis score) are also calculated.
+
+These automatically populate the diagnostic algorithms to identify a relevant diagnosis and management plan.
+
+There are 31 management plans in total.6
+
+The report is made available to the GP in real time for them to act on.
+
+This included lifestyle advice for ALD/NAFLD patients, management plans for primary care and referral recommendations for those requiring assessment and treatment e.g. autoimmune hepatitis and viral hepatitis.
+
+Access to the management plans is delivered electronically as web hyperlinks.
+
+The study team reviewed patients’ notes 6 months post intervention to document the GP recorded diagnosis following receipt of the iLFT outcome and management plan.
+
+This “final diagnosis” was adjudicated by the GP with no input from the study team.
+
+SECTION
+
+Primary outcome
+
+PARAGRAPH
+
+The primary outcome was the rate of diagnosis of liver disease, inclusive of hepatocellular and biliary tract disorders, following detection of abnormal LFTs recorded by the GP.
+
+SECTION
+
+Secondary outcomes
+
+PARAGRAPH
+
+Secondary outcomes included: the number of GP and patient contacts from the initial LFT sample to diagnosis; the number of referrals to secondary care for diagnosis; cost-effectiveness analysis comparing current clinical practice with the iLFT intervention.
+
+SECTION
+
+Statistical power
+
+PARAGRAPH
+
+The estimated number of participants required to detect an increase in the diagnosis of liver disease from 1% to 2.5% is 2,658, assuming 80% power and a 5% significance level, for a standard before and after study ignoring the stepped wedge design.
+
+The design effect reduces the numbers required because of the multiple steps of repeated measures, despite the effect of clustering.29
+
+With 6 monthly steps, only 1,284 patients would have to have LFTs to demonstrate a ≥2.5-fold increase in liver disease diagnoses.
+
+To ensure adequate recruitment 6 practices were recruited rather than 4, as the loss of a whole practice could jeopardise the trial.
+
+An increase in the rate of liver diagnosis to the top end of the published estimates of 10% has little impact but increases the power of the study.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+This stepped wedge design study includes a period where no clusters were exposed to iLFT.
+
+Subsequently at 4-week intervals the clusters were randomised to receive the iLFT intervention.
+
+The process continued until all 6 clusters are exposed.
+
+Data collection continued throughout the study so each cluster contributes to both control and intervention outcomes.
+
+PARAGRAPH
+
+The analysis of primary and secondary outcomes was carried out using non-linear mixed effect models.
+
+The models incorporated fixed terms for intervention (before vs. after), time (monthly interval time periods), and accounted for the correlation of patients within practices, and the correlation of repeated measurements over time as random effects using the approach of Hussey and Hughes, 2007.30
+
+The models were also adjusted for age and gender.
+
+Missing data was assumed as missing at random as mixed models have the advantage of allowing for missing data while maintaining the principle of intention to treat, although we did not expect any missing data as the primary outcome is dependent on diagnosis of liver disease which is either present or not.
+
+These models also enable adjustment for baseline differences.
+
+The primary null hypothesis was that there would be no difference in the rate of diagnosis after introducing the intervention.
+
+The analysis incorporated the correlation of patients within practices and of repeated measurements over time.
+
+Statistical analysis used SAS9.4.
+
+SECTION
+
+Economic analysis
+
+PARAGRAPH
+
+A within trial analysis explored the incremental cost per correct diagnosis of the iLFT intervention compared to control (routine clinical practice), at 6 months follow-up from the perspective of the NHS and Personal Social Services.
+
+Resource use data (such as GP visits, blood test requests, ultrasounds, fibroscans, and secondary care referrals) were collected during the study for each arm along with the trial primary outcome diagnostic data from the stepped wedge design.
+
+Unit cost information31 was combined with the trial resource use data to estimate the mean cost per patient in each arm for price year 2016.
+
+Within study cost-effectiveness was reported as incremental cost per correct diagnosis at 6 months.
+
+PARAGRAPH
+
+A decision analytic model was developed for the lifetime analysis, reporting the discounted incremental cost and quality-adjusted life year (QALY) gains, for cost year 2016, adhering to the National Institute for Health and Clinical Excellence (NICE) reference case.32
+
+The Markov model extrapolated trial outcomes at diagnosis to account for differences in the impact of ALD and NAFLD on the lifetime costs and QALY of patients receiving the iLFT intervention or routine care.
+
+SECTION
+
+Recruitment
+
+PARAGRAPH
+
+In the control group, 490 eligible patients with abnormal LFTs were identified and followed up for 6 months after their initial GP appointment.
+
+In the intervention group, 229 patients were recruited, 64 (27.9%) had abnormal LFTs.
+
+There were no significant differences in age or sex between the 2 cohorts (Table 1).
+
+Recruitment continued in the intervention phase for the first 4 practices until the end of the trial in all practices, to increase the number of outcomes.
+
+All patients recruited out of the step-wedge time windows were excluded from the primary analysis (Table 2).
+
+In the control phase all eligible patients were identified (490), whilst in the intervention phase only those recruited by GPs were included, leading to under recruitment of eligible patients.
+
+We calculate that the 64 with abnormal LFTs in the intervention arm were approximately 13% of all likely eligible patients in the practices.
+
+SECTION
+
+Diagnosis outcomes
+
+PARAGRAPH
+
+Final diagnosis was taken as that recorded in the GP notes 6 months after the test.
+
+GPs could ignore or adjust (possibly due to further information from the patient or clinical examination) the iLFT test suggested diagnoses.
+
+This was left at the discretion of GPs with no influence from the study team, to replicate real life management of results in general practice.
+
+Table 3 shows the concordance between iLFT and GP diagnosis.
+
+PARAGRAPH
+
+Table 4 demonstrates the diagnostic outcomes for the control and intervention arms.
+
+The commonest diagnoses were ALD, abnormalities secondary to systemic disease, NAFLD and biliary disease across both groups.
+
+“iLFT” diagnoses were additionally refined by the use of fibrosis algorithms to stage disease, i.e. ALD unspecified in the control arm becomes ALD with or without fibrosis.
+
+Within the fibrosis group 6 patients had advanced fibrosis (Fibrosis-4 >3.25 or NAFLD fibrosis score >0.676).33
+
+Fig. 1 (and Table S1) shows the major diagnostic category outcomes, defined by final GP diagnosis, unadjusted for step-wedge time windows.
+
+PARAGRAPH
+
+A hepatobiliary diagnosis of any description was documented in the GP record in 56% of intervention cases compared to 16% pre-intervention, demonstrating that the system is effective.
+
+The majority of additional diagnoses for the iLFT arm came from the groups labelled “Normalised-no diagnosis” and “Not re-checked-not investigated” in the control arm (Fig. 1).
+
+The latter is unsurprising as further investigation uncovers a diagnosis, however for the former, standard practice would not investigate normalised LFTs.
+
+Arguably most of these LFTs had not normalised given the controversy over the normal range for ALT.34
+
+PARAGRAPH
+
+The study recorded the GP diagnosis as the primary outcome, this did not always agree with the suggested iLFT diagnosis, this discrepancy is shown in Table 3.
+
+Overall iLFT supported the GP to a diagnosis in 67% of cases.
+
+However, GPs discarded the suggested iLFT diagnosis in 13 cases, providing an alternative diagnosis in 6 cases, or no diagnosis, with no further action taken, in 7 cases.
+
+iLFT assigned a diagnosis to 29/64 (45.5%) of the remainder 6 (9%) had fibrosis without aetiology and 29/64 (45.5%) had no fibrosis and no diagnosis.
+
+On further note review, the majority of the latter group had features of NAFLD.
+
+PARAGRAPH
+
+The primary outcome analysis of the study was performed only on those patients in the predefined step-wedge time windows.
+
+This reduced the control cohort from 490 to 486 and iLFT cohort from 64 to 54.
+
+The adjusted difference in rate of liver disease diagnosis is given in Table 5 with a highly significant increase of 43% (95% CI 27–59%, p <0.0002) in the iLFT group compared with controls.
+
+For secondary outcomes there were significant increases in rates of visits to the GP pre- and post-diagnosis with relative risk (RR) = 2.00 (95% CI 1.37–2.91) and RR = 3.47 (95% CI 1.63–7.36) respectively.
+
+In addition, there was some indication of lower rates of non-liver visits to the GP with RR = 0.77 (95% CI 0.59–0.99), though this only just reached significance.
+
+The number of nurse visits and blood requests were not significantly increased.
+
+The overall number of visits was not significantly different.
+
+Referrals to secondary care were significantly increased with an odds ratio = 8.44 (95% CI 1.99–35.73).
+
+It is important to acknowledge that the activity reflected in this data in the control cohort is real world practice and not “standard of care” as defined by guidelines, non-investigation of >50% of patients alters the comparator considerably.
+
+SECTION
+
+Health economic analysis
+
+PARAGRAPH
+
+Table 6 describes the primary trial outcomes from the stepped wedge sample used in the economic analysis, while Table 7 describes the base case economic outcomes.
+
+iLFT performs better than control for detecting liver disease (true positive) and identifying healthy people (true negative), resulting in a 51% increase in the probability of correct diagnosis.
+
+PARAGRAPH
+
+The within trial analysis resulted in an incremental cost per correct diagnosis (including true positive and true negative) of £284.
+
+In the lifetime model, iLFT resulted in a cost saving of £3,216 per person and improved effectiveness, with an additional 0.021 QALY gained.
+
+iLFT is not only cost-effective but a dominant strategy.
+
+Fig. S2 presents the distribution of incremental cost and effect outcomes from the probabilistic analysis (1,000 iteration Monte Carlo simulation) on a cost-effectiveness plane.
+
+All the simulation outcomes fall in the southeast quadrant.
+
+iLFT remains the dominant strategy across a wide range of willingness to pay thresholds, and at the UK threshold of £30,000 per QALY35 iLFT has a 100% probability of being cost-effective.
+
+SECTION
+
+GP feedback
+
+PARAGRAPH
+
+GP participants (21/23) completed a questionnaire reviewing iLFT.
+
+The majority were positive about iLFT and wished to continue to have access, finding it easy to use, and feeling it reduced their workload (see Tables S2 and S3).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The purpose of iLFT was to increase the proportion of patients who underwent appropriate investigation, achieved a diagnosis, and were correctly managed for their condition.
+
+The first step of this is clearly to perform the investigations.
+
+PARAGRAPH
+
+Analysis was performed on the final hepatic diagnosis recorded by the GP, rather than the suggested iLFT diagnosis, as it is the clinical decision maker the study was intended to influence.
+
+The final diagnosis may well have been suggested by iLFT, however using the diagnosis recorded by the GP as the final diagnosis affords clinician input and reflects the final clinical decision in primary care which determines patient outcome.
+
+This biases against the diagnostic rate of iLFT, as several iLFT diagnoses were not actioned or recorded by the GP.
+
+GPs have access to additional clinical information that may revise the suggested diagnosis, e.g. comorbid disease or changed information e.g. alcohol consumption.
+
+They may also regard the abnormality as insignificant.
+
+The overall GP response to the iLFT diagnostic report demonstrates variance.
+
+We think that this was due in part to their taking time to familiarise themselves with the system and its full potential.
+
+Another factor is GPs acting appropriately by making a clinical judgement about an individual patient rather than accepting the algorithm generated diagnosis.
+
+Familiarity with the system, further education about the reliability, and increased use of iLFT may change some of those behaviours and reduce variation in practice.
+
+This system should be utilised as an investigative tool to suggest diagnoses but does not supersede clinical judgement.
+
+It is important to note that the clinical activity in the control cohort is real world practice not “gold standard of care” as defined by guidelines.
+
+Real world practice is suboptimal resulting in non-investigation of over half of patients.21
+
+PARAGRAPH
+
+Importantly, iLFT determines diagnoses in a primary care context allowing for informed and appropriate referral.
+
+The iLFT diagnosis was not based on liver histology, nor advanced complex imaging as these modalities do not reflect the early stages of the presentation of abnormal LFTs.
+
+Instead the iLFT diagnosis was based on the algorithm that we have validated and published previously using a minimum data set.6
+
+The consensus process that developed the iLFT algorithm accepted that certain diagnoses would require further investigation, including possible liver biopsy, which would require referral from primary care; the management plans associated with diagnoses were created to provide a fail safe route to expert review.
+
+PARAGRAPH
+
+The most striking effect of the iLFT intervention is the increase in liver disease diagnosis rate.
+
+This is attributable to the fact that all LFT’s were investigated automatically in contrast to the 50% or more that were not investigated in the control group.
+
+In the control group 59% were not actioned further compared with zero in the intervention group.
+
+This significantly increased the diagnosis rate by 43% in the intervention group.
+
+The benefits of earlier identification of liver disease are evident in the lifetime economic model.
+
+As detection of liver disease was higher in the intervention arm, we are certain that liver disease that would previously have been missed was detected.
+
+The success of iLFT depends on early diagnosis and health interventions to avert the consequences of missed or late diagnosis of liver disease.
+
+The economic model reaffirms this rationale, but longer term follow-up is needed to prove its benefit on overall outcomes.
+
+PARAGRAPH
+
+Increasing the number of liver diagnoses inevitably increases the number of referrals to secondary care.
+
+The benefit of iLFT is that the liver diagnoses are stratified to management either in primary care or secondary care.
+
+Conditions that require secondary care input are referred appropriately and those that can safely be managed in the community are not referred.
+
+The nature of referrals to specialist care are therefore more appropriate and this enables suitable allocation of resources.
+
+PARAGRAPH
+
+Several cases were recommended for referral because of indeterminate fibrosis scores.
+
+The fibrosis staging tests used in this system; Fibrosis-4 and the NAFLD fibrosis score, are cheap to use and have well validated cut-offs to exclude significant fibrosis.
+
+However, they are not highly specific and many patients scoring above the cut-offs will not have significant fibrosis.
+
+In the current system they would default to further assessment in secondary care which adds to cost.
+
+Additional tests such as ultrasound or magnetic resonance based elastography may improve fibrosis estimation but would be difficult to automate and the cost would likely be prohibitive.
+
+The use of a second line biochemical analyte or scoring system, such as the enhanced liver fibrosis (ELF™) test, which has recently been recommended by NICE for use in NAFLD staging,36 would be easy to add into the system.
+
+This has the potential to reduce costs and referrals by improving fibrosis stratification.
+
+PARAGRAPH
+
+Our model of immediate investigation is in agreement with new versions of international guidelines which previously recommended repeat testing first, as a proportion of LFTs normalise.25,34
+
+Our analysis shows this is flawed on 2 counts, firstly many of those LFTs that apparently normalised still had underlying liver disease, a proportion of which had significant fibrotic liver disease.
+
+Secondly, this project demonstrates that immediate screening for aetiology of liver disease especially on the index sample is highly cost-effective, this is supported in modelling work by Tapper et al.37
+
+PARAGRAPH
+
+The iLFT algorithm reduces future burdens of liver disease by enabling earlier interventions, guided by fibrosis scores which highlight those most at risk of future liver disease.
+
+The impact of this is demonstrated in the lifetime economic analysis which models the pathway for detected and undetected ALD and NAFLD.
+
+For the analysis we assumed the increased diagnosis rate reflected these diseases being detected early in the iLFT arm and not investigated further in the control arm.
+
+This results in a dominant strategy, lifetime cost savings to the NHS, and overall improvement in QALY gains, due to this earlier detection.
+
+iLFT is costlier than current clinical practice due to the additional blood tests, scans, and increase in referrals.
+
+The increased diagnostic rate results in an ICER which is considered highly cost-effective.
+
+The short-term additional costs are outweighed by the long-term savings to the NHS through earlier identification of ALD and NAFLD.
+
+These models are based on conservative estimates of impact of interventions, but there was little uncertainty in the cost-effectiveness results, in almost all modelled scenarios it was the dominant cost saving strategy.
+
+We have the direct costs of the process, so the cost-effectiveness analysis is very robust.
+
+The estimated impacts of diagnosis of HCV, NAFLD and ALD use established models of disease progression and conservative estimates of intervention impact taken from the literature.
+
+Whilst not a replacement for long-term follow-up, this methodology is the most robust available.
+
+PARAGRAPH
+
+The project did not address the reproducibility of this system to other healthcare services, where costs and access to the appropriate technology will vary.
+
+However, the systems (or similar systems) used in this study are available globally, so iLFT is likely to be applicable and cost-effective in most systems.
+
+PARAGRAPH
+
+Contrary to expectations there was no significant reduction in GP workload (GP and nurse visits) in the iLFT arm.
+
+This can be explained by findings from the control arm, over 50% of LFTs checked were not actioned or followed up.
+
+The remaining 50% that were actioned required increased GP workload compared to the iLFT arm, the 50% not actioned or followed up clearly generated no further input.
+
+While this pattern of only investigating 50% of abnormal LFTs is clearly cheaper in the short term it is costlier in the long term with detrimental impacts for the patient’s quality and length of life.
+
+Furthermore, it is suboptimal clinical practice to request an investigation and then ignore the result when it is abnormal.
+
+PARAGRAPH
+
+The number of participants enrolled into the active phase of the iLFT trial by GPs was only a proportion of the total number of LFTs being requested.
+
+The study exclusion criteria likely account for a large number of these.
+
+Research staff were able to retrospectively identify all eligible patients in the control arm whereas, in the iLFT arm, recruitment required active intervention by the GP.
+
+Unfortunately, this does add some potential bias into our results as it is possible that GPs preferentially recruited patients they thought would benefit from the additional testing.
+
+PARAGRAPH
+
+As with any new system, uptake is often slow due to lack of familiarity and time pressures.
+
+Additionally, this was overtly a research project, with unknown benefits.
+
+In a busy clinical practice, it is often perceived to be easier to avoid involvement in the research.
+
+Uptake of the system was higher later in the study.
+
+Which reflected the benefit felt by the GP participants, who responded positively to the iLFT system.
+
+PARAGRAPH
+
+A total of 21/23 completed an iLFT questionnaire noting that they wished to continue to have access to iLFT.
+
+They felt that it was easy to use and reduced their workload (see Tables S2 and S3).
+
+Feedback on the system was very positive and the vast majority of GPs were keen to continue to have access at the end of the study.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+Liver disease is increasing in incidence in contrast to many other conditions, predominantly driven by NAFLD.
+
+It disproportionately affects people under 65 leading to substantially increased morbidity and mortality.
+
+It is clear that interventions that lead to early diagnosis and the opportunity to intervene and abate disease progression are needed.
+
+iLFT delivers this opportunity in primary care to the general population at a minimal intervention cost, using existing infrastructure and utilising existing clinical pathways.
+
+It is designed for immediate implementation and could have impacts in the short term.
+
+The iLFT system works, it increases liver diagnosis, is cost-effective, and is clearly more effective at diagnosing liver disease than the standard of care.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This study was funded by the Chief Scientist Office of the Scottish Government.
+
+They had no role in study design, data collection, data analysis, data interpretation or writing of the report.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+JFD obtained the funding.
+
+JFD, CW, MHM KAB, BB and ED designed the study.
+
+JFD, CW, MHM, EMR, PGM, BB and ED contributed to the implementation of the study.
+
+AH, PTD contributed to the data analysis and interpretation.
+
+KAB and MR did the health economics evaluation.
+
+All authors contributed to the writing and approval of the manuscript.
+
+JFD had full access to all the data in the study and takes responsibility for the integrity of data and accuracy of the data analysis.

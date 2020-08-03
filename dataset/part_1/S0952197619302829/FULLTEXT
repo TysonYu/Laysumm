@@ -1,0 +1,903 @@
+10.1016/j.engappai.2019.103340
+
+FULLTEXT
+
+TITLE
+
+Network-based direction of movement prediction in financial markets
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Direction of movement prediction is an important research topic in financial time series studies.
+
+Many traders prefer to know about the direction of movement of a market rather than a precise value for the prices or indices (Yao and Tan, 2000).
+
+A traders’ decision of hold, buy, or sell comes from his/her perception of future direction rather than exact values of price or index.
+
+That is the reason for development of several direction of movement prediction models in many researches like Kia et al. (2018), Li and Liao (2017), Patel et al. (2015), Imandoust and Bolandraftar (2014), Kara et al. (2011) and Huang et al. (2005).
+
+PARAGRAPH
+
+Efficient market hypothesis (EMH) indicates that all information revealed and related, immediately affect the price of a financial time series (Fama et al., 1969).
+
+One of the results from the EMH is that predicting prices and stock indices from historical data will not provide profit for the traders (Timmermann and Granger, 2004).
+
+EMH has many critics and measuring the level of efficiency in markets has been a challenging topic of research for the decades.
+
+There are also many researches in the field of finance and economic that bring evidences in favor of using prediction models to gain profit and show anomalies in EMH (Naseer and Bin Tariq, 2015; Malkiel, 2003; Lo and MacKinlay, 1988).
+
+Many researches in the field of financial prediction along with different methods as well as the success of several algorithmic trading companies are evidences that show the traders have found predictions valuable.
+
+PARAGRAPH
+
+There are different categories of methods in the literature for financial time series prediction.
+
+The oldest ones are technical analysis methods which use traditional statistical methods to calculate some indicators for prediction.
+
+A good survey on these methods can be found in the work of Atsalakis and Valavanis (2013).
+
+Some other researches use the financial statements of markets and companies to predict their future.
+
+This approach that is called fundamental analysis method has been used in many other researches like Yan and Zheng (2017), Chen et al. (2017), Shen and Tzeng (2015) and Abarbanell and Bushee (1997).
+
+Both technical and fundamental analysis are conventional methods used by the traders for decades.
+
+With emergence of the machine learning and data mining science, many researchers turned into using these algorithms and techniques for financial time series forecasting.
+
+These methods and algorithms have shown to outperform the conventional methods mentioned before in different studies (Atsalakis and Valavanis, 2009).
+
+Several surveys have compared machine learning and hybrid methods that use machine learning with conventional methods for market prediction (Rather et al., 2017; Cavalcante et al., 2016; Atsalakis and Valavanis, 2009; Preethi and Santhi, 2012; Soni, 2011).
+
+PARAGRAPH
+
+From one perspective, machine learning algorithms are divided into three categories of supervised, unsupervised, and semi-supervised learning (Zhu, 2006).
+
+Supervised learning has been used mostly for regression and classification models.
+
+In supervised prediction, the model is learned by sample instances that have known class labels, then the learned model is used to predict the label of new instances with unknown labels.
+
+The labels can be direction of movement of markets time series.
+
+In semi-supervised learning there are a few samples with known labels and many samples without labels.
+
+Semi-supervised learning tries to label the unlabeled samples using both the labeled ones as well as the underlying structure of all training samples.
+
+A network-based approach to find out this underlying structure is called graph-based semi-supervised learning (Goldberg and Zhu, 2006).
+
+Using supervised learning models trained with historical data of the market in prediction means that we assume past patterns in the market data can be helpful in prediction of its future.
+
+As mentioned before EMH challenges this assumption by reminding us that efficient markets behave as a random-walk processes.
+
+In our experiments we found out that many financial time series cannot be predicted better than a fair coin model with their own historical data and this may be an evidence of their efficiency.
+
+But some other financial time series were predictable with their historical data.
+
+We also observed that many of the stock market indices were predictable using the data from other stock markets and commodity prices.
+
+This led us to use semi-supervised learning models where we knew the direction of movements for some markets and some other markets had to be predicted.
+
+PARAGRAPH
+
+The interrelationship among markets with known and unknown labels can be modeled using graph structures (a network).
+
+The network models have shown their superiority in representing financial markets interrelations in the past researches (Pereira et al., 2017; Jovanovic and Schinckus, 2017; McCauley, 2004; Mantegna and Stanley, 1999).
+
+Some researches like Kia et al. (2018), Saumya et al. (2016), Skabar (2013), Shin et al. (2013), Park and Shin (2013) and Upstill et al. (2003) have tried to forecast financial time series using network models.
+
+Different network structures have been used and different semi-supervised learning algorithm over the network have been applied in these studies.
+
+PARAGRAPH
+
+In the first part of this research, we introduce a new approach for modeling the financial markets data as a network structure that captures the information that is relevant and important regarding the desired prediction task.
+
+Also we show a novel approach for analyzing the suggested network structure in order to forecast different markets faster and more accurately.
+
+As we will see, the experiments shows the superiority of the suggested approach in capturing relevant movement relationship between different markets and using it for movement prediction, compared to previous networks.
+
+PARAGRAPH
+
+The new network structure used in our research is built upon the information of association rules such as ifmarketAgoesup⟹marketBgoesdown that are extracted from the dataset.
+
+A novel weighting method is used for weighting the links between markets in the network.
+
+The weighting of the links or edges of the network is important in graph-based semi-supervised learning.
+
+Our idea of weighting the edges is taken from the concept of lift of rules in association rules mining domain.
+
+The nodes of the network represent up and down directions of each market.
+
+Then known information of the markets in time zones that their markets are open, are used to predict the direction of markets in the closed time zones.
+
+PARAGRAPH
+
+In this study we are going to predict next time-step direction of movements in financial time series of stock markets and commodity prices with a novel semi-supervised label propagation approach using a modified personalized PageRank-based algorithm on a network structure of different time series direction of movements interrelations.
+
+A novel mixture of experts model is then designed to decide between supervised or semi-supervised prediction approach.
+
+The ability of a hybrid model that uses both the benefits of supervised and semi-supervised methods, for movement prediction has been shown in previous studies (Kia et al., 2018).
+
+In this study we suggest a new model that achieves better results using a new semi-supervised approach for analyzing a network model with a novel design.
+
+But again if in some cases a market is predicted better with its own historical data, the mixture of experts model guides us to use a fully supervised model.
+
+This model also helps us find out which markets should be in the network structure.
+
+We will show the superiority of our models over other models in terms of prediction performance, computational complexity, and running time in the next sections of the paper.
+
+PARAGRAPH
+
+We will name the proposed models DiMexRank and MixDiMex.
+
+DiMexRank (Direction of Movement prediction with extended lift network using modified PageRank) and MixDiMex, (Mixture of experts model using supervised learning and DiMexRank) are faster, and more accurate comparing to their best rival models in the literature.
+
+MixDiMex is also a way to find out whether a market’s data is helpful in prediction of other markets future direction or not.
+
+PARAGRAPH
+
+In the next section, we will explain the related works and baseline rival models to our work.
+
+In Section 3, the network construction and the prediction algorithms are explained in details.
+
+Section 4 compares computational complexity of our proposed models to the rival baseline models.
+
+Section 5 evaluates our models, compares the prediction results with other baseline models, and has discussions and interpretations of the results.
+
+At the end, Section 6 concludes and suggests some paths for the future research in semi-supervised graph-based financial prediction.
+
+Appendices A and B present information about the dataset that is used in experiments.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+Different learning methods for information propagation are used in the financial time series prediction with networks.
+
+The label propagation and label spreading algorithms have been described in works of Zhou et al. (2004) and Zhu and Ghahramani (2002) and were used for financial prediction in works of Kia et al. (2018), Shin et al. (2013), Park and Shin (2013) and Skabar (2013).
+
+These algorithms try to propagate known labels of nodes (directions of markets) in a graph to nodes with unknown label.
+
+They work under the condition of the underlying graph structure of markets being undirected.
+
+Shin et al. (2013) and Park and Shin (2013) made a network of each node as a vector of some technical indicators of each market, and edges as the Euclidean distance between the nodes.
+
+They used label propagation algorithm for prediction.
+
+Kia et al. (2018) tried to make a correlation network from the time series of markets and then used label spreading algorithm to predict direction of unknown markets.
+
+Both correlation distance and Euclidean distance are symmetric measures and therefore the underlying graph of the problem they used was undirected.
+
+As we mentioned before, modeling the interrelations as undirected graphs may be misleading in situations in which a market affecting another market is not a symmetric relation.
+
+PARAGRAPH
+
+Contrary to many network-based prediction researches (that will be explained later), many patterns and information between markets are not symmetric.
+
+For example a market’s direction going up may be the cause of another market going down while the other direction is not true.
+
+This leads us to the idea of using a directed network for capturing the behavioral patterns among markets.
+
+PARAGRAPH
+
+In this research we use a directed graph structure that is made to capture more patterns of the dataset which consists of different markets time series.
+
+In our work, each node represents the state of a market going up or down in the direction and the edges’ weights represent a measure like lift which tries to show how probable is that markets A and B will be in a specific direction state together regardless of them being in that direction independently.
+
+We will call this similarity measure, extended lift or exLift.
+
+Extended lift and our network structure are explained in detail in the future sections.
+
+At the end a modified personalized PageRanK is used as a novel semi-supervised algorithm to calculate the ranks of all nodes and predict the direction of each market.
+
+By subtracting the predicted ranks of down nodes (negative nodes) from up nodes (positive nodes) we will reach a positive or negative label meaning upward/downward movement for each market with unknown direction.
+
+PARAGRAPH
+
+We compare our proposed models to some baseline models which are described briefly in the following.
+
+For supervised prediction different supervised models from simple data mining algorithms to deep neural networks were tested in validation set and random forest achieved the best result.
+
+Therefore, for a fair comparison between supervised and semi-supervised models and for a better performance in the mixture of experts model, we used random forest.
+
+Random forest is an state-of-the-art ensemble supervised model that uses random sub-sampling of the dataset making sub-datasets with different random features to construct different decision trees (Verikas et al., 2011).
+
+Each decision tree predicts the time series for itself and majority voting among the decision trees makes the final prediction of random forest.
+
+For more knowledge on the random forest algorithm one can refer to Ho (1995).
+
+There are other researches that show the superiority of random forest in direction prediction comparing to other supervised models (Ballings et al., 2015).
+
+PARAGRAPH
+
+We will describe the rival models of our proposed models in this section in brief.
+
+For more detailed explanation of these models the researchers can read the original papers referenced at each section.
+
+In evaluation Section 5.2 we compare our models with these baseline models.
+
+In Section 3.3 we present supervised models as rivals of network-based models.
+
+These supervised models are compared to the networks extracted and are used whenever they gain better performances with a mechanism designed in our presented mixture of experts model.
+
+The random forest model is selected as the best supervised performer in our dataset.
+
+This model has also shown superiority in other recent works like Zhang et al. (2018) when predicting with supervised learners.
+
+PARAGRAPH
+
+Top four models in graph-based semi-supervised learning and the best performance supervised model in our dataset are selected for the comparison.
+
+PARAGRAPH
+
+The first model that is used for comparison is Park and Shin graph-based semi-supervised prediction model.
+
+Park and Shin (2013) presented a network structure for modeling stock markets to predict Korean Stock Exchange index using other stock markets and some commodity prices data.
+
+They made vectors of some technical analysis indicators for each time series and used the Euclidean distance between these vectors to find the weight of edges in the proposed network.
+
+The graph was filtered by removing low-weight edges (Shin et al., 2013).
+
+Finally a label propagation algorithm is used to find the direction of movement in the target market by the known direction of movements of other markets (Zhu and Ghahramani, 2002).
+
+The enhanced Park and Shin model is the second model used to be compared with our presented models.
+
+Kia et al. (2018) used the label spreading algorithm introduced by Zhou et al. (2004) in the network structure provided by Park and Shin (2013) and achieved significantly better prediction performance.
+
+PARAGRAPH
+
+The ConKruG algorithm for network construction was used along with Park and Shin models to make better prediction results and be a stronger rival to our models when the results where compared.
+
+Kia et al. (2018) provided an algorithm to construct a network between market time series using a modified Kruskal algorithm that finds maximum spanning trees (Kruskal, 1956).
+
+In ConKruG first a maximum spanning tree of the complete correlation-based graph of markets is made.
+
+Then other edges of the complete graph are added sequentially, according to their weight in a descending order.
+
+The edge adding process tries to only add edges that are helpful in improving the semi-supervised prediction accuracy.
+
+Finally this network is used in label spreading algorithm to predict direction of movements for markets.
+
+PARAGRAPH
+
+Kia et al. (2018) provided an algorithm that injected the probabilities of up or down direction of movement extracted from supervised prediction models to the initial matrix of the label spearing algorithm.
+
+The label spreading algorithm provided by Zhou et al. (2004) has an initial matrix with n rows for n nodes and c columns for c classes of different levels of direction of movement.
+
+In HyS3, the probabilities extracted from a support vector machine is injected to the rows of the initial label spreading matrix for some nodes.
+
+That process tries to find which nodes are helpful in semi-supervised prediction when information from their own historical data is used in the HyS3 prediction process.
+
+So both historical data of the market and previous data of other markets were used in this prediction approach.
+
+At the end each rows of the final converged matrix of the results is checked to see which column has higher value.
+
+The column with the higher value corresponds the predicted direction or class.
+
+SECTION
+
+Prediction model
+
+PARAGRAPH
+
+Fig. 1 shows the general procedure of the suggested framework.
+
+First, the dataset of raw value time series of stock indices and commodity prices are converted to return series.
+
+PARAGRAPH
+
+The return is a popular measure in finance and shows the degree of variation of a variable in a logarithmic scale.
+
+An element in the return series of markets is calculated by Eq. (2) in which seriesi,t is the value of the market index i in time t.
+
+A Positive or a negative return means an upward or downward movement in the direction of the corresponding market.
+
+After converting the raw prices or indices to the return value, the return data of all time series are used to construct a network of interrelationships among markets’ movements in exLift network builder part of the procedure.
+
+The network construction is the learning part of the DiMexRank algorithm while the prediction part is shown in the DiMexRank predictor box.
+
+In this step a modified personalized PageRanK is used to propagate the ranks of known markets (known up and down movements) to the markets that are going to be predicted.
+
+The module represented in the last box, MixDiMex Predictor, tries to find out if any market is better predicted by supervised learning compared to network-based model.
+
+If any market is predicted more accurately with supervised models, then it will be checked if existence of this market is helpful for predicting other markets in the network or not.
+
+At the end, based on the resulting model, the final prediction for each market is made either by supervised or semi-supervised graph-based model.
+
+Also each series is tested if its existence is useful in the network learning phase or not (in MixDiMex Phase).
+
+In next sections we will explain all the parts of Fig. 1 in details.
+
+SECTION
+
+exLift network structure
+
+PARAGRAPH
+
+In this section, a network called exLift, is created to model the interrelationships among markets’ direction of movement.
+
+exLift is a graph G=(V,E) in which V is the set of nodes and E the set of edges.
+
+We assume that there are n market time series in the dataset and M is the set of all markets: M={m1,m2,…,mn}.
+
+For each market mi, we will put two nodes of mi+ and mi− in the graph G, that respectively represent up and down directions in the market mi.
+
+Therefore the set of nodes will be V={m1+,m1−,m2+,m2−,…,mn+,mn−}.
+
+For each pair of nodes (mi(+∕−),mj(+∕−)) there is an edge whose weight is calculated from a proposed weighting function called extended lift or simply exLift.
+
+The exLift has come from the concept of lift measure in the association rules mining in data mining literature which is calculated according to Eq. (1) (Brin et al., 1997).
+
+Lift measures how much the occurrence of event A in A⟹B affects the chance of occurrence for B.
+
+As formulated in Eq. (3), for calculating the exLift measure, the magnitude of upward/downward movements are taken into account as well.
+
+The function δ is used to check if the conditions of two markets match a rule in a certain time unit.
+
+PARAGRAPH
+
+Fig. 2 shows a general schema of the network construction.
+
+A sample view of all the edges between four nodes of two markets of i and j is also shown in 2.
+
+It can be seen in Fig. 2 that for a network that only considers two markets, there will be four nodes and 16 edges.
+
+PARAGRAPH
+
+While it is obvious from the Eqs. (1) that lift is a symmetric measure, is not a symmetric measure according to its definition (3).
+
+That means that the exLift network structure should be a directed graph.
+
+Lift(A⟹B)=P(A∧B)P(A)P(B)Lift(A⟹B)=Lift(B⟹A) returni,t=logseriesi,tseriesi,t−1 Direction={up:+1,down:−1},directioni,directionj∈Directionδ(seriesi,t,direction)=1ifsign(returni,t)=sign(direction)0otherwiseexLift(i(+∕−)⟶1j(+∕−))==∑tδ(seriesi,t,directioni)δ(seriesj,t+1,directionj)|returnj,t+1|∑tδ(seriesi,t,directioni)|returni,t|∑tδ(seriesj,t+1,directionj)|returnj,t+1|(i+,i−,j+,j−means:directioni=+1,directioni=−1,directionj=+1,directionj=−1)(⟶1means:afteronetime−step) exLift(i(+∕−)⟶1j(+∕−))≠exLift(j(+∕−)⟶1i(+∕−))
+
+PARAGRAPH
+
+After calculating exLift for every edge in E, the adjacency matrix of the complete exLift graph is constructed according to Eq. (5).
+
+Here, the adjacency matrix of the exLift graph is denoted by Ψ.
+
+This matrix is made of four block sub-matrices called UU,UD,DU, and DD.
+
+UU is the block that is associated with rules like i+⟹j+.
+
+The exLifts of such rules are the weights of edges between nodes representing upward movements of the markets.
+
+UD block is associated with rules like i+⟹j−.
+
+Likewise, DU and DD blocks of the adjacency matrix Ψ correspond to i+⟹j− and i−⟹j− rules respectively, for each i,j∈V.
+
+A sample part of the graph between two markets of i and j is presented in Fig. 2.
+
+Ψ=UUUDDUDD,UUi,j=exLift(i+⟶1j+),UDi,j=exLift(i+⟶1j−),DUi,j=exLift(i−⟶1j+),DDi,j=exLift(i−⟶1j−)
+
+PARAGRAPH
+
+The pseudo-code of exLift network construction algorithm is presented in algorithm 1.
+
+Dataset of n time series return values and time zones of each time series are the inputs of the algorithm.
+
+The time zones and total number of series that is used in our experiment Section 5 is presented in Fig. 3.
+
+We will use daily time unit in our experiments.
+
+For predicting one day ahead of markets in a time zone with known data from markets in another zone, the time zones are important and should be considered.
+
+For example, if an Australian market data is used to predict one time step ahead of a market in America zone, both data must be in the same day calendar.
+
+But if we want to predict Australian market using an American market data for one day ahead, if the American market is in day t, the Australian market data used, should be in day t+1.
+
+This phenomenon happens in daily time unit for time series due to the international date line which goes from North to South Pole in Pacific Ocean.
+
+The time zones of each two markets are checked before the exLift calculation for each two markets i and j in line 7 of the algorithm one.
+
+Adder variables are defined in line 4 to calculate exLift in Eq. (3) in two parts of loop.
+
+Time zones of two markets are the parameters to choose which loop part should be executed for exLift calculation in daily return time series.
+
+If the time unit is bigger than day (for example week), then one loop from lines 8 to 16 will be enough.
+
+At the end, four blocks of UU,UD,DU, and DD are put together to construct Ψ adjacency matrix of exLift network in line 21.
+
+PARAGRAPH
+
+It is worth mentioning that in case of large networks with too many nodes it may be a good idea to filter the links that import low quality or may be noisy information to the prediction network.
+
+This can be done using filtering methods like threshold cutting of the links with lower weights or extracting maximum spanning tree out of the network.
+
+A good approach for filtering the edges has been presented in our previous work in Kia et al. (2018) called ConKruG.
+
+A way to filter the nodes is also presented in Section 3.3.
+
+SECTION
+
+Prediction with DiMexRank
+
+PARAGRAPH
+
+For prediction we modify and customize the personalized PageRank algorithm.
+
+In a directed network, label propagation can be done using a personalized PageRank method with an initial personalization vector that have node labels for corresponding known nodes elements in the vector.
+
+PageRank was presented in Page et al. (1999) and is widely used in search engines.
+
+It tries to estimate the probability of presence of a random walker in a node of a graph, given that the random walker hops through the edges of the graph from one node to another with probability that is proportional to the number and weights of the out-links of each node.
+
+It may also go out of a node to a random node with a defined probability called damping factor.
+
+PageRank formula is described in Eq. (6).
+
+In Eq. (6) A is the adjacency matrix of the network and sumout is the diagonal matrix of sum of outdegrees.
+
+It is defined in an iterative method where Pt is the PageRanK of the nodes at time t. d
+
+is the damping factor and is set to 0.85 that is the probability of the random walker through the out-links and by what probability (1−d) it teleports from the node it is now on to any different random node.
+
+The teleportation vector or P0 can be set to all ones or to the initial preferred ranks of the nodes in our case.
+
+Having initial ranks in the P0 lets the PageRanK to propagate the initial rank of the nodes to other nodes in the network.
+
+In Eq. (6) M is the stochastic matrix of transitions in network which is calculated from adjacency matrix divided to the sum of rows or columns (depending on the way the PageRank equation is written).
+
+PARAGRAPH
+
+The solution to the PageRanK can be found with algebraic method in small networks, and can also be found with an iterative solution.
+
+Both these solutions are presented in Eq. (7).
+
+The algebraic equation is solvable for M matrices that can efficiently be inverted.
+
+Matrices of graphs with too many nodes and edges cannot be solved with algebraic method in an efficient time.
+
+Therefore the iterative method is used.
+
+In iterative method the iterative PageRank formula in Eq. (6) repeats until a tolerable error is reached in Eq. (7) like ε.
+
+This iterative method has been proved to converge to a unique solution.
+
+Page et al. (1999) showed that in a network with millions of edges, the PageRank algorithm converges to the unique solution in about 52 iterations.
+
+PARAGRAPH
+
+PageRank has been applied in many different fields to analyze directed networks.
+
+By the novel exLift network design and a modification to the personalized PageRank we found a way to use it for prediction of movement direction in markets.
+
+Pt=dMPt−1+1−dnP0→where:M=(sumout−1A)T P=(I−dM)−11−dnP0Pt+1−Pt<ε
+
+PARAGRAPH
+
+For prediction of direction of movement in financial markets we constructed a network called exLift in Section 3.1.
+
+To use PageRank for prediction we need to use a modified personalized vector with our proposed exLift network.
+
+We call this method of prediction DiMexRank.
+
+The DiMexRank personalization vector has two parts: one for nodes that represent upward movement and the other part for downward movement nodes.
+
+The DiMexRank personalization vector is presented in Eq. (8).
+
+It is shown that the personalized vector should be set to one in each element of up direction when a market has upward direction and its movement is known in our model.
+
+If the market’s direction is downward then the downward section of the personalized vector (the second part in Eq. (8)) should be set to one for each element that its corresponding market direction is known to us.
+
+In our model we assume that we know all the directions of the America time zone markets and we will predict other markets with DiMexRank using these known data.
+
+Init=[m1+,m2+,…,mk+,︸(k) known directions 0,0,…,0,︸(n - k) unknown directions︷up direction nodesm1−,m2−,…,mk−,︸(k) known directions 0,0,…,0︸(n- k) unknown directions]︷down direction nodes(mi(+∕−)means:rankofmarketi)At first step :ifdirection(marketi)==UPthenmi+=1,mi−=0elsemi+=0,mi−=1
+
+PARAGRAPH
+
+In Eq. (9), the correspondence could be seen between DiMexRank and PageRank in Eq. (6).
+
+It implies that the DiMexRank solution also converges like PageRank.
+
+Pt=dDPt−1+1−dnInitM=D,P0=Init,d:dampingfactor
+
+PARAGRAPH
+
+After DiMexRank converges to the solution as stated in Eq. (10), the final ranks will be presented in P.
+
+As it is shown, P has two equal parts for upward and downward movement of the markets same as initial personalized vector in Eq. (8).
+
+For the final prediction, the rank of downward movements or the right part of the P should be subtracted from the left part of P, the rank of upward movement of markets.
+
+Then the sign of this subtraction shows the predicted label.
+
+If the sign is positive the corresponding market is predicted to have an upward movement in next time step, else it is predicted to have a downward direction of movement.
+
+P=[m1+,m2+,…,mk+,︸up known ranks mk+1+,…,mn+,︸UP: up unknown ranks︷up direction ranksm1−,m2−,…,mk−,︸down known ranks mk+1−,…,mn−︸DOWN: unknown directions ranks]︷down direction ranksResult=sign(UP−DOWN)ifResult=+1⟹ClassLabel=UPotherwise:ClassLabel=DOWN
+
+PARAGRAPH
+
+Algorithm 2 presents the DiMexRanK prediction phase in detail.
+
+Inputs of the algorithm are a test set with n time series for d continuous time steps, the exLift network that was the output of algorithm 1 (the DiMexRank training phase), and k, the number of markets, of a certain time zone, whose directions are known and are going to be used to predict other markets directions.
+
+The output of the algorithm will be predictions and performance of the prediction in each day of the test set for markets with unknown direction of movements.
+
+In line 1 to 9 of the algorithm, the prediction method using DiMexRank is done for each day as explained before.
+
+In line 10 the output prediction results matrix is constructed.
+
+The hit score or any other performance evaluation method can be calculated in the next steps of the algorithm.
+
+In line 11, the hit score or accuracy of the whole model is calculated.
+
+In line 12, the hit score for each market is calculated and returned in line 13.
+
+SECTION
+
+Mixture of experts model
+
+PARAGRAPH
+
+The mixture of experts or system of systems approach in financial prediction has been studied recently in some researches (Nguyen and Chamroukhi, 2018; Curry et al., 2018; Masoudnia and Ebrahimpour, 2014).
+
+There is a philosophy behind using a mixture of models in market prediction: according to all the surveys and literature reviews that many of them were mentioned in introduction section of this paper, there are different models with different structures that show superiority in some markets and not in all markets.
+
+In semi-supervised learning like the model we introduced in DiMexRank, the emphasis is on the environmental data or the data of other markets to predict any market.
+
+This will be shown in experiments section to be a good approach most of the times.
+
+But in some markets, using a market’s own historical data achieves better performance in prediction rather than using the environmental data of other markets.
+
+This should be examined in validation dataset and the markets that are predicted better with supervised learners should be discovered.
+
+These markets will be called candidates.
+
+These candidates are discovered in phase one of the Mixture of experts model using DiMexRank and another supervised predictor (MixDiMex).
+
+PARAGRAPH
+
+The MixDiMex has three phases.
+
+Phase one is the model selection.
+
+Phase two is for feature selection and phase three is for testing the model.
+
+An overall look of the all phases is presented in 4.
+
+PARAGRAPH
+
+Considering the phase one of the MixDiMex that is presented in Fig. 4, performance comparator is the gating network that decides which expert (supervised or DiMexRank semi-supervised) to use in the next phases for each market prediction.
+
+This phase of the algorithm is the model selection phase.
+
+PARAGRAPH
+
+After discovering the candidates (markets that are predicted better with a supervised model rather than DiMexRank in validation set), the next phase is to check if their presence in the exLift network is useful for prediction of other markets or not.
+
+This phase of the algorithm is the wrapper feature selection phase.
+
+In wrapper feature selection methods, features that can help the performance of a model remain in the data and other features are eliminated.
+
+In this phase (phase two) predictions will be done using DiMexRank both with and without the candidate markets.
+
+The performances are compared at the end and the decision of having candidate markets in exLift network will be decided.
+
+The flowchart of the phase two is presented in 4.
+
+This phase can also be seen as a useful tool to see whether a feature (a market’s data) is helpful in prediction of some other markets or not.
+
+PARAGRAPH
+
+Final phase of the MixDiMex is to predict each market using the best model (supervised or semi-supervised) and calculating the prediction performances one by one and for the whole mixture of experts model.
+
+The flowchart of the phase three is also presented in 4.
+
+Both phase one and two were done in validation set but final phase is done in test set.
+
+The DiMexRank and exLift network are learned with or without the candidates according to the decision made in phase two and then the prediction is made.
+
+PARAGRAPH
+
+The algorithm 3 explains the MixDiMex in detail.
+
+The inputs are the whole dataset including train, validation, and test parts.
+
+The parameter k, like before, shows how many of the markets are in the known time zone and their direction of movement is known to us so that other networks can be predicted using their direction.
+
+The final result of the MixDiMex will be the predictions of all markets with the performance of the models both for the whole markets and for each market alone.
+
+PARAGRAPH
+
+line 1 to 6 of algorithm 3, represent the first phase of MixDiMex.
+
+Line 6 is the gating network that decides which model (supervised or semi-supervised) should be used in the next steps for each market after checking which model performs better.
+
+Line 7 to 13 describes the second phase of MixDiMex algorithm.
+
+In line 10 a flag is defined to be set to true if there is no increase in prediction performance using the data of candidate markets (markets that are better predicted by supervised models).
+
+When the flag is true the exLift network excludes the data of the candidate markets and a knowledge is also extracted that tells the market researchers the data of candidate markets are not useful in predicting other non-candidate markets at least in the DiMexRanK semi-supervised prediction.
+
+From line 13 till the end of algorithm 3, the final predictions in test set are made using the best model.
+
+PARAGRAPH
+
+It should be mentioned that the training, validation, and test sets are the same as those in exLift network and supervised prediction methods: If the dataset is presented as in Fig. 1, where all the time series are columns of a matrix and the rows representing days, the first α% of the rows of the dataset matrix will be used as training set, the second β% as the validation set and the third 100−−α−−β% as the test.
+
+The validation set which is obviously a sub-block of the dataset matrix was shown to be used as the test set for the phase one and two of the MixDiMex model to compare between different supervised and semi-supervised models and to find the nodes (markets) that were helpful in prediction performance of the network model.
+
+In our work α and β were set to 0.7 and 0.2 of the whole dataset rows like Kia et al. (2018).
+
+SECTION
+
+Complexity analysis and comparison
+
+PARAGRAPH
+
+In this section we show that our presented models, DiMexRank and MixDiMex are faster than the baseline models regarding computational complexity.
+
+PARAGRAPH
+
+We have discussed the running time performance in the evaluation Section 5.2 because unlike the complexity, the running time of the algorithms are dependent to the dataset volume.
+
+PARAGRAPH
+
+All models have two computational complexities: one for learning (training) phase and one for prediction (test) phase.
+
+DiMexRank’s learning phase or exLift network construction in algorithm 1 has two nested loops for calculating the exLift of rules like i(+∕−)⟹j(+∕−) for each pair of (i(+∕−),j(+∕−)).
+
+Therefore the complexity order for learning phase of DiMexRank will be O(n2) if n is the number of markets.
+
+PARAGRAPH
+
+The computational complexity for testing phase of the DiMexRank will be the same as a personalized PageRanK because modified parts of the DiMexRank that differs from the PageRank have O(1).
+
+The order of personalized PageRank, when solved with iterative method like Eq. (7) will be O(te) where t is the number of iterations and e the number edges in the network.
+
+As discussed in Section 3.2 the number of iterations is about 50 for a huge graph of internet web pages.
+
+Therefore t can be ignored in the computational complexity calculation process. e
+
+or the number of edges in the exLift network of markets will be 2n(2n−1)2 when n is the number of networks because we have 2 nodes for upward/downward movement of each market and the graph is complete.
+
+Therefore the computational complexity order of DiMexRank test phase will be O(n2).
+
+PARAGRAPH
+
+Now for finding the MixDiMex algorithm’s computational complexity we should get the maximum of complexity orders in both train and test phases between the supervised model and the DiMexRank model.
+
+Therefore the complexity order of both training and testing phase in MixDiMex will be Max(O(n2),O(Supervisedtrain∕test)).
+
+PARAGRAPH
+
+It will be seen that the best rival models in terms of prediction performance comparing to our presented models in this paper are HyS3 and ConKruG models.
+
+Their computational complexity is calculated in Kia et al. (2018).
+
+The complexity order of ConKruG in train and test phase are respectively O(n4), and O(n2).
+
+The complexity order of HyS3 in train and test phase are respectively Max(O(trainConKruG∕testConKruG),O(Supervisedtrain∕test)).
+
+It is clear now that our MixDiMex and DiMexRank proposed algorithms in this paper are n2 times faster in training phase and same in test phase comparing to their best rival models HyS3 and ConKruG.
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+In this section final prediction performance results are presented.
+
+First we describe the dataset the data preparation phase.
+
+After that, the evaluation methods are explained and finally the results of our models and baseline models are presented, explained, and discussed.
+
+SECTION
+
+Data gathering and preparation
+
+PARAGRAPH
+
+All the time series sources are presented in Appendix A.
+
+All these data are gathered from open-source resources in the Internet.
+
+The dataset consists of three of most famous oil prices of West Texas Intermediate, Brent, and OPEC, gold price of 10AM London, and 32 famous stock market indices all over the world.
+
+The time series are transformed to return series using the formula presented in Eq. (2).
+
+The return series are shown in Fig. 5 in Appendix B.
+
+SECTION
+
+Evaluation method
+
+PARAGRAPH
+
+The first superiority of our presented models, DiMexRank and MixDiMex are in computational complexity that was discussed in Section 4.
+
+This superiority has made the running time of our models lower than their best rival models with the highest prediction performance.
+
+With a core i7 system with 4MG CPU cache, 12GB of DDR3 ram, 512 SSD hard drive, and Ubuntu 16.04 installed, the DiMexRank ran in 12 s.
+
+The MixDiMex ran in 1 min and 21 s.
+
+The running time of HyS3 and ConKruG as the best rival models with the same mentioned hardware configuration were respectively 20 min and 58 s, and 9 min and 11 s.
+
+It is notable that MixDiMex as our best performance proposed algorithm in the graph-based semi-supervised models works about 16 times faster than its best rival HyS3.
+
+PARAGRAPH
+
+For prediction performance we will calculate the hit score as the number of times each model predicts the direction of movement correct divided to all the predictions done by the model.
+
+Hit score is like accuracy in machine learning models where all true positives (TP) and true negatives (TN) are divided to total number of samples according to Eq. (11).
+
+Hit score has been used as the most important evaluation criterion regarding the literature of direction prediction (Atsalakis and Valavanis, 2009).
+
+To be a fair evaluation metric, hit score needs data to be balanced.
+
+The data being balanced is measured with a criterion called imbalance ratio (IR) that is calculated by the number of instances in majority class divided by the number of instances in minority class, as in equation (IR=#MajorityClass#MinorityClass).
+
+In our direction prediction problem, the two classes are downward movement and upward movement.
+
+A dataset with imbalance ratio less than 1.5 is usually considered to be balanced (Fernández et al., 2008).
+
+Our dataset imbalance ratio for the whole dataset and each market series are presented in Appendix B.
+
+It can be seen that our dataset is balanced.
+
+There is also no priority for us between predicting upward or downward directions.
+
+Therefore the Hit score or accuracy is the best evaluation parameter in this research.
+
+In Appendix B it can be seen that only two markets (TEPIX and JSE) are not balanced.
+
+Table 3 shows that those two markets are better predicted both with supervised models and our MixDiMex model.
+
+It is notable that we did not claim being explicitly superior in prediction in those two imbalance stock markets.
+
+HitScore=#Correctdirectionprediction#AllpredictionsAccuracy=TP+TNTP+TN+FP+FNHitScore=Accuracy
+
+PARAGRAPH
+
+The prediction performance differences between different models provided in the next section is also checked to be statistically significant with paired T-Test, assuming H0 hypothesis being performances of two most accurate models are equal to MixDiMex as our best proposed model.
+
+The t-test results are presented in Table 5 and discussed in Section 5.3.
+
+PARAGRAPH
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+In this section we compare our model to the best rival models in the literature of graph-based semi-supervised prediction models and random forest as the best performance supervised model in our dataset.
+
+These baseline models are described in Section 2.
+
+Model parameters are derived from search in validation set to avoid overfitting.
+
+The used setting for the parameters are presented in Table 1.
+
+Some parameters like damping factor in PageRanK and α coefficient for label spreading are usually chosen from the literature and set to a widely-used value.
+
+We did the same in our research. delay
+
+is the number of time-steps before that is used in supervised model (random forest) to predict next time step. #estimators
+
+is the number of decision trees used in random forest algorithm. σ
+
+is the variance and a weight adjuster in label propagation and spreading algorithms. μ
+
+is a parameter like α in label spreading or d in PageRank which tries to establish a ratio between the importance of the network and the initial value of node labels in the network.
+
+K is the number of neighbors to be checked in KNN algorithm used for filtering the graph in Park and Shin (2013) work.
+
+PARAGRAPH
+
+The results for DiMexRank, random forest supervised model, and MixDiMex are presented in Table 2 as results of different phases of MixDiMex model.
+
+First column shows the abbreviations used for the name of stock market indices and commodity prices time series.
+
+The abbreviations and their corresponding full names are presented in Appendix A.
+
+The validation columns performances are presented for comparison between supervised and DiMexRank semi-supervised model as the first phase of MixDiMex algorithm presented in Section 3.3.
+
+The comparison column of Table 2 is True for any market that supervised prediction with historical data of the market has shown a better prediction performance compared to DiMexRank semi-supervised model.
+
+In first two columns of test part of Table 2, the results of phase two of MixDiMex algorithm is presented.
+
+The first column of the test part in table shows the DiMexRank prediction results when all the markets are used in exLift network building (learning phase of DiMexRank).
+
+The second column of test part in Table 2 shows the prediction results of DiMexRank when the candidate markets (the markets with better prediction in supervised model) are eliminated from the exLift network building phase.
+
+The average performance of the first and second column of test part shows if the candidates are helpful in predicting other markets or not.
+
+In our case the markets had to be eliminated in final phase of MixDiMex because their existence in exLift network was not helpful.
+
+The final results of the MixDiMex are the supervised results for the candidate markets and DiMexRank results for other markets.
+
+PARAGRAPH
+
+The comparison information for different baseline models and our proposed models is presented in Table 3.
+
+The last column of the table shows the best model for prediction of each market.
+
+Table 4 shows how many times each model has outperformed other models in prediction.
+
+It is clear in Tables 3 and 4 that both our proposed semi-supervised models, DiMexRank and mixture of experts model (MixDiMex) outperform other models in terms of hit score.
+
+We saw in Section 4 that they also outperform their best rivals in terms of computational complexity and running time.
+
+Table 3 shows that each of prediction models outperforms others in at least one market.
+
+This may be due to the different natures of the markets that result in different features for their time series and different models for the prediction.
+
+Again, this is the fact that lad us to the idea of using a mixture of experts or system of systems idea.
+
+PARAGRAPH
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Table 4 shows that our proposed models outperform other semi-supervised graph-based predictors in the literature and better than the best supervised model found for our dataset in average (random forest).
+
+Most of the times (10 times) the MixDiMex had better prediction performance comparing to others and the next rank is for DiMexRank semi-supervised learner.
+
+PARAGRAPH
+
+The difference between the actual values of the hit scores from Table 3 are tested to be statistically significant with the values of prediction for each sample in the test set.
+
+Samples in the test sets are used for the paired t-test described in Section 5.2.
+
+The t-test statistics and p-values of the comparison between the best model MixDiMex, DiMexRank and HyS3 are presented in Table 5.
+
+Both p-values are far less than 0.05 that is an accepted value refusing H0 hypothesis explained in evaluation Section 5.2.
+
+PARAGRAPH
+
+By using our constructed network and ranking algorithm, we are able to use other markets data to predict a market’s change in direction.
+
+Our empirical studies show that markets own historical data used in statistical forecasting methods or machine learning supervised algorithms do not reach good results comparing to semi-supervised algorithms that use environmental data rather than historical data of the market itself.
+
+Table 6 shows our superiority against the best models in the literature of semi-supervised graph-based financial prediction.
+
+PARAGRAPH
+
+SECTION
+
+Conclusion and further researches
+
+PARAGRAPH
+
+In this paper, we presented two prediction models: one semi-supervised graph-based model using an innovative network structure and one mixture of experts model that decided when to use historical data of the market itself and when to use historical data of other markets for prediction of each market.
+
+We showed the ability of semi-supervised graph-based models in prediction that could beat supervised models and also previous models in the literature of semi-supervised graph-based learning.
+
+It was shown that in most of the time series examined, the recent information about other markets are better predictor features than the historical data of the market being predicted itself.
+
+Our proposed models in this research outperformed other models both in terms of computational complexity (and also running time), and prediction accuracy.
+
+Our MixDiMex model could also be a tool to find out whether a market’s data is useful in predicting other markets future or not.
+
+PARAGRAPH
+
+For future research we suggest to use networks that could model historical data of other markets that belong to before one time step ago.
+
+In our initial researches we have found out that using more than one step before in network construction, imports intense noise to the model and reduces prediction performance.
+
+Filtering the complete exLift graph may help in improving the prediction performance by eliminating the probable noise but using different filtering methods like the methods used in ConKruG and works of Park and Shin (2013) and Shin et al. (2013) has not been successful up to now.
+
+These filtering methods only reduced the prediction performance of our models.
+
+Adding other time series from different sources of data may also help the prediction of the model.
+
+We have tried to use most famous stock market indices and commodity prices but the path is open for practical researches in finding other useful information sources.
+
+Text mining has been used in many financial prediction models (Kumar and Ravi, 2016; Ruiz et al., 2012).
+
+Web mining is another popular method for finding new sources of information as input for prediction models (Nardo et al., 2016).
+
+Information gathered from text and web mining can change our proposed prediction models to online and stream predictors.
+
+Learning the turning points rather than direction of movement and changing the structure of the model to a 3-class classifier (for example: support, resistance, neutral classes instead of upward and downward movement classes) for time series can also be an interesting topic for future researches.

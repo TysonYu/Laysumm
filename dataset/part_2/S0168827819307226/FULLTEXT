@@ -1,0 +1,579 @@
+10.1016/j.jhep.2019.12.009
+
+FULLTEXT
+
+TITLE
+
+Interferon-inducible MX2 is a host restriction factor of hepatitis B virus replication
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+More than 250 million people are chronically infected with hepatitis B virus (HBV) and at a greatly increased risk to develop terminal liver disease.
+
+Currently approved treatments for chronic hepatitis B (CHB) are limited to type-I interferons (IFNs) and five nucleos(t)ide analogs (NAs) [1].
+
+NAs inhibit the viral reverse transcriptase but rarely induce HBV surface antigen (HBsAg) seroconversion (an indicator of functional cure [2]), probably necessitating life-long treatment.
+
+IFNs, though applicable in only a fraction of patients, can lead to sustained suppression of HBV replication after a finite (usually 48 week) therapy [3, 4], possibly by their immunomodulatory activity, including restoration of innate responses [5, 6], and/or via one or more products of the many antiviral IFN stimulated genes (ISGs) [7].
+
+PARAGRAPH
+
+Following sodium taurocholate co-transporting polypeptide (NTCP) dependent HBV entry into host cells [8, 9] the nucleocapsid is transported to nucleus for conversion of the encapsidated relaxed circular DNA (rcDNA) genome into covalently closed circular DNA (cccDNA), probably mediated by the cellular DNA repair machinery [10].
+
+Using the episomal cccDNA minichromosome as template, host RNA polymerase II (RNAPII) transcribes four groups of viral RNAs (3.5 kb, 2.4 kb, 2.1 kb, and 0.7 kb).
+
+The 3.5 kb RNAs consist of the precore RNA (pcRNA) encoding the precursor protein of the secretory HBV e antigen (HBeAg) plus the pregenomic (pg) RNA, which serves as mRNA for core and polymerase proteins yet also as a template for new viral DNA genomes.
+
+The subgenomic RNAs encode the large (L), middle (M), and small (S) HBV surface proteins, collectively termed hepatitis B surface antigen (HBsAg), plus the regulatory HBx protein.
+
+Production of new DNA genomes is initiated by binding of the viral polymerase to the ε stem-loop near the 5’ end of pgRNA, which triggers recruitment of core dimers to form immature nucleocapsids.
+
+Meanwhile, polymerase bound to ε initiates HBV reverse transcription to synthesize minus-strand DNA.
+
+Subsequent plus-strand DNA synthesis allows for envelopment of the mature nucleocapsid by the surface proteins and egress from the cell; alternatively, a portion of the mature nucleocapsids may recycle their rcDNA to the nucleus for cccDNA amplification [11].
+
+PARAGRAPH
+
+Directing HBV transcription and replication cccDNA represents the viral persistence reservoir [12].
+
+Silencing transcription from cccDNA [13] or, ideally, cccDNA elimination are critical for a functional or true cure, respectively, of CHB.
+
+ISGs provide a valid source for such activities, and several of them have indeed been shown to possess anti-HBV activity.
+
+As yet, however, only apolipoprotein B mRNA editing enzyme catalytic polypeptide (APOBEC) 3A and 3B (A3A and A3B) reportedly reduced nuclear cccDNA [14-17].
+
+Notably though, RNAi mediated silencing of A3 proteins including A3B did not weaken the anti-HBV activity of IFN-α [18], implying an important role for other ISGs.
+
+PARAGRAPH
+
+Some of the best-studied ISGs are the myxovirus resistance (Mx) proteins, evolutionarily conserved dynamin-like large GTPases.
+
+Humans have two MX genes, MX1 and MX2, which encode the MxA (or MX1) and MxB (or MX2) proteins, respectively [19]; they share ∼63% amino acid (aa) sequence identity, mainly in the C-terminal region (Fig. 1).
+
+The N-terminus of MX2 contains a nuclear localization signal (NLS) and a proline-rich domain (PRD, Fig. 1).
+
+Recent X-ray crystallographic data for human MX1 and MX2 (PDB ID: 3SZR and 4WHJ), both comprising the GTPase domain, bundle signaling element (BSE) and stalk domain [20, 21] confirmed this similarity on the structural level.
+
+Surprisingly, though, only MX1 was well known for its wide-spectrum antiviral activity, mainly against RNA viruses [22].
+
+MX2 seemed to lack antiviral activity until its recent identification as an important IFN-induced inhibitor of human immunodeficiency virus 1 (HIV-1), hepatitis C virus (HCV), and herpesvirus infection [23-28].
+
+The anti-HIV-1 activity was found to depend on MX2’s binding to the HIV-1 nucleocapsid through an N-proximal triple-arginine motif (aa 11-13; Fig. 1), possibly by preventing uncoating of the packaged genome [20, 29-31].
+
+Similarly, MX2 also inhibited the uncoating of herpesvirus DNA encapsidated in the invading nucleocapsids [28], although the exact mechanisms are poorly understood and may differ for different viruses [32].
+
+The anti-HCV activity was mediated by MX2 interaction with the NS5A protein, thereby interfering with NS5A association with CypA required for its localization to endoplasmic reticulum [26].
+
+PARAGRAPH
+
+In line with a potential anti-HBV role both Mx proteins have been shown to be ISGs in primary human hepatocytes (PHHs) [33] and the liver progenitor HepaRG cells [34].
+
+For MX1 two previous reports described anti-HBV activity, via inhibition of nucleocytoplasmic export of viral RNAs and/or perinuclear entrapping of core protein by direct interaction [35, 36].
+
+Here we focused on MX2 which in pilot experiments had shown stronger inhibitory activity than four other host restriction factors, namely A3G, HNRNPU, SAMHD1, and MOV10.
+
+Anti-HBV mechanisms and multiple determinants of MX2 for the maximal anti-HBV activity as well as its contribution to the overall anti-HBV activity of IFN-α were extensively investigated.
+
+SECTION
+
+Materials and Methods
+
+PARAGRAPH
+
+More details are given in the supplementary file and supplementary CTAT Table.
+
+SECTION
+
+Cell culture, transfection, and HBV infection
+
+PARAGRAPH
+
+Huh-7 and HepG2 hepatoma cells were cultured in DMEM supplemented with 10% fetal bovine serum, 100 U/ml penicillin G, 100 μg/ml streptomycin, and 0.2 mM L-glutamine, in 5% CO2.
+
+For HepG2.2.15 and HepAD38 cells, the media were additionally supplemented with 200 μg/ml G418 sulfate (InvivoGen) [37, 38].
+
+HepG2-NTCP cells were cultured as previously described [39].
+
+PHHs purchased from Shanghai Research Institute of Liver Diseases were cultured following the manufacturer manual.
+
+Cell transfections were performed using TransIT-LT1 reagent (Mirus) as recommended by the manufacturer.
+
+HBV infection of HepG2-NTCP cells or PHHs was conducted as previously reported [8, 40].
+
+SECTION
+
+Analysis of cytoplasmic capsid-borne viral DNA and nuclear viral DNA, Western blotting, and Southern Blotting
+
+PARAGRAPH
+
+Cells were lysed with NP-40 lysis buffer (10 mM Tris-HCl [pH 7.5], 1 mM EDTA, 50 mM NaCl, and 0.5% NP-40) and spun at 500 g for 5 min into soluble and insoluble fractions.
+
+Thirty μl soluble fraction was analyzed either for capsids by native agarose gel electrophoresis (NAGE) followed by immunoblotting [41] or for viral or Mx protein by Western blotting.
+
+The remaining soluble fraction was used for extraction of cytoplasmic capsid borne viral DNA [42].
+
+After washing twice with 300 μl NP-40 lysis buffer, the insoluble pellet containing the intact nuclei was either dissolved in SDS loading sample buffer containing 4 M urea for detecting viral or Mx protein by Western blotting, or digested with proteinase K for extracting nuclear DNA by a QIAamp DNA Mini Kit (Qiagen) [43].
+
+Western blotting was done following standard procedures.
+
+Cytoplasmic capsid borne viral DNA and nuclear HBV DNA were detected by Southern blotting as previously described [43].
+
+Densitometry of hybridization signals was performed using MultiGauge V2.2 software (Fujifilm).
+
+SECTION
+
+Analysis of viral RNA
+
+PARAGRAPH
+
+Viral RNA was analyzed by Northern blotting to examine the steady state level of RNA; by RNase protection assay (RPA) to distinguish pc and pg RNA [44]; by radioactive and non-radioactive nuclear run-on (NRO) assays to determine the RNA transcription rate [45, 46]; and by RNA turnover assays to monitor RNA degradation.
+
+More details of these assays are given in the supplementary file.
+
+SECTION
+
+Data processing and statistical analysis
+
+PARAGRAPH
+
+Signal intensity values determined by multiple assays mentioned above were relative to that of empty vector or non-treatment control groups, which were set at 100%.
+
+Results from three or more independent experiments are shown as mean values ± standard deviation (SD).
+
+Statistical significance shown as the p value was evaluated by a one-way analysis of variance using Origin 8.0 software.
+
+SECTION
+
+Results
+
+SECTION
+
+Differential inhibition of HBV replication by MX2 and other host restriction factors
+
+PARAGRAPH
+
+In initial experiments we evaluated the anti-HBV activity of four innate restriction factors, namely HNRNPU, SAMHD1, MOV10, and MX2, which have been reported to potently inhibit infection by and replication of HIV-1 and other viruses [23, 24, 47-50].
+
+In addition, A3G was included as an established IFN-inducible restriction factor for HBV replication.
+
+PARAGRAPH
+
+Firstly, plasmid pHBV-1.3, comprising a 1.3-fold HBV genome wherein viral transcription is driven by the endogenous enhancers and promoters, was co-transfected into Huh-7 cells with recombinant pCDNA6 plasmids encoding N-terminally HA-tagged versions of the respective host factors.
+
+As assessed by Southern blotting, A3G efficiently reduced capsid-borne viral DNA by nominally 49% (Fig. 2A), in line with previous reports [51, 52].
+
+Reductions in viral DNA were also seen for the other host factors yet inhibition by MX2 was strongest, reducing capsid-borne viral DNA to 44% of the empty vector control (Fig. 2A).
+
+We therefore focused on MX2 in the subsequent studies.
+
+PARAGRAPH
+
+Like MX1, MX2 was induced efficiently (Fig. 2B) and dose-dependently (Fig. S6) by IFN-α in two hepatoma cell lines (Huh-7 and HepG2) as well as in PHHs (Fig. 5B), as shown by Western blotting with specific antibodies.
+
+Specificity of the used polyclonal anti-MX2 antiserum was corroborated by its exclusive reaction with HA-tagged MX2, but not HA-tagged MX1, in double-transfected cells where the presence of both Mx proteins was confirmed by anti-HA immunoblotting (Fig. S16A and S16B).
+
+IFN-α inducibility of MX2 in HepG2 cells was also verified by immunofluorescent staining and laser confocal microscopy (LCM).
+
+However, the expression levels of MX2 varied within ∼2 fold among individual HepG2 cells, in line with a previous report of a stochastic response of hepatocytes to IFN treatment [53].
+
+As seen by others [24, 26, 28], despite the presence of an NLS (Fig. 1) more MX2 was observed in the cytoplasm and on the nuclear membrane than inside the nucleus with nuclear membrane labeled by immunostaining the marker protein Nup358 (Fig. 2C).
+
+This is possibly due to some post-translational modifications.
+
+SECTION
+
+MX2 potently inhibited HBV replication driven by episomal templates
+
+PARAGRAPH
+
+To further address MX2 as a potential restriction factor of HBV replication, Huh-7 cells were co-transfected with 1 μg pHBV-1.3 and increasing amounts of MX2 vector.
+
+Four days later, cells were lysed with NP-40 lysis buffer; the soluble cytoplasmic lysate and the insoluble fractions including intact nuclei and proteins in large complexes were separated by centrifugation.
+
+As shown in Fig. 3A (top and bottom panels), MX2 expression dose-dependently reduced soluble capsid-associated viral DNA and, less strongly, intact capsids.
+
+Western blotting of both fractions (Fig. 3A, middle panels) revealed most of the HA-tagged MX2 in the NP40 insoluble fraction whereas L protein showed a similar reduction in both fractions.
+
+Core protein in the soluble fraction was comparably reduced as intact capsids; this indicates that MX2 had no major impact on capsid assembly as such [54].
+
+PARAGRAPH
+
+To independently corroborate the MX2-mediated impairment of HBV replication, we next generated HA-MX2 and, as control, HA-MX1 expressing HepG2 cells using corresponding lentivirus constructs which, in addition, enocded copGFP as reporter.
+
+Because MX2 substantially suppressed lentivirus infection and production, the MX2 encoding virus preparations were concentrated 3-fold and 6-fold, respectively, prior to transduction.
+
+Based on copGFP fluorescence at day 3 post transduction, the 6-fold concentrate reached a similar ∼90% transduction efficiency as the non-concentrated MX1 lentivirus (Fig. S1A).
+
+When transfected with pHBV-1.3 the MX2-transduced cells contained only 47% and 45% as much capsids as the empty lentivirus control, and capsid-borne HBV DNA was even more strongly reduced (top ∼33%) in the cells transduced with the 6-fold concentrate (Fig. 3B, top panels), similar to the cotransfection approach.
+
+HA-MX expression was confirmed by anti-HA immunoblotting (Fig. 3B, bottom panels) which as before revealed most MX1 in the NP40-soluble fraction, and most MX2 in the NP40-insoluble fraction.
+
+Also HBeAg and HBsAg were more strongly suppressed by MX2 than by MX1, without a major impact on cell viability (Fig. S1B, C).
+
+Strikingly, however, in analogously lentivirus transduced HepAD38 cells (Fig. S2) neither MX1 nor MX2 had a significant anti-HBV activity (Fig. 3C).
+
+In these cells HBV replication is initiated from a chromosomally integrated HBV genome in which pgRNA transcription is under control of a heterologous promoter [38].
+
+PARAGRAPH
+
+Taken together, MX2 potently inhibited HBV replication in hepatoma cells when viral RNA transcription was driven by episomal but not by integrated forms of HBV expressing vectors.
+
+SECTION
+
+MX2 reduced steady state levels of HBV RNAs
+
+PARAGRAPH
+
+Considering that multiple viral proteins encoded by pHBV-1.3 plasmid were reduced by MX2, MX2 possibly suppressed viral RNAs.
+
+To test this hypothesis, we performed Northern blot analysis of HBV RNAs from cells that were co-transfected with pHBV-1.3 and a GFP vector as non-viral RNA control, and with expression plasmids for MX1 or MX2 or empty vector.
+
+As shown in Fig. 4A, MX2 reduced the pc/pg RNA as well as the preS/S RNA by 45% and 53% respectively, while reduction by MX1 was less pronounced (27%).
+
+Notably, GFP mRNA was not detectably affected, in line with a viral RNA specific impact, especially by MX2.
+
+pcRNA and pgRNA differ in length by only ∼30 nt and were not resolved by Northern blotting.
+
+We therefore employed RPA to distinguish the two RNA species (Fig. S3).
+
+These data corroborated the overall Northern blot results, with a slightly stronger reduction of pc over pgRNA by MX2 (Fig. 4B); however, the difference was not statistically significant (p=0.077, Fig. 4B).
+
+PARAGRAPH
+
+To check whether MX2 is a general transcriptional inhibitor of host mRNAs, poly(A) mRNAs from HepG2 cells transduced with the MX2 lentivirus or its empty homolog were analyzed by RNA deep sequencing.
+
+As shown in Fig. S4A, 10 among around 22,000 sequenced cellular mRNAs were significantly altered over 2-fold by MX2 compared to the empty lentivirus group.
+
+These changes were further confirmed by quantitative reverse transcription (RT)-PCR (Fig. S4A).
+
+However, despite over 2-fold alterations on the RNA level, MX2 failed to affect the respective protein levels as probed by Western blotting at day 9 post lentivirus transduction (Fig. S4B).
+
+Hence while reducing viral RNAs MX2 had only a very limited impact on host cell RNAs and even less on the tested host cell proteins.
+
+SECTION
+
+MX2 reduced transcription of viral RNAs and slightly accelerated their decay
+
+PARAGRAPH
+
+To explore whether MX2 reduced the steady state level of HBV RNAs by down-regulating transcription or by up-regulating degradation or both, we employed NRO assays and transcription arrest by actinomycin D (Act D) to monitor formation and decay kinetics of the viral RNAs, respectively.
+
+As revealed by a radioactive NRO assay which detects 32P-labeled newly transcribed HBV RNAs, MX2 but not MX1 inhibited total viral RNA transcription to 57% (Fig. 4C).
+
+This was confirmed by a non-radioactive 5-bromouridine (BrU) based NRO assay (see Supplementary Materials and Methods) and subsequent quantitative RT-PCR on anti-BrU immunoprecipitated RNAs (Fig. 4D, p=0.047).
+
+Confirming a virus specific effect, neither MX1 nor MX2 affected GFP mRNA transcription (Fig. 4D).
+
+PARAGRAPH
+
+Roughly one third of HBV pgRNA is packaged into nucleocapsids [55, 56] and protected from the cellular RNA-decay machinery.
+
+To monitor the Mx-dependent decay kinetics of pgRNA in the absence of this complication, we used an HBV expression vector, pCH-9/3091-core-null, which harbors a 1.05-fold HBV genome with a defective core gene and pgRNA transcription under control of cytomegalovirus immediate early promoter.
+
+After blocking transcription by addition of Act D (5 μg/ml culture medium) RNA levels were followed by Northern blotting over 24 h (Fig. 4E, left panel).
+
+Both MX1 and MX2 mildly but not significantly (p>0.05) accelerated the decay of pgRNA by shortening its half life from 11.2 h to 7.8 h and 8.9 h respectively (Fig. 4E, middle and right panels).
+
+However, the decay of viral preS/S mRNAs remained largely unaffected by either Mx protein (Fig. S5A) while both slightly though not significantly (p>0.05) prolonged the half life of GFP mRNA (Fig. S5B).
+
+PARAGRAPH
+
+In sum, MX2 but not MX1 significantly reduced transcription of pgRNA and pc RNA but had only a limited impact on their stability.
+
+SECTION
+
+MX2 contributes substantially to the anti-HBV activity of IFN-α
+
+PARAGRAPH
+
+To exclude the possibility that the anti-HBV effects of MX2 described above were overexpression artifacts we compared the levels of MX2 induced by IFN-α with those produced upon transfection with different amounts of MX2 expression vector.
+
+As shown in Fig. S6, Huh-7 cells incubated with 600 U/ml of IFN-α produced (at 72 h post transfection) about as much MX2 as cells transfected with 0.5 μg vector; transfection per se did not increase the levels of IFN-α inducible MX1 and SAMHD1 (Fig. S6).
+
+This amount of vector had reduced capsid-borne viral DNA by ∼50% (Fig. 3A), hence it was conceivable that MX2 contributed to IFN-α inhibition of HBV transcription and DNA replication.
+
+In that case, knocking down MX2 expression should blunt IFN-α mediated HBV inhibition.
+
+Lentiviral shRNA vectors targeting two different sites in MX2 mRNA (MX2-A, -B), but not a negative control vector, selectively suppressed MX2, but not MX1, induction by IFN-α in Huh7 cells by ∼90% (Fig. S7).
+
+PARAGRAPH
+
+Next, Huh-7 cells were transduced with the lentiviruses expressing MX2 shRNA-A or the negative control shRNA, then split for transfection by pHBV-1.3, and treated, or not, with 600 U/ml IFN-α at day 2 post-transfection.
+
+Four days later HBV replication markers were monitored.
+
+In the negative control shRNA group, IFN-α repressed viral RNAs, capsids, and capsid-borne viral DNA by 40-51%, and secreted viral antigens by 31-40% (Fig. 5A, and Fig. S8).
+
+In the MX2 knock-down cells (as confirmed by Western blotting, Fig. 5A, middle) all these anti-HBV effects of IFN-α were diminished by 10-20% (Fig. 5A and Fig. S8).
+
+For all markers except capsid-borne DNA these differences were significant (p<0.05, Fig. 5A, bottom).
+
+PARAGRAPH
+
+To further validate the contribution of MX2 for IFN-α’s anti-HBV activity, we used authentic HBV infection of PHHs.
+
+PHHs were first transduced with lentiviruses expressing MX2 shRNA-A or the negative control shRNA, then infected by HBV at a nominal multiplicity of infection (MOI) of 500 viral genome equivalents (vge) per cell at day 3 post-transduction; 3 days post HBV infection, when HBV RNA is detectably transcribed [57], cells were treated, or not, with 200 U/ml IFN-α.
+
+Another four days later, HBV RNA and secreted antigens were determined.
+
+As shown in Fig. S9, ∼90% PHHs were transduced by shRNA lentiviruses or infected by HBV.
+
+In the negative control shRNA group, IFN-α potently reduced pc/pgRNA and preS/S RNA to 18.6% and 26.8%, respectively, of that in untreated cells (Fig. 5B top), with secreted HBe and HBs antigens reduced by 81.4% and 73.6%, respectively (Fig. 5B bottom).
+
+In the MX2 knock-down PHHs (Fig. 5B, middle), all anti-HBV effects of IFN-α were significantly (p<0.05) weaker by 12-22% (Fig. 5B bottom).
+
+Hence MX2 contributed substantially to IFN-α’s anti-HBV RNA activity.
+
+SECTION
+
+MX2 but not MX1 efficiently inhibited HBV infection of HepG2-NTCP cells by reducing cccDNA levels
+
+PARAGRAPH
+
+Ectopic expression of NTCP makes HepG2 cells permissive for HBV infection [8, 9].
+
+To further assess whether MX2 affects HBV infection, HepG2-NTCP cells were transduced with lentiviruses expressing MX2 or MX1, or with an empty lentivirus; 6 days later the cells were inoculated with HBV at a nominal MOI of 1,000 vge per cell (Fig. 6A).
+
+Another six days later HBV infection and replication markers were monitored; non-treated cells served as additional control.
+
+Southern blot analysis of nuclear DNA (Fig. 6B) showed slightly reduced amounts of protein-free (PF) rcDNA for all lentivirus-treated samples versus the non-treated sample.
+
+However, in the MX2 transduced cells the cccDNA signal was much weaker and amounted to only 12% of the respective PF rcDNA signal whereas in all other samples it reached 23-26% of the rcDNA signal (Fig. 6B).
+
+Hence MX2 decreased the cccDNA:rcDNA ratio by about 50%.
+
+Consistently, all cccDNA-dependent downstream markers, i.e. HBV transcripts (Fig. S11A), capsid-borne viral DNA (Fig. S11B) and secreted HBeAg (Fig. S11C) were markedly decreased by transduction of MX2 but not MX1.
+
+Reproducibly, MX2 transduction also impaired HBV infection of PHHs as evidenced by reduced viral RNAs and intracellular capsid-borne replicative viral DNA, and secreted HBe and HBs antigens (Fig. S12).
+
+PARAGRAPH
+
+To monitor an impact of MX2 on the kinetics of cccDNA formation we analyzed nuclear DNA from an analogous HepG2-NTCP infection experiment harvested on days 1, 3 and 6 post HBV infection (Fig. 6A) by Southern blotting.
+
+At day 1, nuclear rcDNA appeared in the empty vector sample and, more weakly, in the MX2 sample; cccDNA remained below the detection limit in both (Fig. 6C, lane 6 and 7 of left panel), in line with a recent report [58].
+
+On days 3 and 6, nuclear PF rcDNA became comparable between two samples (Fig. 6C, lane 8-11 of left panel, and right panel).
+
+Despite this, nuclear cccDNA in the MX2 sample was consistently reduced from 70% to 60% that of the empty vector sample (Fig. 6C).
+
+Hence the MX2 mediated reduction in overall cccDNA levels would be in line with impaired rcDNA to cccDNA conversion.
+
+PARAGRAPH
+
+Alternatively, and/or in addition, MX2 could have enhanced cccDNA turnover.
+
+As the small amounts of cccDNA and the lack of specific means to block new cccDNA formation from rcDNA make this difficult we instead used minicircle technology to generate recombinant HBV cccDNA ("r-cccDNA-SP1") [59] which is functional in directing HBV transcription and replication (Fig. S13).
+
+Next we co-transfected Huh7 cells with r-cccDNA-SP1 DNA plus empty pCDNA6 vector or the respective expression vectors for MX2 or A3B, reported to induce cccDNA degradation [16, 17].
+
+At day 5 post transfection we analyzed nuclear DNA by Southern blotting (Fig. 6D).
+
+In either case (Fig. 6D), the single, fast migrating cccDNA band was converted into a group of lower mobility bands; the slowest ones migrated like rc DNA and double-strand linear forms; the intermediate mobility bands likely correspond to cccDNA topoisomers as all bands collapsed into one upon digestion with restriction enzyme Spe I [60].
+
+When normalized to total nuclear DNA A3B reduced r-cccDNA-SP1 and its derived products to about 70% of that in the empty vector control (Fig. 6D), in line with recent reports [16, 17, 61], whereas MX2 had little effect (Fig. 6D) and thus probably did not induce a major turnover of HBV cccDNA.
+
+SECTION
+
+MX2 determinants required for anti-HBV activity
+
+PARAGRAPH
+
+Characteristic properties of MX2 can be ascribed to specific sequence regions, single aa residues, or structures including a NLS, GTPase activity, and dimerization and oligomerization interfaces [20, 30, 62, 63].
+
+We therefore employed an extensive mutagenesis approach to identify MX2 determinants for its anti-HBV activity.
+
+PARAGRAPH
+
+Despite 63% aa sequence identity between MX1 and MX2, MX2 displayed higher anti-HBV activity than MX1.
+
+We therefore generated two chimeric MX1-MX2 mutants called 1N2C (with the N terminal aa 1-37 of MX1 linked to C terminal aa 86-715 of MX2) and 2N1C (with the N terminal aa 1-85 of MX2 linked to C terminal aa 38-662 of MX1).
+
+These and the original Mx constructs were co-transfected with pHBV-1.3 into Huh-7 cells followed by Northern blot analysis of HBV RNAs.
+
+2N1C like MX2 reduced viral pc/pg RNA and subgenomic RNA more efficiently than 1N2C and MX1 (lane 1-5 of Fig. 7A, and Fig. 7B), as independently corroborated by RPA (Fig. 7C).
+
+Consequently, downstream replication markers were decreased more by 2N1C and MX2 than by 1N2C and MX1, in both Huh-7 and HepG2 cells (Fig. S15A, S15C and Fig. S16A, S16C, S16D).
+
+Hence, the N terminal aa 1-85 of MX2 determined its stronger anti-HBV activity.
+
+As the N terminal sequence of MX2 comprises NLS and PRD, we next validated mutants MX2-26, MX2-43, and MX2-83 which lack the NLS (aa 1-25), NLS plus a part of PRD (aa 1-42), and NLS plus the whole PRD (aa 1-82) (Fig. 1).
+
+As shown by Northern blotting (lane 8-12 of Fig. 7A, Fig. 7B), RPA (Fig. 7C), and Southern blotting (Fig. S15B, S15C and Fig. S16B, S16C), MX2-26 lacking the NLS inhibited viral RNA and DNA as efficiently as wild type (wt) MX2.
+
+In contrast, MX2-43 and MX2-83 displayed gradually lower anti-HBV activity.
+
+Therefore, an intact PRD but not the NLS of MX2 was crucial for maximal inhibitory activity.
+
+PARAGRAPH
+
+GTPase activity including GTP binding and hydrolysis activity appeared dispensable for the anti-HIV-1 activity of MX2 [23].
+
+However, GTP binding but not GTP hydrolysis activity was required for anti-HBV activity.
+
+As shown by Northern blotting (lane 6 and 7 of Fig. 7A, Fig. 7B), RPA (Fig. 7C), and Southern blotting (Fig. S15A, S15C and Fig. S16A, S16C, S16D), the double-defective K131A mutant [62] exhibited clearly reduced inhibitory effects on viral RNAs and other replication markers compared to wt; by contrast, the T151A mutant retaining GTP binding but lacking GTP hydrolysis activity [62] displayed an anti-HBV activity at least as high as wt MX2, in both Huh-7 and HepG2 cells.
+
+PARAGRAPH
+
+MX2 can assemble into high-order oligomers by dimerization and oligomerization [20, 63].
+
+Here we introduced M574D and Y651D mutations on the monomer interface to block both dimerization and oligomerization [20], and I423D, K663D, and I423D/K663D mutations on the dimer interface to prevent oligomerization [20].
+
+As shown by Northern blotting (lane 13-19 of Fig. 7A), RPA (Fig. 7C), and Southern blotting (Fig. S17), all these MX2 mutants exhibited weaker inhibitory effects on viral RNAs and downstream replication markers than wt.
+
+Reduced expression of the M574D and Y651D mutants rendered it difficult to judge the importance of dimerization.
+
+Nevertheless, oligomerization of MX2 dimers was definitely required for maximal anti-HBV activity as the oligomerization-deficient mutants were equally well expressed as wt (Fig. S17).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+More than 90% of the acute HBV infections in adults are resolved within 6 months [1] which is mainly ascribed to HBV specific T-cell functions.
+
+Besides killing infected hepatocytes by HBV specific cytolytic T-cells, noncytolytic cytokines including IFN-γ, TNF-α, and possibly type I IFNs are believed to cure infected hepatocytes by inducing multiple antiviral effectors [64-66].
+
+Up to 30-40% of the eligible chronic hepatitis B patients treated with type I IFN (including IFN-α and peglated IFN-α) achieve sustained virological response [3, 4].
+
+Growing evidence suggests that IFN-α directly decreases virus load by inducing numerous ISGs.
+
+These ISGs may reduce transcription of pgRNA and subgenomic RNAs via epigenetic modifications of the cccDNA minichromosome [67], accelerate pgRNA degradation [68] and nucleocapsid decay [69], or may even destabilize cccDNA [16].
+
+However, which of the hundreds of ISGs are the most relevant for IFN’s anti-HBV activity is largely unresolved.
+
+In the present study, we identified MX2 as a potent IFN-α-inducible effector inhibiting HBV infection by reducing cccDNA levels, and suppressing HBV DNA replication by downregulating viral RNA transcription.
+
+Furthermore, cccDNA reduction by MX2 was most likely due to impaired conversion of rcDNA to cccDNA.
+
+We also demonstrated the substantial contribution of MX2 during IFN-α inhibition of HBV transcription.
+
+Finally, multiple determinants within MX2, including the C-terminal part of PRD, GTP binding activity and oligomerization capacity, were uncovered to be critical for maximal anti-HBV activity.
+
+PARAGRAPH
+
+Elimination of cccDNA is a critical indicator of virological cure of chronic hepatitis B [2] but few if any practical strategies are available to reduce cccDNA or interfere with its function as transcriptional template.
+
+Given its potency in reducing cccDNA and viral RNA transcription, MX2 should represent a novel and promising HBV inhibitor that also helps to understand the complex biology of HBV cccDNA formation and the multi-pronged antiviral mechanisms of IFN-α.
+
+SECTION
+
+Mechanisms of MX2 suppressing HBV transcription
+
+PARAGRAPH
+
+MX2 reduced HBV DNA replication by downregulating all replication markers when pgRNA transcription was driven from episomal vectors by HBV’s own promoters and enhancers (Fig. 3A and 3B), as corroborated for episomal r-cccDNA-SP1 as the transcriptional template (Fig. S14).
+
+In contrast, MX2 exerted nearly no anti-HBV activity in HepAD38 cells with their chromosomally integrated 1.1-fold HBV genome (Fig. 3C).
+
+Hence the episomal nature of the transcriptional templates determined MX2’s anti-HBV activity.
+
+PARAGRAPH
+
+In cotransfection experiments, MX2, unlike A3B, did not reduce the transcriptional template (Fig. 6D).
+
+However, MX2 preferentially decreased viral RNAs compared to the non-viral GFP mRNA and most host cellular mRNAs (Fig. 4A, 4B and Fig. S4).
+
+Such virus specific inhibition was mainly achieved by inhibition of viral RNA transcription, and less so by a slightly accelerated degradation (Fig. 4C-4E).
+
+Specific repression of viral transcription to combat virus infection has also been adopted by Mx homologs from other host species [70-74].
+
+However, as in the other cases [70-74] it needs to be determined how specificity for viral vs. non-viral transcription from episomal templates is achieved.
+
+PARAGRAPH
+
+Wt-like anti-HBV activity of NLS-less variant MX2-26 will raise the intriguing question how it still restrict viruses on the nuclear level, such as by suppressing viral transcription.
+
+One possible explanation could be that some cytoplasm-to-nucleus shuttling molecule(s) mediating HBV replication could be disturbed by MX2, as MX2 was reported to inhibit nucleocytoplasmic protein transport [62] and also the nuclear transport of invading herpes simplex virus 1 capsids [28].
+
+SECTION
+
+Mechanisms involved in cccDNA reduction by MX2
+
+PARAGRAPH
+
+During the first 24 h post HBV infection, MX2 reduced nuclear PF rcDNA (Fig. 6C).
+
+This could indicate an impaired nuclear transport of the nucleocapsid as MX2 was shown to inhibit nucleocytoplasmic protein transport [62], and such an impairment is also thought to contribute to MX2 inhibition of HIV-1 and herpesviruses [32, 75].
+
+However, at later time points post infection the levels of nuclear rcDNA became similar between the MX2 and empty lentivirus groups, excluding a permanent block.
+
+Regardless of this, cccDNA relative to rcDNA was universally less in the MX2 group (Fig. 6B and 6C).
+
+Together with the lack of impact on turnover of r-cccDNA-SP1 DNA (Fig. 6D), cccDNA reduction by MX2 is therefore most likely due to an impaired conversion of rcDNA to cccDNA.
+
+The underlying mechanism(s) remain to be determined, but a few scenarios may be envisaged.
+
+One still relates to nuclear import.
+
+Release of rcDNA from the HBV nucleocapsid is supposed to occur via interactions between the capsid and nucleoporins in the nuclear basket [76], the internal structure of the nuclear pore.
+
+If MX2 interfered with these interactions rcDNA might not, or not fully, be released into the nucleoplasm for conversion into cccDNA but experimentally would still be scored as nuclear [43].
+
+Another scenario correlates MX2´s repression of viral transcription with rcDNA to cccDNA conversion.
+
+rcDNA bears multiple molecular features such as the terminal redundancy in minus-strand DNA or the gap and the RNA primer in plus-strand DNA; these may appear as lesions that trigger the cellular DNA damage response (DDR) [10] to provide the DNA repair factors required for cccDNA formation.
+
+One of several sensors for such lesions is the RNAPII transcription complex, initiating transcription-coupled repair (TCR) [77].
+
+Even partial uncoating of capsid-associated rcDNA may enable access for RNAPII, and initial round of transcription could serve to sense, by TCR, the anomalities on rcDNA and initiate repair.
+
+Suppression of transcription by MX2 would thus also impair this pathway.
+
+Various other options exist, including indirect ones, such as an impact of MX2 on (a) host factor(s) involved in rcDNA to cccDNA conversion; notably even for the longer known MX2 inhibition of HIV-1 more and more complex mechanisms than initially thought are uncovered.
+
+Further studies on how MX2 affects cccDNA formation will be required to decipher this critical issue.
+
+PARAGRAPH
+
+Sequence and structural determinants conferring anti-HBV versus anti-HIV-1 and anti-herpesvirus activity to MX2
+
+PARAGRAPH
+
+The most critical determinants for MX2´s anti-HBV activities found in this study were the N terminal region, i.e. aa 1-85 though without the NLS and the triple-arginine motif within the sequence 2-25 (Fig. 1); GTP binding but not GTP hydrolysis activity; and oligomerization competence.
+
+These determinants overlap partly but not entirely with those reported for MX2 restriction of herpesviruses and HIV-1 [32] which themselves are not identical.
+
+Common to inhibition of all these viruses is the dependence on the N terminal region of MX2 which is largely absent from MX1 (Fig. 1).
+
+In all cases did the N terminal ∼90 aa of MX2 fused to MX1 confer restriction activity to the chimeric proteins [32], shown here by the wt-MX2-like anti-HBV activity of the chimeric protein 2N1C but not the reverse construct 1N2C (Fig. 7A).
+
+However, further dissection revealed distinct differences.
+
+Deletion of the first 25 aa had no negative impact on anti-HBV activity (Fig. 7) while the very N terminal region is important for both herpesvirus and HIV-1 restriction, though via different subregions.
+
+For human herpesvirus restriction the NLS function but not the triple arginine motif appears important [28], while the reverse holds for HIV-1 [31] where the triple arginine motif is involved in capsid binding.
+
+For herpesviruses no MX2 binding to the capsid has been found [32].
+
+The similarities and differences between HBV and the other target viruses extend to other properties of MX2.
+
+GTPase activity including GTP binding and hydrolysis activity appears dispensable for the anti-HIV-1 activity of MX2 [23].
+
+However, GTP binding but not GTP hydrolysis activity is required for anti-HBV activity (Fig. 7).
+
+In contrast, both GTP binding and hydrolysis activity are essential for the anti-herpesvirus activity [32], suggesting that MX2 exerts its antiviral effects by different, perhaps even cell-type specific [75], mechanisms.
+
+Lastly, a common feature for restriction of all viruses is the dependence on dimerization and/or oligomerization competence of MX2, as shown here by the much reduced anti-HBV activity of dimerization and oligomerization incompetent variants (Fig. 7).
+
+SECTION
+
+Roles of MX2 in IFN-α suppression of HBV transcription and replication
+
+PARAGRAPH
+
+The amounts of MX2 induced by IFN-α treatment were sufficient to inhibit HBV replication in our titration experiments (Fig. S6 and Fig. 3A).
+
+Furthermore, suppressing MX2 expression by RNAi alleviated IFN-α’s inhibition of multiple HBV replication markers to various extents (Fig. 5 and Fig. S8).
+
+Especially pc/pg RNA levels were significantly rescued from IFN-α inhibition (Fig. 5A and 5B), strongly suggesting a substantial role for MX2 in IFN-α-mediated inhibition of HBV transcription.
+
+As other ISGs (e.g. APOBECs) which can potently inhibit viral replication steps downstream of viral RNA transcription are also induced by IFN-α, it is not too surprising that knocking down MX2 expression less significantly mitigated IFN-α inhibition of viral replicative DNAs (Fig. S8).
+
+Although MX2 contributed substantially to anti-HBV activity of IFN-α by diminishing cccDNA and viral RNA, IFN-α therapy achieves limited sustained virological response in only up to 30-40% of CHB patients.
+
+Therefore, future comparative analysis of MX2 expression levels between responsive and non-responsive patients will shed new light on optimization of IFN therapy.

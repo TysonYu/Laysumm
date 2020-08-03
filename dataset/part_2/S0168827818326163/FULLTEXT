@@ -1,0 +1,481 @@
+10.1016/j.jhep.2018.12.001
+
+FULLTEXT
+
+TITLE
+
+The trends in incidence of primary liver cancer caused by specific etiologies: Results from the Global Burden of Disease Study 2016 and implications for liver cancer prevention
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Liver cancer is a common lethal malignancy that afflicts in excess of 1 million people and caused 800,000 deaths globally in 2016.1
+
+It has been well documented that the incidence of liver cancer varies considerably across the world, with the highest incidence observed in East Asia.
+
+In contrast, the incidence in America is nearly 5- to 10-fold lower than the incidence observed in East Asia.2
+
+Recent decreases in the incidence of liver cancer have been reported in China and Japan.3–5
+
+However, newly diagnosed cases and the age standardized incidence rate of liver cancer have increased on a global level during the last few decades, albeit significant public health efforts have been made to counter this problem.2,6,7
+
+PARAGRAPH
+
+The underlying etiologies for liver cancer have been extensively investigated and widely recognized in previous epidemiological studies.8
+
+Therefore the heterogeneous incidence pattern of liver cancer was mainly determined by the prevalence of risk factors across different regions.
+
+For example, endemic hepatitis B virus (HBV) and development of chronic hepatitis B infection has been the main driver of liver cancer in China.9,10
+
+Whereas in South Korea and Japan, liver cancer is mainly caused by hepatitis C virus (HCV) infection, with HBV infection only accounting for approximately 15–20% of the total cases.11
+
+Knowing the pattern of liver cancer incidence as well as the temporal trends facilitates the initiation of more targeted prevention strategies, thereby promoting the precise prevention of liver cancer.
+
+PARAGRAPH
+
+The Global Burden of Disease (GBD) study assessed the liver cancer burden in 195 countries and territories across the world, and provided a unique opportunity to understand the landscape of liver cancer.1
+
+In a recent study, Akinyemiju et al. described the global landscape of primary liver cancer mortality using the data derived from the GBD Study 2015.2
+
+In the current study, we retrieved detailed information on the incidence of liver cancer caused by 4 major etiologies from the GBD Study 2016.
+
+We further assessed the disease burden of liver cancer by determining temporal trends of liver cancer incidence caused by specific etiologies from 1990 to 2016 at global, regional, and national levels.
+
+Our results can serve as an important extension and complement to the previous study,2 while also assisting in the design of targeted strategies in liver cancer prevention tailored to different countries.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Study data
+
+PARAGRAPH
+
+Annual incident cases and age standardized incidences of liver cancer from 1990 to 2016, by sex, region, country, and etiology (hepatitis B, hepatitis C, alcohol consumption, and other causes), were collected from the Global Health Data Exchange (GHDx) query tool (http://ghdx.healthdata.org/gbd-results-tool).12
+
+Data from a total of 195 countries and territories were available.
+
+These countries and territories were then categorized into 5 regions in terms of socio-demographic index (SDI), including low, low-middle, middle, high-middle, and high.
+
+Moreover, the world was separated into 21 regions in terms of geography, e.g. East Asia (Table 1).
+
+The general methods for the GBD 2016 and the methods for estimations of disease burden in liver cancer have been detailed in previous studies.2,6
+
+Briefly, cancer incidence was sought from individual cancer registries or aggregated databases of cancer registries, e.g. Cancer Incidence in Five Continents (CI5), SEER, EUERG, or NORDCAN.
+
+All ICD9 and ICD10 codes pertaining to primary liver cancer (155-155.963 and C22.0-9, respectively) are being included in these estimates (Box S1).
+
+To find the proportion of liver cancer cases due to the 4 etiology groups included in GBD (hepatitis B, hepatitis C, alcohol consumption, and other causes), a systematic literature search was performed in PubMed.
+
+The search strategy is presented in the Box S2.
+
+Studies were included if the study population was representative of liver cancer patients for the respective location.
+
+For each study the proportions of liver cancer due to the 3 specific risk factors were calculated.
+
+Remaining risk factors were included under a combined “other” group.
+
+The proportion data found through the systematic literature review were used as input for 4 separate DisMod-MR 2.1 models to determine the proportion of liver cancers due to the 4 subgroups for all locations, both sexes, all age groups.
+
+We also collected human development index (HDI) data at the national level from the World Bank.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+We used the age-standardized incidence rate (ASR) and estimated annual percentage change (EAPC) to quantify the liver cancer incidence trends.13
+
+Standardization is necessary when comparing several populations with different age structures or for the same population over time in which the age profiles change accordingly.
+
+The ASR (per 100,000 population) in accordance with the direct method is calculated by summing up the products of the age-specific rates (ai, where i denotes the ith age class) and the number of persons (or weight) (wi) in the same age subgroup i of the chosen reference standard population, then dividing the sum of standard population weights, i.e.,ASR=∑i=1Aaiwi∑i=1Awi×100,000
+
+PARAGRAPH
+
+More importantly, the ASR trends can serve as a good surrogate for shifting patterns of disease within a population, as well as clues to the changing risk factors.
+
+Consequently, we can assess the effectiveness of current prevention strategies and establish more targeted ones, if needed, based on the analyses in the ASR.14
+
+EAPC is a summary and widely used measure of the ASR trend over a specified interval.
+
+A regression line was fitted to the natural logarithm of the rates i.e., y = α + βx + ɛ, where y = ln(ASR), and x  = calendar year.
+
+The EAPC was calculated as 100 × (exp(β) − 1) and its 95% confidence interval (CI) can also be obtained from the linear regression model.15
+
+The ASR was deemed to be in an increasing trend if the EAPC estimation and the lower boundary of its 95% CI were both >0.
+
+In contrast, the ASR was in a decreasing trend if the EAPC estimation and the upper boundary of its 95% CI were both <0.
+
+Otherwise, the ASR was deemed to be stable over time.
+
+Additionally, to explore the influential factors for EAPCs, we assessed the association between EAPCs and ASRs (1990), and HDI (2016), respectively, at the national level.
+
+Finally, a hierarchy cluster analysis was conducted to group the countries and territories into 4 categories (a: significant increase; b: minor increase; c: remained stable or minor decrease; d: significant decrease) in terms of their temporal trends in 4 etiologies related liver cancer ASRs.
+
+All statistics were performed using R program (Version 3.4.4, R core team).
+
+A p value of less than 0.05 was considered statistically significant.
+
+SECTION
+
+Results
+
+SECTION
+
+Global liver cancer burden
+
+PARAGRAPH
+
+The ASR of liver cancer varies considerably across the world, with the highest ASR observed in Mongolia (108.37 per 100,000 in 2016), followed by Taiwan (China) and Gambia (Fig. 1A).
+
+As for the absolute number, more than half of newly diagnosed cancer cases were recorded in China in 2016 (570,000), followed by Japan and the USA.
+
+PARAGRAPH
+
+Globally, the incident cases of liver cancer increased 114.0% (95% CI 108.4%–119.8%) from 471,000 in 1990 to 1,007,800 in 2016.
+
+The most pronounced increase was observed in the Philippines (898.1%; 95% CI 821.3%–974.5%) (Fig. 1B).
+
+The ASR increased by an average 0.34% (95% CI 0.22%–0.45%) per year in the same period (from 12.49 per 100,000 in 1990 to 14.55 per 100,000 in 2016) (Table 1).
+
+The largest increase in ASR was observed in the Netherlands (EAPC = 4.30; 95% CI 4.14–4.70), followed by Australia and the UK (Fig. 1C).
+
+Only 6 countries or territories (Kazakhstan, Greece, Bermuda, Trinidad and Tobago, Barbados, and Bulgaria) reported a decreasing liver cancer ASR between 1990 and 2016 (Fig. 1B,C and Table S5).
+
+According to the results derived from cluster analysis (Fig. S1), 19 countries (or territories) were categorized into “significant increase” group, including the Netherlands, the UK, the USA, and Mongolia.
+
+Thirty-six countries (or territories) were categorized into “minor increase” group, including France, Denmark, India, and Germany.
+
+Seventy-five countries (or territories) were categorized into “remained stable or minor decrease” group, including China, Russia, Brazil, and Sweden.
+
+The remaining 55 countries (or territories) were categorized into “significant decrease” group, including Japan, Cuba, Hungary, and Poland.
+
+PARAGRAPH
+
+For SDI regions, the number of liver cancer cases increased across the 5 SDI regions (Fig. 2).
+
+However, the ASR decreased in the low, low-middle, and middle SDI regions (Table 1).
+
+For geographical regions, absolute numbers of liver cancer cases increased in all regions (Fig. 3), with the greatest increase observed in Australasia (404.2%; 95% CI 367.4%–438.5%), followed by high-income North America and Southeast Asia.
+
+As for ASR, the most significant decrease was detected in Western Sub-Saharan Africa (EAPC = −1.19; 95% CI −1.37 to −1.00).
+
+The most significant increase was detected in Australasia (EAPC = 4.12, 95% CI 3.91–4.33) (Fig. 5A; Table 1).
+
+PARAGRAPH
+
+The proportions of liver cancer caused by specific etiologies at the global and regional level in 1990 and 2016 are presented (Fig. 4).
+
+Globally, more than 40% of liver cancer was caused by hepatitis B, followed by other causes, hepatitis C, and alcohol consumption.
+
+The proportions remained relatively stable at the global level over time, but in some regions, these significantly changed.
+
+For instance, in the Western Europe, the proportion of alcohol consumption decreased from 39.3% in 1990 to 34.5% in 2016, while the proportion of hepatitis C increased from 37.1% to 40.1% during the same period.
+
+SECTION
+
+Liver cancer due to hepatitis B
+
+PARAGRAPH
+
+Globally, approximately 43.3% of total liver cancer (436,500) was ascribed to hepatitis B in 2016 (Fig. 4; Table S1).
+
+The ASR of liver cancer due to hepatitis B (LCHB) was significantly heterogeneous across the world, with the highest ASR observed in East Asia (Fig. S2).
+
+From 1990 to 2016, the ASR of LCHB displayed a minor increasing trend, with an EAPC of 0.22 (95% CI 0.08–0.36).
+
+The highest EAPC was found in the Netherlands (4.53, 95% CI 4.36–4.70), followed by Moldova, Australia, the UK, and the USA (Fig. S3; Table S5).
+
+The absolute number of LCHB cases increased by 106.6% (95% CI 97.4%–111.3%) at the global level.
+
+The most pronounced increase was observed in the Philippines (921.7%; 95% CI 834.5%–997.4%).
+
+In contrast, the most pronounced decrease was detected in Kazakhstan (−32.5%; 95% CI −40.4% to −23.6%) (Fig. S4; Table S5).
+
+For SDI regions, LCHB cases increased across all 5 regions, while the ASR decreased in low-, low-middle-, and middle-SDI regions (Fig. 2; Table S1).
+
+For geographical regions, the LCHB cases increased in all 21 regions, with the highest increase observed in Australasia (388.8%; 95% CI 327.4%–436.5%), followed by high-income North America (Fig. 3).
+
+In parallel, the greatest 2 EAPCs in ASR were found in Australasia (4.14; 95% CI 3.89–4.40) and high-income North America (3.48; 95% CI 3.27–3.70) (Fig. 5A; Fig. S3; Table S1).
+
+SECTION
+
+Liver cancer due to hepatitis C
+
+PARAGRAPH
+
+In 2016, hepatitis C precipitated nearly 18.7% (188,700) of the total number of liver cancer cases (Table S2).
+
+However, in some high-SDI regions, such as Japan and Italy, the proportion of liver cancer due to hepatitis C was as high as 50–60%.
+
+In most countries, the incidence of liver cancer due to hepatitis C (LCHC) was under 7 per 100,000 in 2016.
+
+The highest rate was observed in Mongolia (42.64 per 100,000), followed by Egypt, Taiwan (China) and Japan (Fig. S5).
+
+Globally, the ASR of LCHC displayed an increasing trend from 1990 to 2016, with the EAPC of 0.57 (95% CI 0.48–0.66) (Table S2).
+
+At the national level, the highest increase in LCHC ASR was observed in the Netherlands (EAPC = 4.42; 95% CI 4.23–4.61), followed by Australia and the UK (Fig. S6).
+
+A 127.9% (95% CI 120.4%–136.5%) increase was noted for global LCHC cases between 1990 and 2016.
+
+The greatest increase in absolute case numbers was observed in the United Arab Emirates (609.0%; 95% CI 543.4%–658.5%) (Fig. S7).
+
+For SDI regions, the decreasing trend in LCHC was only observed in low-SDI regions (EAPC = −0.22; 95% CI −0.25–−0.20), and the most significant increase was noted in high-SDI regions (EAPC = 0.99; 95% CI 0.84–1.14) (Table S2).
+
+The LCHC cases increased from 1990 to 2016 in all 21 geographical regions.
+
+However, the trends in ASR were significantly heterogeneous.
+
+The greatest increase was found in Australasia (4.21; 95% CI 3.92–4.50), followed by high-income North America (3.25; 95% CI 3.06–3.44) (Fig. 5A; Table S2).
+
+SECTION
+
+Liver cancer due to alcohol consumption
+
+PARAGRAPH
+
+In 2016, liver cancer due to alcohol consumption (LCAL) accounted for 14.7% (147,700) of total liver cancer cases.
+
+In several countries in Western Europe, such as Belgium, Luxembourg, Germany, and Denmark, this proportion exceeded 40%.
+
+Globally, the ASR of LCAL remained stable from 1990 to 2016 (EAPC = 0.10; 95% CI −0.06–0.25), though the absolute number of cancer cases increased by 113.1% in this period (Table S3).
+
+With respect to countries, the relatively higher ASRs were observed in Mongolia, Thailand, and China (Fig. S8), with the highest increase in ASR observed in Sri Lanka (EAPC = 4.20, 95% CI 3.76–4.64), followed by Mongolia and Australia (Table S5; Fig. S9).
+
+Moreover, the ASR was decreased in low-, low-middle-, and middle-SDI regions over time, and remained stable in middle-high SDI regions, while it increased in high-SDI regions (Table S3).
+
+For geographical regions, the most pronounced increase in ASR of LCAL was detected in Australasia (EAPC = 3.96; 95% CI 3.82–4.10), followed by high-income North America (Fig. 5A; Table S3).
+
+SECTION
+
+Liver cancer due to other causes
+
+PARAGRAPH
+
+In 2016, liver cancer due to other causes (LCOT) accounted for 23.3% (234.8 thousands) of total liver cancer cases.
+
+In Sweden, Iran, and Canada, this proportion exceeded 40%, albeit the ASRs of these countries were at a lower level (Fig. S11).
+
+The global ASR of LCOT increased by an average 0.51% (95% CI 0.41–0.62) per year from 1990 to 2016.
+
+The highest increase in ASR was observed in the Netherlands (EAPC = 4.82; 95% CI 4.28–5.37), followed by Australia and the UK (Table S5; Fig. S12).
+
+The ASR of LCOT decreased in low-SDI regions, remained stable in low-middle- and middle-SDI regions, while it increased in middle-high- and high-SDI regions (Table S4).
+
+The most significant increase in ASR was observed in Australasia (EAPC = 4.45; 95% CI 4.14–4.75), followed by high-income North America (Fig. 5A; Table S4).
+
+SECTION
+
+The influential factors for EAPC
+
+PARAGRAPH
+
+As shown in Fig. 5B and C, a significant association was detected between EAPC and ASR (in 1990), and HDI (in 2016), respectively.
+
+The ASR of liver cancer in 1990 reflects the disease reservoir at baseline and the HDI in 2016 can serve as a surrogate for the level and availability of health care in each country.
+
+A significant negative association was found between EAPCs and ASRs (ρ = −0.58, p < 0.001) when the ASR was limited to below 10 per 100,000.
+
+In contrast, for an ASR above 10 per 100,000, the association disappeared.
+
+Surprisingly, a significant positive relation was detected between EAPCs and HDIs (ρ = 0.33, p < 0.001).
+
+Countries with higher HDI have experienced a more rapid increase in ASR of liver cancer from 1990 to 2016.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The heterogeneous pattern in risk factor exposures results in a markedly diverse liver cancer incidence across the world, and makes the prevention of liver cancer complex.10,16,17
+
+In the current study, we comprehensively analyzed the temporal trends in primary liver cancer (more than the hepatocellular carcinoma) incidence caused by several of the most common etiologies at the global, regional, and national level.
+
+In general, liver cancer was increased in both incidence and cancer cases from 1990 to 2016.
+
+These trends were dominated by an increase in HCV-related liver cancer, with a smaller contribution from HBV and other causes.
+
+However, the incidence temporal trends varied considerably by regions and countries, and largely aligned with the regional trends in liver cancer mortality.18
+
+For example, in low-, low-middle-, and middle-SDI regions, the decreasing trend in liver cancer ASR was mainly attributable to the reduction in LCHB.
+
+Conversely, in middle-high- and high-SDI regions, the increasing trend in liver cancer ASR was most likely due to the increase in LCHB.
+
+Consequently, understanding the exact pattern of etiologies that induce liver cancer is critical for the specific prevention of liver cancer.
+
+PARAGRAPH
+
+Consistent with previous studies, HBV and HCV still are the most important risk factors for liver cancer.19,20
+
+LCHB tended to be more prevalent in low- or middle-SDI regions, such as East Asia (mainly China) and Western Sub-Sahara Africa, where HBV is endemic.
+
+It is promising that the ASRs of LCHB have been decreasing in these areas over the last couple of decades, albeit the number of cancer cases is still increasing.
+
+The decline in ASR might be primarily attributable to the control of HBV infection through vaccination campaigns.
+
+For example, the Chinese government has initiated a set of programs to combat HBV, such as “free-of-charge HBV vaccination” for all newborns and a “catch-up HBV vaccination” program for children aged 8–15 years.21
+
+These efforts were significantly associated with reduced HBV infection and a concomitant decrease in the incidence of liver cancer in the general population.22–24
+
+On the contrary, in neighboring Mongolia no apparent progress has been made during this timeframe and liver cancer remains the leading cancer site with an increase of 3.27% per year from 1990 to 2016.25
+
+To our surprise, the incidence of LCHB incidence has increased at a relatively fast rate in most high-SDI countries, including the Netherlands, the UK, and the USA, though the ASR is still at a lower level.
+
+Although the increase in LCHB might be partly ascribed to the growth in immigrants from Asia,26 the rise indicates that HBV prevention should be more robust in these countries.27,28
+
+Consequently, it is recommended that these countries reorient their HBV prevention strategies, for example, by adopting a universal childhood hepatitis B vaccine program rather than risk-group-targeted vaccination only.29,30
+
+Fortunately, the WHO recommends its inclusion in routine infant immunization programs and, by the end of 2016, more than 180 countries had introduced the HBV vaccine into their national immunization schedules.31
+
+The preventive effects therefore can be expected in the next few decades.
+
+PARAGRAPH
+
+In contrast to LCHB, LCHC was predominant in high-SDI regions, including East Asia (mainly Japan), high-income North America, and Western Europe, where both HBV and HCV prevalence were lower.10,16
+
+HCV increases the risk of liver cancer by inducing fibrosis and eventually cirrhosis.8
+
+Since obesity and diabetes increase the risk of HCV-related cirrhosis, the increases in global and most regional LCHC incidences are likely to be both driven by new HCV infections and, to some extent, by the increasing incidence of obesity and diabetes.32–34
+
+Moreover, HCV treatment rates are even lower in the general population in the USA, estimated at 13%, with only 5% to 6% of all HCV-infected people having been cured a decade ago.35,36
+
+In 2014, direct-acting antiviral (DAA) therapy that targets key HCV encoded proteins was introduced and more than 90% patients can now be cured.37
+
+Those fortunate enough to be cured of chronic hepatitis C with DAAs may remain at risk for liver cancer for an indefinite period.38
+
+Consequently, the prevention of LCHC might involve at least 3 aspects: first and foremost, prohibiting the widespread transmission of HCV among general populations; second, continuously investing in the development of HCV vaccine; and third, strengthening the program for weight management and increasing the rate of antiviral treatment for HCV worldwide, especially as these drugs become cheaper to procure.
+
+LCHC is also a serious public health concern in developing countries.
+
+For example, the LCHC ASR was below 3 per 100,000 in 1990 and remained stable from 1990 to 2016 in China.
+
+Nevertheless, according to our previous study,39 the reported incidence of HCV has increased nearly 5-fold between 2004 and 2014.
+
+As a result, the incidence of LCHC might be expected to significantly increase in China in the next 30 to 50 years, if interventions are not introduced.
+
+PARAGRAPH
+
+Unlike LCHB and LCHC, the overall ASR of LCAL has been relatively stable from 1990 to 2016 but has increased in high-SDI regions.
+
+According to a previous global survey, the adult per capita consumption of alcohol was highest in Europe, followed by Australia and high-income North America.40
+
+This aligns with the LCAL distribution in our study.
+
+The reduction in alcohol consumption observed since the 1970s in several countries across central Europe has likely contributed to the decrease in LCAL incidence.17
+
+However, in Australasia and high-income North America, there has been a rapidly increasing trend when compared with other regions, including Western Europe.
+
+The policies aiming to reduce population-level alcohol consumption have the potential to substantially improve population-health outcomes in these regions, particularly among young people.41,42
+
+PARAGRAPH
+
+Apart from HBV, HCV, and alcohol, factors such as aflatoxin B1, tobacco, obesity, diabetes, and non-alcoholic fatty liver disease were integrated into “other causes” in this study; these have also been identified as precipitants of liver cancer.17,43,44
+
+In this study, we found that the ASR of LCOT increased in the world and in more than half of the regions, especially in those with higher SDI.
+
+For example, in Australia, Italy, Germany, Switzerland, and the UK, LCOT increased at the fastest rate compared with the other 3 cancer types.
+
+These data possibly suggest that public health priorities should target these previously neglected factors, and that further investigations are warranted in the future to detect currently unknown etiologies for development of liver cancer.
+
+Multi-etiological liver cancer was not considered in this study due to data scarcity in the GBD dataset.
+
+The interaction of several etiologies might play roles in a proportion of liver cancer cases.
+
+For instance, alcohol consumption increases the risk of HCC in HBV- and HCC-related cirrhotic patients.45,46
+
+It is important, therefore, to investigate the temporal trends in liver cancer incidence due to multiple-etiologies in future studies.
+
+PARAGRAPH
+
+In addition, we found that the amplitude in ASR variations, namely EAPC, between 1990 and 2016 was significantly negatively associated with baseline ASR (<10/100,000).
+
+For those countries with low ASR in 1990, liver cancer was more likely to increase.
+
+This result might be explained by the following: 1) the lower the baseline ASR, the more significant the ASR variation; 2) countries with low ASR are unlikely to have considered liver cancer and HBV/HCV infection as a high priority in disease prevention programs due to the limited public health significance compared with other public health issues.
+
+However, the EAPC plateaued when the baseline ASR exceeded 10 per 100,000.
+
+One possible explanation for this result is that the degree of difficulty in liver cancer control increased with the baseline disease reservoir.
+
+For example, there was a minor decrease in liver cancer incidence in China, though the battle against liver cancer has been going on for decades there.
+
+PARAGRAPH
+
+Although the GBD estimates fill a gap where actual data on disease burden are sparse or unavailable, several limitations should be noted.
+
+First, the accuracy and robustness of GBD estimates largely depend on the quality and quantity of data used in the modeling.
+
+For example, the miscoding of liver metastases as primary liver cancer, underreporting of liver cancer, and underestimation of liver cancer caused by specific etiology due to lack of medical information, are the main issues in GBD cancer data.
+
+Second, due to the lack of relevant data, the temporal trends in incidence of liver cancer stratified by histology, such as hepatocellular carcinoma, were not assessed in the current study.
+
+PARAGRAPH
+
+In summary, liver cancer remains a major public health concern globally.18
+
+On the one hand, although we have attained great achievements in HBV prevention, HBV-driven liver cancer still remains an important health issue in developing countries and might be much more important in developed countries in the near future.
+
+On the other hand, liver cancer due to hepatitis C is a global health concern that cannot be ignored.
+
+Fortunately, these causes of liver cancer are highly preventable and now more treatable.
+
+Prevention of liver cancer due to alcohol consumption through government policy intervention should be emphasized in several “high-risk” regions.
+
+However, the most severe challenge might be targeting liver cancer due to other causes, due to the high complexity and latent uncertainty in the establishment of prevention frameworks.
+
+The information provided in this study should help to illustrate the global disease burden of liver cancer and to establish more effective and targeted liver cancer prevention strategies.
+
+SECTION
+
+Acknowledgement
+
+PARAGRAPH
+
+We appreciate the works by the Global Burden of Disease study 2016 collaborators.
+
+We also would like to thank Prof. Shunzhang Yu, Prof. Na He and Prof. Genming Zhao from School of Public Health, Fudan University; Prof. Jiucun Wang from School of Life Sciences, Fudan University; Prof. Weiming Ye from Karolinska Institutet; Prof. Ming Lu from Qilu Hospital of Shandong University, who provided insightful methodological advice and wisdom throughout the study.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by the National Key Research and Development Program of China (grant number: 2017YFC0907002, 2017YFC0907501, 2017YFC211700); the National Natural Science Foundation of China (grant numbers: 81772170, 81502870); the key basic research grants from Science and Technology Commission of Shanghai Municipality (grant number: 16JC1400500); the International S&T Cooperation Program of China (grant number: 2015DFE32790); and Shanghai Municipal Science and Technology Major Project (2017SHZDZX01).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Study design: TZ, XC.
+
+Data collection: ZL, HY, QF, NC.
+
+Data analyses: ZL, YJ.
+
+Results interpretations: All authors.
+
+Manuscript writing: ZL, YJ, TZ, XC, CS, HY, LJ.
+
+Manuscript proofing: TZ, XC, CS, LJ.

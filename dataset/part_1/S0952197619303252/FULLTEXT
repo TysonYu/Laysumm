@@ -1,0 +1,627 @@
+10.1016/j.engappai.2019.103419
+
+FULLTEXT
+
+TITLE
+
+DFNet: Discriminative feature extraction and integration network for salient object detection
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Saliency detection in computer vision is the process to determine the most prominent and conspicuous parts of an image.
+
+Selective attention is embedded in our cognitive system and a lot of the tasks we do in every day life depend on it.
+
+Saliency detection has applications in a variety of supervised and unsupervised tasks (Frintrop and Jensfelt, 2008; Walther and Koch, 2006; Zdziarski and Dahyot, 2012; Bi et al., 2014; Hong et al., 2015; Mahadevan and Vasconcelos, 2009; Ren et al., 2013).
+
+For example, salient object detection can provide informative prior knowledge to objectness detection.
+
+The extracted bounding box locations which are more prominent and salient in an image would be more likely to contain the objects of interest (Han et al., 2018).
+
+Due to this fact, some objectness detection methods use saliency cues to detect objects of interest (Alexe et al., 2012; Erhan et al., 2014).
+
+PARAGRAPH
+
+The traditional computer vision approach to saliency detection is to identify parts of the image that have different contextual information with respect to their surroundings.
+
+To identify salient parts of an image, we would require both local and global contextual information.
+
+While local contextual features can help to reconstruct the object boundaries, global contextual features are beneficial for getting an abstract description of the salient object.
+
+PARAGRAPH
+
+With the ability of deep learning models in extracting high-level features, some early papers used these models to extract features from candidate image regions at different resolutions to extract local and global representations of the salient objects (Lee et al., 2016; Zhao et al., 2015; Li and Yu, 2015; Wang et al., 2015).
+
+Despite their success, due to the use of dense layers, these methods were not very efficient.
+
+However, deep neural networks inherently extract increasingly complex features from low-level to high-level and so in recent years, many papers have tried to use features from different levels of abstraction to incorporate low-level features and the more global high-level features.
+
+Figuring out how to combine the two information is still an open question.
+
+While the conventional way is to concatenate the low-level features with high-level features, and thus treating all feature maps equally, we propose to use an adaptive concatenation functionality where conditioned on the input, the model re-weights the concatenating features.
+
+To achieve this purpose, we introduce the Attention-based Multi-level Integrator (AMI) Module, which first weights the concatenated multi-level features by using a Channel Attention (CA) Block, and then it refines the resulted features by using a convolutional layer.
+
+Note that the CA block is similar to the recently introduced squeeze and excitation (SE) networks (Hu et al., 2018).
+
+PARAGRAPH
+
+To be able to capture salient object in different sizes, Inception like (Szegedy et al., 2015) modules can be used to extract features at different receptive fields (Szegedy et al., 2015).
+
+Previous works concatenate features from different scales which means assigning equal importance to all scales.
+
+While such functionality is desirable for applications like image segmentation, for saliency detection we usually consider a single scale as the salient object.
+
+The ability to capture the right size for the salient object can be achieved by assigning dynamic weights to the output feature maps of the Inception module, where conditioned on the input image, the model gives different importance to different scales.
+
+To achieve this functionality, we introduce a Multi-scale Attention Guided (MAG) Module.
+
+By using a novel design, this module first extracts multi-scale features effectively, and then it adaptively gives different importance to different scales by adopting the Channel Attention Block.
+
+In Fig. 1, two challenging scenarios of saliency detection are shown.
+
+In the first scenario, the salient object is globally distributed over the image.
+
+In the second one, the salient object is locally distributed.
+
+As seen from Fig. 1, our method (denoted as DFNet-R) is able to handle these challenging scenarios, unlike three recent methods.
+
+This functionality is achieved by using MAG Modules in our framework.
+
+Therefore, if the salient information is spread globally, the model will give more attention to feature maps from larger kernels.
+
+While, if the salient information is spread locally the model will emphasize feature maps of smaller kernels.
+
+PARAGRAPH
+
+In this paper, we propose a Discriminative Feature Extraction and Integration Network, which we refer to as DFNet, consisting of two parts; (i) the Feature Extraction Network and (ii) the Feature Integration Network.
+
+In the Feature Extraction Network, by adopting the MAG Modules, we extract dynamically weighted multi-scale features from a pre-trained network at various levels of abstraction.
+
+These features are then combined together in the Feature Integration Network by employing the AMI Modules.
+
+It is interesting to note that while using a single pre-trained network as the backbone is a common practice in saliency detection, for the first time in the literature, we use four different backbones in our framework to prove the robustness and generalization capability of our method.
+
+Furthermore, while the Cross-entropy loss is widely used in the literature, we discover that using this loss function leads to blurry predictions, as we show in the ablation study section.
+
+To boost the certainty of our proposed model, we design a Sharpening Loss function, which forces our network to generate sharper predictions.
+
+Through experiments, we show that our designed loss outperforms the Cross-entropy loss by a large margin.
+
+It is worth mentioning that saliency detection is a pre-processing step for various computer vision tasks.
+
+Since our method can run at a real-time speed, it can be practically adopted as a pre-processing step.
+
+PARAGRAPH
+
+In summary, the contributions of this paper are four fold:
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+Due to the importance of salient object detection and its vast application in various fields, a lot of works have focused on salient object detection over the past decade.
+
+Early works for solving this problem was mainly based on low-level cues such as color, texture, contrast (Perazzi et al., 2012; Cheng et al., 2014; Jiang et al., 2013; Li et al., 2014; Borji et al., 2015; Borji, 2015; Yan et al., 2013; Yang et al., 2013; Achanta et al., 2009).
+
+More recently with the success of neural networks in learning high-level task-specific features, a lot of effort has been made to develop models to extract features for detecting salient regions.
+
+For example, Han et al. (2017) use a convolutional neural network for initial feature extraction.
+
+Then they proposed a metric learning-based co-saliency detection method to simultaneously learn discriminative feature representations and co-salient object detector.
+
+PARAGRAPH
+
+The methods based on neural networks can be divided into two main subcategories; patch-based models and models based on fully convolutional neural networks (FCN).
+
+In patch-based models, a patch is extracted around each pixel.
+
+The neural network would then assign a saliency score for the center pixel of every patch.
+
+Li and Yu (2015) use patches at different sizes to extract multi-scale features for every pixel.
+
+These features were concatenated and fed into a classifier to determine the saliency score assigned to that pixel.
+
+Wang et al. (2015) use a two path model to refine features from patches containing local context with features from object proposals which contain more global context.
+
+PARAGRAPH
+
+Fully convolutional networks have the ability to ingest the whole image, do not require the input to have a fixed size, and thus provide for more flexibility and efficiency compared to patch-based models.
+
+Xi et al. (2019) propose an efficient end-to-end FCN architecture based on saliency regression network, which directly outputs a dense full-resolution saliency map for a given input image.
+
+Wang et al. (2016) use recurrent neural networks to iteratively refine saliency maps extracted via an FCN.
+
+In another work, Wang et al. (2017a) use multiple stages of FCN to refine the saliency maps from previous stages.
+
+A number of methods have attempted to combine low-level features with high-level features using skip connections.
+
+Liu and Han (2016) use long skip connections in a U-Net like architecture to concatenate high-level features and low-level features for saliency detection.
+
+Zhang et al. (2018a) also concatenate low-level features with high-level features in bi-directional way.
+
+Zhang et al. (2017a) extracts features from different layers and concatenates them before passing them to a refinement module.
+
+While the idea of using both low-level and high-level features for saliency detection is not new, what seems to be lacking is a mechanism which allows the model to intelligently select which level of abstraction it needs given the input image.
+
+In this work, we propose a simple yet effective architecture to achieve this.
+
+PARAGRAPH
+
+Using kernels at varying sizes in a manner of Inception module is a way to capture features at multiple scales.
+
+They have shown to be successful in applications like semantic segmentation where we expect to capture objects at multiple scales (Kim et al., 0000).
+
+Inception module has also been used in some saliency detection methods (Chen et al., 2017; Zhang et al., 2018a).
+
+In all these models, feature maps are extracted by applying kernels of multiple sizes.
+
+These feature maps are concatenated before being passed to the next layer.
+
+In this paper, we propose an architectural design for Inception module where for every input image the model assigns different weights (i.e. importance) to different feature maps resulted from kernels of multiple sizes.
+
+Therefore, the model has the flexibility to focus its attention to more discriminative feature maps and discard the information clutter it may receive from other feature maps.
+
+SECTION
+
+The proposed method
+
+PARAGRAPH
+
+In this section, we explain our proposed method for saliency detection task.
+
+We firstly describe the two parts of our DFNet, namely the Feature Extraction Network and the Feature Integration Network, in Sections 3.1 and 3.2.
+
+Then, we proceed with explaining the objective function we used to learn sharper salient objects in Section 3.3.
+
+The architecture of the proposed DFNet is illustrated in Fig. 2, and an overview of the different components of DFNet is depicted in Fig. 3.
+
+SECTION
+
+PARAGRAPH
+
+Feature extraction network
+
+PARAGRAPH
+
+The main functionality of the Feature Extraction Network is to extract representative local and global features at multiple scales in order to be used by the Feature Integration Network.
+
+This network is composed of two main parts; Backbone and Multi-scale Attention Guided Module (MAG Module).
+
+We explain each part in detail.
+
+SECTION
+
+Backbone
+
+PARAGRAPH
+
+In the saliency object detection task, an ImageNet (Russakovsky et al., 2015) pre-trained model is often used as the backbone to extract a hierarchy of increasingly complex features at different levels of abstraction.
+
+One of the advantages of our approach is that it is very flexible and can be used with any backbone without the need to change the architecture of the rest of the model.
+
+In the DFNet framework, we examine VGG-16 (Simonyan and Zisserman, 0000), ResNet50 (He et al., 2016), NASNet-Mobile (Zoph et al., 2018), and NASNet-large (Zoph et al., 2018) as the backbone, which are denoted as DFNet-V, DFNet-R, DFNet-M, and DFNet-L, respectively.
+
+The backbones are pre-trained to extract features for image classification.
+
+However, since we are dealing with assigning per-pixel saliency score, we make modifications to these models to fit the need of saliency detection task.
+
+To this end, we remove all the dense layers in the backbones.
+
+Since each backbone has a different architecture, there needs to be a selection process in terms of which layers to select the feature maps from.
+
+In what follows, we explain this selection process for every backbone:
+
+PARAGRAPH
+
+VGG-16 has 5 max pooling layers.
+
+We remove the last pooling layer to retain a better spatial representation of the input.
+
+We utilize feature maps of the last 3 stages from the VGG-16: conv3-3 (256 feature maps), conv4-3 (512 feature maps), and conv5-3 (512 feature maps).
+
+PARAGRAPH
+
+ResNet50, which consists of 5 residual convolution blocks, has 5 stages with different spatial resolutions.
+
+We use feature maps of the last 4 stages, namely conv2-x (256 feature maps), conv3-x (512 feature maps), conv4-x (1024 feature maps), and conv5-x (2048 feature maps).
+
+PARAGRAPH
+
+NASNet has a very complicated architecture, and thus mentioning the layers name from which we extract features, needs a detailed illustration of the NASNet architecture.
+
+Therefore, we encourage the readers to refer to the publicly available code for more details on which layers we used.
+
+In this section, we just provide the number of feature maps of each stage.
+
+In the case of NASNet-Mobile and NASNet-Large, we use four stages.
+
+In NASNet-Mobile, these stages contain 22, 88, 176, and 1056 feature maps, respectively.
+
+In NASNet-Large, the number of feature maps increase to 84, 168, 336, and 4032, respectively.
+
+PARAGRAPH
+
+To make things clear, considering the backbone with feature map sizes of W2n×H2n, we utilize feature map sizes with n=2, 3, 4 for VGG-16 and feature map sizes with n=2, 3, 4, 5 for ResNet50, NASNet-Mobile, and NASNet-Large.
+
+The extracted feature maps on each level (i.e. stage) are passed through the MAG Module, which is explained next.
+
+SECTION
+
+Multi-scale attention guided module
+
+PARAGRAPH
+
+It is evident that large kernels are suitable to capture the large objects, and small kernels are appropriate to capture the small ones.
+
+Due to the size variability of salient objects, it is not the best approach to employ simple, fixed-size kernels.
+
+Therefore, to capture objects of different scales at the same time, we adopt kernels in various sizes in an Inception (Szegedy et al., 2015) like fashion.
+
+More specifically, we perform convolutions with 1 × 1, 3 × 3, 5 × 5, 7 × 7, 9 × 9, and 11 × 11 kernels.
+
+Then, the resulting feature maps are stacked to form multi-scale features.
+
+The idea of extracting multi-scale features via inception modules has been previously explored.
+
+The difference between our method and the existing ones is that we also employ an attention mechanism to weight feature maps of various scales, and thus the model learns to give more attention to the right size and attenuate feature maps not corresponding to the scale of the salient object in the input image.
+
+In other words, if the salient information is spread globally, the model will put more weight on feature maps from larger kernels and if the salient information is spread locally the model will emphasize feature maps of smaller kernels.
+
+From our point of view, giving the model this ability and flexibility is the key factor to enhance the overall performance and avoid confusion for the model, which was the missing link in the previous works.
+
+Additionally, the implementation of this module, which is described next, is novel and efficient in term of memory.
+
+SECTION
+
+Implementation of MAG module.
+
+PARAGRAPH
+
+Convolutions with large kernel sizes such as 5 × 5 and higher are computationally very expensive.
+
+We adopt two solutions to mitigate this problem: (i) We can factorize an n×n kernel to a combination of 1×n and n×1 kernels, (ii) An n×n kernel with dilation rate of r will have the same receptive field as a kernel of size (n+(r−1)×2)×(n+(r−1)×2).
+
+Our MAG Module employs a combination of these two approaches to implement an n×n kernel.
+
+To weight the multi-scale features, we use the CA Block which is illustrated in Fig. 3(c).
+
+This design computes a weight vector to re-weight input feature maps.
+
+The implementation of MAG Module is shown in Fig. 3(a).
+
+MAG Module is used in every branch of the Feature Extraction Network as shown in Fig. 2.
+
+In every branch after MAG Module, we use a 1 × 1 convolutional layer to combine the feature maps and reduce the number of them.
+
+SECTION
+
+Feature integration network
+
+PARAGRAPH
+
+By employing MAG Modules, effective multi-scale contextual information at different levels is captured, as illustrated in Fig. 2.
+
+In order to effectively integrate the multi-level features, we introduce the Feature Integration Network.
+
+As described in Section 3.1, the Feature Extraction Network extracts features at four stages (three as for VGG-16 backbone).
+
+These stages contain diverse recognition information.
+
+At lower stages, the network captures such local structures as textures and edges.
+
+However, it fails to recognize global dependencies due to its small field of view.
+
+On the other hand, at higher stages, the model captures semantics and the global context of the image due to its large effective receptive field.
+
+However, at this stage, the information is very coarse and lacks the local consistency we observed in the lower stages.
+
+Since both type of features are necessary for saliency detection, to take advantage of both worlds, we introduce Attention-based Multi-level Integrator Module (AMI Module), where the semantic information in high-level features and the spatial details in low-level features are effectively combined.
+
+In the AMI Module, features from different stages of the Feature Extraction Network are concatenated, followed by the CA Block to weight each feature map.
+
+The nature of low-level features and high-level features is very different, and thus combining them uniformly through concatenation with uniform weights may not be the best procedure.
+
+Using the CA Block in this module will give the model the ability and flexibility to assign different weights to semantic information and spatial details.
+
+After the CA Block, a 3 × 3 convolutional layer is used to refine the features.
+
+The architecture of the AMI Module is shown in Fig. 3(b).
+
+As illustrated in Fig. 2, in the Feature Integration Network, the saliency map is generated by using AMI Modules, a series of upsampling layers, and convolution layers.
+
+By using this structure, the feature maps from different levels can collaborate to generate a more accurate prediction.
+
+SECTION
+
+Learning sharper salient objects
+
+PARAGRAPH
+
+The Cross-entropy loss is widely-used for learning the salient objects.
+
+We discover that using this loss function in the salient object detection task leads to blurry and uncertain predictions.
+
+To learn sharper salient objects, we design a loss function, which we refer to as the Sharpening Loss, defined as: LS=LF+λ⋅LMAEwhere λ is used to balance the F-measure loss LF and the MAE loss LMAE. λ
+
+is empirically set to 1.75.
+
+We denote the training images as I={Im,m=1,…,M}.
+
+Sm is the saliency map, and Gm is the ground truth map for m-th training image.
+
+LF is computed as: LF=1−(1+β2)⋅∑m=1MP(Sm,Gm)M⋅∑m=1MR(Sm,Gm)Mβ2⋅∑m=1MP(Sm,Gm)M+∑m=1MR(Sm,Gm)M+ϵwhere β2 is set to 0.3 as suggested in Yang et al. (2013), and ϵ is a regularization constant.
+
+Since higher values of F-measure are better, subtraction of it from 1 is used for minimizing.
+
+P(S,G) and R(S,G) are calculated similar to Precision and Recall: P(S,G)=∑isi⋅gi∑isi+ϵ R(S,G)=∑isi⋅gi∑igi+ϵwhere si∈S and gi∈G.
+
+LMAE is used to calculate the discrepancy between the predicted saliency map S and the ground truth map G: LMAE=1M∑m=1MMAE(Sm,Gm)where MAE(S,G) is computed as: MAE(S,G)=1N∑i∣si−gi∣where N is the total number of pixels.
+
+PARAGRAPH
+
+We compare the designed loss function with the Cross-entropy loss in the ablation study section, and we will show that the Sharpening Loss gives better results and sharper salient objects compared to the Cross-entropy loss.
+
+PARAGRAPH
+
+SECTION
+
+Experiments
+
+SECTION
+
+Datasets
+
+PARAGRAPH
+
+We evaluate the proposed method on five public saliency detection datasets which are human-labeled with pixel-level ground truth.
+
+DUTS (Wang et al., 2017b) is a large scale salient object detection benchmark dataset comprised of 10553 images for training and 5019 images for testing.
+
+Most of the images contain complex and challenging scenarios.
+
+ECSSD (Yang et al., 2013) contains 1000 images with complex scenes and objects of different sizes.
+
+HKU (Li and Yu, 2015) consists of 4447 images.
+
+Most images in this dataset include multiple disconnected salient objects or objects touching the image boundary with low color contrast.
+
+PASCAL-S (Li et al., 2014) contains 850 natural images generated from the PASCAL VOC dataset (Everingham et al., 2010) which has complex images due to cluttered backgrounds and multiple objects.
+
+DUT-OMRON (Yang et al., 2013) includes 5168 complex and challenging images with high content variety.
+
+Images in this dataset have one or more salient objects and complex background.
+
+SECTION
+
+Evaluation metrics
+
+PARAGRAPH
+
+We utilize Precision-Recall (PR) curve, F-measure curve, Average F-measure (avgF) score, Weighted F-measure (wF) score, Maximum F-measure (maxF) score, and Mean Absolute Error (MAE) score as our evaluation metrics.
+
+PARAGRAPH
+
+Precision is defined as the fraction of salient pixels labeled correctly in the predicted saliency maps, and Recall is the fraction of salient pixels labeled correctly in the ground truth.
+
+To calculate Precision and Recall, predicted saliency maps are binarized by thresholding, and compared with the ground truth.
+
+The F-measure score is a metric for overall performance which considers both Precision and Recall: Fβ=(1+β2)⋅Precision⋅Recallβ2⋅Precision+Recallwhere β2 is set to 0.3, as suggested in Yang et al. (2013) to emphasize the precision.
+
+PARAGRAPH
+
+To plot the PR curve, binarization of the saliency maps is done under different thresholds.
+
+Thus, a series of binary maps are obtained.
+
+Then from these binary maps, Precision, Recall, and F-measure values can be calculated.
+
+The obtained values of (Precision, Recall) pairs and (F-measure, threshold) pairs are employed to plot the PR curve and the F-measure curve.
+
+PARAGRAPH
+
+Average F-measure score is computed by using the thresholding method suggested in Achanta et al. (2009).
+
+This threshold, which is twice the mean saliency value of each saliency map, is used to generate binary maps for computing the Average F-measure.
+
+Weighted F-measure score is calculated by introducing a weighted Precision to measure the exactness and a weighted Recall to measure the completeness (refer to Margolin et al., 2014 for more details).
+
+Maximum F-measure score is reported as the maximum value in the F-measure curve.
+
+Furthermore, we report the MAE score which is calculated as the average pixel-wise absolute difference between the binary ground truth G and the predicted saliency map S: MAE=1W×H∑x=1W∑y=1H∣S(x,y)−G(x,y)∣where W and H denote width and height of G.
+
+SECTION
+
+Implementation details
+
+PARAGRAPH
+
+DFNet is developed in Keras Chollet et al. (2015) using TensorFlow (Abadi et al., 2015) backend.
+
+An NVIDIA 1080 Ti GPU is used for training and testing.
+
+The training set of DUTS dataset is utilized to train our network for salient object detection.
+
+In our experiments, all input images are resized to 352 × 352 pixels for training and testing.
+
+To reduce overfitting, two kinds of data augmentations are employed at random: horizontal flipping and rotation (range of 0–12 degrees).
+
+We do not use validation set and train the model until its training loss converges.
+
+We use the stochastic gradient descent with a momentum coefficient 0.9, and a base learning rate of 8e −3.
+
+If the training loss does not decrease for ten epochs, the learning rate is divided by 10.
+
+The code and the saliency maps of our method can be found at https://github.com/Sina-Mohammadi/DFNethttps://github.com/Sina-Mohammadi/DFNet.
+
+SECTION
+
+Comparison with the state-of-the-art
+
+PARAGRAPH
+
+We compare the proposed saliency detection method against previous 18 state-of-the-art methods, namely, MDF (Li and Yu, 2015), RFCN (Wang et al., 2016), DHS (Liu and Han, 2016), UCF (Zhang et al., 2017b), Amulet (Zhang et al., 2017a), NLDF (Luo et al., 2017), DSS (Hou et al., 2017), RAS (Chen et al., 2018), BMPM (Zhang et al., 2018a), PAGR (Zhang et al., 2018b), PiCANet (Liu et al., 2018), SRM (Wang et al., 2017a), DGRL (Wang et al., 2018), MLMS (Wu et al., 2019a), AFNet (Feng et al., 2019), CapSal (Zhang et al., 2019), BASNet (Qin et al., 2019), and CPD (Wu et al., 2019b).
+
+We perform comparisons on five challenging datasets.
+
+For fair comparison, we evaluate every method by using the saliency maps provided by the authors.
+
+PARAGRAPH
+
+For quantitative comparison, we compare our method with previous state-of-the-art methods in terms of the PR curve, F-measure curve, avgF, wF, maxF, and MAE.
+
+The PR curves and F-measure curves on five datasets are shown in Figs. 4 and 5, respectively.
+
+We can observe that our proposed model performs favorably against other methods in all cases.
+
+Especially, it is evident that our DFNet-L performs better than all other methods by a relatively large margin.
+
+Additionally, the avgF scores, wF scores, maxF scores, MAE scores, and the total number of parameters of different methods are provided in Table 1.
+
+As seen in the table, considering all four backbones, our method outperforms other state-of-the-art methods in most cases.
+
+Comparing Average F-measure scores (avgF in Table 1), our DFNet-L improves the value by 7.4%, 2.2%, 4.4%, 4.9%, 3.1% on DUTS-TE, ECSSD, DUT-O, PASCAL-S, HKU-IS, respectively.
+
+In addition, our DFNet-L lowers the MAE scores by 23.2%, 24.3%, 7.1%, 23.9%, 12.5% on DUTS-TE, ECSSD, DUT-O, PASCAL-S, HKU-IS, respectively.
+
+Our DFNet-L also improves the maxF and wF scores significantly.
+
+The results further demonstrate the effectiveness of our method in saliency detection task.
+
+It is worth noting that our method is end-to-end and does not need any post-processing methods such as CRF (Krähenbühl and Koltun, 2011).
+
+Furthermore, our DFNet-V, DFNet-R, DFNet-M, and DFNet-L can run at a speed of 32 FPS, 22 FPS, 26 FPS, and 9 FPS, respectively when processing a 352 × 352 image.
+
+One thing to note is that although our DFNet-M contains fewer parameters than all the other methods, it has great performance, and it also can run at a real-time speed.
+
+PARAGRAPH
+
+For qualitative evaluation, we show a visual comparison between our method and previous state-of-the-art salient object detection methods in Fig. 6.
+
+It can be seen that our approach can uniformly highlight the inner part of salient regions in various challenging and complex scenes.
+
+Our model is also capable of suppressing the background regions that are wrongly predicted as salient by other methods.
+
+As seen from Fig. 6, by taking advantage of the adopted modules in our framework and the Sharpening Loss, our model predicts saliency maps that are closer to the ground truth masks compared to other methods.
+
+SECTION
+
+Ablation study
+
+PARAGRAPH
+
+In this section, we conduct experiments on DFNet-V to investigate the effectiveness of different components in our method.
+
+The results are provided in Table 2.
+
+The details of these experiments are explained below.
+
+SECTION
+
+The effectiveness of MAG Modules
+
+PARAGRAPH
+
+To show the effectiveness of MAG Modules, we remove them from the network, which is denoted as Without MAG in Table 2.
+
+As seen in this table, the performance degrades over all datasets and evaluation metrics.
+
+The results confirm that the proposed module is helpful for salient object detection.
+
+SECTION
+
+The effectiveness of AMI Modules
+
+PARAGRAPH
+
+We demonstrate the effectiveness of AMI Modules by replacing them with Concatenation layers, which is denoted as Without AMI in Table 2.
+
+From this table, we can see that the performance gets worse.
+
+Additionally, we remove the MAG Modules and also replace AMI Modules with Concatenation layers, which is denoted as Without MAG and AMI in Table 2.
+
+As seen from this table, the performance gets worse drastically.
+
+The results prove the beneficial effect of our modules in salient object detection.
+
+SECTION
+
+The effectiveness of CA blocks
+
+PARAGRAPH
+
+As previously explained, we use CA Blocks in the MAG and AMI Modules.
+
+To demonstrate their effectiveness in our network, we remove them, which is denoted as Without CAs in Table 2.
+
+From this table, we can see that the performance degrades, which shows that using CA Blocks have beneficial effects on the final results.
+
+SECTION
+
+PARAGRAPH
+
+The effectiveness of the sharpening loss function
+
+PARAGRAPH
+
+To validate our choice of loss function (Section 3.3), we train DFNet-V with Cross-entropy loss (denoted as Cross-entropy in Table 2) and compare it with the Sharpening Loss.
+
+Quantitative comparison in Table 2 demonstrate that the proposed Sharpening Loss outperforms the widely-used Cross-entropy loss by a significant margin.
+
+For qualitative evaluation, a visual comparison between the Sharpening Loss and Cross-entropy loss is shown in Fig. 7.
+
+As seen from this figure, our network trained with the Sharpening Loss, learns sharper salient objects compared to the one with the Cross-entropy loss.
+
+Thus, the Sharpening Loss guides our network to output saliency maps with higher certainty and less blurry salient objects which are much close to the ground truth compared to the Cross-entropy Loss.
+
+PARAGRAPH
+
+In order to investigate the effect of the balance parameter λ on the final results, we conduct experiments for different balance value.
+
+We test nine values from 0.5 to 2.5 with steps of 0.25.
+
+The results for MAE metric on all datasets are shown in Fig. 8.
+
+As shown in this figure, with the same setting, our method achieves the best performance with the value of 1.75, which means that choosing this value for λ results in the best balance between the F-measure Loss LF and the MAE Loss LMAE.
+
+PARAGRAPH
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+In this work, we introduce a robust and flexible framework for saliency detection task, which is composed of two main modules.
+
+The first one is the Multi-scale Attention Guided Module which extracts multi-scale features effectively, and then adaptively weights feature maps of various scales.
+
+By adopting this module, the model learns to give more attention to more discriminative feature maps corresponding to the scale of the salient object in the input image.
+
+The second module is the Attention-based Multi-level Integrator Module which gives the model the flexibility to assign different weights to multi-level feature maps.
+
+In addition, our Sharpening Loss function outperforms the Cross-entropy loss and leads to sharper salient objects.
+
+The proposed method achieves the state-of-the-art performance on several challenging datasets.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Mehrdad Noori: Conceptualization, Methodology, Software, Writing - original draft, Writing - review & editing.
+
+Sina Mohammadi: Conceptualization, Methodology, Software, Writing - original draft, Writing - review & editing.
+
+Sina Ghofrani Majelan: Visualization, Investigation, Resources, Writing - review & editing.
+
+Ali Bahri: Software, Writing - review & editing, Validation.
+
+Mohammad Havaei: Supervision, Writing - original draft.

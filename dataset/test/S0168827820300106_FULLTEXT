@@ -1,0 +1,761 @@
+10.1016/j.jhep.2019.12.019
+
+FULLTEXT
+
+TITLE
+
+A dual role for hepatocyte-intrinsic canonical NF-κB signaling in virus control
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The liver is constantly exposed to pathogens coming from the gut via the hepatic portal vein.1
+
+Owing to this unique anatomical position, the liver not only serves as a metabolic organ but also plays a central role in supporting innate and local adaptive immunity.2
+
+While maintaining immune tolerance, the liver continuously removes a large and diverse spectrum of pathogens from the circulation, assuring organ protection.3
+
+The liver has the largest population of resident macrophages in the whole body.3
+
+Consequently, a sub-lethal bacterial inoculum in mice depleted of liver-resident macrophages (Kupffer cells [KCs]) leads to increased bacterial load, dissemination and death,4,5 suggesting that the liver plays a non-redundant role in conferring immunity to infections.
+
+PARAGRAPH
+
+Hepatocytes are parenchymal cells of the liver encompassing ∼80% of the entire liver cell mass.
+
+In addition to being centrally involved in metabolic functions, plasma protein expression and detoxification, hepatocytes are known to possess potent immunological functions.6,7
+
+Several pathogen recognition receptors (PRRs) are strongly expressed by hepatocytes.8
+
+Upon encountering pathogen-associated molecular patterns (PAMPs), hepatocytes readily secrete inflammatory cytokines, which help control the spread and growth of pathogens.9
+
+Owing to their abundance in the liver and known immune functions, we aimed to investigate the direct/indirect antiviral mechanisms employed by hepatocytes.
+
+PARAGRAPH
+
+Efficient clearance of a viral infection requires early detection of viral DNA or RNA by PRRs and induction of interferon responses, which serve as the first line of defense.
+
+Interferons act by binding to type I interferon receptors (IFNARs) on the cell surface, initiating a signaling cascade via the JAK-STAT pathway that leads to the upregulation of interferon-stimulated genes (ISGs).
+
+Induction of ISG responses creates an effective cell-intrinsic antiviral state, which restricts the replication of most viruses at an early stage.10
+
+PARAGRAPH
+
+Non-cytopathic lymphocytic choriomeningitis virus (LCMV-WE) is a negative-sense single-stranded RNA virus belonging to the Arenaviridae family.11,12
+
+The replication intermediates of this virus involve formation of double stranded RNA and 5′-PPP structures, which are recognized by RIG-I and MDA5 activating IRF3 and NF-kB-mediated interferon responses.13,14
+
+While the downstream signaling from the receptors of these stimuli might vary in most cases, they all converge on the activation of the IKK (IκB kinase) complex.
+
+The IKK complex consists of 2 catalytic kinase subunits, IKKα and IKKβ with intrinsic kinase activities and a regulatory subunit, IKKγ, also known as NF-κB essential modulator (NEMO) with helix-loop helix and leucine-zipper motifs that mediate protein-protein interactions.15,16
+
+In the inactive state p50:p65 dimers are held in the cytoplasm in association with the inhibitors of kappaB (IκB) proteins, which mask the nuclear localization signal.
+
+The activated IKK complex phosphorylates IκB proteins at amino terminal serine residues and marks them for ubiquitin-mediated proteasomal degradation, upon which NF-κB dimers translocate to the nucleus to bind DNA and enable gene transcription.
+
+PARAGRAPH
+
+NF-κB is activated by multiple viruses such as HIV, HCV, Rio Bravo virus and influenza to enhance viral replication or escape virus-induced apoptosis.17
+
+Some viruses, such as Vaccinia virus, encode proteins with ankyrin repeats mimicking IκB family proteins, thereby inhibiting NF-κB signaling and subsequent immune responses.18
+
+Furthermore, IKKβ is essential for the induction of type I interferon (IFN) and other inflammatory cytokines in response to a viral infection.19
+
+PARAGRAPH
+
+To determine the relative contribution of hepatocytes to viral clearance in the liver, we used a mouse model in which the essential upstream kinase in canonical NF-κB signaling, IKKβ, was selectively deleted in hepatocytes by Cre recombinase-mediated excision under the control of the albumin promoter – IkkβΔHep mice.20–23
+
+These IkkβΔHep mice were infected systemically with LCMV-WE strain.
+
+LCMV-WE leads to an acute infection that is usually cleared within 2–3 weeks by virus-specific CD8+ T cells.
+
+Intravenous infection in mice leads to infection of multiple visceral organs such as the lung, kidney, spleen, and liver.24,25
+
+Following a systemic infection with LCMV in IkkβΔHep mice, we analyzed the dynamics of viral replication and clearance with a focus on the relative contribution of hepatocytes compared to IfnarΔHep, IfnarΔMyel, and wild-type (WT) livers.
+
+Our findings were corroborated in differentiated HepaRG cells lacking IKKβ either treated with IFN-α/TNFα or infected with HDV.
+
+Our results highlight a central role of hepatocyte-intrinsic NF-κB signaling in supporting innate and adaptive immune responses to systemic viral infections.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Animals and infections
+
+PARAGRAPH
+
+Alb-Cre transgenic mice expressing Cre recombinase from the hepatocyte-specific albumin promoter were crossed with Ikkβfl/fl mice and Ifnarfl/fl mice to generate IkkβΔHep mice and IfnarΔHep mice.20–22
+
+LysM-Cre mice expressing Cre in myeloid cells due to a targeted insertion of the Cre cDNA into their endogenous M lysozyme locus were crossed with Ifnarfl/fl mice to generate IfnarΔMyel mice.26
+
+To control the effects of Cre-induced cytotoxicity, histology was performed on livers obtained from C57BL/6 (WT), Alb-Cre, and IkkβΔhep mice.
+
+No phenotypic differences were observed between WT and Alb-Cre mice.
+
+A total of 237 mice, of both male and female gender, aged between 4 to 5 months were used in the experiments.
+
+Each experiment has been performed with 3 to 6 mice.
+
+Mice used for experiments were maintained in single ventilated cages and under specific pathogen-free conditions.
+
+All mice used were of a C57BL/6/J genetic background.
+
+LCMV-WE was originally obtained from Rolf Zinkernagel (University Hospital Zurich (USZ), Switzerland) and propagated by infection of L929 fibroblast cells.
+
+Infection experiments were performed in Zurich under the licenses ZH 200/2006 and ZH 69/2012 as approved from the cantonal veterinary office of Zurich.
+
+Infection doses were given as indicated in each experiment, intravenously.
+
+At least 3–6 mice were used in each experimental group.
+
+SECTION
+
+LCMV nuclear protein immunofluorescence
+
+PARAGRAPH
+
+Five micrometer liver cryo-sections, taken from LCMV-infected mice, were fixed in ice-cold 100% acetone for 10 min on glass coverslips (ThermoFisher).
+
+Sections were then blocked for 15 min in 2% fetal calf serum (FCS; Hyclone) in PBS.
+
+Sections were then incubated overnight at 4°C in anti-LCMV nuclear protein (NP) supernatant (clone VL4)24 diluted 1:4 in 2% FCS in PBS.
+
+Sections were washed in PBS and incubated for 1 h in 2 μg/ml AlexaFluor 488-conjugated goat anti-rat secondary antibody (Invitrogen) containing 1:10,000 DAPI in 2% FCS in PBS.
+
+Sections were then washed in PBS and mounted with fluorescent mounting medium (Dako), cover-slipped, and imaged using an Olympus BX53F fluorescent microscope or with a confocal Zeiss LSM 710 ConfoCor 3.
+
+SECTION
+
+RelA immunofluorescence
+
+PARAGRAPH
+
+Five micrometer liver cryo-sections, taken from LCMV-infected mice, were fixed in 4% formalin for 10 min, washed in PBS for 2 min, and then washed for 10 min in PBS with 0.1% Tween 20 (PBST).
+
+Sections were then blocked for 1 h in 5% FCS and 0.25% Triton X-100 in PBS.
+
+Sections were then incubated at 4°C overnight in anti-RelA (NeoMarkers # RB-1638-P0) diluted 1:100 in 1% bovine serum albumin (BSA), 0.25% Triton-X 100 in PBS.
+
+Sections were then washed in PBS for 2 min, followed by PBST for 2 min, and incubated for 1 h in 4 μg/ml AlexaFluor 488-conjugated goat anti-rabbit secondary antibody containing 1:10,000 DAPI in 1% BSA and 0.25% Triton-X 100 in PBS.
+
+Sections were then washed in PBS followed by 1× PBST, mounted with fluorescent mounting medium, cover-slipped, and imaged using an Olympus BX53F fluorescent microscope.
+
+SECTION
+
+CXCL10 and TNFα RNA in situ hybridization
+
+PARAGRAPH
+
+RNA in situ hybridization (ISH) was performed on the liver tissues by following manufacturer instructions for RNAscope 2.0 FFPE Assay kit –BROWN, purchased from Advanced Cell Diagnostics.
+
+Briefly, 2 μm paraffin sections mounted on glass slides were boiled at 100°C in EZprep buffer for 20 min followed by a protease treatment at 37oC for 30 min.
+
+Probes specific to mouse CXCL10 or TNFα (Advanced Cell Diagnostics) were hybridized at 48°C for 2 h using HybEZ Hybridization oven (Advanced Cell Diagnostics) followed by a subsequent series of washing and signal amplification steps.
+
+Mouse specific probe for ubiquitin C, a common housekeeping gene is used as a positive control along with a probe for bacterial gene dapB which served as a negative control.
+
+In the end, hybridization signals were detected by DAB staining followed by counterstaining with hematoxylin.
+
+Stained tissues were digitally scanned using Leica SCN400 scanner (Leica) and hybridization signals were analyzed at 40x magnification using DIH software (Leica).
+
+SECTION
+
+Primary hepatocyte isolation
+
+PARAGRAPH
+
+Mice were anesthetized with 120 μl ketamine and xylazine (ketamine 5%, xylazine 2 mg/ml).
+
+Livers were perfused with buffer A (10 mM EGTA 1.5 ml + 48.5 ml Hank's balanced salt solution) through the portal vein for 5 min.
+
+The vena cava was cut as soon as the perfusion was started, and the perfusion was switched to buffer B (HBSS with 10 mM Calcium & Collagenase A+D, freshly prepared) and carried out until the liver turned pale (5–8 min).
+
+The liver was later removed and placed in a 100 μm cell strainer in a petri dish containing William's E medium.
+
+The resulting solution was passed through a 100 μm (BD Biosciences) cell strainer and collected into a 50 ml falcon filled with 40 ml of buffer C (William's E Medium).
+
+The cell suspension was centrifuged at 50 g (450 rpm) for 2 min.
+
+The resulting pellet was washed again twice in 40 ml of buffer C followed by centrifugation after discarding the supernatant.
+
+After the final wash step, the pellet was re-suspended in 10 ml of buffer C and the viability of isolated cells was measured using trypan blue at a 1:10 dilution.
+
+A viability rate above 80% was considered appropriate for experimental usage.
+
+A total of 0.75 × 106 cells were plated onto 6-well plates in required quantities and used for the experiments.
+
+SECTION
+
+Generation of differentiated HepaRGΔIKKβ KO cell line
+
+PARAGRAPH
+
+To knock out Ikkβ, single guide (sg)RNAs were chosen based on high scoring and no high scoring off-targets using CHOPCHOP v2 web tool.27
+
+These sgRNAs were inserted into pUSEPR (generous gift from Dr. Tscharaganeh, unpublished) based on methods as described elsewhere.28
+
+Briefly, a sgRNA scaffold fragment was attached to the 5' end of a U6 promoter by using overlap extention PCR.
+
+In a subsequent PCR reaction, 20 nucleotide sgRNAs were added to the 5' end of the sgRNA scaffold and the 3' end of the U6 promoter.
+
+BsmBI sites added upstream of the 5'sgRNA and downstream of the 3'-sgRNA were used to seamlessly clone the 5'-sgRNA-sgRNA scaffold-U6 Promoter-sgRNA-3' fragment into the vector backbone via golden gate assembly (10 U BsmBI; 400 U T4 DNA Ligase; 1 mM ATP; 1x NEBuffer 3.1; 0.03 pmol vector backbone; 0.3 pmol insert).
+
+Preparation of lentiviral particles and transduction of HepaRGs were performed based on protocols from addgene.
+
+Differentiated WT HepaRG or differentiated HepaRG-iCas9-pUSEPR (HepaRGΔIkkβ) cells were treated with 50 ng/ml of IFN-α and 10 ng/ml of TNFα for 12 h.
+
+SECTION
+
+Patient populations
+
+PARAGRAPH
+
+This study involved a total number of 79 females at the age of 24.7 ± 4 from the East German anti-D cohort: women infected between 1978 and 1979 by administration of prophylactic anti-D immunoglobulin contaminated with HCV genotype 1b from a single source.
+
+All individuals were from a limited geographic area in Germany with similar socioeconomic living conditions.
+
+None of these individuals had any other known risk factors for viral hepatitis or chronic liver disease, and they were all HIV-negative at the time point of sampling.29
+
+This studied comprised 57 with chronic (HCV RNA positive after repeated examination) and 22 with spontaneously resolved (HCV RNA negative after repeated examination) HCV infection.
+
+Diagnosis of chronic or resolved HCV infection was determined according to established guidelines based on standard serological and clinical criteria.
+
+The study has been approved by the research and ethic committee at Bonn University and informed consent was obtained from all participants prior to inclusion in the study.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+A statistical analysis of the data was performed using Prism software (Graphpad Prism version 5.0a).
+
+The standard error of the mean was calculated from the average of at least 3 independent samples in a given treatment condition.
+
+To evaluate statistical significance, results were subjected to Student's t test (unpaired, two-tailed test) and a p value of less than 0.05 were considered significant; *p ˂0.05, **p ˂0.01, ***p ˂0.001.
+
+SECTION
+
+Results
+
+SECTION
+
+LCMV-induced hepatocytic NF-kB signaling is required for hepatic virus control, independent of KC-derived factors
+
+PARAGRAPH
+
+Given the central role of NF-κB signaling in PRR-mediated viral sensing and activation of innate immunity, we tested whether LCMV infection would activate NF-κB signaling in liver parenchymal cells.
+
+To this end, WT mice were intravenously infected with 2×106 plaque-forming units (PFUs) of LCMV, and 12 h post-infection (p.i.), nuclear RelA translocation was analyzed in livers by immunohistochemistry.
+
+Notably, nuclear RelA translocation was found in hepatocytes and to a lesser degree in KCs of infected livers (Fig. 1A).
+
+As TNFα is a major driver of nuclear RelA translocation, we first investigated hepatic TNFα expression.
+
+LCMV infection elevated Tnfα mRNA in liver and TNFα protein in serum (Figs. S1A, upper and lower left panels), which could be mainly localized to non-parenchymal cells as analyzed by RNA in situ hybridization (Fig. S1A, right panel).
+
+Further, sequential staining of Tnfα by RNA in situ hybridization with F4/80 demonstrated that the majority of Tnfα mRNA-expressing cells are F4/80+ KCs (Fig. S1B).
+
+To determine whether KCs, the major TNFα-producing cell type in the liver or other phagocytosing antigen-presenting cells (APCs) were required for LCMV-induced nuclear RelA translocation in hepatocytes, mice were treated with clodronate liposomes prior to infection, which efficiently depleted phagocytic F4/80+ cells in the liver (Fig. S1C).
+
+Despite the efficient depletion of KCs, efficacy of nuclear RelA translocation in hepatocytes remained unchanged at 24 h p.i. (Fig. S1C).
+
+Moreover, Tnfr1-/- mice displayed unchanged nuclear RelA translocation upon LCMV infection compared to WT livers (Figs. S1 D and S1E).
+
+Consecutive staining of RelA/HNF4α or RelA/F4/80 in livers of Tnfr1-/- mice indicated that RelA translocation can be found mainly in hepatocytes (Fig. S1F).
+
+This suggests that LCMV-induced RelA translocation and subsequent NF-κB signaling in hepatocytes is not mediated by phagocytic immune cell populations such as KCs, or cytokines produced by the latter, and could be due to the sensing of LCMV through PRRs, such as Toll-like receptor (TLR)3 within hepatocytes (Figs. S1D and S1E).
+
+PARAGRAPH
+
+To determine which PRRs were required for LCMV-mediated RelA translocation in hepatocytes, we infected mice lacking several key viral sensing molecules with LCMV (Figs. S1D and E).
+
+Hepatocytic RelA translocation was significantly reduced in livers of Tlr3-/- or Tlr7-/- mice after LCMV infection, indicating that intracellular RNA sensing by these PRRs is involved.
+
+Loss of the adapter protein for RIG-I and MDA5 signaling, MAVS, and a key adapter protein in TLR signaling – MyD88 – also resulted in a significant reduction in nuclear RelA translocation in hepatocytes post-LCMV infection.
+
+In contrast, nuclear RelA levels remained unchanged in hepatocytes devoid of STING (Sting-/-), an intracellular DNA sensor, compared to WT (Figs. S1D and E).
+
+PARAGRAPH
+
+To elucidate the role of hepatocyte-specific NF-κB signaling in the context of virus infections, we next analyzed mice with a selective deletion of Ikkβ in liver parenchymal cells (IkkβΔHep mice).
+
+Specific deletion of Ikkβ in liver parenchymal cells was confirmed via mRNA expression analysis of whole livers, spleens for control, and isolated hepatocytes from IkkβΔHep and WT mice (Fig. S1G).
+
+WT and IkkβΔHep mice were infected intravenously with LCMV and stained for RelA.
+
+Nuclear RelA translocation was observed in hepatocytes from LCMV-infected WT mice with a peak at 12 h p.i., whereas IkkβΔHep mice infected with the same dose of LCMV-WE lacked significant RelA translocation in the nuclei of hepatocytes (Fig. 1B).
+
+Of note, activation of the JNK pathway, analyzed by c-JUN phosphorylation and subsequent nuclear translocation, was lower in IkkβΔHep mice compared to WT (Fig. S1H).
+
+PARAGRAPH
+
+To evaluate the functional consequence of hepatocyte-specific inhibition of canonical NF-κB signaling, we compared virus titers from the livers of IkkβΔHep and WT mice infected with different doses of LCMV.
+
+Strikingly, an approximately 100-fold increase in virus titers at the peak of infection was found in livers of IkkβΔHep mice compared to WT mice (Fig. 1C).
+
+Similar virus titers in spleens of IkkβΔHep as in WT mice suggest that peripheral viral control is not dramatically affected (Fig. S1I).
+
+Furthermore, the abundance of CD169+ splenic macrophages was analyzed in WT and IkkβΔHep mice by immunofluorescence and not found to be significantly different (Fig. S1J).
+
+In addition, flow cytometry of splenic and hepatic immune cells did not reveal differences in dendritic cell maturation between the WT and IkkβΔHep mice at day 3 p.i. (Fig. S1K).
+
+SECTION
+
+LCMV predominantly accumulates in hepatocytes of IkkβΔHep livers
+
+PARAGRAPH
+
+To identify the cell types in which LCMV is accumulating and actively replicating over time, we analyzed the cellular localization of LCMV in frozen liver sections of WT and IkkβΔHep mice p.i. with 2×106 PFUs of LCMV at different time points by staining for LCMV-NP.24,30
+
+While LCMV-WE was localized to cells exhibiting Kupffer cell-like morphology as early as day 2 p.i., LCMV-WE was also sporadically detected in hepatocytes by days 6 and 8 p.i. in WT livers, indicating that LCMV-WE also replicates at very low levels in hepatocytes (Fig. 1D) contrary to earlier findings illustrating KCs as the only cell type in the liver responsible for the intake and reduction of viral titers.24
+
+Strikingly, hepatocytes from IkkβΔHep mice displayed large clusters filled with LCMV-NP, particularly at days 6 and 8 p.i., due to defective NF-κB signaling in hepatocytes (Fig. 1D).
+
+An approximate 10-fold increase in LCMV-WE+ hepatic area was found in IkkβΔHep compared to WT livers (Fig. 1D).
+
+Co-stains of LCMV-NP with F4/80+ (KCs) or HNF4α+ (hepatocytes) demonstrated that at day 2 p.i., LCMV-NP localized exclusively in macrophages, whereas at days 6 and 8 p.i., LCMV+ cells in IkkβΔHep livers were mainly hepatocytes, as identified by positive staining for HNF4α (Figs. 1E and Fig. S1L).
+
+Of note, whereas the initial number of LCMV-infected F4/80+ cells was similar between both genotypes at day 2 p.i., a significantly higher number of LCMV-infected F4/80+ cells was observed in IkkβΔHep than in WT livers at day 8 p.i. (Fig. 1E).
+
+SECTION
+
+Loss of NF-κB signaling in hepatocytes leads to impaired IFN responses
+
+PARAGRAPH
+
+Considering the critical role of IKKβ in the induction of IFN responses,19,31,32 we investigated whether IkkβΔHep livers were defective in the early induction of IFN responses following LCMV infection.
+
+To this end, WT and IkkβΔHep mice were infected with LCMV, and ISG expression was measured over time by qRT-PCR.
+
+A reduction in ISG expression was observed in livers of IkkβΔHep compared to WT mice, especially at 18 h and 24 h p.i. (Fig. 2A).
+
+Among the differentially expressed ISGs, Mx1, Ifit1, Ifit2, Oas1, Oas3 were significantly reduced in IkkβΔHep mice (Figs. 2A and S2A).
+
+Furthermore, expression of IFN-dependent chemokines such as CXCL9, and CXCL10 important for the chemo-attraction of immune cells such as monocytes, and T cells were reduced in IkkβΔHep livers due to hepatocyte-specific loss of canonical NF-κB signaling (Fig. 2A).
+
+PARAGRAPH
+
+As Cxcl10 mRNA is abundantly expressed in the liver following IFN induction, it was used as a marker to monitor antiviral IFN responses following LCMV infection by sequential Cxcl10 RNA in situ hybridization and HNF4α immunohistochemistry in livers of WT and IkkβΔHep mice (Fig. 2B).
+
+RNA expression of CXCL10 was reduced in hepatocytes (HNF4α+ cells) of IkkβΔHep livers, whereas the non-parenchymal compartment (e.g. KCs) still strongly expressed Cxcl10 mRNA (Fig. 2B).
+
+In contrast, in infected WT livers, both hepatocytes and non-parenchymal cells expressed Cxcl10 mRNA at high levels following infection.
+
+This highlights the importance of hepatocyte-intrinsic canonical NF-κB signaling in amplifying ISGs within hepatocytes following LCMV infection.
+
+Moreover, CXCL10 protein expression was reduced in IkkβΔHep liver compared to WT liver at 18 h and 24 h (Fig. 2C).
+
+We did not observe a difference in mRNA expression of Ifn-α or Ifn-β in WT and IkkβΔHep livers, thus the observed differences in ISGs most likely derive from defective IFN amplification loops in hepatocytes lacking NF-kB signaling (Fig. S2A).
+
+We further tested this reasoning by intravenously injecting IFN-α into WT and IkkβΔHep mice.
+
+Two hours later, mRNA expression of several ISGs was significantly reduced in IkkβΔHep livers compared to WT livers, despite both having been exposed to similar amounts of IFN-α (Fig. 2D).
+
+PARAGRAPH
+
+STAT1 is a central transcription factor which forms heterodimers with STAT2 upon activation by type I and type III IFNs.
+
+These heterodimers translocate into the nucleus and bind to IFN-stimulated response elements, thereby enhancing ISG expression.33
+
+Strong nuclear pSTAT1 staining was observed in hepatocytes (red arrow heads in Fig. S2B) of LCMV-infected WT livers at 18 h p.i., which was reduced in IkkβΔHep hepatocytes.
+
+In contrast, non-parenchymal cells (black asterisks) were equally positive for pSTAT1 in both genotypes (Fig. S2B).
+
+Reduction of nuclear pSTAT1 in hepatocytes is consistent with lower total Stat1 mRNA expression in whole liver tissue and in hepatocytes of IkkβΔHep mice (Figs. 3 A and B).
+
+In contrast, neither STAT2 nor STAT3 phosphorylation (Figs. S2C and D) were changed in IkkβΔHep livers compared to WT.
+
+To elucidate whether the reduction of pSTAT1 was indeed specific for hepatocytes, consecutive staining of HNF4α-pSTAT1-F4/80 liver sections derived from WT and IkkβΔHep mice 18 h p.i. was performed.
+
+These experiments and subsequent quantitative analyses indicated that in IkkβΔHep livers, pSTAT1 staining is significantly reduced in HNF4α+ hepatocytes, but remained unchanged in F4/80+ KCs (Fig. S2E).
+
+Taken together, these experiments indicate that hepatocyte-specific suppression of canonical NF-κB signaling in IkkβΔHep mice leads to reduced mRNA expression and phosphorylation of STAT1, and STAT1-dependent ISG induction, without affecting pStat1 levels or selected ISGs in non-parenchymal cells.
+
+SECTION
+
+Impaired ISG responses and impaired viral control in IkkβΔHep livers are hepatocyte-intrinsic
+
+PARAGRAPH
+
+To determine whether increased viral titers and reduced ISG expression in IkkβΔHep livers were caused by an inability of IkkβΔHep hepatocytes to integrate paracrine signaling from other cells (e.g. KCs) or by an intrinsic autocrine signaling defect, hepatocytes isolated from IkkβΔHep and WT livers were infected with LCMV ex vivo (Fig. 3A).
+
+Total cell lysates were analyzed for the expression of viral transcripts and ISGs.
+
+A significant increase in expression of LCMV-NP was observed in IkkβΔHep hepatocytes compared to WT, as well as a decrease in expression of several ISGs (Fig. 3B).
+
+PARAGRAPH
+
+The importance of NF-kB signaling in amplifying ISGs was further verified by treating cultured primary hepatocytes ex vivo with IFN-α.
+
+IKKβ-deficient hepatocytes displayed reduced induction of ISGs compared to WT hepatocytes (Fig. 3C).
+
+Furthermore, no significant differences were observed in Ifn-α and Ifn-β mRNA expression in ex vivo cultivated, LCMV-infected hepatocytes from IkkβΔHep and WT at 18 h and 24 h p.i. (Fig. S2F).
+
+Thus, hepatocyte-intrinsic canonical NF-κB signaling is indispensable for efficient expression of ISGs.
+
+SECTION
+
+Hepatic ISGs can be expressed in the absence of hepatic APCs or KCs
+
+PARAGRAPH
+
+To further test the interplay between KCs and hepatocytes in the generation of hepatic immune responses, mice were treated with clodronate-containing or empty (PBS) liposomes prior to LCMV infection.
+
+Viral titers were measured in livers of both groups at 1-day p.i.
+
+An increase in viral titers from mice with clodronate depletion was found at 1-day p.i., suggesting that phagocytic immune cells such as KCs are required for optimal control of initial viral replication in hepatocytes (Figs. S3A and B).
+
+Despite significant differences in the mRNA expression of Mx1, Oas2, and Oas3 in the absence of myeloid cells, expression levels of Ifn-β and other ISGs such as Isg15, Ifit1 and Cxcl10 were not significantly changed.
+
+Thus, early after infection, several hepatic ISGs can be expressed in the absence of KCs or hepatic APCs (Fig. S3C).
+
+SECTION
+
+LCMV accumulates in hepatocytes from mice with defective hepatocyte-specific IFN signaling
+
+PARAGRAPH
+
+Our results indicated that defective NF-κB signaling in hepatocytes dampened IFN responses in liver tissue and facilitated enhanced LCMV replication.
+
+To determine the relative contribution of liver parenchymal- or myeloid-specific IFN signaling to viral control, mice lacking IFNAR1 selectively in liver parenchymal cells (IfnarΔHep)20,26 or myeloid cells, including KCs (IfnarΔMyel)26,34 were infected with LCMV.
+
+The efficacy and specificity of Ifnar1 deletion was analyzed in hepatocytes, KCs or hepatic inflammatory myeloid cells by PCR.
+
+Ifnar was deleted with high efficacy in hepatocytes and KCs, but less so in liver-infiltrating monocytes (Fig. S3D).
+
+PARAGRAPH
+
+Upon infection, LCMV-NP protein expression was analyzed in IfnarΔHep, IfnarΔMyel, IkkβΔHep, and WT livers.
+
+Similar to IkkβΔHep, livers of IfnarΔHep mice displayed LCMV-positive hepatocyte clusters at day 6 and 8 p.i. (Fig. 4A), supporting our hypothesis that a robust early hepatocyte-intrinsic IFN response (amplified by IKKβ) through IFNAR is required for efficient ISG expression and viral control in the liver.
+
+Notably, infected IfnarΔMyel mice displayed impaired protection against viral replication, as both KCs and hepatocytes were strongly positive for LCMV-NP at day 6 p.i. However, the intensity of LCMV-NP expression in IfnarΔMyel mice decreased in hepatocytes by day 8 p.i. and was primarily localized to F4/80+ cells (Figs. 4 A and B), indicating that hepatocytes respond both to paracrine IFN signaling from KCs and to autocrine IFN signaling from hepatocytes (Fig. 4B).
+
+SECTION
+
+Hepatocytes are the major producers of ISGs in the liver following LCMV infection
+
+PARAGRAPH
+
+To further delineate the functional importance of hepatocyte- vs. myeloid cell-mediated IFN production and IFN responses, whole liver lysates from WT, IkkβΔHep, IfnarΔHep, and IfnarΔMyel mice were analyzed for IFN and ISG expression up to 24 h after LCMV infection.
+
+Overall, Ifn-β mRNA expression in livers was decreased during early phases of LCMV-WE infection (12 h p.i.) in IfnarΔMyel livers compared to IfnarΔHep, IkkβΔHep, and WT livers but not at later time points (Fig. S3E).
+
+This suggests that efficient, early IFN-β expression depends on KCs and myeloid IFNAR expression.
+
+Moreover, ISGs such as Isg15, Mx1, and Stat1, as well as IFN-induced chemokines such as CXCL10 were more strongly upregulated in WT compared to IfnarΔHep (strongest reduction), IfnarΔMyel and IkkβΔHep livers at 18 h p.i. (Fig. 4C).
+
+Although ISG expression was decreased in IfnarΔMyel compared to WT livers, the expression levels were similar to IkkβΔHep livers and significantly higher when compared to IfnarΔHep (Fig. 4C).
+
+PARAGRAPH
+
+Immunohistochemical analyses revealed reduced pSTAT1 signals in hepatocyte nuclei of LCMV-infected IfnarΔHep livers compared to WT at 12 h and 18 h p.i., whereas pSTAT1 in myeloid cells remained unaffected (Fig. 4D).
+
+In contrast, IfnarΔMyel livers displayed reduced pSTAT1 in both hepatocytes and myeloid cells at 12 h p.i. (Figs. 4D and S3F), indicative of a delayed IFN response in hepatocytes due to impaired IFNAR signaling in myeloid cells.
+
+These observations were confirmed by consecutive staining of HNF4α-pSTAT1-F4/80 in livers of WT and IfnarΔMyel mice.
+
+Our data indicate that in IfnarΔMyel mice livers, pSTAT1 staining is strongly reduced in F4/80+ KCs, and significantly lowered in HNF4α+ hepatocytes, in comparison to WT mice (Figs. S2E and S3G).
+
+Of note, hepatocyte-specific RelA translocation occurred in WT, IfnarΔHep, and IfnarΔMyel with similar efficacy (Fig. 4E).
+
+This indicates that with intact NF-kB signaling, hepatocytes integrate paracrine IFNAR signaling from the neighboring KCs and initiate an antiviral response at an early stage, as well as initiating intrinsic autocrine IFNAR signaling.
+
+SECTION
+
+Depletion of IKKβ in hepatocytes reduces LCMV-induced chemokine expression and immune cell influx
+
+PARAGRAPH
+
+Efficient activation of IFN signaling in hepatocytes is NF-κB-dependent and is important for cell-intrinsic control of viral replication and dissemination.
+
+IFN responses also promote cytotoxic CD8+ T cell responses35 and may inhibit or suppress regulatory CD4+ T cell responses during acute LCMV infections.36
+
+IFN and NF-κB-driven expression of CXCR3 ligand supports the infiltration of cytotoxic CD8+ T cells to sites of inflammation, and hepatocytes are a known source of CXCR3 ligands such as CXCL9, CXCL10 and CXCL11 during viral infections and autoimmune disease.37–39
+
+Since we observed an increased viral load in IkkβΔHep compared to WT livers at day 6 and 8 p.i, we investigated whether alterations in chemokine expression or subsequent intrahepatic immune cell attraction could be detected.
+
+PARAGRAPH
+
+Real time PCR analysis of LCMV-infected liver homogenates revealed reduced expression of chemokines such as CCL5, CXCL9, CXCL10 and CXCL11 at 6 and 8 days p.i., but not at 15 days p.i., in IkkβΔHep mice compared to WT (Fig. 5A).
+
+To determine whether intrahepatic recruitment of CD8+ T cells was consequently affected, we analyzed the abundance of CD8+ T cells in livers of LCMV-infected IkkβΔHep and WT mice via immunohistochemistry.
+
+Densitometric analyses of images indicated significant lower numbers of CD8+ T cells at days 6 and 8 p.i. in livers of IkkβΔHep mice (Fig. 5B).
+
+At 15 and 20 days p.i., no significant differences were observed in the abundance of CD8+ T cells, highlighting similar CD8+ T cell recruitment efficacy at later time points in both genotypes (Fig. 5C).
+
+Moreover, FACS analysis revealed a reduction in the number of LCMV-specific CD8+ T cells at day 6 p.i. in livers of IkkβΔHep mice (Fig. 5D).
+
+PARAGRAPH
+
+CXCR3 ligands also initiate robust inflammatory cascades by interacting with their cognate receptor, highly expressed on immune cells such as KCs, dendritic cells, neutrophils, natural killer cells and natural killer T cells.
+
+Since we identified a decrease in hepatocyte-derived CXCL10 during both the innate (Fig. 2A) and adaptive phases (Fig. 5A) of the immune response against LCMV infection, we reasoned that innate immune cell infiltration and activation in livers during the early and late phases of infection could be affected in IkkβΔHep mice.
+
+Interestingly, we observed reduced mRNA expression of Ccl5, Cd14, iNos, Cd11b, Ly6C and Cd207 during the early phase of LCMV-WE infection (Fig. S4A).
+
+The expression of Ccl4, Ccr5 and Ly6C was further reduced during the late phase (Fig. S4B).
+
+Moreover, we observed a significant reduction in intrahepatic infiltration of CD68+ monocytes and MHCII+ cells, plausibly due to reduced chemokine expression during late-stage LCMV-WE infection (Fig. S4C).
+
+Of note, F4/80+ KCs were not significantly altered in number in both genotypes (Fig. S4C).
+
+These results were confirmed by staining liver sections using a Kupffer cell-specific marker, Clec4F (Fig. S4D).
+
+Taken together, these experiments identified a dual role for hepatocyte-specific canonical NF-κB signaling in i) inducing an adequate cell-intrinsic early, antiviral response and ii) subsequent viral clearance by attracting adaptive and innate immune cells to the liver.
+
+SECTION
+
+Loss of NF-κB signaling in differentiated HepaRG cells impairs ISG expression post-treatment with IFN-α or following HDV infection
+
+PARAGRAPH
+
+We demonstrated that ablation of IKKβ specifically in hepatocytes significantly impairs an early, efficient viral response to LCMV infection in mouse livers.
+
+LCMV infection has been used as a surrogate model for hepatitis virus infection.40
+
+To determine whether similar mechanisms operated in human cells infected with distinct viruses, we utilized differentiated HepaRG cells (dHepaRG) devoid of IKKβ protein expression (HepaRG-TR-Cas9 IKKβ) generated by CRISPR/Cas9 gene editing or WT HepaRG cells (Figs. S5 A and B).
+
+The requirement for IKKβ in ISG induction was tested by treating with IFN-α alone or IFN-α/TNFα.
+
+Similar to primary murine hepatocytes lacking IKKβ (Fig. 3 B), dHepaRG-TR-Cas9 IKKβ displayed significantly reduced ISG expression compared to Cas9-control dHepaRGs after exposure to IFN-α (data not shown) or IFN-α/TNFα (Fig. 6A).
+
+PARAGRAPH
+
+HDV, a satellite virus of HBV, has been shown to strongly activate the IFN pathway in hepatocytes.41,42,43
+
+We thus analyzed ISG mRNA expression upon HDV infection in the absence of NF-κB signaling in WT HepaRG and HepaRG-TR-Cas9 IKKβ.
+
+To this end, a pharmacological inhibitor of NF-κB signaling (ML120B) was used to treat dHepaRG cells before infection with HDV.
+
+The levels of HDV-induced ISGs, such as Viperin, Mx1, OAS1, were decreased in HepaRGs treated with inhibitor (Fig. 6B).
+
+Expression of the canonical NF-κB target gene A20, which induces a negative feedback loop to block NF-κB signaling, was slightly induced by HDV and blocked in the presence of the inhibitor (Fig. 6B).
+
+Consistent with these findings, HepaRG-TR-Cas9 IKKβ cells infected with HDV displayed reduced expression of ISGs (Fig. S5C).
+
+Thus, NF-kB signaling appears to effectively increase the IFN response initiated by HDV in human dHepaRG.
+
+PARAGRAPH
+
+Current knowledge from both experimental and clinical studies suggests that HBV is a weak inducer of innate responses (e.g. IFN and ISGs) and has evolved strategies to evade sensing.44,45,46
+
+Thus, replication of HBV can be controlled by adding exogenous IFN-α.
+
+We therefore tested whether the inhibitory action of IFN-α on HBV would be dampened in the absence of NF-κB signaling.
+
+To this end, a pharmacological inhibitor of NF-κB signaling was used to treat HBV-infected dHepaRGs.
+
+First, dHepaRGs were treated with IKKβ Inhibitor or control (DMSO) followed by IFN-α treatment alone.
+
+It has been shown that type I IFN signaling activates NF-κB signaling in various human and murine cell types.47
+
+Consistently, IFN-α-induced RelA phosphorylation was reduced in the presence of the NF-κB inhibitor, as verified by western blot analysis of protein lysates from inhibitor or mock-treated HepaRGs (Fig. S5 D).
+
+Next, IKKβ inhibitor or untreated dHepaRGs were infected with HBV and then treated with IFN-α (Fig. 6 C).
+
+IKKβ inhibition effectively dampened IFN-α-mediated suppression of HBV DNA, RNA, as well as HBV antigens (HBsAg, HBeAg) (Fig. S5E).
+
+Expression of ISGs such as Mx1, OAS1, and ISG15, required for controlling HBV replication, were decreased in HBV + IFN-α-treated HepaRGs in the presence of the IKKβ inhibitor (Fig. 6D).
+
+Moreover, expression of the canonical NF-κB target gene, A20, was also reduced (Fig. 6D).
+
+Thus, intact NF-kB signaling appears to be required for optimal effectiveness of IFN-α treatment against HBV infection.
+
+PARAGRAPH
+
+To further decipher the role of NF-κB in the response to viral infection in patients, we analyzed the polymorphism of NF-κB1 in the serum of patients chronically infected with HCV or of patients who have resolved HCV infection (Fig. S6).
+
+To decipher the role of NF-κB in HCV infection, we analyzed 6 specific NF-κB1 single nucleotide polymorphisms (SNPs) – including the homozygote (SNP+/+), heterozygote (SNP+/-) SNP state as well as the loss of SNP (SNPWT/WT) in a cohort of approximately 80 patients.
+
+Three different groups of NF-κB1 SNPs were identified (Fig. S6): i) SNPs that are not significantly differentially represented between chronic HCV carriers and resolvers (SNP4 and SNP5); ii) Homozygote SNPs (SNP+/+) (SNP1 and SNP2) that are significantly increased in chronic HCV carriers vs. HCV resolvers; iii) SNPWT/WT (SNP3 and SNP6) which are significantly increased in chronic HCV carriers vs. HCV resolvers.
+
+Altogether, these results indicate that SNPs in NF-κB are correlated with clearance or chronic infection of HCV and thus may play a role in the resolution of HCV infection.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+While hepatocytes are known to execute metabolic functions in the liver, their role in antibacterial innate immunity has been well established, including expression of antibacterial proteins like complement proteins, opsonins and fibrinogen.7,48
+
+Hepatic viral infections, such as HBV and HCV, lead to chronic hepatitis, cirrhosis and hepatocellular carcinoma, causing millions of deaths worldwide.3
+
+During such chronic viral infections, innate sensing mechanisms are antagonized by viral proteins within infected hepatocytes which would otherwise control the virus, which implicates functional antiviral mechanisms within the cells.
+
+Work focused on delineating the involvement of liver cell types in clearing viral infections identified KCs as the principle cell type for viral control through IFN-mediated antiviral signaling.3
+
+Considering that the major molecular signaling pathways involved in viral control within hepatocytes are similar to those in immune cells, we hypothesized that hepatocyte-derived innate immune signaling might play a central role in controlling hepatic viral infections.
+
+PARAGRAPH
+
+Here, we show that hepatocyte-specific NF-κB activation is essential for timely and efficient hepatic viral control.
+
+Loss of NF-κB signaling in hepatocytes resulted in a delay of the early IFN response and, consequently, in a 100-fold virus titer increase in an LCMV-WE infection model.
+
+Of particular note, this blockade of NF-κB signaling in hepatocytes was sufficient to enhance virus replication despite the presence of intact overall hepatic IFN-α signaling in hepatocytes and fully functional KCs.
+
+The absence of LCMV in KCs from WT livers and its presence in KCs from IkkβΔHep livers at day 8 p.i. – at a time point at which a robust adaptive immune response is activated – suggests that KC-derived signaling alone (IFN, NF-κB) does not suffice to suppress viral growth in the liver when NF-κB signaling is inhibited in hepatocytes.
+
+PARAGRAPH
+
+Initially, we considered the possibility that Kupffer cell- or other APC-derived signals might be required for LCMV-induced nuclear RelA translocation in hepatocytes, since KCs are known to be major producers of molecules that stimulate NF-kB signaling, including TNFα.
+
+However, nuclear RelA translocation in hepatocytes after LCMV-WE infection persisted even when KCs were depleted or when TNFR1 was knocked out.
+
+This indicated that nuclear RelA translocation was independent of molecular cues/cytokines derived from KCs/APCs, the TNF-TNFR1-axis and could be a result of direct sensing of LCMV by PRRs within the hepatocytes, as highlighted by the decrease of RelA translocation upon TLR3, TLR7, MyD88, or MAVS knockdown.
+
+For control, Sting-/- mice did not display a decrease in RelA translocation.
+
+PARAGRAPH
+
+Mice with hepatocyte-specific deletion of IKKβ (IkkβΔHep) and consequently defective RelA translocation showed increased virus replication and delayed virus clearance.
+
+Thus, induction of RelA in hepatocytes contributes to efficient virus control in the liver.
+
+Notably, in livers of IkkβΔHep mice, IFN-induced mRNA expression of ISGs and consequent phosphorylation of STAT1 was found to be delayed and reduced in the hepatocytic compartment, whereas it was still immunopositive in the non-parenchymal cell compartment compared to the livers of WT mice in which both hepatocytes and non-parenchymal cells exhibited equal levels of pSTAT1.
+
+Interestingly, this happened in the context of unchanged IFN-α/IFN-β expression levels in IkkβΔHep mice.
+
+We next found that livers depleted of KCs by clodronate also expressed IFN-β levels similar to WT, whereas some ISGs were expressed at lower levels in clodronate-treated livers.
+
+The residual IFN-β expression in KC-depleted livers could plausibly be derived from other immune cells.
+
+Our experiments indicated that myeloid cells expressing IFNAR are important for inducing the early expression of ISGs and hepatocytic pSTAT1.
+
+Interestingly, reduced IFN-β expression and a delay in pSTAT1 translocation in hepatocytes in IfnarΔMyel livers indicate that hepatocytes might require initial IFN cues from KCs.
+
+Accordingly, during the effector phase of infection at day 6 p.i., there was a massive accumulation of LCMV in both KCs and hepatocytes in IfnarΔMyel livers.
+
+Remarkably, by day 8 p.i. there was a strong decrease in the number of infected hepatocytes, whereas LCMV levels in myeloid cells remained high.
+
+This indicated that hepatocyte-specific ISG expression and viral control within hepatocytes, eventually occurred despite the lack of IFN signaling or viral control in KCs – either due to autocrine antiviral signaling within hepatocytes and/or paracrine signals from other cells (e.g. plasmacytoid dendritic cells).
+
+PARAGRAPH
+
+In addition, our work underlines that the hepatic increase of LCMV found in IkkβΔHep mice is independent of LCMV-induced splenic responses, as similar levels of splenic CD169+ macrophages and splenic dendritic cell maturation were found in WT and IkkβΔHep mice.
+
+This finding highlights that the increased viral replication in IkkβΔHep livers is a causal effect of a diminished hepatocyte-intrinsic innate immune response.
+
+PARAGRAPH
+
+It is well established that canonical NF-κB subunits (p50:p65) are part of an enhanceosome complex along with ATF-2/c-Jun, IRF-3/IRF-7 that activates IFN-β gene expression.
+
+Also, it is known that NF-κB activation is required for the induction of pro-inflammatory cytokines, as well as early expression of IFN-β during RNA virus infection and to maintain a basal level of IFN and interferon-inducible genes.49–52
+
+Since NF-κB and antiviral signaling mechanisms exist in hepatocytes which constitute approximately 80% of the entire liver mass, we hypothesized that defective NF-κB within hepatocytes would blunt the overall antiviral response in the liver.
+
+Consistent with this hypothesis, we could successfully demonstrate a direct link between the requirement of hepatocyte-intrinsic NF-κB signaling and IFN-α responses by treating hepatocytes lacking IKKβ with IFN-α directly in vitro and in vivo.
+
+In both cases, ISG expression was decreased significantly in the absence of IKKβ.
+
+We could also corroborate these observations in HDV infection models or with IFN-α + TNFα treatment of dHepaRGs, where we saw blunted expression of ISGs in dHepaRGs lacking NF-kB signaling.50,51
+
+PARAGRAPH
+
+Consistent with our data, mice with hepatocyte-specific deletion of Ifnar displayed strongly reduced ISG expression and strongly increased LCMV in hepatocytes as early as 6 days p.i. Thus, the presence of both IFNAR and NF-κB signaling in hepatocytes is needed to execute optimal and timely ISG responses and control hepatic viral LCMV infection – with IKKβ and NF-kB signaling serving as amplifiers of IFNAR signaling.
+
+Moreover, these data point to hepatocytes being an important producer of ISGs through IFNAR signaling.
+
+PARAGRAPH
+
+Of note, expression of IFN-induced chemokines such as CXCL9, CXCL10 and CXCL11, important for the attraction of monocytes and other immune cells,53–55 were also reduced in the livers of IkkβΔHep mice compared to WT.
+
+This decrease was accompanied by a reduction in the number of effector CD8+ T cells in IkkβΔHep livers at early time points (day 6 and 8 p.i.) following LCMV infection.
+
+Notably, once LCMV infection has been controlled in both models at late time points (later than/around 15 days p.i.), no differences in hepatic CD8+ T cell numbers could be detected.
+
+We also saw a reduction in the intrahepatic influx of innate immune cells in IkkβΔHep mice.
+
+Thus, in addition to impaired hepatocyte-intrinsic viral control, loss of NF-kB signaling in hepatocytes also prevents the liver from mounting an optimal innate and adaptive immune response, which may further promote viral accumulation and may at least partially account for the observed increase in the number of LCMV-positive KCs identified in IkkβΔHep livers in the current study.56,57
+
+However, at later time points (between days 8 and 20 p.i.) LCMV-WE infection was controlled – even in the absence of NF-κB signaling in hepatocytes.
+
+PARAGRAPH
+
+LCMV-WE can infect and replicate in both KCs and hepatocytes, triggering potent innate and adaptive immune responses.
+
+In the case of KC infection – innate immune responses can support viral elimination, although with a delay – even in the absence of hepatocytic NF-κB.
+
+However, other hepatic viruses which specifically target hepatocytes, such as HBV or HDV, might not trigger immune responses in KCs in the absence of NF-κB signaling in hepatocytes, preventing the elimination of the infection.
+
+PARAGRAPH
+
+Recently, a correlation was indeed demonstrated between NF-κB SNPs and susceptibility to HCV infection in different Chinese populations, highlighting a role of NF-κB in the control of hepatic viral infection.58,59
+
+PARAGRAPH
+
+We analyzed the expression of 6 SNPs of NF-κB1 in the serum of approximately 80 patients with chronic or resolved HCV infection.
+
+These results confirmed the previously published data,58,59 emphasizing a possible role of NF-κB in the activation of innate immune responses (such as IFN production and signaling) and in the control/resolution of hepatic viral infection.
+
+PARAGRAPH
+
+Moreover, we showed that NF-kB signaling is required for viral control in hepatocytes in human cells (dHepaRG) and for another virus (HDV).
+
+HBV usually does not induce strong IFN responses.60
+
+Thus, administration of IFN-α is a common therapeutic strategy for the treatment of this disease.
+
+In the current study, we demonstrated that NF-kB signaling is required for the therapeutic effects of IFN-α treatment in the context of an HBV infection.
+
+Thus, NF-kB signaling in hepatocytes may play a broad role in the pathogenesis of viral liver infections, as well as the molecular mechanisms underlying the efficacy of some antiviral therapies.
+
+PARAGRAPH
+
+In summary, we conclude that infected hepatocytes in the liver actively sense viral replication and initiate/incorporate autocrine and paracrine IFN signaling cascades and contribute to the overall production of cytokines, chemokines and ISGs.
+
+When NF-κB signaling is impaired in hepatocytes, ISGs responses in the liver becomes markedly delayed and reduced, virus accumulates within hepatocytes, and the usually well-orchestrated adaptive immune responses during the effector phase of the infection are less effective and delayed.
+
+Thus, we propose a model of hepatic LCMV infection that can be divided in distinct phases: In the first “wave”, LCMV infects macrophages, which is associated with a strong innate immune response in these cells (e.g. TNFα).
+
+This first wave primes the upcoming wave through the secretion of IFNs, inducing the first ISGs within the liver (e.g. in KCs and other innate immune cells).
+
+In the second “wave”, LCMV is sensed by hepatocytes, preventing the establishment of the virus in cells with functional NF-κB signaling and potent PRR responses.
+
+Taken together, our results highlight the role played by hepatocyte-derived NF-κB in supporting IFN-mediated immune responses and early resistance to hepatic viral infections.
+
+SECTION
+
+Abbreviations
+
+PARAGRAPH
+
+APCs, antigen-presenting cells; IFN, interferon; IFNRA, type I interferon receptors; ISG, interferon-stimulated gene; KCs, Kupffer cells; LCMV, lymphocytic choriomeningitis virus; NP, nuclear protein; PAMPs, pathogen-associated molecular patterns; PFUs, plaque-forming units; PRR, pathogen recognition receptors; qRT-PCR, quantitative reverse transcription PCR; SNPs, single nucleotide polymorphisms; TLR, Toll-like receptor; WT, wild-type.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This manuscript was supported by the SFBTR179 and 209 to M.H., U.P., P.K. and M.B. M.H. was supported by an ERC consolidator grant (HeaptoMetaboPath), the EOS grant (Flundern) and a Horizon 2020 grant.
+
+I.S. was supported by an Emmy Noether Program.
+
+SECTION
+
+Authors' contributions
+
+PARAGRAPH
+
+M.H., S.N. and T.O. conceived the study.
+
+S.N., T.O., S.F.D. and M.H. designed all the experiments.
+
+S.N., T.O., S.F.D., P.J., T.R., K.L., H.X., I.S., P.S., F.L., A.P., P.Sh., M.R., A.M., K.B., P.B., S.K., R.F., D.L., P.St., D.W., Z.A., M.R., J.L., L.M.A. performed experiments.
+
+S.N., T.O., S.F.D., and M.H. wrote the manuscript.
+
+T.O. co-supervised the study.
+
+P.K. gave critical inputs to the study, provided reagents and performed experiments together with D.W., S.K., J.N. and Z.A., D.D., A.W., T.K., U.P., B.H., M.B., K.Br., E.D., P.L., K.L., M.K., U.K. and all authors contributed to the development of the manuscript.

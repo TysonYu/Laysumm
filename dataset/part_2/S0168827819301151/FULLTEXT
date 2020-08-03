@@ -1,0 +1,433 @@
+10.1016/j.jhep.2019.01.036
+
+FULLTEXT
+
+TITLE
+
+Clinical utility of genomic analysis in adults with idiopathic liver disease
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Chronic liver disease (CLD) is a significant health problem affecting more than 4 million people in the United States and leading to over 40,000 deaths annually.1
+
+CLD is often undiagnosed for many years unless there is awareness of subtle clinical signs, behavioral risk factors and/or investigation of abnormal liver function tests.
+
+In many patients, by the time overt manifestations of CLD emerge, liver injury has advanced to result in portal hypertension or hepatic decompensation.
+
+The taxonomy of CLD in clinical practice is based broadly on categories of etiology such as exposure to toxins, viral infections, cholestatic, autoimmune, metabolic and select genetic disorders.
+
+A significant limitation of this approach is that it precludes consideration of a wider array of underlying genetic disorders masquerading within these broad phenotypes.
+
+Additionally, it is estimated that up to 30% of cases of cirrhosis and up to 14% of adults awaiting liver transplantation suffer from liver disease of unknown etiology.2,3
+
+These patients often undergo a long and costly odyssey of diagnostic tests, interventions, inappropriate therapies and medical opinions.
+
+Understanding the etiology of CLD may be essential to halt progression of liver dysfunction, as illustrated by the development of a vaccine and antiviral therapy for hepatitis B, and the highly effective, safe and curative antiviral therapies for hepatitis C.4 Advances in human genetics and genomics have created an unprecedented opportunity for gene discovery and diagnosis in the clinic.
+
+Specifically, whole-exome sequencing (WES), which consists of sequencing all the ∼20,000 human protein-coding genes, currently represents a remarkable balance between cost, time of analysis and information collected, making it attractive and suitable for clinical use and translational research studies.
+
+In pediatric cohorts, we5–7 and others8–10 have shown that WES combined with deep clinical phenotyping is an effective and unbiased means to identify rare protein-altering coding variants in individual genes.
+
+However, to date, most studies that investigate the use of next generation sequencing technologies in diagnosis and individualization of medical care have been performed in either pediatric or cancer patients.
+
+There is paucity of information on the clinical utility of these approaches for a broader spectrum of diseases among adults, such as CLD.11–13
+
+By using unbiased genomic analysis, we also begin to understand parameters of adult clinical presentations that harbor an underlying monogenic cause, and to develop a more comprehensive category of ‘genetic’ liver diseases in adults beyond the traditionally considered disorders such as Wilson’s disease or hemochromatosis.
+
+Here, we provide data to support the utility of WES in the diagnosis and management of adults with liver disease of unknown cause with or without involvement of other diseases and/or unusual clinical findings.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Patients
+
+PARAGRAPH
+
+The study protocol was approved by the Yale Human Investigation Committee, and informed consent was obtained in accordance with institutional review board standards.
+
+Patients were recruited between October, 2015 and August, 2018.
+
+Adults with unexplained liver disease despite a comprehensive evaluation (unrevealing hepatitis viral serologies [including negative hepatitis B surface antigen and antibody to hepatitis B core antigen], ferritin, iron studies, ceruloplasmin, antinuclear antibody, alpha-1-antitrypsin phenotype, abdominal imaging, liver biopsy) underwent further investigation using whole-exome sequencing.
+
+In some cases we questioned prior diagnosis such as non-alcoholic fatty liver disease (NAFLD) in absence of typical metabolic or body habitus features.
+
+Where possible, samples from available family members were also obtained for segregation studies.
+
+SECTION
+
+DNA isolation, exome capture and sequencing
+
+PARAGRAPH
+
+Genomic DNA was isolated from peripheral blood leucocytes or buccal swabs using standard procedures.
+
+DNA fragments containing exonic sequences were captured and sequenced on the Illumina HiSeq platform.
+
+SECTION
+
+Exome sequencing analysis
+
+PARAGRAPH
+
+Exome sequencing data were mapped and aligned to the build 19 of the reference human genome using Burrows-Wheeler Aligner.
+
+Variants were called using GATK14,15 and annotated using Annovar.16
+
+Variants were selected for minor allele frequency <0.01 for homozygous and compound heterozygous variants (recessive inheritance pattern) or <2 × 10−5 for heterozygous variants (dominant inheritance pattern).
+
+Allele frequencies were determined using the genome aggregation database (gnomAD),17 including the Exome Aggregation Consortium database (ExAC), 1000 Genomes, and the National Heart, Lung and Blood Institute’s (NHLBI) Exome Variant Server.
+
+Subsequently, protein-altering variants were selected and prioritized based on their predicted deleteriousness.
+
+MetaSVM18 was used to infer the impact of missense variants.
+
+Rare protein-altering variants predicted to be deleterious were then selected if they occurred as pathogenic variants described in NCBI Clin Var, and/or in genes previously associated with liver-related diseases listed in the Online Mendelian Inheritance in Man (OMIM) database (Fig. S1).
+
+SECTION
+
+Principal component analysis
+
+PARAGRAPH
+
+Principal component analysis (PCA) was performed to determine the ancestry of the patients in our cohort.
+
+All tag single nucleotide polymorphism genotypes were obtained from WES data and used as inputs, along with the same single nucleotide polymorphisms from individuals in the HapMap project, to perform PCA with EIGENSTRAT software.19
+
+SECTION
+
+Sanger sequencing
+
+PARAGRAPH
+
+Sanger sequencing of the identified PPARG variant (p.Gly161Val) in patient 1 was performed by PCR amplification of genomic DNA of the proband and her parents.
+
+Sanger sequencing of the identified ABCB4 variants (p.Arg549Cys and p.Ala934Thr) in patient 2 was performed by PCR amplification of genomic DNA of the proband, her mother and her son.
+
+Sanger sequencing of the identified ABCB4 variant (p.Ter1280Arg) in patient 3 was performed by PCR amplification of genomic DNA of the proband.
+
+Sanger sequencing of the identified NDUFB3 variant (p.Trp22Arg) in patient 4 was performed by PCR amplification of genomic DNA of the proband and his parents.
+
+Sanger sequencing of the heterozygous splice-site variant (c.2067+1 G>A) in APOB in patient 5 was confirmed by PCR amplification of genomic DNA of the proband.
+
+Forward and reverse primers for each variant are described in Table S1.
+
+SECTION
+
+Whole-exome sequencing-based copy number variant detection
+
+PARAGRAPH
+
+A proprietary program using exome capture target region read depth normalized to read depth for each chromosome was used to assess copy number variants (CNVs).
+
+The normalized sequence depths for a sample batch of 4 or greater samples are used to stratify target regions by variance where those regions significantly vary from the batch means.
+
+The use of data from a batch of samples allows for the establishment of a baseline reference depth range for each target region.
+
+This methodology can detect deletions and duplications of 2 or more adjacent exons with close to 100% sensitivity and specificity.
+
+Single-exon deletions and duplications are flagged, but require confirmation by a second method due to a significant false positive rate.
+
+Validation of the method was performed using samples tested by standard, high-resolution array comparative genomic hybridization and exon-array comparative genomic hybridization or PCR.
+
+SECTION
+
+Orthologues
+
+PARAGRAPH
+
+Full-length orthologous protein sequences from both vertebrate and invertebrates were obtained from GenBank.
+
+Protein sequences were aligned using the ClustalW or Clustal Omega algorithm.
+
+SECTION
+
+Results
+
+SECTION
+
+Study population characteristics and whole-exome sequencing
+
+PARAGRAPH
+
+Nineteen adults with unexplained liver disease and no history of alcohol overuse were recruited from Yale New Haven Health after an unrevealing conventional work-up performed by a hepatologist.
+
+These individuals presented between the ages of 22 and 73 years-old with a variety of liver disorders (Table 1) with or without other co-morbidities.
+
+We performed individual WES of germline DNA isolated from each patient.
+
+Targeted bases were sequenced by a mean of 90 reads, with 94% of targeted bases having 8 or more independent reads, and 92% having more than 15 independent reads, conferring high confidence calling of homozygous and heterozygous variants across the exome (Table S2).
+
+Using unbiased WES, we identified a monogenic disorder in 5 patients of this adult population cohort, gaining insight into their liver disease pathogenesis and with direct impact on clinical management (Table 2).
+
+The cause of liver disease remained unexplained in 14 patients after genomic analysis (Table S3), including WES-based CNV detection.
+
+SECTION
+
+Exome sequencing yields a diagnosis and initiation of therapy in a patient who suffered from devastating complications of undiagnosed familial partial lipodystrophy type 3 for 18 years
+
+PARAGRAPH
+
+Patient 1 is a 33-year-old female with biopsy proven severe (80–90%) hepatic macrovesicular steatosis with periportal and pericentral fibrosis (Fig. 1A, B).
+
+There was moderate portal inflammation with occasional hepatocyte ballooning, rare poorly-formed Mallory-Denk bodies, ceroid laden macrophages and marked Kupffer cell siderosis.
+
+Her past medical history is significant for early onset hyperlipidemia diagnosed in childhood, recurrent episodes of hypertriglyceridemia-induced pancreatitis eventually leading to total pancreatectomy, splenectomy and insulin dependence.
+
+She also had history of hypertension and of pre-eclampsia at the age of 29.
+
+Her social and family history is non-contributory.
+
+She had been seen and evaluated by many expert pediatric and adult physicians at several U.S. tertiary medical centers within the last 18 years and despite a comprehensive work-up, her operational diagnosis was hyperchylomicronemia syndrome although genetic deficiency of lipoprotein lipase or apolipoprotein CII could not be demonstrated.
+
+PARAGRAPH
+
+We performed WES of germ line DNA to investigate a possible underlying genetic defect.
+
+Since her biological parents were unaffected, we analyzed her exome data considering both a recessive as well as a dominant pattern of inheritance.
+
+Consistent with an unrelated union, no rare homozygous genotypes were observed in the proband.
+
+However, she harbored one missense variant (chr3:12434114, G>T, NM_015869, c.482 G>T, p.Gly161Val) in PPARG, which encodes peroxisome proliferator-activated receptor γ and heterozygous pathogenic variants in this gene have been related to autosomal dominant familial partial lipodystrophy type 3 (FPLD3).
+
+This variant is predicted to be damaging by MetaSVM and it is absent among >100,000 alleles in the gnomAD database, and therefore is likely to be pathogenic in this patient (Table 3).
+
+Sanger sequencing confirmed the heterozygous variant in the proband and further showed that neither parent harbors the variant, revealing that it occurred de novo in the patient (Fig. 1C).
+
+This variant is located in the DNA-binding domain of the PPARG protein at a highly conserved position across orthologues (Fig. 1D).
+
+Moreover, a single case of an older female with clinical features consistent with FPLD3 and harboring the same PPARG variant (p.Gly161Val) as patient 1 has been reported.20
+
+At this point, in light of new genotype knowledge and presumed diagnosis, we re-evaluated her clinical and laboratory findings, which were consistent with FPLD3.
+
+PARAGRAPH
+
+PPARG is known to be a key transcription factor in
+
+adipocyte differentiation, which explains the lack of adipose tissue in the patient and the striking accumulation of
+
+triglycerides in the bloodstream as well as its accumulation in other organs, such as the liver.
+
+Given the diagnosis of FPLD3 and decreased overall adiposity, we postulated that patient’s leptin
+
+levels should be low since leptin is mainly produced by adipocytes.
+
+As predicted, her leptin level was
+
+significantly low at 1.5 ng/ml (normal range for age and
+
+gender = 8.0–38.9 ng/ml) (Fig. 1E).
+
+This finding not only
+
+supported our genetic diagnosis but led to a new therapeutic intervention.
+
+The patient was initiated on leptin replacement therapy in a named compassionate use program.
+
+During the ensuing 13 months there was significant amelioration of dyslipidemia: total cholesterol fell from 238 to 130 mg/dl, triglyceride levels fell from 3,532 to 267 mg/dl, and high-density lipoprotein cholesterol increased from 8 to 24 mg/dl (Fig. 1E).
+
+Concomitantly, there was normalization of her liver aminotransferases: aspartate aminotransferase (AST) and alanine aminotransferase (ALT) levels decreased from 114 to 19 U/L and from 94 to 17 U/L, respectively (Fig. 1F).
+
+Furthermore, the patient’s daily insulin requirements decreased by approximately half compared to doses of insulin required prior to leptin replacement therapy.
+
+SECTION
+
+MDR3 deficiency diagnosed in adulthood in 2 unrelated patients
+
+PARAGRAPH
+
+Patient 2 is a 31-year-old female who presented with an acute esophageal variceal hemorrhage in the 22nd week of her second gestation.
+
+Of note, the patient had symptomatic cholestasis during her first pregnancy and she was diagnosed with benign intrahepatic cholestasis of pregnancy at that time.
+
+On this presentation, she had severe cholestasis (with high gamma-glutamyltransferase [GGT]) and liver biopsy revealed cirrhosis and cholestasis with ductular proliferation (Fig. 2A, B).
+
+WES revealed 2 rare variants predicted to be damaging by MetaSVM (chr7:87069069, C>T, NM_000443, c.1645C>T, p.Arg549Cys and chr7:87041333, G>A, NM_000443, c.2800 G>A, p.Ala934Thr) in ABCB4, which encodes ATP binding cassette subfamily B member 4, also known as multidrug resistance protein 3 (MDR3) (Table 3).
+
+There were no other disease-causing variants in genes known to be associated with liver disease, using recessive or dominant models.
+
+Sanger sequencing confirmed both variants in the patient’s genomic DNA.
+
+A study of available family members revealed that her mother is a heterozygous carrier of p.Arg549Cys whereas her son is heterozygous for the other variant, p.Ala934Thr, suggesting that the 2 variants found in our patient were located in trans at the ABCB4 gene locus (Fig. 2C, D), consistent with an autosomal recessive disorder.
+
+Both variants are conserved across orthologues (Fig. 2E, F).
+
+As expected, her total bile acids (cholic acid, deoxycholic acid and chenodeoxycholic acid) levels had been persistently elevated, ranging from 36 to 105 µmol/L (normal is <6.8 µmol/L).
+
+PARAGRAPH
+
+Patient 3 is a 29-year-old male who had received a liver transplantation at 8 years of age for cirrhosis of unclear etiology.
+
+He presented with chronic graft rejection in the setting of medical non-adherence.
+
+Consistent with known consanguinity, patient 3 harbors 27 rare homozygous variants.
+
+Twenty-six of these variants are missense variants in genes unrelated to liver disease by OMIM, and therefore are unlikely to be causal pathogenic variants in this patient.
+
+The other homozygous variant encoded a stop loss in ABCB4 (chr7:87031414, T>A, NM_000443, c.3838 T>A, p.Ter1280Arg), which was confirmed by Sanger sequencing (data not shown).
+
+This variant has never been reported in general population by gnomAD.
+
+However, another substitution in the same nucleotide (NM_000443 c.3838 T>C) resulting in identical stop-loss variant in the p.Ter1280 codon has been previously associated with cholestasis and liver failure.21
+
+Both the c.3838 T>A and c.3838 T>C nucleotide substitutions result in the extension of the protein by 19 new amino acids.
+
+Given new knowledge of the patient’s genotype, we reviewed the patient’s liver explant.
+
+Liver parenchyma showed cirrhosis with patchy macrovesicular steatosis, portal/septal chronic inflammation, marked cholestasis with ductular proliferation and increased hepatocytic copper deposition (Fig. 2G, H, I, J), consistent with a genetic diagnosis of MDR3 deficiency.
+
+SECTION
+
+Recessive variant in NDUFB3 in a patient with elevated aminotransferases, hepatic steatosis, recurrent avascular necrosis and short stature
+
+PARAGRAPH
+
+Patient 4 is a 32-year-old male with persistent elevation of aminotransferases (AST and ALT ∼3 times upper limit of normal), recurrent avascular necrosis, and short stature (with both parents’ being of average height).
+
+Liver biopsy showed minimal macrovesicular (small and large droplet fat) steatosis (<5%) (Fig. 3A, B).
+
+He is the single child of unrelated European-descended parents.
+
+WES was remarkable for a very rare homozygous variant in NDUFB3 (chr2:201943669, T>C, NM_002491, c.64 T>C, p.Trp22Arg), which encodes for NADH-dehydrogenase 1 beta complex 3 and consists of the first enzyme in the electron transport chain in mitochondria (Table 3).
+
+Both parents were found to be heterozygous for this variant by Sanger sequencing (data not shown).
+
+This variant is predicted to be damaging by MetaSVM and it was first reported in a single female infant with lethal complex I mitochondrial deficiency22 and more recently in 10 children from 8 families, 7 of them of Irish ancestry.23
+
+In this last cohort, all patients have short stature (<9th percentile) and similar facial dysmorphic features to patient 4, such as a prominent forehead, smooth philtrum and deep-set eyes (Fig. S2).
+
+In contrast to the first patient reported with this homozygous variant, they have a good long-term prognosis, even though some patients presented with an acute metabolic crisis with evidence of an isolated complex I deficiency in muscle.23
+
+In light of new genotype information, our patient 4 had mitochondrial ETC testing in skeletal muscle biopsy that revealed a deficiency of rotenone sensitive I + III activity despite normal citrate synthase activity, which fulfills a minor criterion of the modified Walker criteria for diagnosis of a respiratory chain disorder (<30%).
+
+Liver electron microscopic findings were also suggestive of a mitochondrial abnormality, with hepatocytes showing different sized lipid droplets (Fig. 3C).
+
+Moreover, the patient suffers from oculomotor dysfunction with optic nerve anomalies, episodes of lactic acidosis during surgical interventions, and progressive fatigue.
+
+He was started on mitochondrial cocktail supplement, including co-enzyme Q10, vitamins B2 and B6.
+
+SECTION
+
+Lean patient with hepatic steatosis of unknown etiology was found to have a novel damaging heterozygous variant in APOB
+
+PARAGRAPH
+
+Patient 5 is a 23-year-old lean male who presented for evaluation of persistent elevated ALT (2 to 3 times upper limit of normal) for which he underwent a liver biopsy that showed mild macrovesicular steatosis (30%) with minimal lobular inflammation and minimal pericentral sinusoidal fibrosis (Fig. 3D).
+
+His work-up was also remarkable for a ceruloplasmin of 17 mg/dl (normal range = 18–36 mg/dl).
+
+WES analysis revealed no rare variations in ATP7B and a pathogenic heterozygous splicing variant in APOB (chr2:21250699, c.2067+1 G>A), which encodes apolipoprotein B (ApoB).
+
+This change was validated by Sanger sequencing (data not shown) and is predicted to abrogate the normal splicing of exon 14 in the APOB gene.
+
+Heterozygous carriers typically have decreased plasma levels of low-density lipoprotein cholesterol and ApoB and may be asymptomatic or have clinical manifestations such as liver steatosis.24–25
+
+Consistent with the patient’s genotype, his circulating ApoB level was found to be half the lower limit of normal (26 mg/dl compared to normal range of 52 to 109 mg/dl), with low circulating LDL cholesterol (20 mg/dl) and triglycerides (19 mg/dl) levels.
+
+Thus, this new genotype information explains both clinical and laboratory findings in this patient and may have implications in his clinical management beyond family counseling.
+
+Specifically, fat-soluble vitamin E supplementation has been recommended for patients with homozygous hypobetalipoproteinemia to protect from neurological complications, and modest doses of vitamin E have been proposed for treatment of heterozygous patients,26 but further studies are required.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This study provides evidence that a subset of adult patients who suffer from liver disease of indeterminate etiology with or without other co-morbidities harbor an underlying Mendelian disorder, which may be unrecognized during their entire childhood until genetic testing is performed.
+
+These findings have several implications.
+
+First, by establishing a diagnosis for a substantial number of undiagnosed cases, we provided new insights into disease pathogenesis.
+
+Second, knowledge of genotype led to the recognition of unappreciated phenotypic features and enabled new therapeutic and preventive medical interventions beyond family counseling.
+
+For example, genomic analysis in patient 1 led to recognition of phenotypic aspects unappreciated by standard clinical examination by specialists not familiar with the FPLD3 phenotype.
+
+It also led to initiation of leptin replacement therapy with striking amelioration of metabolic dysregulation and liver disease.
+
+Correct diagnosis additionally allowed appropriate attention on monitoring and prevention of premature coronary artery disease and other cardiovascular risk factors.
+
+Third, our data highlight the importance of using WES in the investigation of liver disease of unknown cause so that we may start developing an understanding of what clinical presentations/diseases are genetic and may remain undiagnosed until adulthood.
+
+The genetic diagnosis of MDR3 deficiency in patient 2 underscores the silent progression of inherited CLD to cirrhosis, portal hypertension and decompensation, remaining unrecognized for decades and with first presentation in adulthood.27
+
+Fourth, reminiscent of the widely accepted Radiology and Pathology Rounds in clinical practice, this study illustrates the potential clinical value of Genome Rounds in the individual assessment and medical care of adults suffering from liver disease of unknown cause (Fig. 4).
+
+This approach perfectly exemplifies the mission of the Precision Medicine Initiative28 launched by U.S. President Barack Obama in January 2015.
+
+Physicians recognize that every patient is unique and have always tried to adjust their interventions as best they can to each individual.
+
+We now have the technology and knowledge to start translating this concept to routine clinical practice in tertiary medical centers across the world.
+
+Even in the contemporary taxonomy of liver diseases, there is little understanding of the heterogeneity of disease within each category and distinct subtypes based on their underlying genetic and/or pathobiology.
+
+This concept is illustrated by the 3 cases (patients 1, 4 and 5) who harbor distinct genetic defects affecting different molecular pathways leading to hepatic steatosis and presumed diagnosis of NAFLD, with direct implications in bedside therapeutic and preventive interventions.
+
+PARAGRAPH
+
+In this cohort, most of the diagnosed patients had seen multiple physicians from a diverse array of medical and surgical specialists for several years prior to their diagnosis, such as primary care providers, internists, surgeons, endocrinologists and hepatologists, among others.
+
+This suggests that the investigation of unrecognized genetic disorders in adults would have clinical utility among a broad group of adult multispecialty clinical practices.
+
+Decades ago, Mendelian genetics mostly relied on family-based studies with very distinct and often severe phenotype(s).
+
+However, as illustrated in this study, the absence of family history of similar phenotype should not deter physicians from investigating a genetic cause for the unexplained liver disease since it might arise from a de novo variant, which by definition is not inherited from any parent, or result in a recessive inheritance pattern for which both parents are usually healthy carriers and 75% of siblings will be clinically unaffected.
+
+PARAGRAPH
+
+One limitation of this study is a relatively small sample size, and patient recruitment at a tertiary care academic center.
+
+Further studies are required to assess the generalizability of these findings in a broader liver disease population.
+
+Additionally, the patients in this cohort whose phenotype remains unexplained may have a pathogenic variant not detected by the methodology used, such as variants in the non-coding region of the genome, or in a gene not yet known to be associated with a human disease.
+
+In fact, approximately three-quarters of human genes have not yet been linked to a human phenotype,29 and for this reason we will continue to re-analyze these patients’ WES data regularly.
+
+This study’s diagnostic yield is comparable to data recently reported in inherited cardiovascular diseases and chronic kidney disease in adults.11,12
+
+PARAGRAPH
+
+Collectively, our data support the incorporation of WES in the diagnostic and management algorithms of adults suffering from idiopathic liver disease despite a comprehensive work-up, and underscore its value as a means of developing an understanding of which liver phenotypes of unknown cause in adults with or without involvement of other diseases are genetic.
+
+A multidisciplinary Genome Rounds approach (Fig. 4) will likely create the basis from which to develop best practice guidelines for genomic medicine in a variety of non-oncological medical and surgical specialties, including hepatology.
+
+This strategy will shed further light on genetic contributions, and therefore underlying molecular pathogenesis, across different forms of liver disease that are clinically indistinguishable through conventional diagnostic approaches.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+Research reported in this publication was supported by the National Institute of Diabetes and Digestive and Kidney Diseases of the National Institutes of Health under Award Number K08DK113109.
+
+The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.
+
+This work was also supported in part by Yale Liver Center P30DK034989, and AASLD Sheila Sherlock Clinical and Translational Research Award in Liver Disease (to S.V.).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+E.O. received grant support and served as a consultant to Aegerion Pharmaceuticals.
+
+A.H. reports being previously employed by Great Point Partners, a healthcare investment company.
+
+The remaining authors have no conflicts of interest.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+P.K.M. and S.V. developed study concept and design; A.H., X.Z., D.D., K.D., D.J., A.B., S.V. performed research and/or analyzed data; A.D., E.O., D.A., M.S., J.B., D.J., P.K.M., S.V. participated in patient recruitment and/or patient’s ascertainment and management; A.H., P.K.M. and S.V. wrote the manuscript and all authors critically revised the manuscript draft.

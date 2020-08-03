@@ -1,0 +1,835 @@
+10.1016/j.engappai.2019.02.012
+
+FULLTEXT
+
+TITLE
+
+A minimax probability extreme machine framework and its application in pattern recognition
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Machine learning algorithms have been widely used in various fields such as data mining and pattern recognition, where support vector machine (SVM) (Vapnik, 1998; Frenay and Verleysen, 2010; Shawe-Taylor and Sun, 2011; Liu et al., 2012; Yang and Dong, 2018), neural network algorithms (Li et al., 2015; Kolbaek et al., 2017), ensemble learning (Rojarath et al., 2017), deep learning (Deng and Yu, 2014) and logistic regression (Yang and Qian, 2016) have been successfully used in classification, regression, function approximation, feature selection, feature extraction and so on.
+
+PARAGRAPH
+
+Extreme learning machine (ELM) (Huang et al., 2006, 2010, 2012, 2015; Barreto and Barros, 2016) is an important learning algorithm for single-hidden-layer feedforward neural networks (SLFNs) (Rumelhart et al., 1986).
+
+The traditional methods used in SLFNs are based on the back-propagation (BP) algorithm (Rumelhart et al., 1986), which adopts the gradient descent method to optimize the weights in neural networks.
+
+However, the gradient based method cannot guarantee the global optima and is often time-consuming in weight tuning.
+
+Compared with the traditional neural networks, the main advantages of the ELM are that it has a simple structure and is solved quickly.
+
+Its hidden nodes and input weights are randomly initialized and the output weights are determined by minimizing the least squares error (Huynh and Won, 2008).
+
+Moreover, the ELM overcomes some drawbacks of traditional feedforward neural networks, such as local minima, imprecise learning rates and slow convergence rates (Huang et al., 2006).
+
+In addition, ELM can provide a unified framework for binary classification, multiclass classification and regression problems (Huang et al., 2012).
+
+The studies show that ELM can achieve comparable or even better generalization than SVM (Liu et al., 2012).
+
+Different from the popular SVM that is difficult to optimize when dealing with nonlinear problems because of the unknown implication mapping and the kernel parameters, ELM has the explicit kernel function form: KELM(xi,xj)=ϕ(xi)Tϕ(xj), and its network parameters are randomly generated without tuning.
+
+Basically ELM uses less parameters than SVM because the bias parameter is not necessary.
+
+Therefore, ELM is more convenient to use in practical applications (Huang et al., 2010; Chorowski et al., 2014).
+
+With these advances of ELM, much effort has been made to improve ELM performance from both theoretical and applicative perspectives, such as the optimization method based ELM (Huang et al., 2010), robust ELM (Barreto and Barros, 2016), semi-supervised ELM (Zhou et al., 2015), weighted least squares ELM (Huynh and Won, 2008) and so on.
+
+It is worth noting that the statistic information from samples is relatively few applied in ELM researches currently.
+
+PARAGRAPH
+
+When constructing a classifier, the probability of correct classification of future data should be maximized.
+
+Minimax probability machine (MPM) (Lanckriet et al., 2002a, b; Yoshiyama and Sakurai, 2014) is a novel classification algorithm based on the prior knowledge and has been successfully applied in classification and regression problems.
+
+It has advantages over other machine learning methods:
+
+PARAGRAPH
+
+(1) MPM is a moment-based constrains algorithm (or called a nonparametric algorithm).
+
+It utilizes all the information from the samples, mean and variance, to find a minimax probabilistic decision hyperplane for separating the two-class samples for binary classifications.
+
+PARAGRAPH
+
+(2) Making no assumption on the data distribution, MPM can directly estimate a probabilistic accuracy bound by minimizing the maximum probability of misclassification error.
+
+PARAGRAPH
+
+(3) MPM formulation is reformulated as a second-order cone programming (SOCP) (Lobo et al., 1998; Bhattacharyya, 2004) with global optimal solution.
+
+PARAGRAPH
+
+Numerical experiments show that the performance of MPM is comparable with SVM (Lanckriet et al., 2002a), but MPM can provide an explicit lower-bound on prediction accuracy.
+
+At the same time, we note that MPM paradigm does not explicitly control the empirical risk.
+
+PARAGRAPH
+
+The second-order cone programming (SOCP) is a nonlinear convex optimization, which can be generally expressed as minxfTxs.t.‖Aix+bi‖≤ciTx+di,i=1,2,…,M with f∈Rn,Ai∈R(ni−1)×n,bi∈Rni−1,ci∈Rn and di∈R.
+
+The norm appearing in the constraints is the standard Euclidean norm.
+
+The constraints ‖Aix+bi‖≤ciTx+di (i=1,2⋯,M) are called as second-order cone constraints of dimension ni.
+
+The SOCP with global solution has been used successfully in machine learning and pattern recognition.
+
+PARAGRAPH
+
+When constructing a classifier, providing a reliability measure of prediction accuracy is very useful especially for ELM classification since its hidden-layer parameters are randomly generated, which may lead to the instability of ELM outputs.
+
+Therefore, it is meaningful and reasonable to construct a decision hyperplane with maximal probability to separate two-class samples in ELM feature space, which can also enable post-processing in ELM applications.
+
+However, the classical ELM does not provide such a probability.
+
+For a sample x, the output of the ELM is a score f(x), instead of a measure of the misclassification probability.
+
+PARAGRAPH
+
+A loss function is a means by which the performance of a learning algorithm is judged.
+
+For x∈Rn, least square loss (LS-loss) (or l2-norm loss, l2(x)=∑i=1nxi2) (Huynh and Won, 2008) and least absolute deviation (LAD) loss (or l1-norm loss, l1(x)=∑i=1n|xi|) (Cao and Liu, 2009; Yang et al., 2011; Xiang et al., 2012) are two popular loss functions.
+
+They are all convex function and have been successfully used in classification and regression problems.
+
+PARAGRAPH
+
+Inspired by the above researches, in this investigation, we propose a new classification framework which inherits the advantages of MPM and ELM.
+
+The main contributions of this work are summarized as follows:
+
+PARAGRAPH
+
+(1) We propose a minimax probability extreme learning machine (called MPME) that combines the benefits of ELM and MPM.
+
+Without making specific assumption on data distribution, the proposed MPME can provide an explicit lower-bound on the probability of correct classification for future data.
+
+For binary classification problems, the proposed MPME can be geometrically interpreted by minimizing the maximum of the Mahalanobis distances to the two classes in ELM feature space.
+
+PARAGRAPH
+
+(2) Two variants of the proposed MPME are developed based on the least square loss (LS-loss) and least absolute deviation (LAD) loss functions, called LSEMPME and LADMPME respectively.
+
+They can minimize the maximal probability of misclassification and empirical risk simultaneously.
+
+With explicit kernel function form, the proposed methods are easy to implement for nonlinear decision.
+
+Moreover their separation hyperplanes pass through the origin of the ELM feature space with few decision variables.
+
+PARAGRAPH
+
+By using the multivariate Chebyshev–Cantelli inequality (Marshall and Olkin, 1960), all the proposed models are reformulated as second-order cone programming (SOCP) with global solution, and solved efficiently using the interior point algorithm (Lobo et al., 1998).
+
+As a typical and important application, the proposed methods are used to evaluate a practical classification problem consisting on the analysis of the hardness of licorice seeds employing near-infrared (NIR) spectroscopy data (Yang and Sun, 2016; Yang and Dong, 2018).
+
+Experimental results in different spectral regions demonstrate that the proposed methods improve generalization in most cases, and it can provide the upper-bound on misclassification error rate and control empirical error simultaneously.
+
+PARAGRAPH
+
+Throughout the paper we adopt the following notations.
+
+The scalar product of two vectors x and y in the n-dimensional real space is denoted by xTy or 〈x⋅y〉.
+
+For a n-dimension vector x, the l1-norm of x is denoted as ‖x‖1, ‖x‖1=∑i=1n|xi|, where |⋅| denotes absolute value operator.
+
+The ‖x‖2 denotes the l2-norm of x, ‖x‖2=xTx.
+
+The base of the natural logarithm is denoted by ϵ.
+
+A vector of zeros in a real space of arbitrary dimension is denoted by 0.
+
+An arbitrary dimension vector of ones is denoted by e.
+
+PARAGRAPH
+
+The rest of this paper is organized as follows.
+
+Section 2 gives a short summary of the MPM and ELM.
+
+In Sections 3 and 4, we present the main contribution of this work.
+
+Experimental results for proposed models are shown in Section 5.
+
+The discussion is placed in Section 6.
+
+The last Section concludes the work and gives future directions.
+
+SECTION
+
+Background
+
+SECTION
+
+Extreme learning machines (ELM)
+
+PARAGRAPH
+
+As a type of single-hidden layer feedforward neural networks (SLFNs), ELM has been applied successfully in classification and regression problems (Huang et al., 2006; Barreto and Barros, 2016).
+
+The hidden parameters of ELM network are initialized randomly and optimized by minimizing the classification error over a training set.
+
+PARAGRAPH
+
+Specifically, given a training set T={(xi,ti),xi∈Rn,i=1,…,N}, where xi represents a input sample, ti defines the output of the xi and N represents the number of samples.
+
+The goal of ELM is to learn a relationship between xi and ti, (i=1,…,N) to minimize empirical risk.
+
+For a SLFN with L hidden nodes and activation function g(⋅), the ordinary ELM can be formulated as minβ‖Hβ−T‖22with H=h(x1)T⋮h(xN)T=g(a1Tx1+d1)…g(aLTx1+dL)⋮…⋮g(a1TxN+d1)…g(aLTxN+dL)N×L,T=t1⋮tNwhere H is the hidden layer output matrix.
+
+The ai is the weight vector connecting the ith hidden node with the input node, and di denotes the bias term of the ith hidden node.
+
+The weight vector β connects the hidden node with the output layer; h(x)=[g(a1,d1,x),…,g(aL,dL,x)]T is the hidden layer feature mapping and β=(β1,β2,…,βL)T is the output weight.
+
+PARAGRAPH
+
+By solving the problem (3), the output weight matrix β can be estimated analytically β=H†TwhereH†=(HTH)−1HTwhere H† is the Moore–Penrose generalized inverse of the matrix H.
+
+PARAGRAPH
+
+For binary classification problems, the outputs of ELM are simplified as ti=±1,(i=1,…,N).
+
+According to the ELM theory, the bias is not required and ELM’s separation hyperplane βTh(x)=0 passes through the origin of the ELM feature space.
+
+The corresponding classification decision function for the ELM is f(x)=sign(∑i=1Lβig(aiTx+di))=sign(βTh(x))
+
+SECTION
+
+Brief review of minimax probability machine (MPM)
+
+PARAGRAPH
+
+The main goal of MPM is to determine a hyperplane wTx=b with maximal probability to separate two-class data using the moments of the dataset.
+
+Specifically, let X1 and X2 denote two n dimensional random vectors in a binary classification problem, with mean vectors and covariance matrices given by X1∼(X1¯,ΣX1) and X2∼(X2¯,ΣX2) respectively, where X1¯,X2¯∈Rn and ΣX1,ΣX2∈Rn×n.
+
+With the maximal probability of the lower bounds α, MPM places class X1 in the half space H1(w,b)={x|wTx≥b} and class X2 in the other half space H2(w,b)={x|wTx≤b}.
+
+This can be expressed as maxα s.t.infP{wTx≥b}≥αinfP{wTx≤b}≥α By applying the Chebyshev–Cantelli inequality, linear MPM can be reformulated as a SOCP formula k(α)−1=minwwTΣX1w+wTΣX2w s.t.wT(X1¯−X2¯)=1 where k(α)=α1−α.
+
+This can be solved efficiently by using the interior point algorithm.
+
+The optimal b is computed by b=wTX1¯−kwTΣX1w.
+
+The MPM classification decision function has the form: f(x)=sign(wTx−b).
+
+However, this paradigm cannot explicitly control the empirical error.
+
+SECTION
+
+A minimax probability extreme machine (MPME)
+
+PARAGRAPH
+
+For a binary classification with L hidden nodes, the training set in the ELM feature space is described as {(h(xi),ti),h(xi)∈RL,ti=±1,i=1,2,…,N}, where h(xi) is a random vector since ELM’ hidden-layer parameters are generated randomly.
+
+Assume that h(X1) and h(X2) denote two-class random samples with mean vectors and covariance matrices given by h(X1)∼(μ1,Σ1) and h(X2)∼(μ2,Σ2) respectively, where μ1,μ2∈RL and Σ1,Σ2∈RL×L.
+
+PARAGRAPH
+
+For simplicity, we assume that both matrices Σ1 and Σ2 are positive definite.
+
+The results can be extended to general positive semi-definite cases by adding a small positive amount to their diagonal elements to make them positive definite.
+
+Then there exists matrices C1 and C2 such that Σ1=C1C1T,Σ2=C2C2T,C1,C2∈RL×L
+
+SECTION
+
+MPME for classification in the ELM feature space
+
+PARAGRAPH
+
+The output of ELM should provide a reliability measure of classification accuracy to enable post-processing since its hidden-layer parameters of ELM are generated randomly.
+
+However, the traditional ELM does not provide such a guarantee.
+
+In this section, we try to find a decision hyperplane βTh(x)=0 to separate two-class samples from binary classification problems, with maximal probability on all data distributions.
+
+PARAGRAPH
+
+The classical MPM is difficult to implement for nonlinear problems because of the unknown implication mapping for constructing the kernel function.
+
+The ELM feature mapping h(x) and kernel function have explicit form: KELM(xi,xj)=h(xi)Th(xj).
+
+The network parameters of ELM are randomly generated without tuning.
+
+PARAGRAPH
+
+Motivated by the advantages from both MPM and ELM, we try to construct a minimax probability decision hyperplane βTh(x)=0 to separate two-class samples h(X1) and h(X2) in ELM feature space, and place class h(X1) in the half space H1(β)={h(x)|βTh(x)≥0} while class h(X2) in the half space H2(β)={h(x)|βTh(x)<0} respectively.
+
+With respect to all data distributions having known means and covariance matrices, finding a minimax probability decision hyperplane (called MPME) in ELM feature space can be formulated as maxη s.t.infP{h(X1)∈H1}≥ηinfP{h(X2)∈H2}≥η or maxη s.t.infP{βTh(X1)≥0}≥ηinfP{βTh(X2)≤0}≥η where η defines a lower bound of the probability of correct classification future data with respect to all distributions.
+
+That is to say, 1−η indicates an upper bound on misclassification probability of a random vector taking values in a given half space.
+
+The problem (13)–(15) has two constraints, one for each class, which states that the probability of a random vector taking values in a half space is lower-bounded by η.
+
+These constraints can be reformulated as certainty constraints by applying the following multivariate Chebyshev–Cantelli inequality, which derives a lower-bound on the probability of a random vector taking values in the ELM half space.
+
+PARAGRAPH
+
+Bhattacharyya, 2004
+
+PARAGRAPH
+
+Let X be an dimensional random vector.
+
+The mean and covariance of X are μ∈Rn andΣ∈Rn×n respectively.
+
+Let H(w,b)={z|wTz<b,w∈Rn,w≠0,b∈R} be a given half space.
+
+Then the following inequality holds: P{X∈H}≥(b−wTμ)+2(b−wTμ)+2+wTΣwwhere (x)+=max{x,0}.
+
+PARAGRAPH
+
+By applying Lemma 1, the first constraint for class h(X1) in (13)–(15) can be handled by setting P{h(X1)∈H1}≥(βTμ1)+2(βTμ1)+2+βTΣ1β≥ηThis results in two deterministic constraints: βTμ1≥α1−αβTΣ1β,βTμ1≥0Similarly, by applying Lemma 1 to the other constraint in (13)–(15), the MPME (13)–(15) can be stated as the following optimization problem maxη s.t.βTμ1≥k(η)βTΣ1β−βTμ2≥k(η)βTΣ2ββTμ1≥0,−βTμ2≥0 where k(η)=η1−η.
+
+Note that k(η) is a monotone increasing function on η, and thus MPME (19)–(22) can be rewritten as maxk(η) s.t.βT(μ1−μ2)≥k(η)(βTΣ2β+βTΣ1β)βT(μ1−μ2)≥0 If μ1=μ2, then β≠0 implies k=0, which in turn leads to η=0.
+
+In this case, the problem (10)–(12) does not have a meaningful solution, and the minimum of the maximum misclassification probability is 1−η=1.
+
+PARAGRAPH
+
+Let us proceed with the assumption μ1≠μ2.
+
+Note that the constraint conditions (24)–(25) are positively homogeneous.
+
+To deal with this extra degree of freedom, we set βT(μ1−μ2)=1 without loss of generality.
+
+Finally, the MPME (13)–(15) can be expressed as k(η)−1=minββTΣ1β+βTΣ2β s.t.βT(μ1−μ2)=1 where h(X1)∼(μ1,Σ1) and h(X2)∼(μ2,Σ2).
+
+Furthermore, the above problem (26)–(27) is equivalent to k(η)−1=minβ‖C1Tβ‖2+‖C2Tβ‖2 s.t.βT(μ1−μ2)=1 The above problem is convex and feasible (since μ1≠μ2).
+
+Its objective function is bounded below, and thus there exists an optimal solution for MPME (13)–(15).
+
+Specifically, this is a SOCP formulation and can be solved by interior-point method (Mehlhorn and Saxena, 2016) using the popular SeDumi software (Sturm, 1999) that is used widely to solve convex optimizations such as quadratic programming, second-order programming, semi-definite programming and so on.
+
+PARAGRAPH
+
+The MPME classification decision function has the form: f(x)=sign(βTh(x)).
+
+If either Σ1 or Σ2 is positive definite, the MPME decision hyperplane βTh(x)=0 is unique because of the strict convexity of the objective function in MPME (28)–(29).
+
+PARAGRAPH
+
+Moreover, if β is an optimal solution, and then the worst-case bound on misclassification probability is obtained by: 1−η=11+k(η)2=(βTΣ1β+βTΣ2β)21+(βTΣ1β+βTΣ2β)2
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume that data conforms the Gaussian distribution in ELM feature space, h(X1)∼N(μ1,Σ1) and h(X2)∼N(μ2,Σ2).
+
+Then we have βTh(X1)∼N(βTμ1,βTΣ1β) and h(X2)∼N(βTμ2,βTΣ2β).
+
+PARAGRAPH
+
+The first constraint (14) in MPME becomes: infh(X1)∼N(μ1,Σ1)P{βTh(X1)≥0}=p{βTh(X1)−βTμ1βTΣ1β≥−βTμ1βTΣ1β}=P{N(0,1)≥−βTμ1βTΣ1β}=1−Φ(−βTμ1βTΣ1β)=Φ(βTμ1βTΣ1β)≥η where Φ(⋅) is the cumulative distribution function for a standard normal Gaussian distribution: Φ(z)=P{N(0,1)≤z}=12π∫−∞ze−x2∕2dxNote that Φ(z) is monotone increasing.
+
+Thus the inequality (34) is expressed as βTμ1≥Φ−1(η)βTΣ1βThe same can be done for the second constraint (15) in MPELM, which leads to the following optimization: maxη s.t.βTμ1≥Φ−1(η)βTΣ1β−βTμ2≥Φ−1(η)βTΣ2β This has the same form as (19)–(21) except for k(η)=Φ−1(η), instead of k(η)=η1−η.
+
+Thus it can be similarly solved and the corresponding minimax probability decision hyperplane has the form βTh(x)=0.
+
+SECTION
+
+Geometric interpretation of MPME
+
+PARAGRAPH
+
+The Lagrange function of MPME (28)–(29) is L(β,θ)=‖C1Tβ‖2+‖C2Tβ‖2+θ(1−βT(μ1−μ2))By using ‖z‖2=max{uTz:‖u‖2≤1}, the above problem can be expressed as L(β,θ)=max{uTΣ11∕2β+vTΣ21∕2β+θ(1−βT(μ1−μ2)),‖u‖2,‖v‖2≤1} The MPME (28)–(29) can be rewritten as minβmaxθ,u,v{uTΣ11∕2β+vTΣ21∕2β+θ(1−βT(μ1−μ2)),‖u‖2,‖v‖2≤1}Note that this is a convex optimization (Boyd and Vandenberghe, 2004).
+
+Thus we can exchange the min and max operators in the above problem and get: maxθ,u,vminβ{uTΣ11∕2β+vTΣ21∕2β+θ(1−βT(μ1−μ2)),‖u‖2,‖v‖2≤1}Note that minβ{uTΣ11∕2β+vTΣ21∕2β+θ(1−βT(μ1−μ2))}=θ,θμ1−Σ11∕2u=θμ2+Σ21∕2v−∞,otherwise Then we obtain the dual problem of MPME (28)–(29) as follows maxθ,u,vθ:θμ1−Σ11∕2u=θμ2+Σ21∕2v,‖u‖2≤1,‖v‖2≤1For addressing a meaningful problem, we assume μ1≠μ2.
+
+For simplicity we further assume that Σ1 and Σ2 are positive definite.
+
+On these assumptions, the MPME (28)–(29) is strictly convex and feasible.
+
+Thus it has unique solution and its optimal value is non zero since Σ1 and Σ2 are positive definite.
+
+According to the dual theorem (Boyd and Vandenberghe, 2004), the dual problem (46) and primal problem (42) have the same optimal values, and both are attained at the same time.
+
+Let δ=1∕θ and then the dual problem (46) is reformulated as minδ,u,vδ:μ1+Σ11∕2δu=μ2+Σ21∕2δv,‖u‖2≤1,‖v‖2≤1which is equivalent to minδ,u,vδ:μ1+Σ11∕2u=μ2+Σ21∕2v,‖u‖2≤δ,‖v‖2≤δ
+
+PARAGRAPH
+
+At the optimum, we have θ=‖Σ11∕2β‖2+‖Σ21∕2β‖2=1∕δ.
+
+For given δ>0, we consider two ellipsoids whose shapes are determined by their mean vector and covariance matrices in ELM feature space: ε(X1)={h(x)=μ1+Σ11∕2u,‖u‖2≤δ}={(h(x)−μ1)TΣ1−1(h(x)−μ1)≤δ}ε(X2)={h(x)=μ2+Σ11∕2v,‖v‖2≤δ}={(h(x)−μ2)TΣ2−1(h(x)−μ2)≤δ} In ELM feature space, these sets correspond to the points whose Mahalanobis distances to the class means are less than a real number δ.
+
+PARAGRAPH
+
+Problem (48) is equivalent to find the smallest δ, for which these ellipsoids are tangent to each other.
+
+The MPME decision hyperplane is then the common tangent to the optimal ellipsoids.
+
+SECTION
+
+Two variants of the proposed MPME
+
+PARAGRAPH
+
+The least square loss (LS-loss, or l2-loss) (Xiang et al., 2012) is a smooth and popular loss function.
+
+The least absolute deviation (LAD) loss (or l1-norm loss) is a robust loss function used in M-estimation (Huber, 1981; Chan and Zou, 2004; Tyler, 2008).
+
+The LS-loss function is suitable for the situations where the distribution of the residual error assumes as a zero-mean Gaussian distribution density p(t)=12πexp(−t22) (see Fig. 1), and the LAD-norm loss assumes as a zero-mean Laplacian prior distribution p(t)=12exp(−|t|) (see Fig. 2).
+
+Apart from t=0, the influence function (or derivative function) of LAD-loss is bounded.
+
+From the viewpoints of M-estimation, the LAD-loss is insensitive to outliers and thus it is a robust loss function in presence of outliers and noises.
+
+The LS-loss ( l2(t) ) and LAD-loss (l1(t)) are positive and symmetrical, and reach their minima if and only t=0.
+
+Moreover, their weighted functions ωj(t)=∇lj(t)t,j=1,2,t∈Rare all bounded.
+
+PARAGRAPH
+
+One of the basic principles of statistical learning is empirical risk minimization (ERM) that has been routinely used in a variety of applications such as regression and classification problems.
+
+However, both MPM and the proposed MPME cannot explicitly involve the empirical error.
+
+Motivated by the ERM principle, in this section we present two variants of the proposed MPME.
+
+Specifically, we incorporate l2-norm loss and l1-norm loss functions into the objective function of the MPME respectively, the main goal of which is to simultaneously minimize the upper-bound on misclassification probability and empirical risk in ELM feature space.
+
+SECTION
+
+MPME with the l2-norm loss (LSEMPME)
+
+PARAGRAPH
+
+For the traditional ELM, the empirical risk measured by the l2-norm loss function has the form ‖Hβ−T‖2.
+
+We incorporate the empirical error ‖Hβ−T‖2 into the objective function of MPME (26)–(27) by weighting ‖Hβ−T‖2 with a suitably chosen parameter λ.
+
+Then a variant of the MPME (called LSEMPME) is formulated as the following optimization problem: (k1∗)−1=minββTΣ1β+βTΣ2β+λ‖Hβ−T‖2 s.t.βT(μ1−μ2)=1 By applying formula (9), the problem (52) is rewritten as (k1∗)−1=minβ‖C1Tβ‖2+‖C2Tβ‖2+λ‖Hβ−T‖2 s.t.βT(μ1−μ2)=1 where λ>0 is a parameter that defines the penalty of empirical error.
+
+When λ is set a large value, the empirical risk ‖Hβ−T‖2 minimization is predominant, which leads to more smaller empirical error.
+
+PARAGRAPH
+
+Similar to MPME, the problem (53) is also a convex optimization with global optimal solution.
+
+By introducing new variables t1,t2,t3 and setting ‖C1Tβ‖2≤t1, ‖C2Tβ‖2≤t2 and ‖Hβ−T‖2≤t3 respectively, the above LSEMPME (52) is equivalent to (k1∗)−1=minβ,t1,t2,t3t1+t2+λt3 s.t.‖C1Tβ‖2≤t1,‖C2Tβ‖2≤t2‖Hβ−T‖2≤t3,βT(μ1−μ2)=1 whose objective function is linear and the constraint conditions are cone constraints.
+
+More specifically, this is a SOCP formula and can be solved efficiently in polynomial time complexity; its global optimal solution can be easily obtained by using the popular SeDumi software (Sturm, 1999).
+
+SECTION
+
+MPME with the l1-norm loss (LADMPME)
+
+PARAGRAPH
+
+Apart from the origin, the influence function (or derivative) of LAD-loss is bounded but LS-loss is not.
+
+Thus the quadratic loss function may lead to poor performance when handling data with noise and outliers.
+
+The l1-norm loss function is more resistant to outliers than the l2-loss.
+
+However minimizing the sum of the absolute values of the residuals involves nonsmooth optimization problem.
+
+Thus there are relatively few researches on the LAD-loss strategy.
+
+PARAGRAPH
+
+Inspired by the robustness of LAD-loss, we construct a new variant of MPME with l1-norm loss.
+
+Similar to Section 4.1, we incorporate the empirical risk ‖Hβ−T‖1 into the objective function of the MPME (26)–(27) by weighting ‖Hβ−T‖1 with the penalty parameter ν>0.
+
+Then a new variant of the MPME is presented to control empirical error.
+
+This leads to a robust version of MPME (called LADMPME): (k2∗)−1=minββTΣ1β+βTΣ2β+ν‖Hβ−T‖1 s.t.βT(μ1−μ2)=1 Similarly, by using formula (9), the problem (55) can be expressed as (k2∗)−1=minβ‖C1Tβ‖2+‖C2Tβ‖2+ν‖Hβ−T‖1 s.t.βT(μ1−μ2)=1 This is also a convex optimization with global optimal solution.
+
+By introducing variables p and q that satisfy Hβ−T=p−q,p,q≥0, we have ‖Hβ−T‖1=eT(p+q), and the LADMPME (55) is reformulated as (k2∗)−1=minβ,p,q‖C1Tβ‖2+‖C2Tβ‖2+νeT(p+q) s.t.βT(μ1−μ2)=1Hβ−T=p−q,p,q≥0 where ν>0 is a parameter that defines the penalty of empirical error.
+
+By introducing variable z1 and z2 such that ‖C1Tβ‖2≤z1 and ‖C2Tβ‖2≤z2, then the above problem (57) can be rewritten as (k2∗)−1=minβ,p,q,z1,z2z1+z2+νeT(p+q) s.t.βT(μ1−μ2)=1‖C1Tβ‖2≤z1,‖C2Tβ‖2≤z2,Hβ−T=p−q,p,q≥0 This is also a SOCP with global solution and can be solved efficiently by using interior point method via SeDumi software.
+
+SECTION
+
+Complexity analysis
+
+PARAGRAPH
+
+In this section, we focus on comparing solving methods and learning schemes.
+
+The solution of the standard SVM can be achieved by solving a quadratic programming (QP) problem, while the MPM, MPME, LADMPME and LSEMPME can be optimized by solving SOCP problems.
+
+Both QP and SOCP problems have global optimal solutions.
+
+Generally, solving linear MPM problem by using interior-point methods yields a worst-case complexity of O(n3) where n is the dimension of the data space.
+
+Of course, the first and second moments of sample must be estimated beforehand.
+
+And computing ELM kernel matrix takes O(NnL) operations.
+
+Adding the time cost to estimate the first and second moments, the total time complexity for the MPELM is O(L3+NnL) where N is the number of samples and L denotes the dimensionality of feature space respectively.
+
+This complexity is in the same order as the nonlinear SVM and nonlinear MPM.
+
+A special property of MPM and MPELM is that they can provide an explicit upper bound on the probability of misclassification of future samples.
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+To evaluate the proposed algorithms, numerical simulations have been carried out on two databases.
+
+First, we run the proposed algorithms on the benchmark database, UCI Machine Learning Repository (Blake and Merz, 1998).
+
+The second experiment is run on a practical application database.
+
+All the experiments are implemented in MATLAB2012a on a PC with an Intel Core I5 processor with 2 GB of RAM.
+
+PARAGRAPH
+
+For comprehensive evaluation, we have conducted five times trials for each dataset, and ten-fold cross validation is used in each trial.
+
+Thus each algorithm is run fifty times for each dataset.
+
+In each trial, we remove the labels of the test samples and employ these algorithms to reclassify the test set.
+
+The average results of fifty-time test are used as the performance measure.
+
+SECTION
+
+Experimental design and parameter selection
+
+PARAGRAPH
+
+The performances of the proposed methods are assessed by the following criteria: Accuracy (ACC), Matthews correlation coefficient (MCC) and the F1-measure.
+
+The ACC is the identification rate of all samples from the two classes; the MCC and F1-measure are two comprehensive measures of the quality of classification models.
+
+The higher the values are, the better the models are.
+
+The above values are defined as (Fawcett, 2006) ACC=TP+TNTP+FN+TN+FPMCC=TP⋅TN−FP⋅FN(TP+FP)(TP+FN)(TN+FP)(TN+FN)F1=2×TP2×TP+FP+FN where TP and TN denote true positives and true negatives; FN and FP denote false negatives and false positives, respectively.
+
+PARAGRAPH
+
+Parameter selection.
+
+The performances of the proposed LSEMPME and LADMPME models depend usually on the choices of the penalty parameters λ and ν respectively.
+
+Generally, when penalty parameters are set large values, the empirical error minimization is predominant, which will lead to smaller misclassification error.
+
+To demonstrate these clearly, we present a map (Fig. 3) to illustrate the influence of parameters λ and ν on performances of the LSEMPME and LADMPME respectively, where the x-axis denotes the values of parameters λ (or ν), and the y-axis denotes the ACC.
+
+With the hidden node L=100, Fig. 3 illustrates the ACC values of the LSEMPME (or LADMPME) as penalty parameter λ (or ν) varies in Vote dataset; the ACC values of the LADMPME (or LSEMPME) increase as λ (or ν) increases; LSEMPME (or LADMPME) produces higher ACC values when λ (or ν) is set to larger values.
+
+PARAGRAPH
+
+The performances of the proposed methods depend on the design of the number of hidden-layer nodes.
+
+With penalty parameters λ=ν=1000, Fig. 4 shows the ACC of the LADMPME and LSEMPME as the hidden node number L varies on Vote dataset, where the x-axis denotes the values of parameter L, and the y-axis denotes the ACC values.
+
+We observe that the ACC values of the proposed LSEMPME (or LADMPME) do not always increase with a fixed penalty 1000.
+
+PARAGRAPH
+
+The analysis above are helpful for choosing parameters λ, ν and L in the following experiments.
+
+PARAGRAPH
+
+In this investigation, the sigmoid function s(w,b,x)=11+exp(−(wTx+b))is chosen as the activation function in hidden layer for the proposed models.
+
+PARAGRAPH
+
+In addition, we chose four traditional classification methods, the classical ELM (Huang et al., 2006), regularized ELM (called l2-ELM ) (Huang et al., 2010), MPM (Lanckriet et al., 2002a) and SVM (Vapnik, 1998).
+
+Moreover we compare the proposed methods with these four baseline methods.
+
+PARAGRAPH
+
+For each dataset, parameter λ (or ν) in the LSEMPME (52) (or LADMPME (55)) is adjusted from the set {10i|i=0,1,2,3,4} by ten-fold cross validation.
+
+Moreover, the number of hidden nodes L is adjusted from set {10i|i=1,2,3,4}.
+
+For each combination of these values, the ACC is calculated and the optimum parameters are selected to maximize the ACC in all the considered datasets.
+
+PARAGRAPH
+
+For the regularized ELM (l2-ELM), the penalty parameter λ is tuned from the set {10i|i=0,1,2,3,4} , and the number of hidden nodes L is selected from set {10i|i=1,2,3,4}.
+
+For each combination of parameters λ and L, the average accuracy by ten-fold cross validation is calculated to maximize the accuracy on each dataset.
+
+The optimal values of λ and L are reported in experiment results.
+
+PARAGRAPH
+
+For standard SVM (l2-norm regularized SVM), the penalty parameter λ is tuned from the set {10i|i=0,1,2,3,4} by ten-fold cross validation, to maximize the accuracy on each dataset.
+
+The optimal penalty is reported in results.
+
+SECTION
+
+Experiments on UCI benchmark datasets
+
+PARAGRAPH
+
+In this section, we have carried out two numerical experiments on UCI datasets.
+
+For each dataset, we conduct five times trials and ten-fold cross validation is used in each trial.
+
+Thus each algorithm is run fifty-time trials in each dataset.
+
+PARAGRAPH
+
+The first experiment is mainly designed to compare the proposed methods, LSEMPME (52) and LADMPME (55), with other popular classification methods:
+
+PARAGRAPH
+
+(1) linear models: linear MPM (Lanckriet et al., 2002a) and linear SVM (Vapnik, 1998);
+
+PARAGRAPH
+
+(2) the traditional ELM methods, ELM (Huang et al., 2006) and regularized ELM (called l2-ELM) (Huang et al., 2012).
+
+PARAGRAPH
+
+The optimum parameters (λ,ν,L) for these algorithms are reported in Table 1.
+
+With these chosen parameters, the above methods are run on nine UCI datasets.
+
+The average experimental results from fifty-time tests are reported in Table 2.
+
+PARAGRAPH
+
+Table 2 shows that the proposed LSEMPME and LADMPME are superior to the MPM in six of the nine datasets; for other three datasets (Pima, Spam and Cancer), the LSEMPME and LADMPME are competitive with the MPM in terms of generalization.
+
+The main reason is that the empirical risk is merged into the objective function of the LSEMPME and LADMPME.
+
+Thus the LSEMPME and LADMPME minimize the upper-bound of misclassification probability and empirical risk simultaneously, which leads to the proposed models with lower test error than that of MPM.
+
+Moreover, the LSEMPME and LADMPME achieve better results than the ELM in all nine datasets.
+
+At the same time, the performances of LSEMPME and LADMPME are better than that of the l2-ELM in most cases, the main reason for which is that the proposed methods consider not only empirical risk minimization (ERM), but also can control misclassification error rate.
+
+In addition, the LSEMPME and LADMPME outperform the SVM in six of nine datasets.
+
+These suggest that the proposed methods achieve comparative or even better results than traditional methods in the considered datasets.
+
+PARAGRAPH
+
+The second experiment is mainly to compare the proposed methods with nonlinear SVM, called SVM-ELMker (Frenay and Verleysen, 2010; Zhua et al., 2014), where ELM kernel function is used but SVM model is with the bias.
+
+In this experiment, we only randomly choose five UCI datasets.
+
+With the chosen optimal parameters, the averages ACC from fifty-time trials are reported in Fig. 5.
+
+PARAGRAPH
+
+We know from Fig. 5 that the MPME and LSEMPME achieve higher ACC than the l2-ELM in all five datasets; the performances of MPME and LSEMPME are competitive with the SVM-ELMker in terms of generalization in most datasets, but MPME and LSEMPME can control the misclassification error rate.
+
+SECTION
+
+Experiments on NIR spectral dataset
+
+PARAGRAPH
+
+In this section the proposed methods are directly evaluated in a practical classification application.
+
+We classify licorice seeds using the proposed models and NIR spectral data (Yang and Sun, 2016).
+
+The licorice is a traditional Chinese herbal medicine, and its seeds include both hard seeds and soft seeds like many other legumes.
+
+A total of 244 licorice seeds including 122 hard seeds and 122 soft seeds are used in this experiment.
+
+Near-infrared (NIR) spectra are acquired using an MPA spectrometer.
+
+The NIR spectral range of 4000–10,000 cm−1 is recorded with a resolution of 4 cm−1.
+
+The initial spectra are digitized by OPUS 5.5 software.
+
+The length of the vector is defined by the number of spectral variable features.
+
+Finally, the spectral dataset contains 244 samples measured at 3112 wavelength points in the range of 4000–10,000 cm−1.
+
+PARAGRAPH
+
+For comprehensive evaluation, the NIR spectral range 4000–10,000 cm−1 is divided into six different spectral regions: 5000–6000 cm−1, 6000–7000 cm−1, 7000–8000 cm−1, 8000–10,000 cm−1,4000–8000 cm−1 and 4000–10,000 cm−1 .
+
+The corresponding spectral regions are denoted regions A, B, C, D,E and F respectively.
+
+Information about them is reported in Table 3.
+
+PARAGRAPH
+
+The numerical experiments have been carried out in these six different spectral regions respectively.
+
+The hard seeds and soft seeds had a 1:1 ratio in the training set and test set.
+
+The labels of the test samples are removed, and then the proposed methods are used to reclassify the test set.
+
+We compare the proposed methods with other popular models: linear MPM, ELM, l2-ELM, MPM and linear SVM.
+
+Similarly, the optimum penalty parameters and the hidden node number are tuned by ten-fold cross validation to maximize the accuracy in each spectral region.
+
+The optimum parameters (λ,ν,L) for these algorithms are reported in Table 4.
+
+PARAGRAPH
+
+Similarly, with the chosen parameters, we also perform ten-fold cross validation in each spectral region, and this process is repeated five times.
+
+Finally, the average experiment results repeated fifty-time trials are presented in Table 5.
+
+PARAGRAPH
+
+According to generalization, Table 5 shows that the performances of the proposed LADMPME and LSEMPME are better than those of MPM and SVM in four regions (A–D) of six regions; for other two regions E and F, the proposed methods yield results comparable to those of MPM and SVM in terms of generalization.
+
+Compared with the ELM, the proposed LADMPME and LSEMPME achieve better results in all six spectral regions.
+
+At the same time, the LADMPME and LSEMPME outperform the l2-ELM in three regions (A, B and C) of six regions; for other two regions D and F, the LADMPME and LSEMPME achieve equivalent classification performances to the l2-ELM, the main reason for which is that the proposed methods not only minimize empirical risk (ERM), but also can control misclassification error rate.
+
+SECTION
+
+Experiments on datasets with input noise
+
+PARAGRAPH
+
+To test the robustness of the LADMPME, we compare the LADMPME and LSEMPME on four UCI datasets with input noise.
+
+We contaminate the training samples with simulation noises.
+
+We add Gaussian noise with zero mean and variance σ2 to all training samples.
+
+We present a map to illustrate the influences of parameter σ on performance of the LSEMPME and LADMPME respectively.
+
+The Fig. 5 shows the ACC values of the LSEMPM and LADMPME varying with σ on WDBC, from which we find the ACC values decrease gradually when σ goes from 1 to 1000.
+
+And the ACC values of the LSEMPME decrease more than those of the LADMPME (see Fig. 6).
+
+PARAGRAPH
+
+According to classification accuracy (ACC), we compare LADMPME and LSEMPME under different noise levels (variance σ2) on four datasets.
+
+With node number L = 100, the average experimental results repeated fifty-time are reported in Table 6.
+
+PARAGRAPH
+
+Experiment results from Table 6 are summarized as follows:
+
+PARAGRAPH
+
+(1) The ACC values of both LADMPME and LSEMPME reduce as noise variance σ increases from 1 to 1000 in most cases; especially on Ionosphere and Australian datasets, the ACC values of LADMPME and LSEMPME drop obviously as noise variance σ is set large values on all the datasets; for Vote dataset, apart from σ2 = 1000, the ACC values of LADMPME and LSEMPME reduce as noise variance σ increase from 1 to 100; for Cancer dataset, the ACC values of the proposed methods decrease as noise variance σ increases from 1 to 1000 in most cases, but not all four datasets.
+
+The possible reason is that Cancer dataset is an unbalanced dataset.
+
+PARAGRAPH
+
+(2) The ACC values of LADMPME are higher than that of LSEMPME in four different variance levels for all four datasets, the possible reason for which is that the LAD-loss is insensitive to noise and outliers, and thus it is more robust than LS-loss function in noise setting.
+
+PARAGRAPH
+
+The results above show that the performances of the proposed methods depend on the noise variance when data is with input noise.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+We propose a minimax probability extreme learning machine framework (MPME) and then two variants of MPME (called LSEMPME and LADMPME) are developed with l2-loss and l1-loss respectively.
+
+The proposed methods inherit the advantages of both MPM and ELM, but difference from MPM and ELM, which can be enumerated below:
+
+PARAGRAPH
+
+(1) Similar to MPM, the proposed MPME can provide an explicit lower-bound of classification accuracy for future data, which can provide a reliability measure of classification accuracy to guarantee post-processing.
+
+However, difference from the MPM that is difficult to apply in nonlinear setting because of the unknown implication mapping, the proposed methods have explicit kernel forms and their kernel parameters are randomly generated.
+
+Thus the proposed methods are easy to implement for nonlinear decisions.
+
+PARAGRAPH
+
+(2) Similar to the ELM, the decision hyperplanes of the proposed schemes pass through the origin of ELM feature space, where the bias is not requires.
+
+Thus the decision functions of the proposed methods have more simple forms than those of the MPM and SVM, which makes them more convenient to implement in practical applications.
+
+PARAGRAPH
+
+(3) For binary classification problems, the proposed MPME can be interpreted geometrically by minimizing the maximum of Mahalanobis distances to the two classes.
+
+The proposed LSEMPME and LADMPME can simultaneously minimize the upper-bound on misclassification error rate and the empirical error.
+
+Thus they are with better generalization than ELM and MPM.
+
+In addition, when the penalty parameter λ (or ν) is set a large value, the empirical error minimization is predominant, which leads to smaller empirical error.
+
+When λ=0 (or ν = 0), LSEMPME (or LADMPME) is equivalent to MPME.
+
+Thus LSEMPME and LADMPME include and extend the MPME which mainly focus on maximizing the probability of correct classification on future data.
+
+PARAGRAPH
+
+(4) Compared with the SVM, the proposed methods are easy to implement for nonlinear decisions and can estimate an upper-bound on the generalization error.
+
+Moreover, the proposed methods make use of the information from all samples (first and second moments) to build their decision hyperplanes, with few decision variables.
+
+The SVM’ separation hyperplane depends on only few samples, support vectors.
+
+From the perspective of learning, the SVM represents the local learning scheme, while the proposed methods represent the global learning scheme.
+
+Moreover, the performances of SVM depend usually on choice of the penalty parameters in their models, while no penalty parameter exists in the proposed MPME, and therefore we do not need to filter the parameter for training MPME.
+
+These advantages make the proposed MPME convenient to use, and performance of MPME is more objective.
+
+SECTION
+
+Conclusions and future direction
+
+PARAGRAPH
+
+The hidden-layer parameters of ELM network are randomly generated, which may lead to the instability of ELM outputs.
+
+Therefore, it is meaningful to construct a decision hyperplane with maximal probability to separate two-class samples with respect to all distribution in binary classification problems, although the scheme of the proposed methods is straightforward in this investigation.
+
+PARAGRAPH
+
+In this work, we propose a ELM learning framework for binary classification problems.
+
+Without making specific assumption on data distribution, we first propose a minimax probability extreme learning machine (called MPME) by combination the benefits of ELM and MPM.
+
+Then two variants of MPME are developed based on l2-norm loss function and l1-norm loss function respectively.
+
+The proposed methods have advantages of both MPM and ELM, but are different from them.
+
+The proposed methods can provide explicit upper bounds of the generalization error, which provides a reliability measure of classification accuracy to enable post-processing.
+
+The decision functions of the proposed methods are with few variables than those of MPM and SVM.
+
+The proposed methods have explicit kernel function forms and their network parameters are randomly generated without tuning.
+
+Therefore the proposed methods are easy to implement for nonlinear decision, which leads to convenient to apply.
+
+By using the multivariate Chebyshev–Cantelli inequality, all the proposed models are reformulated as SCOP problems with global solutions and are easy to optimize in polynomial time complexity via the popular SeDumi software.
+
+Moreover, we analyze that the complexity of the proposed models is in the same order as the nonlinear SVM and MPM.
+
+PARAGRAPH
+
+As a practical application, the proposed methods are evaluated to a practical classification problem consisting on the analysis of licorice seeds using near-infrared spectral (NIR) data.
+
+Compared with the traditional MPM, experiment results on six different NIR datasets illustrate that the proposed methods improve generalization in most cases.
+
+Moreover, the performances of the proposed methods are better than those of ELM and SVM in most regions, but they can provide bounds on misclassification error rate and control empirical error simultaneously.
+
+In comparison with the traditional methods, experiments on nine UCI datasets show that the proposed LADMPME and LSEMPME either improve or achieve equivalent classification performance in most datasets.
+
+Experiments on datasets with noise show that the performance of LADMPME is superior to LSEMPME in most cases.
+
+PARAGRAPH
+
+In this work, we only consider binary classification problems.
+
+In future work, we will extend the proposed methods to multi-class problems and regression problems.
+
+The different loss functions correspond to the different mathematical programming in the ELM family.
+
+We will develop more efficient combination of MPM and ELM to optimize MPM and ELM.

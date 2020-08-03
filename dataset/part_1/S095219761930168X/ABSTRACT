@@ -1,0 +1,43 @@
+10.1016/j.engappai.2019.07.004
+
+ABSTRACT
+
+TITLE
+
+Modeling and Analysis of Students’ Performance Trajectories using Diffusion Maps and Kernel Two-Sample Tests
+
+PARAGRAPH
+
+Modeling and analysis of students’ performance is a common task that is aimed at identifying important factors that affect the learning process.
+
+Typically, the analysis uses one-dimensional input parameters.
+
+However, with the advancement of data collections tools, many of the gathered educational datasets have become high-dimensional.
+
+Hence, the use of standard statistical methods may be limited in cases that the initial data unit is a vector.
+
+PARAGRAPH
+
+This paper proposes to use vector input units, which consist of student performance trajectories, for identifying statistical differences in college performances for several populations of college students.
+
+Two kernel based methods named diffusion maps and the kernel two-sample test are utilized.
+
+Diffusion maps generates a low-dimensional representation of the data, in which important characteristic factors are identified.
+
+The kernel two-sample test is a statistical test for comparing whether high-dimensional samples are drawn from two different probability distributions.
+
+The two methods are combined into a unified framework.
+
+PARAGRAPH
+
+Two case studies, which are processed similarly, are presented.
+
+The first tests for significant distributional differences between students with or without learning disabilities.
+
+Our results show that these groups’ performances is significantly different.
+
+The second case-study analyzes whether the SAT score impacts students’ performance throughout their 4-year of studies.
+
+It was found that significant distribution differences in performance are only present for groups of students having a very high or a very low SAT score.
+
+Thus, the SAT score is only weakly correlated to students’ college performance.

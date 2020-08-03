@@ -1,0 +1,425 @@
+10.1016/j.jhep.2019.11.016
+
+FULLTEXT
+
+TITLE
+
+The chances of hepatic resection curing hepatocellular carcinoma
+
+SECTION
+
+INTRODUCTION
+
+PARAGRAPH
+
+Worldwide, hepatocellular carcinoma (HCC) is one of the most common cause of cancer-related death, with a rapidly increase in the western world[1].
+
+Hepatic resection (HR) remains the most widely applied, potentially curative, therapeutic option [1,2] Unfortunately, and in contrast to liver transplantation (LT), although resection can remove the main tumour burden, the risks associated with the underlying chronic liver disease (CLD) and undetectable micro-metastases remain [3].
+
+Thus, many patients undergoing resection will die as the consequence of tumour relapse or because of complications of chronic liver disease [4].
+
+PARAGRAPH
+
+The two competing causes of death (tumour recurrence and cirrhosis/chronic liver disease) both influence survival and have implications for therapy.
+
+On the one hand, resection might not be appropriate in a patient who will likely die from advanced liver dysfunction, and conversely, treatment of viral hepatitis, with expensive antiviral agents, may only be appropriate if the risk of death as a consequence of HCC recurrence is relatively low [4-6].
+
+To quantify these issues it is necessary to evaluate whether a patient undergoing resection would experience a life expectancy similar to that of patients with chronic hepatitis or cirrhosis.
+
+An approach able to capture this relies on the concept of statistical cure [3,7].
+
+This occurs when the mortality of patients treated for a specific disease returns to the value expected in a reference population [8].
+
+Commonly, the reference population is represented by the ‘general’ population – people matched for age and gender who do not have the disease in question.
+
+However, in the present clinical scenario, the reference population is most appropriately represented by those with chronic liver disease/cirrhosis, in order to return an estimation of the probabilities of being cured from HCC, assuming that chronic liver disease remains since it is obviously not cured by resection.
+
+PARAGRAPH
+
+The present study aimed to apply a cure model to the outcome of surgical treatment of HCC.
+
+Disease-free survival (DFS) was modelled as the primary outcome measure to estimate the benefit obtainable with HR in terms of probability of returning to the same chance of being alive and without tumor recurrence as the analogous member of the CLD population, uncomplicated by HCC development.
+
+SECTION
+
+METHODS
+
+PARAGRAPH
+
+The present study population was derived from an international retrospective cohort including a total of 3903 surgically treated patients with HCC from 6 centres in different countries who were accrued (Early Recurrence After Surgery of Liver tumor – ERASL dataset), from Eastern and Western countries until December 2016 [9].
+
+All centres fulfilled ethical requirements according to local practice as previously disclaimed, and the present study fulfilled the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data (please refer to Supplementary materials for details) [10].
+
+PARAGRAPH
+
+This database included only patients submitted to potentially curative resection as first treatment of HCC.
+
+Patients with macro-vascular invasion were excluded (n:491) as well as those resected before January 2000 (n:115).
+
+For the purpose of the present study, only cases with complete chronological, clinical, survival and tumour-related data were retained (Supplementary materials).
+
+After application of these criteria, the final dataset comprised 2523 patients from Hong Kong (n:328), mainland China (n:999), Italy (n:742) and Japan (n:454).
+
+The criteria for surgical resection were those already published [9].
+
+The study population was also divided into two eras defined on the basis of evolution of antiviral therapies for hepatitis B and C. Modern antiviral era was defined for hepatitis B patients by the introduction of Entecavir and Tenofovir (from 2006 onwards) and for hepatitis C, by the introduction of interferon-free regimens with direct-acting antivirals (DAAs; from 2014 onwards). [11,12].
+
+SECTION
+
+The ‘Early Recurrence after Surgery of Liver tumours (ERASL)’ framework
+
+PARAGRAPH
+
+Early recurrence of HCC after hepatectomy is commonly defined as recurrence within 2 years of surgery and is the main determinant of ultimate survival. [9,13].
+
+The present evaluation of the cure fraction was modelled on the predicted risk of developing a recurrence, aiming to provide information on both the risk of early recurrence and the probability of cure.
+
+To accomplish this we adopted the ‘ERASL-post’ model:
+
+PARAGRAPH
+
+0.677 × Gender (0:Female, 1:Male) +
+
+PARAGRAPH
+
+0.458 × ALBI grade (0:Grade 1; 1:Grade 2/3) +
+
+PARAGRAPH
+
+0.661 × micro-vascular invasion (0:no, 1:yes) +
+
+PARAGRAPH
+
+0.082 × ln[Serum alpha-fetoprotein (μg/L)] +
+
+PARAGRAPH
+
+0.451 × ln(Tumour size in cm) +
+
+PARAGRAPH
+
+0.379 × Tumour number (0:Single; 1:Two or three; 2:Four or more).
+
+PARAGRAPH
+
+Using the published cut-off points for the linear prediction three risk groups (for recurrence) were generated: ≤2.332 (low), >2.332 to ≤3.445 (intermediate), >3.445 (high) and used here to model the predicted cure fraction.
+
+The ERASL model was developed, and internally validated, on a Hong Kong dataset, providing a c-index of 0.735.
+
+Subsequently, it was externally validated on datasets from mainland China (c-index: 0.725), Italy (c-index: 0.616), Japan (c-index: 0.668) and the United States (c-index:0.698).
+
+The discriminatory performance of the ERASL model exceeded those of other validated models in predicting early recurrence [9].
+
+Calibration was also very good, with predicted survivals very similar to the observed ones, supporting its use in the present study..
+
+SECTION
+
+Survival end-points
+
+PARAGRAPH
+
+Disease-free survival (DFS) was used as the primary survival measure for the cure model and was defined as the time from surgery to death, recurrence or last follow-up.
+
+This end-point was preferred over overall survival (OS) since it would be inappropriate to define as “cured”, a patient who, even if alive, has tumour recurrence [14,15].
+
+Overall survival was defined as the time from surgery to death or last follow-up visit.
+
+After tumour resection, all patients were followed up according to institutional local practice of each participating centre, including clinical assessment, semi-annual serum AFP determination and ultrasound or contrast-enhanced computed tomography every 6 to 12 months.
+
+SECTION
+
+Cure model specifications
+
+PARAGRAPH
+
+The essential pre-requisite when applying the cure model is its statistical plausibility [3,7], meaning that if a proportion of patients who did not relapse and/or die from the disease exists, the survival curve will tend to flatten on the y-axis, implying that cure occurs within a reasonable time frame [7,8].
+
+Thus, DFS and OS curves were first checked for the correctness of this assumption.
+
+As can be seen in Figure 1, the DFS curve tends to a plateau during follow-up confirming that for the DFS end-point the model assumption was not violated.
+
+OS curve violated such a pre-requisite and thus was excluded from the analysis (Supplementary materials).
+
+The cure models used here fitted a parametric (Weibull) function.
+
+When the excess of mortality equals that of the reference population, matched by age, sex, race and year, the asymptote of the fitting equation on the calculated relative survival curve returns the cure fraction.
+
+SECTION
+
+Reference populations
+
+PARAGRAPH
+
+Two main reference populations were taken into account (Figure 1a).
+
+The first reference population was extracted from a population-based cohort study reporting the life-expectancy of health insurance beneficiaries with and without certain comorbid conditions, as described by Cho and Mariotto [16,17].
+
+This latter population involved only non-cancer patients and contained mortality figures for patients with chronic hepatitis – cirrhosis (ICD-9 codes 571.x).
+
+Subsequently, estimated survival probabilities were compared with the life-expectancy of the general population, returning a “health-adjusted age”.
+
+As a brief example, a man aged 75 years without any comorbidity, showed a life-expectancy similar to that of general population aged 67 years, conversely in the presence of high comorbidity, such as chronic hepatitis – cirrhosis, the analogous figure was 80 years (Figure 1b).
+
+The second reference population was represented by the general population.
+
+A supplementary reference population was represented by the previous chronic hepatitis – cirrhotic population with the addition of risk for the occurrence of a “de-novo” HCC.
+
+(Supplementary materials).
+
+By this way, we accounted for the probability of a resected patients of have a DFS similar to that of chronic hepatitis – cirrhotic population.
+
+The risk over-time for HCC was extracted from the pertinent literature [18].
+
+For all reference populations life-tables were obtained from the World Health Organization (WHO) database, matched by sex, age, race/ethnicity and year [19].
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Categorical variables are reported as number of cases and percentages and compared using Fisher’s exact test if necessary.
+
+Continuous variables are reported as medians and interquartile ranges (IQR: 25th and 75th percentiles), and differences between the subgroups were compared with the Mann-Whitney test.
+
+A non-mixture cure model was here applied using the strsnmix command provided by Lambert [20] for STATA software (StataCorp.
+
+2011.
+
+College Station, TX: StataCorp LP).
+
+The choice for a non-mixture cure model was here supported because it has a background in modelling of tumor recurrence after a non-continuous treatment over time [202122].
+
+Variables having a non-negligible effect (p<0.05) on the cure fraction were entered into a backward multivariate cure model.
+
+A p-value of <0.05 was considered statistically significant in all the analyses.
+
+SECTION
+
+RESULTS
+
+PARAGRAPH
+
+Clinical and tumour characteristics of the 2523 resected patients are detailed in Table 1.
+
+The median follow-up after resection was 3.4 years (IQR: 1.7–6.1) during which period 1221 patients had a recurrence (48.4%) and 755 died [29.9%; of them, 573 had recurrence (75.9%)].
+
+The median DFS was 2 years (95%C.I: 1.8–2.1) and the median OS was 7.8 years (95%C.I.: 6.9 – 8.3).
+
+According to the ERASL model, the risk of early recurrence was low in 76.5% patients, medium in 21.7% and high in 1.9% of them; the median DFS was 2.7 years in patients at low-risk (95%C.I.: 2.3–3.0), 1.2 years in medium-risk patients (95%C.I.: 1.0–1.5) and 0.5 years in high-risk patients (95%C.I.: 0.4–0.8).
+
+SECTION
+
+Cure model results
+
+PARAGRAPH
+
+The cure model showed that the probability that resection would offer the same life expectancy as patients with chronic hepatitis – cirrhosis (without HCC) was 26.3% (95%C.I.: 21.7–30.8).
+
+The conditional probability of achieving such a goal was time-dependent, as depicted in the Figure 2.
+
+If a patient was alive without recurrence 2 years after surgery, his/her likelihood of being ‘cured’ was about 50%.
+
+Over time, the likelihood rises, reaching 95% at about 8.9 years (95%C.I.: 6.8 – 11.6).
+
+Considering the supplementary reference population of subjects with chronic hepatitis – cirrhosis which may develop a “de-novo” HCC, the probability that resection would offer the same DFS increased to 29.0% (95%C.I.:24.3 – 33.6).
+
+PARAGRAPH
+
+These cure fractions were lower with respect to the general population, being only 17.1% (95% C.I.: 13.2–21.0).
+
+This latter figure represents the probability of achieving the same life expectancy, and tumour-free, as the matched general population.
+
+The remaining ‘uncured’ patients had a median DFS of 1.5 years.
+
+PARAGRAPH
+
+Probabilities to achieve the same life-expectancy of chronic hepatitis – cirrhotic patients.
+
+PARAGRAPH
+
+Patient’s age and the ERASL risk class were independent determinants of chances of cure at the multi-variable cure model (Table 2).
+
+Increasing age was positively related to the probability of being cured due to the parallel aging of the reference population and its increase in mortality.
+
+When patients were stratified by their risk of early recurrence (Figure 3), subjects at low risk showed a median of a 36.0% chance (range:10.1– 61.4; IQR: 28.5– 44.3) to return to have the same life-expectancy to that of patients with chronic hepatitis – cirrhosis (without HCC).
+
+Patients at medium risk had a median of 13.7% (range: 3.3– 28.5; IQR:9.7–18.3) and those at high risk showed a median of only 3.6% (range: 0.8– 9.1; IQR:2.4–5.1).
+
+An individual calculator can be found at: https://jscalc.io/calc/Fu3bREKIInObXCtj.
+
+PARAGRAPH
+
+In the three risk classes the median time-to-cure was of 8.1, 9.7 and 10.9 years respectively.
+
+That is, if after these time-points a resected patient was alive without tumour recurrence, he/she can be considered as never having had HCC with the 95% of certainty.
+
+PARAGRAPH
+
+Probabilities to achieve the same life expectancy of general population.
+
+PARAGRAPH
+
+Applying the ERASL risk classes with this outcome, subjects at low risk showed a median of a 23.2% chance (range: 9.1– 46.6; IQR:19.0– 30.1) to return to have the same life-expectancy to that of patients with chronic hepatitis – cirrhosis (without HCC).
+
+Patients at medium risk had a median of 6.7% (range: 2.4–15.9; IQR: 5.3–9.3) and those at high risk showed a median of only 1.6% (range: 0.6–3.9; IQR: 1.2–2.2).
+
+In the three risk classes the median time-to-cure was of 10, 12 and 13.6 years, respectively.
+
+SECTION
+
+Cure probabilities in the modern antiviral therapy era
+
+PARAGRAPH
+
+Of the 2523 resected patients, 1321 were resected in the most recent antiviral era (1252 hepatitis B positive, 53 hepatitis C positive, and 16 co-infected patients).
+
+In these patients the probability of return having a life-expectancy similar to that of chronic hepatitis - cirrhosis raised to 31.8% (95%C.I.: 26.2–37.5) a great advancement in respect to the 22.1% (95%C.I.: 15.6–28.6) achievable in the past clinical scenario.
+
+Similarly, in respect to the general population, the cure probability was 22.3% (95%C.I.:16.9–27.7), a proportion considerably higher in respect to the 13.2% (95%C.I.:8.0–18.4) achievable in the past clinical scenario.
+
+Patient’s age and the ERASL risk class remained independent determinants of chances of cure (Supplementary materials).
+
+SECTION
+
+DISCUSSION
+
+PARAGRAPH
+
+The term ‘potentially curative’, widely applied to resection for HCC, needs careful consideration.
+
+For most cancers, survival plateaus several years after surgery, at a point when the mortality rate of the diseased individuals equals that of the general population, i.e. the excess mortality rate is near to zero and there is population cure [20,21].
+
+However, in the case of HCC where most patients have underlying chronic liver disease, with its own attendant mortality, survival will plateau at a time at which mortality is similar to that of a population with chronic liver disease/cirrhosis without cancer.
+
+PARAGRAPH
+
+Our results showed that the probability of achieving the same life expectancy as a similar patient who did not develop HCC is in the order of 26.3% after resection, and that this is a conditional probability which becomes more likely with the passing of recurrence-free time (Figure 2).
+
+A patient alive without HCC recurrence at 2 years from surgery, the period during which most recurrences will occur, has a 50% chance of being alive and free of tumour.
+
+To reach a 95% of long term cure, we need to wait approximately 9 years.
+
+Considering that also the reference population can suffer from the occurrence of a “de-novo” HCC, the probability of obtaining the same life-expectancy without HCC, at inception, increased to 29.0%.
+
+PARAGRAPH
+
+On this ground detailed clinical considerations are needed.
+
+The prognosis of resected HCC patients mainly depends on tumour relapse [4-6].
+
+Any impact on this event requires that adjuvant therapies would be available for reducing the early HCC recurrence.
+
+Unfortunately, results from the STORM trial indicated that Sorafenib is not an effective intervention in the adjuvant setting for HCC following resection [23] and current hopes relies on Nivolumab and Pembrolizumab as adjuvant therapies [24,25].
+
+In the case of positive results i.e. that early recurrence can be eliminated, the chances of being cured from HCC will ameliorate from the baseline of 26.3%, relative to the chronic liver disease population, and from 17.0% relative to the general population.
+
+Both relative survivals will increase as well as conditional probability by year with a magnitude that will need to be completely redefined.
+
+PARAGRAPH
+
+The second issue relating to probability of cure regards the impact of the underlying liver disease, and future scenarios will still be adequately depicted by present results.
+
+Curative therapy is now a reality also for HCV patients with chronic liver disease and the achievement of sustained virological response can provide a life-expectancy similar to that of the general population [26,27].
+
+In the HCC population, the reduction of decompensation events will primarily translate into a benefit relative to the general population (i.e. it will increase from 17.1%), simply because the reference life-expectancy of chronic hepatitis - cirrhotic subjects will also be ameliorated by effective antivirals.
+
+These suggestions were supported here when considering patients resected in the “modern antiviral therapy” era.
+
+Focusing on the two main reference populations, the benefit relative to the general population gained up to 22.3% (1.7 times higher than the past antiviral scenario) and that relative to the chronic hepatitis / cirrhotic subject up to 31.8% (1.4 times higher than the past).
+
+Finally, considering that affective antiviral therapies would also modify the natural course of “de-novo” HCC in the reference population, a further modification can be expected (Supplementary materials) but future dedicated researches are warranted, when more data will be available.
+
+PARAGRAPH
+
+In the present study, we chose to model cure fractions within the framework of the Early Recurrence After Surgery of Liver tumour (ERASL) prognostic model. [9]
+
+This model has shown good discrimination and calibration in both Eastern and Western series being capable of stratifying patients into three distinct groups with discrete risk profiles.
+
+The present analysis permits to add a further prognostic parameter, rather than formulating another complex and distinct model.
+
+In particular, we need to point out that we already previously provided some information about cure probability after hepatic resection for HCC [3].
+
+However, in that previous experience we were forced to produce group stratification rather than individual calculator, in order to provide a direct comparison with liver transplantation by transplantability criteria [3].
+
+In the present work we combined the possibility of prognosticating both early tumor recurrence, through ERASL model, and the individual likelihood of cure within a single analytical framework, accessible at: https://jscalc.io/calc/Fu3bREKIInObXCtj.
+
+PARAGRAPH
+
+Early recurrence is the main determinant of prognosis after resection but identification of patients who are at intermediate or high risk of such an event can allow clinicians to schedule appropriate surveillance to detect recurrent HCC at its earliest stage, when curative therapy may still be feasible as well as identifying potential candidates for clinical trials of adjuvant therapy [3,9].
+
+In particular, patients at high-risk for early recurrence bring an unfavourable prognosis, thus, better alternative treatment would be desirable.
+
+The only alternative to resection able to provide a cure is liver transplantation [3].
+
+Being high-risk patients characterized by worse liver function and/or unfavorable tumor features, it can be suggested that such high risk patients would be considered for liver transplantation before recurrence [28].
+
+In this sense, if tumor burden fulfills transplantability criteria it was proved that liver transplantation can provide higher chances of cure than HR in presence of unfavorable tumor diameter and number [3].
+
+PARAGRAPH
+
+The present study shares the limitations of the previous ERASL model, which were mainly represented by its retrospective nature and by the fact that antiviral treatment information were absent from the model because it was available for a small proportion of that cohorts [9].
+
+The observation that the cure fraction in the “modern antiviral era” increased in respect to the past, suggests that when analysing long-term outcome, this data would be necessary.
+
+Consequently we acknowledge that present figures will probably change in the future and, like all prognostic models, will require ‘updating’.
+
+However, it could be argued that a prospective study would be rather unrealistic to be realized considering the continuous evolution of modern therapies.
+
+PARAGRAPH
+
+Other limitations regards the characteristics of the reference population of chronic hepatitis / cirrhotic population, which probably may not fully fit those of the present study population because derived from the US population [16,17].
+
+However, it should be noted, that the SEER database returned a health-adjusted age which is a relative measure of actual age adjusted by comorbidities.
+
+Thus, a US male aged 75 years affected by chronic hepatitis / cirrhosis can be considered as being 5 years older than a man without this condition, and it is likely that this fact would little biased by different country or ethnicity.
+
+Another observation derives from the fact that data on this reference population were provided without distinguish life expectancy of subjects with chronic hepatitis from that of cirrhotic patients, not allowing for a useful stratification of prognosis and statistical cure estimate.
+
+Unfortunately, this represents an insurmountable limitation since at present and, to the best of our knowledge, no population-based statistics stratified by chronic liver disease are available to support such requirement.
+
+The sex, age, year of onset and ethnicity match could have mitigated this discrepancy, but we acknowledge that a fully matched reference population stratified by aetiology as well as fibrosis stage will probably provide a more accurate picture of cure probabilities.
+
+However, considering that the cure model is based on relative survival and that presence of cirrhosis is a negative prognostic factor for both resected patients and reference population, it can be hypothesized that the relative survival would be unaffected, nevertheless this assumption strongly requires dedicated analyses.
+
+Last, considering the possibility that also the reference population of liver diseased subjects can experience the occurrence of a “de-novo” HCC, the use of overall survival may be criticizable, however, the cure fraction describes the possibility that the cured patient can return to have the same prognosis of subjects with chronic hepatitis - cirrhotic patients (but without HCC at inception) which however inevitably includes the possibility to develop a “de-novo HCC”.
+
+Being resected for a potentially lethal tumor, the interest should be directed in the probability of being cured from that tumor.
+
+Thus, the cure does not imply that resection completely “healed” the patient from risk of malignancy over the entire lifespan, but simply reports the clinical condition of inception, when HCC was absent.
+
+PARAGRAPH
+
+Finally, some limitations and biases may be related to the cure model by itself.
+
+First, a minimum length of follow-up is required to provide robustness to cure estimation.
+
+For liver cancer, this threshold was estimated to be of 3.7 years of follow-up, with an intrinsic bias of about 3.1% of error in cure estimation [29].
+
+Present median follow-up was of 3.4 years but at 3.7 years, confidence intervals of curves are quite narrow (Figure 1), supporting the fact that most patient survivals were still not censored.
+
+Some loss in robustness would be probably present for patients at high risk of early tumor relapse which inevitably had shorter median follow-up.
+
+However, the proportion of patients belonging to the ERASL high risk class was very low (1.9%), thus, for the majority of the study cohort the estimation can be likely considered not affected by the length of follow-up.
+
+As second, the choice for using DFS as primary outcome measure in the resected patients instead of OS should be methodologically discussed.
+
+The OS curve did not show a plateau over time, thus, cure model was here not applicable (failed to converge).
+
+This is likely the result of continuous treatment of HCC recurrence over time, which lead to improved OS [30].
+
+Expert opinion suggests that in many cancer treatment settings, where treatment is taken in the long term, the assumption of a fraction cured is not realistic since eradication of disease, if it occurs, can occur at any time during treatment. [31].
+
+This would affect here OS but not DFS which accounts for first post-hepatectomy recurrence.
+
+A more complete picture using OS would require complex multi-state cure models which represent a field for future analyses [32].
+
+PARAGRAPH
+
+In conclusion, we provided estimates of the chance of being cured of HCC by hepatic resection.
+
+This includes both the chance that an individual will experience the same life expectancy as that of an individual who has chronic hepatitis/cirrhosis but has never developed HCC, as well as the analogous measure in comparison to that of the general population.
+
+The likelihood of being cured increases with the passing of recurrence-free time.
+
+The clinical utility of cure models is predicated on the possibility of correctly informing patients about the probabilities of success (‘cure’ in the popular sense of the word) of the proposed treatment as well as permitting clinicians to make informed post-resection clinical decisions.

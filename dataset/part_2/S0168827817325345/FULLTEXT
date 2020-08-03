@@ -1,0 +1,483 @@
+10.1016/j.jhep.2017.12.018
+
+FULLTEXT
+
+TITLE
+
+AXIN deficiency in human and mouse hepatocytes induces hepatocellular carcinoma in the absence of β-catenin activation
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is the third most frequent cause of cancer death worldwide.
+
+HCC is a highly heterogeneous disease, occurring in a context of chronic liver injury and inflammation leading to cirrhosis.1
+
+Recent genomic studies have provided an accurate description of the landscape of genetic changes underlying HCC and identified the molecular pathways most frequently altered, among which the Wnt/β-catenin pathway is prominent.2–6
+
+This conserved signaling pathway governs embryonic development, homeostasis and liver zonation in adults.
+
+In the absence of Wnt stimulation, the cytosolic concentration of β-catenin remains low because of a multiprotein destruction complex including CK1α, GSK3β, YAP/TAZ, APC and AXIN1, which promotes the phosphorylation of β-catenin.
+
+Once phosphorylated, β-catenin is degraded by the proteasome.
+
+In response to Wnt stimulation, the destruction complex is recruited to the membrane.
+
+This stabilizes β-catenin, which then enters the nucleus and activates the expression of Wnt target genes, mostly through the lymphoid enhancer-binding factor 1 (LEF-1) and T-cell transcription factor (TCF).
+
+PARAGRAPH
+
+Among mutations in the members of this Wnt/β-catenin pathway, somatic activating mutations in CTNNB1 gene coding for β-catenin are identified in 11–37% of HCC2 and inactivating mutations of AXIN1 and APC are found in 5–15% and 1–2% of HCC, respectively.
+
+AXIN1 is a scaffolding protein initially identified as a negative regulator of the canonical Wnt pathway and the rate-limiting factor of the destruction complex.7
+
+It was thus anticipated that a loss of AXIN1 function in the liver would lead to aberrant activation of the β-catenin pathway, as reported for inactivating Apc mutations in mice.8
+
+Consistent with this prediction, Satoh et al. showed that HCC cell lines with AXIN1 mutations displayed an activation of Wnt/β-catenin signaling, although this effect was weak.9
+
+It was then shown that human HCCs with inactivating AXIN1 mutations expressed a genetic program different from that in CTNNB1-mutated HCCs.10
+
+In addition, HCCs with AXIN1 or CTNNB1 mutations belong to two different major subclasses of HCC: CTNNB1 mutations were associated with the non-proliferative class and G5-G6 subgroups, with a better prognosis; while AXIN1 loss of function mutations were associated with the proliferative class and G1-G2 subgroups, with an enrichment of signals relating to the cell cycle and a more aggressive phenotype.11
+
+The conditional loss of Axin1 in mouse hepatocytes was found to lead to the transient upregulation of very few β-catenin target genes12 and to induce the development of HCC, supporting the tumor suppressor role of Axin1.
+
+However, no molecular characterization of these tumors was carried out.12
+
+These conflicting observations call into question the relationship between CTNNB1 mutation types, AXIN1 mutation types and intensity of β-catenin program activation.
+
+The aim of this work was to study the spectrum of CTNNB1 and AXIN1 mutations in a large series of human HCC in correlation with the activation of the β-catenin program and to define an AXIN1-mutated tumor signature based both on mouse HCC experimentally obtained after Axin1 deletion in hepatocytes and AXIN1-mutated human HCC.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Mouse models
+
+PARAGRAPH
+
+The Axin1-targeting construct was generated from PCR products amplified from the DNA of 129/SV ES cells with the Pfx polymerase (Life Technologies).
+
+A schematic diagram of the Axinfl/fl alleles is provided (Fig. 2A).
+
+All animal procedures were carried out in accordance with French government regulations, with the approval of the Paris-Descartes Ethics Committee for animal experimentation, under protocol CEEA34.CP.077.12.
+
+Mice were housed in specific pathogen free conditions under 12 h light/dark cycle with free access to water and standard mouse chow.
+
+Wild type (WT) control mice are monogenic Axinfl/fl cohoused littermates that do no express Cre recombinase.
+
+Apc KO male mice8 at 6–8 weeks old were used as controls of beta-catenin pathway activation.
+
+SECTION
+
+Immunoblotting and immunohistochemistry
+
+PARAGRAPH
+
+Analysis of cell protein expression by immunoblotting and detection of protein expression by immunofluorescence were performed as described in Supplementary material and methods.
+
+SECTION
+
+Analysis of gene expression by reverse transcription-polymerase chain reaction
+
+PARAGRAPH
+
+RNA extraction retrotranscription and quantitative PCR were performed as indicated in supplementary material and methods.
+
+Primer sequences are provided (Table S8).
+
+SECTION
+
+Mouse RNA profiling and human gene expression analysis
+
+PARAGRAPH
+
+We used freshly frozen samples from eight tumors from five KO LivEmb male 16 months old mice (T), the corresponding adjacent non-tumoral liver samples (NT) and three control livers of male mice of the same age.
+
+For Affymetrix arrays analysis and Human Gene expression analysis, see supplementary material and methods and supplementary CTAT Table.
+
+Microarray raw data are deposited at Gene Expression Omnibus (GEO accession number GSE 107374).
+
+SECTION
+
+Statistical analysis and data mining
+
+PARAGRAPH
+
+Student’s t test and paired t tests were used for comparisons of variables, as indicated.
+
+Ingenuity pathway analysis (IPA) software (Mountain View, CA, USA) was used to examine the functional association between differentially expressed genes and to identify the molecular functions and gene networks displaying the most significant alterations, with the IPA scoring system.
+
+Gene set enrichment analysis (GSEA) was performed with the Java tool application available at the Broad Institute (Cambridge, MA, USA), using the default settings.
+
+Mann-Withney U test and Fisher’s exact test analysis were done using the R statistical software.
+
+All p values were two-sided and considered significant with p <0.05.
+
+Hierarchical clusters were performed using the Genesis clustering software.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+CTNNB1 and AXIN1 mutated HCCs reveal different patterns of β-catenin activity
+
+PARAGRAPH
+
+We studied 454 human HCC belonging to two independent human public datasets, GSE622324 (81 samples) and The Cancer Genome Atlas-Liver HCC (TCGA-LIHC) (373 samples) (supplementary CTAT Table), for which, both the genetic status for CTNNB1 and AXIN1, and the RNA expression profile, were available (Table S1A,B).
+
+Expression of the CTNNB1 program was explored using a 23-gene signature including nine canonical and 14 liver-specific CTNNB1 target genes.13–17
+
+Among all the tumors, 132 were mutated for CTNNB1, 40 for AXIN1 including five mutated for both genes (Table S1, Fig. 1A-B).
+
+Hierarchical clustering analysis based on the expression of the 23-gene signature in GSE62232 and TCGA-LIHC datasets identified three clusters characterized by strong, weak and absent expression of the CTNNB1 program (Fig. 1A and Fig. 1B).
+
+As expected, the vast majority (79/86) of tumors expressing a strong CTNNB1 program were CTNNB1-mutated (Fig. 1C).
+
+Furthermore, out of the seven non-mutated-CTNNB1 HCCs in the TCGA-LIHC dataset, three were mutated for APC combined with a loss of heterozygosity (LOH), revealing an APC loss of function.
+
+However, no HCC with only AXIN1 mutations were recorded in this first cluster with a “strong CTNNB1 program” (Fig. 1A,B and Table S1B).
+
+Two HCC with AXIN1 mutations in this cluster were also mutated for CTNNB1.
+
+By contrast, in the second cluster with a “weak CTNNB1 program”, 56.6% of HCC were mutated in CTNNB1 (30/53) and 15% in AXIN1 (8/53).
+
+Interestingly, CTNNB1 mutations were enriched in the hot spot S45 located in CTNNB1 exon 3 and in the recently described mutations located in exon 7 and 8 (K335, W383) (2,18, COSMIC database) (Fig. S1).
+
+Finally, in the third cluster in which no β-catenin activity was found, mutations in CTNNB1 or AXIN1 or APC occurred in less than 20% of HCCs.
+
+All the APC mutations in the TCGA-LIHC dataset were mono-allelic and 54% of CTNNB1 mutations were not canonical with unknown consequences (Table S1B).
+
+In addition, 38% of the CTNNB1 mutations were located in exon 7 and 8 (K335, W383, R386, N387) whose functions are still not understood and described as weak mutations.2
+
+In contrast, all the AXIN1-mutated HCC of the third cluster in the TCGA-LIHC are loss of function mutations (22/23 with a stop codon or splice site mutation) combined with LOH.
+
+AXIN1 mutations in GSE62232 were also loss of function mutations.4,19
+
+Most importantly, with the exclusion of HCC mutated both for CTNNB1 and AXIN1, the distribution of AXIN1 mutations revealed that 80% (28/35) of AXIN1-mutated HCC belong to the third group with no or weak β-catenin program activation (Fig. 1C).
+
+PARAGRAPH
+
+Human AXIN1-mutated human HCC with available histological virtual slides from the TCGA bank were analyzed by two pathologists.
+
+Among these 25 HCC, four were poorly differentiated while 15 were moderately differentiated.
+
+Two had focal steatosis in about 10% of tumor cells.
+
+In contrast, as already published,20 CTNNB1-mutated HCC exhibited a well-differentiated pattern with low-grade cellular atypia.
+
+PARAGRAPH
+
+Altogether these results revealed that human HCCs with AXIN1 and CTNNB1 mutations do not show a similar β-catenin activity.
+
+AXIN1-mutated HCCs split into two distinct groups, the first that includes only few AXIN1-mutated tumors has a weak β-catenin activity, and the second that includes most of the AXIN1-mutated tumors, shows no activation of Wnt/β-catenin signaling.
+
+SECTION
+
+Axin1 deletion in the liver induces HCC without Wnt/β-catenin pathway activation
+
+PARAGRAPH
+
+We then modeled the Axin1 loss of function in the liver by generating mice bearing a specific deletion of Axin1 in the hepatocytes to better understand results obtained using human HCC samples.
+
+We first generated an Axin1 conditional liver knockout mouse model, in which exons 4 and 5, encoding part of the GSK3 β and β-catenin binding site, were flanked by loxP sites (Fig. 2A,B).
+
+Homozygous Axin1lox/lox mice were crossed with two different mouse strains to generate Axin1 deletion in the embryonic liver (KO LivEmb) or in the adult liver upon tamoxifen injection (KO LivAd) (Fig. 2C).
+
+Liver tumors with no Axin1 expression (Fig. S2A) were detected after eight to nine months in 30% of mutant mice by ultrasonography.
+
+By the age of 12 months, mutant mice developed HCC with 40% penetrance, with a similar proportion in males and females.
+
+In contrast, none of the control monogenic mice developed HCC.
+
+About 15% of the mice developed multifocal tumors in both models, and one mouse out of 42 mice with tumors had lung metastases (Fig. 3A and Fig. S2B).
+
+The morphological features of these HCC were heterogeneous, but the majority showed moderate differentiation (Fig. S2C).
+
+Focal or extensive steatosis was observed in 85% tumors (Fig. 3A and Fig. S2C).
+
+Tumors were Cyclin D1 positive (Fig. S2D).
+
+A marker of DNA double-strand breaks, γH2AX, was found induced in the tumor samples compared to the adjacent non-tumor samples (Fig. S2E).
+
+No nuclear or cytoplasmic β-catenin staining, nor immunostaining for glutamine synthetase, a surrogate marker of HCC with β-catenin activation, was observed in tumors (Fig. 3B).
+
+The expression of β-catenin target genes was not upregulated in tumors compared to the adjacent non-tumor tissues, as shown by RT-qPCR (Fig. 3C).
+
+Accordingly, Axin2 protein was not induced in tumor compared to non-tumor samples (Fig. 3D).
+
+Equivalent results were obtained in both KO LivEmb and KO LivAd mouse models.
+
+Finally, among genes encoding known components of the Wnt/β-catenin signaling pathway (Fzd7, DKK3, TCF4, TCF1, LRP6, Dvl1), none was found to be induced in tumors (Fig. S2F).
+
+SECTION
+
+Deletion of Axin1 in embryonic or adult liver does not lead to Wnt/β-catenin pathway activation in pre-tumoral livers
+
+PARAGRAPH
+
+Mutant pre-tumoral livers were analyzed four months after birth (KO LivEmb) or two months after tamoxifen injection (KO LivAd mice).
+
+The mutant mouse livers had a normal histological appearance in both models, with a conserved lobular architecture and no evidence of hepatocyte injury (data not shown).
+
+An analysis of the β-catenin subcellular distribution revealed that it was present at the membrane, but did not accumulate in the cytoplasm or nucleus, contrary to livers in which a specific Apc deletion has been targeted in hepatocytes (KO Apc)8 (Fig. 4A).
+
+Glutamine synthase was limited to a few layers of hepatocytes around the central vein, as in control livers, whereas it was found throughout the entire lobule in Apc mutant mice (Fig. 4A).
+
+Consistent with these data, RT-qPCR showed an absence of modulation of β-catenin transcriptional target expression in the two models, contrasting with the strong dysregulation of these targets in Apc mutant mice livers (Fig. 4B).
+
+No induction of β-catenin positive target genes (Axin2, Sp5, Lect2, Cyp2E1 and Glul) (Fig. S3A,B) nor induction of Axin2 protein (Fig. S3C, D) was observed at earlier time points after tamoxifen injection.
+
+We used the luciferase-based reporter system TOP/FOP to investigate β-catenin transcriptional activity in Axin1 or Apc inactivated mouse primary hepatocytes and in HuH7 human HCC cell line in which we have inactivated AXIN1 using siRNA (Fig. S4A–D).
+
+We observed strong TCF-dependent transcriptional activity in primary hepatocytes of KO Apc mice (Fig. S4A).
+
+In contrast, we only observed a weak activity in Axin1-deleted murine hepatocytes or in HuH7 cells transfected with an siRNA directed against AXIN1.
+
+This basal transcriptional activity was confirmed by RT-qPCR of β-catenin target genes (Fig. S4B).
+
+To check the specificity of this very low β-catenin-dependent transcription, we added an siRNA directed against β-catenin and observed a significant decrease in the β-catenin reporter activity in all cell types (Fig. S4A, C).
+
+Inhibiting APC restored a strong β-catenin activation in HuH7 cells with inactivated AXIN1 (Fig. S4C).
+
+PARAGRAPH
+
+Altogether, the results showed that Axin1 loss of function in hepatocytes in vivo, did not lead to activation of β-catenin signaling.
+
+However, mouse Axin1-KO primary hepatocytes revealed a weak activation of a β-catenin program, far less than that obtained using Apc-KO primary hepatocytes.
+
+Similar results were obtained when the HuH7 hepatoma cells were inactivated for AXIN1.
+
+SECTION
+
+Mouse HCCs with Axin1 deletion cluster in the G1-G2, S1 and proliferative human HCC class with progenitor and poor prognosis signatures
+
+PARAGRAPH
+
+We performed genomic profiling of eight tumors derived from 5 KO LivEmb male mice and their adjacent non-tumoral samples using microarrays.
+
+Three monogenic Axin1lox/lox mice of the same age were also included as control livers.
+
+The analysis identified 657 genes as upregulated and 447 genes as downregulated in the tumors compared to the non-tumoral adjacent tissue (fold-change >1.5 and p value <0.05) (Table S2).
+
+Gene ontology analysis of biological functions associated with the differentially expressed genes revealed a significant upregulation of genes involved in mitosis, cytokinesis and cell division (Table S3), known markers of proliferative HCCs.
+
+Interestingly, GSEA revealed an enrichment in gene signatures specific for HCC subclasses previously associated with a proliferative and more invasive phenotype together with a worse outcome, e.g. G1-2-3 described by Boyault et al.11 S1 described by Hosdida,21 and the proliferation subclass described by Chiang et al.22 (Table S4, Fig. 5A).
+
+In addition, we found a significant enrichment (p <0.05) in tumor signatures associated with invasion, stemness and poor prognostic features (Fig. 5A and Table S5).
+
+Accordingly, fetal genes, such as Afp, Tff3, Spink1/3 and Cbr3 were among the genes most strongly induced in tumors (Fig. 5B).
+
+Moreover, ANXA2 and p-ERK known to be associated with poor prognosis in HCC23,24 were also found induced in all Axin1-deficient liver tumors in both models (Fig. 5C).
+
+PARAGRAPH
+
+Taken together, our results demonstrate that the loss of Axin1 in mouse liver induces HCC independently of Wnt/β-catenin pathway activation and that the genomic profiles of these tumors recapitulate those of “proliferative” subclass of human HCC with a poor clinical outcome.
+
+SECTION
+
+Identification of oncogenic pathways in Axin1-mutated HCC
+
+PARAGRAPH
+
+Since our results suggest that Axin1 loss in mouse liver requires oncogenic events that are not involved in the β-catenin pathway, we looked at known partners of AXIN1, such as Notch,25,26 YAP/TAZ,27 TGF-β28 or JNK.29
+
+Unsupervised GSEA revealed a significant enrichment of Notch, YAP/TAZ and TGF-β signatures in the profile of mouse tumors (vs. non-tumour) (Tables S4 and S5).
+
+Notably, we found a significant enrichment of a 384-gene Notch signature defined in mouse tumors expressing the Notch intracellular domain and found to be enriched in human tumors of the proliferative class30 (Fig. 6A).
+
+We observed a significant overlap in the gene expression profiles of mouse tumors with Axin1 deletions and Notch intracellular domain (NICD) overexpression, with 143 genes (37%, 109 upregulated, 35 downregulated) commonly dysregulated (Table S6).
+
+We confirmed the induction of several common genes by RT-qPCR on a different set of seven KO LivAd tumors (Fig. 6B).
+
+Canonical Notch target genes such as Hey1, Hes1, Heyl and Notch1 were also found significantly induced, although at a lower level (Fig. 6B).
+
+Osteopontin (Spp1), a Notch target predictive of a poor prognosis of HCC,31 was found to be induced in 5/7 KO LivAd tumors and 4/6 KO LivEmb tumors at a protein level (Fig. 6C).
+
+We also observed a nuclear accumulation of Sex-determining region Y-box9 (Sox9) in most of the tumor samples in both models, although heterogeneous.
+
+Sox9 is a marker of liver progenitor cells expressed during embryogenesis that is also a Notch target gene (Fig. 6D).
+
+PARAGRAPH
+
+GSEA indicated an enrichment of a YAP signature in tumor samples32 (Fig. 6E, Table S5) and the induction of YAP target genes expression was confirmed by RT-qPCR on KO LivAd tumors (Fig. 6F).
+
+Protein-based analyses revealed the heterogeneous induction of YAP and TAZ production in some, but not all tumors with Axin1 deletion (Fig. 6G).
+
+Nuclear extracts of tumors induced for this pathway showed a nuclear YAP/TAZ tumoral enrichment (Fig. 6G).
+
+However, the tumoral heterogeneity suggested that additional oncogenic pathways might be involved.
+
+Indeed, we observed TGF-β expression in half of the tumors, as well as c-jun phosphorylation, a marker of JNK activation (data not shown).
+
+SECTION
+
+A common signature in human and mouse AXIN1 mutated HCC highlights the activation of Notch and YAP pathways
+
+PARAGRAPH
+
+We evaluated the relevance of mouse tumors with Axin1 deletion to human carcinogenesis.
+
+For that purpose, we used TCGA-LIHC consortium data in which all the AXIN1-mutated HCCs had an LOH and were supposed to be loss of function mutations.
+
+HCCs bearing both AXIN1 and CTNNB1 mutations were excluded.
+
+We established a list of genes that were differentially expressed (fold-change >2; p <0.05) in AXIN1-mutated human HCC compared to control liver tissue and performed the same analysis for mice HCCs.
+
+The final signature, built upon the overlapping human vs. mouse orthologs consists of 329 genes with 198 genes upregulated in tumors compared to normal livers and 131 genes downregulated (Table S7).
+
+Genes involved in cell cycle regulation were significantly upregulated in tumors, including CCNB2, CCNB1, DNASE1, CDK1, CDC20, BUB1, TOP2a, AURKA, CDKN2C.
+
+Similarly, genes associated with a poor prognosis, recurrence or invasion such as ANXA2,23 CENPF33 NEK234 or RACGAP1 whose interactome involves genes with mitotic roles of the polo-like kinases such as PRC1, AURKB, ECT2 or PAK135 were also included in this signature.
+
+Genes involved in farnesoid X receptor family members, primary bile acid and sterol biosynthesis were downregulated.
+
+Non-supervised hierarchical clustering showed that TCGA-LIHC human tumors and mouse AXIN1-mutated HCC clustered together on this signature (Fig. S5).
+
+Interestingly, the 329-gene AXIN1 signature showed a highly significant enrichment of the oncogenic Notch signature based on HCC mouse models30 and the YAP oncogenic signature32 as shown (Fig. 7).
+
+Notably, HMMR, BIRC5, CYR61 (YAP pathway), CDKN3, TSPAN8 and SOX9 (Notch pathway) were significantly induced in AXIN1 mutated TCGA-LIHC human HCC.
+
+PARAGRAPH
+
+Finally, we performed immunohistochemistry on eight human AXIN1-mutated HCC from the GSE62232 cohort, among which two were well differentiated while the other six were poorly to moderately differentiated (Fig. S6A,B).
+
+We observed NOTCH2 staining in six of them (Fig. S6C,D) and YAP nuclear staining in four of them (Fig. S6E,F).
+
+Altogether, these data confirm the induction of YAP and Notch pathways in a majority of AXIN1-mutated human HCC.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In the present study, we showed that the majority of HCC with AXIN1 mutations develop without Wnt/β-catenin pathway activation.
+
+To date, AXIN1-mutated HCC have been poorly studied and data are inconsistent.
+
+Previous studies, including the most recent studies based on whole-exome or whole-genome analyses, recurrently placed HCC with AXIN1 mutations and those with CTNNB1 mutations in the same group.3,4,36
+
+This classification was based on the notion that CTNNB1 and AXIN1 are both involved in the Wnt/β-catenin pathway, and on previous reports showing an activation of β-catenin signaling, although weak, in human HCC cell lines bearing inactivating AXIN1 mutations.9
+
+PARAGRAPH
+
+We have used a canonical and liver-specific β-catenin signature to analyze the level of β-catenin activity of CTNNB1- and AXIN1-mutated HCC in two independent data sets that include 454 human HCC.
+
+We defined three different clusters displaying, strong, weak, or no β-catenin activity.
+
+Overall, our data are consistent with a recent study showing that CTNNB1-mutated HCC exhibit heterogenous levels of β-catenin activity.2
+
+The observed differences are probably because the study by Rebouissou et al. was based on only two β-catenin target genes while our analysis included 23 target genes.
+
+The most notable difference is our description of a subgroup of CTNNB1- or APC-mutated HCC without any β-catenin activity.
+
+Among these HCC, a lot of mutations are likely to be non-functional, such as mono-allelic APC mutations or atypical CTNNB1 mutations.
+
+It is of interest that in the two groups of weak and absent β-catenin activity, there is an enrichment in the hot spot S45 CTNNB1 mutations and in the new CTNNB1 mutations described in Arm 5 and 6 domains (K335I, W383, N387).
+
+We observed an enrichment in K335I mutation in the “weak CTNNB1 program” cluster and an enrichment in N387K in the “no CTNNB1 program” cluster, suggesting that the N387K are unlikely to be functional.
+
+The reason why S45 CTNNB1 mutations could lead to either weak or no β-catenin activity (at almost the same incidence) remains to be investigated.
+
+Likewise, the reason why some AXIN1-mutated HCC showed a weak β-catenin activity, while most of them revealed no β-catenin activity is also intriguing.
+
+There is no hotspot mutation in AXIN1 and we observed no correlation between the genotype of AXIN1 mutation and the phenotype of β-catenin activity.
+
+In addition, the reason why a faint activation of a β-catenin program has been described in AXIN1-mutated hepatoma cell lines9,10 that we confirmed after si-RNA inactivation of AXIN1 in Huh7 (Supplementary CTAT Table), and also in Axin1-deleted mouse primary hepatocytes, is likewise intriguing.
+
+However, our main finding is the demonstration that 80% of the AXIN1-mutated HCC did not display any activation of the β-catenin signaling.
+
+PARAGRAPH
+
+Our modeling of Axin1 inactivation in mouse liver confirmed that HCC that developed following the deletion of Axin1 in the hepatocytes was not caused by activation of β-catenin signaling.
+
+The characterization of the mouse tumors showed that Axin1-mutated HCC clustered with the previously described S121 and G1-G311 human subgroups of HCC, which display chromosomal instability and a transcriptional signature associated with poor prognosis, invasiveness and stem cell features, underlining the relevance of the mouse model.
+
+PARAGRAPH
+
+In addition, we observed no induction of β-catenin target genes in the liver of Axin1 mouse models at earlier time points, excluding even transient activation of the β-catenin pathway.
+
+We also found no expression of different Wnt/β-catenin partners, already described in HCC, bearing an activation of the β-catenin signaling without CTNNB1 mutations.37
+
+The lack of upregulation in Axin2 expression is not consistent with the hypothesis of Axin2-mediated compensation.
+
+Our data differ from those of Feng et al. reporting that Axin1 deletion in mice results in the transient induction of some β-catenin target genes.12
+
+This discrepancy may be because of the mouse models used, which differed in the invalidation construct and in the Cre recombinase used, whose expression was not restricted to the liver in Feng’s study.
+
+Thus, although AXIN1 has been described as the limiting scaffolding protein of the β-catenin degradation complex,7 its role is likely more complex than initially described.
+
+PARAGRAPH
+
+In our mouse model, HCCs arose after a significant latency period and in only 40% of Axin1 mutant mice, indicating that Axin1 loss of function alone is only mildly oncogenic.
+
+These findings, together with the heterogeneity of the tumors, indicate that although Axin1 is a tumor suppressor, its loss in the liver requires additional oncogenic events that may differ between tumors.
+
+This suggests that Axin1 is a not powerful tumor suppressor gene in the mouse and suggests that in human, AXIN1 mutations are unlikely to be potent drivers that initiate HCC development.
+
+PARAGRAPH
+
+We identified a common signature based on both mouse and human datasets.
+
+Oncogenic Notch and Yap pathways, which interact in the liver and in HCC,38 were found highly enriched in this signature.
+
+It has been recently demonstrated in drosophila that Axin1 loss induces activation of the Notch pathway.25
+
+Notch activation in human HCC is associated with poorer tumor cell differentiation, venous invasion, an advanced tumor stage and shorter overall survival.39,40
+
+YAP/TAZ is known to form a critical positive feedback loop with Notch signaling to promote HCC formation with poor prognosis.38,41
+
+In addition, HMMR (also called RHAMM), a YAP target gene that promotes microtubule instability, induces ERK activation and is strongly expressed in aggressive human cancers,42,43 as well as being induced in both human and mouse tumors with AXIN1 mutations.
+
+Our observation of YAP-activated HCC in the absence of AXIN1 can be explained by the fact that AXIN1 directly associates with endogeneous YAP and TAZ and that knockdown of Axin1 is known to cause YAP/TAZ stabilization and nuclear accumulation in vitro.26
+
+Moreover, the recently uncovered inhibitory role of β-catenin on YAP and Notch activities for the initiation of HCC41 could explain why Notch and β-catenin pathways, inducing contradictory signals, are not activated simultaneously in HCC.
+
+PARAGRAPH
+
+In conclusion, although genomic studies describing the mutational landscape of HCC have until now classified tumors with either activating CTNNB1 or inactivating AXIN1 mutations as belonging to the same “Wnt/β-catenin” group, they should clearly be considered to belong to different groups from now on.
+
+Notch and YAP signaling are induced in both human AXIN1-mutated HCC and mouse HCC resulting from liver Axin1 deletion.
+
+Small compounds inhibiting YAP-driven hepatocarcinogenesis have shown encouraging results and may provide a novel approach for the treatment of AXIN1-mutated HCC with YAP/Notch pathway induction.44
+
+In this context, the mouse model we have developed constitutes an ideal tool for evaluating new treatments that prevent the sequence of tumor development at various stages of progression.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This study was supported by the LNCC (Ligue Nationale Contre le Cancer) and Association Française pour l’Etude du Foie (AFEF).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare not to have any competing financial interests in relation to the work described.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+SA, RD, NS, PB, MS, RS, VD, RS: experiments and procedures; ET: generation of KO mice; CP, HG: concept and design; CC, BR, BM, FD, PS: microarrays and statistical analysis, PAJ, BT: pathologists, tumor analysis; JZR, JC: Human AXIN1-mutated tumors; CP, HG: writing of article.

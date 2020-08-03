@@ -1,0 +1,49 @@
+10.1016/j.engappai.2019.08.024
+
+ABSTRACT
+
+TITLE
+
+A review of soft techniques for SMS spam classification: Methods, approaches and applications
+
+PARAGRAPH
+
+The easy accessibility and simplicity of Short Message Services (SMS) have made it attractive to malicious users thereby incurring unnecessary costing on the mobile users and the Network providers’ resources.
+
+PARAGRAPH
+
+The aim of this paper is to identify and review existing state of the art methodology for SMS spam based on some certain metrics: AI methods and techniques, approaches and deployed environment and the overall acceptability of existing SMS applications.
+
+PARAGRAPH
+
+This study explored eleven databases which include IEEE, Science Direct, Springer, Wiley, ACM, DBLP, Emerald, SU, Sage, Google Scholar, and Taylor and Francis, a total number of 1198 publications were found.
+
+Several screening criteria were conducted for relevant papers such as duplicate removal, removal based on irrelevancy, abstract eligibility based on the removal of papers with ambiguity (undefined methodology).
+
+Finally, 83 papers were identified for depth analysis and relevance.
+
+A quantitative evaluation was conducted on the selected studies using seven search strategies (SS): source, methods/ techniques, AI approach, architecture, status, datasets and SMS spam mobile applications.
+
+PARAGRAPH
+
+A Quantitative Analysis (QA) was conducted on the selected studies and the result based on existing methodology for classification shows that machine learning gave the highest result with 49% with algorithms such as Bayesian and support vector machines showing highest usage.
+
+Unlike statistical analysis with 39% and evolutionary algorithms gave 12%.
+
+However, the QA for feature selection methods shows that more studies utilized document frequency, term frequency and n-grams techniques for effective features selection process.
+
+Result based on existing approaches for content-based, non-content and hybrid approaches is 83%, 5%, and 12% respectively.
+
+The QA based on architecture shows that 25% of existing solutions are deployed on the client side, 19% on server-side, 6% collaborative and 50% unspecified.
+
+This survey was able to identify the status of existing SMS spam research as 35% of existing study was based on proposed new methods using existing algorithms and 29% based on only evaluation of existing algorithms, 20% was based on proposed methods only.
+
+PARAGRAPH
+
+This study concludes with very interesting findings which shows that the majority of existing SMS spam filtering solutions are still between the “Proposed” status or “Proposed and Evaluated” status.
+
+In addition, the taxonomy of existing state of the art methodologies is developed and it is concluded that 8.23% of Android users actually utilize this existing SMS anti-spam applications.
+
+Our study also concludes that there is a need for researchers to exploit all security methods and algorithm to secure SMS thus enhancing further classification in other short message platforms.
+
+A new English SMS spam dataset is also generated for future research efforts in Text mining, Tele-marketing for reducing global spam activities.

@@ -1,0 +1,549 @@
+10.1016/j.jhep.2018.07.004
+
+FULLTEXT
+
+TITLE
+
+Phospho-ERK is a biomarker of response to a synthetic lethal drug combination of sorafenib and MEK inhibition in liver cancer
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Liver cancer is one of the most frequent malignancies and the second leading cause of cancer-related deaths worldwide.1
+
+In the last decade, our understanding of the genetic landscape of hepatocellular carcinoma (HCC) has improved significantly through large-scale sequencing studies.
+
+These studies have indicated that several signaling pathways are involved in HCC initiation and progression, including telomere maintenance, WNT-β-catenin pathway, cell cycle regulators, epigenetic regulators, AKT/mTOR and mitogen-activated protein kinase (MAPK) pathways.2
+
+However, the most frequent mutations in HCC are currently undruggable.
+
+Sorafenib is a multikinase inhibitor that is approved as the standard therapy for advanced HCC patients, but only provides 2.8 months survival benefit.3
+
+The survival advantage is even more limited for Asia-Pacific patients (2.3 months).4
+
+Regorafenib is a treatment strategy shown to provide overall survival benefit in patients with HCC that has progressed on sorafenib treatment.5
+
+However, chemically, regorafenib and sorafenib differ by just one atom.6
+
+The regorafenib registration trial design involved a high degree of patient selection.
+
+Even in such optimal settings, only a modest clinical benefit was achieved.
+
+Lenvatinib is another multikinase inhibitor, which provided impressive antitumor activity in phase II trials in patients with advanced unresectable HCC.7
+
+However, there is only 1.3 months additional survival benefit for patients compared to sorafenib in the phase III trials.
+
+These clinical data point to the need to reconsider the current therapeutic strategy.
+
+A recurrent problem in clinical studies in liver cancer is the paucity of biomarkers linked to drug response.8
+
+PARAGRAPH
+
+Combination therapies can help fight therapy failure and improve response to approved drugs.
+
+We have successfully employed functional genetic screens to find powerful combinations of cancer drugs by exploiting the concept of ‘synthetic lethality’.
+
+This has resulted in clinical testing of several combination treatment strategies, including the use of BRAF inhibitor combined with epidermal growth factor receptor (EGFR) inhibitor in BRAF(V600E) mutant colon cancer9 (NCT01719380, NCT01791309, NCT02164916, NCT02928224) and MEK (MEK1/2 [MAP2K1/2]) inhibitor combined with EGFR/ERBB2 inhibitor in KRAS mutant cancer10 (NCT02039336, NCT02230553, NCT02450656).
+
+Some of these studies have already revealed promising clinical activity in these difficult-to-treat patient populations.11
+
+For liver cancer, the concept of ‘synthetic lethality’ has also been validated by the combination of sorafenib and MAPK14 inhibition, which was identified by an in vivo RNAi screen.12
+
+PARAGRAPH
+
+CRISPR-Cas9 is a powerful gene-editing technology that has been widely employed for genome-scale functional screens.13
+
+Compared to the shRNA-based system, CRISPR technology provides advantages in low noise, minimal off-target effects and high consistent activity.14
+
+Taking advantage of the CRISPR-Cas9 based functional screening system, we developed a platform that can be used to identify kinases whose inhibition increases the therapeutic efficacy of cancer drugs.
+
+PARAGRAPH
+
+We describe here the use of kinome-centered synthetic lethality screens to identify enhancers of the response to sorafenib in liver cancer.
+
+Moreover, we identify a biomarker of response to the drug combination identified here, which may be useful in the future clinical development of this drug combination.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Cell lines
+
+PARAGRAPH
+
+The human HCC cell lines, Hep3B, HepG2, SNU387, SNU398, SNU449, HuH7 and PLC/PRF/5 were provided by Erasmus University (Rotterdam, Netherlands).
+
+MHCC97H was provided by the Liver Cancer Institute of Zhongshan Hospital (Shanghai, China).
+
+HCC cells were cultured in DMEM with 10% FBS, glutamine and penicillin/streptomycin (Gibco®) at 37 °C/5% CO2.
+
+Mycoplasma contamination was excluded via a PCR-based method.
+
+The identities of all the cell lines were confirmed by short tandem repeat testing.
+
+All the cell lines used are described in the supplementary CTAT Table.
+
+SECTION
+
+Compounds and antibodies
+
+PARAGRAPH
+
+Sorafenib was purchased from MedKoo Bioscience.
+
+Selumetinib, SCH772984, and LY3009120 were purchased from Selleck Chemicals.
+
+Antibodies against HSP90 (H-114) and ERK2 (MAPK1 [sc-154]) were purchased from Santa Cruz Biotechnology.
+
+Antibodies against ERK (ERK1/2 also called MAPK1/3 [#9101]) and phospho-ERK (p-ERK [#4695]) were purchased from Cell Signaling Technology.
+
+All the compounds and antibodies are described in supplementary CTAT Table.
+
+SECTION
+
+Pooled ‘synthetic lethal’ CRISPR screen
+
+PARAGRAPH
+
+For the design of the kinome CRISPR library, 5,971 guiding RNAs (gRNAs) targeting 504 human kinases, 10 essential genes, and 50 non-targeting gRNAs were selected (Table S1).
+
+Oligo's with gRNA sequences flanked by adapters were ordered from CustomArray Inc (Bothell, WA) and cloned as a pool by GIBSON assembly in LentiCRISPRv2.1.
+
+The kinome CRISPR library was introduced to Hep3B cells by lentiviral transduction.
+
+Cells were then pooled and plated at 500,000 cells per 15 cm dish in the absence or presence of 1.5 μM sorafenib (12 dishes for each condition) and the medium was refreshed twice per week for 14 days.
+
+The abundance of each gRNA in the pooled samples was determined by Illumina deep sequencing.
+
+gRNAs prioritized for further analysis were selected by the fold depletion of abundance in sorafenib-treated sample compared with that in untreated sample.
+
+Hits were selected based on the presence of at least three individual gRNAs targeting the same gene in the top list.
+
+SECTION
+
+CRISPR gRNA generation and lentiviral transduction
+
+PARAGRAPH
+
+For construction of an sgRNA-expressing vector, DNA oligonucleotides (Invitrogen) were annealed and ligated into BsmBI-digested LentiCRISPRv2 plasmid.
+
+Target sgRNA oligonucleotide sequences are listed as follows:sgERK2-1F: 5′-CACCGCAACCTCTCGTACATCGGCG-3′;sgERK2-1R: 5′-AAACCGCCGATGTACGAGAGGTTGC-3′;sgERK2-2F: 5′-CACCGCGCGGGCAGGTGTTCGACGT-3′;sgERK2-2R: 5′-AAACACGTCGAACACCTGCCCGCGC-3′.
+
+PARAGRAPH
+
+Production of lentivirus was performed as previously described.9
+
+Then, HCC cells were infected with lentiviral supernatants using 8 μg/ml polybrene.
+
+After 24 h of incubation, the supernatant was replaced by medium containing 2 μg/ml puromycin.
+
+After 48 h, selection of viral transduced cell lines was completed.
+
+SECTION
+
+Protein lysate preparation and western blots
+
+PARAGRAPH
+
+Cells were washed with PBS and lysed with RIPA buffer supplemented with Complete Protease Inhibitor (Roche) and Phosphatase Inhibitor Cocktails II and III (Sigma).
+
+All lysates were freshly prepared and processed with Novex NuPAGE Gel Electrophoresis Systems (Invitrogen).
+
+SECTION
+
+Long-term cell proliferation assay, IncuCyte® cell proliferation assay and apoptosis assay
+
+PARAGRAPH
+
+Cells were seeded into 6-well plates (1.5–3.0 × 104 cells per well) and cultured in the presence of drugs, as indicated.
+
+Within each cell line, cells cultured at different conditions were fixed with 4% paraformaldehyde (in PBS) at the same time.
+
+Afterwards, cells were stained with 0.1% crystal violet (in water).
+
+Indicated cells were cultured and seeded into 96-well plates at a density of 1,000–1,500 cells per well.
+
+Drugs were added at indicated concentrations 24 h later.
+
+Cells were imaged every 4 h in IncuCyte ZOOM (Essen Bioscience).
+
+Phase-contrast images were collected and analyzed to detect cell proliferation based on cell confluence.
+
+For cell apoptosis, IncuCyte® Caspase-3/7 green apoptosis assay reagent was also added to culture medium and cell apoptosis was analyzed based on green fluorescent staining of apoptotic cells.
+
+PARAGRAPH
+
+The rationale for using different drug concentrations in different cell lines is based on the response of the cell line to monotherapy.
+
+In order to test the synthetic lethal effects of the combination treatment, we chose the concentration that only has moderate effects on the cells.
+
+The concentrations of sorafenib or selumentinib used in the different experiments were selected based on previous studies10,15 and our own pilot experiments.
+
+SECTION
+
+Immunohistochemical staining
+
+PARAGRAPH
+
+HCC specimens were obtained from 78 patients who underwent curative surgery in Eastern Hepatobiliary Hospital of the Second Military Medical University in Shanghai, China.
+
+Patients were not subjected to any preoperative anti-cancer treatment.
+
+Ethical approval was obtained from the Eastern Hepatobiliary Hospital Research Ethics Committee, and written informed consent was obtained from each patient.
+
+Immunohistochemical staining was done as previously described.16
+
+Antibody against p-ERK (#4370) was purchased from Cell Signaling Technology.
+
+SECTION
+
+Xenografts
+
+PARAGRAPH
+
+All animals were manipulated according to protocols approved by the Shanghai Medical Experimental Animal Care Commission and Shanghai Cancer Institute.
+
+The environmental enrichment was established as previously described.17
+
+Animals were housed in micro-isolator cages of dimensions 30.5 cm × 19 cm × 14 cm, including a wire rack in the cage for holding food and a water bottle.
+
+Animals were housed on a 12 h light/dark cycle.
+
+HuH7 and HepG2 cells (5 × 106 cells per mouse) were injected subcutaneously into the right posterior flanks of 6-week-old BALB/c nude mice (male, six mice per group).
+
+Tumor volume based on caliper measurements was calculated by the modified ellipsoidal formula: tumor volume = 0.5 length × width2.
+
+When tumors reached a volume of approximately 100 mm3, mice were randomly assigned to treatment with vehicle, sorafenib (30 mg/kg, daily gavage), selumetinib (20 mg/kg, daily gavage), or a drug combination in which each compound was administered at the same dose and scheduled as single agents.
+
+The dose of sorafenib or selumetinib used in vivo is based on previous studies.15,18
+
+Tumor tissues were fixed, embedded, and sliced into 5 μm thick sections.
+
+Immunohistochemical staining was carried out as described previously.16
+
+SECTION
+
+Statistics
+
+PARAGRAPH
+
+The data are presented as mean with SEM or SD.
+
+All graphs were plotted and analyzed with GraphPad Prism 5 Software.
+
+p values <0.05 were considered statistically significant.
+
+SECTION
+
+Results
+
+SECTION
+
+HCC cell lines are unresponsive to sorafenib
+
+PARAGRAPH
+
+To study how liver cancer cells respond to sorafenib in vitro, we determined the efficacy of sorafenib in eight liver cancer cell lines using a long-term proliferation assay.
+
+All the cell lines used were relatively insensitive to sorafenib, in agreement with the modest clinical benefit of this drug (Fig. 1A).3,4
+
+We also analyzed the half maximal inhibitory concentrations (IC50s) of sorafenib in 503 cell lines from cancer cell line encyclopedia (CCLE).19
+
+The vast majority of these cancer cell lines have an IC50 for sorafenib of over 5 μM (443/503, 88.1%, Fig. S1A).
+
+Sorafenib is approved as a treatment for advanced renal cell carcinoma, unresectable HCC and thyroid cancer.
+
+We therefore further analyzed the efficacy of sorafenib in cell lines from these different cancer types in CCLE.19
+
+Most of the cell lines from these cancer types are also insensitive (IC50 > 5 μM) to sorafenib (30/32, 93.4%) (Fig. S1B).
+
+The highly related drug regorafenib was approved by the FDA as a second-line therapy for patients with locally advanced or metastatic HCC, with disease progression after sorafenib treatment.5
+
+In a long-term proliferation assay, we found that the vast majority of HCC cell lines are also insensitive to regorafenib (Fig. S1C).
+
+Together, both the cell line data and the clinical data indicate a modest activity of sorafenib or regorafenib in liver cancer.
+
+SECTION
+
+A synthetic lethal screen with sorafenib
+
+PARAGRAPH
+
+We have described the use of kinome-centered RNA interference (RNAi) genetic screens, which enable the identification of kinases whose inhibition is synergistic with the BRAF inhibitor in BRAF mutant colon cancer and MEK inhibition in KRAS mutant lung and colon cancer.9,10
+
+To systematically identify the kinases whose inhibition confers sensitivity to sorafenib in liver cancer cells, Hep3B cells were infected with the lentiviral kinome gRNA collection and cultured in the absence or presence of sorafenib for 14 days.
+
+After this, genomic DNA was isolated from both treated and untreated cells, and the relative abundance of gRNA was determined by next generation sequencing of the bar code contained in each gRNA vector in three biological replicates (Fig. 1B and Fig. S2A).
+
+The original screening data, including the reads at time 0 and the reads in the untreated and treated conditions, are shown (Table S2).
+
+Several independent gRNA vectors targeting ARAF and MAPK1 (ERK2) were identified from the synthetic lethal screen (Fig. 1C and Fig. S2B).
+
+To validate the ARAF screen hit, we treated liver cancer cell lines (Hep3B, SNU398, HepG2, and PLC/PRF/5) with a combination of sorafenib and LY3009120 (a pan-RAF inhibitor).
+
+Synergy between these two drugs was only seen in the Hep3B cells used in the screen, and not in the other three HCC cell lines (Fig. S3A).
+
+Similar results were seen when we treated liver cancer cell lines (Hep3B, SNU398, HepG2, and PLC/PRF/5) with a combination of regorafenib and LY3009120 (Fig. S3B).
+
+We conclude that the synthetic lethal effects of ARAF knockout and sorafenib may be context-dependent and therefore unlikely to be of general utility in HCC treatment.
+
+Next, we focused on the ERK2 hit identified in the screen.
+
+We infected liver cancer lines (Hep3B, HuH7, PLC/PRF/5, and HepG2) with two ERK2 gRNA vectors (both of them decreased ERK2 levels [Fig. 1D]).
+
+These cells were then cultured with or without sorafenib for 10 days.
+
+Suppression of ERK2 in combination with sorafenib inhibited proliferation in Hep3B and HuH7 cells, but not in PLC/PRF/5 and HepG2 cells (Fig. 1E).
+
+PARAGRAPH
+
+To study whether MAPK signaling could be responsible for the poor response to sorafenib and the synergy with ERK2 deficiency, we treated these four liver cancer cell lines with a combination of sorafenib and selumetinib (MEK inhibitor) or the combination of sorafenib and SCH772984 (ERK inhibitor).
+
+Similar to what was observed upon knockout of ERK2, selumetinib and SCH772984 each showed strong synergy with sorafenib in Hep3B and HuH7 cells in both long-term and short-term assays (Fig. 2A-B), but this synergistic effect was not observed in PLC/PRF/5 and HepG2 cells (Fig. 2A-B).
+
+To further validate the results of the drug combinations, the synergy scores were calculated based on the Bliss independence model.20
+
+Firstly, viability scores were measured for combination treatments using a twofold dilution series (sorafenib: 0.16–2.5 µM, selumetinib: 0.016–2.0 µM).
+
+These viability scores were then normalized between 0 (neg.
+
+control) and 1 (neg.
+
+control) and transformed into an effect score by subtracting the viability score from 1.
+
+The resulting value was multiplied by 100 for readability.
+
+This resulted in a matrix with measured effect values.
+
+Then we calculated a matrix with additive values based on the Bliss model.
+
+Finally, we subtracted the matrix with additive values from the matrix with measured values, resulting in a matrix with “excess” values.
+
+From this “excess” matrix we calculated the mean value, which we used as our synergy score.
+
+The synergy scores for Hep3B, HuH7, PLC/PRF/5 and HepG2 cells are 46.1, 41.0, −1.61, and 7.22, respectively.
+
+Although the combination treatment has stronger effects compared with monotherapy in HepG2 cells from the IncuCyte® cell proliferation assay (Fig. 2B), it is dominantly derived from the additive effects, but not synergistic effects based on the synergy score.
+
+PARAGRAPH
+
+It appears that small molecule ERK inhibition shows a stronger synergy with sorafenib than ERK2 knockout (compare Fig. 1E and 2A).
+
+This is most likely because there are two ERK kinases, only one of which is knocked out by the ERK2 gRNA, whereas both ERK1 and ERK2 are inhibited by the SCH772984 compound.
+
+Together, these results suggest that cell-intrinsic mechanisms exist that determine the response to the combination of sorafenib and MEK inhibition.
+
+SECTION
+
+Synergistic inhibition of p-ERK causes apoptosis in HCC cell lines
+
+PARAGRAPH
+
+To address the mechanism by which sorafenib and selumetinib synergize to reduce viability of several liver cancer cell lines, we assayed induction of apoptosis in the presence of sorafenib, selumetinib or the combination of the two drugs.
+
+Both Hep3B and HuH7 cells showed modest evidence of apoptosis following monotherapy.
+
+However, strong synergistic induction of apoptosis was observed in these cells when sorafenib and selumetinib were combined, as indicated by the IncuCyte® caspase-3/7 apoptosis assay (Fig. 2C).
+
+Consistent with modest effects on inhibition of proliferation in PLC/PRF/5 and HepG2 cells, there was little or no evidence of the sorafenib and selumetinib combination inducing apoptosis.
+
+Moreover, biochemical analyses indicate that the drug combination resulted in synergistic inhibition of p-ERK in Hep3B and HuH7 cells.
+
+However, HepG2 and PLC/PRF/5 cells have a relatively low p-ERK level, even in the absence of any drug (Fig. 2D).
+
+PARAGRAPH
+
+Similarly, selumetinib showed strong synergy with regorafenib in Hep3B and HuH7 cells by inducing significant apoptosis (Fig. 3A-C).
+
+This effect also correlates with synergistic inhibition of ERK kinase activity (Fig. 3D).
+
+The synergistic effect of selumetinib and regorafenib was again not observed in PLC/PRF/5 and HepG2 cells (Fig. 3A-D).
+
+The synergy scores were calculated based on a same concentration range (Regorafenib 0.078–1.25 μM, selumetinib: 0.016–2.0 μM).
+
+The synergy scores for Hep3B, HuH7, PLC/PRF/5 and HepG2 cells are 54.2, 31.8, 6.58, and 6.15.
+
+SECTION
+
+Biomarker of response to the combination therapy
+
+PARAGRAPH
+
+To determine whether p-ERK could be a potential biomarker for the drug combination treatment, we determined the synthetic lethal effects in eight liver cancer cell lines.
+
+The combination of sorafenib and selumetinib induced strong synergistic effects in five cell lines with high p-ERK levels.
+
+However, at best modest effects were observed in the three cell lines with lower intrinsic p-ERK (HepG2, SNU387, and PLC/PRF/5) (Fig. 4A-C).
+
+There is not a strong correlation between the baseline p-ERK and sensitivity to sorafenib monotherapy (R = 0.4122, p =0.31, Fig. 4D).
+
+Some HCC cell lines are quite resistant to selumetinib treatment.
+
+It did not reach IC50 even when cells were treated at the concentration of 10 μM (Fig. 4D).
+
+Together, our data suggest a combination therapy for the treatment of liver cancer that is most likely to be effective in tumors with high basal p-ERK levels.
+
+PARAGRAPH
+
+To study how frequent ERK activation is in primary liver cancers, we next analyzed p-ERK using a tissue microarray (TMA) containing 78 HCC specimens by immunochemical analysis.
+
+Levels of p-ERK in tumor tissues were classified as high expression in 11 cases (11/78, 14.1%), low expression in 11 cases (11/78, 14.1%), or negative in 56 cases (56/78, 71.8%).
+
+Representative images of p-ERK staining are shown (Fig. 5A).
+
+p-ERK was detected in both the cytoplasm and nucleus of tumor cells and we did not observe obvious positive staining of endothelial cells.
+
+Positive staining for p-ERK did not predict overall survival and recurrence in patients with HCC and was also not associated with the clinical characteristics including tumor size, tumor number, tumor differentiation, and vascular invasion in our cohort (data not shown).
+
+Our finding suggests that patient selection based on the presence of p-ERK (seen in about 30% patients) before initiating treatment may be useful to identify responders to this combination.
+
+SECTION
+
+In vivo effects of the combination therapy
+
+PARAGRAPH
+
+To assess whether the in vitro findings can be recapitulated in vivo, HuH7 (high p-ERK level) and HepG2 (low p-ERK level) cells were injected into nude mice.
+
+Upon tumor establishment, xenografts were treated with vehicle, sorafenib, selumetinib, or the combination for about 21 days.
+
+As shown (Fig. 5B), the combination of sorafenib and selumetinib elicited a potent growth inhibition of HuH7 cells.
+
+However, no synergistic effects were observed in HepG2 xenografts, which also display no synergy in vitro.
+
+PARAGRAPH
+
+To confirm the mechanism identified in vitro, the effect of sorafenib and selumetinib on p-ERK in HuH7 xenografts was assayed by immunohistochemical staining.
+
+Treatment of mice with sorafenib or selumetinib alone result in limited suppression of p-ERK.
+
+In contrast, the combination treatment showed a potent inhibition of ERK activation, accompanied by an increase in caspase-3 positive cells and a decrease in proliferating cell nuclear antigen (PCNA, a marker of proliferation) positive cells (Fig. 5C-D).
+
+Similar to the in vitro experiments, HepG2 xenografts also had low p-ERK levels (Fig. 5E-F).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Sorafenib is the standard therapy for patients with advanced HCC, but it only provides limited survival benefit for patients.
+
+Many studies have focused on the mechanisms of resistance to sorafenib.
+
+It has been demonstrated that EGFR and HER3 restrict responses to sorafenib in HCC cells.21
+
+Shimizu et al. reported that sorafenib treatment led to accumulation of autophagosomes, thus limiting the efficiency of sorafenib.22
+
+Tovar et al. found that tumor initiating cells and IGF/FGF signaling may be the potential determinant of acquired resistance to sorafenib in HCC.
+
+FGF blockade suppress tumor growth and improved survival in sorafenib-resistant HCC patients.23
+
+Several other factors including epithelial-mesenchymal transition, hypoxia inducible factor-1α, histone methyltransferases (such as EZH2), and SHP2 signaling are also closely associated with sorafenib resistance.24
+
+Despite these advances, the exact mechanism of sorafenib resistance remains unclear and unfortunately, no combinations are used in the clinic that exceed the benefits provided by sorafenib monotherapy.
+
+Therefore, it is clinically relevant to find novel and effective drug combinations for HCC.
+
+PARAGRAPH
+
+CRISPR-Cas9 is a powerful gene-editing technology that has been widely employed for functional screens in liver cancer.
+
+Song et al. and Xu et al. highlight the power of in vivo CRISPR screening for identification of novel candidate genes in liver cancer.25,26
+
+Wangensteen et al. screened for drivers and suppressors of cell replication and tumor initiation in liver cancer in vivo using the CRISPRa platform.27
+
+In our previous study, we screened a gRNA library representing the full complement of human kinases to identify vulnerabilities in HCC.
+
+We identified CDK7 as critically required for liver cancer cell lines with high MYC levels.28
+
+Here, we performed CRISPR-Cas9 based synthetic lethality screens to identify enhancers of the response to sorafenib in liver cancer.
+
+By using in vivo RNAi screening, Rudalska et al. reported that MAPK14-dependent activation of MEK-ERK and ARF2 signaling is a key mechanism of sorafenib resistance.12
+
+MAPK14 was not identified in our screen.
+
+A potential explanation for this is that we used a completely different screening system.
+
+Rudalska et al. used an shRNA-based screen directly in mouse liver carcinomas in vivo.
+
+In contrast, in our project, we performed a screen using CRISPR in human HCC cells in vitro.
+
+They concluded that MAPK14-silenced liver cancer cells are more sensitive to sorafenib partly because of the downregulation of RAF-MEK-ERK signaling.12
+
+Their conclusion is nevertheless in agreement with our current findings.
+
+PARAGRAPH
+
+The data from the synthetic lethality screens presented here provide a rationale for the use of a combination of sorafenib and MEK inhibitor in patients with liver cancer.
+
+The strong synergistic effect between sorafenib and MEK inhibitor is probably best explained by a powerful suppression of ERK activity.
+
+Our data indicate that only those HCC cells with high levels of basal ERK activity respond well to the drug combination, suggesting that p-ERK could be a potentially powerful predictive biomarker of response to the combination therapy.
+
+Several preclinical studies and two clinical trials have been performed in liver cancer with the combination of sorafenib and MEK inhibitor (selumetinib or refametinib).29–31
+
+For the phase Ib study of selumetinib in combination with sorafenib, most common treatment-related adverse events at maximum tolerated dose were diarrhea, rash, hypertension, fatigue, anorexia, and hand-foot syndrome.
+
+The median overall survival was 14.4 months, when patients were treated with combination of sorafenib and selumetinib.
+
+The authors concluded that the acceptable adverse events and encouraging antitumor activity warrant further evaluation.29
+
+For the phase II study of the efficacy and safety of the combination treatment of refametinib plus sorafenib in Asian patients with HCC, adverse events were also tolerated at reduced doses by most patients.30
+
+PARAGRAPH
+
+Although these two clinical trials indicate antitumor activity for patients with advanced HCC, it is urgent for us to identify a biomarker that is predictive for the response to combination treatment based on the limited response rate in both clinical trials.
+
+We find here that 56 out of 78 (71.8%) primary HCC samples analyzed have an absence of ERK activity as judged by p-ERK immunohistochemistry.
+
+In a previous study, absence of ERK activity was seen in almost 90% of HCCs.32
+
+Based on our findings, it seems plausible that the clinical responses to the combination seen in patients are limited to those that have significant ERK signaling.
+
+There are several studies indicating that baseline p-ERK may be a predictive biomarker of clinical response to sorafenib.33,34
+
+We note that in the panel of our HCC cell lines, there is no strong correlation between the baseline p-ERK and sensitivity to sorafenib monotherapy.
+
+Thus, p-ERK may only be a biomarker of the combination of sorafenib and MEK inhibitor, but not of sorafenib monotherapy.
+
+Whether baseline p-ERK can serve as a useful predictive biomarker for the response to the combination treatment needs to be addressed in future prospective clinical studies, as suitable tissues from existing clinical studies are not available for analysis.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by grants from the Cancer Genomic Center Netherlands, the Dutch Cancer Society (KWF), the National Key Basic Research Program of China (973 Program: 2015CB553905), the National Natural Science Foundation of China (81672933, 81702838), Shanghai Jiao Tong University School of Medicine (PYXJS16-004), Shanghai Municipal Commission of Health and Family Planning (2017YQ064, 2018YQ20, and 201640007), Shanghai Cancer Institute (91–1732 and RCPY005) and Shanghai Rising-Star Program (18QA1403900).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Cun Wang and Haojie Jin were responsible for data acquisition and analysis and drafting the article; Dongmei Gao performed the in vivo experiments; Liqin Wang and Roderick L. Beijersbergen provided advice for CRISPR screen; Bastiaan Evers and Cor Lieftink were responsible for data analysis.
+
+Zheng Xue provided advice for the design of the study.
+
+Guangzhi Jin provided clinical samples; and René Bernards and Wenxin Qin were responsible for the conception, design, and supervision of the study.
+
+All contributing authors gave final approval for the version to be published.

@@ -1,0 +1,525 @@
+10.1016/j.engappai.2019.103313
+
+FULLTEXT
+
+TITLE
+
+Interval-valued fuzzy reasoning algorithms based on Schweizer–Sklar t-norms and its application
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+As the most fundamental forms of fuzzy reasoning, fuzzy modus ponens (FMP) and fuzzy modus tollens (FMT) can be respectively expressed as follows (Dubois and Prade, 1991; Gottwald, 2001; Wang, 2000):
+
+PARAGRAPH
+
+FMP(A,B,A∗): For given rule A→B and premise A∗, calculate fuzzy consequence B∗.
+
+PARAGRAPH
+
+FMT(A,B,B∗): For given rule A→B and premise B∗, calculate fuzzy consequence A∗.
+
+PARAGRAPH
+
+In the above models, A,A∗∈F(X) and B,B∗∈F(Y), where F(X) and F(Y) stand for the sets of all fuzzy subsets of the universes X and Y respectively.
+
+PARAGRAPH
+
+Compositional rule of inference (CRI) is proposed to deal with FMP and FMT in Zadeh (1973, 1975a, b, c).
+
+As pointed by Wang in Wang (1999b, a), the composition operation is short of clear logic meaning, then Wang proposed a new method, the full implication triple I method, or simply the triple I method, for fuzzy reasoning in Wang (1999a).
+
+This method brings fuzzy reasoning within the framework of logical semantic implication.
+
+Consequently, some studies on the triple I method have been reported in recent years.
+
+Luo and Yao proposed the Schweizer–Sklar fuzzy reasoning triple I methods in Luo and Yao (2013).
+
+PARAGRAPH
+
+Since Zadeh proposed the concept of fuzzy sets in Zadeh (1965), fuzzy theories and fuzzy methods have been successfully applied to many domains (Dubois and Prade, 1991; Cai, 1995, 2001; Li et al., 2014).
+
+As a generation of fuzzy set, interval-valued fuzzy set can effectively reduce the loss of fuzzy information and reflect the fuzziness and uncertainty of the results obtained in information processing.
+
+In Deschrijver and Kerre (2003), it is shown that intuitionistic fuzzy set is equivalent to interval-valued fuzzy set.
+
+Due to the advantages of interval-valued fuzzy set, it has been favored by many scholars.
+
+Some scholars have used interval-valued fuzzy set to solve the problems of decision-making, medical diagnosis, neural networks and control systems (De et al., 2001a; Luo and Zhao, 2018; Liu et al., 2018; Wu et al., 2019; Dong et al., 2013; Castro et al., 2009; Hsiao et al., 2008).
+
+Some scholars have studied fuzzy reasoning algorithms based on interval-valued fuzzy set.
+
+In 2011, Li et al. first extended compositional rule of inference to the case of interval-valued fuzzy set in Li et al. (2011).
+
+Later, Luo et al. extended the fuzzy reasoning triple I method to the case of interval-valued fuzzy sets in Luo and Zhang (2015), Luo and Zhou (2015), Luo et al. (2016), Luo and Cheng (2016) and Luo and Liu (2017).
+
+PARAGRAPH
+
+The perturbation and robustness of fuzzy reasoning are highly related to one other.
+
+For a fuzzy reasoning method, if a small perturbation of input causes a small variance of the output, then we say this method has a good behavior of robustness.
+
+Distance measures play an important role in robustness of fuzzy inference.
+
+Szmidt and Kacprzyk proposed the normalized Minkowski distance between intuitionistic fuzzy sets in Szmidt and Kacprzyk (1997, 2000), which are generalizations of the well known normalized Hamming distance, normalized Euclidean distance and Moore distance.
+
+Normalized Minkowski distance based on the Hausdorff metrics for interval-valued fuzzy sets was proposed in Zhang (2006).
+
+Li et al. (2011) and Luo and Zhang (2015), Luo and Zhou (2015), Luo et al. (2016) and Luo and Cheng (2016) discussed the robustness of interval-valued fuzzy reasoning with the Moore distance.
+
+Luo et al. discussed the robustness of interval-valued fuzzy reasoning triple I method with normalized Minkowski distance based on Hausdorff metrics in Luo and Liu (2017).
+
+PARAGRAPH
+
+Although great achievements have been made in interval-valued fuzzy reasoning triple I methods, its application is still blank.
+
+Therefore, in this paper, we investigate the robustness of interval-valued fuzzy reasoning triple I methods based on Schweizer–Sklar operators by using the normalized Minkowski distance based on Hausdorff metrics and use interval-valued fuzzy reasoning triple I methods to solve the problem of medical diagnosis.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows: in Section 2, we review some basic concepts and results of interval-valued fuzzy sets and interval-valued fuzzy reasoning triple I methods.
+
+In Section 3, we discuss the robustness of interval-valued triple fuzzy reasoning triple I methods based on Schweizer–Sklar operators.
+
+In Section 4, we use interval-valued triple fuzzy reasoning triple I methods to solve the problem of medical diagnosis.
+
+The final section is the conclusion.
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+Let SI={[x,y]|x≤y,x,y∈[0,1]}, ∧,∨ are two binary operations, for [x1,y1],[x2,y2]∈SI, [x1,y1]∧[x2,y2]=[x1∧x2,y1∧y2], [x1,y1]∨[x2,y2]=[x1∨x2,y1∨y2].
+
+PARAGRAPH
+
+Xu and Yager, 2006
+
+PARAGRAPH
+
+Consider the order ≤XY on SI(X): [a,b]≤[c,d]⇔a+b≤c+dora+b=c+dandb−a≤d−c.The ordering ≤XY is a linear ordering on SI(X).
+
+PARAGRAPH
+
+Jenei, 1997
+
+PARAGRAPH
+
+Let T be a t-norm defined on the interval [0,1], the associated t-norm on SI is defined as follows: T:SI×SI→SIwhere T([a,b],[c,d])=[T(a,c),T(b,d)]The associated t-norm T on SI is called left continuous, if T is left continuous t-norm on the interval [0, 1].
+
+T is also called the interval-valued t-representable t-norm in Deschrijver (2008) and Gasse et al. (2008)
+
+PARAGRAPH
+
+Alcalde et al., 2005
+
+PARAGRAPH
+
+For every [a,b],[c,d]∈SI, an interval-valued R-implication is defined by: R([a,b],[c,d])=⋁{[x,y]∈SI|T([a,b],[x,y])≤[c,d]}where T is a t-norm on SI.
+
+PARAGRAPH
+
+Alcalde et al., 2005
+
+PARAGRAPH
+
+Given T thet-norm defined on SI associated to the t-normT, every residuated implication between intervals R associated to the t-normT has the form: R([a,b],[c,d])=[IRT(a,c)∧IRT(b,d),IRT(b,d)]where IRT is the residuated implication associated to the t-normT on[0,1].
+
+PARAGRAPH
+
+Luo and Cheng, 2016
+
+PARAGRAPH
+
+A Schweizer–Sklar interval-valued t-norms is a functionTm:SI×SI→SI such that for all [x1,x2],[y1,y2]∈SI and m∈R, see equation given in Box I
+
+PARAGRAPH
+
+where Tm is a Schweizer–Sklar t-norms, i.e. Tm(x,y)=min{x,y},m=−∞;xy,m=0;min{x,y},x∨y=10,x∨y≠1m=∞;max{0,xm+ym−1}1m,x∧y≠00,x∧y=0m∈(−∞,0)∪(0,∞).
+
+PARAGRAPH
+
+It is noted that when m=1,T1([x1,x2],[y1,y2])=[max(0,x1+y1−1),max(0,x2+y2−1)], which is the Łukasiewicz interval-valued t-norm, denoted by TL.
+
+PARAGRAPH
+
+When m=∞, T∞ is drastic product t-norm, which is not left-continuous t-norm, then this case is not discussed in this paper.
+
+PARAGRAPH
+
+Luo and Cheng, 2016
+
+PARAGRAPH
+
+A Schweizer–Sklar interval-valued residuated implication operators induced by interval-valued parameterized t-norm is a function Rm:SI×SI→SI such that for all [x1,x2],[y1,y2]∈SI and m∈R∖{∞}, see the equation given in Box II
+
+PARAGRAPH
+
+where Rm(x,y) is a Schweizer–Sklar residuated implication operators, i.e. Rm(x,y)=1,x≤yy,x>ym=−∞;1,x≤y0,0=y<xmin{1,(1−xm+ym)1m},0<y<xm∈(−∞,0);1,x≤y,yx,y<x,m=0;1,x≤ymin{1,(1−xm+ym)1m},y<xm∈(0,∞).
+
+PARAGRAPH
+
+It is obvious that when m is assigned the value of 1,R1([x1,x2],[y1,y2])=[R1(x1,y1)∧R1(x2,y2),R1(x2,y2)] =[min{1,(1−x1+y1),(1−x2+y2)},min{1,(1−x2+y2)}], which is the Łukasiewicz interval-valued implication operator, denoted byRL.
+
+PARAGRAPH
+
+Hong and Hwang, 1994
+
+PARAGRAPH
+
+Let f and g be bounded, real valued functions on a set U.
+
+Then |supx∈Uf(x)−supx∈Ug(x)|≤supx∈U|f(x)−g(x)|,|infx∈Uf(x)−infx∈Ug(x)|≤supx∈U|f(x)−g(x)|.
+
+PARAGRAPH
+
+Luo and Cheng, 2016
+
+PARAGRAPH
+
+Let x,y∈[0,1] and p>1.
+
+Then |xp−yp|≤p|x−y|.
+
+PARAGRAPH
+
+Juang, 2004
+
+PARAGRAPH
+
+Let x,y∈[0,1].
+
+If 0<p≤1, then|xp−yp|≤|x−y|p.
+
+PARAGRAPH
+
+Luo and Yao, 2013
+
+PARAGRAPH
+
+If f(x)=(am+xm−1)1∕m,x∈[c,b]⊂[0,1] (c<b),a∈[0,1],m≤1, andm≠0, then|f(b)−f(c)|≤|b−c|.
+
+PARAGRAPH
+
+Zhang, 2006
+
+PARAGRAPH
+
+For any [X,Y]=([x1,y1],[x2,y2],…,[xn,yn]), [X′,Y′]=([x1′,y1′],[x2′,y2′],…,[xn′,yn′]), which are interval-valued fuzzy sets, dp([X,Y],[X′,Y′])=(1n∑i=1nmax{|xi−xi′|p,|yi−yi′|p})1pis called as normalized Minkowski distances based on Hausdorff metrics.
+
+PARAGRAPH
+
+PARAGRAPH
+
+When p=1, d1 is the normalized Hamming distance based on Hausdorff metrics.
+
+When p=2, d2 is the normalized Euclidean distance based on Hausdorff metrics.
+
+When p=∞, d∞ is the Moore distance.
+
+PARAGRAPH
+
+Luo and Liu, 2017
+
+PARAGRAPH
+
+Let f be a mapping from SI×SI to SI, A={A(x1),A(x2),…,A(xN)} be an interval-valued fuzzy set on the universes U={x1,x2,…,xN}, B={B(y1),B(y2),…,B(yM)} be an interval-valued fuzzy set on the universes V={y1,y2,…,yM} and εi∈[0,1](i=1,2).
+
+The (ε1,ε2) sensitivity of f at (A,B) is defined as Δf((A,B),(ε1,ε2))=⋁{dp(f(A,B),f(A′,B′))|dp(A,A′)≤ε1,dp(B,B′)≤ε2} Where f(A,B)={f(A(xi),B(yj)),1≤i≤N,1≤j≤M}.
+
+PARAGRAPH
+
+Luo and Liu, 2017
+
+PARAGRAPH
+
+The maximum sensitivity of f is defined as follow: Δf(ε1,ε2)=⋁A∈IVF(U)B∈IVF(V)Δf((A,B),(ε1,ε2))
+
+PARAGRAPH
+
+Luo and Liu, 2017
+
+PARAGRAPH
+
+Let A={A(x1),A(x2),⋯,A(xN)} and A′={A′(x1),A′(x2),…,A′(xN)} be the interval-valued fuzzy sets on the universes U={x1,x2,…,xN}, ε∈[0,1].
+
+If ‖A−A′‖=⋁A′∈IVF(U)(1n∑i=1nmax{|Al(xi)−Al′(xi)|p,|Ar(xi)−Ar′(xi)|p})1p≤ε, then A′ is called an ε perturbation of A.
+
+PARAGRAPH
+
+Luo and Zhang, 2015
+
+PARAGRAPH
+
+Let X andY be non-empty sets.
+
+Suppose that R is an interval-valued residuated implication induced by a left continuous t-normT onSI.
+
+Then the interval-valued R-type triple I solution B∗ of IFMP is given by the following formula: B∗(y)=⋁x∈XT(R(A(x),B(y)),A∗(x)),y∈Y.
+
+PARAGRAPH
+
+Luo and Zhang, 2015
+
+PARAGRAPH
+
+Let X andY be non-empty sets.
+
+Suppose that R is an interval-valued residuated implication induced by a left continuous t-normT onSI.
+
+Then the interval-valued R-type triple I solution A∗ of IFMT is given by the following formula: A∗(x)=⋀y∈YR(R(A(x),B(y)),B∗(y)),x∈X.
+
+SECTION
+
+Robustness of interval-valued Schweizer–Sklar fuzzy reasoning triple i algorithms
+
+PARAGRAPH
+
+In this paper, we only consider the case of finite universes and 1≤p<∞.
+
+Let U={x1,x2,…,xN} and V={y1,y2,…,yM} be non-empty sets, interval-valued fuzzy subsets U and V are denoted by IVF(U) and IVF(V) respectively.
+
+Let A={A(x1),A(x2),…,A(xN)}, A′={A′(x1),A′(x2),…,A′(xN)} be interval-valued fuzzy sets on the universes U, B={B(y1),B(y2),…,B(yM)}, B′={B′(y1),B′(y2),…,B′(yM)} be interval-valued fuzzy sets on the universes V.
+
+PARAGRAPH
+
+When m=∞, T∞ is drastic product t-norm, which is not left-continuous t-norm, then this case is not discussed in this paper.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose ‖A−A′‖≤ε,‖B−B′‖≤ε.
+
+Then the maximum sensitivity of interval-valued Schweizer–Sklar t-normsTm isΔTm(ε,ε)≤2ε,m∈(−∞,0)∪(0,1],(2mε)1m,m∈(1,∞),2ε,m=−∞,2ε,m=0.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let A={A(x1),A(x2),…,A(xN)}, A′={A′(x1),A′(x2),…,A′(xN)}, B={B(y1),B(y2),…,B(yM)}, B′={B′(y1),B′(y2),…,B′(yM)}, let Tm(A(xi),B(yj))=cij, Tm(A′(xi),B′(yj))=cij′.
+
+Then d(cij,cij′)=d(Tm(A(xi),B(yj)),Tm(A′(xi),B′(yj)))=max{|Tm((Al(xi),Bl(yj)))−Tm((Al′(xi),Bl′(yj)))|,|Tm((Ar(xi),Br(yj)))−Tm((Ar′(xi),Br′(yj)))|}=max{|((Al(xi))m+(Bl(yj))m−1)1m∨0−((Al′(xi))m+(Bl′(yj))m−1)1m∨0|,|((Ar(xi))m+(Br(yj))m−1)1m∨0−((Ar′(xi))m+(Br′(yj))m−1)1m∨0|}≤max{|((Al(xi))m+(Bl(yj))m−1)1m−((Al′(xi))m+(Bl′(yj))m−1)1m|,|((Ar(xi))m+(Br(yj))m−1)1m−((Ar′(xi))m+(Br′(yj))m−1)1m|} If m∈(−∞,0)∪(0,1], max{|((Al(xi))m+(Bl(yj))m−1)1m−((Al′(xi))m+(Bl′(yj))m−1)1m|,|((Ar(xi))m+(Br(yj))m−1)1m−((Ar′(xi))m+(Br′(yj))m−1)1m|}≤max{|Al(xi)−Al′(xi)|+|Bl(yj)−Bl′(yj)|,|Ar(xi)−Ar′(xi)|+|Br(yj)−Br′(yj)|}≤max{|Al(xi)−Al′(xi)|,|Ar(xi)−Ar′(xi)|}+max{|Bl(yj)−Bl′(yj)|,|Br(yj)−Br′(yj)|} then dp(Tm(A,B),Tm(A′,B′))=(1NM∑i=1N∑j=1Mdp(cij,cij′))1p≤(1NM∑i=1N∑j=1M(d(A(xi),A′(xi))+d(B(yj),B′(yj)))p)1p≤(1NM∑i=1N∑j=1Mdp(A(xi),A′(xi)))1p+(1NM∑i=1N∑j=1Mdp(B(yj),B′(yj)))1p≤2ε If m∈(1,∞), max{|((Al(xi))m+(Bl(yj))m−1)1m−((Al′(xi))m+(Bl′(yj))m−1)1m|,|((Ar(xi))m+(Br(yj))m−1)1m−((Ar′(xi))m+(Br′(yj))m−1)1m|}≤max{|((Al(xi))m+(Bl(yj))m−1)−((Al′(xi))m+(Bl′(yj))m−1)|1m,|((Ar(xi))m+(Br(yj))m−1)−((Ar′(xi))m+(Br′(yj))m−1)|1m}≤max{(m|Al(xi)−Al′(xi)|+m|Bl(yj)−Bl′(yj)|)1m,1m(m|Ar(xi)−Ar′(xi)|+m|Br(yj)−Br′(yj)|)1m}≤max{m|Al(xi)−Al′(xi)|,m|Ar(xi)−Ar′(xi)|}1m+max{m|Bl(yj)−Bl′(yj)|,m|Br(yj)−Br′(yj)|}1m then dp(Tm(A,B),Tm(A′,B′))=(1NM∑i=1N∑j=1Mdp(cij,cij′))1p≤(2mε)1m
+
+PARAGRAPH
+
+PARAGRAPH
+
+When m=1, T1 is interval-valued Łukasiewicz t-norm, ΔTm(ε,ε)=2ε.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose ‖A−A′‖≤ε,‖B−B′‖≤ε, then the maximum sensitivity of interval-valued Schweizer–Sklar residual implicationsRm isΔRm(ε,ε)≤1,m∈(0,m1],2mεm,m∈(m1,1],2(mε)1m,m∈(1,m2),1,m=[m2,∞),1,m=−∞,1,m=0.
+
+PARAGRAPH
+
+Where m1 is the solution of equation 2mεm=1,m2 is the solution of equation 2(mε)1m=1.
+
+PARAGRAPH
+
+The proof of Proposition 3.2 is similar to Proposition 3.1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+When m=1, R1 is interval-valued Łukasiewicz residual implication, ΔRm(ε,ε)=2ε.
+
+PARAGRAPH
+
+Next, we discuss robustness of interval-valued fuzzy reasoning triple I algorithms based on the Schweizer–Sklar operators.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let A,A′,A∗ andA′∗ are interval-valued fuzzy sets on U,B,B′ are interval-valued fuzzy sets on V. For any p∈[1,∞), if‖A−A′‖≤ε,‖B−B′‖≤ε,‖A∗−A′∗‖≤ε, andB∗ andB′∗ are the interval-valuedR-type triple I solutions of IFMP(A,B,A∗) and IFMP(A′,B′,A′∗), then ‖B∗−B′∗‖≤1,m∈(0,m1],N1p(ε+2mεm)∧1,m∈(m1,1],N1p((mε)1m+(2m(mε)1m)1m)∧1,m∈(1,m2),1,m=[m2,∞),1,m=−∞,1,m=0.Where m1 is the solution of equation 2mεm=1,m2 is the solution of equation 2(mε)1m=1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let A={A(x1),A(x2),…,A(xN)}, A′={A′(x1),A′(x2),…,A′(xN)}, B={B(y1),B(y2),…,B(yM)}, B′={B′(y1),B′(y2),…,B′(yM)}, Rm(A,B)={cij,1≤i≤N,1≤j≤M}, Rm(A′,B′)={cij′,1≤i≤N,1≤j≤M}, A∗={A∗(x1),A∗(x2),…,A∗(xN)}, A′∗={A′∗(x1),A′∗(x2),…,A′∗(xN)}, B∗=Tm(A∗,Rm(A,B)).
+
+Then |max1≤i≤N{0∨((Al∗(xi))m+(cij)lm−1)1m}−max1≤i≤N{0∨((Al′∗(xi))m+(c′ij)lm−1)1m}|p∨|max1≤i≤N{0∨((Ar∗(xi))m+(cij)rm−1)1m}−max1≤i≤N{0∨((Ar′∗(xi))m+(c′ij)rm−1)1m}|p≤max1≤i≤N{|((Al∗(xi))m+(cij)lm−1)1m−((Al′∗(xi))m+(c′ij)lm−1)1m|}p∨max1≤i≤N{|((Ar∗(xi))m+(cij)rm−1)1m−((Ar′∗(xi))m+(c′ij)rm−1)1m|}|p If m∈(0,1], max1≤i≤N{|((Al∗(xi))m+(cij)lm−1)1m−((Al′∗(xi))m+(c′ij)lm−1)1m|}p∨max1≤i≤N{|((Ar∗(xi))m+(cij)rm−1)1m−((Ar′∗(xi))m+(c′ij)rm−1)1m|}|p≤|max1≤i≤N{|Al∗(xi)−Al′∗(xi)|+|(cij)l−(cij′)l|}|p∨|max1≤i≤N{|Ar∗(xi)−Ar′∗(xi)|+|(cij)r−(cij′)r|}|p≤|max1≤i≤N{|Al∗(xi)−Al′∗(xi)|∨|Ar∗(xi)−Ar′∗(xi)|}+max1≤i≤N{|(cij)l−(cij′)l|∨|(cij)r−(cij′)r|}|p then dp(B∗,B′∗)≤(1M∑j=1Mmax1≤i≤N{|Al∗(xi)−Al′∗(xi)|∨|Ar∗(xi)−Ar′∗(xi)|}p)1p+(1M∑j=1Mmax1≤i≤N{|(cij)l−(cij′)l|∨|(cij)r−(cij′)r|}p)1p≤(∑j=1N{|Al∗(xi)−Al′∗(xi)|∨|Ar∗(xi)−Ar′∗(xi)|}|p)1p+(1M∑j=1M∑i=1N{|(cij)l−(cij′)l|∨|(cij)r−(cij′)r|}p)1p≤N1p(ε+2mεm) If m∈(1,∞), max1≤i≤N{|((Al∗(xi))m+(cij)lm−1)1m−((Al′∗(xi))m+(c′ij)lm−1)1m|}p∨max1≤i≤N{|((Ar∗(xi))m+(cij)rm−1)1m−((Ar′∗(xi))m+(c′ij)rm−1)1m|}|p≤|max1≤i≤N{(m(|Al∗(xi)−Al′∗(xi)|∨|Ar∗(xi)−Ar′∗(xi)|)+m(|(cij)l−(cij′)l|∨|(cij)r−(cij′)r|))1m}|p then dp(B∗,B′∗)≤(1M∑j=1Mmax1≤i≤N{(m(|Al∗(xi)−Al′∗(xi)|∨|Ar∗(xi)−Ar′∗(xi)|))1m}p)1p+(1M∑j=1Mmax1≤i≤N{(m(|(cij)l−(cij′)l|∨|(cij)r−(cij′)r|))1m}p)1p≤N1p((mε)1m+(2m(mε)1m)1m)
+
+PARAGRAPH
+
+PARAGRAPH
+
+When m=1, T1 is interval-valued Łukasiewicz t-norm, R1 is interval-valued Łukasiewicz residual implication, then ‖B∗−B′∗‖≤(3N1pε)∧1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let A,A′ be interval-valued fuzzy sets on U,B,B′,B∗ andB′∗ be interval-valued fuzzy sets on V. For any p∈[1,∞), if‖A−A′‖≤ε,‖B−B′‖≤ε,‖B∗−B′∗‖≤ε, andA∗ andA′∗ are the interval-valuedR-type triple I solutions of IFMT(A,B,B∗) and IFMT(A′,B′,B′∗) given by Theorem 2.2 respectively, then ‖A∗−A′∗‖≤1,m∈(0,m1],M1p1m((2mεm)m+εm)∧1,m∈(m1,1],M1p((2m(mε)1m)1m+(mε)1m)∧1,m∈(1,m2),1,m=[m2,∞),1,m=−∞,1,m=0.Where m1 is the solution of equation 2mεm=1,m2 is the solution of equation 2(mε)1m=1.
+
+PARAGRAPH
+
+The proof of Theorem 3.2 is similar to Theorem 3.1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+When m=1, T1 is interval-valued Łukasiewicz t-norm, R1 is interval-valued Łukasiewicz residual implication, then ‖A∗−A′∗‖≤(3M1pε)∧1.
+
+PARAGRAPH
+
+The next example is given to show how interval-valued Triple I algorithms work.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let X={x1,x2} and Y={y1,y2,y3} be two universes, A={[0.23,0.42],[0.69,0.98]}, A′={[0.22,0.43],[0.70,0.98]}, A∗={[0.29,0.42],[0.56,0.77]}, A′∗={[0.30,0.41],[0.55,0.78]}, are interval-valued fuzzy sets on X, B={[0.43,0.50],[0.42,0.50],[0.11,0.37]}, B′={[0.43,0.51],[0.43,0.51],[0.10,0.38]} are interval-valued fuzzy sets on Y.
+
+We take m=0.5, then T0.5([x1,x2],[y1,y2])=[max(0,x10.5+y10.5−1)2,max(0,x20.5+y20.5−1)2]R0.5=[min{1,(1−x10.5+y10.5)2,(1−x20.5+y20.5)2},R0.5=min{1,(1−x20.5+y20.5)2}]
+
+PARAGRAPH
+
+We discuss robustness triple I algorithms for FMP with the normalized Minkowski distance in Hausdorff metrics dp([X,Y],[X′,Y′])=(1n∑i=1nmax{|xi−xi′|p,|yi−yi′|p})1p for p=10.
+
+By calculation, we can obtain that B∗={[0.29,0.42],[0.29,0.42],[0.153,0.300]}, B′∗={[0.334,0.762],[0.30,0.41],[0.156,0.362]}.
+
+Moreover, ‖A−A′‖=0.01, ‖A∗−A′∗‖=0.01, ‖B−B′‖=0.01, ‖B∗−B′∗‖≤0.4394.
+
+This result satisfies Theorem 3.1.
+
+SECTION
+
+Application in medical diagnosis
+
+PARAGRAPH
+
+In the process of medical diagnosis, doctors often use information to diagnose diseases, which comes from modern medical devices and their own clinical experience.
+
+From a mathematical point of view, the doctor’s diagnosis is a reasoning.
+
+So far, many scholars use distances or similarity measures to carry out medical diagnosis (De et al., 2001a; Luo and Zhao, 2018).
+
+Although this method is very simple in the process of medical diagnosis, it fails to take full account of the relationship between diseases and symptoms.
+
+However, fuzzy reasoning based on rule base fully embodies the process of medical diagnosis.
+
+And we can obtain different fuzzy reasoning triple I algorithms models by selecting different parameters m in Schweizer–Sklar t-norms, which provide foundation of practical applications.
+
+Therefore, we will use interval-valued fuzzy reasoning algorithms based on Schweizer–Sklar t-norms to solve medical diagnosis problems in this section.
+
+SECTION
+
+Algorithms for medical diagnosis
+
+PARAGRAPH
+
+Let X={x1,x2,…,xm} be the set of symptoms, Y={y1,y2,…,yn} be the set of diseases and P={P1,P2,…,Pr} be the set of patients.
+
+Table 1 shows that the relationship between disease and symptom based on interval-valued fuzzy number.
+
+Table 2 shows that the relationship between patient and symptom based on interval-valued fuzzy number.
+
+PARAGRAPH
+
+In Table 1, Ai(xj) is the value of symptom xj to disease yi which is denoted by interval-valued fuzzy number (i={1,2,…,n}, j={1,2,…,m}).
+
+B(ys) is the reference value of each disease (s={1,2,…,n}).
+
+In Table 2, Ak∗(xj) is the value of symptom xj to patient Pk which is denoted by interval-valued fuzzy number (k={1,2,…,r}).
+
+PARAGRAPH
+
+Our aim is to diagnosis which illness that each patient suffering from.
+
+The process of diagnosis is as follows:
+
+PARAGRAPH
+
+Step 1: By interval-valued fuzzy reasoning triple I algorithm, we calculate Bk∗(yi)=⋁xjTm(Ak∗(xj),Rm(Ai(xj),B(yi)));
+
+PARAGRAPH
+
+Step 2: Order Bk∗(yi) by use of ≤XY (Definition 2.1), choose the largest one Bk∗(yi0) from Bk∗(yi) (i={1,2,…,n}), i.e., Bk∗(yi0)=max1≤i≤nBk∗(yi), then the kth patient suffers from the disease yi0;
+
+PARAGRAPH
+
+SECTION
+
+Application for medical diagnosis
+
+PARAGRAPH
+
+There are five common diseases viral fever, malaria, typhoid, stomach problem, chest problem, represented as Y={y1,y2,y3,y4,y5}.
+
+They have five common symptoms temperature, headache, stomachache, cough, chest pain, represented as X={x1,x2,x3,x4,x5}.
+
+Different diseases have different degrees of severity for each symptom.
+
+The relationship between disease and symptom is represented by interval-valued fuzzy number in Table 3.
+
+The values of various symptoms can be found in De et al. (2001b) and Luo and Zhao (2018).
+
+PARAGRAPH
+
+We explain the meaning of Table 3 by taking viral fever for example: the main symptom of viral fever is temperature.
+
+Many patients may have severe headache and cough.
+
+If temperature is [0.40,1.00] and headache is [0.30,0.50] and stomachache is [0.10,0.30] and cough is [0.40,0.70] and chest pain is [0.10,0.30], then possibility of viral fever is [0.50,0.60].
+
+The interval-valued fuzzy number [0.40,1.00] describes the severity of fever over a period of time.
+
+The descriptive value of viral fever can be obtained by analyzing a large amount of data in medical databases.
+
+In this paper, we mainly provide a method to solve the problems of medical diagnosis for practitioners.
+
+In this example, we use the interval-valued fuzzy number [0.50,0.60] to describe the possibility of viral fever.
+
+PARAGRAPH
+
+Suppose that there is a patient Ted, the relationship between the patient Ted and symptom is given in Table 4.
+
+PARAGRAPH
+
+In the medical diagnosis, we need to diagnosis which kind of disease Ted suffers from.
+
+The identification steps are as follows.
+
+PARAGRAPH
+
+Step 1: We calculate B∗(yi)=⋁xjTm(A∗(xj),Rm(Ai(xj),B(yi))) (i={1,2,3,4,5}, j={1,2,3,4,5}) by interval-valued fuzzy reasoning triple I algorithm, the values of B∗(yi) are given in Table 5.
+
+PARAGRAPH
+
+Step 2: Choose the largest one B∗(yi0) from B∗(yi) (i={1,2,3,4,5}), the diagnostic results with different value of m are given in Table 6.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Although we can obtain different fuzzy reasoning triple I algorithms models by selecting different parameters m, the results of medical diagnosis are same in this example.
+
+By analyzing, when m is close to 1, triple I algorithms have good behavior of robustness.
+
+Therefore, when using interval-valued fuzzy reasoning algorithms based on Schweizer–Sklar t-norms, we recommend the model (m=1) to solve the problems of medical diagnosis.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+In this paper, we discuss the robustness of interval-valued fuzzy reasoning triple I algorithms based on the normalized Minkowski distance in Hausdorff metrics and provide a numerical example to illustrate the feasibility of the algorithms in practical application.
+
+When the parameter m of Schweizer–Sklar operators is different, we can obtain different fuzzy reasoning triple I algorithms models, which provide foundation of practical applications.
+
+By analyzing, when m is close to 1, triple I algorithms have good behavior of robustness.
+
+Moreover, the interval-valued fuzzy reasoning triple I algorithms are applied to medical diagnosis.

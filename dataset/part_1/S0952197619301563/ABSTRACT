@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.06.017
+
+ABSTRACT
+
+TITLE
+
+A hybrid optimization algorithm based on cuckoo search and differential evolution for solving constrained engineering problems
+
+PARAGRAPH
+
+Based on Cuckoo Search (CS) and Differential Evolution (DE), a novel hybrid optimization algorithm, called CSDE, is proposed in this paper to solve constrained engineering problems.
+
+CS has strong ability on global search and less control parameters, but easy to suffer from premature convergence and lower the density of population.
+
+DE specializes in local search and good robustness, however, its convergence rate is too late to find the satisfied solution.
+
+Furthermore, these two algorithms are both proved to be especially suitable for engineering problems.
+
+This work divides population into two subgroups and adopts CS and DE for these two subgroups independently.
+
+By division, these two subgroups can exchange useful information and these two algorithms can utilize each other’s advantages to complement their shortcoming, thus avoid premature convergence, balance the quality of solution and the computation consumption, and find satisfactory global optima.
+
+Due to the tremendous design variables and constrained conditions of engineering problems, single optimizer failed to meet the requirement of precision, so hybrid optimization algorithms (such like CSDE) is the most promising mean to complete this job.
+
+Simulation results reveal that CSDE has more ability to find promising results than other 12 algorithms (including traditional algorithms and state-of-the-art algorithm) on 30 unconstrained benchmark functions, 10 constrained benchmark functions and 6 constrained engineering problems.

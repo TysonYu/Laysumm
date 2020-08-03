@@ -1,0 +1,19 @@
+10.1016/j.engappai.2019.103467
+
+ABSTRACT
+
+TITLE
+
+Enhancing semantic segmentation with detection priors and iterated graph cuts for robotics
+
+PARAGRAPH
+
+To foster human–robot interaction, autonomous robots need to understand the environment in which they operate.
+
+In this context, one of the main challenges is semantic segmentation, together with the recognition of important objects, which can aid robots during exploration, as well as when planning new actions and interacting with the environment.
+
+In this study, we extend a multi-view semantic segmentation system based on 3D Entangled Forests (3DEF) by integrating and refining two object detectors, Mask R-CNN and You Only Look Once (YOLO), with Bayesian fusion and iterated graph cuts.
+
+The new system takes the best of its components, successfully exploiting both 2D and 3D data.
+
+Our experiments show that our approach is competitive with the state-of-the-art and leads to accurate semantic segmentations.

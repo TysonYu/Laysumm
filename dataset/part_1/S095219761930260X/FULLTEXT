@@ -1,0 +1,969 @@
+10.1016/j.engappai.2019.103301
+
+FULLTEXT
+
+TITLE
+
+Non-convex hull based anomaly detection in CPPS
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Improving the reliability of Cyber–Physical Production Systems (CPPS) has become a central issue in research and industry to ensure high product quality and low cost (Gao et al., 2015).
+
+In safety-critical industrial automation systems, such as chemical production systems, wind power plants and nuclear energy systems, performance degradation, which may lead to terrible accidents, is normally not tolerated.
+
+Detecting system anomalies as early as possible to reduce unplanned machine breakdown is one of the most effective way to ensure system reliability.
+
+PARAGRAPH
+
+CPPS are mostly complex and distributed systems consisting of sensors/actors, advanced automatic control systems, information management softwares, mechanical components and operators.
+
+The dynamic nature of such highly automated systems has led to an increasing system complexity: more complex system structure and more configuration overheads; more complex system behavior; more complex interconnections and interdependencies between involved components, machines and labors (Efthymiou et al., 2012).
+
+This poses significant challenges for anomaly detection tasks, e.g. detection of faults, suboptimal energy consumption or wear, since manually creating physical models of anomaly detection that explicitly describe the relationship between the system observations is unrealistic in CPPS with high complexity (Niggemann and Lohweg, 2015).
+
+Therefore, either for vendors of machines or for manufacturing enterprises, self-diagnosis approaches are desired to facilitate the maintenance tasks and reduce the unplanned downtimes more efficiently (BMWi, 2019).
+
+PARAGRAPH
+
+Enabled by a large amount of collected process data and increasing computational power, many machine learning techniques have been proposed for anomaly detections in CPPS (Dai and Gao, 2013).
+
+The problem of detecting anomalies can be approached as a classification problem, where system states should be classified either as normal behavior or as anomaly.
+
+Since not all possible anomalies are known a priori and the negative class (anomaly) is, in most cases, poorly sampled in CPPS, only data related to the target class (normal behavior) are available.
+
+Learning with such kind of data is known as the one-class classification in machine learning.
+
+PARAGRAPH
+
+Such one-class classification methods use the data to identify the shape of the target data.
+
+By doing this, they both generalize, i.e. allow the handling of so-far unobserved data points, and also compute a more compact representation of the class, i.e. improving runtime and memory performance.
+
+But over the last years, the variety and rising complexity of CPPS lead to more and more complex shapes of this normal class, e.g. because the number of product variants and the number of plant modules has increased.
+
+So the overall research question is how to represent and learn the shape of the normal data while allowing for generalization and performance.
+
+PARAGRAPH
+
+The generality and performance of one-class classification algorithms is dependent, to a great extent, on the selection of data representation used in the algorithms.
+
+Two traditional solutions to the representation of data exist in one-class classification methods:
+
+PARAGRAPH
+
+The first kind of method makes assumptions about either the probability density or the generating process of target data.
+
+Due to the lack of a priori knowledge about target data, the selection of the right model to describe the target distribution or the data generating process is mostly challenging, especially for high dimensional real world data acquired from CPPS (Khan and Madden, 2014).
+
+Contrarily, boundary identification methods do not focus on modeling the underlying distribution or the generating process of target data, but try to find a closed boundary around them (Pimentel et al., 2014).
+
+The data points outside the closed boundary are anomalies.
+
+This kind of methods have several advantages: (1) no a-priori knowledge is needed, (2) boundaries are a very compact and efficient representations and (3) the amount of generalization can be adjusted.
+
+For these reasons, this paper will introduce a new boundary computation algorithm suited to CPPS.
+
+Training OCSVM on large data sets is computationally intensive.
+
+Furthermore, the selection of the kernel function parameters is still an important practical question that is not entirely solved (Wang et al., 2013).
+
+Convex hulls based methods provide an intuitive solution to boundary based one-class classification and therefore have been considered as an intuitive and powerful tool (Casale et al., 2014).
+
+PARAGRAPH
+
+CPPS are normally equipped with close-loop control systems in component level and also across all distributed units.
+
+Efficient and reliable control strategies are needed to push the controlled variables to the predefined work points according to highly complex and time-dependent workloads.
+
+The intricate interdependencies and causalities between components of CPPS caused by the first principles and the complex control strategies lead to the appearance of non-stationary dynamic behavior in CPPS.
+
+The high sampling rate (in millisecond, even in microsecond for motion control) enhances the impact of such non-stationary dynamic behavior with intrinsically non-linear characteristics on the collected data sets (Reis and Gins, 2017): the collected process data have complex non-convex shapes in most cases.
+
+Therefore, convex hulls based methods fail in analyzing data from complex CPPS.
+
+PARAGRAPH
+
+Fig. 1 shows one negative case.
+
+Convex hulls cannot always represent the true geometry of target data.
+
+The point P (red star) will be classified as target class.
+
+However, it lies far away from the border points of the given target data.
+
+Therefore, using convex hulls leads to poor accuracy, when the target data have a non-convex shape.
+
+PARAGRAPH
+
+As an alternative option, non-convex hulls are exactly the geometric structure to represent the geometry of non-convex data.
+
+In recent years, much work has been carried out on the computation of non-convex hulls in different dimensional spaces (Park and Oh, 2012; Li et al., 2018).
+
+However, to the best of our knowledge, several research questions (RQ) remain unsolved: (1) No mathematical definition of non-convex hulls exists.
+
+(2) No efficient algorithm for computing such hulls has been proposed, which is suitable for typical CPPS data.
+
+(3) No recent work proposes solutions to determine whether a point lies inside or outside a non-convex boundary in high dimensional spaces.
+
+To enable the application of non-convex hulls in solving anomaly detection problems in CPPS, an appropriate non-convex hulls based representation and an efficient method for detecting the position of points to a given non-convex hull is needed.
+
+PARAGRAPH
+
+In this work, the one-class classification problem is addressed with respect to non-convex data acquired from CPPS.
+
+Our major contributions are:
+
+PARAGRAPH
+
+The experimental results show that the proposed approach improves the accuracy of anomaly detection compared with using convex hulls, when data have non-convex shapes.
+
+Furthermore, the proposed solution can also be used for anomaly detection of convex data sets.
+
+Compared with conventional one-class classification methods, the proposed approach does not make any assumptions on target data and therefore has higher generality.
+
+PARAGRAPH
+
+The rest of this paper is organized as follows.
+
+After a brief review of the current one-class classification technologies in Section 2, the concept of non-convex hulls and an algorithm for learning non-convex hulls are recalled in Section 3.
+
+The main contributions are given in Section 4, a geometric algorithm for non-convex hulls based one-class classification in arbitrary dimension.
+
+Furthermore, experimental results for the proposed approach on both artificial and real world data are detailed in Section 5.
+
+The relation between the proposed algorithm and OCSVM is discussed in Section 6.
+
+Finally, a conclusion of this paper can be found in Section 7.
+
+SECTION
+
+State of the art
+
+PARAGRAPH
+
+Roughly, three main approaches can be distinguished to solve the one-class classification problem (Görnitz, 2018): (1) density estimation methods, (2) reconstruction methods and (3) boundary identification methods.
+
+PARAGRAPH
+
+Density estimation methods such as Gaussian mixture models(GMM) (Richter et al., 2017) assume that target data are generated from a particular probability distribution.
+
+The probability of a new data point generated from this distribution indicates how similar it is to normal behavior.
+
+Determining an appropriate probabilistic distribution for data is still a challenging task, especially for real world data.
+
+PARAGRAPH
+
+The intention of reconstruction methods is to obtain a model compactly representing the structure of target data by minimizing the reconstruction error.
+
+The idea behind this is that the target data should be represented better than the abnormal data with the learned representation model.
+
+Principal component analysis (PCA) (Eickmeyer et al., 2015) and self-organizing maps (SOM) (Leng et al., 2015) are two typical reconstruction methods.
+
+In these methods, a data point is classified as anomaly when its reconstruction error is high.
+
+PARAGRAPH
+
+Boundary identification methods do not make any assumptions about either underlying distribution or the structure of target data, but try to find a closed boundary around them (Khan and Madden, 2014; Pimentel et al., 2014).
+
+The data points outside the closed boundary are anomalies.
+
+Well-known approaches of this category are OCSVM (Xiao et al., 2017) and convex hulls based methods (Casale et al., 2014).
+
+OCSVM aim to learn a binary-valued decision function that is positive inside the closed boundary but negative elsewhere.
+
+In Tax and Duin (1999), the support vector data description (SVDD) method is presented as a variant of OCSVM, which determines a hypersphere that encompasses almost all points of target data with the minimum radius.
+
+This method is also extended with kernel functions for higher flexibility (Xiao et al., 2017).
+
+An alternative approach is introduced in Schölkopf et al. (1999), where a hyperplane is constructed as the decision boundary in such a way that this hyperplane can separate target data and the origin with maximal margins.
+
+The principle of structural risk minimization and the kernel trick equip OCSVM with a high ability of generalization and allow a greater variety of decision boundaries to be learned.
+
+Therefore, OCSVM are very robust and popular for novelty and anomaly detection tasks in different domains (Muandet and Schölkopf, 2013; Shawe-Taylor and Zlicar, 2015; Khreich et al., 2017).
+
+PARAGRAPH
+
+Another significant work about SVM is presented by Bennett and Bredensteiner (2000), in which a geometric interpretation of support vector machines (SVM) related to the convex hull is introduced: constructing the optimal separating hyperplane between two classes in SVM is equivalent to identifying the two closest points in the convex hulls or the reduced convex hulls of each class.
+
+Many researchers have been enlightened on investigating the application of the convex hull to one-class classification (Casale et al., 2014; Zeng et al., 2016; He et al., 2019).
+
+PARAGRAPH
+
+The basic idea of convex hulls based methods is constructing a convex hull around target data as a decision boundary.
+
+The convex nature of this kind of method makes it unsuitable for non-convex data sets.
+
+The reduced convex hull (Jorge Löpez and Dorronsoro, 2011) and the scaled convex hull (Liu, 2011) have been introduced to overcome the drawback of convex hulls.
+
+The reduced convex hull defines a less upper bound μ of the combination coefficients than that in standard convex hulls in order to build a smaller convex hull.
+
+The scaled convex hull tries to reduce the original convex hull along with the line segments connecting its vertices and the hull centroid.
+
+The scaled convex hull has the same shape as the original convex hull, but it covers a smaller region/space.
+
+Both scaled convex hulls and reduced convex hulls ignore an acceptable amount of data points from target data, so that the shape of the new data set could be convex.
+
+This strategy leads to the loss of training data and is not efficient for handling non-convex data sets as shown in Fig. 1.
+
+PARAGRAPH
+
+Non-convex hulls are another kind of geometric structure that is designed to represent data with non-convex shapes.
+
+Although computing non-convex hulls in arbitrary dimension has been addressed in much work (Xu et al., 2010; Park and Oh, 2012; Li et al., 2018), determining whether a point lies inside or outside an n-dimensional non-convex hull is still an open issue (Galetzka and Glauner, 2017).
+
+In this paper, an efficient solution to localizing points to non-convex hulls is proposed and further applied to solve anomaly detection problems in CPPS.
+
+Compared with conventional one-class classification methods, the proposed approach needs less effort on parameter setting and has higher generality.
+
+SECTION
+
+Learning n-dimensional non-convex hulls
+
+PARAGRAPH
+
+The proposed approach belongs to boundary identification methods.
+
+Three central problems have to be solved in such kind of method: identify (RQ2) and represent (RQ1) the decision boundary of given target data, detect whether a test point lies inside or outside the decision boundary (RQ3).
+
+In this section, the concept non-convex hull is introduced first to answer the RQ1 (Section 3.1).
+
+Then, an algorithm to construct the n-dimensional non-convex hull is reviewed to address RQ2 (Section 3.2).
+
+SECTION
+
+Introduction of non-convex hulls
+
+PARAGRAPH
+
+As its name implies, the proposed approach uses the non-convex hull to represent the decision boundary of given target data.
+
+The non-convex hull is a geometric structure for computing the envelope of a non-convex data set.
+
+Normally, the non-convex data set is introduced as the opposite of the convex data set.
+
+As shown in Fig. 2,
+
+PARAGRAPH
+
+PARAGRAPH
+
+A data set X is a convex set only, if for any pair of points p,q∈X, the line segment pq¯ is completely contained in X. (Sommerville, 2016)
+
+PARAGRAPH
+
+Therefore, a non-convex set and convex hulls can be defined as follows Leonard and Lewis (2016):
+
+PARAGRAPH
+
+PARAGRAPH
+
+A data set X is a non-convex set only, if there is at least one pair of points p,q∈X, the line segment pq¯ is not completely contained in X.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Given a finite data set X={x1,…,xm},xi∈Rn,i∈[1,m],m∈N, the convex hull of X is the smallest convex set containing all the data points in X.
+
+It is the set: Conv(X)={∑i=1mλixi|∀i:λi≥0∧∑i=1mλi=1}.
+
+PARAGRAPH
+
+As shown in Fig. 3, a non-convex data set is a subset of its convex hull.
+
+Therefore, the non-convex hull of a non-convex data set is able to be regarded as the difference set of the original convex hull and the to be removed hollow spaces.
+
+Formally, we define the non-convex hull as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+A non-convex hull of a bounded finite non-convex set X⊂Rn is the set: NConv(X):=Conv(X)∖⋃i=1sHi,s∈N Hi is a subset of H=Conv(X)∖X.
+
+PARAGRAPH
+
+The non-convex hull is one non-convex set enveloping all the data points in X (Fig. 3 right).
+
+For capturing the exact shape of given data, it is obvious that the non-convex hull is a more advanced approach.
+
+PARAGRAPH
+
+From the geometric point of view, the non-convex hull of an n-dimensional finite data set is normally defined as a non-convex polytope in Rn, all the vertices of which are the border points of the given data set.
+
+Polytope is a generalization of polyhedron in any number of dimensions.
+
+Generally, a non-convex hull can be any type of polytope.
+
+In this work, we focus on such a kind of n-dimensional non-convex hull that just has (n−1)-simplexes as facets (Park and Oh, 2012), because using simplexes to construct non-convex hulls simplifies the computation.
+
+PARAGRAPH
+
+Facet is a concept defined in geometry to describe the n−1 dimensional elements of an n-dimensional polytope (n-polytope).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let P⊆Rn be a convex n-polytope.
+
+A linear inequality cx≤c0 is valid for P if it satisfies all points x∈P.
+
+A face of P is any set of the form F:=P∩{x∈Rn:cx=c0}
+
+PARAGRAPH
+
+As can be seen, the linear equality cx=c0,x∈P specifies a hyperplane in n dimensional space, which is called support hyperplane of this n-polytope.
+
+Fig. 4 illustrates two support hyperplanes (lines in 2D) and the corresponding faces of a 2D polytope.
+
+Generally, an n-polytope comprises faces of all dimensions.
+
+A face in dimension n is named as n-face.
+
+The point a is an element in zero dimension.
+
+Therefore, it is a 0-face of this 2D polytope, while the line segment bc¯ is a 1-face.
+
+In Table 1, the terminology used to denote faces is listed.
+
+Facet is n−1-face of an n-polytope, and ridge is n−2-face of an n-polytope.
+
+PARAGRAPH
+
+A simplex is a generalization of geometric structures point, line segment, triangle, tetrahedron to arbitrary dimensions.
+
+It is defined as follows Sommerville (2016):
+
+PARAGRAPH
+
+PARAGRAPH
+
+A k-simplex is a k-dimensional convex hull of k+1 affine independent points {t0,…,tk} in Rn, k≤n∈N.
+
+PARAGRAPH
+
+In this work, the k+1 vertices of a k-simplex are used to denote this k-simplex: Δk={t1,…,tk}.
+
+Specifically, a zero-simplex is a point, a one-simplex is a line segment, while two-simplexes and three-simplexes are triangles and tetrahedrons, respectively (Fig. 5).
+
+PARAGRAPH
+
+This kind of non-convex hull consists of vertices, ridges and facets (Sommerville, 2016).
+
+A facet of an n-dimensional non-convex hull is an (n−1)-simplex denoted by Δn−1.
+
+A ridge of a non-convex hull is an (n-2)-simplex indicating the intersection of two neighbor facets.
+
+Fig. 6 shows a non-convex hull in R3, the triangles {a,b,c} and {b,c,d} are two facets, while the line segment bc¯ is one ridge of this non-convex hull.
+
+PARAGRAPH
+
+SECTION
+
+Learning n-dimensional non-convex hulls
+
+PARAGRAPH
+
+The computation of n-dimensional non-convex hulls is very challenging.
+
+The authors have proposed a novel algorithm to learn n-dimensional non-convex hulls, which is named DINA (DIgging-based n-dimensional Non-convex hulls Algorithm) (Li et al., 2018).
+
+Here, a brief review of the DINA algorithm is given.
+
+The idea of the DINA algorithm is to produce a non-convex hull by removing the hollow space from an n-dimensional convex hull.
+
+Fig. 7 illustrates the DINA algorithm on a two-dimensional data set.
+
+A convex hull has to be generated with an existing convex hull algorithm.
+
+Δ1={t0,t1} is a facet of the 2-dimensional convex hull. p
+
+is the nearest inner point to Δ1.
+
+The term inner points indicates the points in the given data set, except for the vertices of the convex hull.
+
+To convert the convex hull to a non-convex hull, Δ1 should be replaced by two new facets Δ11={t0,p} and Δ21={t1,p} (the two dotted line segments in Fig. 7(a)).
+
+After repeating this process, a non-convex hull can be produced (Fig. 7(b)).
+
+This method is also extended to n-dimensional cases.
+
+After identification of the nearest inner point to each facet of the original n-dimensional convex hull, new facets are built using the nearest inner points and the vertices of the convex hull to replace the old facets so that hollow spaces inside the original convex hull can be removed.
+
+More details can be found in Li et al. (2018).
+
+PARAGRAPH
+
+Here, an n-dimensional hull (convex or non-convex) is denoted as a set of its m∈N facets, each of which is an (n−1)-simplex: Sn={{t1,0,…,t1,n−1},…,{tm,0,…,tm,n−1}}, ti,j indicates the jth vertex of the ith facet in the hull.
+
+SECTION
+
+Location of point in non-convex hulls
+
+PARAGRAPH
+
+With non-convex hulls in hand, the one-class classification problem is equivalent to identifying whether a new point lies inside or outside non-convex hulls.
+
+In this section, the non-convex hull is extended to develop a novel geometric method for determining the inclusion of a point in an n-dimensional non-convex hull, which addresses RQ3.
+
+SECTION
+
+Location of points to hyperplanes
+
+PARAGRAPH
+
+Each facet of an n-dimensional non-convex hull lies on an (n−1)-dimensional hyperplane.
+
+Therefore, it is reasonable to analyze the location of points to hyperplanes first.
+
+In geometry, the location of a point to a hyperplane can be determined with help of the normal vectors of this hyperplane.
+
+PARAGRAPH
+
+One hyperplane divides the space into two half-spaces and each of its two normal vectors is directed toward one of the two half-spaces, respectively.
+
+As illustrated in Fig. 8, the plane h divides the space into two half-spaces h+ and h−.
+
+If there are two linearly independent three-dimensional vectors ac→ and ab→ in h, a normal vector of h can be calculated as n→=ac→×ab→ toward h+ or n→=ab→×ac→ toward h−.
+
+Given two test points p1 and p2, ap1→ and ap2→ are two new vectors from the plane h to test points.
+
+If the angle between one of the new vectors and one normal vector (n→) is less than 90°, then this test point falls into the half-space specified by this normal vector.
+
+With this method, it is possible to localize a point to a given hyperplane.
+
+PARAGRAPH
+
+The scalar product can be used to find the angle between two vectors.
+
+In the case of a zero value of the scalar product, the two vectors are perpendicular to each other.
+
+A positive value indicates an acute angle.
+
+In this work, the term “two vectors in the same direction ” is used to indicate that the angle between the two vectors is less than 90°.
+
+Otherwise, they are “in the opposite direction”.
+
+SECTION
+
+PARAGRAPH
+
+The oriented non-convex hull
+
+PARAGRAPH
+
+The inclusion of points in non-convex hulls can be converted to localization of points to facets of non-convex hulls.
+
+In order to make the above mentioned method applicable on non-convex hulls, a new geometric structure named oriented non-convex hulls is proposed in this section.
+
+PARAGRAPH
+
+In n-dimensional vector space, (n−1) linear independent vectors are able to determine an n-dimensional hyperplane.
+
+One (n−1)-simplex in Rn has n vertex vectors {t1→,…,tn→} that can be used to build (n−1) linear independent vectors {t2→−t1→,…,tn→−t1→} and further determine a hyperplane.
+
+The cross products of these (n−1) vectors are the two normal vectors of the hyperplane, on which this simplex is located.
+
+Because a facet of n-dimensional non-convex hulls is a (n−1)-simplex, the normal vector of a facet is defined as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+The normal vector of a facet in a non-convex hull is the normal vector of the corresponding hyperplane, where this facet is located, in the direction from this hyperplane toward the space outside the non-convex hull.
+
+PARAGRAPH
+
+In Fig. 6, the triangle {b,e,f} is a facet (denoted with fbef) of this three-dimensional non-convex hull. b→,e→
+
+and f→ are the vertex vectors of fbef.
+
+Two linear independent vectors eb→=b→−e→ and ef→=f→−e→ are able to determine a two-dimensional hyperplane (a plane).
+
+Then, the normal vector v1→ can be used to orient fbef.
+
+If every facet of a non-convex hull is oriented with a normal vector as defined above, this non-convex hull is then an oriented non-convex hull.
+
+It is defined formally as follows.
+
+PARAGRAPH
+
+PARAGRAPH
+
+An oriented non-convex hull in Rn is a tuple C=(F,V), where
+
+F={fi|1≤i≤m∧i,m∈N} is a finite set of facets constructing this non-convex hull.
+
+V={vi→|1≤i≤m∧i,m∈N} is a set of vectors, where |F|=|V|. vi→
+
+is the normal vector of fi.
+
+PARAGRAPH
+
+As shown in Fig. 9, given a facet of an oriented non-convex hull and a test point (p1 or p2), if the test vector from one vertex of the facet to the test point (cp→1 or cp→2) is in the same direction as the facet’s normal vector (v→), the test point lies below the corresponding hyperplane of the facet (p1).
+
+Otherwise, the test point lies on (in the case that the dot product is zero) or above (for a positive result) the hyperplane (p2).
+
+To better clarify the presented method, the terms “on/above/below a facet” are used as synonyms for on/above/below the corresponding hyperplane of the facet.
+
+SECTION
+
+Checking local convexity
+
+PARAGRAPH
+
+Given an oriented non-convex hull, the position of a test point to each facet can be determined.
+
+If a point lies below all the facets of a convex hull, then it can be judged as inside the convex hull, since convex hulls are globally convex.
+
+As stated before, a non-convex hull has both convex and non-convex parts.
+
+Unfortunately, this method does not work when a hull is non-convex.
+
+In order to solve the “points in non-convex hull” problem, the concept of local convexity and a test method are developed.
+
+In geometry, the local convexity is used to partition a shape, but has not been explicitly defined (Stein et al., 2014).
+
+PARAGRAPH
+
+The convexity of an n-dimensional hull can also be tested by checking whether all of the interior dihedral angles between each pair of two adjacent facets are smaller than 180°.
+
+The dihedral angle extends the angle constructed by two half-lines in R2 to the angle constructed by two n-dimensional half-hyperplanes.
+
+Based on this test method, the local convexity is defined as follows.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let ∠f1f2 be an interior dihedral angle of an oriented non-convex hull C(F,V) (see Definition 8). f1, f2∈F
+
+are two adjacent facets of C, which construct ∠f1f2.
+
+If ∠f1f2 is smaller than 180°, this oriented non-convex hull is locally convex on f1,f2, otherwise it is locally non-convex.
+
+The space surrounded by f1, f2, whilst inside this oriented non-convex hull, is named as locally non-/convex areas of C, respectively.
+
+PARAGRAPH
+
+Fig. 10 (top) shows a locally convex area, while Fig. 10 (bottom) is a locally non-convex area.
+
+Two adjacent facets f1,f2 build two dihedral angles that are explementary angles (the sum of two angles is 360°).
+
+The one less than 180° can be calculated as follows: ∠f1f2=180°−arccos〈v1→,v2→〉|v1→|⋅|v2→|,where 〈v1→,v2→〉 is the dot product of the normal vectors v1→,v2→ of the two facets f1,f2.
+
+The larger one can then be calculated with: ∠f1f2¯=360°−arccos〈v1→,v2→〉|v1→|⋅|v2→|Given the normal vectors of two intersecting facets, it is just possible to calculate the acute angle between the two vectors, but the value of the corresponding interior dihedral angle can still not be determined without further information.
+
+Therefore, a new geometric approach to detecting the local convexity of oriented non-convex hulls is presented.
+
+PARAGRAPH
+
+Focusing on two intersecting facets in an n-dimensional oriented non-convex hull, a new n-simplex can be constructed by connecting the two unshared vertices of these two facets.
+
+For example, connecting the points a and d in Fig. 10 top can build a three-simplex {a,b,c,d}.
+
+The center of the new simplex is the mean of the set consisting of all the vertices of this new simplex.
+
+As is known, a simplex is always convex.
+
+The center of a simplex is a linear combination of all its vertices.
+
+Therefore, the center of a simplex always lies inside this simplex.
+
+PARAGRAPH
+
+Based on this property, the local convexity of an oriented non-convex hull can be checked using the following theory.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let C(F,V) be an oriented non-convex hull in Rn, and let f1,f2∈F be its two adjacent facets in Rn.
+
+A1={a1,…,an−1,an} andA2={a1,…,an−1,b} are the vertices of f1 andf2, respectively.K=A1∪A2 contains all the vertices of the two facets.
+
+Let mk be the mean of K, then the area formed by f1 and f2 is
+
+locally convex if mk is below both f1 and f2.
+
+locally non-convex if mk is above both f1 and f2.
+
+PARAGRAPH
+
+PARAGRAPH
+
+This theorem can be proved as follows.
+
+The two adjacent facets f1 and f2 divide a complete angle (360°) into two explementary dihedral angles.
+
+We denote the dihedral angle belonging to interior angles of the non-convex hull with ∠f1f2 and another dihedral angle with ∠f1f2¯ where ∠f1f2+∠f1f2¯=360°.
+
+A new simplex Δf1f2n, which also has f1 and f2 as facet, can be built using the vertices in K. Thus, one of both dihedral angles ∠f1f2 or ∠f1f2¯ is an interior angle of Δf1f2n.
+
+Meanwhile, the center of Δf1f2n has to be included in the area covered by this dihedral angle.
+
+If mk is below both f1 and f2, then ∠f1f2 is an interior dihedral angle of Δf1f2n.
+
+It also means ∠f1f2 is less than 180°.
+
+Consequently, the area formed by f1 and f2 is locally convex.
+
+The first statement has been proved.
+
+PARAGRAPH
+
+If mk is above both f1 and f2, ∠f1f2¯ is then an interior dihedral angle of Δf1f2n and therefore less than 180°.
+
+Thus, ∠f1f2=(360°−∠f1f2¯)>180°.
+
+Consequently, the unbounded area is locally non-convex.
+
+□
+
+PARAGRAPH
+
+Theorem 1 can also be represented in another way.
+
+Imagine the interior angle α constructed by f1 and f2 equals zero at the beginning.
+
+Then, increase the value of α.
+
+Before it reaches 180° (α=∠f1f2), the unbounded area is locally convex and the points inside Δf1f2n including mk are all below both f1 and f2.
+
+As α increases, mk moves toward f1 and f2, until α=180°, mk, f1 and f2 are in the same hyperplane.
+
+Increasing the value of α further, mk moves above both f1 and f2.
+
+Meanwhile, because α>180°, the unbounded area becomes locally non-convex.
+
+PARAGRAPH
+
+With Theorem 1 in hand, the local convexity of an oriented non-convex hull can be checked efficiently.
+
+Given two oriented adjacent facets, it is possible to test if a point lies inside or outside a locally non-/convex area of an oriented non-convex hull based on the local convexity.
+
+In the case that two facets build a locally convex area, if the test point is below both of the two facets, it is inside the locally convex area (p1 in Fig. 10 top).
+
+Otherwise, it is outside this area (p2 in Fig. 10 top).
+
+Facing a locally non-convex situation, if the test point is above both facets, then the test point lies outside this locally non-convex area (p2 in Fig. 10 bottom).
+
+Otherwise, it is inside this area (p1 in Fig. 10 bottom).
+
+SECTION
+
+One-class classification
+
+PARAGRAPH
+
+To determine the position of a test point to an n-dimensional oriented non-convex hull, it is reasonable just to observe the location of this point to all the locally non-/convex areas around it.
+
+If this test point lies outside all these locally non-/convex areas, it is outside the oriented non-convex hull.
+
+When this point lies inside any of these areas, it is then inside the hull.
+
+These areas can be found by identifying the k nearest vertices of the non-convex hull to this test point.
+
+An n-dimensional vector space has n free degrees.
+
+So at least n facets are required to localize a point.
+
+Normally, the parameter k can be set equal to 2n−1, since 2n−1 points can build n adjacent facets of a non-convex hull in Rn.
+
+These n facets are used to localize the test point.
+
+Different distance metrics can be used to search k nearest vertices.
+
+Here, Euclidean distance is used in this work.
+
+PARAGRAPH
+
+For easy understanding, the detection method in two-dimensional case is introduced first.
+
+Suppose there is an oriented non-convex hull as shown in Fig. 11.
+
+The local convexity of each pair of adjacent facets is also checked using the method presented in Theorem 1.
+
+To localize a test point p1, its three (set k=3) nearest vertices (d4,d5,d6) have been identified.
+
+A new vector d5p1→ from the nearest vertex of p1 to itself is then built.
+
+Two facets (line segments: d4d5¯ and d6d5¯) intersect with each other at point d5 and build a locally convex area.
+
+Then, p1 can be localized as follows: If both of the dot products, 〈d5p1→,v1→〉 and 〈d5p1→,v2→〉, are equal or less than 0, then p1 lies inside the hull.
+
+Otherwise, it lies outside the hull (see p2 in Fig. 11).
+
+PARAGRAPH
+
+For a locally non-convex area where point p4 is located, if both of the dot products, 〈d2p4→⋅v3→〉 and 〈d2p4→⋅v4→〉, are greater than 0, then p4 lies outside the hull.
+
+Otherwise, it is inside the hull (see p3 in Fig. 11).
+
+PARAGRAPH
+
+The proposed oriented non-convex hulls based one-class classification algorithm (NoCH) is shown in Algorithm 1.
+
+Given a data set X, an oriented non-convex hull will be calculated with the DINA algorithm first (line 3 in Algorithm 1).
+
+The k nearest vertices {x1,…,xk} to a test point p are used to identify the facets around p (lines 4 and 5).
+
+The position of p to each pair of intersecting facets around it is checked using the method introduced above (from line 7 to line 21).
+
+Based on Theorem 1, the function LocalConvex(fj,fm) returns a logic true, if the area built by two intersecting facets fj and fm is locally convex (line 8).
+
+If p is outside all the areas nearly around it, then p is outside the oriented non-convex hull.
+
+If it is not outside these areas, then p is inside the hull.
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+Different experiments were run to evaluate the proposed NoCH algorithm against OCSVM and the convex hulls based method (CH).
+
+Two artificial data sets and two real world data sets were used to validate the methods.
+
+Both training and test samples in each data set were normalized to zero mean and unit variance.
+
+For each data set, 10-fold cross validation was performed and the results were averaged.
+
+True positive rate (TPR), true negative rate (TNR), F1 measure (F1) and balanced accuracy (ACC) were used to quantify the classification performance.
+
+Here, true positive is defined as a correct classification of target class (normal state) and true positive means a correct classification of a failure.
+
+In this section, the results of the conducted experiments are introduced.
+
+SECTION
+
+PARAGRAPH
+
+Artificial data
+
+PARAGRAPH
+
+A data set with two moon-shaped clusters are generated to evaluate the methods with respect to non-convexity (see Fig. 12).
+
+The right moon is utilized as target class.
+
+The whole data set includes 800 instances from the target class and 200 instances from the negative class.
+
+600 data points are randomly sampled from the 800 target data points to train one-class classifiers.
+
+PARAGRAPH
+
+The remaining 200 target data points and 200 negative data points are used to test the classification accuracy.
+
+An OCSVM with the Gaussian kernel is trained.
+
+The OCSVM is trained with different parameter settings and finally the kernel parameter σ as well as the regularization parameter μ are set to 0.9 and 0.1, respectively.
+
+Fig. 12 shows the decision boundaries generated by OCSVM (top), CH (middle) and NoCH (bottom), respectively.
+
+The target data present high non-convexity.
+
+Obviously, it is very difficult to model the boundary of the right moon using a single convex hull.
+
+The test points in the bow area of the right moon are identified by CH as target class.
+
+Hence, CH has a lower TNR.
+
+Although OCSVM obtains 100% TNR, it shows a relatively higher wrong classification rate when test points lie near the support vectors.
+
+As mentioned previously, NoCH is able to identify the non-convex shape of target data and therefore obtains better classification accuracy on the two moons data set: 0.974 F1 measure and 0.976 balanced accuracy.
+
+More details can be found in Table 2.
+
+PARAGRAPH
+
+Another non-convex benchmark data set used for the evaluation is the flame data set introduced in Fraenti and Sieranoja (2018).
+
+The flame data set consists of two data clusters.
+
+A non-convex cluster with 153 data points surrounds a convex cluster with 87 data points (see Fig. 13).
+
+The non-convex cluster is used as the target class (normal behavior).
+
+100 points are randomly sampled out of the non-convex cluster to train a model.
+
+The 53 normal points left together with the 87 data points from the convex cluster are used as test data.
+
+On this data set, Gaussian kernel (σ=0.05,μ=0.2) is still selected to train an OCSVM.
+
+Similar results are obtained as well as on the two moon data set.
+
+The presented NoCH algorithm outperformed both baseline methods with 0.926 F1 measure and 0.879 balanced accuracy (Table 2) .
+
+SECTION
+
+Real world data
+
+PARAGRAPH
+
+To verify the practicability of the proposed NoCH method, two anomaly detection tasks in CPPS are used to evaluate the NoCH.
+
+PARAGRAPH
+
+The first real world data set is generated by an industrial demonstrator (Genesis demonstrator) for sorting two different types of material, wood and metal.
+
+It uses air pressure to power the gripping and storage units, as well as a linear drive with a pneumatic gripper to transport the material.
+
+As depicted in Fig. 14, two material storage modules for wood and metal can be freely placed in one of four available positions.
+
+The control program running in the programmable logic controller (PLC) automatically adjusts for the change in location.
+
+The machine is able to transport a specific material to the right storage module.
+
+Five real-valued signals are available in the demonstrator: current, position, speed, acceleration and force.
+
+We sampled data values with a resolution of 50 ms for a total of 40 running cycles.
+
+The first 38 cycles generated 15,361 samples that present only normal behavior of this machine (target class).
+
+The two remaining cycles including 843 normal samples and 11 sampled anomalous points (negative class) are used as test data.
+
+Here, the Gaussian kernel parameter σ is set to 0.75, while the regularization parameter μ is set to 0.1.
+
+The 4th to 6th rows in Table 2 report the evaluation results.
+
+CH and NoCH archive the same performance, which is outstanding against OCSVM.
+
+The lower TPR makes OCSVM inferior on GN (Genesis) data.
+
+Based on the test result, it can be concluded that either the GN data do not have significant non-convexity or the anomalies lie outside the convex hull of GN data even when the exact shape of GN data is non-convex.
+
+PARAGRAPH
+
+Another real world data set used in the evaluation is collected from real wind turbines with 10 min’ resolution.
+
+The data set consists of 12 variables that describe the work environment (e.g. wind speed, air temperature) and the status of wind turbines (e.g. power capacity, rotation speed of generator, voltage of the transformer).
+
+6413 normal observations are used to train one-class classifiers.
+
+The evaluation data set with 4000 observations contains 2987 reported failures and 1013 normal observations.
+
+In this test, the Gaussian kernel parameter σ is set to 0.9, while the regularization parameter μ is set to 0.05.
+
+As shown in the last three rows of Table 2, CH achieves a higher TPR 0.992 but a very poor TNR 0.177.
+
+In contrast, NoCH and OCSVM have detected most of the anomalies with high TNRs 0.964 and 0.961, respectively.
+
+Therefore, it can be concluded that the wind turbine data have a high non-convex shape and some anomalies lie in the hollow bow areas, as similar to those in the two moons data.
+
+PARAGRAPH
+
+The complex CPPS like wind turbines present multiple modes (e.g. starting, running, idling and stopping) and non-stationary dynamics (multi-scale dynamic and complex disturbances).
+
+These characters lead to acquired process data having non-convex shapes, as shown by the wind turbine data.
+
+In summary, for cases in which the normal behavior data have non-convex shapes and the abnormal data lie in some hollow areas surrounded by the border points of normal behavior data, NoCH and OCSVM outperform CH.
+
+If abnormal data are located far away from the normal behavior data, NoCH has the same performance as CH.
+
+But in real CPPS, the most anomalies are caused by wear of mechanical components or aging and degradation of electrical components.
+
+Since wearing and aging are both long-term processes, the abnormal data deviate from normal behavior data gradually.
+
+The proposed NoCH method is able to handle these situations in the anomaly detection tasks in complex CPPS.
+
+PARAGRAPH
+
+In the four data sets, OCSVM always has problems classifying target data (relatively lower TPRs).
+
+The selection of σ and μ greatly influences the performances of OCSVM, which is a challenging task.
+
+Contrarily, most algorithms for computing non-convex hulls have just one parameter to define the metric of the non-convexity of non-convex hulls.
+
+The geometric meaning of this kind of parameter is clearly defined in the corresponding algorithms.
+
+Therefore, the non-convexity parameter can normally be set by analyzing the geometric properties used to define the non-convexity, such as the average pairwise distance of the given data (Park and Oh, 2012).
+
+The proposed NoCH algorithm shows good robustness compared with OCSVM on the four test data sets: 0.913 F1 measure and 0.936 balanced accuracy (Table 2).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+As stated above, using convex hulls to identify decision boundaries is encouraged by the geometric interpretation of SVMs.
+
+Indeed, constructing a non-convex hull of a given data set is equivalent to identifying the support vectors in an OCSVM on the same data.
+
+After finding support vectors, OCSVM constructs a separating hyperplane as a decision boundary by maximizing the margins to support vectors and the origin.
+
+The proposed NoCH algorithm directly uses the oriented non-convex hulls as the decision boundary, which reduces the optimization cost but leads to high over-fitting risk, since the oriented non-convex hull is constructed exactly according to the shape fixed by the border points of training data.
+
+This can also be summarized by comparing the TPRs of CH and NoCH on each data set.
+
+Normally, non-convex hulls have more facets than the corresponding convex hulls and have a higher over-fitting risk.
+
+Therefore, the TPRs decrease when NoCH is performed instead of CH.
+
+To overcome this drawback, we can expand the oriented non-convex hull with a given factor to rebuild a larger hull, which has a similar effect to maximizing margins.
+
+PARAGRAPH
+
+From an application point of view, it is important that the methods used to model the normal behavior of complex CPPS are able to handle non-convex shapes of data acquired from CPPS.
+
+Furthermore, the concept of oriented non-convex hulls defined in this paper can also be used to extend standard convex hulls.
+
+Therefore, the NoCH algorithm is also applicable for such oriented convex hulls with minimal effort, which means the proposed NoCH algorithm has high generality for solving anomaly detection tasks in CPPS.
+
+PARAGRAPH
+
+In addition, due to the increasing size of data generated by CPPS, data compression has become a central issue in the research area Big Data (Qu and Chen, 2015).
+
+The proposed non-convex hull based method uses the boundary of the given data as its representation, which also provides a geometric approach to lossless data compression: using non-convex hulls to represent the space covered by the given data.
+
+Non-convex hulls can represent the given data with much fewer data points.
+
+Furthermore, the local density around some selected landmark points inside the hull can be calculated to describe the detail of given data locally.
+
+In EI-Maleh et al. (2011) and Hwang et al. (2015), some similar methods have been introduced in three dimensional space.
+
+Overall, the proposed NoCH algorithm is a more advanced approach to anomaly detection in CPPS compared with OCSVM and CH.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+In this work, we have proposed a novel geometric approach to one-class classification based anomaly detection (the NoCH algorithm), which addresses the new challenge raised by the increasing complexity of CPPS: the acquired process data from complex CPPS are non-convex rather than convex.
+
+PARAGRAPH
+
+The oriented non-convex hull is introduced as a new concept to represent non-convex decision boundaries for anomaly detection in CPPS (the answer to RQ1).
+
+The DINA algorithm is reviewed to compute such non-convex hulls (the answer to RQ2).
+
+In order to localize points to non-convex hulls, the local convexity is defined in the context of non-convex hulls and an efficient method is developed to check local convexity.
+
+Based on the analysis of the local convexity, a new approach for determining the inclusion of points in oriented non-convex hulls is proposed, which can be used in high dimensional space (the answer to RQ3).
+
+Compared with traditional convex hulls based methods, NoCH is more suitable for the anomaly detection tasks in complex CPPS, because of its ability to handle data sets with non-convex shapes.
+
+PARAGRAPH
+
+The presented NoCH algorithm has been evaluated with artificial data and data sets collected from real CPPS.
+
+The real world wind turbine data set shows high non-convexity because of the complex interaction and interdependencies between components of wind turbines.
+
+The evaluation results show that the advantage of NoCH compared with traditional methods (OCSVM and CH) is significant by detecting anomalies in complex CPPS, 0.913 F1 measure and 0.936 balanced accuracy (Table 2).
+
+Moreover, its performance does not degrade when the data sets are convex.
+
+It can be concluded, that the NoCH algorithm has better generality than the other baseline algorithm and is able to provide a compact representation of data.
+
+PARAGRAPH
+
+Since the proposed NoCH algorithm uses exact border points of given normal behavior data to construct the underlying decision boundaries, the over-fitting risk of NoCH has to be further addressed according to the idea given in Section 6.

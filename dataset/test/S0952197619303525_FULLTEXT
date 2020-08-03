@@ -1,0 +1,843 @@
+10.1016/j.engappai.2019.103467
+
+FULLTEXT
+
+TITLE
+
+Enhancing semantic segmentation with detection priors and iterated graph cuts for robotics
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Semantic segmentation is the task of decomposing a scene into its meaningful parts.
+
+It received great attention in recent years within the research community because of its importance in scene understanding, robotics and autonomous vehicles (Silberman and Fergus, 2011; Silberman et al., 2012; Couprie et al., 2013).
+
+In general, this task is non-trivial given the high level of variability in the world and the limits of vision sensors; however, when dealing with moving robots, the same scene can be framed multiple times from different locations, which can make the task easier.
+
+In Hermans et al. (2014), McCormac et al. (2016), Salas-Moreno et al. (2013) and Gupta et al. (2015), visual recognition techniques, which are usually applied to a single view at a time, are combined with a Simultaneous Localization and Mapping (SLAM) algorithm, which incrementally builds a global map.
+
+This allows to find correspondences between multiple views, which can be exploited to improve the semantic segmentation.
+
+Both single-view and multi-view problems have received attention in different contexts and at different scales: indoor and outdoor scenes, scaling up to entire cities (Vanhoey et al., 2017).
+
+Semantic segmentation can be the sensory input fed to systems reasoning about contents and their representation in the domain of natural language (Karpathy and Fei-Fei, 2015).
+
+These systems can learn about the inter-modal correspondences between language and visual data so that they can describe the content of images, e.g. by means of rich and descriptive captions.
+
+Also, semantic segmentation can help robots and autonomous cars in a variety of tasks, including object detection and picking (Vincze et al., 2016) and autonomous navigation (Sturgess et al., 2009).
+
+PARAGRAPH
+
+Prior work includes many approaches, based both on plain 2D RGB data (Eigen and Fergus, 2015; Hermans et al., 2014) and RGB-D (or 3D) data (Wolf et al., 2016; Gupta et al., 2015; Couprie et al., 2013).
+
+In this work, we contribute to the problem of segmenting objects, humans and coarse scene elements, e.g. walls, floor and ceiling, on RGB-D data, showing that some components of the proposed system can be used also when only RGB data is available.
+
+Our approach can be successfully used in the context of service robotics (Carraro et al., 2015; Fischinger et al., 2016), including applications like social companion and health care: the proposed system can enhance navigation, planning and interaction thanks to an improved perception.
+
+Industrial applications can also be positively impacted by the proposed methods.
+
+In Terreran et al. (2019), semantic segmentation is proposed to detect the key elements involved in production and automatically sand boat components.
+
+Since high reliability is required to perform challenging manufacturing operations, all sources of information, in particular multiple views and contextual cues, are exploited.
+
+PARAGRAPH
+
+Another interesting application of the proposed system is the automatic annotation of datasets (Russell et al., 2008).
+
+Indeed, real products, that must satisfy accuracy and safety requirements, need huge labeled datasets if based on data-driven methods.
+
+Making the annotation process faster and less expensive is of utmost importance.
+
+PARAGRAPH
+
+In this work, we build upon a setting consisting of a single-view semantic segmentation method for indoor scenes called 3D Entangled Forest classifier (3DEF), previously presented in Wolf et al. (2016), and a multi-view frame fusion scheme, previously presented in Antonello et al. (2018) and in Terreran et al. (2019) for industrial applications.
+
+PARAGRAPH
+
+3DEF is a 3D semantic segmentation approach which works on single camera views of indoor environments and relies on an extension of the Random Forest.
+
+Given a single-view image, this approach is able to model its complex contextual features in a single pass in about one second.
+
+The semantic segmentation problem is tackled in two stages.
+
+First, the scene is over-segmented in such a way that each segment contains at most one object.
+
+Being an over-segmentation, objects can be split in many segments.
+
+Second, the semantic label of each segment is inferred by means of the 3DEF classifier.
+
+In particular, the classification of each segment depends on learned geometric relations of neighboring segments.
+
+Finding correspondences between multiple views can further enhance the semantic segmentation thanks to the various vantage points, namely the good observations points.
+
+PARAGRAPH
+
+Despite the good results with coarse scene elements, e.g. walls, floor and ceiling, this approach often struggle when dealing with objects: semantic segmentation does not rely on any high-level prior, but focuses on local geometry and texture.
+
+In this context, object detection can be seen as a complementary approach: it is based on strong priors about a given set of objects that need to be recognized in a scene.
+
+This leads object detectors to accurately detect and localize such objects, neglecting all the background, that is, the main part of an image.
+
+In this work, we study how to exploit both approaches, extending a state-of-the-art object detector with iterated graph cuts (Rother et al., 2004; Lempitsky et al., 2009) to output accurate segmentation masks and then using Bayesian fusion to combine such segmentations with 3DEF and the multi-view frame fusion scheme.
+
+While many approaches have been developed over the last years, we focus on Mask R-CNN (He et al., 2017b) and You Only Look Once (YOLO) (Redmon et al., 2016; Redmon and Farhadi, 2016, 2018).
+
+Mask R-CNN is a deep neural network used to detect objects in images while generating a segmentation mask for each object detected.
+
+YOLO is also a deep neural network but it does not generate any segmentation mask.
+
+In contrast to prior works, these methods do not need object proposals to reduce the search space; rather, they apply a neural network to the full image so predictions are informed by global image context.
+
+These methods are fast: they process images in real-time with a GPU acceleration and, using the lightest models, they run in a few seconds per image on a CPU.
+
+Even with limited computational resources, they can be successfully used to refine lighter and less precise methods if executed asynchronously alongside them.
+
+PARAGRAPH
+
+An example of the final result achieved by the proposed system is reported in Fig. 1: (a) shows a dining room annotated pixel per pixel, (b) shows an outdoor scene with refined segmentation masks for each object.
+
+PARAGRAPH
+
+The main contributions of this paper are:
+
+PARAGRAPH
+
+Our novel approach proved to be competitive with respect to the state-of-the-art.
+
+It can handle the multiple, sometimes overlapping, bounding boxes and segmentation masks returned by the object detector.
+
+Furthermore, it takes advantage of the confidences provided by the detection and semantic segmentation systems to consider the best of the two predictions.
+
+The 3D multi-view frame fusion technique further refines the semantic segmentation.
+
+PARAGRAPH
+
+The remainder of the paper is organized as follows.
+
+Section 2 overviews the state-of-the-art in object detection, single-view semantic segmentation and multi-view semantic segmentation.
+
+Section 3 introduces both the single-view and multi-view approach for semantic segmentation.
+
+Special attention is paid to the description of the process of creating accurate segmentation using the detection priors and iterated graph cuts.
+
+Then, the fusion of Mask R-CNN and You Only Look Once Detector (YOLO) with the 3D Entangled Forests (3DEF) is also described in depth.
+
+In Section 4, our methods are thoroughly evaluated on the NYU Depth Dataset V2 (Silberman et al., 2012).
+
+Further tests are performed on the Microsoft Common Objects in COntext (MS COCO) dataset (Lin et al., 2014) showing that the 2D component of our method can be useful even for computer vision applications lacking 3D data, both indoor and outdoor.
+
+Finally, in Section 5, our achievements are recapped and future directions of research identified.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+Nowadays, Deep Neural Networks (DNNs) are boosting many fields.
+
+Convolutional Neural Networks (CNNs) already revolutionized semantic segmentation.
+
+One of the early attempts belongs to Couprie et al. (2013) and Farabet et al. (2013), who proposed a multiscale CNN architecture to combine information at different perceptive field resolutions.
+
+They were among the first to train a CNN with depth information for this task.
+
+Later, many other approaches have been proposed (Gupta et al., 2015; Eigen and Fergus, 2015; Handa et al., 2016; Tchapmi et al., 2017; Chen et al., 2018; Wang et al., 2019).
+
+The work by L. P. Tchapmi et al. (2017) proposes a deep neural network called SEGCloud able to work with point clouds, instead of regular 3D voxel grids or collections of images.
+
+The method combines the advantages of neural networks, trilinear interpolation and fully connected Conditional Random Fields to enforce global consistency.
+
+For robotic or mobile applications, for which computational power is often constrained, the trade-off between speed and accuracy have been further explored (Wolf et al., 2015, 2016; Siam et al., 2018).
+
+To reduce the computational power required, other non CNN-based approaches also exist in this scenario, like the two works by Wolf et al. (2015, 2016).
+
+Interestingly, in Wolf et al. (2016), D. Wolf et al. outperform (Wolf et al., 2015) introducing the 3D Entangled Forest, an extension to the standard Random Forest.
+
+This classifier is able to model complex contextual features in one single pass in less than one second per frame on a standard CPU, without relying on complex graphical models, random fields or other post-processings as e.g. in Anand et al. (2013).
+
+In this work, the capabilities of this approach are further explored.
+
+First, it is coupled with an object detector.
+
+Then, to get the best out of the two methods, Bayesian fusion and a refinement step working in 3D are proposed.
+
+PARAGRAPH
+
+In applications with moving robots, recognition techniques can be enhanced by observing the environment from several points of view.
+
+This problem is a particular instance of semantic mapping, described in Kostavelis and Gasteratos (2015) as the problem of identifying and recording the signs and the symbols that contain meaningful concepts for humans.
+
+These can be coarse scene elements (Nüchter and Hertzberg, 2008), objects (Nüchter and Hertzberg, 2008; Kostavelis and Gasteratos, 2013, 2017; Sünderhauf et al., 2017; Nakajima and Saito, 2018), places (Kostavelis and Gasteratos, 2012, 2017) and other elements of interest (Pronobis and Jensfelt, 2012).
+
+In the literature, the creation of such representation is tackled at different scales, indoor and outdoor, and using a reference system that can be either local, (e.g. with respect to the sensor), or global.
+
+In this work we focus on multi-view semantic segmentations of indoor scenes in the camera reference system.
+
+Solutions to this problem have been proposed by Stückler et al. (2012), Hermans et al. (2014) and McCormac et al. (2016).
+
+They differ because of the adopted registration system and semantic segmentation method.
+
+For registration, they use a Multi-Resolution Surfel Map-based SLAM, a camera tracking system without explicit loop closure and Elastic Fusion (McCormac et al., 2016), respectively.
+
+For semantic segmentation, they use random decision forests, a combination of random decision forests and conditional random fields, and a CNN, respectively.
+
+They all adopt a Bayesian framework for combining the multiple views.
+
+In Nakajima et al. (2018), a new method for incrementally building a dense, semantically annotated 3D map in real-time is studied.
+
+It assigns class probabilities to each region, not each element, of the 3D map, which is built up through a robust SLAM framework and incrementally segmented with a geometric-based segmentation method.
+
+Alternative multi-view approaches incorporating multi-view information into state-of-the art convolutional networks have been proposed in He et al. (2017a), Ma et al. (2017) and Chen et al. (2019).
+
+Another multi-view frame fusion scheme was introduced by Antonello et al. (2018).
+
+This method is tested with a light SLAM algorithm like RGB-D SLAM (Endres et al., 2014), which finds the correspondences between the views.
+
+The multi-view semantic fusion considers the neighborhood of each point and adds a geometrical verification step, useful for improving the semantic segmentation of the single-frames.
+
+Wrong contributions due to lens distortions or alignment errors are filtered out.
+
+In this work, this method is further studied.
+
+With respect to the previous work, the single-view contributions are enhanced by detection priors refined with iterated graph cuts.
+
+As discussed in Capobianco et al. (2015), the lack of a uniform representation, as well as standard benchmarking suites, prevents the direct comparison of many semantic mapping algorithms.
+
+Here, since our focus is more the classification task, we cast the problem as multi-view semantic segmentation and, as in Hermans et al. (2014), McCormac et al. (2016) and Nakajima et al. (2018), evaluate each single frame after taking into account the multiple points of view.
+
+PARAGRAPH
+
+In the past, the most successful approaches to object detection utilized a sliding window paradigm, in which a computationally efficient classifier tests for object presence in every candidate image window (Papageorgiou and Poggio, 2000; Viola and Jones, 2004; Felzenszwalb et al., 2010).
+
+The steady increase in complexity of the classifiers has led to improved detection quality, but at the cost of significantly increased computation time per window.
+
+Thus, in order to reduce the search space, many top performing object detectors (Girshick et al., 2014; Ren et al., 2015; Liu et al., 2016) work on detection proposals (Uijlings et al., 2013; Kanezaki and Harada, 2015), i.e. only a small subset of all the possible windows.
+
+Two in-depth reviews can be found in Hosang et al. (2014) and Hosang et al. (2016).
+
+In contrast to prior works, the state-of-the-art family of object detectors known as You Only Look Once (YOLO) (Redmon et al., 2016; Redmon and Farhadi, 2016) does not need object proposals and applies a single neural network to the full image, so its predictions are informed by global context in the image.
+
+This network divides the image into regions and predicts bounding boxes and related detection probabilities for each region.
+
+These bounding boxes are weighted by the predicted probabilities.
+
+Such methods are fast: they process images in real-time with GPU acceleration and, using a lighter model, they run on a CPU at a few seconds per image.
+
+In recent years, object detectors capable of generating a high-quality segmentation mask for each instance have been proposed, e.g. Mask R-CNN (He et al., 2017b).
+
+Mask R-CNN extends Faster R-CNN by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition.
+
+Given an image as input, Mask R-CNN generates proposals about the regions where there might be an object and predicts its class.
+
+Based on the proposal, it then generates a mask of the object.
+
+The boxes and masks returned by these methods can be coarse and benefit from a further refinement.
+
+In the literature, there exists methods for segmenting foreground and background given some initial hints, e.g. boxes, incomplete segmentation masks (Rother et al., 2004; Lempitsky et al., 2009) and extreme points (Maninis et al., 2018).
+
+In this work, we prefer boxes and segmentation masks over extreme points, i.e. left-most, right-most, top, bottom pixels, to better cope with imperfect boxes and mask.
+
+In addition to refining the detected objects in the multiple, likely overlapping, priors, we also study how to combine these priors with a multi-view semantic segmentation system.
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+Our approach tackles the fusion of a bottom-up semantic segmentation with top-down object detection priors and the preliminary refinement of the object detector priors.
+
+The semantic segmentation and object detection approaches are fused with the aim of leveraging the best of the two algorithms, which have different properties as they assume different prior knowledge about the observed scene, and they are based on 3D data (semantic segmentation) and 2D data (object detection).
+
+Such a combination needs to handle multiple, likely overlapping, object priors returned by the detector.
+
+This will be achieved by integrating the object priors in the right order, fusing the two contributions in a Bayesian way and smoothing the results in 3D.
+
+For improved results, the object detection priors are refined before fusion.
+
+The obtained single-view semantic segmentation is further improved by means of our multi-view fusion scheme.
+
+An overview of both the single-view and multi-view algorithms is reported in Fig. 2.
+
+The existing setting is presented from Sections 3.1 to 3.3.
+
+Our contributions are thoroughly discussed in Section 3.4.
+
+SECTION
+
+PARAGRAPH
+
+3D Entangled Forest classifier
+
+PARAGRAPH
+
+The 3DEF approach in Wolf et al. (2016) operates on 3D point clouds, which can be acquired with an RGB-D sensor.
+
+The approach comprehends three phases:
+
+PARAGRAPH
+
+The input point cloud is over-segmented into homogeneous 3D patches by means of the Voxel Cloud Connectivity Segmentation (VCCS)(Papon et al., 2013).
+
+This solution aims at preserving the edges by finding patches not crossing object boundaries and, at the same time, it reduces the noise and the amount of data.
+
+This is a region growing method which incrementally expands patches, in particular supervoxels, i.e. volumetric over-segmentations of 3D point cloud data, from a set of seed points distributed evenly in space on a grid of fixed resolution Rseed.
+
+Expansion from the seed points is governed by a distance measure D calculated in a feature space consisting of spatial extent, color, and normals: D=wcDc2+wsDs23Rseed2+wnDn2,in which the spatial distance Ds is normalized by the seeding resolution, the color distance Dc is the euclidean distance in normalized RGB space, and the normal distance Dn measures the angle between surface normal vectors.
+
+Three weights can be controlled by the user: wc, ws and wn.
+
+This method was proved to be more effective than existing 2D solutions.
+
+PARAGRAPH
+
+In the subsequent step, this approach applies a region growing algorithm, which recursively merges two adjacent segments ci and cj into larger ones.
+
+The underlying idea is that bigger segments are better since the classifier features tend to be more reliable.
+
+This merging step is performed evaluating a distance function d(ci,cj).
+
+In particular, given a threshold τmerge, the constraint d(ci,cj)<τmerge must hold.
+
+This distance function is a linear combination of the color, surface normal and point-to-plane distance between the segments: d(ci,cj)=wcdc(ci,cj)+wndn(ci,cj)+wpdp(ci,cj),in which dc is the color distance in Lab CIE 94 color space, dn the surface normal difference indicated by the dot product (1−ninjT), dp is the max of the point-to-plane distance from ci to cj and vice versa.
+
+The user can control three weights: wc, wn and wp, normalized to sum up to 1.
+
+The algorithm stops if there are no more adjacent segments to be merged and returns the final set of segments S.
+
+PARAGRAPH
+
+For each segment generated by the over-segmentation, a feature vector x of length 18 is calculated.
+
+Besides simple color features, it includes fast geometric features.
+
+Some of them are calculated from the eigenvalues of the scatter matrix of the segment, which represent the variance magnitudes in the main directions of the spread of the segment points.
+
+Others are calculated from the Oriented Bounding Box (OBB) including all the segment points.
+
+A complete list of features is given in Table 1.
+
+Then, for each segment st, a set of close-by-segments si is selected on the basis of three constraints: point-to-plane distance, enclosed angles and Euclidean distance.
+
+During training and inference, this set can be used to evaluate five binary tests defining the entangled features, which are capable of describing complex geometrical relationship between segments in a neighborhood.
+
+A complete list is given in Table 2.
+
+They are briefly explained as follows:
+
+PARAGRAPH
+
+For further details, we refer to Wolf et al. (2015).
+
+In our tests, we stuck to the original parameters for the sake of comparison.
+
+PARAGRAPH
+
+The shortcomings of the 3DEF classifier can only be mitigated by the availability of multiple points of view, as found out in Antonello et al. (2018).
+
+To quantitatively analyze its main weaknesses, we calculated its confusion matrix on the NYUv2 dataset, see Fig. 3.
+
+Two challenging classes are the generic labels Object and Furniture, which comprehend many different objects of different sizes and shapes making it hard for a classifier to capture any distinct properties.
+
+Also, the class Chair is often confused with the class Sofa.
+
+Finally, the classes TV, Decoration and Window are challenging since they all are objects located/mounted on walls so their segmentation can rely mainly on color cues.
+
+Given that a multi-view method can only slightly improve over these underlying issues, we further studied how to combine the strengths of 3DEF with those of a state-of-the-art object detector.
+
+A semantic segmentation approach like 3DEF can accurately segment many coarse scene elements and relatively big objects like Floor, Ceiling, Wall, Bed, Sofa, Chair or Bookshelves.
+
+Instead, an object detector like Mask R-CNN or YOLO is trained to detect a variety of objects with clear boundaries.
+
+SECTION
+
+PARAGRAPH
+
+Multi-view frame fusion scheme
+
+PARAGRAPH
+
+The multi-view frame fusion scheme presented in Antonello et al. (2018) operates on sequences of RGB-D frames, which may be acquired during normal robot operations (consider, for example, a typical patrolling task).
+
+These frames may overlap and contain different views of the same entity (object or scene element) from different angles and distances.
+
+This module is composed of three steps which can potentially run in parallel: the 3D reconstruction step, the semantic segmentation step and the multi-view frame fusion step.
+
+The 3D reconstruction step, here based on RGB-D SLAM (Endres et al., 2014), takes a new frame from a sequence of RGB-D frames and registers it to the 3D reconstruction returning its rigid transformation with respect to the reference frame.
+
+The semantic segmentation step can be the original 3DEF approach applied to each frame or our combination of 3DEF with Mask R-CNN or YOLO.
+
+The multi-view frame fusion step, which is the focus of this section, fuses together the semantic information for each point in order to exploit the availability of multiple points of view.
+
+PARAGRAPH
+
+Given a sequence S of RGB-D frames Ii with i varying from 1 to N, a reference frame Iref can be selected, e.g. with ref=N∕2.
+
+Every 3D point Pxy, where x and y are the coordinates in the image reference system, belonging to it can be forward-projected to all the other frames in S.
+
+This way, the optimal label of each point Pxy can be estimated after considering all the contributions from all the N points of view.
+
+Fig. 4 shows that the optimal label of PN∕2xy can be selected after considering also the contributions from forward-projected points FPixy in the frames I1 and IN while Fig. 5 shows that not always a forward projection exists so the contribution from some frames can be missing.
+
+PARAGRAPH
+
+Anyway, due to lens distortions and SLAM errors like double walls or chairs, we cannot be sure that each point Pxy∈Iref truly coincides with the 3D points corresponding to each forward projection {FPixy}.
+
+Hence, we introduced a geometrical validation step: each FPixy is transformed to the reference coordinate system and can contribute only if: |FPixy.z−Prefxy.z|<ϵ.A good ϵ proved to be 0.05 m since just the contributions of truly coinciding 3D points are of interest.
+
+PARAGRAPH
+
+To consider the contributions from the other frames, an approach based on the Bayesian fusion at the pixel level is considered.
+
+Not only this method operates on labels but it takes in input also the classifier confidences.
+
+Given a point Prefxy∈Iref and the respective forward projected points {FPixy} with i∈{1,…,N}⋀i≠ref, let j be a semantic label and zref={z1,…,zref,…,zN} its measurements in each frame Ii, i.e. the labels assigned to the point Prefxy  (zref) and its forward-projections FPixy  (zi, with i≠ref).
+
+According to Bayes’ rule: p(j|zref)=p(zref|j,zref¯)p(j|zref¯)p(zref|zref¯),where zref¯=zref∖{zref}, i.e. the labels assigned to the forward-projections only.
+
+Under the assumptions of i.i.d. condition (independent and identically distributed condition) and equal a-priori probability for each class, it can be simplified to: p(j|zref)=τj∏ip(zi|j),where τj is a normalization factor such that: ∑j=1…Nτjp(j|zref)=1.In particular τj is calculated as: τj=1∑k=1…Np(k|zref).Parity cases are important and must be addressed appropriately.
+
+In the event of parity, the label from the reference frame is kept.
+
+PARAGRAPH
+
+Finally, the forward projection is improved by means of a smoothing step.
+
+This step takes into account the pixel context so as to improve robustness with respect to errors in the forward projection process, which can be due to noise or locally imprecise registration.
+
+Each forward-projected point FPixy does not contribute with its label only but with the most frequent label in its Moore neighborhood, which comprehends itself and the eight neighbors, NPikxy with 1≤k≤8, see the red boxes enclosing them in Fig. 4.
+
+Formally, let dFPxy,j denote whether the classifier selects the label j on point FPrefxy or not, and let dNPikxy,j denote whether the classifier selects the label j on point NPixy or not.
+
+The majority label combination leads to the class J receiving the largest total vote: dFPrefxy,J+∑k∈1…8⋀i≠refdNPikxy,J=maxj=1,…,cdFPrefxy,j+∑k∈1…8⋀i≠refdNPixyk,j.
+
+PARAGRAPH
+
+In addition, each forward-projected point does not contribute with its label confidences but with those of the neighbor pixel with the most frequent label J in the Moore neighborhood.
+
+Nevertheless, without any geometrical verification step, this method could introduce noise in the labeling results.
+
+To be sure that each point in the 2D Moore neighborhood is a real neighbor in 3D, only the points passing the geometrical verification step previously introduced in Eq. (1) can contribute, in this case: |NPijxy.z−Prefxy.z|<ϵ.
+
+SECTION
+
+Object detector
+
+PARAGRAPH
+
+We selected two state-of-the-art real-time one-shot object detectors, Mask R-CNN (He et al., 2017b) and You Only Look Once (YOLO) (Redmon et al., 2016), more precisely the second version YOLOv2 (Redmon and Farhadi, 2016).
+
+PARAGRAPH
+
+Mask R-CNN generates bounding boxes and segmentation masks for each instance of an object in the image.
+
+Mask R-CNN extends Faster R-CNN (Ren et al., 2015) by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition.
+
+Given an image as input, Mask R-CNN generates proposals about the regions where there might be an object and predicts its class.
+
+Based on the proposal, it then generates a mask of the object.
+
+The implementation used in this work (Abdulla, 2017) is based on Feature Pyramid Network (FPN) and a ResNet101 backbone.
+
+For a full description, we refer to He et al. (2017b).
+
+PARAGRAPH
+
+In contrast to Mask R-CNN, YOLO generates only the bounding boxes.
+
+It feeds a single neural network with a full RGB frame so that its predictions can be informed by the global frame context.
+
+The network divides the image into regions and predicts bounding boxes and probabilities for each region.
+
+These bounding boxes are weighted by the predicted probabilities.
+
+The network architecture of the first version YOLOv1 is inspired by the GoogLeNet model (Szegedy et al., 2015) for image classification.
+
+The network has 24 convolutional layers followed by 2 fully connected layers.
+
+Instead of the inception modules used by GoogLeNet, it uses 1 × 1 reduction layers followed by 3 × 3 convolutional layers, similar to Lin et al. (2013).
+
+The detection framework of YOLOv2 improves in speed and accuracy thanks to various design choices making it competitive with respect to region-based approaches like Faster R-CNN or Mask R-CNN.
+
+For a full description, we refer to Redmon and Farhadi (2016).
+
+PARAGRAPH
+
+For both detectors, we selected a model trained on the COCO detection dataset (Lin et al., 2014), containing over 200000 images with 80 different object classes.
+
+The annotations of this dataset are accurate and the models learned from it can be reused in other contexts, as shown also in this work.
+
+These classes, which do not include coarse or large scene elements like Wall, Ceiling and Floor, can be easily mapped to the other classes of the semantic segmentation problem: most of the COCO classes simply falls in the Object class.
+
+For our tests, we considered the proposals with a high confidence threshold, greater than 0.5.
+
+The output of the detectors on two sample images is shown in Fig. 6.
+
+SECTION
+
+PARAGRAPH
+
+Object detection and semantic segmentation fusion
+
+PARAGRAPH
+
+Two steps are required to integrate the detector into our semantic segmentation pipeline:
+
+PARAGRAPH
+
+The two steps are illustrated in Fig. 7 and detailed as follows.
+
+PARAGRAPH
+
+A straightforward implementation of the first step consists in labeling all the pixels in the detection prior, i.e. the segmentation mask returned by Mask R-CNN and the bounding box returned by YOLO.
+
+Instead, we further refine these priors with the approach illustrated in Fig. 7(a) and formally described in Algorithm 1.
+
+The approach exploits both 2D and 3D data and handles overlapping priors.
+
+For each RGB frame, the detector proposes a set of detection priors associated with a label and a confidence.
+
+Given each detection prior, the detected object is segmented with a method based on Grabcut, a state-of-the-art unsupervised segmentation algorithm (Rother et al., 2004).
+
+It can be initialized in three ways using:
+
+PARAGRAPH
+
+For Mask R-CNN, we exploit the first option.
+
+The third option did not prove helpful since the bounding box is too coarse to help refining the mask.
+
+In particular, we set the border of the original mask as probable foreground, the inner area as foreground and the outer area as background.
+
+We determine the border thickness t as a fraction f of the radius r of a circle with perimeter p as long as the bounding box perimeter: t=fr=fw+hπ,where f was set to 0.1 in our experiments, w is the bounding box width and h the bounding box height.
+
+For YOLO, we exploit the second option since YOLO does not provide any segmentation mask.
+
+This option corresponds to marking the outer area as background and the inner area as probable foreground.
+
+Given the labeled masks in input, Grabcut creates the background/foreground segmentation by solving a max-flow min-cut problem.
+
+A weighted graph is created based on the pixel neighboring and the labeled masks.
+
+In particular, given the label α, the color z and some parameters θ describing foreground and background color distributions, the cost function E(α,θ,z), that Grabcut minimizes with iterated graph cuts, is defined by a data term U(α,θ,z) and a smoothness term V(α,z): E(α,θ,z)=U(α,θ,z)+V(α,z).The two terms describe how well the pixels fit the background/foreground color distributions and how smooth the labeling is over similar/a-similar neighboring pixels.
+
+The optimization is followed by border matting to deal with blur and mixed pixels along smooth object boundaries on which both Mask R-CNN and 3DEF struggle.
+
+For robustness, given that not always a segmentation can be found, Grabcut is run on both RGB and depth frames.
+
+This way, the segmentations obtained from RGB and depth frames can be fused using a pixel-per-pixel OR operation.
+
+We run the graph cut optimization for 5 iterations; if Grabcut cannot return any segmentation, we consider the initial object detection priors as foreground.
+
+This solution does not penalize labels like Object and Book, which can be characterized by tight bounding boxes.
+
+Then, a label and confidence is assigned to each pixel.
+
+PARAGRAPH
+
+Since detection priors can overlap, the order with which the bounding boxes are processed may negatively impact the results.
+
+For instance, depending on the processing order of Grabcut, an object on a table may be segmented before the table itself, so the subsequent table segmentation may override the previous object segmentation, see examples in Fig. 6.
+
+Because of this, a straightforward method running Grabcut on each bounding box is not ideal.
+
+Here, with a heuristic, detection priors are sorted in decreasing order of size.
+
+This way, bigger boxes are segmented before smaller ones.
+
+Indeed, big boxes might be supporting surfaces like tables while small boxes may contain objects lying on them.
+
+This component already improves the semantic segmentation of 3DEF.
+
+PARAGRAPH
+
+Given that the detector does not support the detection of all the 13 classes (e.g. it cannot detect coarse scene elements like floor, walls and ceiling, because they do not have clear boundaries) the output it provides is incomplete and needs to be fused with a semantic segmentation approach.
+
+An overview of the fusion process is illustrated in Fig. 7(b) and formally described in Algorithm 2.
+
+For each frame pixel, the predictions of 3DEF and of the detector are fused in a Bayesian way.
+
+The two contributions can be easily retrieved in 2D by iterating over the output of 3DEF and of our semantic segmentation method based on the detector.
+
+Indeed, both outputs are semantic images, encoding the most likely label and the probability distribution over the set of labels.
+
+For simplicity, we assume that the two semantic segmentations are independent and identically distributed.
+
+This is reasonable since the detector and semantic segmentation rely on different features, 2D and 3D, therefore they have different strengths and weaknesses.
+
+Given a frame I and a frame pixel Pxy∈I, let j be its semantic label, z3DEF the semantic label returned by 3DEF and zDet the semantic label returned by the detector.
+
+According to Bayes’ rule and under the assumption of i.i.d. condition, confidences can be accumulated as follows: p(j|z3DEF∧zDet)=τjp(z3DEF|j)×p(zDet|j),where p(zDet) is the confidence returned by 3DEF, p(zDet) is the confidence returned by the detector and τj is a normalization factor such that: ∑j=1…Nτjp(j|z3DEF∧zDet)=1.The selected label J is the one with the highest probability: J=arg maxjp(j|z3DEF∧zDet).Nevertheless, errors in the detector prior location or in the Grabcut-based segmentation may lead to the assignment of wrong labels and confidences to the pixels close to the object borders.
+
+To alleviate this, a subsequent cluster smoothing step is performed.
+
+In contrast with previous steps, this one exploits the point cloud, in particular the 3D preliminary segmentation based on the Voxel Cloud Connectivity Segmentation (VCCS) (Papon et al., 2013) and the subsequent region growing, see Section 3.1.
+
+Given each unlabeled cluster C, which is the output of the preliminary segmentation phase in the 3DEF approach, the most frequent label of the points in C is considered.
+
+Each point in C is labeled consistently with the most voted label in the cluster.
+
+In the same way, the respective confidences are propagated inside the cluster to all the other points.
+
+PARAGRAPH
+
+The performance of the presented methods will be extensively discussed in the following section.
+
+SECTION
+
+Experiments
+
+SECTION
+
+Datasets
+
+PARAGRAPH
+
+We assessed the performance of our methods on the popular NYU Depth dataset NYUv2 (Silberman et al., 2012) and further evaluated the detection refinement on the Microsoft Common Objects in COntext (MS COCO) dataset (Lin et al., 2014).
+
+PARAGRAPH
+
+The NYUv2 dataset contains 1449 pixel-wise labeled RGB-D frames which are commonly split into a subset of 795 frames for training/validation and 654 for testing.
+
+It was recorded with a Kinect v1 sensor.
+
+In contrast to its predecessor NYUv1, the annotation quality is higher and it does not wrap the class Object in the class Background.
+
+In particular, we tested our methods on the 13-class semantic segmentation problem.
+
+The 13 classes include objects, furniture and coarse scene elements, e.g. walls, ceiling and floor.
+
+PARAGRAPH
+
+MS COCO is a large-scale dataset object detection and segmentation dataset containing about 200k labeled RGB images.
+
+The object detection and segmentation problem considers 80 class labels of common objects in everyday scenes from all around the world.
+
+The dataset is split into a subset of 155k training images, 5k validation images and 40k test images.
+
+The labels of the test set are not public available and the evaluation is performed in a test server.
+
+SECTION
+
+Experiments on NYUv2
+
+PARAGRAPH
+
+Similarly to the other approaches evaluated on this dataset, we used two performance indicators: pixelwise recall (in the following: Global Accuracy — GA) and classwise recall (in the following: Class Accuracy — CA).
+
+In addition, we also reported a third performance indicator, the classwise precision (in the following: Class Precision — CP), useful to further compare the variants of our methods.
+
+Considering a label set with n class labels and based on the elements of the confusion matrix (true positives tp, false positives fp and false negatives fn), the metrics are defined as follows.
+
+GA is calculated as the overall portion of correctly labeled points: GA=∑i=1ntpi∑i=1n(tpi+fni).CA is the average class recall: CA=1n∑i=1ntpi∑i=1n(tpi+fni).CP is the average class precision: CP=1n∑i=1ntpi∑i=1n(tpi+fpi).The last two indicators are less biased towards frequent classes.
+
+In the following, we will analyze the different combinations of 3DEF and object detector, the multi-view contribution and how our best approaches do in comparison with other state-of-the-art approaches.
+
+PARAGRAPH
+
+We compared different ways to integrate 3DEF with Mask R-CNN and YOLO.
+
+Table 3 shows that integrating an object detector always improves over the baseline 3DEF, up to +5.6% in CA, +2.6% in GA and +2.0% in CP.
+
+3DEF+YOLO+Grabcut performs slightly better than 3DEF+Mask R-CNN.
+
+Indeed, even if Mask R-CNN segmentations are precise, the method is penalized by misclassifications.
+
+Experimental results do not highlight any benefits in using Grabcut with Mask R-CNN: they report a situation of substantial parity with a small detriment (−0.1%) in GA.
+
+Nevertheless, inspecting the generated masks, we found out that Grabcut refines the segmentations, as shown by a couple of examples in Fig. 8.
+
+This improvement is counter-balanced by misclassified objects: in other words, the negative impact of misclassified objects increases if their masks are refined.
+
+To further investigate the combination of Mask R-CNN with Grabcut, we detail additional tests on the COCO dataset in Section 4.3, which better show the benefits of using Grabcut both quantitatively and qualitatively.
+
+In Fig. 9, we present additional qualitative results for 3DEF+YOLO+Grabcut.
+
+We report the initial output of 3DEF in Fig. 9(a).
+
+The integration of YOLO without Grabcut, see Fig. 9(b), generates a semantic labeling clearly less accurate than the integration of YOLO with Grabcut, see Fig. 9(c).
+
+We also report the improved output after Bayesian fusion and clustering smoothing in Fig. 9(d).
+
+PARAGRAPH
+
+We selected the best approaches in the previous experiment and tested the multi-view frame fusion scheme in Antonello et al. (2018) on them.
+
+For simplicity, we refer to 3DEF+YOLO+Grabcut as 3DEF+  YOLO (the best approach).
+
+Table 4 shows that using multiple views does not have the same effect on all methods.
+
+In particular, MV-3DEF+YOLO slightly improves over all the coefficients (+0.2%, +0.1%, +0.1%) while MV-3DEF+Mask R-CNN improves in classwise recall and precision (+3.5% and +0.1%) but deteriorates the global accuracy (−1.4%).
+
+This difference is expected since different methods have different success and failure models, and different confidence distributions.
+
+On this dataset, the average number of labeled frames per scene is 2.74.
+
+As shown in Antonello et al. (2018), this reduces the performance benefit of the multi-view method, which improves with the number of forward-projected frames.
+
+PARAGRAPH
+
+In Tables 5 and 6, we compare our methods with state-of-the-art methods for single-view and multi-view semantic segmentation.
+
+In Table 5, we report the results of single-view methods working on both RGB-D data, Couprie et al. (2013) and Eigen and Fergus (2015) and McCormac et al. (2016), and 3D point clouds, 3DEF (Wolf et al., 2016) and SEGCloud (Tchapmi et al., 2017).
+
+We also report the results of different multi-view methods, Hermans et al. (2014), Eigen-SF-CRF (McCormac et al., 2016), MV-3DEF (Antonello et al., 2018),  Nakajima et al. (2018) and MVCNet-MaxPool (Ma et al., 2017).
+
+These works are evaluated at full resolution (640 × 480) with the exception of the approaches presented in McCormac et al. (2016) and Nakajima et al. (2018) which report the result when working at half resolution (320 × 240).
+
+In Table 6, we compare the methods class by class.
+
+We do not report the results for MVCNet-MaxPool (Ma et al., 2017) since they are not available and we report the results of Eigen-SF-CRF over Eigen-SF since it is the best performing among the two.
+
+PARAGRAPH
+
+As reported in both tables, a significant boost in performance is obtained by combining the 3DEF classifier and a detector, both Mask R-CNN and YOLO.
+
+In particular, our best single-view 3DEF+YOLOs outperform the baselines based on 3DEF (+5.2% in CA, +2.3% in GA and +2.5% in CP) as well as SEGCloud (Tchapmi et al., 2017) (+4.9% in CA and +0.8% in GA) and Eigen (McCormac et al., 2016; Nakajima et al., 2018) (+1.3% in CA and +1.1% in GA).
+
+3DEF+YOLO outperforms also  Nakajima et al. (2018) in CA (+3.0%) but not in GA (−3.0%) since our method offers better performance class by class but not on classes with more samples in the dataset.
+
+Using multi-views highlights the strengths of our methods: MV-3DEF+YOLO gets closer to Eigen-SF, Eigen-SF-CRF and MVCNet-MaxPool while MV-3DEF+Mask R-CNN outperforms Eigen-SF and Eigen-SF-CRF, and gets closer to MVCNet-MaxPool.
+
+In particular, MV-3DEF+Mask R-CNN outperforms Eigen-SF-CRF in CA (+0.4%) but not in GA (−3.9%).
+
+The method is stronger class by class but penalized by the performance with the classes with more samples in the dataset, in particular the class Wall.
+
+Neither the integration of the object detector nor the multi-view allow to outperform MVCNet-MaxPool (Ma et al., 2017), (−5.5% in CA and −11.7% in GA).
+
+This approach already exploits multiple views and it would be interesting to study how to combine it with an object detector.
+
+PARAGRAPH
+
+Class by class performance is further investigated comparing our best methods against the baseline MV-3DEF (Antonello et al., 2018) in Table 7 and against Eigen-SF-CRF (McCormac et al., 2016) in Table 8.
+
+MV-3DEF+YOLO and MV-3DEF+Mask R-CNN outperform MV-3DEF (Antonello et al., 2018) in 8 and 9 out of 13 classes, respectively.
+
+The improved classes are Bed, Object, Chair, Furniture, Ceiling, Sofa, Table and Bookshelf.
+
+MV-3DEF+YOLO and MV-3DEF+Mask R-CNN outperform Eigen-SF-CRF (McCormac et al., 2016) in 7 out of 13 classes, Bed, Chair, Ceiling, Floor, Sofa, Table and Bookshelf.
+
+MV-3DEF+Mask R-CNN and Eigen-SF-CRF (McCormac et al., 2016) are almost equivalent in 2 other classes, Furniture and TV.
+
+Both tables show that our methods suffer when classifying Wall, Picture and Window.
+
+This is a weakness of 3DEF that cannot be compensated by the detectors since they are not trained on those classes.
+
+This could be further investigated by training the detector on the classes Picture and Window or by improving the preliminary region growing segmentation in 3DEF.
+
+Indeed, the region growing can erroneously merge the three classes in a single cluster making it impossible for 3DEF to classify them correctly.
+
+PARAGRAPH
+
+Additional qualitative results are reported in Fig. 10.
+
+For each scene, the predicted semantic segmentation and its ground truth are reported side by side.
+
+Generally, our approach successfully classifies several classes, e.g. Chair, Furniture, Table and Books in the reported scenes.
+
+Also some correct instances of Object are visible.
+
+Nevertheless, as previously discussed, the method struggles with Picture, Wall and Windows.
+
+SECTION
+
+Experiments on COCO
+
+PARAGRAPH
+
+We further investigate the performance of the 2D component of our approach on the COCO dataset (Lin et al., 2014).
+
+Similarly to other approaches evaluated on this dataset, we characterized the performance of our method using the 12 metrics proposed by the authors.
+
+They capture the average precision at different Intersection over Unions (IoU), i.e. with loose or strict detection versus groundtruth matching criteria, and across scales, i.e. evaluating the performance separately when dealing with small objects and large objects.
+
+They capture also the average recall given a maximum number of objects per frame and across scales.
+
+Each metric is described in the following:
+
+PARAGRAPH
+
+In Tables 9 and 10 we compare our method against Matterport Mask R-CNN (Abdulla, 2017) and FAIR Mask R-CNN (He et al., 2017b).
+
+Matterport Mask R-CNN (Abdulla, 2017) is an open-source implementation of Mask R-CNN we use as baseline for developing our method Mask R-CNN+Grabcut.
+
+FAIR Mask R-CNN (He et al., 2017b) is an ensemble of 30 Mask R-CNN methods.
+
+This method is the best performing one.
+
+As reported in Tables 9 and 10, our approach obtains better results in both AP and AR with respect to the baseline Matterport Mask R-CNN (Abdulla, 2017).
+
+The performance improvement with respect to the baseline is enclosed in boxes.
+
+Most of the metrics (AP, AP50, APL, AR1, AR10, AR100, ARM and ARL) are improved while the two approaches are almost equivalent with respect to the remaining ones (AP75, APS, APM, ARS).
+
+PARAGRAPH
+
+Qualitative results are shown in Fig. 11.
+
+Using our method, the object contours are better defined, as it is visible comparing Fig. 11(a)(b) with Fig. 11(b)(d).
+
+Nevertheless, the mask can get worse if the color model is not captured by Gaussian mixture model used by Grabcut.
+
+An example of this behavior in shown in Fig. 11(g)(h) in which Grabcut is confused by the square pattern of the shirt.
+
+SECTION
+
+Runtime analysis
+
+PARAGRAPH
+
+We tested our system on a standard laptop Dell Inspiron 15 7000 installed on our mobile robot (Carraro et al., 2015).
+
+It runs Ubuntu 18.04 and is equipped with an Intel Core i7-6700HQ CPU with 4 cores clocked at 2.60 GHz, the graphic card NVIDIA GeForce GTX 960M and 16 GB of DDR3 RAM.
+
+We worked at full resolution (640 × 480 px).
+
+The running times evaluated on the NYUv2 dataset are reported in Table 11.
+
+The proposed approach makes use of a technique for semantic segmentation, which requires approximately 0.53 fps on the CPU.
+
+The object detectors Mask R-CNN and YOLO work on the GPU at 0.94 fps and 4.20 fps, respectively.
+
+The combinations of the detectors with Grabcut work at an average speed of 0.19 fps when using masks and 0.90 fps when using boxes.
+
+The multi-view works at an average speed of 2.27 fps leading to a total runtime of approximately 0.12 fps with Mask R-CNN and 0.27 fps with YOLO.
+
+The current system requires more work to be used in real-time on a standard laptop.
+
+Nevertheless, it is suitable in less demanding applications requiring occasional accurate decisions or for offline processing.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions
+
+PARAGRAPH
+
+In this work, we extended a multi-view semantic segmentation system based on 3D Entangled Forests (3DEF) by integrating and refining two object detectors, Mask R-CNN and You Only Look Once (YOLO), with Bayesian fusion and Grabcut.
+
+The new system takes the best of its components, successfully exploiting both 2D and 3D data.
+
+Our experiments on two popular datasets, NYUv2 and COCO, show that our approach is competitive with the state-of-the-art and leads to accurate semantic segmentations.
+
+In particular, the 2D component of our method can be useful even for computer vision applications lacking 3D data, both indoor and outdoor.
+
+In the future, we would like to explore other semantic segmentation techniques and study how to perform accurate detection and segmentation of both objects and coarse scene elements limiting the number of separate components.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Morris Antonello: Conceptualization, Methodology, Validation, Software, Writing - original draft.
+
+Sabrina Chiesurin: Methodology, Software, Writing - original draft.
+
+Stefano Ghidoni: Supervision, Funding acquisition, Methodology, Writing - review & editing.

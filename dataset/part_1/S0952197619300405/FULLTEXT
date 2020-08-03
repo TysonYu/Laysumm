@@ -1,0 +1,1035 @@
+10.1016/j.engappai.2019.02.016
+
+FULLTEXT
+
+TITLE
+
+Collision risk prediction for visually impaired people using high level information fusion
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The research and consequent development of sensory support and navigation technologies for visually impaired people (VIP) is increasing (Chan et al., 2017; Mekhalfi et al., 2016; Tsirmpas et al., 2015; Mascetti et al., 2016; Bourbakis et al., 2013; Aladren et al., 2014; Xiao et al., 2015).
+
+Although it is a specific area of research, solving the problems and difficulties faced by these people requires comprehensive analysis, and should include several different difficulties that a VIP has to deal with where they move.
+
+PARAGRAPH
+
+This Sensory Analysis System For Visually Impaired People (SAS-VIP) introduces a new data fusion architecture based on contexts similar to those established by a person with vision to support VIP decision making.
+
+According to Zhu et al. (2014), a context refers to current values and specific data that provide the user with an activity or situation.
+
+For Anagnostopoulos and Hadjiefthymiades (2009), Context Awareness (CA) is the ability of the system to perceive, interpret and react to changes that occur in the environment in which the user is present.
+
+In an environment there may be a set of contexts.
+
+A context can be formed through the relationship that entities have with the goal that a user must achieve.
+
+An entity can be an object, a person, or an area (Zhu et al., 2014).
+
+If any entity is considered relevant to VIP traffic without collisions, it can be chosen to form a context.
+
+PARAGRAPH
+
+Moving in unfamiliar environments that contain obstacles and moving objects is one of the main difficulties that VIP have to deal with.
+
+A variety of applications have been produced (Pham et al., 2016; López-de Ipiña et al., 2011; Mekhalfi et al., 2015; Bourbakis et al., 2013; Tian et al., 2014; Tamjidi et al., 2013; Ando et al., 2011) to provide directions alternatives for VIP.
+
+So far, several directions alternatives have been developed for VIP, only in specific areas.
+
+Unlike these proposals, this project prioritizes use in any area in order to provide the VIP with a safe, collision-free path, with both dynamic and static objects.
+
+Fig. 1 presents an example of the environment used for the experiments performed in this project, in which the VIP moves with the presence of obstacles and other people in movement.
+
+PARAGRAPH
+
+VIP need technologies that go beyond simply indicating the desired destination.
+
+They should detect systematic patterns, contextualize the elements of the environment and indicate what action should be taken to ensure their safety.
+
+Based on these prerequisites, this project presents a new data fusion architecture designed to provide the VIP with the perception of entities in a given environment for later comprehension of the contexts.
+
+Many projects use CA to classify contexts that are highly dynamic (Tang et al., 2013; Zhu et al., 2014; Lee and Lee, 2014; Anagnostopoulos and Hadjiefthymiades, 2009; Cordeiro et al., 2016).
+
+In this project, the CA theory is applied to the system to understand the relationship between the static objects, the trajectory followed by the dynamic objects and the direction of the free passage in the environment in which the VIP is present.
+
+PARAGRAPH
+
+The data fusion system developed was based on the concepts of CA and the Salerno Model for high level Information fusion (HLIF).
+
+According to Liggins et al. (2008) this model incorporates concepts from the Joint Directors of Laboratories (JDL) model and the Situation Awareness (SAW) model proposed by Endsley et al. (2003).
+
+Joseph et al. (2014) suggests that SAW is formed only when the first three levels of a data fusion process are performed, in which the first level is perception, the second comprehension and the third projection.
+
+Alkhanifer and Ludi (2014) apply the SAW model because it is a useful approach to any type of decision support system and also because it enables information that is easy to understand from the context, thus providing more confidence in the actions that will be taken.
+
+PARAGRAPH
+
+In SAS-VIP, the perception level can be described as being the information captured from the environment in which the VIP moves, such as, for example, the detection of moving and stationary objects, including their positions and sizes, the detection of free spaces, etc.
+
+The comprehension level defines the relationship between the elements mentioned and the meaning of their actions.
+
+The projection level allows for predicting consequences in the near future based on the relationships and actions of objects in the environment, giving warning that the person might possibly collide with an object.
+
+PARAGRAPH
+
+Several technological solutions have been presented with the aim of helping a VIP discover their position, which elements are in their path and which is the safest place to move.
+
+In most of these methodologies, different types of sensors have been used, such as those that define distance, presence, movement and color (Chan et al., 2017; Mascetti et al., 2016; Jabnoun et al., 2014; Pei and Wang, 2011; Bourbakis et al., 2013; Tian et al., 2014).
+
+However, few data fusion systems integrate all this information and generate decision making based on the SAW projection level.
+
+Typically, these sensors are used as data sources, however, systems do not have progressions to more refined fusion phases for the purpose of correcting errors, removing redundancies and generating decisions that a human being can trust.
+
+PARAGRAPH
+
+In SAS-VIP, data fusion is applied as a key decision-making technique, which is intended to reach higher fusion levels to predict possible collisions in the near future.
+
+The projection of collisions is obtained after the construction of a risk map, made up of inferences.
+
+Inferences are performed by means of learning models, built based on the extraction of system characteristics.
+
+It is important to note that for the generation of this map, the mapping of the static objects, the free passage and the paths followed by dynamic objects in a 3D plane is carried out.
+
+This map allows you to project collisions in different directions.
+
+Another feature little explored in this kind of study is the use of feedback to the decision making system.
+
+For SAS-VIP, this feedback is very useful for adjusting probabilities in the course of its use and providing a more reliable risk map.
+
+PARAGRAPH
+
+HLIF has been applied in several projects but it not been applied very much in navigation support and sensory analysis systems for VIP.
+
+And its use decreases substantially when the fusion reaches the comprehension and projection levels (see Table 1).
+
+These levels are intended to explore data for consistent relationships and consequently to project impacts in the near future.
+
+In SAS-VIP, the fusion reaches the projection level with the generation of the risk map.
+
+PARAGRAPH
+
+Table 1 presents a comparison of studies using different techniques to solve specific navigation problems.
+
+It can be seen that all the studies use sensors worn by the VIP.
+
+In five of these studies (Tsirmpas et al., 2015; Mekhalfi et al., 2016; López-de Ipiña et al., 2011; Xiao et al., 2015; Ando et al., 2011), some other equipment such as sensors or tags and code labels (such as RFID or QR-Code) are also installed in the environment.
+
+This facility requires prior planning at all locations where the VIP will be traveling.
+
+SAS-VIP was designed not to rely on technologies installed in the environment or remotely requested information.
+
+PARAGRAPH
+
+Mapping and pattern recognition are the main features discussed in VIP navigation support systems, presented both in the state of the art and here in Table 1.
+
+In this table, there are another two items that are less exploited but which improve the perception and navigation of the VIP.
+
+These items are 2D to 3D conversion and dynamic object analysis.
+
+In addition to the SAS-VIP, only 4 studies (Tsirmpas et al., 2015; Xiao et al., 2015; Brilhault et al., 2011; Ando et al., 2011) approach 2D to 3D conversion as essential for safe navigation.
+
+The 2D plane does not provide actual measurements because of the approximations that occur in converting global coordinates to image coordinates.
+
+This may affect the VIP navigation.
+
+The other little discussed feature in this type of system is the analysis of dynamic objects.
+
+It can alert potential risks of collision with the VIP as well as provide useful information for navigation.
+
+It is important to note that a route is presented as a route that can be executed by a VIP with a lower risk of collision.
+
+PARAGRAPH
+
+Systems developed for VIP that use cameras generally rely on pattern recognition techniques to generate some kind of comprehension of the environment.
+
+It can be seen from Table 1 that almost all projects use some kind of object recognition technique.
+
+This type of system requires prior training, and it is difficult to recognize all the objects of a given class.
+
+Thus, the system becomes dependent on extensive training to ensure the classification of the desired objects, because if they are not classified, systems may fail to generate information necessary for decision making.
+
+PARAGRAPH
+
+Tsirmpas et al. (2015) present the architecture of an indoor navigation system that provides locations and suggestions for guiding the visually impaired.
+
+This navigation is accomplished by obtaining remote data through devices called Radio Frequency Identification (RFID) tags.
+
+RFIDs are distributed in the environment and provide the visually impaired with site-specific information.
+
+López-de Ipiña et al. (2011) also apply a similar concept, through RFID and QR Codes for identification of supermarket products.
+
+This strategy is interesting to provide the VIP with the appropriate place to move or recognize objects but it is not suitable to inform possible collisions with dynamic objects or obstacles that do not have RFID.
+
+PARAGRAPH
+
+Another important feature that should be emphasized is the dependency of installing multiple RFIDs in the environment.
+
+If there is no RFID in a certain place, the system does not have basic information for decision making and the system loses its purpose.
+
+Thus, systems using technologies such as RFID, QR Codes or any other type of remote information (Mekhalfi et al., 2016; López-de Ipiña et al., 2011; Tsirmpas et al., 2015) should be integrated with other systems that complement the mobility needs of VIP so that they do not depend only on sources of data implanted a priori.
+
+PARAGRAPH
+
+Ando et al. (2011), present an interesting methodology with the use of data fusion in a VIP navigation support system.
+
+Its purpose is to provide continuous communication of the VIP with a network of sensors distributed in the environment to provide collision-free movement.
+
+With equipment worn by the VIP, the sensors and the processing center are connected by wireless networks.
+
+In this project, a set of physical sensors distributed around the environment is needed.
+
+PARAGRAPH
+
+Xiao et al. (2015), have developed a system that adopts the Kinect motion sensor to obtain a disparity map and then looks at the use of social sensors to provide data for sites and social networks that support the VIP to find out if there is danger when moving in a particular area.
+
+With these data sources, it is possible to generate decisions, which allows for producing information with greater reliability.
+
+However, this system depends on the power of data provided by other people.
+
+Thus, Xiao et al. (2015) and Ando et al. (2011) have a high dependence on external data sources for performing data fusion.
+
+PARAGRAPH
+
+Angin et al. (2011) address the use of the CA model to support VIP navigation.
+
+They list several data sources provides information to the VIP.
+
+In that study GPS is used to estimate the positioning and a stereo camera to detect the distance to the objects.
+
+Their system also performs a pattern recognition operation to make more information available for its fusion system.
+
+However, the SAW model that allows comprehension and designing collisions is not applied.
+
+PARAGRAPH
+
+In SAS-VIP, the main contribution is the study and application of HLIF using the Salerno and CA models, specifically designed to predict collisions and support decision-making in indoor VIP navigation.
+
+These models present themselves as being fundamental to understand the context and to allow a decision making without relying on a variety of sensors, either implanted on the VIP or in the environment.
+
+Although these HLF models have already been widely used, it is well known that they have hardly been investigated in navigation systems and sensory support and, most importantly, related to the prediction of collisions with the VIP.
+
+Another important contribution of this article is the detailed presentation of the modeling of two datasets (see in Ref [Data in Brief]) used to make the inferences.
+
+The data and inferences were trained and analyzed using different classifiers to compare which were more accurate and had more Correctly Classified Instances.
+
+SECTION
+
+Sensory analysis system for visually impaired people
+
+PARAGRAPH
+
+SAS-VIP aims to provide a system composed of computer vision and data fusion techniques.
+
+Vision techniques extract a set of characteristics from the environment and the fusion techniques produce consistent associations from an intelligent system (IS) based on the Salerno model.
+
+Present in the Salerno model, the SAW model needs to perceive the elements in an environment within a certain time and space, the comprehension of their meaning and the prediction of their actions in the near future (Liggins et al., 2008).
+
+An IS has learning characteristics based on collision risk probabilities resulting from a set of stored inferences.
+
+These inferences were used to form the hazard map that projects potential impacts of the VIP with obstacles present in indoor environments.
+
+For the development of an IS using the SAW model, an analysis is needed of the requirements for perception, comprehension and projection to take place.
+
+According to Endsley et al. (2003), the Goal Directed Task Analysis (GDTA) performs an analysis of cognitive tasks in order to relate all the entities and their respective functions, ensuring reliable decision making.
+
+PARAGRAPH
+
+In SAS-VIP, the GDTA was developed based on interviews with the visually impaired.
+
+The main difficulties mentioned were registered through the following questions: What elements are present in this environment?
+
+Which directions can I travel in?
+
+Is there enough space to travel in this direction?
+
+What is the position of obstacles that do not produce sounds?
+
+What objects are moving around?
+
+What is their direction, speed, and size?
+
+Am I going to collide with any object (static or dynamic)?
+
+With the recorded interviews, the GDTA was developed in the SAS-VIP first phase.
+
+Based on the GDTA, the SAS-VIP architecture was then developed using SAW.
+
+The SAS-VIP architecture (Fig. 2) consists of three modules: an Input and Output Module (I/O) (2.1); a Vision Module (VM) (2.2); and a Fusion Module (FM) (2.3).
+
+SECTION
+
+PARAGRAPH
+
+Input Module and Output (I/O)
+
+PARAGRAPH
+
+The SAS-VIP Input and Output Module (Fig. 2) consists of a Kinect sensor as input and a stereo headset as output.
+
+The Kinect basically has three sensors; an accelerometer and two video cameras (Infrared (IR) and RGB), with VGA resolution of 30 frames/s.
+
+The objective of the infrared camera is to provide frames (IRi, i=1..30) in real time, containing scene depth maps, for the Vision Module (VM), which will be used to detect stationary and moving objects present in the environment.
+
+The RGB camera provides frames (RGBi, i=1..30) in the visible spectrum to the VM, which, associated with the accelerometer, will perform a video stabilization process for the Dynamic Object Segmentation Submodule (DOSS), which is explained in the item below (2.2.5).
+
+Finally, in this module, there is feedback to the VIP through sounds (s) or beeps (b) provided by the Vision (VM) and Fusion (FM) modules for orientation.
+
+SECTION
+
+Vision Module (VM)
+
+PARAGRAPH
+
+The Vision Module (VM) is composed of 5 submodules, which together are responsible for the extraction of characteristics, such as the 3D position of static and dynamic objects and direction of free passage (Fig. 2).
+
+In addition, a depth map is also provided to the FM.
+
+SECTION
+
+Depth Map Submodule (DMS)
+
+PARAGRAPH
+
+In this submodule, given the frames (IRi, i=1..30) from the Kinect IR sensor, its color maps for the 3D distances of the scene objects are converted into appropriate matrices (DMi, i=1.
+
+.30) with values in millimeters associated with these distances (xj, yj, kj), where (xj, yj) is the distance of the jth intensity value. kj
+
+from the VIP, which will be used to calculate the 3D position of each object (Xj, Yj, Zj) (Eqs. (1) and (2)), to be used in the static and dynamic object segmentation submodules (SOSS and DOSS), described below in items 2.2.2 and 2.2.5, respectively.
+
+SECTION
+
+Static Object Segmentation Sub-module (SOSS)
+
+PARAGRAPH
+
+This submodule separates the static objects present in the scene that are less than 2 meters away from the VIP, in order to avoid collisions.
+
+Also, the direction of free passage is provided.
+
+Segmentation of these static objects is accomplished by means of a Threshold (SOSSso) that scans the depth image (DM(xj, yj, Zj)) eliminating the background where Zj is more than 2 meters (Algorithm 1).
+
+This filter (SOSSso) means that only the obstacles in the foreground and which generate greater risks of impact in a short period of time are analyzed.
+
+The direction of free passage is also detected in SOSS.
+
+To find out the free passage, another Threshold (SOSSfp) filter was applied to the depth image (DM(xj, yj, Zj)) excluding data where Zj is greater than 3 m.
+
+SECTION
+
+3D Position Submodule (3DPS)
+
+PARAGRAPH
+
+The 3DPS is responsible for mapping the position and width of the free passage of static and dynamic objects.
+
+This mapping is performed in three dimensions using the same reference system (millimeters) from the following parameters: FP(x, y, Z), SOn(xj, yj, Zj) and DO(xj, yj, Zj)m.
+
+The conversion of a pixel present in the 2D plane to the 3D space is performed by measurements that correspond to the pixel size (xj, yj) and the distance (Zj) which it is at.
+
+It is emphasized that the distance has been converted to millimeters (Z) in the item 2.2.1.
+
+All the relevant objects had their positions and widths converted from pixels to millimeters using the following Eqs. (1), (2): μXmm=xpx∗μZmmSizeXpxμYmm=ypx∗μZmmSizeYpx in which the unknowns xpx and ypx represent the position of the object in the image coordinates (pixel) on the x-axis and the y-axis respectively.
+
+The unknown μZmm is the distance of the object in millimeters, and SizeXpx and SizeYpx represent the number of pixels of the image on the respective (axes 640 x 480).
+
+In this way, the position of the object in millimeters is calculated on the x-axis (μXmm) and on the y-axis (μYmm).
+
+The Fig. 3 presents a more understandable form of Eqs. (1) and (2).
+
+PARAGRAPH
+
+With the adoption of this reference system, it is possible to map the position of any object in the scene, regardless of its distance.
+
+The direction and average speed of moving objects are other important features that can be estimated in the 3D space.
+
+PARAGRAPH
+
+In 3DPS, the position and width of the obstacles are calculated from the contouring method (presented by Bradski and Kaehler (2008)) applied to the resulting image of the SOSSso (SOn(xj,yj,Zj)).
+
+The values xj and yj are converted to millimeters based on Eqs. (1) and (2).
+
+Thus, the function CMWf of Algorithm 1 provides three points for each detected static object: cm(xj, yj, Zj), p1(xj, yj, Zj) and p2(xj, yj, Zj) (See Fig. 4). cm
+
+is the center of mass of the contour calculated for the detected object. p1
+
+indicates the upper left corner of the contour and p2 indicates the right uppermost corner of the same contour.
+
+With these three points, it is possible to map the 3D position of the object and calculate its width (function 3DPSf of Algorithm 1).
+
+These values produce the vector (SOn(X,Y,Z)).
+
+PARAGRAPH
+
+Likewise, the position and width of the free passage was calculated.
+
+Based on the contour of the free passage region FP(xj,yj,Zj), the three points (cm, p1 and p2) were obtained and, using the same principles applied to the static objects, this characteristic was submitted to the FM.
+
+The DMS, SOSS, and 3DPS submodules form the Algorithm 1, which detects free passage and static objects in the 3D space.
+
+SECTION
+
+Video Stabilization Submodule (VSS)
+
+PARAGRAPH
+
+The analysis of moving objects in images is a challenging field, especially when the image acquisition sensor undergoes translation and rotation movements.
+
+This scenario becomes more complex when movements are produced in an uncontrolled way, as occurs when a camera is installed on a human body that is subject to changes of position.
+
+When this happens, you must understand and differentiate the motion of the video in relation to the objects in the image.
+
+If the camera does not experience any kind of movement, dynamic object analysis techniques can be simplified.
+
+PARAGRAPH
+
+The VSS was deployed in the DOSS to reduce the sudden movements caused in the camera due to any movement of the VIP at the time of analysis of dynamic objects.
+
+This process only stabilizes sudden movements in the video.
+
+The VSS is activated after the accelerometer (Amov) detects movements in the Kinect sensor.
+
+For the stabilization to be possible, the coefficients of geometric transformation between a frame acquired at a given instant with the subsequent frame is estimated.
+
+This estimation of transformation coefficients must be automatic and fast so as not to impair performance in the detection of dynamic objects.
+
+Thus, in order to smooth the video movements, a set of points (Corners[]1, Corners[]2) was detected between subsequent images (RGBi) to obtain the vectors for the Optical Flow Algorithm.
+
+Then, the translation, rotation and scale coefficients were estimated using the Affine transformation (estimateAffineTransform(Corners[]1,Corners[]2).
+
+PARAGRAPH
+
+After that, the Kalman filter (KalmanFilter()) was applied in a way that smoothes the changes in these coefficients and stabilizes the depth images (DMi) received by the DMS (2.2.1).
+
+From the stabilized images (SDM1, SDM2, …SDMn), VSS submits to the DOSS a stable depth map and so the possibility of segmenting dynamic objects even when there are small movements in the camera.
+
+SECTION
+
+Dynamic Object Segmentation Submodule (DOSS)
+
+PARAGRAPH
+
+The DOSS extracts features related only to moving objects present in the VIP field of view.
+
+Acquiring and relating these characteristics to the environment is important for the data fusion system in designing a safe direction for VIP movement.
+
+PARAGRAPH
+
+In order to provide more refined data for dynamic object analysis, a segmentation algorithm that isolates the dynamic objects from the scene (background) has been defined.
+
+The targeting method used for this purpose is Background Subtraction (BS).
+
+This technique is widely used to identify objects that are in motion; however, in situations in which there is presence of rotation, translation or scale in subsequent frames, some alternative must be implemented so that the moving object is identified with quality.
+
+Because of this premise, the DOSS receives stabilized depth maps (SDMn) from the VSS.
+
+PARAGRAPH
+
+Background subtraction (BS) is modeled in the DOSS using the Mixture of Gaussians (MOG) (Stauffer and Grimson, 1999; Bradski and Kaehler, 2008) technique.
+
+This (BSMOG) technique is applied in the 2 algorithm and provides a quality foreground.
+
+The BS can also be modeled by the Codebooks algorithm, as implemented by Cordeiro et al. (2016).
+
+However, the MOG was chosen because of its high performance and indoor feature (Stauffer and Grimson, 1999).
+
+After applying BS, it is possible to detect the contour and calculate the area of the dynamic object.
+
+The Algorithm 2 presents the sequence of statements executed by the dynamic object system.
+
+PARAGRAPH
+
+Upon detection of any moving objects, the DOSS provides the 3DPS with a vector containing the positions of the dynamic object (DO(xj, yj, Zj)m) and the points cm, p1, p2 (Function CMW of Algorithm 2).
+
+On receiving these data, the 3DPS converts xj and yj to millimeters by means of the 3DPS function and produces the vector (DO(X, Y, Z)m), in the same way as presented in the item 2.2.3, used for static objects and free passage.
+
+The DMS, VSS, DOSS, and 3DPS submodules form the Algorithm 2, which detects the trajectories followed by the moving objects in the 3D space.
+
+PARAGRAPH
+
+With a defined reference system and with the objects of the environment mapped in the 3D space, it is also possible to reconstruct the trajectory of any dynamic object (see Fig. 4).
+
+The routes are usually produced for people on the go and provide good traffic possibilities for VIP.
+
+So, choice of the paths is an important part of the generation of the SAW in the defined context (collision risk), indicating routes with greater chances of collision-free passage.
+
+In order for these routes to be formed, a tracking point was defined for moving objects.
+
+This point was produced after obtaining its center of mass (DO(X,Y,Z)[m].cm) and the velocity vectors were calculated using the optical flow technique.
+
+PARAGRAPH
+
+Path generation is performed after the system detects adverse movements to those produced by the VIP camera.
+
+In this way, the VIP should remain stable for a few seconds by acquiring the values (in the axes X, Y, Z).
+
+For each path, a vector of characteristics is formed from data collected at ten different moments in time.
+
+For each instant, different positions, distances and directions are extracted.
+
+Therefore, the VM provides the Perception Submodule (PES) with the characteristics shown in Fig. 5.
+
+SECTION
+
+PARAGRAPH
+
+Fusion module
+
+PARAGRAPH
+
+The Fusion Module (FM) looks for consistent relationships between the sub-objectives defined in the GDTA and is intended to make decisions to provide a collision-free locomotion for the VIP.
+
+The FM is formed by three Submodules: Perception Submodule (PES) (2.3.1); Comprehension Submodule (COS) (2.3.2); Projection Submodule (PROS) (2.3.3).
+
+SECTION
+
+Perception Submodule (PES)
+
+PARAGRAPH
+
+The PES analyzes the characteristics of the relevant objects in the scene.
+
+The contextualization of these characteristics is necessary for the higher levels of SAW abstraction.
+
+According to the Salerno Model for HLIF (Liggins et al., 2008), this process involves analyzing: existence and quantity (How many?)
+
+; The identity (What/Who?)
+
+; and the kinematics (Where/When?).
+
+PARAGRAPH
+
+In SAS-VIP, the PES aims to organize and integrate the features provided by the Dynamic Object, Static Object and Free Passage (DSF) and produce information for the COS and PROS.
+
+These characteristics must be integrated in such a way that the COS can classify the context and the PROS form a risk map and provide inferred possibilities of collision.
+
+SECTION
+
+Points of references.
+
+PARAGRAPH
+
+After mapping all the elements considered essential for decision making in the SAS-VIP, 26 points of reference were defined to increase the perception of the environment and to produce the risk map.
+
+By means of these points, it is possible to relate the environment (at distances of up to 9 m) to the paths executed by dynamic objects, with static objects and with free passage.
+
+This analysis is based on 3 heights (StripA, StripB and StripC) and 17 directions (DR1,DR2,…,DR17) (See Fig. 6).
+
+PARAGRAPH
+
+These points are used to analyze the behavior of elements in the scene and to calculate the risk of collision.
+
+This new method works with different angles and distances to execute a number of inferences in order to provide a direction for the VIP to move with low risk of collision.
+
+The Fig. 6 shows all the angles implemented in this system.
+
+PARAGRAPH
+
+Having defined the 26 reference points (StripA, StripB and StripC), the distances of each one are obtained and related to the static, dynamic and free passage objects (DSF) from the VM (See Fig. 2).
+
+This relationship produces a new feature vector (StripADSF, StripBDSF and StripCDSF) which is sent to the COS.
+
+SECTION
+
+Comprehension Submodule (COS)
+
+PARAGRAPH
+
+The COS runs the second phase of the FM, in which a new merger is carried out using the information already refined by the previous process.
+
+In this process, the behavior of the objects is analyzed, based on their actions, intentions, relevance and capacity (Liggins et al., 2008).
+
+In this way, the impacts were obtained after the analysis of the relation between the objects present in the environment and that fit in the context of the collision risks.
+
+PARAGRAPH
+
+Consequently, a new feature vector is formed by responses to the following questions: Is there an obstacle in a specific direction and at a specific distance?
+
+Were there people traveling in a specific direction and at a specific distance?
+
+Is there free passage available in a specific direction and at a specific distance?
+
+These three questions are answered by all the reference points presented in Fig. 6.
+
+After obtaining these answers from different positions of the VIP, the dataset for training was formed.
+
+PARAGRAPH
+
+The next step of the COS is to apply a method that consistently relates these features in order to detect systematic patterns in the defined context.
+
+The models produced (ModelDataset) (see Ref[Data in Brief]) were submitted to the PROS (See Fig. 2) to enable the execution of inferences.
+
+SECTION
+
+Projection Submodule (PROS)
+
+PARAGRAPH
+
+The PROS is the third phase of the FM.
+
+This process should merge the information produced by the COS with the intention of predicting situations in the near future.
+
+The PROS projects the movement of objects in relation to the VIP to define possible impacts if they move in different directions.
+
+In this process, inferences are made in different directions in search of finding obstacles, available free passage and paths of moving objects so that the risks of locomotion in certain regions can be defined.
+
+With each VIP movement, the system of inferences is activated to project a new risk map.
+
+PARAGRAPH
+
+The positions of greatest relevance defined to project the map of risks are presented by the blue circles of Fig. 6.
+
+Each reference point will be useful for organizing the characteristics used for inference.
+
+Each inference will produce a probability of collision risk.
+
+The set of inferences form the risk map, which indicates the safest regions for locomotion.
+
+Finally, the PROS provides information to the VIP via sounds or beeps {s,b}.
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+Four different experiments using different navigation systems (NS) were done with the VIP.
+
+The VM module of the SAS-VIP architecture provided the basic features for the four navigation systems.
+
+The VM was written in the C++ language with the help of computational vision and real-time image processing techniques from the OpenCv (Bradski and Kaehler, 2008) library.
+
+All the characteristics were obtained indoors with static and dynamic objects with different sizes and positions.
+
+For the moving objects, the direction and the average speed during the period of detection were also modified.
+
+PARAGRAPH
+
+An obstacle is considered to be any object or entity with which the VIP can collide, such as a wall, a chair, a person, etc.
+
+Any obstacles within 2.0 m of the VIP, the SAS-VIP performs the detection, emits a prevention beep and automatically calculates a collision hazard, which is usually higher because the obstacle is close to the VIP.
+
+Other ways of detecting more distant static obstacles use the reference points shown in figure Fig. 6.
+
+Dynamic objects are also classed as obstacles and are usually more dangerous because they get closer much faster.
+
+SAS-VIP can detect this type of obstacle at a distance of up to 8.0 m.
+
+PARAGRAPH
+
+The Fig. 7 is composed of four contexts ((1), (2), (3), (4)).
+
+Each context has five images representing some of the features extracted and have the following composition: Context 1 (a, b, c, d, e); Context 2 (f, g, h, i, j); Context 3 (k, l, m, n, o); Context 4 (p, q, r, s, t).
+
+For all contexts, items (a,f,k,p) show the images made available by the RGB camera and items (b,g,l,q) are the respective depth maps.
+
+In contexts (1), (2) and (3), items (c,h,m), (d,i,n) and (e,j,o) respectively present the following results: Outlines resulting from the free-passage segmentation method (FP(xj,yj,Zj).cm, FP(xj,yj,Zj).p1, FP(xj,yj,Zj).p2); Objects detected in the foreground that are between 0.6 to 2.0 meters away (SO[n](X,Y,Z).cm, SO[n](X,Y,Z).p1, SO[n](X,Y,Z).p2)); Outline of objects detected in images (d,i,n).
+
+PARAGRAPH
+
+In Context (4), images (r), (s) and (t) respectively present the following results: Segmentation of the dynamic object (Person); Contour resulting from item (r); Center of mass (DO(X,Y,Z)[m].cm) resulting from image (s).
+
+It is important to note that contexts (3) and (4) are divergent only by the presence of the dynamic object.
+
+Therefore, without the presence of the dynamic object, the context has the same characteristics.
+
+From these four contexts, the feature vectors were produced (see Fig. 5) and then experiments were performed to compare the different approaches used in navigation systems.
+
+PARAGRAPH
+
+The first set of experiments used the first navigation system (NS1).
+
+The NS1 indicates the direction for locomotion based on the 3D (X,Y,Z) position of the obstacles that are less than two meters away from the VIP.
+
+Once the positions of the obstacles in the 3D plane have been calculated, the direction of free passage between the obstacles is checked.
+
+Some studies (Aladren et al., 2014; Costa et al., 2012; Lakde and Prasad, 2015; Saputra et al., 2014) use a similar approach to define the direction the VIP should move.
+
+The NS developed by Aladren et al. (2014), makes beeps with different intensities that tell the VIP about the presence of nearby obstacles.
+
+The NS presented by Costa et al. (2012), is also based on obstacles that are less than two meters away.
+
+This NS provides the VIP with the relative position of the obstacles and five possible directions for locomotion.
+
+PARAGRAPH
+
+Fig. 8 shows the application of NS1 from the extraction of characteristics from the three contexts addressed in Fig. 7.
+
+Each context provides the 3D position, the width of the obstacles and the direction of the free passage.
+
+PARAGRAPH
+
+Subsequently, the second set of experiments used the navigation system (NS2), based on Kanwal’s implementation et al. (Kanwal et al., 2015).
+
+The NS2 aims to provide a free passage after obtaining the distances of the detected corners (Harris and Stephens, 1988) in the image.
+
+With the analysis of the distances, the detected corners are displayed with different colors, in which, each color, represents a range of distances (Kanwal et al., 2015).
+
+The green dots indicate a region with a potential collision hazard in the region indicated for traffic, but with less risk than the points detected with other colors.
+
+The blue line indicates the path that the VIP should follow.
+
+Fig. 9 presents the results of the NS2 applied in the first three contexts.
+
+The fourth context was not generated because this system does not analyze paths executed by dynamic objects.
+
+PARAGRAPH
+
+Kanwal does not provide a specific direction for VIP movement, only the region they should follow (left, center or right).
+
+Clearly, many directions within these regions could be given.
+
+PARAGRAPH
+
+A third navigation system (NS3) was proposed and tested using only a distance map.
+
+This map is displayed in Fig. 12 (silver area), and is formed by 17 distances obtained from the same angles and heights applied in the SAS-VIP inference system (see Fig. 6).
+
+The Direction Indicated (DI) that the NS3, provides for the VIP respects the following rule: Generate the midpoint between two sequential directions (side by side) that have the longest distances.
+
+Analyzing the results, the union of NS3 and NSSAS−VIP increases the reliability of the NSSAS−VIP.
+
+The results of the experiments are presented together in Fig. 12.
+
+The fourth and last set of experiments was performed with the SAS-VIP Navigation System NSSAS−VIP to validate the following submodules: DOSS; PES; COS and PROS.
+
+PARAGRAPH
+
+For this, the experiments were started with dynamic object analysis (DOSS).
+
+DOSS had not been implemented in the three previous systems (NS1, NS2, and NS3).
+
+This experiment had the objective of storing paths executed by dynamic objects in real time.
+
+The analysis of these objects occurred after detecting the presence of movements divergent with those made by the camera.
+
+In this way, a beep is transmitted to the VIP to stop moving and stabilize the sudden movements.
+
+When detecting small movements in the camera, the video stabilization process is performed so that it is possible to obtain different moments (X,Y,Z) of the moving object and to enable the reconstruction of the paths.
+
+These paths, followed by other people moving in the scene, are important for providing the regions with the highest probability of VIP movement without collision.
+
+PARAGRAPH
+
+In Fig. 10, four tracks ((1), (2), (3) and (4)) are obtained in a short time sequence and they have the following composition: Track 1 (a, b, c, d); Track 2 (e, f, g, h); Track 3 (i, j, k, l); Track 4 (m, n, o, p).
+
+Each track is composed of four images, which show: the RGB camera image (a, e, i, m); the depth image (b, f, j, n); the segmented dynamic object (c, g, k, o); and the contour of the segmented dynamic object (d, h, l, p).
+
+From these characteristics, it is possible to calculate the center of mass and the width of the dynamic object.
+
+This same process was performed in context 4 of Fig. 7 (p, q, r, s, t)).
+
+Background subtraction segmentation was the technique applied to obtain the position of all the dynamic objects present in the scene.
+
+However, this segmentation technique requires stable images and requires a video stabilization process if there is movement in the camera.
+
+PARAGRAPH
+
+Obtaining several instants (DO[n](X,Y,Z)[m].cm) of the moving objects, their paths were reconstructed.
+
+In Fig. 11 it is possible to see seven paths executed by persons who deviate from a chair as shown in context 4 of Fig. 10.
+
+After conducting tests with the VM submodules, this step focused on the experiments related to the proposed model for the SAS-VIP comprehension process.
+
+PARAGRAPH
+
+Bayesian network applications need the initial input of lots of unconditional probabilities.
+
+This can be a problem in applications that hamper this understanding.
+
+But for the SAS-VIP, the modeling was designed in the same way that a sighted person makes decisions to travel more safely.
+
+And so, Bayesian networks theory to consider a probability as the degree of certainty of the occurrence of an event was chosen.
+
+According to Liggins et al. (2008), belief networks allow us to produce relationships within a context.
+
+From these relationships, data can be classified that allows the use of inferences to project situations in the near future.
+
+PARAGRAPH
+
+In the COS, a priori probabilities were assigned to a set of beliefs based on the following assumptions: a direction that has free passage produces a positive weight for locomotion, because it gives the VIP conditions to reach a certain destination; a direction that has a dynamic object in traffic, produces a greater risk of collision; a direction that registers a path followed by a moving object, produces less risk of collision, since it is understood that if it is a person following that path, the VIP can move with greater safety; a direction that has nearby obstacles generates a greater risk of collision and so the probabilities of risks of collision had greater weights.
+
+The Weka tool helped in the generation of this model (ModelDataset) with the creation of a structure manually by means of conditional probability tables (CPTs) based on beliefs and then training using Bayesian networks.
+
+An example of the dataset used to make inferences used by the model generated using Bayesian networks can be seen in Ref[Data in Brief].
+
+In this way, an inference (PROS) for each reference point defined in Fig. 6 could be made.
+
+Through the generation of risk maps, the direction with the lowest risk of collision was passed to the VIP.
+
+PARAGRAPH
+
+The collision risks (CR) are classified from the two datasets.
+
+In the first dataset, the CR is made available as a percentage and, in the second dataset, it is available in five classifications (low, moderate, high, very high and near collision).
+
+These CR classifications are produced from inferences made in all the directions presented in figure 3 of the Ref[Data in Brief].
+
+PARAGRAPH
+
+The dataset produced for the first experiments using Bayesian networks is very simple and only consists of the binary values 0 and 1 which respectively indicate the absence and presence of static objects, dynamic objects, free passage, paths followed by dynamic objects (DO).
+
+Although it is a simple dataset and has only a few permutations, it has already shown benefits when compared to studies that do not use any learning process and the dataset allows the projection process, present in situation awareness theory.
+
+PARAGRAPH
+
+As an alternative to improving the reliability of the collision risk (RC) projection system, a second more complex Dataset was conceived with a much larger set of possibilities, which enabled more accurate risk analysis.
+
+The second dataset has only four input variables and one sorted list output.
+
+However, all the input variables are continuous (Numeric Type).
+
+This dataset calculates the risk of collision based on the 3D positions of the obstacles.
+
+In this way, the risk is more precise than that of the first dataset.
+
+An example of this model is seen in Ref [Data in Brief].
+
+This second dataset has been trained and tested by a set of classifiers and the results are presented in Table 3 of Section 4.
+
+PARAGRAPH
+
+Fig. 12 shows the results of the hazard maps from NSSAS−VIP in the four contexts of Fig. 7.
+
+The maps (Fig. 12 ((a), (b) and (c))) have the following key: Silver area (Distance in meters); Red area (Area of Free Passage); Yellow line (Obstacle between > 1.7 (m) < 2.0 (m)); Green line (Obstacle between (> 1.4 (m) < 1.7) (m)); Red line (Obstacle < 1.4 (m)).
+
+Static Objects more than 2.0 meters away detected by means of the reference points are shown in the Silver area.
+
+These objects have a lower CR than those detected at up to 2.0 meters away.
+
+The black line in maps (a), (b) and (c), represents the probability of CR (%∕10) in 17 directions (using the first dataset).
+
+The green dashed line present in map (c) shows the same kind of result as context (4).
+
+Because the other systems do not perform dynamic object path analysis, only NSSAS−VIP produced this value (the blue text in Fig. 12(c)).
+
+These directions are based on the 26 reference points (see Fig. 6).
+
+Since StripA has the same angles as StripC, only the results of the inferences that produced the greatest CR remained on the map.
+
+These graphs were generated with the values produced by NSSAS−VIP by detecting static objects between 0.6 and 2.0 meters from the VIP.
+
+It can be seen that the maps show the regions of free passage, as well as the distances of the points presented in NS3.
+
+Thus, when checking for the safest regions for traffic, the NSSAS−VIP indicates the direction resulting from the intersection of the region of least collision risks (NSSAS−VIP) with the region farthest from the NS2.
+
+In this way, the main contribution of this project is the generation of this risk map based on a SAW model.
+
+PARAGRAPH
+
+The last of the NSSAS−VIP experiments was with the presence of dynamic objects (see context 4 of Fig. 7).
+
+It is important to remember again that context 3 differs from context 4 only by the presence of the dynamic object.
+
+Thus, the only change in the risk of collision occurred in the direction in which that path was detected.
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+As seen in the experiments section, risk maps were generated that gave the VIP the directions with the lowest collision risks.
+
+The regions that had static objects had an increased risk of collision in that given direction.
+
+In directions where moving object (people) paths or free passage were detected, collision risks were decreased.
+
+PARAGRAPH
+
+The Table 2 shows a comparison between the systems NS1, NS2, NS3, and NSSAS−VIP from the results obtained in the four contexts shown in Fig. 7.
+
+The systems NS1 and NS3 only gave a possible direction for movement, while NS2 provided a region and the NSSAS−VIP provided a map with collision risks for all directions shown in Fig. 6.
+
+The comparison is made using the following characteristics: DI; The distance from the DI (DDI);And Collision Risk (CR).
+
+The CR was based on the SAS-VIP belief model because the NS1, NS2 and NS3 systems did not provide this information.
+
+With the indication of only one central region, for NS2, it was necessary to define one direction to compare with the other NS.
+
+In order for the NS2 not to be restricted to the direction of 90°another process of DI was verified.
+
+According to Kanwal et al. (2015), green dots produce the most distant hazards in the region of safe locomotion compared to dots of other colors.
+
+In this way, a DI was defined based on the region where the green dots are most concentrated.
+
+PARAGRAPH
+
+It can be seen that DI across the four systems are different due to their different navigation approaches but directions are given for most contexts with an approximate CR.
+
+These cases differ more when dynamic object paths are detected and obstacles are closer to the free passage regions.
+
+The results obtained in all contexts of Fig. 7.
+
+PARAGRAPH
+
+Among the four NS presented by Table 2, the NSSAS−VIP presented more reliability because of its combination of beliefs with the detection of obstacles close to the VIP, regions available for free passage and paths of dynamic objects.
+
+In contexts 1 and 2, it can be seen that the CR presented by the two datasets and using different classifiers were the same (10% or LOW).
+
+However, the best direction can be indicated based on longer distances of free passage and longer distances from obstacles.
+
+In context 3, NS1 presented a greater probability of risk through making decisions only with obstacles that are close (less than 2.0 m).
+
+The DI (80°) provided for this case generated a probability of 15% due to the NSSAS−VIP detecting presence of obstacles close to 2.7 m (2.783) and consequently not generating a safe passage.
+
+This is an interesting case to validate and analyze the importance of a belief-based navigation system.
+
+In context 4, in which the path executed by a dynamic object (person) was detected, the CR probability was 3%, while without this analysis, the probability was 10% (Context 3).
+
+This result is important to indicate a direction different from that which would be given to the VIP (see the green dashed line in Fig. 12(c)).
+
+PARAGRAPH
+
+Fig. 12 maps (b) and (c) show different classifications based on the two proposed datasets.
+
+In map (b), in direction 93.1°, the Bayesian network theory applied in the first dataset indicates a 65% probability of collision, in the same way as the following directions (96.3°, 99.5°e 102.6°).
+
+The Naive Bayes classifier ranked in the same direction but using the second dataset gives a moderate chance of collision, different from the following directions (96.3°, 99.5°, and 102.6°) where there is a high possibility of collision.
+
+In Fig. 12 map (c), something similar can be seen in the 99.5°direction.
+
+PARAGRAPH
+
+From these experiments, the second dataset was also more reliable by using the exact positions of the detected obstacles in the inferences.
+
+This allows the introduction of more beliefs and, consequently, the production of more reliable classifications.
+
+Examples of the composition of the inferences used in the first and second datasets are given in Tables 1 and 2 (in Ref [Data in Brief]).
+
+At the top of these maps, the results of the inferences using the second dataset through the Naive Bayes classifier are shown.
+
+Naive Bayes was chosen because it was simple and had a low error rate in the ratings.
+
+The results of the training process using different classifiers can be seen in Table 3.
+
+PARAGRAPH
+
+Fig. 12(c) shows the importance of the position in millimeters to the risk of the collision analysis.
+
+In direction 93.1, a position was detected related to a path taken by a DO.
+
+This object was detected 4005 millimeters away from the VIP.
+
+Thus, it is possible to obtain a more precise calculation and a more reliable result than using the first dataset, which only identifies the presence or absence in a certain direction.
+
+It is important to note that in this direction, Naive Bayes classified the CR as LOW due to the distance of the free passage and the absence of obstacles.
+
+When detecting the position of a path already carried out, the classifier should increase confidence in this direction, but since it was already classified as LOW risk, it remained unaltered.
+
+For this case of direction 93.1, if the free passage was shorter and had been classified as MODERATE, after the detection of the path followed by the DO, this classification would be changed to LOW.
+
+PARAGRAPH
+
+The main contribution of this project lies in the reliability of navigation that SAS-VIP proposes.
+
+Several studies (Aladren et al., 2014; Costa et al., 2012; Kanwal et al., 2015; Lakde and Prasad, 2015; Saputra et al., 2014) provide directions for VIP to travel, but SAS-VIP provides a map and then a direction based on beliefs.
+
+These beliefs help to establish the most trustworthy direction.
+
+PARAGRAPH
+
+Table 3 shows the results of the training processes (in second Dataset) of six classifiers using cross validation with the value of 10 Folds.
+
+This table consists of the following features: the classifiers used; the Correctly Classified Instances (CCI) for each classifier; the Relative Absolute error (RAerror); the average Precision (avg Pc) of each training.
+
+PARAGRAPH
+
+The Table 3 shows that decision tree classifiers used along with the Naive Bayes classifier had the highest CCI and average Pc.
+
+The HoeffdingTree and Naive Bayes classifiers together had the lowest error rate.
+
+The BayesNet CCI greatly decreased in the example where the dataset was modeled with a high number of probabilities and using continuous data (Numeric type).
+
+In order for this classifier to increase its accuracy, data from a large number of instances needs to be added to the dataset until gaps are filled and the classifier has less identification problems.
+
+The accuracy of the classifiers and the number of correct answers were used to validate the modeling process of the second dataset.
+
+PARAGRAPH
+
+SAS-VIP shows that it is possible to understanding the context and generate a risk map in any indoor environment.
+
+The use of the pattern recognition technique would only be a complement to improving the quality of decision making but not a necessity.
+
+Depending on the recognition of an object, a new belief can be attributed to decision making in a particular direction.
+
+Other beliefs may arise through tags, sounds, and sensors.
+
+All the features obtained by the viewing module are based on the formats, positions and actions of the objects in the scene.
+
+These characteristics are important to obtain SAW without external data sources, facilitating decision making at any time in any environment.
+
+PARAGRAPH
+
+Clearly the fusion of data using the SAW model for VIP support systems is a little explored technique; even less so when the SAW reaches the projection level.
+
+Table 1 shows clearly that most projects do not provide techniques for predicting collisions in the near future.
+
+And this is one of SAS-VIP’s main contributions.
+
+Having the perception of objects and their actions, comprehension them and being able to model collisions without depending on the presence of specific entities, is what motivated the development of SAS-VIP.
+
+Consequently, this new architecture, which allows for the perception of different aspects of the environment, needed to be developed.
+
+Another important contribution is that this architecture makes it possible to adjust beliefs according to the assessment of the VIP.
+
+In this way, the risk map can become increasingly effective.
+
+PARAGRAPH
+
+In addition to providing a risk map and a DI to the VIP, the SAS-VIP also emits beeps representing the position changes of dynamic objects, thus comprehending this path in real time.
+
+The system also emits alerts when static objects are detected and the VIP can request the risk map at any time.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Many projects developed to support VIP locomotion indicate the existence of obstacles, their position, distance and alternative routes to follow.
+
+However, few have applied the prediction of impacts based on the comprehension of contexts.
+
+This project developed an architecture that provides a set of feature extractors to enable the perception and comprehension of the environment.
+
+The prediction of impacts is defined after the generation of a risk map, resulting from a set of inferences made in different directions.
+
+The results of the Vision techniques were validated by means of the fusion module.
+
+Without the availability of these characteristics, inferences could not be made.
+
+In this way, this project has made important contributions to the development of navigation systems for VIP aiming to predict and avoid collisions.
+
+PARAGRAPH
+
+The results of the inferences applied in these two datasets made clear the increase in the reliability in the decision making with regard to the risk of collision.
+
+The insertion of information in an organized way in the datasets results in the inclusion of more of the beliefs that humans use when making a decision in a given context.
+
+So, the main advantage of using high-level information fusion is the increase in reliability compared to a proposed empirical solution, where ranges of values are usually used and, consequently, that solution is not reliable.
+
+The proposed datasets also are flexible for the insertion of information that represents new beliefs.
+
+However, the use of high-level information fusion requires complex analysis, using data that goes through refinement processes, and is modeled in a systematic way, so that classification accuracy is high.
+
+Another disadvantage of this type of system is the need for a specialist to insert any new information into the datasets and consequently new dataset learning.
+
+However, on doing so, the system becomes more reliable.
+
+PARAGRAPH
+
+Among these contributions are: the development of an architecture to analyze the scene, distance and position of static and dynamic objects; dynamic object path analysis; the conversion of the obstacle positions in the 2D plane to the 3D plane; the generation of a risk map to indicate the direction that has the least risk of collision.
+
+Finally, the present work discussed the results of the proposed navigation system and made comparisons with other approaches to show the advantages of this HLIF application.
+
+PARAGRAPH
+
+In this study, a more refined feature extraction process in relation to the detection of dynamic objects, especially when camera movement occurs, has also been implemented.
+
+Further developments refer to the module that emits beeps.
+
+The beeps emitted define each detected characteristic and calculated risk based on intensity and duration.

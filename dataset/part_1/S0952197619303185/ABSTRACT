@@ -1,0 +1,35 @@
+10.1016/j.engappai.2019.103405
+
+ABSTRACT
+
+TITLE
+
+Predicting customer absence for automobile 4S shops: A lifecycle perspective
+
+PARAGRAPH
+
+Repair and maintenance services are among the most lucrative aspects of the entire automobile business chain.
+
+However, in the context of fierce competition, customer churns have led to the bankruptcy of several 4S (sales, spare parts, services, and surveys) shops.
+
+In this regard, a six-year dataset is utilized to study customer behaviors to aid managers identify and retain valuable but potential customer churn through a customized retention solution.
+
+First, we define the absence and presence behaviors of customers and thereafter generate absence data according to customer habits; this makes it possible to treat the customer absence prediction problem as a classification problem.
+
+Second, the repeated absence and presence behaviors of customers are considered as a whole from a lifecycle perspective.
+
+A modified recurrent neural network (RNN-2L) is proposed; it is more efficient and reasonable in structure compared with traditional RNN.
+
+The time-invariant customer features and the sequential lifecycle features are handled separately; this provides a more sensible specification of the RNN structure from a behavioral interpretation perspective.
+
+Third, a customized retention solution is proposed.
+
+PARAGRAPH
+
+By comparing the proposed model with those that are conventional, it is found that the former outperforms the latter in terms of area under the curve (AUC), confusion matrix, and amount of time consumed.
+
+The proposed customized retention solution can achieve significant profit increase.
+
+This paper not only elucidates the customer relationship management in the automobile aftermarket (where the absence and presence behaviors are infrequently considered), but also presents an efficient solution to increase the predictive power of conventional machine learning models.
+
+The latter is achieved by considering behavioral and business perspectives.

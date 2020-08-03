@@ -1,0 +1,585 @@
+10.1016/j.jhep.2018.01.012
+
+FULLTEXT
+
+TITLE
+
+Circular RNA cSMARCA5 inhibits growth and metastasis in hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is one of the most common malignancies worldwide.1
+
+Although it has long been highly prevalent in Asia and Africa, it was relatively less common in the Western world.
+
+However, over the past three decades HCC incidence has doubled in the United Kingdom and tripled in the United States.2,3
+
+Largely because of the propensity for metastasis, the five-year survival rate of patients with HCC remains poor, and approximately 600,000 patients die each year.2,4
+
+Identifying prognostic biomarkers and treatment targets for metastatic HCC is of paramount importance.
+
+PARAGRAPH
+
+Circular RNAs (termed circRNAs) are “covalently closed, single-stranded transcripts comprising many RNA species”.5
+
+In the 1990s, a few circRNAs were identified in humans and rodents and found to be produced in the back-splicing of precursor mRNA (pre-mRNA).5–7
+
+However, these circRNAs were present at low levels and considered by-products of splicing.
+
+Recently, high-throughput sequencing and novel computational approaches have shown that the expression of circRNAs is widespread.8,9
+
+Furthermore, using biological experiments, many circRNAs have been proved to be to be highly expressed in a tissue-specific or cell type-specific manner.10,11
+
+Moreover, hundreds of circRNAs are regulated during the human epithelial–mesenchymal transition (EMT).12
+
+These findings demonstrate that the highly expressed circRNAs are not simply by-products of splicing, but suggestive of functionality.
+
+In fact, many studies have proved that circRNAs can function as sponges for microRNAs (miRNAs)13–20 or bind to proteins,21,22 and altered circRNA levels can result in aberrant expression of gene products that may contribute to cancer biology.15–18,21
+
+However, only preliminary studies on the role of circRNAs in HCC have been performed,18,23,24 and the overall pathophysiological contributions of circRNAs to HCC remain largely unknown.
+
+PARAGRAPH
+
+In the present study, by using RNA-sequencing (RNA-seq), we compared the expression of circRNAs between paired HCC and adjacent noncancerous liver (ANL) tissues.
+
+We further characterized one circRNA derived from exons 15 and 16 of the SWI/SNF-related, matrix-associated, actin-dependent regulator of chromatin, subfamily a, member 5 (SMARCA5) gene and termed it cSMARCA5.
+
+The functions and mechanisms of cSMARCA5 in the growth and metastasis of HCC were explored.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Patients and samples
+
+PARAGRAPH
+
+In total, 208 pairs of HCC and corresponding ANL tissues (cohort 1, 2 and 3) and 37 healthy liver tissues (distal healthy liver tissues from patients with liver haemangioma, cohort 4) were obtained from surgical resections of patients without preoperative treatment at Eastern Hepatobiliary Surgery Hospital (Shanghai, China).
+
+Human specimen collection was approved by the Ethics Committee of Eastern Hepatobiliary Surgery Hospital.
+
+Written informed consent was obtained from each patient according to the policies of the committee.
+
+The resected samples were identified by two pathologists independently.
+
+The samples used in RNA-seq, PCR and Western blotting analysis were fresh frozen, and the samples used in IHC (immunohistochemistry) were FFPE (formalin fixed and paraffin embedded).
+
+Among them, five pairs (cohort 1) were used for RNA-seq, 40 pairs (cohort 2) were used for circRNA validation, Western blotting and IHC, and the other 163 pairs (cohort 3) were used for quantification of cSMARCA5 and analysis of the correlation between cSMARCA5 expression and outcome of patients with HCC after hepatectomy.
+
+The detailed clinicopathological features are described (Table S1).
+
+The samples of cohorts 1, 2, 3 and 4 were obtained in 2016, 2016, 2010 to 2011 and 2016 to 2017, respectively.
+
+SECTION
+
+Total RNA isolation, RNase R treatment and RNA-seq
+
+PARAGRAPH
+
+Total RNA was extracted from five paired HCC and ANL tissues using Trizol Reagent (Invitrogen).
+
+After that, DNase I (DNA free kit, Ambion) was used (37 °C, 30 min, twice).
+
+Approximately 3 µg of total RNA from each sample was subjected to the RiboMinus Eukaryote Kit (Qiagen) to remove ribosomal RNA, followed by RNase R treatment as described previously.25
+
+Purified RNAs were treated with RNase R (Epicenter, 40 U, 37 °C, 3 h), followed by purification with Trizol.
+
+Subsequently, using the NEBNext® Ultra™ RNA Library Prep Kit, RNA-seq libraries were prepared and subjected to deep sequencing with an Illumina HiSeq 3000 at RiboBio Co. Ltd., Guangzhou, China.
+
+SECTION
+
+Identification and quantification of circRNAs
+
+PARAGRAPH
+
+The RNA-seq fastq reads were first mapped to the human reference genome (GRCh37/hg19) using TopHat2.26
+
+The unmapped reads were then used to identify circRNAs as previously described.27
+
+Differential expression analysis of circRNAs was performed as previously described.28
+
+We used threshold values of ≥2 (or ≤0.5)-fold change and an adjusted p value <0.01.
+
+The data were Log2 transformed, median cantered by genes using the Adjust Data function of CLUSTER 3.0 software29 and then further analysed by hierarchical clustering with average linkage.
+
+Finally, tree visualization was performed using Java Treeview (Stanford University School of Medicine, Stanford, CA, USA).
+
+SECTION
+
+circRNAs in vivo precipitation
+
+PARAGRAPH
+
+Biotin-labelled cSMARCA5 and control probes (Table S2) were synthesized by Sangon Biotech.
+
+The circRNAs in vivo precipitation (circRIP) assay was performed as mentioned previously.30,20
+
+In brief, cSMARCA5-overexpressing SMMC-7721 cells were washed by ice-cold phosphate-buffered saline, fixed by 1% formaldehyde, lysed in 500 μl co-IP buffer, sonicated and centrifugated.
+
+The supernatant was then added to a probes-M280 streptavidin dynabeads (Invitrogen) mixture and further incubated at 30 °C for 12 h.
+
+After that, to reverse the formaldehyde crosslinking, the probes-dynabeads-circRNAs mixture was washed and incubated with 200 μl lysis buffer and proteinase K. Subsequently, RNA was extracted from the mixture using Trizol Reagent (Invitrogen).
+
+SECTION
+
+Animal studies
+
+PARAGRAPH
+
+The animal experiments in this study conformed to the Animal Research: Reporting of In Vivo Experiments (ARRIVE) guidelines (http://www.nc3rs.org.uk/arrive-guidelines) and were approved by the Institutional Animal Care and Use Committee of Second Military Medical University (Shanghai, China).
+
+The BALB/c nude mice used in this study were all male, five weeks old, and purchased from the Laboratory Animal Resources, Chinese Academy of Sciences (Beijing, China).
+
+All mice were housed in laminar flow cabinets under specific pathogen-free conditions at room temperature with a 12 h light/dark cycle, with food and water available ad libitum.
+
+Subcutaneous tumor growth assays, a liver metastasis model, and a tail vein injection model were implemented as described.32
+
+Metastases were detected using the IVIS@ Lumina II system (Caliper Life Sciences, Hopkinton, MA) 10 min after intraperitoneal injection of 4.0 mg luciferin (Gold Biotech) in 50 µl of saline.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+All statistical analyses were performed using SPSS version 19.0 software (SPSS, Inc., Chicago, IL).
+
+For comparisons, chi-squared test, Student’s t test, Wilcoxon signed-rank test and Mann-Whitney U test were performed, as appropriate.
+
+Correlations were measured by Pearson correlation analysis.
+
+The optimal cut-off value of the relative expression of cSMARCA5 in HCC was determined by a ROC curve (Euclidean distance) analysis in Cutoff Finder (http://molpath.charite.de/cutoff/).33,33
+
+The survival curves were calculated using the Kaplan-Meier method, and the differences were assessed by a log-rank test.
+
+The Cox proportional hazards model was used to determine the independent factors, which were based on the variables selected by a univariate analysis.
+
+Statistical significance was indicated by p values less than 0.05.
+
+∗p <0.05, ∗∗p <0.01, ∗∗∗p <0.001.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Identification of circular RNAs by RNA-seq analysis in human liver samples
+
+PARAGRAPH
+
+We first characterized circular RNA transcripts using RNA-seq analysis of ribosomal RNA-depleted, RNase R (a highly processive 3′ to 5′ exoribonuclease that digests linear RNAs but preserves circRNAs35) treated RNA from human five paired HCC and ANL tissues.
+
+The sequencing statistics were described (Table S3).
+
+We detected 13,686 distinct circRNAs in total (Table S4).
+
+After excluding the very low abundance (average RPM <0.1 both in HCC and ANL) ones, we identified 4,727 circRNAs (Table S5).
+
+Among them, 4,214 circRNAs (89.15%) have been identified in other studies in circBase36 (140,790 human circRNAs), and the other 513 (10.85%) are novel (Fig. 1A).
+
+Furthermore, 4,142 circRNAs (87.42%) consisted of protein coding exons from 2,322 genes (Fig. 1B, Table S4), and the length of most exonic circRNAs was less than 1,000 nucleotides (Fig. 1C).
+
+We analysed the expression of these 2,322 genes in 214 paired HBV-related human HCC and ANL tissues from a Chinese cohort (GSE14520, GPL3921)37 using GEO2R.38
+
+The differentially expressed genes (Table S6) were collected for IPA.
+
+The activated (z-score ≥2) and inactivated (z-score ≤-2) canonical pathways and functions are shown (Fig. S1A and Tables S7 and S8.
+
+PARAGRAPH
+
+The expression analysis showed that a series of circRNAs were differentially expressed in HCC compared with matched ANL tissues.
+
+Among the 236 differentially expressed circRNAs, 108 were upregulated and 128 were downregulated in HCC compared with ANL tissues (Fig. 1D, Table S9).
+
+Among the 236 differentially expressed ones, 190 are from exons.
+
+Among the 190 exonic circRNAs, there are 163 circRNAs whose parent genes’ expression in HCC and ANL can be obtained from GSE14520-GPL3921.
+
+Among the 163 circRNAs, there are 115 (70.55%) whose expression is deregulated in the same direction as their parent genes (Table S10).
+
+PARAGRAPH
+
+To verify the RNA-seq results, we selected eight upregulated (five of high abundance [average RPM in HCC ≥1] and three of low abundance [average RPM in HCC <1]) and eight downregulated (five of high abundance [average RPM in ANL ≥1] and three of low abundance [average RPM in ANL <1]) circRNAs from those that were differentially expressed (Table S9).
+
+We successfully validated five upregulated and five downregulated circRNAs in liver tissues by quantitative reverse transcription PCR (RT-qPCR) using circRNA specific divergent primers and Sanger sequencing (Fig. S1B–D).
+
+Furthermore, after the treatment with RNase R, none of them showed significant changes (Fig. S1E), which demonstrated that they are true circular, and not linear.
+
+We then detected the expression of these circRNAs in 40 paired HCC and ANL tissues by RT-qPCR (Fig. 1E, Fig. S1F).
+
+The finding was consistent with the RNA-seq results.
+
+SECTION
+
+Characterization of cSMARCA5 in HCC
+
+PARAGRAPH
+
+We chose the circRNA derived from exons 15 and 16 of the SMARCA5 gene [CircBase36 ID: hsa_circ_0001445, termed cSMARCA5] for further study (Fig. 2A).
+
+The reasons were as follows: (i) cSMARCA5 was one of the most abundant circRNAs of those that were differentially expressed according to its RPM in our RNA-seq and its absolute quantification in HCC (129.585 copies/cell, assuming 20 pg RNA/cell) and ANL (379.096 copies per cell) (Fig. 2B).
+
+Its abundance in human liver was also proved by a recent study.16
+
+(ii) cSMARCA5 was significantly downregulated in HCC (Fig. 1E, Fig. 2B), although the pre-mRNA of SMARCA5 (pSMARCA5), mRNA of SMARCA5 (mSMARCA5) and protein levels of SMARCA5 were upregulated, as shown in our study (Fig. S2A–D) and as previously reported.39
+
+This finding indicated that the lower expression of cSMARCA5 in HCC was not simply a by-product of splicing and was suggestive of functionality.
+
+(iii) It has been reported that cSMARCA5 could be regulated during the human EMT,12 which has been shown to be of critical importance in the early events of tumor cell metastatic dissemination by endowing cells with a more motile, invasive potential.40
+
+PARAGRAPH
+
+To confirm the circular characteristics of cSMARCA5, random hexamer or oligo (dT)18 primers were used in reverse transcription experiments using RNA from HCC-derived SMMC-7721 cells.
+
+When the oligo (dT)18 primers were used, compared with random hexamer primers, the relative expression of cSMARCA5 was significantly downregulated, while mSMARCA5 was not (Fig. 2C).
+
+This finding proved that cSMARCA5 had no poly-A tail.
+
+Moreover, cSMARCA5 was resistant to RNase R, a highly processive 3′ to 5′ exoribonuclease that digests linear RNAs,35 indicating that cSMARCA5 is circular (Fig. 2D).
+
+Furthermore, we used actinomycin D16,40 to inhibit transcription and then measured the half-life of cSMARCA5 and mSMARCA5 in SMMC-7721 cells.
+
+The results showed that cSMARCA5 was more stable than mSMARCA5 (Fig. 2E).
+
+In addition, RT-qPCR and fluorescence in situ hybridization (FISH) against cSMARCA5 showed the predominant cytoplasmic distribution of cSMARCA5 (Fig. 2F, G).
+
+PARAGRAPH
+
+Collectively, these findings demonstrated that cSMARCA5 is an abundant, circular and stable transcript, significantly downregulated in HCC.
+
+SECTION
+
+The expression of cSMARCA5 in HCC can be regulated by DHX9
+
+PARAGRAPH
+
+It was previously reported that most circRNAs in humans “are processed from internal exons with long flanking introns, usually containing inverted complementary sequences” (inverted repeated Alu pairs or other nonrepetitive but inverted complementary sequences).27
+
+Such sequences are capable of pairing to form RNA duplexes that significantly enhance back-splicing, and thus promote the biogenesis of circRNAs.
+
+Therefore, we investigated whether the formation of cSMARCA5 was promoted by this mechanism.
+
+By aligning the sequence of intron 14 to that of intron 16 of the SMARCA5 gene, we found highly reverse complementary sequences (73% identity over 180 nucleotides, Fig. S3A), although they were not Alu sequences.
+
+We termed them as I14RC (reverse complementary sequences in intron 14) and I16RC (reverse complementary sequences in intron 16), respectively.
+
+To test whether cSMARCA5 was promoted by I14RC and I16RC, wild-type (a 4,241-nucleotide region of the SMARCA5 gene, spanning from intron 14 to intron 16, #1) or a series of deletion constructs (#2-4) for cSMARCA5 were individually cloned into pZW1 vectors42 (Fig. 3A, see methods).
+
+After transfection with the four types of vectors (#1-4), Northern blot showed that the wild-type vector (#1), but not the I14RC and (or) I16RC deletion constructs (#2-4), could overexpress cSMARCA5, which indicated that I14RC and I16RC are indispensable for production of cSMARCA5 (Fig. 3B).
+
+In addition, RT-qPCR further confirmed this result (Fig. 3C).
+
+PARAGRAPH
+
+Next, we explored why cSMARCA5 was significantly downregulated in HCC, while pSMARCA5, mSMARCA5 and the protein level of SMARCA5 were upregulated.
+
+As both circRNAs and mRNAs were derived from pre-mRNAs,10,11,27,42 and circRNAs could be regulated by RNA-binding proteins12,42–45 post-transcriptionally, we assumed that cSMARCA5, but not mSMARCA5, was regulated by certain RNA-binding proteins post-transcriptionally in human HCC development.
+
+PARAGRAPH
+
+To test this hypothesis, we detected the expression of cSMARCA5 in HCC cell lines after individually knocking down all three human RNA-binding proteins12,43,46 which have been reported to broadly regulate the biogenesis of circRNAs.
+
+After knocking down DExH-Box Helicase 9 (DHX9), but not adenosine deaminase 1 acting on RNA (ADAR1) or quaking (QKI), cSMARCA5 was obviously upregulated, while pSMARCA5 and mSMARCA5 did not show significant changes (Fig. 3D, Fig. S3B, C).
+
+PARAGRAPH
+
+DHX9, an abundant nuclear RNA helicase, mainly binds to inverted-repeat Alu elements.47
+
+It can inhibit the production of circRNAs by binding to their flanking inverted complementary sequences and inhibiting the pairing of these sequences.47
+
+We then explored whether cSMARCA5 was regulated by this mechanism.
+
+As expected, cSMARCA5 was upregulated upon knocking down DHX9 using shRNA,48 and this effect could be rescued by overexpressing a wild-type DHX9 transgene but not a ‘helicase-dead’ mutant49 (Fig. 3E, Fig. S3D), suggesting the regulation was dependent on its helicase activity.
+
+Moreover, a region within I16RC (chr4:144465263-144465303, hg19) was among the targets of DHX9 according to a uvCLAP (UV crosslinking and affinity purification) experiment (GSM2258636) performed in a previous study.47
+
+In fact, we conducted RNA immunoprecipitation (RIP) with an antibody against DHX9, and observed a significant enrichment of I14RC and I16RC (Fig. 3F, Fig. S3E).
+
+In addition, in DHX9-downregulated HCCLM3 cells, we found that only the wild-type vector (#1), but not the I14RC and (or) I16 deletion constructs (#2-4), can overexpress cSMARCA5 (Fig. S3F).
+
+Notably, DHX9 was obviously upregulated in HCC (Fig. 3G, H, Fig. S3G) and the expression of cSMARCA5 is negatively related to the histochemistry score of DHX9 in 40 HCC tissues (Fig. 3I).
+
+PARAGRAPH
+
+Taken together, the downregulation of cSMARCA5 was, at least partly, caused by the upregulation of DHX9 in human HCC.
+
+SECTION
+
+Downregulated cSMARCA5 expression predicts aggressive clinicopathological characteristics and poor prognosis in patients with HCC after hepatectomy
+
+PARAGRAPH
+
+We measured cSMARCA5 expression level in another cohort of 163 human HCC and their corresponding ANL tissues by RT-qPCR.
+
+As expected, cSMARCA5 was significantly downregulated in 125 out of 163 (76.69%) HCC samples (Fig. S4A).
+
+We next sought to determine whether cSMARCA5 expression level in HCC was associated with specific clinicopathological characteristics.
+
+Using ROC curve (Euclidean distance) analysis in Cutoff Finder (http://molpath.charite.de/cutoff/),33,33 we found that the optimal cut-off value of the relative expression of cSMARCA5 in HCC was 1.105 for both death and recurrence (Fig. S4B), which divided the 163 HCC patients into a low-cSMARCA5-expression group (n = 85) and a high-cSMARCA5-expression group (n = 78).
+
+We found that a lower cSMARCA5 expression level was significantly correlated not only with poorer tumor differentiation and more advanced tumor stage, but also with tumor size and presence of microvascular invasion (Table 1), indicating that cSMARCA5 was associated with HCC growth and metastasis.
+
+Furthermore, we divided the 163 ANL tissues into a lower fibrosis group (S0-2) (n = 41) and a higher fibrosis group (S3-4) (n = 122), as well as a lower inflammatory activity group (G0-2) (n = 69) and a higher inflammatory activity group (G3-4) (n = 94) according to Desmet and Scheuer.50,50
+
+The expression of cSMARCA5 in these four groups and a healthy liver group (n = 37) did not show significant difference (Fig. S4C), indicating that the expression of cSMARCA5 in ANL may not be associated with liver fibrosis or inflammation.
+
+PARAGRAPH
+
+Furthermore, Kaplan-Meier’s survival curves showed that the patients with HCC and lower cSMARCA5 expression had poorer overall survival ([OS] p = 0.0004) and recurrence-free survival ([RFS] p = 0.0008) after hepatectomy (Fig. 4A, B).
+
+PARAGRAPH
+
+A univariate analysis showed that alpha-fetoprotein (AFP), tumor size, number of tumor, Edmondson’s grade, microvascular invasion, pathological satellite, encapsulation, TNM stage, BCLC stage and cSMARCA5 expression level were significantly correlated with OS or RFS (Table S11).
+
+Subsequently, using these variables, the multivariate analyses indicated that the cSMARCA5 expression level was an independent risk factor for OS, together with AFP, tumor size, pathological satellite, and encapsulation.
+
+These analyses also indicated that cSMARCA5 expression level, together with AFP, tumor size, microvascular invasion, and encapsulation, were independent risk factors for RFS (Table S12, Fig. 4C, D).
+
+PARAGRAPH
+
+Taken together, these data indicate that decreased cSMARCA5 in HCC was associated with growth and metastasis and could be used as an independent prognostic marker for patients with HCC after hepatectomy.
+
+SECTION
+
+cSMARCA5 inhibits HCC growth and metastasis in vitro and in vivo
+
+PARAGRAPH
+
+We examined the expression of cSMARCA5 in a variety of human HCC cell lines by RT-qPCR.
+
+The expression of endogenous cSMARCA5 was the lowest in HCCLM3; moderate in Hep3B, MHCC97H and SMMC-7721; and the highest in Huh7 (Fig. S5A).
+
+Using the abovementioned vector (Fig. 3A, #1), we succeeded in overexpressing cSMARCA5 in SMMC-7721 and HCCLM3 and further obtained stably overexpressing SMMC-7721 and HCCLM3 clones (see methods).
+
+For functional studies, we selected two SMMC-7721 clones (clone 9 and 17) and two HCCLM3 clones (clone 14 and 19), all of which showed approximately fourfold overexpression, to resemble a more physiological situation (Fig. S5B).
+
+Furthermore, using small interfering RNAs (siRNAs) targeting the back-splice sequence, we successfully knocked down the cSMARCA5 in SMMC-7721 and Huh7 cells (Fig. S5B).
+
+mSMARCA5 and SMARCA5 protein levels did not show significant changes after overexpressing or silencing cSMARCA5 (Fig. S5B, C).
+
+PARAGRAPH
+
+The Cell Counting Kit-8 (CCK-8) assay, scratch wound healing, and transwell migration assay revealed a significant delay in the growth and migration of HCC cells after overexpressing of cSMARCA5 compared with the negative control (Fig. 5A–C).
+
+Moreover, knocking down cSMARCA5 promoted the growth and migration of HCC cells (Fig. S5D–F).
+
+PARAGRAPH
+
+To explore the effects of cSMARCA5 in vivo, cSMARCA5-overexpressed cells (SMMC-7721-clone 9) and negative control cells were injected into the bilateral armpit of nude mice (six mice in each group).
+
+The result showed that the growth of tumors from SMMC-7721-clone 9 was significantly inhibited (Fig. 5D).
+
+These subcutaneous tumor tissues were further applied to establish orthotopic implanted intrahepatic metastastic models (six mice in each group).
+
+As a result, the SMMC-7721-clone 9 group had significantly fewer intrahepatic metastases, compared with the negative control group (Fig. 5E).
+
+Subsequently, a lung metastasis model (nine mice in each group) was established by injecting SMMC-7721-clone 9 and negative control cells into the lateral tail vein of nude mice.
+
+As the cells were firefly luciferase-labelled, using an in vivo imaging (IVIS) system as described previously,52 the process of lung metastasis was dynamically monitored.
+
+The photon flux curves showed that the SMMC-7721-clone 9 group had significantly fewer lung metastases (Fig. 5F).
+
+Eight weeks later, haematoxylin and eosin (H&E) staining of dissected lungs further confirmed that overexpression of cSMARCA5 could remarkably inhibit lung metastasis (Fig. 5G).
+
+SECTION
+
+cSMARCA5 may function as a sponge for miR-17-3p and miR-181b-5p
+
+PARAGRAPH
+
+Given that circRNAs have been reported to function as sponges for miRNAs and that cSMARCA5 is stable and located in the cytoplasm, we tried to explore whether cSMARCA5 could bind to miRNAs.
+
+First, we conducted RNA immunoprecipitation (RIP) with an antibody against argonaute 2 (AGO2) in SMMC-7721 and Huh7 cells.
+
+It showed that cSMARCA5, but not cANRIL (a circular RNA reported not to bind to AGO222), was significantly enriched by the AGO2 antibody (Fig. 6A, Fig. S6A).
+
+This result suggested that cSMARCA5 may act as a binding platform for AGO2 and miRNAs.
+
+PARAGRAPH
+
+We next used the MiRanda miRNA target prediction tool to find 65 potential miRNAs that could bind to cSMARCA5 (Table S13).
+
+Among these miRNAs, 29 are expressed in human HCC or ANL (average normalized count ≥1) according to a recent genome-wide study (GSE76903)53 (Table S13).
+
+PARAGRAPH
+
+We purified the cSMARCA5-associated RNAs, by circRIP, using probes specifically against cSMARCA5, and analysed the 29 candidate miRNAs in the complex.
+
+We found a specific enrichment of cSMARCA5, miR-17-3p and miR-181b-5p compared with the controls, while the other miRNAs had no enrichment (Fig. 6B), indicating that miR-17-3p and miR-181b-5p are the cSMARCA5-associated miRNAs in HCC cells.
+
+PARAGRAPH
+
+To further confirm this result, according to the method previously reported,16 we performed a luciferase assay using these two miRNAs.
+
+miR-17-3p or miR-181b-5p mimics was co-transfected with the luciferase reporters into HEK-293 T cells.
+
+Compared with the control RNA, miR-17-3p and l81b-5p reduced the luciferase reporter activity by at least 40% (Fig. 6C).
+
+We then mutated the target sites for miR-17-3p or miR-181b-5p from the luciferase reporter (Fig. 6D).
+
+Using these two luciferase reporters, the luciferase activity did not significantly change after transfection of the corresponding miRNA into SMMC-7721 cells (Fig. 6E).
+
+PARAGRAPH
+
+Furthermore, by a pull-down assay using biotin-coupled miR-17-3p or miR-181b-5p mimics, we observed obvious enrichment of cSMARCA5 compared with the controls, while cANRIL (negative control) had no enrichment (Fig. 6F).
+
+In addition, the double FISH assay indicated the co-localization of cSMARCA5 and these two miRNAs (Fig. 6G).
+
+PARAGRAPH
+
+Moreover, cSMARCA5 did not show significant changes after overexpression of miR-17-3p or miR-181b-5p mimics (Fig. S6B), and neither miR-17-3p nor miR-181b-5p showed significant changes after overexpressing or silencing of cSMARCA5 (Fig. S6C).
+
+These findings suggest that cSMARCA5 and miR-17-3p/miR-181b-5p may not be digested by each other.
+
+PARAGRAPH
+
+All these experiments proved that cSMARCA5 may function as a sponge for miR-17-3p and miR-181b-5p.
+
+SECTION
+
+cSMARCA5 inhibits the growth and metastasis of HCC through the miR-17-3p/miR-181b-5p-TIMP3 pathway
+
+PARAGRAPH
+
+According to previous reports, both miR-17-3p and miR-181b-5p can promote HCC54,54 and certain tumor suppressors of HCC are the targets of miR-17-3p and (or) miR-181b-5p (Table S14).
+
+Thus, we hypothesized that cSMARCA5 inhibits the growth and metastasis of HCC by protecting these tumor suppressors from downregulation by miR-17-3p and miR-181b-5p.
+
+To test this hypothesis, we overexpressed miR-17-3p and miR-181b-5p mimics and measured the expression of their respective targets (Table S14).
+
+As expected, GALNT7,54 VIM54 (the role of VIM in HCC was controversial54,55), and TIMP357,57 were downregulated upon overexpression of miR-17-3p mimics.
+
+CYLD,59,59 LATS2,61,61 NDRG2,63,63 PDCD465,65 and TIMP355,57 were downregulated upon overexpression of miR-181b-5p mimics (Fig. S7A).
+
+Next, we detected the expression of these targets after overexpressing or silencing cSMARCA5.
+
+The results showed that TIMP3, a common target of miR-17-3p and miR-181b-5p, was the most strikingly upregulated when cSMARCA5 was overexpressed, and was the most strikingly downregulated when cSMARCA5 was knocked down (Fig. 7A, B; Fig. S7B).
+
+This effect may be caused by the ability of cSMARCA5 to simultaneously bind to the two inhibitors, miR-17-3p and miR-181b-5p, of TIMP3, and thus upregulate TIMP3 more efficiently.
+
+PARAGRAPH
+
+TIMP3, a well-known tumor suppressor that is downregulated in HCC,58,66 could inhibit the growth and metastasis of HCC55,57,67,68 and predicts favourable survival.67
+
+Therefore, we presumed that cSMARCA5 inhibits the growth and metastasis of HCC mainly by protecting TIMP3 from downregulation by miR-17-3p and miR-181b-5p.
+
+As expected, we observed that exogenous miR-17-3p and/or miR-181b-5p could significantly suppress the expression of TIMP3 and that the suppression was retarded after overexpression of cSMARCA5 (Fig. 7C).
+
+Functionally, CCK-8 assays showed that miR-17-3p and/or miR-181b-5p could promote the growth of HCC cells and that the promotion could be blocked by overexpressed cSMARCA5 (Fig. 7D).
+
+Transwell migration assays showed that miR-17-3p and/or miR-181b-5p could promote the metastasis of HCC cells and that the promotion could be blocked by overexpressed cSMARCA5 (Fig. 7E).
+
+PARAGRAPH
+
+In addition, the mRNA level of TIMP3 was downregulated and positively related to the expression of cSMARCA5 in HCC tissues (Fig. 7F, G).
+
+PARAGRAPH
+
+Collectively, these observations demonstrate that cSMARCA5 inhibits the growth and metastasis of HCC, at least partly, through the miR-17-3p/miR-181b-5p-TIMP3 pathway.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this study, we screened the circRNAs that are differentially expressed between HCC and matched ANL tissues by RNA-seq, focusing on the role and underlying mechanism of the decreased cSMARCA5 expression in HCC progression.
+
+We also found that the downregulation of cSMARCA5 was, at least partly, caused by the upregulation of DHX9 in human HCC.
+
+PARAGRAPH
+
+SMARCA5, which is also termed SWItch/sucrose nonfermentable catalytic subunit SNF2 (SNF2H), is a member of the SWI/SNF family of proteins that have helicase and ATPase activities and are believed to regulate transcription of certain genes by altering the chromatin structure around those genes.
+
+SMARCA5 plays an important role in gene transcription, DNA repair and DNA replication.70,70
+
+It has been shown that the aberrant expression of SMARCA5 plays a critical role in the pathogenesis of various malignancies, including breast cancer, gastric cancer and HCC.39,71,72
+
+In particular, it has been reported that both the mRNA and protein levels of SMARCA5 are increased in HCC tissues compared with ANL tissues, and that SMARCA5 protein promotes HCC cell proliferation by activating the Wnt/β-catenin signalling pathway.39
+
+PARAGRAPH
+
+Interestingly, in our study the level of cSMARCA5 was significantly downregulated in HCC, while mSMARCA5 and the protein level of SMARCA5 were upregulated.
+
+We found that the upregulation of mSMARCA5 and the protein level of SMARCA5 was caused by the upregulation of transcription, as pSMARCA5 was upregulated in HCC.
+
+In addition, the lower expression of cSMARCA5 was caused by the fact that biogenesis from pSMARCA5 could be inhibited by upregulated DHX9 in HCC.
+
+Importantly, both products of the SMARCA5 gene, SMARCA5 protein and cSMARCA5, were associated with HCC.
+
+SMARCA5 protein, a tumor promoter, was upregulated in HCC, while cSMARCA5, a tumor suppressor, was downregulated in HCC, synergistically promoting the progression of HCC.
+
+Notably, why pSMARCA5 was upregulated in HCC must be further explored.
+
+PARAGRAPH
+
+DHX9 is a multi-domain, multi-functional protein, with regulatory roles in DNA replication, transcription, translation, RNA processing and transport, microRNA processing, and maintenance of genomic stability.74
+
+The role of DHX9 in cancers remains contradictory48,74–76 and largely unclear.
+
+The expression and function of DHX9 in human HCC have never been reported.
+
+In our study, we found that the mRNA and protein level of DHX9 were significantly upregulated in HCC and that DHX9 could inhibit the expression of cSMARCA5, a tumor suppressor, suggesting a tumor-promoter role of DHX9 in HCC.
+
+However, we believe that DHX9 may interact with various other targets, including other circRNAs, in HCC progression.
+
+Therefore, the role of DHX9 in HCC requires further investigation.
+
+In addition, an increasing number of RNA-binding proteins involved in circRNA biogenesis are being discovered,5 and two or more RNA-binding proteins may regulate the production of circRNAs synergistically.46,46
+
+Therefore, the regulation of cSMARCA5 in HCC also requires further exploration.
+
+PARAGRAPH
+
+Notably, certain studies using computational analyses have indicated that most circRNAs are not abundant, and may not act as sponges for miRNAs in human and mouse cells.14,77,78
+
+Nevertheless, many circRNAs are abundant, and using biological experiments, an increasing number of circRNAs have been demonstrated to bind to miRNAs.13,15–20
+
+In the present study, using various experiments, we proved that cSMARCA5 may inhibit the growth and metastasis of HCC through the miR-17-3p/miR-181b-5p-TIMP3 pathway.
+
+PARAGRAPH
+
+In conclusion, our study reveals that circRNAs may suppress the growth and metastasis of HCC and serve as a prognostic biomarker in patients with HCC who have undergone hepatectomy.
+
+Furthermore, the regulatory role of the DHX9-cSMARCA5-miR-17-3p/miR-181b-5p-TIMP3 pathway is preliminarily confirmed in HCC.
+
+Our findings lay the foundation for further functional, diagnostic and therapeutic research of circRNAs in HCC.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by National Key Research and Development Program of China (2016YFC1302303); National Key Basic Research Program of China (2014CB542102); National Natural Science Foundation of China (81372207, 81472689, 81502375, 81472691, 81672345, 81402269); Science Fund for Creative Research Groups, NSFC, China (81521091); State Key Program of National Natural Science Foundation of China (81330037).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors who have taken part in this study declared that they do not have anything to disclose regarding funding or conflict of interest with respect to this manuscript.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Study concept and design: Fu Yang and Wei-ping Zhou; Acquisition of data: Jian Yu, Qing-guo Xu, Zhen-guang Wang, Yuan Yang, Jin-zhao Ma and Shu-han Sun; Analysis and interpretation of data: Jian Yu, Qing-guo Xu, and Shu-han Sun; Statistical analysis: Jian Yu; Drafting of the manuscript: Jian Yu and Zhen-guang Wang; Critical revision of the manuscript: Fu Yang and and Wei-ping Zhou; Obtained funding: Wei-ping Zhou, Fu Yang, Shu-han Sun and Ling Zhang; Administrative, technical support: Yuan Yang and Jin-zhao Ma; Study supervision: Fu Yang and and Wei-ping Zhou.

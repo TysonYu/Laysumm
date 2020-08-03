@@ -1,0 +1,897 @@
+10.1016/j.engappai.2019.07.004
+
+FULLTEXT
+
+TITLE
+
+Modeling and Analysis of Students’ Performance Trajectories using Diffusion Maps and Kernel Two-Sample Tests
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Modeling and analysis of students’ performance is a common task that is carried out by researchers and educational institutes (Natek and Zwilling, 2014; Pena-Ayala, 2014; Shahiri et al., 2015; Hoffait and Schyns, 2017; Miguèis et al., 2018).
+
+The goal is to identify important factors that affect the learning process.
+
+Based on these factors, educational policies can be updated and teachers may be encouraged to adopt new educational approaches that enhance and improve the overall learning process.
+
+Common examined factors include the student’s personal background, the acceptance criteria and performance attributes.
+
+PARAGRAPH
+
+Many studies examine the influence of the Scholastic Aptitude Test (SAT ®) on college performance (Fishman and Pasanella, 1960; Young, 2001; Kobrin and Michel, 2006; Keller et al., 2009).
+
+These studies typically use methods like correlation and regression analysis to model this relationship.
+
+It is widely accepted that although the SAT score is generally correlated with college performance, the predictions are not accurate (Rothstein, 2005; Bai et al., 2014) and there are other factors that influence performance (Camara, 2005; Atwood and Pretz, 2016).
+
+One of the case-studies that is addressed in this paper quantifies the relationship between SAT scores and college performance by using kernel based method.
+
+The proposed methods overcome the limitations of regression techniques.
+
+In particular, we show that the reliability of the SAT score as a performance predictor varies in different regions of the data.
+
+Therefore, using a fine quantization of the SAT score values may provide a more accurate performance predictor in the scope of college acceptance criteria.
+
+PARAGRAPH
+
+The second case-study that is presented in this paper examines college performance differences between students with or without learning disabilities.
+
+The number of college students with learning disabilities has increased over the years.
+
+Students with learning disabilities are usually entitled to accommodations in an attempt to make learning conditions equal.
+
+Time adjustments in exams is one of the common accommodations (Gregg, 2009).
+
+Evaluating the effectiveness of the accommodations was addressed in a number of papers (Thompson and Thurlow, 2002; Fuchs et al., 2000; Huesman and Frisbie, 2000), which stated that it is difficult to objectively quantify the influence of the accommodations on performance.
+
+In a later paper (Gregg and Nelson, 2012) students with or without learning disabilities were tested with and without the extra time adjustments.
+
+It was found that time adjustments improve the performance of all students and in particular the performance of students with learning disabilities.
+
+In this study, we model the performance trajectories (learning curve) of undergraduate engineering students with or without learning disabilities by using the kernel based tools.
+
+The results show that these two groups are not equally distributed, and we point out to two characteristic factors that distinguish between the groups.
+
+The obtained analysis may improve the institution’s supporting systems for the group of students that have a learning disability in various periods during their studies and help them reach their full potential.
+
+PARAGRAPH
+
+Typically, the above mentioned case-studies relay on one-dimensional input parameters for constructing statistical analysis models.
+
+However, with the advancement of data collections tools, many of the gathered datasets have become high-dimensional.
+
+Hence, the use of standard statistical methods may be limited in cases that the initial data unit is a vector.
+
+Here, we explore various kernel based methods that are suited for processing high-dimensional input data.
+
+In particular, the input data in this work consists of a vector that holds the student’s average grades over his/her 4 years of undergraduate studies.
+
+This vector is denoted by performance trajectory.
+
+PARAGRAPH
+
+Kernel methods occupy a central role machine learning and recently also in statistical analysis.
+
+The so called kernel trick allows to analyze complex datasets based on a reliable pairwise distance that is defined by the kernel.
+
+When the data is not linearly separable, its mapping to a higher-dimensional space, as defined by the kernel, may simplify the analysis.
+
+In addition, kernels are suited to model datasets of higher-dimensions with possible non-linear connections between the data parameters.
+
+Spectral decomposition of the kernel results in a compact representation for visualizing and analyzing the data, while staying faithful to its original geometric structure and local connections.
+
+These kernel methods are also known as manifold learning techniques.
+
+PARAGRAPH
+
+Manifold learning techniques such as Local Linear Embedding (Roweis and Saul, 2000), Laplacian Eigenmaps (Belkin and Niyogi, 2003, 2004), Local Tangent Space Alignment (Zhang and Zha, 2002) and Diffusion Maps (Coifman and Lafon, 2006) assume that patterns in a high-dimensional ambient space lie in fact on a lower-dimensional manifold.
+
+Moreover, in diffusion maps, which is the manifold learning technique applied in this work, the intrinsic manifold is described by an appropriate diffusion distance (Coifman and Lafon, 2006) that serves as a metric for this data.
+
+When patterns are embedded into the diffusion maps coordinates, the diffusion distance metric becomes the Euclidean metric on the embedded space.
+
+This property makes diffusion methods very attractive when looking for structures in the data that can be characterized by intrinsic geometry.
+
+In practice this means that the distances in the new low-dimensional representation stay loyal to the original structure of the data in the ambient space.
+
+Linear dimensionality reduction methods like Principal Component Analysis (Pearson, 1901) do not have this property.
+
+PARAGRAPH
+
+Another view of a manifold learning and kernel based methods is related to graphs.
+
+A kernel connects the data-points by edges and results in a network in which the data points are the nodes of a graph and the graph’s edges are weighted based on a defined distance between the nodes.
+
+The idea of modeling educational data with graphs recently gained attention in conferences (Lynch et al., 2015) and in journal papers that propose to use directed and undirected graph structures.
+
+Modeling the relations among courses with directed graphs and introducing the notion of concept graph learning was proposed in Yang et al. (2015) and Liu et al. (2016).
+
+In Grawemeyer et al. (2017) and Poulovassilis et al. (2015) graphs were utilized to identify the differences between students with high and low performance when working in an exploratory learning environment.
+
+The PageRank algorithm (Brin and Page, 1998), which is based on a graph representation of a dataset, was applied in London and Nèmeth (2014) for evaluating and ranking of students’ achievements.
+
+The PageRank method uses only the first top eigenvector of the Markov matrix, which is the stationary distribution of a random walk on the link structure of the graph.
+
+Manifold learning techniques use numerous eigenvectors of the graph’s associated Markov matrix, hence, their description of the graph is more accurate when compared to PageRank.
+
+PARAGRAPH
+
+In this paper, two kernel based methods, diffusion maps and the kernel two-sample test are applied to model students’ performance.
+
+Diffusion maps is used for generating a low-dimensional representation of the data and for identifying important characteristic factors that distinguish between groups of students.
+
+The kernel two-sample test (Gretton et al., 2007a, b, 2009, 2012a, b) is a framework based on statistical testing for comparing whether samples are drawn from two different probability distributions.
+
+It has been applied vastly, for example for domain adaptation in Li et al. (2015), Shaham et al. (2017), Tao et al. (2012) and it has recently been extended to work with anisotropic kernels (Cheng et al., 2017).
+
+In the framework of educational data mining, we propose to use this test for quantifying the differences between groups of students, where the data that defines a student is a performance trajectory vector, rather than a single number.
+
+PARAGRAPH
+
+The goal of this work is two-fold.
+
+The first goal is to identify several representative types of student performance trajectories based on the diffusion maps embedding.
+
+The second goal is to use the identified types as a basis for answering different research questions by using a statistical framework.
+
+Two-case studies, which are modeled and analyzed in a similar manner, are presented in this paper.
+
+The first case-study tests whether the distribution of students that receive accommodations significantly differs from those who do not have accommodations.
+
+In the second case-study, we test for significant differences in the distributions between groups of students that have different SAT scores.
+
+PARAGRAPH
+
+The contribution lies in combining the diffusion maps and the kernel two-sample test into a unified framework and applying them to a dataset that holds educational data, which is typically processed by standard statistical tools.
+
+The proposed approach is demonstrated on a dataset that holds over 2000 student performance trajectories of Engineering students.
+
+Our findings show that there are significant distribution differences between students with or without accommodations and between students with different SAT scores.
+
+PARAGRAPH
+
+The paper is organized as follows.
+
+Section 2 provides the mathematical background on diffusion maps and the kernel two-sample test.
+
+The dataset together with relevant background on the institution is provided in Section 3.
+
+Section 4 describes the application of diffusion maps for identifying the characteristic properties that distinguish between types of students’ performance profiles.
+
+In Section 5 the diffusion maps based representation and the kernel two-sample test are applied to two case studies.
+
+Conclusions are presented in Section 6.
+
+SECTION
+
+Mathematical background
+
+PARAGRAPH
+
+This section reviews the mathematical methods that are used in this work.
+
+SECTION
+
+Diffusion maps
+
+PARAGRAPH
+
+Diffusion maps (Coifman and Lafon, 2006) is a non-linear dimensionality reduction technique.
+
+It is suited for modeling and analysis of scattered high-dimensional data, which has in it non-linear connections.
+
+Here, it is assumed that the input data is homogeneous.
+
+The idea is to construct a kernel that faithfully captures the local connections between the data points.
+
+A normalization step followed by spectral decomposition of the kernel results in global parameters that embed the data into Euclidean space, while retaining the local geometric structures.
+
+This property is achieved by specifying a metric denoted by diffusion distance that is defined in the original ambient space and is preserved in the low-dimensional representation.
+
+PARAGRAPH
+
+Given a dataset of N points X={x1,…,xN}, where in general each point can be high-dimensional, a graph G=X,W is constructed.
+
+The data points X are the vertices of G and a kernel matrix of size N×N, which is defined by W=wxi,xj, holds the graph’s weighted edges.
+
+The weight matrix should satisfy the following properties:
+
+SECTION
+
+The kernel scale
+
+PARAGRAPH
+
+Radial based kernels, which are directionally independent, and in particular the Gaussian kernel W=wxi,xj=e−‖xi−xj‖22ϵ are a common choice for the weight matrix of G.
+
+The scale of the kernel, ϵ, defines the local structure that is captured by each data point in the original space.
+
+The value of ϵ should be adapted to the density distribution of the data.
+
+A small kernel scale will result in many points that are not connected by an edge to their neighbors in G and a large scale will fail to capture the fine geometric structures in the data.
+
+Several methods for setting the scale are discussed in Lindenbaum et al. (2016).
+
+Two straightforward approaches that are based on the pairwise Euclidean distances of X are the median scale (Schclar, 2008) ϵmedian=C⋅median{‖xi−xj‖2}and the min–max scale ϵmin−−max=C⋅maxjmini,i≠j‖xi−xj‖2,which was proposed in Lafon et al. (2006) and was recreantly applied in Lindenbaum et al. (2018).
+
+In this work the min–max approach (Eq. (2)) is used.
+
+SECTION
+
+Kernel normalization
+
+PARAGRAPH
+
+There are numerous ways to normalize the diffusion kernel in order to control the effect of the density distribution of the points in X. By introducing a density scale parameter α, a general normalized form of the kernel (see Coifman et al. (2005)) is defined by Wα=wα(xi,xj)=w(xi,xj)qα(xi)qα(xj),qxi=∑xj∈Xwxi,xj.A second normalization is performed for generating a Markov transition matrix K from Wα.
+
+The Markov matrix is given by K=D−1Wα,D=d(xi,xi)=∑xj∈Xwαxi,xj.The matrix K holds non-negative values and its entries can be viewed as the edge probabilities to jump between the vertices of the graph G in one time step.
+
+Three values for the normalization parameter α are discussed in Coifman and Lafon (2006), each results in the convergence of K to a different operator as the scale ϵ→0.
+
+For α=0, density effects are large and K converges to graph Laplacian (Chung, 1997).
+
+Setting α=1 results in an approximation of K to the Laplace–Beltrami operator (Coifman and Lafon, 2006), and it allows to recover Riemannian geometry of points, regardless of their distribution.
+
+Last, for α=12, K converges to the diffusion operator of the Fokker–Planck equation (Nadler et al., 2005).
+
+In this work, since we cannot assure that the sampling of the data points is related to the geometry of the manifolds, the diffusion kernels are constructed with α=1, which reduces the influence of the data’s distribution.
+
+SECTION
+
+Diffusion maps coordinates
+
+PARAGRAPH
+
+The low-dimensional embedding of the dataset X is achieved by computing the spectral decomposition of K. Denote the eigenvalues of K by {λl}l=0N−1 and the left and right eigenvectors by {ϕl}l=0N−1 and {ψl}l=0N−1, respectively.
+
+Although K is not a symmetric matrix, it is conjugate to a symmetric matrix (Coifman et al., 2005), thus the two sets of eigenvectors {ϕl}l=0N−1 {ψl}l=0N−1 biorthonormal ϕm,ψl=δl,m.
+
+From the spectral decomposition, each element in K can be represented by the sum k(xi,xj)=∑l=0N−1λlψl(xi)ϕl(xj).The structure of the matrix K results in a decaying spectrum, λl→0 as l grows.
+
+This property allows to approximate the entries of K in Eq. (5) by considering only a small number of terms d in the sum, and hence the dimensionality reduction.
+
+The diffusion maps coordinates are constructed by the eigenvalues and the right eigenvectors of the normalized kernel K and they are defined by Ψ(xi)=λ1ψ1(xi),λ2ψ2(xi),λ3ψ3(xi),….The first eigenvector ψ0 is not included in the diffusion maps definition.
+
+In order to reduce the dimension of the data, the first d diffusion maps coordinates are considered.
+
+SECTION
+
+Diffusion distances
+
+PARAGRAPH
+
+Within the diffusion maps framework, a locally preserving metric named diffusion distance is defined on the data points.
+
+Diffusion distances measures the distance between pairs of data points in the original space by considering the number and length of paths that connect them.
+
+Two data points xi and xj are close in this metric if the graph G holds many paths that connect between the two points.
+
+Mathematically, the diffusion distance is defined as the weighted L2 distance D2(xi,xj)=∑xm∈Xp(xi,xm)−p(xm,xj)2ϕ0(xm),where ϕ0 is the first left eigenvector of K, which holds the distribution of the Markov matrix.
+
+The nominator of Eq. (7) can expressed by the spectral decomposition of K as defined in Eq. (5).
+
+Substitution of Eq. (5) into the nominator of Eq. (7), while considering the biorthogonality property of the eigenvectors yields D2(xi,xj)=∑l≥1λl2(ψl(xi)−ψl(xj))2.The new representation of the diffusion distances in Eq. (8) shows that the Euclidean distance between the data points in the low-dimensional space as defined by the diffusion maps coordinates is equivalent to the random-walk distance as defined in the ambient space.
+
+SECTION
+
+Diffusion maps algorithm
+
+PARAGRAPH
+
+Algorithm 1 summarizes the diffusion maps construction with the Laplace–Beltrami normalization.
+
+PARAGRAPH
+
+The algorithm takes a set of N high-dimensional points X as its input.
+
+In addition, the scale parameter ϵ that is used in the diffusion kernel has to be defined (see Section 2.1.1).
+
+In Step 1, a Gaussian kernel W of size N×N is constructed.
+
+Next, in Step 2 the Laplace–Beltrami normalization is performed (see Section 2.1.2), resulting with a normalized kernel matrix W1.
+
+In Step 3, the matrix W1 is normalized once more to be row-stochastic, the result is denoted by K.
+
+The eigenvalues and eigenvectors of K are computed in Step 4.
+
+Last, in Step 5 and as explained in Section 2.1.3, the top eigenvectors are used to define the diffusion maps coordinates.
+
+These form the output of the algorithm, where each original high-dimensional point is mapped to the corresponding entries of the computed eigenvectors.
+
+For example, the third data point x3 is mapped to Ψ(x3)=λ1ψ1(x3),λ2ψ2(x3),λ3ψ3(x3),….
+
+SECTION
+
+A kernel two-sample test
+
+PARAGRAPH
+
+The kernel two-sample test allows to compare between distributions of two, possibly high-dimensional, datasets.
+
+Given two sets of samples X={x1,x2,…,xm} and Y={y1,y2,…,ym} that are assumed to be independently and identically distributed, where X∼p and Y∼q, we would like to test whether p≠q.
+
+For simplicity, sets of equal sizes are considered, although in general this is not mandatory.
+
+PARAGRAPH
+
+Recall that a statistical two-sample test distinguishes between the null hypothesis H0:p=q and the alternative hypothesis H1:p≠q.
+
+The test is executed by computing a number named the test-statistic from the sets X and Y and then comparing its value against a threshold.
+
+The null hypothesis H0 is rejected if test-statistic > threshold.
+
+The threshold is defined based on the null distribution, which is the distribution of the null hypothesis H0.
+
+When the calculated test-statistic lies in the tails of the null statistics, we conclude that the samples in X and Y do not come from the same distribution and H0 is rejected.
+
+Typically a parameter α, set to α=0.05 or α=0.01, marks the desired tail of the distribution and the value 1−α marks the 95% (or 99%) quintile of the distribution.
+
+Similarly, the p-value of the test corresponds to the 1−p quintile of the distribution in which the number test-statistic actually lies.
+
+SECTION
+
+Maximum mean discrepancy in reproducing kernel Hilbert spaces
+
+PARAGRAPH
+
+The Maximum mean discrepancy (MMD) is a certain type of test-statistic that allows to accept or reject the null hypothesis H0 for the above described problem.
+
+The test-statistic is formed based on the expected values that are related to the distributions p and q.
+
+Denote these by Exf(x)≔Ex∼pf(x) and Eyf(y)≔Ey∼qf(y).
+
+The following lemma (see Dudley (2002) Lemma 9.3.2 for proof) shows that p=q if and only if values Exf(x) and Eyf(y) are equal.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let X,d be a metric space, and let p, q be two Borel probability measures defined onX.
+
+Then p=q if and only if Exf(x)=Eyf(y) for all f∈C(X), whereC(X) is the class of bounded and continuous functions on X.
+
+PARAGRAPH
+
+Since C(X) is a rich function class, practically it is hard to work with functions defined over it.
+
+In Fortet and Mourier (1953) and Müller (1997) the maximum mean discrepancy was defined over an unspecified function class F as follows.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let F be a class of functions f:X→R and let p,q,x,y,X,Y be defined as above.
+
+The maximum mean discrepancy (MMD) is defined by MMDF,p,q≔supf∈FExf(x)−Eyf(y).Replacing the population expectation by empirical expectations yields a biased estimator MMDbF,p,q≔supf∈F∑i=1mf(xi)−∑i=1mf(yi).
+
+PARAGRAPH
+
+When taking the function class F to be the unit ball in a reproducing kernel Hilbert space H (for further definitions see Gretton et al. (2012a)) with a kernel k=k(x,y), the MMD can be written in terms of the distance between the mean embeddings μp and μq of p and q respectively (Gretton et al., 2007a), by MMD2F,p,q=‖μp−μq‖H2, where μp(t)=Exk(t,x),μq(t)=Eyk(t,y).
+
+Thus, the mean embedding of the distributions p and q are the expected values of the feature map as defined by the kernels.
+
+Moreover, if k is a universal kernel then MDD=0 if and only if p=q.
+
+A simple formula for obtaining the MMD from the kernel functions is provided by the following lemma (Lemma 6, Gretton et al. (2012a)).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Given x andx′ independent random variables with distribution p, and y andy′ independent random variables with distribution q, the squared MMD is MMD2F,p,q=Ex,x′k(x,x′)−2Ex,yk(x,y)+Ey,y′k(y,y′)where x′,y′ come from the distribution of x and y, respectively.
+
+An unbiased empirical estimate for the last sum is MMD2F,p,q=1(m)(m−1)∑i≠jmk(xi,xj)+k(yi,yj)−k(xi,yj)−k(xj,yi).
+
+PARAGRAPH
+
+Last, in order to complete the kernel two-sample test, the null distribution of the MMD has to be approximated.
+
+Several approaches are discussed in Gretton et al. (2009).
+
+Gamma based approximations and approximations based on the Pearson curve fit the low order moments of the empirical MMD.
+
+Another approach uses the spectral decomposition of the kernels and it is proved that this converges in distribution to the population counterpart.
+
+In this paper, the publicly available MMD code ( http://www.cs.cmu.edu/arthurg/software.html) was used for implementation and the null distribution was approximated via the Gamma based approach.
+
+SECTION
+
+The dataset
+
+PARAGRAPH
+
+The dataset that is used in this study was collected between the years 2004 to 2014 in an Engineering department.
+
+The department offers undergraduate studies in several fields: Mechanical Engineering, Electrical Engineering, Industrial Engineering, Biomedical Engineering and Software Engineering.
+
+The duration of the studies is 4 years.
+
+Typically, a student studies between 5−8 courses in each semester.
+
+First year studies are quite similar for all of the disciplines and consist mainly of Mathematics and Physics courses.
+
+In the second to fourth years, there are additional Mathematics and Physics courses that are adapted to each discipline followed by core and advanced courses that are discipline related.
+
+The majority of the first year courses are evaluated based on a single exam.
+
+In later years homework grades and projects may occupy a larger part of the final grade.
+
+PARAGRAPH
+
+The collected dataset contains information on 2300 students.
+
+For each student, the average grade in each semester was calculated.
+
+This 8-dimensional average grades vector, which is associated with each student, forms our main input data table.
+
+In addition, the SAT (standardized test) score is available for roughly 65% of the students.
+
+This score was used for deciding whether or not to accept the student for the requested program.
+
+Another available parameter is whether or not a student received adjustments (accommodations) due to learning disabilities.
+
+The adjustment is expressed by an additional 25% time to each taken exam.
+
+The database also includes additional personal background characteristics that were not used in this study.
+
+SECTION
+
+Identification of student performance trajectories types using diffusion maps
+
+PARAGRAPH
+
+This section explains how diffusion maps are utilized for generating representative performance trajectories and for identifying the main factors that characterize the data.
+
+In particular, diffusion maps is applied to model the dataset that was described in Section 3, which holds 2300 8-semesters trajectories of learners’ performance.
+
+Recall that each value in the 8-dimensional feature vector that is associates with each student holds his/her average grades in a specific semester.
+
+The obtained low-dimensional model is used as a basis for identifying different types of learning trajectories that are governed by a small number of central characteristics.
+
+Algorithm (1) is applied to the 8-dimensional student performance dataset.
+
+It results in a 3-dimensional diffusion maps embedding that is displayed in Fig. 1.
+
+Since the embedding coordinates are nonlinear combinations, which are derived from the original data, one needs to investigate the obtained organization in order to understand and reveal the underlying properties that govern this embedding.
+
+Each point in the embedded space corresponds to a single 8-dimensional performance trajectory.
+
+The computed embedding is a two-dimensional manifold that lies in R3, which indicates that two main factors govern the data.
+
+In Fig. 1 the points are colored by the average grade of the student throughout his/her 4 year studies, the mean value of the 8-dimensional grades vector.
+
+Yellow points correspond to high grade averages and blue points correspond to low grade averages.
+
+PARAGRAPH
+
+In what follows, we continue with a simplified 2-dimensional diffusion maps representation of the data.
+
+The first and the third diffusion maps coordinates ψ1 and ψ3 are used; these coordinates best capture the main directions of the manifold (see Fig. 1).
+
+The two-dimensional visualization is displayed in Fig. 2.
+
+The top embedding colors the points by the average grade of each student’s performance trajectory.
+
+It can be seen that the x-axis, which is the first diffusion maps coordinate, captures the average grade.
+
+In addition, in Fig. 2 (bottom), the points are colored by the variation (standard deviation) of the 8-dimensional performance profile.
+
+Blue points indicate small variations in the profile while yellow points indicate large variations.
+
+Performance trajectories of students with high grades typically have smaller variations, meaning that these student start with high grades and maintain them during their studies.
+
+Students with poor achievements tend to have less stable performance profiles, which vary over the 8 semesters.
+
+PARAGRAPH
+
+In order to generate representative performance trajectories, the embedded data is split into 8 groups (types) according to the values of their diffusion maps coordinates.
+
+The x-axis, which is the longer diffusion coordinate, is split into 4 groups and the y-axis is split into 2 groups.
+
+Together, this separation yields 8 different regions in the embedding space, each correspond to a group of similar trajectories.
+
+The y-axis is simply split according to the sign of the diffusion coordinate (positive or negative).
+
+Since the diffusion coordinates are eigenvectors of the normalized graph Laplacian, they have a norm that is equal to 1, and in practice, points with average behavior are located around the origin of the embedding coordinate system.
+
+Thus, splitting the diffusion coordinates into groups according to the origin is reasonable.
+
+The x-axis is split into 4 groups, two with positive values and two with negative values.
+
+The separation into groups is shown in Fig. 3.
+
+PARAGRAPH
+
+Next, for each group the average trajectory profile, which is the group’s characteristic type, and the standard deviations are calculated.
+
+The types are presented in Fig. 4.
+
+Interpretation of the obtained types points out to two main characteristics.
+
+The first, which is captured by the x-axis, is the average grade of the performance trajectory.
+
+Students with high grade achievements are located on the left and students with low grades are located on the right.
+
+The second is the performance trajectories’ trend.
+
+PARAGRAPH
+
+The y-axis differentiates between two types of trends.
+
+The first is an increasing trend that belongs to students who improve average grades as they advance along their studies, these profiles have a positive y value.
+
+The second is students with a decreasing trend, these students show a degrade in performance as they advance from one year to another, their value in the diffusion coordinate plotted on the y-axis is negative.
+
+PARAGRAPH
+
+Several assumptions can be made to explain the different performance profile groups.
+
+Profile groups A, B, C and D show an increasing grades trend.
+
+In particular this trend can be noticed in groups B, C, where the grades vary around a mean of 80.
+
+This trend can be explained by the students’ developing a learning curve that results in more effective studying and performance.
+
+Additionally, when students fail a class, they must repeat it in the following semesters.
+
+The grades in a course that is taken the second time, are usually higher.
+
+Groups E, F, H and G show a different trend, which is either stable or moderately decreasing.
+
+A possible explanation may be the time students invest in their jobs, especially as they advance in their studies.
+
+The vast majority of Engineering students in the examined department hold a job during their studies.
+
+Typically from the second or third year this job is in the Engineering field, related to their studies, and students tend to increase the number of weekly working hours as they advance in their studies.
+
+Possibly, some students who have low grades to begin with invest more efforts in their job and less efforts in their studies.
+
+PARAGRAPH
+
+Last, the distribution of the trajectories by type is plotted in Fig. 5 as a 3-dimensional bar plot that corresponds to the diffusion maps organization in Fig. 3.
+
+The percentage of trajectories that belongs to each of the 8 groups is described in Table 1.
+
+PARAGRAPH
+
+SECTION
+
+Case studies
+
+PARAGRAPH
+
+In this section, diffusion maps and the kernel two-sample test are utilized for analysis of student performance behavior.
+
+In particular, two case-studies are presented.
+
+Both case-studies examine whether there are significant differences in the performance trajectory distributions between groups of students that share a common external factor, here eligibility for accommodations in the first case-study and SAT score in the second case-study.
+
+In both examples, the statistical kernel two-sample test, which is suitable for processing high-dimensional data, is utilized to test the possible differences in distributions.
+
+The diffusion maps low-dimensional organization is used for understanding and interpretation of the statistical test’s results.
+
+PARAGRAPH
+
+Given a high-dimensional dataset and a statistical hypothesis that one desires to test, the following steps are performed in both of the case studies.
+
+PARAGRAPH
+
+Step 1: Embed the high-dimensional data into a low-dimensional space and identify the main intrinsic factors that drive the data.
+
+(This step was executed in Section 4).
+
+PARAGRAPH
+
+Step 2: Conduct the statistical test: form two equal-sized groups denoted by X and Y, where it is assumed that X∼p and Y∼q.
+
+Perform the kernel two-sample test (see Section 2.2) for deciding whether to accept the null-hypothesis H0:p=q or to reject it (meaning H1:p≠q).
+
+PARAGRAPH
+
+Step 3: Repeat Step 2 in a 5-fold validation manner.
+
+In each fold, randomly sample points for X and Y from the two tested distributions.
+
+PARAGRAPH
+
+Step 4: Aggregate the statistical results of Step 3 to decide if there are significantly different distributions between X and Y.
+
+PARAGRAPH
+
+Step 5: Use the low-dimensional representation from Step 1 for interpreting the statistical test results and for deducing which of the identified intrinsic factors influences the results of the kernel two-sample tests.
+
+PARAGRAPH
+
+When performing statistical tests with 1-dimensional input data, Steps 1 and 5 are not necessary, as interpretation of the results is straightforward.
+
+Here, since the input unit is a high-dimensional vector, these steps are added to understand how the test results are related to the input data.
+
+SECTION
+
+Case-study I: Analysis of performance trajectory distributions for students with or without exam accommodations
+
+PARAGRAPH
+
+This subsection demonstrates how the kernel two-sample test and the constructed diffusion maps representation assist in finding underlying differences in performance trajectories between groups of students with or without exam accommodations.
+
+A subset of 293 students from the dataset that was described Section 3 are recognized with having a learning disability, and therefore receive accommodations.
+
+This process is done by receiving a diagnostics from a known learning disabilities institution.
+
+In practice, the 293 students are eligible for accommodations during their period of studies, the common one being additional 25% (extended time) in quizzes and exams. 147
+
+of the 293 students began their studies with the acknowledged diagnostics and received the adjustments from the first semester.
+
+More than half of the remaining 146 students were recognized as students with learning disabilities during their first year of study, their adjustments (exam accommodations) were immediately approved.
+
+PARAGRAPH
+
+The diffusion maps representation is used for visualizing the distribution of students with accommodations with respect to the entire student population.
+
+Fig. 6 (left) plots the 293 trajectories of students with accommodations in yellow on top of the 2007 trajectories that belong to students without accommodations (in blue).
+
+It can be noticed that the students with accommodations are distributed in all parts of the manifold, however, there seem to be less students from this group that have high performance profiles, which belong to group types A and E from Section 4 (see Fig. 6 (right)).
+
+PARAGRAPH
+
+In the interest of quantitatively assessing the differences between two populations of students with and without accommodations, the kernel two-sample test is applied in the following way.
+
+Three groups are formed form the trajectory dataset, each contain 293 profiles.
+
+The first group, denoted by G1 holds the performance trajectory profiles of the 293 students with accommodations.
+
+The second and third groups each hold 293 randomly selected trajectories that belong to students without accommodations.
+
+These two groups are denoted by G2 and G3.
+
+PARAGRAPH
+
+The kernel two-sample test is performed four times, in which the two tested groups X and Y (as defined in Section 2.2) take the values: X,Y=G1,G2, X,Y=G1,G3, X,Y=G2,G3 and X,Y=G1,G1.
+
+The first and second tests check if there is a difference between the trajectory distributions of students with or without accommodations.
+
+The third test validated that different sub-groups of trajectories that belong to students without accommodations, share the same distribution.
+
+The fourth test assures that different sub-groups of trajectories that belong to students with accommodations, come from the same distribution.
+
+PARAGRAPH
+
+Table 2 plots the results of the tests when running in a 5-fold validation manner.
+
+In the first three tests, the group G1 stays constant but the samples in G2 and G3 are randomly chosen in each fold from the trajectories of students without accommodations.
+
+The fourth test is executed to validate that the accommodated students generally share similar behavior.
+
+In it, X holds 146 random samples from G1 and Y holds another set of 146 samples from G1 that are not included in X.
+
+PARAGRAPH
+
+In each fold of each test the threshold value for the kernel two-sample test as computed with the Gamma approximation (see Section 2.2.1) and it is plotted along with the test statistics.
+
+The larger value between test statistics and threshold is marked in bold.
+
+It can be seen that the difference between the distributions of G1 and G2 is significant, as test-statistics is larger than the threshold in all folds.
+
+Similarly, there is a significant differences between the distributions of groups G1 and G3, as test statistics > threshold in the five tested folds.
+
+On the other hand, there is no significant difference between the distributions of G2 and G3 as test statistics < threshold in all of the 5 folds.
+
+Similarly, for the fourth test, it can be seen that for all of the folds the null hypothesis is accepted, as there is no significant difference between X and Y that both hold trajectories of students with accommodations.
+
+PARAGRAPH
+
+Following the results plotted in Table 2, we would like to further check whether the difference between the groups has to do with the average grade, or is there also a significant difference in the trajectory trend, which was identified in Section 4 as a discriminating characteristic between types.
+
+PARAGRAPH
+
+In order to compare the performance trajectory profiles based solely on their trend, we normalize the dataset so that each trajectory is divided by its norm.
+
+This step results in a set of performance trajectories that have a norm that is equal to 1.
+
+Fig. 7 demonstrates this process on two performance trajectory profiles.
+
+On the left, the original trajectories are plotted and on the right the corresponding normalized ones.
+
+The normalized dataset holds no information regarding the students’ average grades.
+
+PARAGRAPH
+
+The above kernel two-sample tests are repeated with the normalized dataset.
+
+The results are presented in Table 3.
+
+Like in the previous un-normalized dataset, there are significant differences between the distributions of trajectory trends that belong to students with or without accommodations, and no significant distributional differences between trajectory trends that belong to students from the same group.
+
+PARAGRAPH
+
+The test results emphasize that there is an overall difference between the performance behavior of the two groups, and that the difference is related to the two characteristic factors, mean and trend, which were identified by the diffusion maps analysis.
+
+In order to tie the obtained result back to the generated low-dimensional diffusion maps representation, we plot the trajectory distributions of the two groups, similarly to what was done for the entire student population in Fig. 5 and in Table 1 of Section 4.
+
+Fig. 8 shows the differences in performance trajectory distributions between students with and without accommodations.
+
+Tables 4 and 5 display the associated percentages in numbers.
+
+PARAGRAPH
+
+The distributions that are observed in Fig. 8 shed light on the results of the kernel two-sample tests.
+
+We can deduce that for this pupation of undergraduate Engineering students with learning disabilities, which are expressed by time adjustments, generally, overall performance is lower in terms of average grade.
+
+The overall percentage of students with accommodations that have high average grades (types A, E, B and F) is 47.5% compared to 56.6% in the same four groups for students without accommodations.
+
+However, there is an interesting pattern that is related to the trend characteristic.
+
+The majority of the students with accommodations lie in groups A, B, C and D that have an increasing trajectory trend (57.3% according to Table 5, line 1) , while only 49% of their fellow students belong to these four groups (see Table 4, line 1).
+
+This phenomena may be explained by the learning curve of the students with learning disabilities that improves over time.
+
+Another possible explanation is the harsher nature of the first year classes, that serve as a filter for the rest of the studies.
+
+It is possible that the time adjustment accommodation is not effective for these courses as it is later on.
+
+Following this assumption, it is reasonable that some of the students who failed classes repeat them in the following semesters and thus improved their grades.
+
+As for improving the overall learning process and performance of the students with learning disabilities, the Institution may consider to invest in supporting recourses such as tutors, especially in the first year, in order to assist the group of students with learning disabilities.
+
+SECTION
+
+Case-study II: Analysis of performance trajectory distributions for students with different SAT scores
+
+PARAGRAPH
+
+This case-study analyzes the relationship between SAT scores and the students’ performance trajectories.
+
+The SAT score is available for 1498 students from the database.
+
+This subgroup forms the new dataset that is used in the following experiments.
+
+During the years 2004–2014, the SAT score together with high school grades was used to decide whether or not a candidate is accepted to College.
+
+PARAGRAPH
+
+The analysis is carried in a similar flow to that described in Section 5.1, where diffusion maps and the kernel two-sample test are both utilized for analysis.
+
+Fig. 9 plots the distribution of SAT scores in the dataset.
+
+The maximum score for the SAT test is 800.
+
+PARAGRAPH
+
+For visualization, the two-dimensional diffusion maps embedding is plotted in Fig. 10 and colored by the SAT score values.
+
+High values are colored in yellow and low values are colored in blue.
+
+The color does not change smoothly on the manifold, and at first glance there seems to be no obvious correlation between the performance trajectories and the SAT score.
+
+PARAGRAPH
+
+In order to model the global relationship between the SAT scores and the performance trajectories, linear regression is applied.
+
+The SAT scores are regressed against the 8-dimensional profiles.
+
+Although the results indicate a weak linear correlation as R2=0.07, when plotted on the diffusion maps coordinates, a smooth trend appears.
+
+Fig. 11 (left) presents the linear regression results.
+
+The sorted SAT scores are plotted in black and the corresponding regression results are plotted in red.
+
+In Fig. 11 (right), the diffusion maps embedding is colored by the values of the regression results.
+
+We note that similar results are obtained when regressing the SAT score against the two diffusion maps coordinates instead of the 8-dimensional trajectory profiles.
+
+PARAGRAPH
+
+Next, the kernel two-sample test is applied to differentiate between different groups of students in a finer and more accurate manner.
+
+To achieve this goal, the profiles are split into 5 groups based on a quantization of their associated SAT score.
+
+The quantization is given in Table 6.
+
+PARAGRAPH
+
+Based on the split that is defined in Table 6, five groups of students’ performance trajectories are formed.
+
+The smallest groups (Groups 1 and 5) are of size 174, and like in the previous Section 5.1, an equal number of students is taken from all groups by randomly selecting profiles from the larger groups.
+
+The kernel two-sample test is applied to all of the pairs of groups in a 5-fold validation manner.
+
+A random selection of 174 profiles for the larger groups is performed in each fold.
+
+Table 7 displays the results of the test by indicating the number of times that the test-statistic was larger than the threshold (given the 5 folds).
+
+Significant overall differences are marked in bold.
+
+PARAGRAPH
+
+From the first row in Table 7, it can be seen that the two groups of students with low SAT scores (<572) show no significant differences in performance trajectories.
+
+The first and second rows indicate that these same two groups are significantly different from the rest of the three higher SAT score groups.
+
+There is no significant difference between the third and fourth group, that means that students with SAT scores between 572−660 have a similar performance trajectory distribution.
+
+Last, Group 5 with SAT scores >660 shows a significant difference from the other four groups.
+
+Their performance is high (see Fig. 11) and this is correlated with their SAT score.
+
+PARAGRAPH
+
+The kernel two-sample test is repeated with the dataset of normalized profiles, as described in Section 5.1.
+
+Recall that this normalization makes the data invariant to the average grade and the statistical test is solely dependent on the trend.
+
+Table 8 presents the kernel two-sample test results on the pairs of normalized profiles groups.
+
+PARAGRAPH
+
+When using the normalized profiles, the differences between Groups 2, 3 and 4 become insignificant.
+
+However, the performance of Group 1 remains significantly different from Groups 3, 4, and 5 and Group 5 in all tests.
+
+Thus, concluding that the SAT score is generally an indicator for performance and it has some connection to the trajectory trend.
+
+PARAGRAPH
+
+To further understand the differences between the five groups, their distributions are plotted in Fig. 12 in the two-dimensional space.
+
+The associated percentages are presented in Table 9.
+
+It is noticeable that for students with high SAT scores (Groups 4 and 5) there are relatively many student with a high average grade and an increasing trajectory.
+
+In general, and as supported by the performed kernel two-sample tests, the SAT score is correlated to both the average grade and to the increasing or decreasing trajectory type, however, the average grade is more dominant in this case.
+
+In particular we can observe that students with a high or a low SAT score behave significantly different than the others.
+
+However, the majority of the candidates, which have a SAT score between 572−660 and belong to Groups 2, 3 and 4 (see Fig. 9), show less significant differences in performance.
+
+Thus, we deduce that fine discrimination between these three groups as an acceptance criteria, does no serve as an accurate performance predictor in college.
+
+SECTION
+
+PARAGRAPH
+
+Conclusion
+
+PARAGRAPH
+
+In this paper two kernel-based methods that are suited for modeling, visualizing and analyzing of complex datasets were presented and applied to model an educational dataset.
+
+The advantage of both methods is their ability to work with a processing unit that is high-dimensional.
+
+Here, the main processing unit was a performance trajectory profile vector that coded the student’s academic achievements throughout 4 years of undergraduate Engineering studies.
+
+Diffusion maps were utilized for creating a two-dimensional model of the data, while assuring that the constructed representation preserves the local geometric structures of the data, as they appear in the original space.
+
+Furthermore, the diffusion maps coordinates were used define representative types of learners and to reveal two underlying characteristics, average grade and trend, that differentiate between the types.
+
+PARAGRAPH
+
+The kernel two-sample test was applied to two case-studies.
+
+One analyzed the academic performance trajectories of students with or without accommodations.
+
+This case-study shows that students with accommodations have a significantly different distribution compared to students without accommodations.
+
+The differences are related to the two identified factors, average grade and the performance trajectory’s trend.
+
+In general, students with learning disabilities have lower average grades but many of them improve their performance as they advance in their college study program.
+
+The second case-study analyzed the relationship between the SAT scores and the performance trajectories.
+
+It was found that there are significant differences in the distributions of performance trajectories of students with very high or very low SAT scores, when compared to the entire student population.
+
+These differences are more related to the average grade than to the performance trajectory trend.
+
+In addition, based on the kernel two-sample test, the difference between the performance trajectories distributions for most of the student population is not significant.
+
+Thus, the SAT score cannot predict the expected college performance for this group in a reliable way.
+
+PARAGRAPH
+
+The diffusion maps representation together with the kernel two-sample test demonstrate the flexility of the proposed framework and its advantage and ability to enlighten finer and weaker connections that are present in the data, but may be missed when working with global methods like correlations and linear regression.
+
+The approach is general and it can be applied to model and analyze other types of high-dimensional datasets.

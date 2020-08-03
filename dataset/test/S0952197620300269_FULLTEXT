@@ -1,0 +1,719 @@
+10.1016/j.engappai.2020.103515
+
+FULLTEXT
+
+TITLE
+
+Advising reinforcement learning toward scaling agents in continuous control environments with sparse rewards
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+After obtaining great success in performing basic tasks such as solving classic control problems, designing stable legged locomotion gaits, and playing classical Atari games (Brockman et al., 2016), reinforcement learning (RL) associated with deep neural networks has been gaining success in solving highly nonlinear problems without using explicit mathematical modeling.
+
+These problems are not suited for hand-engineered/heuristic solutions and are hard to be expressed through explicit mathematical models, making them difficult to be solved using traditional approaches.
+
+For instance, a physical Shadow Dexterous Hand could perform vision-based object reorientation solely based on simulated training without any demonstration (Andrychowicz et al., 2018).
+
+This approach surpassed all existing non-learning-based approaches.
+
+Another work (Riedmiller et al., 2018) explored the use of active scheduling and execution of auxiliary policies to perform a sequence of correct actions to complete tasks with sparse rewards using a Kinova.
+
+Apart from performing complicated single agent tasks, reinforcement learning was also applied in multi-agent tasks, where multiple robots cooperate with each other to complete one specific task with action optimization Munemasa et al. (2018).
+
+Despite these great successes, solving complicated problems and achieving shorter convergence time remain major challenges in the domain of reinforcement learning research.
+
+PARAGRAPH
+
+This work focuses on addressing the challenges associated with training multiple agents to collaboratively solve a given problem.
+
+This problem hereon referred to as ”scaling agents problem” in this paper, comes up mainly when trying to transfer knowledge from a single agent to multiple agents.
+
+Existing research has focused on teaching a single agent to complete tasks with a high level of complexity.
+
+However, complicated tasks in general require multiple agents to cooperate, which requires learning toward scaling agents.
+
+The different existing techniques to control multi-agent systems can be broadly classified into three categories: (1) training the agents from scratch, (2) building a hierarchical structure and reusing a well-trained single agent neural network and (3) transfer learning approach which involves transferring the knowledge from a well-trained agent in an old environment to a new training agent in a new environment so that it is provided with a basic understanding to quickly start the learning process.
+
+There are many methods that address the above problem, but a comprehensive discussion summarizing all of the existing work in this domain is beyond the scope of this work.
+
+Interested readers should refer to Silva and Costa (2019) for more details.
+
+PARAGRAPH
+
+Training from scratch without any guidance will be computationally expensive, especially as more agents become involved in the target tasks.
+
+Based on existing literature, learning from scratch can gain faster convergence either through a careful design of the reward function (Pong et al., 2018; Popov et al., 2017) or through demonstration data that could be expensive to be collected (Ghalamzan and Ragaglia, 2018).
+
+Using model guidance (Levine et al., 2015), or inverse RL (Vasquez et al., 2014) could also benefit learning to perform complicated tasks.
+
+Building a hierarchical structure is also a traditional approach, for example, a global and local planner/controller will be built and connected together.
+
+The global planner/controller (high-level scheduler) generates a sequence of tasks according to an overall schedule, while the local one solves the planned sub-tasks in a small time period (Riedmiller et al., 2018).
+
+The transfer learning approach aims to reduce the need for samples from the target tasks by using prior knowledge obtained from the source tasks.
+
+Existing work succeeded in generalizing or imitating well-trained behaviors from prior experience and gaining faster learning in the target tasks (Parisotto et al., 2016; Ho and Ermon, 2016; Gupta et al., 2017); however, existing work focuses majorly on learning among single agent tasks.
+
+PARAGRAPH
+
+Each of the above-mentioned approaches have their own specific strengths and weaknesses.
+
+As such, the specific application requirements needs to be taken into consideration before choosing any of the above methods.
+
+The motivating application behind this work is semi-autonomous victim extraction from disaster scenarios.
+
+Casualties in natural and man-made disaster scenarios are often in need of immediate evacuation and medical attention.
+
+Autonomous and/or semi-autonomous rescue robotic systems such as the Semi-Autonomous Victim Extraction Robot (SAVER) (Williams et al., 0000) is an ideal solution in such scenarios.
+
+Use of rescue robotic systems helps to minimize the risk to the lives of human rescue personnel.
+
+The overall SAVER concept is shown in Fig. 1, where a robotic mobile stretcher drives up to a casualty and then performs casualty pose manipulation and extraction based on high level instructions given by a remote operator.
+
+In order to realize safe casualty interaction, this work will focus on developing a framework to teach a dual-arm manipulation system using a well-trained single arm manipulation system.
+
+As an initial step in this direction, the proposed work aims to enable dual-arm pick and place tasks as well as push tasks without internal collisions between the arms, using a trained single arm architecture.
+
+PARAGRAPH
+
+Training a dual-arm manipulation system from scratch may fail or become computationally expensive when using dedicated reward functions as well as the collection of demonstration data.
+
+Applying a hierarchical structure needs large memory for both global and local planner/controller, which in turn limits real-life applications.
+
+Based on the specific requirements of the application at hand, this work explores the application of transfer learning approach to achieve faster convergence on dual-arm learning.
+
+PARAGRAPH
+
+The proposed transfer learning framework is based on teacher–student frameworks, which help a knowledgeable agent to teach a new agent to perform specific tasks.
+
+The teacher–student framework in reinforcement learning was first introduced by Torrey et al. along with a set of heuristic teaching algorithms which only require an agreement on the action set between teachers and students, and allows different state representations (Torrey and Taylor, 2013).
+
+The convergence of these teaching algorithms is guaranteed even if using sub-optimal teacher policy (Zhan and Taylor, 2015).
+
+To avoid the manual parameter tuning inside the heuristic teaching algorithms, learning-based teaching algorithms were studied to determine when to give advice to the student agent (Zimmer et al., 2014; Fachantidis et al., 2017).
+
+Fachantidis et al. further explored the impact of the reward factor on the students’ learning performance using learning-based teaching algorithms (Fachantidis et al., 2017).
+
+Even though learning-based teaching algorithms do not require manual parameter tuning, the computational expense associated with these methods is still high.
+
+Compared to the slight improvement obtained from using learning-based teaching algorithms, this work explores heuristic-based approaches.
+
+Besides applying the teacher heuristics in which the teacher decides when to provide advice, various student heuristics were also explored as interactive training strategies (Amir et al., 2016).
+
+However, most of the student heuristics performed worse than the teaching heuristics.
+
+Multiple agents learning from each other was also studied in Silva and Costa (2019), Leno Da Silva et al. (2017) and Omidshafiei et al. (2019).
+
+Knowledge of individual agents to perform the same task in a shared environment can be transferred to each other and thereby achieve a faster learning and cooperative behavior.
+
+This is similar to the idea of distributed learning using multiple threads.
+
+All the frameworks mentioned above are designed for learning among single agents.
+
+This work is proposed to improve the learning performance of scaling agents.
+
+The main contributions of this paper are as follows:
+
+PARAGRAPH
+
+The rest of paper is organized as follows.
+
+Section 2 introduces the background of RL along with the RL algorithms and techniques used in this paper.
+
+The related work on teacher–student framework with a budget is also presented.
+
+Section 3 presents the proposed teacher–student framework toward scaling reinforcement learning agents.
+
+Following that, implementations and results of the simulation and experiments are presented and discussed in Section 4.
+
+Finally, Section 5 concludes the work with directions for future research.
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+In this section, we introduce the reinforcement learning background and related algorithms that we developed in this paper.
+
+To perform continuous control and stable learning, we chose an off-policy and policy-gradient actor–critic algorithm as the main method used in this work.
+
+Hindsight Experience Replay is presented to improve positive sampling in the sparse reward environment.
+
+One teacher–student framework with a budget, which our work is based on, is also described in this section.
+
+SECTION
+
+Reinforcement learning
+
+PARAGRAPH
+
+Considering a standard reinforcement learning setup, an agent interacts with an environment E in discrete time-steps, which can be formalized as a Markov Decision Process (MDP) and defined by a tuple (S,A,T,R,ρ,γ), where S is a set of states that describes the environment, E, and is assumed equal to the observation, O.
+
+In this work, A is a set of actions via which the agent interacts with the environment.
+
+T:S×A×S→[0,1] presents the distribution of transition to the next state, s′∈S, after taking an action a∈A from the state s∈S.
+
+R:S×A→R is the reward that the agent receives when starting from the state s and taking the action a, ρ:S→[0,1] is the distribution of the initial state s0, and γ∈[0,1] is the discounted factor for the reward which determines the importance of the short-term reward over the long-term ones.
+
+The accumulated discounted reward, Rt, is defined as Rt=∑t′=tTγt′−trt′, where rt′∈R is the reward received at time t′ and T is the time step at which the learning episode terminates. π
+
+is the policy that indicates how an agent acts in a certain state.
+
+The aim of reinforcement learning is to determine the optimal policy π∗ that maximizes the expected accumulated discounted reward using π∗=arg maxπEs0∼ρ,ai∼π,ri,si+1∼E[R0]  Qπ(st,at), as shown in (2), is the state–action value function that describes the expected return value conditioned on taking an action, at, at the initial state, st, and thus taking actions according to the policy, π.
+
+Qπ(st,at)=Eai∼π,ri,si+1∼E[Rt|st,at]
+
+SECTION
+
+PARAGRAPH
+
+Deep deterministic policy gradients
+
+PARAGRAPH
+
+Deep Deterministic Policy Gradient (DDPG) (Lillicrap et al., 2015) is a model-free reinforcement learning approach for the continuous control which combines the actor and critic frames as shown in Fig. 2, and thus inherits the policy gradient from the Deterministic Policy Gradient (DPG) (Silver et al., 2014) and the value function gradient from the Deep Q Network (DQN) (Mnih et al., 2013).
+
+The actor approximates the target deterministic policy, π:S→A, which maps states to a specific action with parameters θπ while the critic approximates the state–action value function, Q:S×A→R, which presents the value of the state–action pair parameterized by θQ.
+
+The critic is meant to drive the value function to the optimal state–action value function Q∗.
+
+The actor is trained to obtain the policy by maximizing the expected return, J, from the start of the distribution, J=Es0∼ρ,ai∼π,ri,si+1∼E[R0]A replay buffer and a separate target network are used to avoid the unstable training (Mnih et al., 2013; Foerster et al., 2017), making the learning approach off-policy.
+
+In practice, the actor is optimized using the mini-batch gradient descent on the loss by rewriting (3) as L(θπ)=−EsQ(s,π(s|θπ))where s are the samples from the replay buffer.
+
+PARAGRAPH
+
+The critic is trained in a similar way as the Q-function in DQN to minimize the approximation loss, L(θQ)=Eai∼π,ri,si+1∼E[(Q(st,at|θQ)−yt)2]where the target, yt=rt+γQ(st+1,π(st+1|θπ)|θQ), is computed using actions outputted by the actor.
+
+SECTION
+
+Hindsight experience replay
+
+PARAGRAPH
+
+Similar to the human ability to learn from unwanted outcomes along with desired ones, hindsight replay experience (Andrychowicz et al., 2017) becomes a goal conditioned policy learning.
+
+It extends the concept of the universal value function approximator (Schaul et al., 2015) to include goals, g∈G, into the MDPs.
+
+The training policy and the value functions are modified to take g as additional inputs.
+
+Thus, the policy and value function become goal conditioned, π:S×G→A and Q:S×A×G→R.
+
+Changes are made to the replay buffer such that a subset of other goals, achieved goal ga in the episode, will be stored in the transitions along with the original goal, (st|g,at,rt,st+1|g,ga), which makes the transitions more informative.
+
+During the training, a subset of samples are modified in which the original g is replaced by the achieved goal, ga∈G, to improve the positive sampling and encourage the learning process.
+
+It should also be noted that the reward in each sample needs to be recalculated based on the new goal, e.g. rt(st+1,g)=−(‖fg(st+1)−g‖>ϵ), where fg presents the achieved goal at a state, s, and ϵ is a precision threshold.
+
+SECTION
+
+Teacher–student framework with a budget
+
+PARAGRAPH
+
+The teacher–student framework for discrete control reinforcement learning under a limited amount of advice is introduced with a set of heuristic strategies to decide when to give advice such as early advising, importance of advising, mistake advising, and predictive advising (Torrey and Taylor, 2013).
+
+The advice used in this work is the action recommended from the teacher agent.
+
+The teacher agent is first well-trained before the teaching process in the environment to gain a decent policy.
+
+It is then used to guide one student agent to behave in the same environment, which has the same state and action space as in the teacher training environment.
+
+In this teacher initiated teaching (Torrey and Taylor, 2013), state importance is used to decide the importance of giving advice at the state, s∈S, by computing the difference between the maximum and minimum Q-function of a well-trained teacher as in, I(s)=maxaQtr(s,a|θtr)−minaQtr(s,a|θtr)The condition of the state importance value, I(s)≥t, is then used along with other criteria to determine whether advice is given or not, where t represents a fixed value threshold.
+
+Mistake correcting methods take one more condition: whether the student-announced action is the same as the output of the teacher policy, πst(s|θst)≠πtr(s|θtr).
+
+Predictive advising uses the action from another prediction model of the student instead of using the output from the student policy, π̃st(s|θst)≠πtr(s|θtr).
+
+It is worth noting that the state-importance based teacher–student framework is limited to applications with finite discrete control due to the computational requirements of the state importance at each advising process in (6).
+
+As the discrete action space increases, the computation of deciding when to teach becomes more expensive and infeasible, thus cannot be applied directly in continuous action.
+
+SECTION
+
+Algorithm
+
+PARAGRAPH
+
+In this section, we introduce the teacher–student framework which is adapted to an environment with a continuous action space.
+
+The algorithm is also further modified for scaling the number of agents in the tasks, in which the teacher policy is trained for a single agent while the student policy is designed for multiple agents in performing same type of a task.
+
+Similar to the idea as in inter-task mapping (Taylor et al., 2007), the proposed algorithm is based on the assumption that the state feature, sˆi, of the ith agent can be reconstructed from the state in the target environment, s, to be in the form of the state in the source environment, sˆi=fis(s):sˆi∈Str,s∈Sstwhere fis is a state feature mapping function from the target environment to the source environment for each agent, i.
+
+The action in the target environment can be constructed from the action in the source agent policy via the mapping function, a=fa(a1,a2,…,an):a∈Ast,ai∈Atrand vice versa, ai=hia(a):a∈Ast,ai∈Atrwhere hia(a) is the inverse mapping function for agent i.
+
+SECTION
+
+Motivating example
+
+PARAGRAPH
+
+The focus of this work is to perform dual-arm pick and place tasks as well as push tasks without internal collisions.
+
+These are the initial steps toward safe casualty pose manipulation and extraction in a semi-autonomous manner based on high level inputs from a remote operator and real-time human pose estimation results (Ren et al., 2018).
+
+Following the development of push, as well as pick and place tasks, a learning architecture to enable dual-arm object manipulation in the presence of soft and hard constraints will be developed.
+
+But this will be performed as part of future work as mentioned in Section 5.
+
+Even though the proposed research aims to enable safe casualty interaction as the overall goal, the proposed approach has a wide range of applications, including situations that need fast training of a target network to control multiple agents based on the knowledge of a single trained agent.
+
+For instance, robot arms are widely used for manufacturing, assembling, and packaging in industry.
+
+They can also be used as an assistive tool for the disabled in their activities of daily living (ADL).
+
+Enabling an autonomous robotic system to perform these high level complicated tasks require the development of fundamental functions including picking and placing, as well as pushing objects to a target position.
+
+PARAGRAPH
+
+Techniques to control a single robotic arm using explicit kinematic and dynamic models (glass box, also referred to as white box) have been developed previously to fulfill these requirements.
+
+Artificial intelligence (black box) (Andrychowicz et al., 2017) can also be used to enable autonomous execution of the above tasks.
+
+However, as the task becomes more complicated, the need to control multiple robotic arms cooperatively arises.
+
+In traditional control, a hierarchical system could be built with a global controller/planner for overall path planning and making each arm be aware of other arms, while local controllers enforce local path following.
+
+The design of a local controller using a glass box approach can take advantage from the experience of designing a controller for a single arm.
+
+In contrast, designing a hierarchical system using a black box approach may introduce redundant layers and the computational need for pre-processing, which can include feature extraction and encoding as well as design and training of a global planner.
+
+The increased computation may present a heavy burden to the control system in real-time applications and thus decrease the performance of the deployed algorithm.
+
+However, training from scratch faces sampling inefficiency as the state and action spaces increase dramatically.
+
+This situation leads to the need for training of a scaling multi-agents problem using the prior knowledge of a well-trained single agent.
+
+SECTION
+
+Teacher–student framework for continuous control
+
+PARAGRAPH
+
+In this section, we will discuss the proposed procedures, including early advising, mistake correcting with Q-value and mistake correcting with an action filter.
+
+The proposed procedures, mistake correcting with Q-value and mistake correcting with an action filter, require student feedback in action selection for the next step.
+
+SECTION
+
+Early advising
+
+PARAGRAPH
+
+A student agent benefits from a guided action data set generated by an expert policy, which is similar to using the demonstration data directly in the same target and source environment (Hester et al., 2017).
+
+In this way, a student agent could gain a basic understanding of tasks and the environment, thus obtaining an early start to the learning process.
+
+Since the scaling problem addresses different target and source environments with the assumption that the state in the target environment can be mapped to the source state, the proposed procedure is designed as follows:
+
+PARAGRAPH
+
+where fisg is a goal conditioned state mapping function in (7), nb is the advice budgets.
+
+SECTION
+
+Mistake correcting with a Q-value filter
+
+PARAGRAPH
+
+Importance Advising and Mistake Correcting are proposed separately for tasks with a discrete action space (Torrey and Taylor, 2013).
+
+In Importance Advising, a teacher agent provides advice whenever the state importance value exceed the threshold, while Mistake Correcting only considers giving advice when the action proposed by the student agent is different from the teachers.
+
+Importance Advising saves time by not acquiring the proposed action from a student agent.
+
+This is different from processing in the discrete action space.
+
+In discrete action space, the maximum and the minimum value of the Q-function can be easily found.
+
+On the other hand, estimating the state importance value in a continuous space is expensive and infeasible.
+
+Instead, the proposed procedure utilizes the teacher policy to estimate the proposed action from the student agent and compared it with the optimal action calculated from the teacher policy.
+
+If the difference reaches some threshold, the teacher proposed action will be applied to the agent.
+
+This approach was named as Mistake Correcting since it involves both the calculation from teacher and student neural network while the Importance Advising only involves the calculation from the teacher neural network.
+
+To distinguish whether the heuristic is based on the q value or the action, Mistake Correcting Q-value and Mistake Correcting Action were named separately.
+
+In both heuristics, the modified state–action importance was denoted as, Ii(s)=Qtr(sˆi,πtr(sˆi)|θtr)−Qtr(sˆi,hia(πst(s))|θtr)The proposed procedure pertaining to the Mistake Correcting with a Q-value Filter is described as follows,
+
+PARAGRAPH
+
+where tI is the threshold for the Q-value Filter to indicate whether a proposed action will lead the agent to a valued state.
+
+SECTION
+
+Mistake correcting with an action filter
+
+PARAGRAPH
+
+One difference between the discrete control space and the continuous control environment is that the actions selected for the discrete control problem are always distinguishable to each other.
+
+This makes the original Mistake Correcting approach judge whether the proposed actions from the teacher and the student policy are different.
+
+However, continuous control does not judge a difference under a certain range, which leads to the idea of Mistake Correcting with an Action Filter.
+
+In this approach, the teacher agent only provides advice when the proposed actions from the student agent are different enough from the teacher’s policy in a certain range.
+
+This can be understood as following a proposed trajectory with a certain precision.
+
+A distance function is designed to measure the distance an action is from a proposed action.
+
+In our work, the Euclidean distance was used where D(a1,a2)=‖a1−a2‖2.
+
+PARAGRAPH
+
+The proposed procedure pertaining to the Mistake Correcting with an Action Filter is described as follows,
+
+PARAGRAPH
+
+where ta is the threshold for the Action Filter to specify the maximum distance that one action can be from the action proposed by the teacher agent.
+
+According to whether ta relies on the value of the teacher action output, these methods are divided to relative (MC_ACT) and absolute versions (MC_ACT_ABS). ta=α,MC_ACT.α∗πtr(fisg(s)),MC_ACT_ABS.
+
+where α is a positive constant chosen as the absolute threshold for the action filter.
+
+SECTION
+
+Simulations and experiments
+
+PARAGRAPH
+
+This section is organized as follows.
+
+Section 4.1 describes the RL environments for training the teacher policy and the student policy with guidance from the teacher policy.
+
+Section 4.2 presents the simulation results from different teaching strategies along with the impact of different thresholds on the learning process and analysis.
+
+Section 4.3 describes the physical experiments with the dual-arm manipulation system using the trained policy.
+
+SECTION
+
+Environments
+
+PARAGRAPH
+
+To train the agent policy and to test the proposed methods, the simulation environment was setup using the 6 Degree of Freedom (DOF) Kinova Jaco arm, which has a three-finger gripper.
+
+The gripper has multiple DOFs but is activated through a single input corresponding with the opening and closing of all the fingers together.
+
+The robot is simulated using the MuJoCo physics engine (Todorov et al., 2012).
+
+Fig. 3 (a,b) presents the training environment for the teacher policy.
+
+The neural network is trained to control only one Jaco arm for the push as well as pick and place tasks.
+
+Fig. 3 (c,d) shows the training environment for student policy, where a different neural network is trained to control two Jaco arms to complete the scaled tasks.
+
+In the push task, the arm needs to push the objects to a desired location on the table while the gripper of the arm is not used.
+
+In the pick and place task, the aim is to pick up the objects placed on the table and then place them at the target positions.
+
+The target positions can be either in air or on the table and the three fingers are actuated symmetrically by one single input state.
+
+Soft contact between the objects and the fingers are simulated in MuJoCo to oppose the slip in the tangential plane and rotation around the contact normal direction.
+
+In both tasks, the initial position of the gripper and the object, and the target position of the object are randomly sampled within the workspace of the Jaco arm.
+
+Inspired by Plappert et al. (2018), the gripper orientation is fixed toward the desk at all times.
+
+A Timestep of 0.002 s is set in the simulator to perform fast and accurate simulation of the dynamic model and soft contact.
+
+SECTION
+
+Observations
+
+PARAGRAPH
+
+PARAGRAPH
+
+The states of the system are obtained from the MuJoCo engine and consist of the robots gripper states and object states including the orientation, position, and velocity.
+
+The teacher training environment consists of the states of one robot and one object while the student training environment consists of a pair of robots and objects with states in the same order as in the teacher training environment.
+
+SECTION
+
+Actions
+
+PARAGRAPH
+
+Instead of controlling the joint angles of the robot directly, position of the end effectors are used as the control input for the robot.
+
+This allows for transferability among different robotic arms.
+
+In real world applications, the desired joint angles can be calculated using an inverse kinematic model.
+
+The orientation of the end effector is fixed toward the ground during the task.
+
+The actions consist of position of the end effector along with one state for controlling the gripper to open/close, Atr={ai:ai∈R4} and Ast={ai:ai∈R8}.
+
+SECTION
+
+Goals
+
+PARAGRAPH
+
+The goals are defined as the set of target positions of objects: Gtr={gi:gi∈R3} is for the teacher environment and Gst={gi:gi∈R6} is for the student environment.
+
+In this work, the observation, goal, and reward in the student environment are constructed by appending the corresponding data from the individual agents, dst=d1∥d2, where di represents the data of agent i.
+
+SECTION
+
+Rewards
+
+PARAGRAPH
+
+In both teacher and student training environments, sparse rewards are used as, rt(st+1,g)=−(‖fg(st+1)−g‖>ϵ), where fg maps the state, s, to an achieved goal, g, and ϵ determines the control precision in the task.
+
+The agent only receives a reward of 1 when getting the object within a threshold of the target position; otherwise, a reward of 0 is received.
+
+The deterministic policies are represented as Multi-Layer Perceptrons (MLPs) with Rectified Linear Unit (ReLU) activation functions.
+
+Three layers of perceptrons are used in training the teacher policy while four layers are used in training the student policy, due to larger number of input features and the increased complexity of the problem.
+
+The discount factor of the cumulative reward is set to 0.98 in all training and testing environments.
+
+The environments and neural network model summary of both the training and teaching scenarios are shown in Table 1.
+
+SECTION
+
+Advice
+
+PARAGRAPH
+
+In the student training environments, the advice given by the teacher agent refers to the recommended action output by the teacher policy.
+
+In all the following training algorithms, the advice budget is set to 500,000.
+
+SECTION
+
+Simulation results
+
+PARAGRAPH
+
+Sixteen workers, each having two rollouts, were used to improve the training efficiency and the parameters are updated after every episode.
+
+Each worker is fixed to a CPU core and the rollouts start with different initial and target conditions, but with the same policy.
+
+To achieve a stable optimization, a target network and a main network were deployed with the same architecture.
+
+The target network and the main network are in the same architecture, while the target network is updated at a slower pace than the main network using a Polyak-averaged version of the main network (Polyak and Juditsky, 1992).
+
+The target network parameters are stored globally and downloaded to the workers before running each episode.
+
+In this work, each epoch consists of generating 50 episodes and training the neural network with 40 batches of 256 transitions.
+
+PARAGRAPH
+
+To compare the performance of the teaching framework for the sparse rewards and the continuous action space environment to obtain the teacher policy, we trained the deterministic policy from scratch without advice in the push, and pick and place environments using the single arm and dual-arm systems as shown in Fig. 3.
+
+The actor and the critic used in the single arm scenario consists of three layers with 256 neurons per layer.
+
+For the dual-arm scenario there are four layers with the same number of neurons.
+
+Both training processes used the HER buffer (Andrychowicz et al., 2017).
+
+Fig. 4 shows the success rate of the training procedures.
+
+The single arm manipulation achieved 90% success rate after 12 and 43 epochs in push, and pick and place tasks, respectively.
+
+The dual arm manipulation achieved 90% success rate after 898 epochs in the pick and place task, but failed in the push task.
+
+This reflects the fact that the task complexity grows rapidly as the dimensionality of the control space increases from the single arm to the dual-arm case as well as the interaction between agents increases.
+
+Compared to the pick and place task using dual-arm, the push task using dual-arm and locked grippers made it more likely to interact with each other in 2D than in 3D.
+
+PARAGRAPH
+
+Figs. 5(a) and 7(a) show the performance of different strategies in the push, and the pick and place environments, including No Advice (NA), Early Advising (EA), Early Advising and Mistake Correcting (EAMC), Mistake Correcting with Q-value Filter with 0.1 threshold (MC-Q01), Mistake Correcting with Action Filter with 0.1 threshold (MC-ACT01) and Mistake Correcting with Action Filter with 0.1 absolute threshold (MC-ACTABS01).
+
+The EAMC procedure applies EA for the first half of the advice budgets and then applies MC for the other half of the advice budgets.
+
+It can be seen from the figure that NA converges much slower than all the others in both cases.
+
+The inspired epoch is defined as the epoch at which the strategy achieves 10% of the maximum success rate it achieved in its training process.
+
+Among all the strategies, the inspired epoch of the MC-Q01 is the lowest, 63 in push task and 86 in pick and place task.
+
+All the other strategies gained a lower inspired epoch as compared to NA.
+
+MC-ACT001 obtained the shortest rise time, which is defined as the number of epochs it takes to increase from 10% to 90% of the maximum success rate it achieved.
+
+MC-Q01 outperforms other strategies in the push task and achieves a maximum success rate of 0.9583.
+
+EA is the best strategy in the pick and place task with a maximum success rate of 0.9750.
+
+Figs. 6 and 8 show the mean Q-value in push and pick and place tasks.
+
+Similar to the success rate, the Q-value converges faster when using advising framework.
+
+PARAGRAPH
+
+To estimate the impact of the threshold of Mistake Correcting on learning performance, three different threshold values were picked, t={0.01,0.05,0.1} and the convergence speed was analyzed.
+
+As the threshold changes from 0.01 to 0.1, the inspired epoch of Mistake Correcting with Q-value Filter decreases significantly from 140 to 63 in push tasks and from 220 to 86 in pick and place tasks, while it does not have a great impact on the Mistake Correcting with Action Filter methods.
+
+This may be due to the fact that the range of action is constrained by the motor while the Q value can be ranged from negative infinity to positive infinity such that Mistake Correcting with Q-value is more sensitive to the threshold value.
+
+This shows that the more loosely the teacher advises the students in the new environment, the more freely the student explores the new environment and thereby obtains knowledge about the new environment as compared to agents with a more strict teacher.
+
+This observation could be attributed to the fact that the student with a loose teacher gains more opportunities to try new actions as compared to the students with a more strict teacher.
+
+This allows the student to gain positive samples via its own policy and knowledge of the new environment, after obtaining a certain amount of advice.
+
+Another concern in transfer learning is the time that one spends to achieve a decent success rate.
+
+Effective learning rate is defined as 90% of the maximum success rate divided by the number of epochs it takes to reach that success rate.
+
+In push task, MC-Q005 achieved a higher effective learning rate as compared to other strategies, while the effective learning rate of all advising strategies in pick and place task are almost equal and they outperform NA.
+
+This may be due to the intrinsic complexity of the push task where the trajectories are constrained on the table surface and attention is provided to avoid collision, resulting in strategies with diverse performance.
+
+The details of the impact factor on the performance of different advising strategies is summarized in Table 2.
+
+PARAGRAPH
+
+It is important to note that the EA slightly outperforms all the other strategies with large advising threshold in the pick and place task.
+
+The strategies with a large threshold result in more fluctuation in the success rate and lowers it in general for the pick and place task.
+
+However, in the push task this phenomenon is not apparent.
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+This section presents the real world experimental validation of the trained policy obtained from the simulation on two Kinova Mico arms with Quanser SDK.
+
+The algorithm used to generate the workspace trajectories for the arms to complete the tasks is agnostic to the robot.
+
+This claim is experimentally validated by transferring the knowledge obtained from a 6-DOF arm, in simulation to a 4-DOF arm used for the experiments.
+
+PARAGRAPH
+
+Two Quanser Mico arms (Kinova, 2018) used for the push, and the pick and place experiments are shown in Fig. 9.
+
+The Mico arm is a 4-DOF robotic arm with a 2-finger gripper, retrofitted by Quanser with a real-time control interface capable of running in MATLAB and Simulink (MathWorks).
+
+The Simulink blocks, provided by the Quanser SDK, allows for precise joint and torque control.
+
+The 2-finger gripper is programmed to be controlled by one input during the pick and place experiment while it is kept locked in the push tasks.
+
+The specifications of the robotic arms can be found in Table 3.
+
+PARAGRAPH
+
+The desired trajectories, the position of the end effector and the open/close commands for the gripper, are generated by the well-trained dual-arm student policy.
+
+The Quarc simulator from Quanser was used to check the feasibility of the proposed trajectories before they were executed by the real robots.
+
+Object positions were kept to be the same for both the tasks in the simulation and real world experiments.
+
+But the size of the objects for the push task were modified from 5.6 cm to 9 cm in real world experiments for compatibility with the grippers.
+
+PARAGRAPH
+
+To evaluate the improvements brought about by the proposed methods, we used the from scratch method of training as the baseline method for this work.
+
+We applied the best well-trained policies generated from the proposed methods and the baseline method to the robotic manipulators to perform the tasks, respectively.
+
+For push, as well as pick and place tasks, 50 trials of the real-world experiments were performed with different initial and target conditions generated randomly using either policy.
+
+In the push task, 40 out of 50 trials ended with success using the proposed methods while all trials failed using the baseline method.
+
+In the pick and place task, 38 out of 50 trials resulted in success using the proposed methods while 30 out of 50 trials resulted in success using the baseline method.
+
+The experimental results are presented in Table 4.
+
+PARAGRAPH
+
+For the 10 failed trials of the push task using the proposed methods, the robot arm failed to move the object in the right direction as the object rolled away from the gripper during the push process.
+
+This could be due to the difference in the grippers used in the experiment as compared to the training environment.
+
+Inaccuracies in modeling physical properties of objects inside the simulated environment could also result in poor performance of the trained policy.
+
+All trials using the baseline method ended in either case of exceeding the testing time or breaking the safety rules such as collision with each other or with the table.
+
+PARAGRAPH
+
+In the 12 failures in the pick and place tasks using the proposed methods, the gripper failed to grasp the object while moving in 3D.
+
+This could also be due to the difference in physical properties such as deformation and friction of the objects in real life as compared to the simulation.
+
+Even though the real world experiments sometimes failed due to inaccuracies in modeling object–gripper contact and interaction, no collisions of the robot arms were seen in the real-world experiments.
+
+This indicates that the teacher–student framework assists the student in learning the additional requirements that come with the multi-agent problem (in this case collision avoidance).
+
+Among the 20 failures in the pick and place tasks using the baseline method, 8 failures were caused by reaching the target position inaccurately, while the other failures were caused by failing to grasp the object firmly during the movement.
+
+SECTION
+
+PARAGRAPH
+
+Conclusion and future work
+
+PARAGRAPH
+
+Solving problems using multiple agents is an effective approach toward tackling complicated tasks that typically involve high dimensional workspace.
+
+Unlike the classical method of stacking the individual controller with explicit mathematical model to create a hierarchical controller, stacking multiple well-trained single-agent neural networks is prone to make the overall system redundant and expensive for real-time computation.
+
+Training a new super agent for multiple agent control from scratch is computationally intensive and requires careful design of hyperparameters to guarantee convergence.
+
+PARAGRAPH
+
+In order to handle the scaling problem in training multiple agents to perform a specified task, this paper extends prior research on advising framework by leveraging the knowledge of a well-trained-single agent.
+
+Furthermore, this work adapts the previous advising framework to allow for continuous control and presents a set of advising strategies that accelerate the learning process as compared to training from scratch.
+
+Furthermore, the proposed training framework avoids bias and convergence to a sub-optimal solution by using demonstration data.
+
+The performance resulting from different strategies are analyzed using different hyperparameters and demonstrated using physical experiments with a dual-arm robotic system.
+
+The experimental validations demonstrated the benefits in using different advising strategies.
+
+“Mistake Correcting with Q-value Filter” outperformed all the others in the push task, “Early Advising” gained the highest success rate in the pick and place task, “Mistake Correcting with Action Filter with 0.01 threshold” obtained the shortest rise time in both tasks.
+
+This shows that different strategies have different benefits and they need to be chosen based on the requirements of the task at hand.
+
+This provides directions for future applications of the above techniques.
+
+Even though the threshold may need to be tuned for different tasks to obtain the best performance, all the strategies showed the benefit of a faster convergence rate under the proposed approach.
+
+PARAGRAPH
+
+While the strategies proposed in this work were implemented in a deterministic environment, they could also be applied in a stochastic case.
+
+However, a more robust solution could be developed for the purely stochastic case.
+
+For example, deciding whether or not to give an advice could be evaluated based on the similarity between the policy distributions of the teacher and the student agents.
+
+PARAGRAPH
+
+Having addressed the scaling problem effectively, the next step in multi-agent learning is to enable cooperative behavior at a higher level by implementing behavioral constraints that either persist or are conditional.
+
+An example case would be to use the dual-arm system to collaboratively move a single object.
+
+Another case would be to enable the arms to safely operate in an environment with moving objects.
+
+Developing these capabilities as part of future work will be the next step in realizing safe casualty extraction using the SAVER system.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Hailin Ren: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Resources, Data curation, Writing - original draft, Writing - review & editing, Visualization, Supervision.
+
+Pinhas Ben-Tzvi: Conceptualization, Methodology, Validation, Investigation, Resources, Writing - original draft, Writing - review & editing, Visualization, Supervision, Project administration, Funding acquisition.

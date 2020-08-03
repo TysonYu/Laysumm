@@ -1,0 +1,719 @@
+10.1016/j.engappai.2019.103292
+
+FULLTEXT
+
+TITLE
+
+A combined entropy-based approach for a proactive credit scoring
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The main task of a Credit Scoring system is the evaluation of new loan applications (from now on named instances) in terms of their potential reliability.
+
+Its goal is to lead the financial operators toward a decision about accepting or not a new credit, on the basis of a reliability score assigned by the Credit Scoring system (Morrison, 2004).
+
+In a nutshell, the Credit Scoring system is a statistical approach able to evaluate the probability that a new instance is considered reliable (non-default) or unreliable (default), by exploiting a model defined on the basis of previous instances (Mester et al., 1997; Henley, 1994).
+
+Banks and credit card companies use credit scores to determine who qualifies for a loan, at what interest rate, and at what credit limits.
+
+Therefore, Credit Scoring systems reduce losses due to default cases (Henley et al., 1997), and, for this reason, they represent a crucial instrument.
+
+Although similar technical issues are shared, Credit Scoring is different from Fraud detection, which consists of a set of activities undertaken to prevent money or property from being obtained through false pretenses.
+
+PARAGRAPH
+
+Thanks to their capability to analyze all the components that contribute to determine default cases (Fensterstock, 2005), Credit Scoring techniques can also be considered a powerful instrument for risk assessment and real-time monitoring (Brill, 1998).
+
+PARAGRAPH
+
+Moreover, lenders may also use credit scores to determine which customers are likely to bring in the most revenue.
+
+However, as usually happens with other similar contexts (e.g., Fraud Detection (Pozzolo et al., 2014)), the main problem that limits the effectiveness of Credit Scoring classification techniques is represented by the unbalanced distribution of data (Batista et al., 2004).
+
+This happens because the default cases available for training the evaluation model are fewer than the non-default ones, hampering the performances of machine learning approaches applied to Credit Scoring (Japkowicz and Stephen, 2002).
+
+To note that the unbalanced distribution of data is one of the problems that enables the cold start problem.
+
+As such, approaches for balancing data mitigate the cold start problem as well.
+
+PARAGRAPH
+
+To overcome such an issue, in this paper we evaluate the instances in terms of their features entropy, defining a metric able to measure their level of reliability considering only non-default cases and the instance under investigation.
+
+More formally, we evaluate the reliability of a new instance in terms of comparing the Shannon Entropy (from now on referred simply as entropy) measured within a set of previous non-default instances before and after adding the instance under investigation.
+
+As the entropy measures the uncertainty of a random variable, a larger entropy in the set including the sample investigated indicates that it contains similar data in its features, which increases the level of equiprobability, and then we tend to classify it as reliable.
+
+Otherwise, it contains different data and we consider the instance as unreliable.
+
+Such a process allows us operating proactively, overcoming the issue related to the unbalanced distribution of the data and, at the same time, mitigating the cold-start problem (i.e., the scarcity or total absence of default examples).
+
+PARAGRAPH
+
+We report comparisons between our approach and Random Forests, which are considered state-of-the-art approaches for credit scoring tasks (Lessmann et al., 2015; Brown and Mues, 2012; Bhattacharyya et al., 2011).
+
+For that we used two real-world datasets, characterized by different distribution of data (unbalanced and slightly unbalanced).
+
+Experiments results show that, although our approach is trained on reliable cases only, it has similar performances to the Random Forests.
+
+PARAGRAPH
+
+Therefore, the main scientific contributions given by this paper are listed below:
+
+PARAGRAPH
+
+This paper is based on a previous work (Saia and Carta, 2016), which has been completely revised, rewritten, improved and extended with the following novel contributions:
+
+PARAGRAPH
+
+The remainder of the paper is organized as follows.
+
+Section 2 discusses the background and related works of credit scoring.
+
+Section 3 describes the implementation of the proposed approach.
+
+Section 4 provides details on the experimental environment, the adopted datasets and metrics, as well as on the implementation of the proposed approach and the competitors.
+
+Section 5 shows the experimental results and, finally, some concluding remarks and future work are given in Section 6.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+The research related to the Credit Scoring has grown quite significantly in recent years, in coincidence with the exponential increase of consumer credit (Hand and Henley, 1997).
+
+The literature proposes a large number of Credit Scoring techniques (Doumpos and Zopounidis, 2014; Saia and Carta, 2016; Saia et al., 2019) to maximize Eq. (1), along with several studies focused on comparing their performance in several real-world datasets.
+
+We discuss some of such solutions in the remaining of this section.
+
+PARAGRAPH
+
+The work in Saia et al. (2018) used the Wavelet transform and three metrics to perform credit scoring.
+
+Similarly, the approach in Saia and Carta (2017) moved the credit scoring from the canonical time domain to the frequency one, by comparing differences of magnitudes after Fourier Transform conversion of time-series data.
+
+An interesting approach was proposed in Saia and Carta (2016), which presents a comparison of non-square matrix determinants identify the reliability of users data to allow money loan.
+
+The work in Ceronmani Sharmila et al. (2019) used a score based on outlier parameters for each transaction, together with an isolation forest classifier to detect unreliable users.
+
+Kolmogorov–Smirnov statistics were used in Fang and Chen (2019) to cluster unreliable and reliable users.
+
+Authors of Zhang et al. (2018) used data preprocessing and a Random Forest optimized through a grid search step.
+
+A three-way decisions approach with probabilistic rough sets is proposed in Maldonado et al. (2018).
+
+In Zhu et al. (2018), a deep learning Convolutional Neural Network approach is used for the first time for credit scoring, which is applied to features that are pre-processed with the Relief feature selection technique and converted into grayscale images.
+
+An application of kernel-free fuzzy quadratic surface Support Vector Machines is proposed in Tian et al. (2018), and an interesting comparison of different neural networks, such as Multilayer Perceptrons and Convolutional Neural Networks for Credit Scoring is done in Neagoe et al. (2018).
+
+An extensive work in this sense was done in Lessmann et al. (2015), where a large scale benchmark of forty-one methods for the instance classification has been performed on eight Credit Scoring datasets.
+
+Another type of problem, related to the optimization of the parameters involved in these approaches was instead tackled in Ali and Smith (2006), which also reports a discussion about the canonical metrics used to measure the performance (Hand, 2009).
+
+PARAGRAPH
+
+Machine learning techniques can also be combined in order to build hybrid approaches of Credit Scoring as, for instance, those presented in Lee and Chen (2005), Wang et al. (2011), which exploit a two-stage hybrid model with artificial neural networks and a multivariate adaptive regression splines model, or that described in Hsieh (2005), which instead exploits neural networks with k-mean clustering method.
+
+Another kind of classifiers combination, commonly known as ensembles, has also been extensively studied in the literature.
+
+The work in López and Maldonado (2019) used several classifiers, including SVMs and logistic regression, in order to validate a feature selection approach, called group penalty function, which penalizes the use of variables from the same source of information in the final features.
+
+In Guo et al. (2019), a multi-step data processing operation that includes normalization and dimensionality reduction, allied with an ensemble of five classifiers optimized by a Bayesian algorithm, are used in the pipeline.
+
+The work in Zhang et al. (2018) ensembles five classifiers (logistic regression, support vector machine, neural network, gradient boosting decision tree and random forest) using a genetic algorithm and fuzzy assignment.
+
+In Feng et al. (2018), a set of classifiers are joined in an ensemble according to their soft probabilities.
+
+In Tripathi et al. (2018), an ensemble is used with a feature selection step based on feature clustering, and the final result is a weighted voting approach.
+
+PARAGRAPH
+
+Other works are closely related and can be integrated to Credit Scoring application.
+
+For example, in user profiling, users can be considered good and bad borrowers, not only according to core credit information, but also their behavior in social networks.
+
+In this sense, the work in Vedala and Kumar (2012) used a Naive-Bayes based classifier in both features: hard (credit information) and soft (friendship and group information).
+
+Linguistic-based features are coupled with machine learning classifiers in Sewwandi et al. (2017) to detect a person’s behavior.
+
+Finally, the work in Sun et al. (2018) used deep learning through Long Short Term Memory networks on texts to define the personality of a person.
+
+PARAGRAPH
+
+Notwithstanding, several issues and limitations are still considered open problems in Credit Scoring tasks.
+
+We discuss all of them in the following:
+
+PARAGRAPH
+
+Some works have focused on the problem of imbalanced learning in datasets.
+
+In Jiang et al. (2015), the authors presented a technique that clones the minority class instances according to the similarity between them and the minority class mode.
+
+The work in Jiang et al. (2014) proposed cost-sensitive Bayesian network classifiers, which incorporate an instance weighting method giving different classification errors to different classes.
+
+Authors in Tang and He (2017) proposed undersampling and oversampling approaches based on a novel class imbalance metric, which splits the imbalance problem into multiple balanced subproblems.
+
+Then, weak classifiers trained in a bagging manner are used in a boosting fashion.
+
+The approach proposed in Yang et al. (2018) capture the covariance structure of the minority class in order to generate synthetic samples with Mahalanobis Distance-based Over-sampling and Generalized Singular Value Decomposition.
+
+The research performed in Zhang et al. (2017) studied potential bias characteristics of imbalanced crowdsourcing labeled datasets.
+
+Then, the authors proposed a novel consensus algorithm based on weighted majority voting of four classifiers.
+
+Such algorithm uses the frequency of minority class to obtain a bias rate, assigning weights to the majority and minority classes.
+
+The authors of Vluymans et al. (2018) enhanced a multi-class classifier based on fuzzy rough sets.
+
+Firstly, they propose an adaptive weight setting for the binary classifiers involved, addressing the varying characteristics of sub-problems.
+
+Then, a new dynamic aggregation method combines the predictions of binary classifiers with a global class affinity method before making a final decision.
+
+Finally, authors in Zhang et al. (2016) evolved one-vs-one schemes for multi-class imbalance classification problems, by applying binary ensemble learning approaches with an aggregation approach.
+
+PARAGRAPH
+
+However, differently from all of these previous approaches, our method does not need any samples from the minority class in the proposed pipeline, a problem that can happen specially when the cold-start problem arises (i.e., there is no default cases in the dataset).
+
+Our approach faces these problems by training its evaluation model using only one class of data (the non-default cases, or the majority class), comparing entropy-based metrics behavior of non-evaluated samples before and after they are added to a set of previous non-default samples.
+
+Therefore, our proposed approach represents a side effect of adopting a proactive methodology by being aware of limitations of the environment.
+
+We discuss further details of our proposed approach in the next section.
+
+SECTION
+
+Proposed approach
+
+PARAGRAPH
+
+Before we discuss our solution for the credit score in more details, let us define the problem of Credit Scoring more formally.
+
+Given a set of classified instances T={t1,t2,…,tK} and a set of features F={f1,f2,…,fM} that compose each t∈T, we denote as T+={t1,t2,…,tN} the subset of non-default instances (then T+⊆T), and as T−={t1,t2,…,tJ} the subset of default ones (then T−⊆T).
+
+We also denote as Tˆ={tˆ1,tˆ2,…,tˆU} a set of unclassified instances and as E={e1,e2,…,eU} these instances after the classification process (thus |Tˆ|=|E|).
+
+It should be observed that an instance can only belong to one class c∈C, where C={reliable,unreliable}.
+
+So, the Credit Score system problem is to define a function eval(tˆu) which returns the maximum sum of a binary value σ, used to assess the correctness of tˆu classification (i.e., 0=misclassification, 1=correct classification), or max0≤σ≤|Tˆ|σ=∑u=1|Tˆ|eval(tˆu).
+
+PARAGRAPH
+
+Given such concepts, the implementation of our approach has been carried out through the following four steps:
+
+PARAGRAPH
+
+A pipeline of the proposed EDA approach is shown in Fig. 1.
+
+In the first step, the set of previous non-default instances T+ and the set of instances to be evaluated Tˆ are preprocessed, performing a feature selection task aimed to exclude from the evaluation process the features with a low level of characterization of the instances.
+
+This step reduces the computational complexity and returns sets with reduced features T+′ and T′ˆ.
+
+In the next steps, the local entropy is calculated for each feature of the set T+′, as well as the global entropy of all the features in T+′.
+
+The last step performs the comparison between the local and global entropy previously calculated for the set T+′, and the same information calculated for adding each element of the set T′ˆ to T+′, classifying the non evaluated instances on the basis of the threshold Θ.
+
+The result of the entire process is then stored in the set E.
+
+PARAGRAPH
+
+Algorithm 1 describes the general idea of the approach and is composed of two steps.
+
+It receives as input the set T+ of reliable instances, the set Tˆ of non-evaluated instances and three thresholds: min1, and min2 from the feature selection approach, and Θ from the proposed EDA approach.
+
+The first step calculates the reduced features using basic and mutual Shanon entropies metrics to eliminate features according to thresholds min1 and min2 (a process further discussed in Section 3.1).
+
+The transformed sets T+′ of reliable instances and T′ˆ of non-evaluated instances are then the input of the proposed EDA approach (Section 3.4), which classifies each t′ˆ∈T′ˆ by the threshold θ on comparisons of Local Maximum Entropy (Section 3.2) and global Maximum Entropy (Section 3.3) values calculated before and after adding non evaluated instances t′ˆ∈T′ˆ to T+′ˆ.
+
+Then, the set E will return the classification of each non evaluated sample t′ˆ∈T′ˆ.
+
+In the following subsections, we will describe in details all the aforementioned steps.
+
+SECTION
+
+Feature selection
+
+PARAGRAPH
+
+Many studies (Liu and Schumann, 2005) have discussed how the performance of a Credit Scoring model is strongly influenced by the features used during the process of their definition.
+
+This process is known as Feature Selection and it can be performed by using different techniques, on the basis of the characteristics of the context taken into account.
+
+It means that the choice of the best features to use during the model definition is not based on a unique criterion, but rather it exploits several criteria with the aim to evaluate, as best as possible, the influence of each feature in the process of defining the Credit Scoring model.
+
+This represents an important preprocessing step, since it can reduce the complexity of the final model, decreasing the training times and increasing the generalization of the model at the same time.
+
+Further, it can also reduce the problem related to the overfitting, a problem that occurs when a statistical model describes random error or noise instead of the underlying relationship, and this frequently happens during the definition of excessively complex models, since many parameters, with respect to the number of training data, are involved.
+
+PARAGRAPH
+
+In the proposed approach, the feature selection is performed by exploiting a dual entropy-based approach that evaluates the importance of the features both individually and mutually.
+
+For that, we use two metrics, defined as follows.
+
+SECTION
+
+Basic shannon entropy .
+
+PARAGRAPH
+
+It measures the uncertainty associated with a random variable by evaluating the average minimum number of bits needed to encode a string of symbols based on their frequency.
+
+High values of entropy indicate a high level of uncertainty in the data prediction process and, otherwise, low values of entropy indicate a lower degree of uncertainty in this process.
+
+More formally, given a set of values f∈F, the entropy H(F) is defined as shown in Eq. (2), where P(f) is the probability that the element f is present in the set F. H(F)=−∑f∈FP(f)log2[P(f)]
+
+SECTION
+
+Mutual shannon entropy .
+
+PARAGRAPH
+
+It measures the amount of information a random variable gives about another one.
+
+High mutual information values indicate a large reduction in uncertainty, while low mutual information values indicate a small reduction of uncertainty.
+
+A value of zero indicates that the variables are independent.
+
+More formally, given two discrete variables X and Y whose joint probability distribution is PXY(x,y), denoting as μ(X;Y) the mutual information between X and Y, the Mutual Shannon Entropy is calculated as shown in Eq. (3) below μ(X;Y)=∑x,yPXY(x,y)logPXY(x,y)PX(x)PY(y)=EPXYlogPXYPXPY.With these two metrics in mind, we perform the feature selection through the following steps:
+
+PARAGRAPH
+
+Such an approach allows us evaluating the contribution of each feature from a dual point of view, by deciding when we can exclude it in order to reduce the computational complexity, an important preprocessing task in case of large datasets.
+
+PARAGRAPH
+
+The feature selection process is detailed in Algorithm 2.
+
+It takes as input a set T+ of previous non-default instances, the set Tˆ of instances to evaluate and min1 and min2 values, which represent the thresholds used to determine when an entropy value must be considered relevant (as previously described).
+
+The algorithm returns then two sets of instances, T+′ and T′ˆ, which contain only the features that had not been removed by the algorithm, in order to use them in the model definition process.
+
+In step 2 of the algorithm, we extract the features related to the dataset T+, processing them in the steps 4–10.
+
+Such a process calculates the basic and mutual entropy (steps 5 and 6) in the set of values assumed by each feature in the dataset T+, removing (steps 8 and 9) from T+ and Tˆ the features in T+ that present a basic entropy above the min1 value and a mutual entropy below the min2 value (step 7).
+
+At step 12, the sets T+′ and T′ˆ with reduced features are returned by the algorithm.
+
+SECTION
+
+Local maximum entropy calculation
+
+PARAGRAPH
+
+Denoting as H(f′) the entropy measured in the values assumed by a feature f′∈F′ in the set T+′, we define the set Λ as the entropy achieved by each f′∈F′, so we have that |Λ|=|F′|.
+
+Such calculation is performed as shown in Eq. (4).
+
+Λ={λ1=max(H(f1′)),λ2=max(H(f2′)),…,λM=max(H(fM′))}
+
+PARAGRAPH
+
+In our proposed Entropy Difference Approach, such a metric is calculated twice, before and after we added to T+′ a non evaluated instance t′ˆ∈T′ˆ.
+
+SECTION
+
+Global maximum entropy calculation
+
+PARAGRAPH
+
+We denote as global maximum entropy γ the integral of the area under curve of the local Entropy Λ (previously defined in Section 3.2), as shown in Fig. 2.
+
+PARAGRAPH
+
+More formally, the value of γ is calculated by using the trapezium rule, as shown in Eq. (5). γ=∫λ1λMf(x)dx≈Δx2∑n=1|Λ|f(xn+1)+f(xn)withΔx=(λM−λ1)|Λ|
+
+PARAGRAPH
+
+The global entropy is a meta-feature that gives us information about the entropy achieved by all the features in T+′, before and after we added to it a non evaluated instance.
+
+We use this information during the evaluation process, jointly with that given by Λ in Eq. (4).
+
+SECTION
+
+Entropy difference approach
+
+PARAGRAPH
+
+Our proposed Entropy Difference Approach (EDA) is based on the Algorithm 3, which is able to evaluate and classify as reliable or unreliable a set of non evaluated (new) instances.
+
+It takes as input a set T+′ of known non-default instances with features reduced, a set T′ˆ of non evaluated instances with the same features reduced and a previously trained threshold Θ.
+
+Then, it returns as output a set E, containing all the instances in T′ˆ classified as reliable or unreliable, depending on the Λ and γ information.
+
+PARAGRAPH
+
+In step 3 of the algorithm, we calculate the Λa value, by using the reduced features from non-default instances only in T+′, as described in Section 3.2, while in step 4 we obtain the global entropy γ (Section 3.3) in the same set.
+
+The steps from 5 to 23 process all the instances t′ˆ∈T′ˆ from the instances to be classified with reduced features.
+
+After the calculation of Λb and γb values (steps 7 and 8) by adding the current instance t′ˆ to the set T+′ of non-default instances with reduced features, the steps from 9 to 12 compare each λa∈Λa with the corresponding feature λb∈Λb, counting how many times the value of λb is less or equal than λa.
+
+This is stored in a counter variable count (step 11).
+
+Steps 14–16 perform the same operation, but now it takes into account the global entropy γ comparisons.
+
+At the end of the previous sub-processes, in the steps from 17 to 21 we classify the current instance as reliable or unreliable, on the basis of the count value and the Θ threshold, then we set count to zero (step 22).
+
+The resulting set E is returned at the end of the entire process at step 24.
+
+PARAGRAPH
+
+In this paper, we also include an evaluation of the computational complexity taken for the classification of a single instance t′ˆ, because this information allows us determining the performance of our Algorithm 3 in a context of a real-time Credit Scoring system (Lent et al., 2002), a scenario where the response-time represents a primary aspect.
+
+We perform this operation by analyzing the theoretical complexity of the classification Algorithm 3, previously formalized.
+
+So, let N be the size of the set T+′ (i.e., N=|T+′|) and M the size of the set F+′ (i.e., M=|F+′|).
+
+The asymptotic time complexity of a single evaluation, in terms of Big O notation, can be determined on the basis of the following observations:
+
+PARAGRAPH
+
+The aforementioned considerations allow us determining that the asymptotic time complexity of the proposed algorithm is O(N×M), a complexity that can be effectively reduced by running in parallel the process over several machines, e.g., by exploiting large scale distributed computing models such as MapReduce (Dean and Ghemawat, 2008).
+
+SECTION
+
+PARAGRAPH
+
+Experimental setup
+
+PARAGRAPH
+
+This section describes the datasets and metrics considered in the experiment, the adopted experiments methodology and implementation details of the state-of-the-art approach considered and the proposed approach.
+
+SECTION
+
+Datasets
+
+PARAGRAPH
+
+The datasets used during the experiments have been chosen for two reasons: first, they represent two benchmarks in this research field; second, they represent two different distributions of data (i.e., unbalanced and slightly unbalanced).
+
+The first one is the German Credit (GC) dataset (unbalanced data distribution) and the second one is the Australian Credit Approval (ACA) dataset (slightly unbalanced data distribution).
+
+Both the datasets are freely available at the UCI Repository of Machine Learning Databases.1
+
+These datasets are released with all the attributes modified to protect the confidentiality of the data, and we used a version suitable for the algorithms that cannot operate with categorical variables (i.e., a version with all numeric attributes).
+
+It should be noted that, in case of other datasets that contain categorical variables, their conversion to numeric form is straightforward.
+
+PARAGRAPH
+
+The datasets' characteristics are summarized in Table 1 and detailed in the following:
+
+SECTION
+
+German credit (GC) .
+
+PARAGRAPH
+
+It contains 1,000 instances: 700 of them are non-default instances (70.00%) and 300 are default instances (30.00%).
+
+Each instance is composed of 20 features, whose type is described in Table 2 and a binary class variable (reliable or unreliable).
+
+SECTION
+
+Australian credit approval (ACA) .
+
+PARAGRAPH
+
+It contains 690 instances, 307 of them are non-default instances (44.5%) and 383 are default instances (55.5%).
+
+Each instance is composed of 14 features and a binary class variable (reliable or unreliable).
+
+In order to protect the data confidentiality, all feature names and values of this dataset have been changed to meaningless symbols, as shown in Table 3, which reports the feature type instead of its description.
+
+SECTION
+
+Metrics
+
+PARAGRAPH
+
+This section introduces the metrics used to compare our proposed approach with the competitor in the experiments.
+
+SECTION
+
+Accuracy .
+
+PARAGRAPH
+
+This metric reports the number of instances correctly classified and is calculated as: Accuracy(Tˆ)=|Tˆ(+)||Tˆ|,where |Tˆ| corresponds to the total number of instances, and |Tˆ(+)| to the number of instances correctly classified.
+
+SECTION
+
+Sensitivity .
+
+PARAGRAPH
+
+This metric measures the number of instances correctly classified as reliable, providing an important information since it allows evaluating the predictive power of our approach in terms of capability to identify the default cases.
+
+It is calculated as Sensitivity(Tˆ)=|Tˆ(TP)||Tˆ(TP)|+|Tˆ(FN)|,where |Tˆ(TP)| corresponds to the number of instances correctly classified as reliable and |Tˆ(FN)| to the number of reliable instances erroneously classified as unreliable.
+
+SECTION
+
+F-score .
+
+PARAGRAPH
+
+The F-score represents the weighted average of the Precision and Recall metrics and is considered an effective performance measure for unbalanced datasets (Pozzolo et al., 2015).
+
+Such a metric is calculated as F-score(T(P),T(R))=2⋅Precision⋅RecallPrecision+RecalwithPrecision(T(P),T(R))=|T(R)∩T(P)||T(P)|Recall(T(P),T(R))=|T(R)∩T(P)||T(R)|,where T(P) denotes the set of performed classifications of instances, and T(R) the set that contains the actual classifications of them.
+
+SECTION
+
+Area under the receiver operating characteristic (AUC) .
+
+PARAGRAPH
+
+This metric is a performance measure used to evaluate the effectiveness of a classification model (Powers, 2011; Faraggi and Reiser, 2002).
+
+It is calculated as Θ(t+,t−)=1,ift+>t−0.5,ift+=t−0,ift+<t−AUC=1|T+|⋅|T−|∑1|T+|∑1|T−|Θ(t+,t−),where T+ is the set of non-default instances, T− is the subset default instances, and Θ indicates all possible comparisons between the instances of the two subsets T+ and T−.
+
+The final result is obtained by averaging all the comparisons.
+
+SECTION
+
+Methodology, competitors and proposed approach implementation details
+
+PARAGRAPH
+
+The experiments have been performed using the k-fold cross-validation, with k=10.
+
+This approach allows us reducing the impact of data dependency, improving the reliability of the results.
+
+For this setup, we choose the Random Forest classifier (Breiman, 2001) and three Naive Bayes improved classifiers (Jiang et al., 2009; Jiang et al., 2016; Jiang et al., 2019) as competitors.
+
+PARAGRAPH
+
+The Random Forests (Breiman, 2001) approach represents one of the most common and powerful state-of-the-art techniques used for the Credit Scoring tasks, since in most of the cases it outperforms the other ones (Lessmann et al., 2015; Brown and Mues, 2012; Bhattacharyya et al., 2011).
+
+It consists of an ensemble learning approach for classification and regression based on the construction of a number of randomized decision trees during the training phase.
+
+The conclusion is inferred by averaging the obtained results and this technique can be used to solve a wide range of prediction problems.
+
+Naive Bayes classifiers use the Bayes Theorem by predicting probabilities that the input data belongs to a particular class.
+
+Thus, the class with the highest probability is considered the most likely class.
+
+We also included in the experiments this kind of classifier as competitor as it was also used for a similar problem before (Vedala and Kumar, 2012).
+
+Therefore, we choose to also compare the proposed approach with some improved naive Bayes algorithms: Hidden Naive Bayes (Jiang et al., 2009) (we will refer to this competitor as HNB), Deep Feature Weighted Naive Bayes (Jiang et al., 2016) (we will refer to this competitor as DFWNB) and Correlation-based Feature Weighted Naive Bayes (Jiang et al., 2019) (we will refer to this competitor as CFWNB).
+
+The implementation used to evaluate all the baselines performances in our experiments was the one made in the Waikato Environment for Knowledge Analysis (WEKA) machine learning package.2
+
+Parameters of these classifiers are shown in Table 4.
+
+PARAGRAPH
+
+The proposed approach was developed in Java.
+
+The entropy measures needed for the approach presented in this paper have been developed by using JavaMI,3  a Java port of MIToolbox.4
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+In this section, we start the discussion about the experimental results.
+
+We divide this section into two subsections: in the first subsection, we present the experiments done to find the parameters of the proposed approach.
+
+Then, we discuss the final experiments results, comparing the proposed approach against its version without feature selection and also the competitors in real-world credit scoring datasets.
+
+SECTION
+
+Parameter tuning experiments
+
+PARAGRAPH
+
+In this Subsection, we discuss experiments results that helped us to find the best parameters of the proposed approach.
+
+In Section 5.1.1, we show how we found the features to be removed in our proposed approach using the feature selection step.
+
+Then, in Section 5.1.2, we report the experiments done that helped us to find the EDA threshold of our proposed approach.
+
+SECTION
+
+Feature selection
+
+PARAGRAPH
+
+In our first experiment to find parameters, we perform a study aimed at evaluating the contribution of each instance features in the proposed approach for the classification process.
+
+We do this by exploiting two different approaches of evaluation based on concepts of entropy previously discussed in Section 3.1.
+
+Results of each feature’s basic and mutual entropies are shown in Fig. 4.
+
+PARAGRAPH
+
+The results shown in Fig. 4 indicate that, although several features present a high level of entropy (i.e., a low level of instance characterization, since the entropy increases as the data becomes equally probable), they have a positive contribution in a mutual relation with other features (the number of mutual relations are represented through the horizontal lines in the feature bars).
+
+Considering that all values of entropy have been normalized in the [0,1] range (y-axis) and high values of Basic Entropy indicate high levels of uncertainty while high values of Mutual Entropy indicate large reductions of uncertainty, we can do the following considerations:
+
+PARAGRAPH
+
+Furthermore, it should be observed how the aforementioned process reduces the computational complexity, since after the feature selection we excluded from the model definition process 7,000 elements (feature values involved in the evaluation process), i.e., 35.00% of the total elements from the GC dataset and 2,070 elements (21,00% of the total elements) from the ACA dataset, as reported in Table 5.
+
+SECTION
+
+PARAGRAPH
+
+Finding the optimal EDA threshold
+
+PARAGRAPH
+
+According to the formalization of our approach made by the Algorithm 3, we need to define an optimal threshold Θ, that can be considered a function of the hyper-plane that will classify the samples T′ˆ into reliable or unreliable.
+
+Such an operation was performed by testing all the possible values, as shown in Fig. 5.
+
+The tests were stopped as soon as the measured accuracy did not improve further and the obtained results showed that the optimal threshold Θ (i.e., that related to the maximum value of Accuracy) was 3 for the GC dataset (Accuracy 70.30%) and 5 for the ACA dataset (Accuracy 67.20%).
+
+SECTION
+
+PARAGRAPH
+
+Results
+
+PARAGRAPH
+
+The experimental results are divided into three parts: (i) studying the effect of feature selection in the proposed approach; (ii) performance evaluation in public datasets; and (iii) performance under different levels of class unbalancing.
+
+We discuss these experiments in details in the following subsections.
+
+SECTION
+
+The effect of feature selection
+
+PARAGRAPH
+
+We first report the experiment results of comparing the proposed approach with and without feature selection, a dataset preprocessing step of our approach discussed in Section 3.1.
+
+Fig. 6 shows that removing features detected through the process performed in Section 5.1.1 presents a twofold advantage.
+
+First, it reduces the computational complexity, since fewer elements are involved in the evaluation process (as reported in Table 5).
+
+Second, it improves the performance in terms of all the metrics taken into account.
+
+From Fig. 6, it may be highlighted the big jump in Sensitivity for both datasets (0.88 to 0.92 in GC dataset, and 0.70 to 0.86 in ACA dataset), showing that the proposed approach eliminates noise in the samples of the default class, increasing their classification.
+
+PARAGRAPH
+
+SECTION
+
+Real-world credit scoring
+
+PARAGRAPH
+
+We show the results considering different metrics that compare our proposed approach against the competitors in Figs. 7 and 8.
+
+These figures show that our approach has promising results if compared with other baselines, even without any knowledge about default cases in its training step.
+
+The leftmost part of Fig. 7 shows that our approach showed the best accuracy result for the most unbalanced dataset (GC), but not the best one for the slightly unbalanced dataset (ACA).
+
+However, in the rightmost part of Fig. 7, it is shown that the proposed approach had the best default detection (sensitivity) for both datasets, with an almost perfect detection of GC default cases.
+
+The performance differences in different datasets happens because of the complexities of samples in the ACA dataset, that are composed of different features from the ones in the GC dataset.
+
+The best baseline, namely a deep naive Bayes classifier (Jiang et al., 2016) (DFWNB), succeeded only for the most balanced dataset (ACA), highlighting the fact that it performs an efficient credit scoring only when it has sufficient samples of both classes for training.
+
+PARAGRAPH
+
+Fig. 8 shows in its leftmost part that the f-score of our approach for the GC dataset is the best.
+
+The AUC of the proposed approach (rightmost part of Fig. 8) is also the best for the GC dataset.
+
+All the other baselines (RF, HNB, DFWNB, CFWNB) had poor performances in this scenario, even considering the more balanced dataset (ACA).
+
+A special case that we would like to mention is about the low performance of the RF classifier, which is an ensemble of decision trees that is expected to work better in this real-world scenario.
+
+Such findings allow us to conclude that, at most, the baselines can have competitive performances against our approach only when balanced classes are available for training.
+
+We further show in the next subsection how our approach works better when less default cases in the training data are available.
+
+SECTION
+
+Performance with different levels of unbalance
+
+PARAGRAPH
+
+In addition to the experiments discussed before, we tested our approach and competitors in the GC dataset (the most unbalanced one) with different unbalance levels.
+
+Therefore, we reduced the 300 original unreliable cases that compose the GC dataset according to five different levels of unbalance.
+
+In more detail, we used 50, 100, 150, 200, and 300 (original dataset) unreliable cases, joining them with the 700 reliable cases already present in the GC dataset.
+
+This creates new datasets with 750, 800, 850, 900 and 1000 (original dataset) samples, respectively.
+
+Therefore, the unreliable cases now correspond, respectively, to 6.66%, 12.50%, 17.64%, 22.22% and 30.00% of reliable cases in these datasets.
+
+For the experiments, we split the resulting datasets in training and test sets according to the 10-fold cross validation criterion, with our approach being the only one that does not consider default cases for training.
+
+Fig. 9 shows the results of such experiments.
+
+PARAGRAPH
+
+The results showed in Fig. 9 highlight the proactive nature of our approach.
+
+By not considering the default cases in the training set, the imbalanced nature of such a problem does not influence our training.
+
+All the other approaches are influenced by the fact that less default training data is present, so they were able to reach accuracy comparable or better than ours only when more allowed default training data were available, as can be seen in the first row of Fig. 9 (from 17.64% to 30%).
+
+However, the sensitivities of these approaches are still low as the training data is still unbalanced for the default cases, while our approach keep an almost perfect sensitivity in all unbalanced scenarios, as can be seen in the second row of Fig. 9.
+
+The F-score metric of our approach, which is a recommendable measure for unbalanced environments, also highlights the proactive feature of our approach as it defeats all the baselines in all unbalanced scenarios, as can be seen in the third row of Fig. 9.
+
+Finally, the fact that our approach defeats the baselines in 17 out of 20 experiments performed here further enriches the contributions of our approach to be applied in the unbalanced environment of credit scoring.
+
+PARAGRAPH
+
+As found out in the previous experiments, we also realized that the DFWNB was the best competitor for this experiment.
+
+However, it is noticeable that it is biased when high levels of unbalance come into the game, a scenario that is more likely to happen in real world credit scoring datasets.
+
+Such an approach could defeat our approach in only two experiments in this subsection, but was the best one in just one experiment (AUC of 6.66% dataset, leftmost part of fourth row in Fig. 9).
+
+Notwithstanding, with its good results, we believe that both approaches can be fused for a better credit scoring.
+
+This can be done, for example, by applying different weights for decisions of these different classifiers.
+
+SECTION
+
+Conclusions and future work
+
+PARAGRAPH
+
+The Credit Scoring machine learning techniques cover a crucial role in many financial contexts (i.e., personal loans, insurance policies, etc.), since they are used by financial operators in order to evaluate the potential risks of lending, reducing therefore the losses due to unreliable users.
+
+However, several issues are found in such an application, such as the data imbalance problem in datasets, where the number of unreliable cases are quite smaller than the number of reliable cases, and also the cold-start problem, where there is scarcity or absence of non-reliable previous cases.
+
+These issues can seriously affect machine learning approaches aimed at classification of new instances in the Credit Score environment.
+
+PARAGRAPH
+
+This paper proposes a novel approach of Credit Scoring that exploits entropy-based criteria in order to build a model able to classify a new instance without the knowledge of past non-reliable instances.
+
+Our approach works by comparing the entropy behavior of existing reliable samples before and after adding an instance under investigation.
+
+This way, our approach can operate in a proactive manner, facing the cold-start and the data imbalance problems that reduce the effectiveness of the canonical approaches of Credit Scoring.
+
+The experimental results underline two main aspects related to our approach: one the one hand, it has competitive performances if compared to existing classifiers when the training set is composed of slightly unbalanced (or almost balanced) classes; on the other hand it is able to outperform its competitors specially when the training process is characterized by an unbalanced distribution of training data.
+
+This last aspect represents an important result, since it shows the capability of the proposed approach to operate in scenarios where the canonical approaches of machine learning are not able to achieve optimal performance.
+
+This is especially true in the typical contexts of Credit Scoring, where an unbalanced distribution of data is usually present.
+
+Even without totally replacing the canonical approaches of Credit Scoring, our approach offers the possibility to overcome the cold-start issue, together with the capability to manage the unbalanced distribution of data, giving the opportunity to be jointly used with existing approaches and thus resulting in an effective hybrid model.
+
+PARAGRAPH
+
+According to the previous considerations, a direction of future work where we are headed to is to evaluate the advantages and disadvantages related to the inclusion of the default cases in the model definition process, as well as the evaluation of our approach in heterogeneous scenarios that involve different types of financial data, such as those generated by an electronic commerce environment.
+
+A final goal is then to define a novel approach (hybrid or only based on the proposed approach) able to operate in all possible scenarios, effectively.

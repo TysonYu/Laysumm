@@ -1,0 +1,867 @@
+10.1016/j.engappai.2019.05.006
+
+FULLTEXT
+
+TITLE
+
+Batch and data streaming classification models for detecting adverse events and understanding the influencing factors
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Building reliable models for predicting, detecting, mitigating, and/or preventing adverse events is crucial in the aviation industry (Reveley et al., 2011), healthcare institutions (Rafter et al., 2015; Rochefort et al., 2015), drug administration (Armitage and Knapman, 2003; Casillas et al., 2016), and an active war theater (Çakıt and Karwowski, 2018) to name a few.
+
+In the last case, adverse events are caused by terrorist activities that primarily target the civilian population in countries such as Afghanistan.
+
+The U.S. Department of Defense (DoD) developed the Human Social Culture Behavior (HSCB) modeling program (Bhattacharjee, 2007; HSCB Modeling Program, 2009) to help the military better understand different cultures while conducting a war in overseas countries, to supervise the human terrain, to shelter the civilians from terrorist activities (Drapeau and Mignone, 2007), and finally to undertake infrastructure development efforts to stabilize the country of Afghanistan, and consequently to counter or reduce terrorist events.
+
+However, assessing the effect of these efforts presents challenges as the data used to build models exhibit nonlinear and fuzzy behavior and are often ill defined with respect to their socio-economic-cultural factors.
+
+PARAGRAPH
+
+There are research attempts whose aim was to build models to predict, reduce, disrupt, and/or eliminate terrorist actions.
+
+Since terrorist attacks are not accidental in time and space, some studies have attempted to interrupt terrorist actions by identifying typical patterns in adverse activity and analyzing the geospatial findings on reported incidents (Numrich and Tolk, 2010; Open Source Center (OSC), 2009; Schmorrow and Nicholson, 2011; Schmorrow et al., 2009; Zacharias et al., 2008).
+
+Several other publications call for more spatial pattern analysis of adverse events using Geographic Information Systems (GIS) (Berrebi and Lakdawalla, 2007; Brown et al., 2004; Johnson and Braithwaite, 2009; LaFree et al., 2012; Siebeneck et al., 2009; Webb and Cutter, 2009; Çakıt and Karwowski, 2018).
+
+Reed et al. (2011) applied a time-correlation based prediction approach to incident-based data to understand statistical patterns in terrorists’ behaviors.
+
+Such models could be utilized for predicting future incidents and assigning more resources to areas that may be attacked.
+
+Inyaem et al. (2010) applied fuzzy inference system (FIS) and adaptive neuro-fuzzy inference system (ANFIS) for adverse event classification and found that ANFIS outperformed FIS.
+
+Minu et al. (2010) examined the time sequence of various terrorist attacks all over the world measured on a monthly basis from 1968 to 2007.
+
+They concluded that wavelet neural networks provide the best performance to analyze the terrorist attacks over existing methods.
+
+PARAGRAPH
+
+More recent studies used linear regression, neural networks, FIS, ANFIS, fuzzy overlay models and fuzzy C-means with subtractive clustering to predict four types of events: the number of killed, wounded, hijacked, and events based on infrastructure development spending and other variables in a war theater in Afghanistan (Çakıt et al., 2014; Çakıt and Karwowski, 2015a; Çakıt and Karwowski, 2015b, 2017a, b, 2018).
+
+These four categories of events are collectively called “adverse events”, the term that will be used throughout the paper.
+
+The data sets for these studies were provided by the HSCB program management of the U.S. DoD.
+
+The authors used the average absolute percentage error and the average absolute error to assess the prediction results.
+
+The error values reported on the test sets were large and varied among the four predicted variables.
+
+In general, the errors were lowest for the fourth category, i.e., the number of events.
+
+PARAGRAPH
+
+This research uses the same data sets provided by the HSCB program management of the U.S. DoD.
+
+We show that infrastructure development investments are helpful in detecting the occurrence of adverse events.
+
+From the region level, some projects such as Security, Education, and Emergency Assistance are influencing factors.
+
+Selecting developing projects according to characteristics of different regions would be helpful to utilize capitals farthest to stabilize the country.
+
+We also show that data stream models outperform batch techniques in detecting adverse events.
+
+The primary contribution of this study is that it proposes a different and novel approach through recoding of the four target/output variables to compare the effectiveness of three batch techniques and three data streaming classification algorithms in detecting/classifying adverse events based on infrastructure development spending and other variables.
+
+The batch techniques use traditional static batch learning, whereas the data streaming methods use incremental learning that can take snapshots of performance during constructing a model and allow one to examine the classification rate drift over time (Bifet and Kirkby, 2009).
+
+In the batch learning approach, k-fold cross-validation technique is frequently used and the classification accuracy rates are averaged over k test set folds.
+
+The main drawback of the batch learning approach is that it does not utilize incoming adverse events data accumulated in time.
+
+In the data stream approach, the models built are dynamically updated by processing new and incrementally arriving adverse events from the data stream and detection of adverse events can benefit from this approach.
+
+PARAGRAPH
+
+Section 2 of the study explains the rationale for the paper.
+
+Section 3 describes three cost-classification methods, provides background about cost-sensitive classification, briefly covers the evaluation measures for data streams, and discusses three data streaming algorithms.
+
+Section 4 covers the data set used in the study.
+
+Section 5 discusses computer simulation and the results for the batch and data stream settings and Section 6 summarizes the paper.
+
+SECTION
+
+Rationale
+
+PARAGRAPH
+
+Table 1 shows the descriptive statistics for the four output features for the entire data set.
+
+These are the number of killed, the number of wounded, the number of hijacked, and the number of events.
+
+For some events, no one was killed, wounded, or hijacked, therefore the total number of events does not have to be equal to the total number of nonzero values of killed, wounded, and hijacked.
+
+The mean values for the four attributes are within the [0.08, 0.52] range.
+
+The maximum numbers of people killed, wounded, hijacked, and the number of events in a given month could occasionally be as high as 103, 261, 156, and 38, respectively.
+
+One can also see that each of these four variables is a sparse vector/column where from 87.2% to 98.1% of their values are 0’s, with a 0 representing lack of adverse events.
+
+As a result, the four output variables are highly unbalanced.
+
+The descriptive statistics calculated for the seven regions (Central, Eastern, North Eastern, South Eastern, Western, North Western, and South Western) reveal the same pattern, though the numbers of killed, wounded, hijacked, and events vary substantially among the regions.
+
+Fig. 1 shows the low percentage of 1’s representing adverse events in the seven regions and whole country.
+
+The occurrences of 1’s for the four adverse events in the Eastern and Western regions are close to those in the whole country.
+
+Those in the South Western and South Eastern regions are the highest and the second highest.
+
+Those in the North Western and North Eastern regions are the lowest.
+
+Thus, when the four variables are measured on the continuous scale the accurate prediction of the numbers of killed, wounded, hijacked, and events is an extremely challenging and difficult task regardless of the many techniques used as shown in the studies by Çakıt et al. (2014), Çakıt and Karwowski (2015a) and Çakıt and Karwowski (2015b, 2017a, b, 2018).
+
+The values of the mean absolute error and mean absolute percentage error for the four adverse events were several times larger than the mean values shown in Table 1.
+
+Given the high percentage of zeros (absence of events) in the data set it is reasonable to create a classification system to detect the presence or absence of adverse events.
+
+PARAGRAPH
+
+Thus this paper offers a different and novel approach by transforming/recoding the dependent variables representing the four adverse events.
+
+We recoded the values of the four output variables as follows.
+
+If a number of people killed, wounded, hijacked, or events is ≥1, it is represented as 1 or “Yes”, and if the number is 0 it remains 0 or “No”.
+
+In other words, we reduced the regression task investigated by Çakıt et al. (2014), Çakıt and Karwowski (2015a) and Çakıt and Karwowski (2015b, 2017a, b) to a classification task.
+
+We detect if someone was killed or not, wounded or not, hijacked or not, or if an event happened or none happened.
+
+We evaluate the effectiveness of three batch techniques: k-nearest neighbor (kNN), support vector machines (SVM), and the C4.5 decision tree algorithm; and three data streaming algorithms: Naïve Bayes (NB), Hoeffding Tree (VFDT), and Single Classifier Drift (SCD) in detecting adverse events in Afghanistan using data sets obtained from the HSCB program management (2002–2010) of the U.S. DoD.
+
+The kNN, SVM, and C4.5 classifiers are the base classifiers in meta-classifiers, i.e., cost-sensitive classifiers.
+
+The study first uses feature reduction techniques to identify and rank significant variables, then applies the above meta classifiers and data streaming algorithms, and finally reports correct classification accuracy rates, areas under the receiver operating characteristics curves (AUROC), and Kappa statistics for the adverse events for each method for the entire country and its seven regions.
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+This section briefly presents three classification methods: kNN, SVM, and C4.5 used in the batch learning, the features of cost-sensitive classifiers, the evaluation measure for data streams, and three classification algorithms: NB, VFDT, and SCD used in the data stream learning.
+
+SECTION
+
+The classification algorithms in the batch learning
+
+PARAGRAPH
+
+k-NN, SVM, and C4.5 are classic and commonly used machine learning methods. k-
+
+NN is a simple and effective distance-based method.
+
+Compared with k-NN, the running speed of C4.5 is higher for a large-scale data and the latter generates simple to understand rules.
+
+In both C4.5 and SVM, two classes are separated by hyperplanes, but unlike C4.5, SVM is suitable for solving nonlinear problems.
+
+SECTION
+
+k-Nearest neighbors
+
+PARAGRAPH
+
+The k-NN nonparametric method examines a data set D of all current records x,y∈D and a new record z=(x′,y′) that we wish to classify.
+
+The normalized Euclidean distance Dz between each current record and the new record that we wish to classify is calculated (Mitchell, 1997; Witten et al., 2017).
+
+The k current records with the closest distances to the new record are the k-nearest neighbors to that record.
+
+PARAGRAPH
+
+In the majority decision rule every neighbor has the identical influence on the classification outcome and this makes the method sensitive to the selection of k, the number of nearest neighbors.
+
+To reduce the impact of k, the influence of each nearest neighbor xi can be weighted according to its similarity to the new record: wi=1∕d(x′,xi)2
+
+PARAGRAPH
+
+Thus, records that are located closer to z will have a larger influence on the classification compared to those records that are located far away from z.
+
+Applying the distance-weighted voting approach, the label representing the class of the new record can be calculated as follows:
+
+PARAGRAPH
+
+Distance-Weighted Voting: y′=argmaxv∑(xi,yi∈Dz)wi×Iv=yiwhere v is a label representing the class, yi is a label representing the class for one of the nearest neighbors, and function I(⋅) generates the value 0 if its argument v=yi is false and 1 otherwise.
+
+SECTION
+
+Support vector machines
+
+PARAGRAPH
+
+SVM is a supervised machine-learning algorithm first developed by Vapnik (1998) that uses a small number of support vectors to achieve the separation between classes.
+
+Through SVM the original space is mapped into a higher dimensional space, which makes the separation easier.
+
+SVM uses a kernel function to define the larger dimensional space.
+
+In this study sequential minimal optimization (SMO) was used through Weka for training the SVM classifier (Platt, 1998; Keerthi et al., 2001).
+
+PARAGRAPH
+
+Support vectors are training examples with the smallest distance to the hyperplane.
+
+A hyperplane that provides the best distinction between the classes is referred to as the maximum margin hyperplane expressed as x=b+∑αiyi(a(i)⋅a)nwhere i is support vector, represents the class value of training example a(i), b and αi are coefficients representing the hyperplane and are calculated by the training method.
+
+The vector a is a test example and a(i) are support vectors.
+
+Finally, the expression (a(i)⋅a)n raised to the power n is a polynomial kernel.
+
+It calculates the dot product of the test example with one of the support vectors.
+
+A common approach to obtaining the best value for n is to begin with a linear model (n=1) and then increase n by a small amount until the estimated error stops to drop.
+
+Experimentation often determines the choice for the best kernel function.
+
+To find support vectors for the example sets as well as coefficients b and αi constrained quadratic optimization is used.
+
+SECTION
+
+Decision trees (C4.5)
+
+PARAGRAPH
+
+The C4.5 divide-and-conquer algorithm uses search heuristics to reduce the degree of impurity or entropy of the clusters at the node in the original data set (Quinlan, 1987; Mitchell, 1997; Han et al., 2012; Tan et al., 2016).
+
+The impurity and information gain are measured by entropy, a very well defined concept in information theory.
+
+PARAGRAPH
+
+The C4.5 entropy reduction algorithm for a k-wise classification can be more formally outlined as follows.
+
+If the target variable assumes k different values, then the entropy of a collection of cases S relative to this k-wise classification is expressed as EntropyS=−∑i=1kpilog2pi,where pi is the proportion of cases of class i to the total number of cases in S , and k is the total number of classes.
+
+The information gain, Gain(S, A), of variable A, relative to a collection of cases S, can be calculated as GainS,A≡EntropyS−∑v∈ValuesASvSEntropy(Sv)where Values(A) is the set of all possible values for variable A, and Sv is the subset of S for which variable A has the value v (i.e., Sv={s∈S|As=v}).
+
+SECTION
+
+Cost-sensitive classifier
+
+PARAGRAPH
+
+The paper by Weiss et al. (2007) compared a cost-sensitive learning approach with undersampling and oversampling.
+
+The results show that cost-sensitive learning method outperforms the sampling methods on unbalanced data sets with more than 10,000 total cases.
+
+As the output variables in the four data sets are highly unbalanced, we used a cost-sensitive learning approach to deal with the class imbalance problem in order to achieve better performance.
+
+Table 2 shows a cost matrix that can be used to represent the cost of misclassification of each class (Elkan, 2001).
+
+The matrix entry Cij is the cost of classifying the ith label when the jth label is actually correct.
+
+The Cij values on the main diagonal are all set to 0.
+
+Because an incorrect classification is more costly than a correct classification, Cij > Cji when i≠j.
+
+PARAGRAPH
+
+Weka (http://www.cs.waikato.ac.nz/ml/weka/), used for computer simulation in this study, provides a cost-sensitive learning algorithm, Cost Sensitive Classifier, which reweighs learning patterns according to the cost assigned to each of the two classes: (1 for “Yes”) and (0 for “No”) (Witten et al., 2017).
+
+It is a meta-classifier that makes its base classifiers: kNN, SVM, and C4.5 cost-sensitive.
+
+The “best” cost ratio to use for learning is set experimentally (Witten et al., 2017).
+
+In the cost-sensitive learning algorithms, the 2 by 2 cost matrix is manually adjusted to [0, 1; C10, 0].
+
+In the study, C01 is set to 1 and the values of C10 are defined as (the number of “No” cases)/(the number of “Yes” cases) for improved performance in the overall accuracy rates and the rates for the “Yes” and “No” categories.
+
+C10 is the cost when an actual “Yes” case is incorrectly classified to be a “No” case.
+
+In order to obtain a better result, various cost values represented by C10 were set for each of the four output variables.
+
+SECTION
+
+Data streaming classification algorithms
+
+PARAGRAPH
+
+In contrast to static mining algorithms data streaming algorithms can detect the change in data distribution and incrementally modify the classifiers.
+
+For example, the manual adjustments for cost-sensitive classifiers described in the last section can be much more effectively addressed through data streaming.
+
+This section briefly describes three such data streaming algorithms used in this study.
+
+SECTION
+
+The evaluation measure for data streams
+
+PARAGRAPH
+
+In traditional machine learning the assessment of an algorithm is mostly based on results from batch learning with out of sample testing and k-fold cross validation.
+
+Data streaming algorithms are based on the idea that a classification model can be assessed and improved over time with a continuing flow of new data.
+
+The prequential method is a measure used in the data stream setting (Bifet and Kirkby, 2009).
+
+It defines a window size to observe the classification accuracy over time.
+
+The model tests each individual pattern before it uses it for training, and then the model’s classification accuracy is incrementally actualized (Bifet et al., 2010).
+
+Bifet et al. (2015) point out that Kappa statistic is better than the traditional accuracy measures, especially for unbalanced data in a data stream setting.
+
+Cohen (1960) defined the Kappa statistic κ as follows. κ=p0−pc1−pc
+
+PARAGRAPH
+
+The value p0 is the prequential accuracy of the classifier, and the value pc is the probability that a random classifier would correctly classify the class label of a pattern using the proportional partition of the data.
+
+If the classifier is 100% correct, then κ=1.
+
+If its predicted values are the same as those of a random classifier, then κ=0.
+
+The kappa statistic κ is within a range of [−1,1] or [−100,100]%.
+
+In a data stream setting, the Kappa statistic is more suitable and efficient for evaluating classifiers than conventional accuracy measures such as AUROC due to Kappa’s low computational cost (Bifet and Frank, 2010; Cohen, 1960).
+
+PARAGRAPH
+
+Brzezinski and Stefanowski (2017) proposed an effective algorithm for computing AUROC (area under the receiver operating characteristics curve) for a data stream setting.
+
+The method applies prequential AUROC to calculate AUROC incrementally after each instance using a sorted structure with a sliding window equipped with a forgetting mechanism.
+
+Prequential AUROC appears to be an additional good tool for comparing classifiers’ performance in a data stream setting.
+
+SECTION
+
+Naive Bayes
+
+PARAGRAPH
+
+The Naive Bayes (NB) classifier is a simple classifier which uses probability to make predictions.
+
+It is mainly built on Bayes theorem while making the naïve assumption that all input values are independent.
+
+The trained Naive Bayes classifier predicts for every unlabeled instance I for given C different classes.
+
+Let x1,…,xl be a vector of l attributes used in this study.
+
+In NB classification the probability of an unobserved instance I=x1=v1,…,xl=vl being in class c is calculated as PrC=c|I≅∏i=1lPrxi=vi|C=c=Pr[C=c]⋅∏i=1lPr[xi=vi⋀C=c]Pr[C=c] where Pr[xi=vi⋀C=c] and Pr[C=c] are calculated from the training sample (Bifet et al., 2012).
+
+SECTION
+
+Hoeffding tree
+
+PARAGRAPH
+
+Domingos and Hulten (2000) introduced Hoeffding trees in their study “Mining High-Speed Data Streams”.
+
+They refer to their application as VFDT, an acronym for Very Fast Decision Tree learner, which is a state-of-the-art approach for inducing decision trees from data streams, with the assumption that the distribution of the instances does not change over time.
+
+VFDT exploits the fact that a small sample can often be enough to select an optimal splitting attribute.
+
+The Hoeffding bound supports this idea mathematically (Hoeffding, 1963; Domingos and Hulten, 2000).
+
+Hoeffding bound determines a certain level of confidence using the chosen attribute to split the node.
+
+It can incrementally build the model only using a certain number of instances.
+
+For a real-valued random variable r with range R , let r¯ be the mean of n independent observations of r.
+
+The Hoeffding bound states that with probability 1−δ, the true mean of a random variable of range R will not differ from the estimated mean after n independent observations by more than ε=R2ln1δ2n
+
+PARAGRAPH
+
+What makes this bound useful is its ability to hold true regardless of the probability distribution generating the observations, and depends only on the range of values, number of observations, and desired confidence.
+
+One can observe that its output value is asymptotically nearly similar to that of a non-incremental learner using infinitely many observations using the Hoeffding bound.
+
+SECTION
+
+Single Classifier Drift
+
+PARAGRAPH
+
+Single Classifier Drift (SCD) is a wrapper classifier for handling concept drift data sets.
+
+In the study, we use Naive Bayes as the base learner.
+
+The drift detection method (DDM) proposed by Gama et al. (2004) controls the count of errors generated by the learning model during classification.
+
+The method compares the statistics of two windows.
+
+The first window holds all the data, whereas the other window holds the data from the beginning until the count of classification errors grows.
+
+A large increase in the number of errors generated would indicate a change in the class distribution and suggest an incorrect decision generated by the actual model.
+
+In such case, the algorithm replaces the actual model with a new one.
+
+The method checks for several thresholds of abnormalities: a warning threshold, a drift threshold, and a change of context threshold.
+
+PARAGRAPH
+
+The algorithm can be formally presented as follows.
+
+For each point i in the sequence that is being sampled, the error rate is the probability of misclassifying pi with standard deviation si given by si=pi(1−pi)i
+
+PARAGRAPH
+
+The algorithm retains the values of pi and si.
+
+If pi+si reaches its smallest value during the process, one of the following two conditions will trigger:
+
+SECTION
+
+Data set
+
+PARAGRAPH
+
+Two different data sets regarding Afghanistan provided by the HSCB program management were used in this study: the infrastructure data set and the adverse event data set.
+
+The former data set contains variables such as the population densities, region, province, and amount of money allocated for various project sectors and the number of projects conducted over the period of three years.
+
+The latter data set contains attributes describing the event date, event type, number of people killed, wounded, hijacked, and number of events in a given month to name a few.
+
+More specifically, the total budget allocated to 14 project types (denoted by B in Table 3) and the number of projects (denoted by A in Table 3) at years t (i.e., the year of event), t−1 (one year before), and t−2 (two years before), the urban and rural population densities of males and females, and the count of adverse events (killed, wounded, hijacked, and events) in the previous month (t−1) were used to detect the occurrence of the four adverse events in month t.
+
+The final data set after merging of the two mentioned data sets contains 101 attributes and 33,600 records representing years 2002 through 2010.
+
+Table 3 presents the variables of the data set.
+
+PARAGRAPH
+
+For example, apart from the data for the Year, Month, Province, District, and Region, and the values for the 4 population densities, a record of the data for year 2004 and month 3 (March) contains 14 project budget amounts and 14 values that represent the number of project types for each of the three years 2002 (t−2), 2003 (t−1) and 2004 (t) for March, the number of four adverse events for February (t−1), and the occurrence of four adverse events for March (t).
+
+SECTION
+
+Simulation and discussion of the results
+
+PARAGRAPH
+
+We performed simulation in the batch setting and the data stream setting.
+
+The standard 10-fold cross-validation was applied in the batch setting and the Prequential measurement was applied in the data stream setting.
+
+Unlike batch learning that uses all data at once, the data stream algorithms use incremental learning to build the models’ accuracy over time.
+
+Also data stream algorithms run in a small amount of storage and within a significantly shorter time (Bifet et al., 2012).
+
+SECTION
+
+The batch setting
+
+PARAGRAPH
+
+The data set was divided into four subsets, each with one output variable representing the presence or absence of one of the four adverse events: killed, wounded, hijacked, and event with each taking the value of 1 for “Yes” or 0 for “No”, respectively.
+
+We normalized the four data sets.
+
+As the data set contains 101 variables (97 input variables and 4 output variables), we used attribute selection for the data set representing the entire country and its seven regions to obtain the best subsets of input variables.
+
+The process of attribute selection is done in two parts.
+
+First, the Weka attribute evaluator CfsSubsetEval is used to identify and assess variable subsets and then the BestFirst search method is applied to retain variables.
+
+InfoGainAttributeEval was used to evaluate the worth of an attribute by measuring the information gain with respect to the class.
+
+Table 4 shows that for the entire country only 5 or 6 significant attributes were retained from 97 input attributes.
+
+These are: the number of dead, wounded, hijacked, and events at time t−1; Urban Male and Female Population Densities; a few project types (denoted by B) in such sectors as Commerce and Industry at time t−1 and Environment at time t; and the number of aids (denoted by A) in the areas of Commerce and Industry at time t−2 as well as Community Development at time t−1.
+
+The information gain with respect to the class was taken as an index to show the importance of the input variables.
+
+However, the very low index values show that the mentioned project types and their number have little influence on detecting adverse events at the country level.
+
+PARAGRAPH
+
+Table 5 shows the classification results for three classifiers without cost-sensitive learning for the entire country.
+
+One can see that the best classification accuracy rates for the “Yes” cases are very low because the data is highly unbalanced, i.e., there are too few “Yes” cases in the four data sets.
+
+The best classification rate for “Yes” is 32.6% for Events with kNN, and the worst classification rate for “Yes” is 0% for Hijacked with SVM and C4.5.
+
+The Kappa and the AUROC values, which measure the global performance of the models on the scale [−1,1] and [0,1], respectively, are the highest for kNN and C4.5 for Events, Dead, and Wounded in this order.
+
+PARAGRAPH
+
+Table 6 shows the classification results for the three classifiers for the entire country using cost-sensitive learning.
+
+We select the Cost Sensitive Classifier as the meta-classier used for wrapping the base classifiers: kNN, SVM, and C4.5.
+
+One can see that most of the classification rates for the “Yes” cases are improved by manually adjusting the C10 value in the cost matrix.
+
+The “Yes” cases are within the [54.2, 75.0] range for all four adverse events.
+
+More specifically, for Dead, Wounded, Hijacked, and Events the “Yes” rates are within the [70.0, 75.0], [59.9, 62.7], [59.0, 64.9], and [54.2, 59.9] ranges, respectively.
+
+As expected the overall rates and the rates for the “No” cases are lower than those in Table 5 and the latter fall within the [62.7, 80.2], [90.0, 91.3], [75.6, 90.2], and [90.1, 93.3] ranges, respectively, for the four adverse events.
+
+In general, the AUROC and Kappa values fall into the range of [.688,.804] and [5.6, 47.6], respectively, with the highest values being for Events.
+
+For Hijacked, the C10 values range from [80,100], which are larger than those for Dead, Wounded and Events.
+
+In terms of the AUROC and Kappa values, C4.5 and kNN seem to produce the best performance, with the exception of Hijacked.
+
+SVM has the best performance for Hijacked.
+
+Fig. 2 presents the ROC charts for Dead confirms these findings.
+
+PARAGRAPH
+
+We also performed analysis by seven different regions of Afghanistan shown in Fig. 3.
+
+We performed variable reduction and used the above-mentioned three classifiers with cost-sensitive learning for each of the seven regions.
+
+Tables 7 and 8 present the significant variables and indexes to show their importance.
+
+Depending on the region and the category of the adverse event, from three to fourteen variables were retained.
+
+One can see more regularity and patterns in these results compared to those obtained for the entire country.
+
+For example, for most regions the numbers of killed, wounded, hijacked, and events at time t−1, one month before the adverse event, appear to be significant as well as the population densities.
+
+Among the project types (denoted by B): Energy, Governance, Education, Emergency Assistance, and Security, in this order, at different periods are the most significant.
+
+Among the number of project types (denoted by A): Emergency Assistance, Security, Capacity Building, and Education, in this order, at a different time appear to be significant.
+
+However, many of them have low index values.
+
+Surprisingly, investments in Community Development, Transport, Water and Sanitation, Agriculture, Health, and Gender are very rarely significant in detecting the four adverse events.
+
+However, for region Central none of the project types or their number has been identified as significant for Dead and Wounded.
+
+One can observe similar patterns in regions South Western and North Western where only one variable representing project types Security and Energy, respectively, seem to be significant in detecting Events and Wounded, respectively.
+
+South Western and North Western are the regions where the highest and the lowest number of adverse events occurred, respectively.
+
+It is worth noting that for Events in the South Western region investments in the Security area, two years before Events, are very significant with the highest index value of 0.2821.
+
+We elaborate on this at the end of Section 5.2.
+
+PARAGRAPH
+
+Table 9 presents the classification results for the seven regions for four adverse events generated by the cost-sensitive learning for C4.5 classifier that exhibits the best global performance as measured by the AUROC values.
+
+For the four adverse events, the rates for “Yes” cases are within the range [60.0, 82.0], where 60.0% is the rate for Hijacked in region North Eastern and 82.0% is the rate for Hijacked in region Western.
+
+One can see that among the four adverse events, the AUROC values for Hijacked are the lowest within [.689, .800] and C10 values are the highest within the [124, 800] range.
+
+The AUROC values for Dead are the highest within [.718, .851] and C10 values are lower within the [5, 80] range.
+
+The higher C10 values show that when there are fewer “Yes” cases in the data, a bigger cost value has to be set to obtain a balanced classification accuracy rates.
+
+Most of the AUROC values with higher C10 are lower than the AUROC values with lower C10.
+
+PARAGRAPH
+
+For the Dead category, the highest and the lowest AUROC values are .851 and .718 for the South Western region and the Eastern region, respectively.
+
+For Wounded category, the AUROC value for region South Eastern is .804 (the highest) and for Western region is .714 (the lowest).
+
+For Hijacked category, the AUROC value is the highest (.800) for the Western region and for the North Eastern region is the lowest (.689).
+
+For Events category, the highest AUROC value is .816 for the Central region and the lowest is .712 for the Eastern region.
+
+For all four adverse events, the highest AUROC value is .851 representing Dead in the South Western region and the lowest is .689 representing Hijacked in the North Eastern region.
+
+The Kappa values, in general, follow the same pattern.
+
+They are the highest for Dead, Wounded, and Events categories in the South Eastern, South Western, and Central regions.
+
+PARAGRAPH
+
+Although cost-sensitive learning improves the classification rates for the minority class (“Yes” cases) through the selection for C10, the manual adjustment of C10 according to different data distributions can be time consuming and makes it difficult to produce consistently reliable results.
+
+In addition, the classification rates represent the average values over 10 folds and one cannot see how the rates drift over time.
+
+The Prequential method in the data stream setting provides a clearer picture of the classification accuracy rates changing over time as new instances are processed.
+
+SECTION
+
+Data stream setting
+
+PARAGRAPH
+
+We used Weka Massive On-line Analysis (MOA) for building and testing the classifiers in the data stream setting.
+
+Fig. 4 shows the cumulative totals for class “Yes” for the four adverse events accumulated over every 1000 instances: 1–1000, 1001–2000, etc.
+
+One can see that the totals fluctuate and increase with the number of instances processed.
+
+The number of Events is the highest among the four adverse events, the number of Dead is the second highest, whereas the number of Hijacked is the smallest.
+
+In some places, the number is very low, such as the number corresponding to approximately 5000 instances.
+
+The maximum for the four adverse events is observed near the case 31000.
+
+More precisely, for Dead the numbers for cumulative totals for 1–1000, 1001–2000, 2001–3000, 3001–4001, and 4001–5000 are 10, 23, 14, 9, and 22 instances, respectively; whereas starting from observation 11000, the number for class “Yes” is greater than 60.
+
+For Hijacked, the numbers for 1–1000, 1001–2000, 2001–3000, 3001–4001, 4001–5000, 5001–6000, 6001–7000, 7001–8000, 8001–9000, and 9001–10 000 are 3, 3, 1, 1, 0, 4, 10, 1, 6, and 6 instances, respectively; and starting from observation 14000, the number for class “Yes” is greater than 14.
+
+In both cases there is an obvious change in the distribution of numbers of adverse events.
+
+One can also see that the curves for the Dead, Wounded, and Events categories have similar shapes because they are moderately correlated with each other.
+
+The Pearson correlation coefficients for the three categories of events are within the range [.67,.75].
+
+PARAGRAPH
+
+In the following scenarios, we set two parameters: the Window Size to 1000 and the Sample Frequency to 200.
+
+We performed several experiments with different window sizes and sample frequencies.
+
+The above values for the two parameters turned out to be the best to control the models’ rate drift, the rate drift variance, and to avoid possible over-fitting of the models.
+
+There are fewer observation points when a bigger frequency or too small a window size is set.
+
+Some changing concept drift cannot be detected in this situation.
+
+On the contrary there can be too many observation points when too small a sampling frequency or too big a window size is set.
+
+The data stream algorithms are similar to the batch learning algorithms and it will lose the characteristics of data stream.
+
+Table 10 shows the classification results for NB, VFDT and SCD for the four adverse events.
+
+For Events, the classification rate for “Yes” cases using VFDT is the highest (76.6%).
+
+For Events, the Kappa value using NB is the highest (36.8%).
+
+The Kappa values using NB and SCD for Dead, Wounded and Events are over 30%, which are comparable with the cost-sensitive and batch learning setting.
+
+For example, the Kappa value using NB for Dead is 33.8%, which is better than that (25.6%) using kNN in the cost-sensitive setting with batch learning.
+
+The Kappa value using NB for Events, 36.8% is worse than that (46.0%) using C4.5 in the cost-sensitive and batch learning setting.
+
+The AUROC values for Dead, Wounded, Hijacked, and Events using NB are 0.726, 0.706, 0.741, and 0.707, respectively.
+
+They are a little lower than the AUROC values for Dead, Wounded, Hijacked, and Events using C4.5 in the cost-sensitive setting, which are 0.792, 0.767, 0.756, and 0.800.
+
+For Hijacked, the classification rate for class “Yes” using NB is 13.8% and the Kappa value using VFDT is 1.3%, are worse compared with those for Dead, Wounded and Events, which are similar to the rates in the cost-sensitive and batch setting.
+
+PARAGRAPH
+
+Figs. 5–7 show the Prequential overall accuracy rates for the sliding window size of 1000 using NB, VFDT, and SCD.
+
+One can see that for Events, the Prequential rates using NB, VFDT and SCD is the worst.
+
+For Hijacked, the Prequential rates using NB, VFDT and SCD are the highest.
+
+The Prequential rates decrease with instances in all three figures.
+
+PARAGRAPH
+
+Figs. 8–10 show the Prequential Kappa statistic for the sliding window size of 1000 using NB, VFDT and SCD.
+
+For Dead, Wounded and Events, the Prequential Kappa values using NB and SCD from about 7000 point are over 30%, and only some points using VFDT from 12200 are over 30%.
+
+For Hijacked, the Prequential Kappa statistic values using NB and SCD are better than those using VFDT.
+
+In Fig. 8, one can see the significant amount of Kappa statistic drift for Dead, Wounded, and Events up to about observation 7000 because the number for “Yes” classes for the four adverse events is very low and varies substantially before observation 7000.
+
+The number of class “Yes” cases in a sliding window is very small and thus will result in worse Kappa values.
+
+In an extreme case, for example, in Fig. 8, the number of class “Yes” cases for Hijacked is close to zero, the Kappa values are close to zero before observation 6600.
+
+PARAGRAPH
+
+Fig. 11 shows the Prequential AUROC for the sliding window size of 1000 using SCD for the four adverse events.
+
+The AUROC values change with the instances, the AUROC values for Dead, Wounded and Events are very close in most cases, and the AUROC values for Hijacked are the lowest.
+
+PARAGRAPH
+
+Fig. 12 shows the changing Prequential AUROC values for the sliding window size of 1000 using NB, VFDT and SCD for Dead.
+
+Before observation 7000, the AUROC values for NB are close to those for SCD.
+
+After observation 7000, in most cases, the AUROC values for NB are slightly better than those for SCD.
+
+The values for VFDT are lowest in the three algorithms.
+
+PARAGRAPH
+
+Table 11 shows that the classification results using NB, VFDT and SCD for the four adverse events in the data stream setting (window size 1000, sample frequency 30) for seven regions.
+
+The number of the total records is 33600.
+
+After the total data set is divided into seven regions, the numbers of records for the seven regions range from 4200 to 5628, so we select 30 as the sample frequency.
+
+PARAGRAPH
+
+Three algorithms NB, VFDT and SCD are applied for the seven regions.
+
+The Kappa values using VFDT are the worst in all the regions.
+
+In most regions, those using NB are the best and those using SCD are the second.
+
+For example, for the Central region, the Kappa values for NB, VFDT and SCD are 36.2%, 4.8% and 33.5%.
+
+Only for the North Eastern region for Dead and the Central region for Events, the Kappa values using SCD, 14.5% and 39.4% are better than those using NB, 11.3% and 38.1%.
+
+PARAGRAPH
+
+For Dead, Wounded and Events, in the Central, the South Eastern and the South Western, the Kappa values using NB and SCD are over 30%.
+
+In the Central region, for Wounded, the Kappa values using NB is the highest, 46.6%.
+
+For Hijacked, the Kappa values are be worse, the range [−0.2%, 25.9%].
+
+In the South Eastern region, for Hijacked, the Kappa value for NB is 25.9% at the highest.
+
+PARAGRAPH
+
+Most AUROC values are consistent with the Kappa values.
+
+A better Kappa value has a better AUROC value.
+
+For example, in the Central region, for Dead, the Kappa and the AUROC values for NB are 36.2% and 0.644, and the Kappa and the AUROC values for SCD are 33.5% and 0.635.
+
+But there are some different cases.
+
+For example, in the South Western region, for Dead, the Kappa and the AUROC values for NB are 36.6% and 0.670, and the Kappa and the AUROC values for SCD are 34.6% and 0.699.
+
+In the South Western region, for Wounded, the AUROC value for NB is 0.717, the highest.
+
+PARAGRAPH
+
+Similarly, most classification rates for class “Yes” are consistent with the Kappa values.
+
+A better Kappa value has a higher classification rate.
+
+For example, in the Central region, for Dead, the classification rates for class “Yes” and the Kappa values for NB are 55.2% and 36.2%, and the classification rates for class “Yes” and the Kappa values for SCD are 52.5% and 33.5%.
+
+But there are still some different cases.
+
+For example, in the South Western region, for Dead, the classification rates for class “Yes” and the Kappa values for NB are 66.3% and 36.6%, and the classification rates for class “Yes” and the Kappa values for SCD are 66.6% and 34.6%.
+
+For Dead, Wounded and Events, in the Central, South Eastern, and South Western regions, the overall classification rates using NB, VFDT and SCD are over 50%.
+
+Specifically, for the South Western region, for Events, the overall classification rates using NB, VFDT and SCD are over 70%.
+
+In many scenarios, the data stream approach outperforms the batch cost-sensitive approach.
+
+PARAGRAPH
+
+The Kappa values using data steam methods, where the numbers of Dead, Wounded, Hijacked and Events are higher, in the Central, South Eastern, and South Western regions, are close or improved compared with those using cost-sensitive learning in the same areas.
+
+For example, in the Central region, for Dead, the Kappa value using cost-sensitive learning for C4.5 is 36.1% and that using data stream for NB is 36.2%.
+
+In the South Western region, for Events, the Kappa value using cost-sensitive learning for C4.5 is 18.3%, that using data stream for NB is 38.2%.
+
+In the Central region, for Hijacked, the Kappa value using cost-sensitive learning for C4.5 is 11.9% and that using data stream for NB is 17.9%.
+
+The Kappa values using data stream methods, where the numbers of Hijacked are small, in the Eastern, North Eastern, and North Western regions, are worse than those using cost-sensitive learning.
+
+For example, in the North Western region, for Hijacked, the kappa value for C4.5 is 20.0% using cost-sensitive learning and that using data steam for NB is 12.6%.
+
+PARAGRAPH
+
+In the South Western region, where the highest number of adverse events occur, for NB, the Kappa values are 38.2% and the overall classification rate for “Yes” is 70.0%.
+
+In that region the first affecting factor, B10(t−2), is very significant with an index of 0.2821.
+
+This is the project investment in the Security area, two years before Events occurred.
+
+Fig. 13 illustrates the time relationship between the investment in Security and the number of Events.
+
+To compare the two phenomena we mapped the values of B10(t−2) to the range [0, 100].
+
+One can see that when the values of B10(t−2) between September 2006 and July 2008 are well over 40, the numbers for Events are under 40.
+
+One can also notice that while the values of B10(t−2) between August 2008 and December 2010 are under 30, the numbers for Events fall into the range [20, 141].
+
+Thus, when investments in Security are low, the number of Events tends to increase significantly, whereas higher investments in Security cause the number of Events to decrease.
+
+Thus, some very selective project investments may be useful in detecting adverse events.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Adverse events prediction is an active area of research.
+
+One important type of adverse events occurs in the context of active war theaters.
+
+Existing studies often treat the target variables as continuous values.
+
+Such a modeling approach often leads to subpar prediction results.
+
+This study examines the performance of the batch algorithms and the data stream using a classification approach to detect adverse events based on infrastructure development spending and other variables in an active theater of war in Afghanistan.
+
+The data sets were provided by the HSCB program management of the U.S. DoD.
+
+The study first uses variable reduction techniques to identify significant variables and then uses three cost-sensitive classification methods: kNN, SVM, and C4.5 and three data stream classification algorithms: NB, VFDT, and SCD to classify four categories of adverse events.
+
+The paper reports the resulting classification accuracy rates, the AUROC and Kappa values for four types of adverse events (killed, wounded, hijacked, and events) for the entire country and for its seven regions for each method.
+
+The analysis performed for the entire country shows little correlation between adverse events and project types and the number of projects.
+
+However, the same type of analysis performed by region shows some relationships between adverse events and the infrastructure budget and the number of projects allocated for the specific regions and time.
+
+The dominant factors for most regions measured by index values are, however, the four categories of adverse events and the population densities.
+
+It is worth noting, however, that one region stands out.
+
+We illustrated that region in Fig. 13 depicting the time relationship between investments in Security and the number of Events in the South Western region with the highest number of adverse events.
+
+PARAGRAPH
+
+Among the three cost-sensitive batch classifiers, the C4.5 decision tree and k-NN seem to be the best in terms of the global performance, whereas among the three data streaming algorithms NB appears to be the best.
+
+For the batch algorithms the results vary among the four different predicted targets.
+
+The AUROC values for Events are generally higher than the AUROC values for Dead, Wounded and Hijacked; and that the AUROC values for Hijacked are generally lower than the AUROC values for Dead, Wounded and Events.
+
+When there are fewer “Yes” cases in a data set, we have to increase the cost values to obtain balanced accuracy rates for “Yes” cases.
+
+Even so, the performance with a bigger cost value is still lower than that with a smaller cost value under most circumstances.
+
+Our results show that it is easier to obtain better results with a more balanced data set than to achieve better results through adjustment of cost in an unbalanced data set.
+
+PARAGRAPH
+
+The NB, VFDT and SCD classifiers were used in the data stream setting.
+
+Since the Event category includes more instances for class “Yes”, the classification rates for class “Yes” are better than those for class “Yes” for Dead, Wounded, and Hijacked.
+
+The Hijacked category includes much fewer instances for class “Yes” therefore the classification rates for this category are much lower than those for “Yes” with Event, Dead, and Wounded.
+
+The results show that the classification rates for “Yes” using NB and SCD are much better than those using VFDT, and the Kappa values using NB and SCD are better than those using VFDT.
+
+The classification rates for “Yes” using SCD are slight better than those using NB, but the Kappa values using NB are slighter better than those using SCD.
+
+From Kappa statistic charts, the Kappa values for NB and SCD, which are very close, are better than that for VFDT.
+
+From Prequential AUROC, the AUROC values for NB are better than that for SCD in many points.
+
+NB model has the global performance at the country level.
+
+Similarly, the NB classifier has also turned out to be the best in the data stream setting when modeling occurs at the regional level.
+
+We have found that the classification rates and Kappa statistic for class “Yes” for some regions are better, such as the South Western and South Eastern regions where the percentage of occurrence of 1’s for the adverse events are the highest and the second highest, and those for some regions, such as the North Eastern and North Western regions where the percentage of occurrence of 1’s are the lowest and the second lowest, are worse.
+
+PARAGRAPH
+
+The study shows that the classification approach to detecting adverse events is more feasible and reliable than predicting the actual number of any of these four adverse events as the latter generated relatively large errors.
+
+Though the cost-sensitive algorithms can improve the classification rates greatly, we need to set cost values manually.
+
+Manual adjustment of cost values is challenging since the distribution of classes is changing with instances.
+
+Data streaming allows one to observe the dynamic changes of the classification rates in the data and analyze the concept drifts, thus providing a better picture of a model’s performance over time for model fine tuning.
+
+PARAGRAPH
+
+The models presented in this study might be useful for researchers who investigate past economic data and make decisions on how the allocation of resources can best help decrease adverse events.
+
+Though the models used Afghanistan data, they may be applicable to similar scenarios in other countries, such as Iraq and Syria, which are looking to improve infrastructure while the threat of terrorist related events is present.
+
+The approach presented in this study could also be applied to modeling and identification of adverse events in the areas of medicine and pharmacology.
+
+PARAGRAPH
+
+Future work may consider a more in-depth analysis of the data.
+
+The analysis by region reveals several interesting patterns in terms of project types and their number.
+
+One may examine provinces and districts to find more subtle connections between adverse events and different project types and their number, the amount of money allocated to different projects, and the population densities.
+
+One may also try to aggregate data by provinces or districts to reduce the number of 0’s in the dependent variables.
+
+It may also be advisable to examine the performance of data streaming algorithms in predicting continuous values of four adverse events and to analyze trends in the number of adverse events.

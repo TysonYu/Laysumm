@@ -1,0 +1,453 @@
+10.1016/j.jhep.2020.01.007
+
+FULLTEXT
+
+TITLE
+
+Hepatocellular carcinoma prediction beyond year 5 of oral therapy in a large cohort of Caucasian patients with chronic hepatitis B☆
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Long-term monotherapy with one of the currently recommended nucleos(t)ide analogues (NAs), entecavir (ETV), tenofovir disoproxil fumarate (TDF) and tenofovir alafenamide, results in virological remission in almost all compliant patients with chronic hepatitis B (CHB) and is associated with significant improvement of liver necroinflammation and fibrosis.1–3
+
+Patients with CHB, with or without compensated cirrhosis, treated with ETV or TDF have also been shown to have excellent overall survival,4–6 similar to that of the general population.6
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) remains the main challenge in the management of patients with CHB nowadays, as it may occur even under effective antiviral therapy and is the only factor that affects liver-related mortality.6–9
+
+Current antiviral agents decrease the HCC risk in patients with CHB,7,8 who however remain at some risk of HCC development as HBV is not eradicated.8,10
+
+PARAGRAPH
+
+Several groups have recently focused on the development of scores for the prediction of HCC in NA-treated patients.11,12
+
+However, most existing data on HCC prediction in NA-treated patients with CHB, including all relevant data for Caucasians, come from studies with mean/median treatment duration of <5 years.11,12
+
+We recently showed that the incidence of HCC in Caucasian patients with CHB is decreasing beyond year 5 of NA therapy, but HCC may still develop and cannot be accurately predicted by the existing risk scores, including PAGE-B.13
+
+Since the HCC incidence after 5 years of NA therapy is not high, a large number of patients and long-term follow-up are required to efficiently assess potential predictors.
+
+PARAGRAPH
+
+Having more extended follow-up of the PAGE-B cohort, this large, multicentre, ongoing cohort study aimed to assess predictors and need for HCC surveillance beyond year 5 of ETV/TDF in Caucasian patients with CHB, as well as to develop an accurate risk score for HCC prediction beyond year 5.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Patient population
+
+PARAGRAPH
+
+The PAGE-B ongoing cohort study included all (n = 1,951) patients with CHB followed at the clinics of the 10 participating centres if they fulfilled the previously reported criteria.11
+
+In summary, Caucasian adult patients with CHB who had received ≥12-month ETV/TDF therapy before December 2012 were included.
+
+Patients with decompensated cirrhosis, previously diagnosed HCC, coinfection(s) with hepatitis D, hepatitis C or HIV and those who had received a liver transplant were excluded.
+
+Of 1,951 patients, 1,427 (73%) represented the study population who were followed for >5 years under ETV/TDF without developing HCC within the first 5 years of therapy.
+
+SECTION
+
+Follow-up definitions
+
+PARAGRAPH
+
+As previously reported,11 CHB was diagnosed in patients with positive HBsAg for ≥6 months, elevated alanine aminotransferase (ALT) and serum HBV DNA >2,000 IU/ml.
+
+The severity of liver disease before therapy was classified into CHB only (without cirrhosis) according to findings from liver biopsies and CHB with compensated cirrhosis according to histological, ultrasonographic and/or endoscopic findings.
+
+PARAGRAPH
+
+All patients were treated with ETV and/or TDF and followed at each centre according to international and/or national clinical practice guidelines.
+
+Clinical examination and routine laboratory tests were performed every ≤6 months.
+
+Serum HBV DNA levels were determined every 6–12 months at the laboratory of each centre.
+
+Virological remission was considered to be present in case of HBV DNA <80 IU/ml that was maintained throughout ETV/TDF therapy.
+
+Cut-offs for upper limit of normal (ULN) of ALT proposed by different recommendations were considered: 30/19 IU/L for males/females (old AASLD-ULN),14 35/25 IU/L for males/females (new AASLD-ULN)2 and 40 IU/L for all patients (EASL-ULN).1
+
+PARAGRAPH
+
+At year 5 of ETV/TDF, the severity of liver histological lesions and particularly of fibrosis was reassessed by transient elastography.
+
+Elastographic cirrhosis was considered to be present in cases with reliable liver stiffness measurements (LSM) of ≥12 kPa, which represents the lowest LSM cut-off for the diagnosis of cirrhosis according to the international guidelines.15
+
+Ultrasonography, with or without alpha fetoprotein measurements, was performed every ≤6 months in cirrhotic and every ≤12 months in non-cirrhotic patients.
+
+HCC was diagnosed by standard histological and/or compatible radiological findings.16
+
+PARAGRAPH
+
+Entry into this study (baseline) was defined as the onset of ETV/TDF.
+
+Follow-up was considered as the time interval between study entry and the last available clinical information, while treatment duration was considered the time interval from study entry until the end of therapy or the last on-therapy follow-up.
+
+Analysis time was the time interval between year 5 and HCC diagnosis or the end of follow-up in the absence of HCC development.
+
+The follow-up time was censored at 12 years.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+All data were analysed using the statistical package Stata 13.0 (StataCorp LP, USA) and R (version 3.2.1).
+
+Continuous variables were summarised using median values and interquartile range or mean values and standard deviation.
+
+Categorical variables were summarised as frequencies and percentages.
+
+HCC incidence rates per 100 person-years were obtained using information on the number of new HCC diagnoses and the person-time at risk.
+
+Kaplan-Meier estimates of the cumulative probability of HCC occurrence in different subgroups were obtained and compared with the log-rank test.
+
+Cox proportional hazards regression models were used to estimate the effect of various variables on the hazard of HCC occurrence.
+
+Multivariable Cox proportional hazards models were used to identify independent prognostic factors.
+
+Hazard ratios (HRs) and their 95% CIs along with corresponding p values are presented.
+
+PARAGRAPH
+
+A prediction model was developed to predict the risk of HCC beyond year 5.
+
+We fitted univariable models and those variables that were found to be significant were then fitted together.
+
+Covariates which did not significantly increase the value of -2 log likelihood when they were omitted from the model were discarded.
+
+Variables that were not significant in the univariable analysis were added, one at time, to the model and the change in -2 log likelihood was assessed.17
+
+As the model was intended for the prediction of HCC risk for those who are HCC-free at year 5, only variables measured at year 5 were used with the exception of liver disease severity.
+
+Thus, we assessed 2 models: a) a model with year-5 variables where information on the severity of liver disease at baseline (CHB or cirrhosis) and year 5 was combined, and b) a model where only year 5 variables were considered.
+
+The latter was assessed as reliable information for the presence or absence of cirrhosis before the onset of therapy might not be available in clinical practice.
+
+PARAGRAPH
+
+To assess the discriminative performance of the resulting model, we used Harrell's c-index.
+
+We performed internal validation of the model using bootstrap.
+
+Bootstrap samples were random samples drawn with replacement from the original sample.
+
+We repeatedly fitted the model in 1,000 bootstrap samples and evaluated its performance on the original sample.
+
+The next step was to develop a risk score based on a points system to simplify the computation of an HCC risk estimate.18
+
+We evaluated the agreement between risk estimates based on the points system and on the multivariable model (risk categories: <2%, 2%–8.9%, ≥9%) using weighted kappa.
+
+We assessed the discrimination and the calibration of the risk score by inspection of the Kaplan-Meier curves for risk groups stratified by the 25th and 75th percentiles of the risk score distribution.
+
+We estimated the sensitivity, specificity, positive predictive value and negative predictive value for various cut-offs of the risk score using appropriate methodology for censored data.19
+
+SECTION
+
+Results
+
+SECTION
+
+Patient characteristics
+
+PARAGRAPH
+
+The main characteristics of the 1,427 patients are shown in Table 1.
+
+The median duration of follow-up was 8.4 years.
+
+At baseline and at year 5 of ETV/TDF, 805 (56.4%) and 992 (69.5%) patients were older than 50 years, respectively.
+
+Cirrhosis at baseline was present in 370 (26.6%) of 1,393 patients with available histological data or in 16.3% (100/614) and 34.7% (270/779) of patients ≤50 and >50 years old (p <0.001).
+
+At year 5, LSM ≥12 kPa (i.e. elastographic evidence for cirrhosis) was found in 96 (7.9%) of 1,211 patients with available data or in 2.9% (10/339) and 9.9% (86/872) of patients ≤50 and >50 years old (p <0.001).
+
+Of 315 patients with cirrhosis at baseline and available 5-year LSM, elastographic reversion of cirrhosis was considered to occur in 223 (70.8%) and maintenance of cirrhosis in 92 (29.2%) cases, while 3 (0.3%) of 873 patients without histological cirrhosis at baseline had LSM ≥12 kPa at year 5.
+
+One of the latter 3 patients was overweight and continued to drink alcohol (60–100 g daily), another patient was obese and developed radiological evidence of severe steatosis and signs of cirrhosis during on-therapy follow-up and the third patient case was considered to have severe fibrosis (Ishak's stage 4) at pretreatment liver biopsy and histological cirrhosis (Ishak's stage 5) at a surgical liver biopsy during an operation for colon cancer performed after 2 years of NA therapy.
+
+SECTION
+
+HCC risk factors – Univariable analyses
+
+PARAGRAPH
+
+During years 5 to 12, HCC was diagnosed in 33 (2.3%) of 1,427 patients.
+
+The cumulative incidence of HCC development was 0.7%, 2.4%, 3.2% and 3.8% at 6, 8, 10 and 12 years, respectively (Fig. 1).
+
+PARAGRAPH
+
+In univariable Cox regression models (Table 2), older age at either baseline or year 5 was a strong risk factor for HCC development (HR per year: 1.09, p <0.001).
+
+Age >50 years at ETV/TDF onset was also a significant predictor of HCC development (log-rank, p <0.001); HCC developed in 3.8% (32/838) and 0.2% (1/589) of patients >50 and ≤50 years old at ETV/TDF onset (p <0.001), while at year 5 of therapy, HCC only developed in patients older than 50 years (33/992, 3.3%), with no cases in the 435 patients ≤50 years old at year 5 of therapy (p <0.001).
+
+Gender did not affect the HCC incidence beyond year 5 (p = 0.487).
+
+PARAGRAPH
+
+HCC during years 5 to 12 developed in 1.2% (12/1023) of patients without and 5.75 (21/370) of patients with cirrhosis at baseline (p <0.001) or in 1.0% (9/870) of patients without cirrhosis at baseline and LSM <12 kPa at year 5, 33.3% (1/3) of patients without cirrhosis at baseline and LSM ≥12 kPa at year 5 (the patient with Ishak's stage 4 at baseline and 5 at 2 years of therapy), 4.9% (11/223) of patients with cirrhosis at baseline and LSM <12 kPa at year 5 and 9.8% (9/92) of patients with cirrhosis at baseline and LSM ≥12 kPa at year 5 (p <0.001).
+
+The 6, 8, 10, 12-year HCC incidence was lower in the 1,023 patients without cirrhosis at baseline (0.5%, 1.2%, 1.7%, 1.7%) or the 870 patients without cirrhosis at baseline and LSM <12 kPa at year 5 (0.5%, 1.1%, 1.3%, 1.3%) compared to the 223 patients with elastographic reversion of cirrhosis (stiffness <12 kPa) at year 5 (0.9%, 3.6%, 6.2%, 10.7%; p <0.001) or the 92 patients who maintained cirrhosis (2.3%, 12.0%, 12.0%, 12.0%; p <0.001).
+
+Moreover, HCC incidence was lower in the 223 patients with elastographic reversion of cirrhosis than in the 92 patients who maintained cirrhosis at year 5 (p = 0.019, log-rank test) (Fig. 2).
+
+Liver stiffness ≥12 kPa at year 5, regardless of baseline cirrhosis, was also associated with higher HCC risk between years 5 to 12 (HR 7.29; 95% CI 3.40–15.66; p <0.001).
+
+PARAGRAPH
+
+HCC development was associated with lower platelet counts or platelets <150×109/L at baseline or year 5 as well as with platelets <100×109/L only at year 5 (Table 2).
+
+In patients >50 years old at year 5, the 6, 8 and 10-year HCC incidence was 1.3%, 5.0% and 8.9% in individuals with platelets <150×109/L and 0.8%, 3.2% and 3.9% in individuals with platelets ≥150×109/L (p = 0.039).
+
+PARAGRAPH
+
+Other patient characteristics associated with higher HCC incidence from year 5 to 12 were normal ALT by the old AASLD-ULN at baseline, year 1 or year 5, lower or undetectable HBV DNA at baseline and prior use of NAs (Table 2).
+
+SECTION
+
+Independent HCC risk factors – Multivariable analyses
+
+PARAGRAPH
+
+In multivariable Cox regression analysis including baseline parameters, older age (HR per year: 1.08, p <0.001), low platelet count (≤150×103/mm3) (HR 2.12; p = 0.045) and presence of cirrhosis (HR 2.61; p = 0.016) were independently associated with higher HCC incidence from year 5 to 12 (Table 3).
+
+In a model including year-5 parameters, higher HCC incidence from year 5 to 12 was independently associated only with older age at year 5 (HR per year 1.08; p <0.001) and liver stiffness ≥12 kPa (HR 5.30; p <0.001).
+
+Moreover, HCC development was independently associated with older age and severity of liver elastography at year 5 in relation to baseline cirrhosis being lowest in patients without baseline cirrhosis and year-5 LSM <12 kPa, intermediate in those with baseline cirrhosis and year-5 LSM <12 kPa and highest in those with baseline cirrhosis and year-5 LSM ≥12 kPa (Table 3).
+
+SECTION
+
+Risk scores for prediction of HCC beyond year 5
+
+PARAGRAPH
+
+Two risk scores were developed.
+
+In the first score, age and elastographic presence of cirrhosis at year 5 in relation to cirrhosis status at baseline were retained in the final model.
+
+The c-index of the model was 0.814.
+
+After internal validation using bootstrap, the c-index was 0.806 and the calibration slope 0.962.
+
+The model score was simplified to an integer scoring system which ranged from 0 to 16 (cirrhosis and age [CAGE-B] score) (Table 4).
+
+A higher score was associated with a higher probability of HCC development beyond year 5 (HR per 1-unit increase 1.47; 95% CI 1.30–1.66; p <0.001).
+
+We further assessed the discriminative ability of the score by inspection of the Kaplan-Meier curves for risk groups stratified by the 25th and 75th percentiles of the score distribution (6 and 10 points).
+
+In patients with low (0-5), medium (6-10) and high (11-16) CAGE-B score, the 12-year cumulative HCC probability was 0%, 1.8% and 15.4% and HCC incidence was 0, 0.18 and 1.01 per 100 patient-years, respectively (Fig. 3A).
+
+HCC developed only in patients with intermediate (10/674, 1.5%; incidence rate: 0.18 HCC/100 patient-years) or high scores (19/230, 8.3%; incidence rate: 1.01 HCC/100 patient-years), with no cases in the 281 patients with low CAGE-B scores (log-rank, p <0.001).
+
+PARAGRAPH
+
+In the second score, only age and elastographic presence of cirrhosis at year 5, regardless of cirrhosis baseline status, were retained in the final model.
+
+The c-index of the model was 0.809.
+
+After internal validation using bootstrap, the c-index was 0.805 and the calibration slope 0.995.
+
+The model score was simplified to an integer scoring system which ranged from 0 to 15 (stiffness and age [SAGE-B] score) (Table 4) (HR for HCC per 1-unit increase 1.49; 95% CI 1.32–1.68; p <0.001).
+
+We also assessed the discriminative ability of the SAGE-B score by inspecting Kaplan-Meier curves for risk groups using the same cut-offs as in the previous score (6 and 10 points, respectively).
+
+In patients with low (0–5), medium (6–10) and high (11–16) SAGE-B scores, the 12-year cumulative HCC probability was 0%, 4.0% and 13.8% and the HCC incidence was 0, 0.29 and 1.51 per 100 patient-years, respectively (Fig. 3B).
+
+HCC only developed in patients with intermediate (21/815, 2.6%; incidence rate: 0.29 HCC/100 patient-years) or high scores (10/88, 11.4%; incidence rate: 1.51 HCC/100 patient-years), with no cases in the 308 patients with low SAGE-B score (log-rank, p <0.001).
+
+PARAGRAPH
+
+There was very good agreement between the point system of both scores and the multivariable model (weighted kappa: 0.855 for CAGE-B and 0.875 for SAGE-B).
+
+The 12-year HCC risks according to the CAGE-B and SAGE-B scores are shown in Fig. S1.
+
+For both scores, the highest cut-off associated with 100% sensitivity and, as a result, 100% negative predictive value (NPV) was 6.
+
+PARAGRAPH
+
+In addition to the above models, we also assessed the predictability of lower LSM cut-offs (5, 6, 7, 8, 9, 10, 11 kPa) together with age (combined or not with baseline cirrhosis), which was similar or lower than that of the 12 kPa LSM cut-off (c-index: 0.769–0.819).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+To our knowledge, this is the first attempt to accurately predict the development of HCC beyond year 5 of therapy with potent and high genetic barrier NAs, ETV and TDF, in Caucasian patients with CHB, with or without compensated cirrhosis.
+
+We not only identified predictors of such late HCC development but also developed 2 simple HCC risk scores, CAGE-B and SAGE-B, which offer 100% NPV for HCC and therefore remove the need for HCC surveillance beyond year 5 in their low risk groups.
+
+PARAGRAPH
+
+Older age and presence of cirrhosis at baseline and/or elastographic presence of cirrhosis at year 5 represented the most important factors for late HCC development.
+
+Older age is a well-established risk factor for HCC development in patients with CHB.20
+
+An interesting finding of our study was that late HCC developed exclusively in patients older than 50 years at year 5 of therapy, which further supports that the residual HCC risk after several years of suppression of HBV replication may be related to longer duration of chronic HBV infection and/or hepatocyte senescence which are both linked to older age.21,22
+
+PARAGRAPH
+
+Although the HCC risk decreases after 5 years of ETV/TDF therapy in Caucasian patients with CHB and compensated cirrhosis, it still remains higher than in patients without cirrhosis at baseline.13
+
+The presence of cirrhosis at ETV/TDF onset was a significant risk factor for HCC development even after 5 years of therapy.
+
+Long-term histological data in patients treated with ETV or mostly TDF have shown that cirrhosis reversion can be achieved in approximately 75% of patients with baseline cirrhosis,3,23 but whether such a histological change is associated with decreased subsequent HCC risk is currently unknown.
+
+Potential cirrhosis reversion estimated by liver elastography (LSM <12 kPa) was observed in a similar proportion of our patients (71%) after 5 years of ETV/TDF therapy.
+
+Although liver elastography may not reliably determine the presence or absence of cirrhosis in patients with previous cirrhosis who maintain inactivity of their liver disease for some years, it is the most commonly used method which can easily and non-invasively offer relevant information in routine clinical practice.
+
+PARAGRAPH
+
+Our data show for the first time that patients with reversion of baseline cirrhosis, as assessed by liver elastography, have a significantly lower HCC risk after 5 years of therapy, compared to patients with cirrhosis at baseline and no elastographic reversion of cirrhosis after 5 years of therapy.
+
+Such a reduction in HCC risk is quite interesting, but LSM <12 kPa at year 5 alone cannot modify the need for HCC surveillance, as the mean annual HCC incidence from year 5 to 10 was greater than 0.2%, the threshold that has been considered to make HCC surveillance cost-effective,20 in both subgroups of our patients with cirrhosis at baseline and even in patients with CHB only.
+
+Thus, additional characteristics are required in order to identify patients who may not require HCC surveillance during NA therapy beyond year 5.
+
+Compared to the 12 kPa cut-off, lower LSM cut-offs combined with age were found to offer similar HCC predictability after year 5, but they could classify less patients into the low risk group.
+
+In the future, biological markers could be used to refine the diagnosis of cirrhosis and possibly improve the accuracy of fibrosis severity for HCC prediction in patients with CHB.
+
+PARAGRAPH
+
+CAGE-B and SAGE-B scores are both simple and easy to use in routine clinical practice, as they are based on only 2 variables, age and presence or absence of cirrhosis.
+
+In fact, SAGE-B is simpler as, in addition to age at year 5, it only requires liver stiffness at year 5 as a qualitative variable (≥12 or <12 kPa), while CAGE-B also requires knowledge of cirrhosis status at baseline.
+
+It is reassuring that the 12-year cumulative probability of HCC was 0% in the low risk groups of both scores, which included approximately 20% of our patients.
+
+Thus, the cut-off point of 6 in both scores offered 100% sensitivity and NPV for HCC prediction beyond year 5.
+
+If these findings are confirmed in other cohorts, it would mean that HCC surveillance can be avoided in patients with liver stiffness <12 kPa at year 5 who are younger than 40 years, regardless of baseline fibrosis severity, as well as in patients with liver stiffness <12 kPa at year 5 who are 40–49 years old, especially if they had no cirrhosis at baseline (Table 4).
+
+However, it should be noted that there were rather few patients with baseline cirrhosis who were younger than 40 years and therefore strong conclusions cannot be drawn for this particular subgroup.
+
+PARAGRAPH
+
+Interestingly, 2 factors, gender and platelets, which have been associated with the HCC risk during the first 5 years of therapy,11 had no independent association with HCC development beyond year 5.
+
+The lack of association between gender and late HCC development cannot be easily explained, but a reasonable hypothesis might be that the protective effects of estrogens on hepatocarcinogenesis weaken in post-menopausal females who represented the majority of female patients in this cohort (median age: 58 years).24
+
+Platelet counts at both baseline and year 5 were only associated with the HCC incidence from year 5 to 12 in univariable analyses and could not identify any patient subgroup with low HCC risk that would not justify HCC surveillance.
+
+Additional factors initially found to be associated with HCC incidence beyond year 5, like ALT, baseline HBV DNA and prior use of NAs, did not maintain their associations in multivariable analyses.
+
+PARAGRAPH
+
+Our study has a few limitations.
+
+First, HCC surveillance was based on ultrasonography performed by different radiologists or gastroenterologists/hepatologists, whereas the compliance may have varied across the centres and even among the patients of the same centre.
+
+Thus, the diagnosis of HCC could have been delayed in some cases.
+
+Such problems, however, reflect daily clinical practice and exist in all large cohort studies and even in carefully designed prospective large studies.
+
+In addition, as recently suggested, prompt HCC diagnosis seems to be increasing in recent years at least in patients who remain under follow-up in specialised centres.25
+
+Thus, given the natural course of HCC and the long-term follow-up of our patients in clinics of tertiary expert centres, we believe that delays in HCC diagnosis cannot substantially affect the validity of our findings.
+
+Second, since all our patients were Caucasians, it is unclear whether these findings are valid in NA-treated patients of different origin and perhaps infected with different HBV genotypes.
+
+Third, our study had only internal but lacked external validation, which is critical for any risk score,26 and therefore the proposed scores should be further tested in other cohorts before they can be considered for use in clinical practice.
+
+In particular, CAGE-B and SAGE-B scores should be first validated in at least 1 large independent cohort of Caucasian patients with CHB and perhaps in Asian cohorts of patients with CHB as well.
+
+PARAGRAPH
+
+In conclusion, in a large cohort of Caucasian patients with CHB, with or without compensated cirrhosis, HCC after the first 5 years of ETV/TDF therapy seems to develop exclusively in patients older than 50 years at year 5.
+
+In patients with cirrhosis before therapy, elastographic reversion at 5 years of therapy defined by LSM <12 kPa seems to significantly decrease the subsequent HCC risk.
+
+However, LSM at 5 years of therapy alone cannot identify patients who will not benefit from continued HCC surveillance.
+
+Thus, HCC surveillance should continue in all patients older than 50 years and probably in the few cirrhotics ≤50 years old.
+
+CAGE-B, which is based on age and LSM at year 5 and presence of baseline cirrhosis, and particularly SAGE-B, which is based on only age and LSM at year 5, represent 2 simple and reliable risk scores for HCC prediction and surveillance beyond year 5 of therapy offering 100% NPVs for HCC development in their low risk groups, including all patients with liver stiffness <12 kPa at year 5 who are less than 40 years old and probably 40-49 years old, particularly if the latter have no cirrhosis at baseline.
+
+CAGE-B and SAGE-B scores should now be further validated in an independent large Caucasian cohort before definitive use for HCC surveillance in clinical practice.
+
+SECTION
+
+Abbreviations
+
+PARAGRAPH
+
+ALT, alanine aminotransferase; CAGE-B, cirrhosis and age; CHB, chronic hepatitis B; ETV, entecavir; HCC, hepatocellular carcinoma; HR, hazard ratio; LSM, liver stiffness measurements; NA(s), nucleos(t)ide analogue(s); NPV, negative predictive value; (Peg-)IFNa, pegylated interferon-alfa; SAGE, stiffness and age; TDF, tenofovir disoproxil fumarate; ULN, upper limit of normal.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The authors received no financial support to produce this manuscript.
+
+SECTION
+
+Authors' contributions
+
+PARAGRAPH
+
+GV Papatheodoridis: Conception and design of the study; Assembly, analysis and interpretation of data; Drafting of the manuscript; Approval of the final version of the manuscript.
+
+V Sypsa: Statistical analysis and interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+G Dalekos: Design of the study; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+C Yurdaydin: Design of the study; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+F Van Boemmel: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+M Buti: Conception and design of the study; Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+JL Calleja: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+H Chi: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+J Goulis: Design of the study; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+S Manolakopoulos: Design of the study; Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+A Loglio: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+T Voulgaris: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+N Gatselis: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+O Keskın: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+R Veelken: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+ML-Gomez: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+BE Hansen: Design of the study; Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+S Savvidou: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+A Kourikou: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+I Vlachogiannakos: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+K Galanis: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+R Idilman: Data collection; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+R Esteban: Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+HLA Janssen: Design of the study; Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+T Berg: Interpretation of data; Revision of the manuscript; Approval of the final version of the manuscript.
+
+P Lampertico: Conception and design of the study; Interpretation of data; Drafting of the manuscript; Approval of the final version of the manuscript.

@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.103401
+
+ABSTRACT
+
+TITLE
+
+Detecting indicators of cognitive impairment via Graph Convolutional Networks
+
+PARAGRAPH
+
+While the life expectancy is on the rise all over the world, more people face health related problems such as cognitive decline.
+
+Dementia is a name used to describe progressive brain syndromes affecting memory, thinking, behaviour and emotion.
+
+People suffering from dementia may lose their abilities to perform daily life activities and they become on their caregivers.
+
+Hence, detecting the indicators of cognitive decline and warning the caregivers and medical doctors for further diagnosis would be helpful.
+
+In this study, we tackle the problem of activity recognition and abnormal behaviour detection in the context of dementia by observing daily life patterns of elderly people.
+
+Since there is no real-world data available, firstly a method is presented to simulate abnormal behaviour that can be observed in daily activity patterns of dementia sufferers.
+
+Secondly, Graph Convolutional Networks (GCNs) are exploited to recognise activities based on their granular-level sensor activations.
+
+Thirdly, abnormal behaviour related to dementia is detected using activity recognition confidence probabilities.
+
+Lastly, GCNs are compared against the state-of-the-art methods.
+
+The results obtained indicate that GCNs are able to recognise activities and flag abnormal behaviour related to dementia.

@@ -1,0 +1,589 @@
+10.1016/j.engappai.2019.103255
+
+FULLTEXT
+
+TITLE
+
+Therapy-driven Deep Glucose Forecasting
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Type 1 Diabetes (T1D) is a chronic metabolic disease characterized by high Blood Glucose (BG) level, known as hyperglycaemia.
+
+Hyperglycaemia can cause long-term complications including damage to blood vessels, eyes, kidneys, and nerves and it is caused by the dysfunction of pancreatic β-cells responsible for the production of insulin.
+
+This hormone regulates the BG concentration by allowing cells and tissues to absorb glucose from the bloodstream.
+
+T1D patients need exogenous insulin injections to keep the glucose concentration in the euglycemic range.
+
+Their goal is to minimize diabetes complications related to hyperglycemia and simultaneously avoid hypoglycemia, a condition that could be caused by excessive insulin administration.
+
+The automatic regulation of the BG concentration for people affected by T1D through exogenous insulin administrations (Cobelli et al., 2011; Cameron et al., 2011; Thabit and Hovorka, 2016) is the main purpose of the so-called artificial pancreas.
+
+The artificial pancreas is a closed-loop system that exploits the glucose measurements obtained via Continuous Glucose Monitor (CGM) to compute and automatically deliver the proper amount of insulin via subcutaneous insulin pump.
+
+The core of the artificial pancreas is the control algorithm that defines the optimal insulin amount to infuse.
+
+The Model Predictive Control (MPC) resulted into one the most promising approach to this problem in the last years, obtaining successful results both in silico and in vivo (Renard et al., 2016; Thabit et al., 2015; Kropff et al., 2015; Anderson et al., 2016; Bergenstal et al., 2016; Dassau et al., 2012; Pinsker et al., 2018).
+
+The MPC approach exploits a glucose–insulin model to forecast the BG values in order to compute the optimal insulin therapy.
+
+For this reason, the predictive performance of the model plays a key role in the overall control performance.
+
+Classical mathematical model used in these applications are not able to fully describe the nonlinear glucose–insulin dynamics.
+
+In order to overcome this limitation, the complexity of the model has to be increased and new effective identification techniques are required.
+
+Recently, a branch of the research was moved towards new identification techniques in order to have more effective models to be used for both the control algorithms and the safety systems.
+
+A complete review can be found in Zarkogianni et al. (2015).
+
+Data-driven approaches have been successfully applied to real-life applications (Baghban et al., 2019; Samadianfard et al., 2019; Wu and Chau, 2011; Moazenzadeh et al., 2018).
+
+Depending on the task at hand, the aim of these approaches is to learn a model directly from the data.
+
+Thanks to the availability of a huge amount of data collected during long-period trials in free-living conditions new data-driven approaches have also been studied in the artificial pancreas research field, with promising results (Toffanin et al., 2018, 2019).
+
+However, their performance are limited by the use of a fixed and simple structure of the chosen model.
+
+Data-driven approaches based on deep learning architecture have received an increasing attention in the last few years mainly because of the remarkable performance obtained in several research fields (Krizhevsky et al., 2012; Ronneberger et al., 2015).
+
+Among these approaches, recurrent neural networks represent a family of deep learning architectures which have been explicitly designed to model the evolution over time of a phenomenon.
+
+In particular, given an input composed of a sequence of observations from a signal, such as the BG level in our scenario, these models try to predict its future value or values.
+
+PARAGRAPH
+
+The main goal of this work is the development of a new forecasting model able to predict the future BG of a patient subject to several possible insulin treatments in order to define his/her optimal future insulin therapy.
+
+In this perspective, we propose a deep learning architecture which is able to forecast the BG level of T1D patients.
+
+Our architecture is composed of two models, one observing the CGM measurements, insulin injections and carbohydrate intakes up to a given time t and a second model that receives as input the future insulin that will be administered to the patient and the future carbohydrates that he/she will assume.
+
+Both models are composed of stacked Long-Short Term Memory (LSTM) (Hochreiter and Schmidhuber, 1997) networks.
+
+The output of the two models is combined and given as input to a Fully Connected (FC) layer which is used to predict the future values of the Interstitial Glucose (IG), considering a fixed prediction horizon.
+
+Training is performed in a supervised fashion on a subset of identities, separated from those that will be considered as test, in order to obtain a model which is able to generalize to new unseen data.
+
+The proposed architecture obtains state-of-the-art performance on both in silico and in vivo data, considering several prediction horizons.
+
+PARAGRAPH
+
+This paper has two main contributions with respect to the state of art: (1) as far as we know (Allam et al., 2011; Meijner and Persson, 2017; Martinsson et al., 2018; Sun et al., 2018; Li et al., 2018), this is the first work that introduces a deep learning architecture that exploits two models composed of LSTM networks for a therapy driven approach; (2) the proposed architecture is shown to be able to generalize on in vivo population of real patients, even if it is trained only on in silico data.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+Several works treated the model identification problem in the last years by exploiting in silico (Messori et al., 2019; Del Favero et al., 2011; Percival et al., 2011; Kirchsteiger et al., 2011; Duun-Henriksen et al., 2013; Laguna et al., 2014a; Turksoy et al., 2014; Laguna et al., 2014b; Bock et al., 2015; Bhattacharjee and Sutradhar, 2016) and in vivo (Toffanin et al., 2018, 2019, 2017) data.
+
+For a comprehensive literature review please refer to Zarkogianni et al. (2015) and Oviedo et al. (2017).
+
+The in silico data used for model identification (Messori et al., 2019; Del Favero et al., 2011; Laguna et al., 2014a, b) were obtained through realistic closed-loop clinical protocols simulated via the UVA/Padova simulator (Kovatchev et al., 2009; Dalla Man et al., 2014) in order to produce a sufficient input–output excitation for identification purpose.
+
+This simulator is equipped with a cohort of virtual patients and represents a powerful tool for the design and the test of new insulin therapies since it has been accepted by Food and Drug Administration (FDA) as a substitute to animals trials, making the control algorithms directly testable on real patients.
+
+On the other hand, in vivo data were collected during either short and controlled trials on hospitalized patients (Del Favero et al., 2011) and trials outside the hospital environment in free-living conditions (Renard et al., 2016; Thabit et al., 2015; Kropff et al., 2015; Anderson et al., 2016; Bergenstal et al., 2016; Messori et al., 2017).
+
+PARAGRAPH
+
+Classical models can be either nonlinear or linear: the nonlinear models usually allow for a better approximation of the underlying dynamic, but being based on partial differential equations, they are extremely costly from a computational point-of-view.
+
+On the other hand, the linear model approximation is less precise, but their computational load is limited.
+
+PARAGRAPH
+
+Recently, several MPC algorithms have been developed using different type of models.
+
+Among them, the MPC proposed in Hovorka et al. (2004) used a nonlinear models whose parameters were re-estimated at each control step in order to take into account the daily variability of the patient.
+
+This MPC was tested in several clinical trials (Murphy et al., 2011; Luijf et al., 2013; Leelarathna et al., 2014; Plank et al., 2006; Bally et al., 2017) with promising results.
+
+The Zone-MPC (Gondhalekar et al., 2016) was based on the third-order, discrete-time, linear time-invariant model proposed in van Heusden et al. (2012).
+
+Although the simple structure of this model, the Zone-MPC obtained good results in vivo on both adults and adolescents (Huyett et al., 2017; Forlenza et al., 2017).
+
+The MPC described in Toffanin et al. (2013) (referred in the following with MPC-P) was synthesized on the basis of the “average” linear time-invariant metabolic model computed by averaging the model parameters of the virtual population of the UVA/Padova simulator.
+
+The MPC-P was tested in several clinical trials (Messori et al., 2017; Del Favero et al., 2015) obtaining good results thanks to capability of the simulator to represent all the diabetic population and not only a restricted subgroup of individuals.
+
+However, a model with better predictive capabilities would increase the overall control performance.
+
+In this paper we design a nonlinear model based on deep learning techniques to be included in the MPC-P and we analyze its prediction capabilities.
+
+The proposed model is then compared to the linearized average model (AVG) currently used in the MPC-P.
+
+It is important to stress out that in this kind of applications, the real data collected during clinical trials are usually not publicly released, thus the choice of MPC-P is critical for the availability of data.
+
+SECTION
+
+Solutions based on neural networks
+
+PARAGRAPH
+
+The first solution exploiting neural networks for modeling the BG metabolism of a T1D patient was proposed in Tresp et al. (1999).
+
+In particular, the authors tried to predict the glucose level of a diabetic patient by training a Recurrent Neural Network (RNN) architecture which receives insulin levels, meals and level of exercise as inputs, alongside current and previous estimates of BG.
+
+However, the data used for both train and test is acquired from a single patient and this may result in a lack of generalization for the final model.
+
+PARAGRAPH
+
+Recently, a few solutions exploiting deep learning techniques for glucose level prediction in diabetic patients have been proposed (Allam et al., 2011; Meijner and Persson, 2017; Martinsson et al., 2018; Sun et al., 2018; Li et al., 2018).
+
+Similarly to Tresp et al. (1999), Allam et al. (2011) proposed to use CGM signals to train a RNN for predicting future values of the glucose concentration, considering several prediction horizons.
+
+Again, the data used for both train and test were selected from the same population, which may result in a model that hardly generalize to new unseen data.
+
+PARAGRAPH
+
+LSTM networks achieve state-of-the-art performance in modeling several time-dependent phenomena.
+
+For this reason, the authors of Meijner and Persson (2017) proposed to exploit LSTM in a model which takes CGM values, insulin dosages and carbohydrate intake as inputs and tries to predict the glucose level at prediction horizons of 30 and 60 min.
+
+Data incoming from four patients acquired using different CGM devices has been used in both train and test.
+
+Unfortunately, the training needed to be repeated multiple times, mainly because of initialization issues which left the optimization stuck in a bad local optima.
+
+An LSTM-based architecture has also been exploited in Martinsson et al. (2018).
+
+In this case, the model is trained on the measurements provided by CGM systems, and used to predict a singular value after a pre-defined prediction horizon.
+
+The output is modeled as a univariate Gaussian distribution, so as to be able to follow the uncertainty of the prediction.
+
+The LSTM dimension is set to 128 and it is trained on the Ohio T1DM Dataset (Marling and Bunescu, 2018), considering the first 80% of the glucose level as training data for each patient, and validating on the last 20%.
+
+A more complex architecture was designed by Sun et al. (2018).
+
+In particular, they propose to use a sequential model with one LSTM layer, one bidirectional LSTM layer and several fully connected layers to predict BG levels for different prediction horizons.
+
+The model is trained on the CGM measurements of both in silico and in vivo data coming from 20 real patients.
+
+PARAGRAPH
+
+Convolutional RNNs have also been exploited to predict the BG level (Li et al., 2018).
+
+The concatenated time series of glucose level, carbohydrate and insulin is firstly preprocessed by a deep convolutional networks, so that the recurrent LSTM layers accepts these features instead of the CGM measurements directly.
+
+The model is trained on in silico data consisting on a small sample of 10 adult T1D subjects simulated using the UVA/Padova simulator.
+
+SECTION
+
+Method
+
+PARAGRAPH
+
+Glucose concentration depends mainly on the injected insulin and carbohydrate intake, which have opposite effects on glucose levels.
+
+Indeed, it is well-known from physiology that an increase in insulin results in a decrease in glucose concentration, while a meal intake produces a glucose rise.
+
+Of course, the future evolution of the BG is also influenced by its current value and it is consistent with its trend.
+
+All these variables can be easily measured without an invasive data collection.
+
+PARAGRAPH
+
+Thus, the inputs of the model proposed in this work is composed by three measurable signals sampled at a given rate Ts: the injected insulin (ins) recorded by subcutaneous insulin pump, the carbohydrate amount (cho) inserted manually by the patient, and the glucose concentration (cgm) measured by the CGM sensor.
+
+The output of the model is the interstitial fluid glucose concentration (ig).
+
+Specifically, the signal cgm is the interstitial (i.e. subcutaneous) glucose concentration measured by a CGM device and affected by measurement noise, while ig is the real interstitial glucose.
+
+These measurements have different ranges of values according to the units adopted by the UVA/Padova simulator: injected insulin doses and carbohydrate amounts are about 100 times larger than the glucose measurements in this dataset.
+
+In order to eliminate the units of measurements for data and to guarantee that all features contribute equally in the training process, a data preprocessing step is introduced.
+
+In particular, each signal is independently rescaled using the minimum and maximum values and then subdivided in samples of fixed size, depending on the prediction horizon (ph) in analysis.
+
+These sub-samples constitute the training and testing data for our model, as detailed in Section 4.
+
+PARAGRAPH
+
+Denoting the current time with t0 and given ph∈PH, where PH=5,10,…,60 is the set of the considered prediction horizons, let us define the following signals: cgm⃖(t0,ph)=[cgm(t0−ph),cgm(t0−ph+1),…,cgm(t0−1)],ins⃖(t0,ph)=[ins(t0−ph),ins(t0−ph+1),…,ins(t0−1)],cho⃖(t0,ph)=[cho(t0−ph),cho(t0−ph+1),…,cho(t0−1)],ins⃗(t0,ph)=[ins(t0),ins(t0+1),…,ins(t0+ph−1)],cho⃗(t0,ph)=[cho(t0),cho(t0+1),…,cho(t0+ph−1)],igˆ(t0,ph)=[igˆ(t0),igˆ(t0+1),…,igˆ(t0+ph−1)]where cgm⃖(t0,ph), ins⃖(t0,ph), and cho⃖(t0,ph) are the CGM data, the delivered insulin and the ingested carbohydrates in the past ph minutes, respectively, while ins⃗(t0,ph), cho⃗(t0,ph) are the suggested amount of insulin and the meal information in the future ph minutes.
+
+For each ph a single model is identified as described in Section 3.1.
+
+The aim of each model is to depict the relation between ig in the future ph minutes igˆ(t0),igˆ(t0+1),…,igˆ(t0+ph−1), collected in the vector igˆ, and the above mentioned signals.
+
+In particular, each single igˆ value can be described as: igˆ(t0+k,ph)=gcgm⃖(t0,ph),ins⃖(t0,ph),cho⃖(t0,ph),ins⃗(t0,ph),cho⃗(t0,ph)k=0,1,2,…,ph−1. In the perspective of employing our solution in an MPC and in order to be able to accurately predict a glucose trend, an ensemble of these models can be trained, independently for each ph, and the predictions from these models can be combined to obtain a trend of future glucose concentration: igˆt0=[igˆ(t0,5),igˆ(t0+1,5),…,igˆ(t0+4,5),igˆ(t0+5,10),igˆ(t0+6,10),…,igˆ(t0+9,10),⋮igˆ(t0+54,60),igˆ(t0+55,60),…,igˆ(t0+59,60)].
+
+SECTION
+
+Proposed architecture
+
+PARAGRAPH
+
+We chose a simple model based on stacked Long Short-Term Memory (LSTM) cells (Hochreiter and Schmidhuber, 1997; Gers et al., 1999).
+
+LSTMs are a special kind of RNNs, which are able to learn how to filter (e.g. forget) part of their hidden state during the inference process in order to model long-term temporal dependencies.
+
+PARAGRAPH
+
+Formally, a single LSTM cell with input x(t), output h(t) and an internal cell state c(t) is described by the following equations, also represented in graphical form in Fig. 1(a): cin(t)=tanh(Wxcx(t)+Whch(t−1)+bc)i(t)=sigmoid(Wxix(t)+Whih(t−1)+bi)f(t)=sigmoid(Wxfx(t)+Whfh(t−1)+bf)o(t)=sigmoid(Wxox(t)+Whoh(t−1)+bo)c(t)=f(t)c(t−1)+i(t)cin(t)h(t)=o(t)tanhc(t)where each weight matrix Wx,Wh∈Rd×d and b,x(t),h(t),cin(t),i(t),f(t),o(t),c(t)∈Rd while d represent the LSTM dimension, an hyperparameter defined upfront by design and constant among all cells.
+
+Respectively, i(t),f(t),o(t) are called the input, forget and output gates, while cin(t) contains a vector of new candidate values for the cell state.
+
+PARAGRAPH
+
+During temporal unfolding, both h(t) and c(t) are passed to the temporal replica of the next cell in the fold.
+
+Models made of multiple, stacked LSTM cells can be easily conceived, by making the output of a given cell the input of the next one in the stack.
+
+The process of training through unfolding n-stacked LSTM cells is illustrated in Fig. 1(b).
+
+PARAGRAPH
+
+We trained multiple models, one for each ph∈PH.
+
+Depending on ph, the whole signal is sampled as described in Eq. (1) and each sub-sample is split into two arrays X⃖ and X⃗, the former representing past information given to the model, the latter representing the suggested therapy and meals for the future: X⃖(t0,ph)=cgm⃖(t0,ph)ins⃖(t0,ph)cho⃖(t0,ph),X⃗(t0,ph)=ins⃗(t0,ph)cho⃗(t0,ph)
+
+PARAGRAPH
+
+X⃖ and X⃗ are separately processed through two identical branches of the architecture, each being a stack of n LSTM cells.
+
+The output of both branches is then concatenated and processed through a final fully connected layer that produces the intended output.
+
+Since the main goal of this work is to predict the future BG of a patient subject to different insulin therapy in order to define the optimal treatment, the second branch containing the suggested future therapy cannot be excluded.
+
+As the model aims to forecast the IG signals, the supervised architecture assumes to have access to the IG signal during training in order to use them as ground truth.
+
+PARAGRAPH
+
+More formally, leaving out the flowing of the internal cell states, the model is described by: h⃖1(t0,ph)=LSTM1(X⃖(t0,ph))h⃗1(t0,ph)=LSTM1(X⃗(t0,ph))h⃖2(t0,ph)=LSTM2(h⃖1(t0,ph))h⃗2(t0,ph)=LSTM2(h⃗1(t0,ph))⋮⋮h⃖n(t0,ph)=LSTMn(h⃖n−1(t0,ph))h⃗n(t0,ph)=LSTMn(h⃗n−1(t0,ph)) igˆ(t0,ph)=WFC[h⃖n(t0,ph)h⃗n(t0,ph)]+bFCwhere WFC∈Rd×ph, bFC∈Rph and LSTMn represents the nth LSTM layer in the stack and it is described by Eq. (4).
+
+PARAGRAPH
+
+The training process uses a Mean Squared Error loss function (MSE) with a default Adam optimizer (learning rate 10−3, batch size of 200, 180 epochs), so that for each sample: MSE≔1ph∑t=t0t0+ph(igˆ(t,ph)−ig(t,ph))2.The complete solution is shown in Fig. 2 and from now on we will refer to it as therapy-driven Deep Glucose Forecasting (DGF).
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+In this section we report on a series of experiments in order to assess the performance of the proposed solution.
+
+We first describe the datasets used in our experiments, then we discuss the parameters settings and the measures used to evaluate our approach.
+
+In Section 4.3 we analyze how the performance of DGF varies by considering different configurations for the dimension d of each LSTM and the number n of stacked LSTMs, in order to identify the best combinations of these hyperparameters.
+
+Finally, we evaluate the prediction capabilities of the proposed solution on in vivo data collected during clinical trials (Renard et al., 2016).
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+The in silico dataset has been generated using the UVA/Padova simulator (Kovatchev et al., 2009; Dalla Man et al., 2014), which is equipped with a cohort of virtual patients and accepted by Food and Drug Administration (FDA) as a substitute to animals trials.
+
+This acceptance allowed the in silico synthesis of control algorithms directly testable on real patients.
+
+The UVA/Padova simulator includes a large nonlinear compartmental model able to simulate the glucose–insulin dynamics of the diabetic population (Dalla Man et al., 2014).
+
+The inter-subject variability of this population is modeled through different sets of metabolic parameters of this model.
+
+PARAGRAPH
+
+The simulator is equipped with three virtual populations (children, adolescents and adults), each composed of 100 subjects.
+
+In the most recent version of the simulator, the circadian variability of insulin sensitivity and meal absorption parameters have been added (Visentin et al., 2014a, 2015, 2016).
+
+The UVA/Padova simulator allows also to simulate the so-called meal announcement, i.e. the patient can announce a meal intake to the controller in advance.
+
+It is the unique tool accepted by FDA to test an insulin therapy in order to obtain the approval to clinical studies on real patients (Visentin et al., 2019).
+
+As demonstrated in Visentin et al. (2014b) the virtual subjects of this simulator are representative of the T1D population observed in clinical trials.
+
+In this paper, the population of 100 adults of the UVA/Padova simulator is used and two different scenarios are designed.
+
+The use of different scenarios is devoted to simulate the realistic intra-subject change in eating habits in terms of timing and meal size variations.
+
+Different food habits imply different insulin therapies, which in turn impact differently on glucose levels.
+
+Hence, in-silico data collected by running two different scenarios allow to a richer and more realistic data set.
+
+Table 1 shows Scenario 1, which is a four-day protocol simulated in closed-loop using the MPC-P to define the optimal insulin therapy.
+
+The first three days are used for model training, while the remaining day is used for validation purposes.
+
+The training scenario involves three meals per day with additional snacks in each day.
+
+Moreover, in order to define a real-life scenario, possible errors in the meal announcement are included, i.e. a limited events of unannounced meals or meals announced with a wrong estimation of the amount.
+
+Scenario 2 lasts three days and it is reported in Table 2.
+
+The meal amounts and times of this protocol are designed to reproduce a real life scenario.
+
+Hypo treatments of 15 g are administrated to the patient in case glucose concentration falls below 65 mg/dl in both scenarios.
+
+Scenario 1 is used to perform model training, while Scenario 2 is exploited to assess the prediction capabilities of the proposed model.
+
+Specifically, Scenario 2, i.e. the testing scenario, is defined to reproduce eating patterns different from those present in Scenario 1, i.e. the training scenario.
+
+Moreover, an in vivo dataset is considered and it is composed of clinical data of a single T1D patient of the Padova clinical centre collected during experiments involved in the “AP@Home” project (Palerm et al., 2008).
+
+The considered clinical trial lasted for a month, and it has been conducted through a fully automatic closed-loop control (Renard et al., 2016).
+
+The closed-loop system was composed of an suitably modified android smartphone (the DiAs platform Kovatchev et al., 2009), communicating wirelessly with the G4 Platinum CGM system, Dexcom Inc. and the AccuCheck Spirit Combo insulin pump, Roche Diagnostic.
+
+This dataset is challenging because the clinical trial has been conducted in free-living conditions, i.e. the patient could have a normal life without any type of restriction.
+
+This particular dataset was used to identify the classic mathematical model described in Toffanin et al. (2019) which represents the state-of-art reached so far via the classic identification techniques developed by the authors.
+
+Testing on a dataset not belonging to the training set and acquired following a real-life scenario allows the evaluation of the robustness of this approach to new unseen data and subjects.
+
+PARAGRAPH
+
+SECTION
+
+Parameter settings and evaluation protocol
+
+PARAGRAPH
+
+The accuracy of the model predictions is assessed by considering various prediction horizons, which are expressed in terms of minutes.
+
+In this paper, ph from 5 min to 60 min are considered.
+
+Since the proposed model is aimed to be included in the MPC-P controller, that is characterized by a sample time of Ts=5 min for the predictions, we consider PH =5,10,…,60 and the predicted signals are sampled every Ts.
+
+For a given patient p and a specific ph∈PH, we denote with iĝ(⋅,ph) the ph-steps ahead prediction on the entire testing scenario, ig(⋅) the considered reference in Scenario 2, and ig¯ its average value.
+
+The predictions of the model are evaluated in terms of Coefficient Of Determination (COD), the index of fitting called FIT, and Root Mean Square Error (RMSE).
+
+These metrics are the standards used to evaluate performance in system identification (Finan et al., 2009; Cescon and Johansson, 2009).
+
+The RMSE is an absolute quantity that assesses the variance of the prediction error (the larger it is, the poorer is the prediction) while FIT and COD are two normalized metrics commonly used in system identification.
+
+Moreover, this choice allows a fair comparison of the proposed model with respect to previously published solutions (Toffanin et al., 2019).
+
+These metrics are defined as follows: CODp(ph)=100∗1−‖iĝ(j,ph)−ig(j)‖2‖ig(j)−ig¯‖2FITp(ph)=100∗1−‖iĝ(j,ph)−ig(j)‖‖ig(j)−ig¯‖RMSEp(ph)=1Nsample‖ig(j)−iĝ(j,ph)‖where j=ph,ph+Ts,…,Nsample⋅Ts is used to index the considered samples, and Nsample is the number of samples of the signal when sampled every Ts minutes for Scenario 2.
+
+COD and FIT are equal to 100% for perfect predictions and can reach negative values in case of bad performances.
+
+The average value of each metric (COD¯, FIT¯, RMSE¯) for all PH is used as main outcome to evaluate the overall performance as follows: COD¯=1Nph∑i=1Nph1Np∑p=1NpCODp(ph(i))FIT¯=1Nph∑i=1Nph1Np∑p=1NpFITp(ph(i))RMSE¯=1Nph∑i=1Nph1Np∑p=1NpRMSEp(ph(i))where Nph is the total number of ph∈PH (i.e. Nph=12) and Np is the total number of patients involved in each testing experiment.
+
+SECTION
+
+Ablation study
+
+PARAGRAPH
+
+In order to have a comprehensive idea of the model behavior, an ablation study is performed to assess the model’s structure and the function of its different components.
+
+Specifically, the goal of this study is to evaluate the contribution of the model components and to observe how these affected the predictive capabilities.
+
+PARAGRAPH
+
+In order to maximize the generalization capability of the proposed algorithm, we train the model on different patients with eating habits drastically different with respect to those observed in the testing scenario.
+
+To do so, the population of 100 adults is split in two parts (Np=50): the model is trained on the first Np patients in Scenario 1, and the tests are conducted on the second half of the patients in Scenario 2.
+
+The same is performed but considering the other half of patients in each scenario.
+
+The final results are obtained by averaging the estimates from the two different train and test groups.
+
+This data separation has been chosen in order to test the capability of the model to represent subjects not belonging to the training set but also to check the model robustness against a variation in meal sizes and correlation of meal sizes between a day.
+
+The same experiments have also been performed by testing the two trained models described above on the real patient (i.e. in vivo) and taking the average of the two results.
+
+This experiment has been performed in order to assess the generalization capability of the model in a real-world scenario.
+
+PARAGRAPH
+
+Firstly, the study focuses on the choice of both the size of the hidden units in each layer (d∈{16,32,64}) and the number of LSTM layers (n∈{1,2,3}).
+
+The choice of powers of 2 in the number of hidden units follows a standardized practice.
+
+We have also studied the performance of the scenarios characterized by either n>=3 and d>=128.
+
+In both scenarios the performance dropped sharply and the training time increase significantly, so the results are not reported here.
+
+From Table 3 it is possible to observe that increasing the number of hidden units for each LSTM entails a slight improvement of the performance indices while the number of stacked LSTM does not significantly affect the final performance.
+
+Generally speaking models with more parameters are able to improve prediction performance only up to a point, that is when the amount and variability of available data is sufficient to train the model.
+
+The result presented in this section suggest that given the available data, the best configuration is the one with a single LSTM with d=64.
+
+However, the performance of the single-LSTM implementation drops sharply (by more than 5%) on the real patient.
+
+As the only significant difference is in the number of parameters, we can deduce that this behavior is due to over fitting on the training set.
+
+This behavior on the real patients was not observed on models with multiple LSTMs.
+
+For these reasons all subsequent experiments have been performed with the configuration n=2,d=64.
+
+PARAGRAPH
+
+Secondly, we analyze how the different features considered as input for the network influence the final performance.
+
+For this reason, we removed past insulin (ins⃖) and carbohydrates (cho⃖) from the input stream.
+
+Denoting with X∗⃖ the modified input array, the vector representing past information given to the model is defined as follows: X∗⃖(t0,ph)=[cgm⃖(t0,ph)].
+
+PARAGRAPH
+
+Fig. 3 shows the comparison of the prediction performance of the models with X∗⃖(t0,ph)X⃗(t0,ph) and X⃖(t0,ph)X⃗(t0,ph) as inputs, respectively.
+
+It denotes that the introduction of the information regarding the past insulin therapy and ingested meals guarantees an improvement in the prediction performance of the model.
+
+In particular, considering the results obtained by using in silico data, there is a slight improvement in performance.
+
+Indeed, the virtual patients belonging to the training and testing groups are subsets of the same population.
+
+PARAGRAPH
+
+Since the LSTM is able to learn the behavior of the population, the additional information about past history does not provide a significant improvement.
+
+On the other hand, Fig. 3 shows a significant gap in performance computed on real life data.
+
+Indeed, if the LSTM is trained on in silico data, the lack of past therapy information lowers the performance on in vivo testing dataset.
+
+Hence, the past evidence ins⃖ and cho⃖ help mitigating the differences in the data distribution.
+
+The model obtained considering these additional information is able to generalize to new unseen data and improve the overall glucose control.
+
+SECTION
+
+PARAGRAPH
+
+Discussion
+
+PARAGRAPH
+
+The proposed solution is a population average model identified on the 100 adults of the UVA/Padova simulator.
+
+An average model could ideally limit the performance since it describes the average dynamics of the population, so we aim to test both its prediction and generalization capabilities on a dataset different from the one used in training.
+
+Firstly, we have re-trained the model considering the entire adult virtual population as a training dataset in order to maximize the available information provided to the training procedure.
+
+Then, the proposed algorithm is tested on a 1-month dataset containing all the data collected during the clinical trial (Renard et al., 2016) for a single patient.
+
+This dataset is challenging because it includes eating patterns not present in the training dataset, but also it includes all the problems experienced during the clinical trial.
+
+PARAGRAPH
+
+The performance obtained by the DFG model and the linearized average model (AVG) of the UVA/Padova simulator are reported in Table 4.
+
+By considering the first two rows of Table 4, the DFG model shows superior prediction performance against the AVG.
+
+Moreover, DGF approach proves to be able to generalize over different datasets by achieving interesting improvements with respect to AVG, despite being an average model.
+
+SECTION
+
+PARAGRAPH
+
+Fine tuning
+
+PARAGRAPH
+
+The drawback of an average model is that it cannot fully describe the variety of individual glucose response of the entire population.
+
+The definition of an individualized insulin therapy by exploiting a patient-tailored model can substantially improve the effectiveness of the glucose control.
+
+Hence, in order to improve the DGF model performance, the LSTM trained on in silico data is fine-tuned on data of the specific patient.
+
+PARAGRAPH
+
+In this context, Fine-Tuning (FT) slightly modifies the weights of the LSTM in order better fit the individual behavior of the real patient.
+
+For the purpose of this paper, we have decided to extend the partial retraining entailed by any FT to the entire architecture, by using a suitably small learning rate (10−5) for 10 additional epochs on the FT dataset.
+
+A filtered version of the collected CGM data (igR) is used as reference for the signal ig.
+
+The signal igR is obtained by using a retrofitting algorithm, which is able to reconstruct an accurate continuous-time BG profile by exploiting BG samples from the fingerstick and CGM data from the sensor (Del Favero et al., 2014).
+
+In order to provide a good amount of information to describe the dynamic of a specific patient, the FT dataset contains two days picked up randomly among the available ones.
+
+PARAGRAPH
+
+The FT technique improves the accuracy by 6% on the 2-layer stacked LSTM, as reported in the row 4 of Table 4.
+
+Fig. 4 reports the performance metrics as a function of ph for the 2-layer stacked LSTM with in vivo testing dataset.
+
+The higher the ph, the lower the performance.
+
+This is motivated by the fact that the further you want to predict the more difficult it becomes.
+
+The improvements of the fine-tuned models are evident for large ph values where the performance increases with respect to the original model without FT. These improvements are less obvious if we compare their performance against the performance of the individualized model (Daily Model Predictor, DMP) presented in Toffanin et al. (2019) and reported in Table 4.
+
+In Toffanin et al. (2019) the individualized model is identified from real-data on the base of the a-priori knowledge acquired through the analysis of the patient real-data, while here real-data are used to adjust the model pre-trained on in silico data.
+
+SECTION
+
+PARAGRAPH
+
+Output filtering
+
+PARAGRAPH
+
+The main limitation of the proposed approach is that the network is trained on noisy input measurements but a noiseless signal is required as output.
+
+Since the measurement noise that affects the CGM data is not negligible, the network would try to reduce the noise on the output in order to improve the overall quality of the prediction.
+
+However, this effect can be limited and in order to further improve the prediction smoothness an exponential filtering is applied to the predictions.
+
+The exponential filter decreases gradually the weights on the past observations and, considering the decay of the effects of meals and insulin on the glucose, it represents the natural choice for this kind of applications.
+
+The exponential filter also allows to forget erroneous values predicted in the previous steps.
+
+PARAGRAPH
+
+The predicted igˆ(⋅,ph) is filtered by the following exponential filter: igˆexp(t0+k,ph)=α⋅igˆ(t0+k,ph)+(1−α)⋅igˆexp(t0+k−1,ph)k=0,1,…,ph−1 where α∈(0,1) is the smoothing factor and is defined as follows: α=2wexp+1and wexp is the length of the window used by the filter.
+
+It is set to 5, i.e. the minimum window observed by the model and it is kept fixed for all models.
+
+Fig. 5 shows the noisy CGM data, the output of the retrofitting algorithm igR, which represents the ground truth, and the output of the exponential filter iĝexp.
+
+It may be noted in Fig. 5 that there is a scaling problem in the signal iĝexp.
+
+This effect can be explained by considering that iĝexp is rescaled with the minimum and maximum training values of ig while these two values for the test data cannot be know a priori.
+
+However, it is important to highlight that the glucose metabolism is highly affected by the food and lifestyle habits of the specific patient.
+
+This implies that the range of the injected insulin, carbohydrate amounts and glucose levels are individual characteristics of the patient.
+
+In order to cope with this problem, a larger dataset of the patient is required to capture the individual variability without compromising the testing dataset.
+
+The last row of Table 4 shows the results obtained by applying the exponential filter to the output of the 2-layer stacked LSTM model.
+
+It is evident that the filtering technique is able to highly improve the performance by partially removing the noise that affects the CGM data.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions
+
+PARAGRAPH
+
+A novel solution which follows a therapy-driven approach based on deep learning has been introduced in order to predict a trend of future glucose concentration in T1D patients.
+
+The solution entails multiple models trained on the in silico adult patients of the UVA/Padova simulator.
+
+Each model is used to predict a glucose profile for a fixed prediction horizon and the individual predictions are then aggregated to obtain a profile of future glucose levels.
+
+PARAGRAPH
+
+In order to assess the generalization ability, the models have been tested on real data collected during a 1-month clinical trial in free-living conditions of a single patient.
+
+The achieved results show that the proposed approach can significantly improve predictive performance despite being an average model.
+
+In order to individualize the trained models, fine-tuning is applied to each model separately considering a small portion of the data pertaining to a specific patient.
+
+Satisfactory results have been obtained in terms of prediction capabilities.
+
+The use of a single real patient for the final validation of the model is the main limitation of this study.
+
+However, the strength of the results obtained in this work is enforced by the large changes of the patient habits and the time-varying nature of the system under study.
+
+We plan to investigate more in details how the data affect the model training and to improve the individualized models by exploiting a larger amount of patient data.
+
+However, in order to validate the model on a significantly large number of real patients, new clinical trials are required.

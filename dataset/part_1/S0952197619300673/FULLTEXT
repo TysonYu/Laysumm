@@ -1,0 +1,673 @@
+10.1016/j.engappai.2019.03.017
+
+FULLTEXT
+
+TITLE
+
+Extended pheromone-based short-term traffic forecasting models for vehicular systems
+
+SECTION
+
+Introduction
+
+SECTION
+
+Background
+
+PARAGRAPH
+
+Increased traffic volumes in limited road capacities due to recent rapid urbanization has caused undesirable traffic congestion, emerging as a serious issue for engineers in many modern metropolitan cities specifically New York, London and Singapore (Bazzan et al., 2008).
+
+According to a recent urban transportation report (Schrank et al., 2012), the estimated total economic losses in the U.S. for both travel time delay and fuel consumption due to congestion was $121 billion in 2011 and is expected to reach $199 billion in 2020.
+
+Hence, a robust short-term traffic forecasting model is integral to provide accurate information to Intelligent Transport System (ITS) to address traffic congestion.
+
+Short-term traffic forecasting entails the prediction from a few seconds to a few hours through past and current traffic conditions (Vlahogianni et al., 2014).
+
+The ITS system benefits from the anticipated congestion in near future to develop strategies to manage stochastic traffic conditions (Goves et al., 2016).
+
+These strategies can be categorized into vehicle rerouting and traffic light control (France and Ghorbani, 2003; Bazzan et al., 2008).
+
+Short-term prediction provides useful information to vehicles, allowing them to change their route to avoid congestion in near future.
+
+Similarly, traffic lights can be coordinated to generate green wave scenarios once the congestion is predicted.
+
+PARAGRAPH
+
+In transportation, the pheromone model is an algorithmic model that is inspired by the intelligent collective behavior of ants communicating through a medium called pheromone, when foraging a source of food from their nest.
+
+Although each individual ant has only a local searching capability, the collective behavior of information exchange medium (pheromone) leads to successful search of food.
+
+Originating from this self-organizing behavior, Ant Colony Optimization (ACO) algorithm (Dorigo et al., 2006) has been developed to solve numerous complex computational problems, including the field of transportation.
+
+Inspired by the information exchange (pheromone) behavior, several pheromone-based traffic forecasting models were developed to forecast future traffic behavior.
+
+Specifically, each vehicle (Vehicle Agent) deposits pheromone information, which is collected by Intersection Agents to perform traffic forecast.
+
+The system descriptions of this information exchange between Vehicle agents and Intersection Agents are detailed in Section 1.2.
+
+Nevertheless, the existing pheromone models (Jiang et al., 2014; Kurihara et al., 2009; Cao et al., 2017) suffer from several limitations illustrated below:
+
+PARAGRAPH
+
+Motivated by these issues, an algorithmic model of ExtendedPheromone Model (EPM) and two machine learning models of Extended Pheromone Model with epsilon-Support Vector Regression(εSVR-EPM) and Extended Pheromone Model with Artificial Neural Network and Particle Swarm Optimization (ANNPSO-EPM) are proposed with the following contributions.
+
+First, a new color pheromone concept is extended to estimate future traffic density for roads with both signalized intersections (all three color phases) and non-signalized intersections.
+
+In addition, the current traffic density is computed via the traffic pheromone intensity.
+
+Second, a new Propagation–Evaporation Pair is proposed to fuse traffic pheromone and color pheromone to form the EPM model.
+
+Third, two machine learning techniques are incorporated in the fusion of these pheromone intensities to further enhance prediction accuracy, leading to two hybrid models of εSVR-EPM and ANNPSO-EPM respectively.
+
+PARAGRAPH
+
+Comparisons are made across all models to evaluate their effectiveness in forecasting short-term traffic behaviors.
+
+This manuscript aims to improve the practicability of existing pheromone models by including traffic road predictions in both signalized and non-signalized intersection, which can be realized through a Pheromone-based Multi-Agent System as described in Section 1.2.
+
+SECTION
+
+Implementation of Pheromone-based Multi-Agent System
+
+PARAGRAPH
+
+The proposed Pheromone-based Multi-Agent System (PMAS) is an extension of the widely employed Sydney Coordinated Adaptive Traffic System (SCATS), which manage dynamic timing of traffic signals based on inductor loop and other road traffic sensors (Sims and Dobinson, 1980).
+
+As a hierarchical architecture, the highest tier in PMAS involves the Traffic Operation Centre (TOC), which can manage up to 64 regional computers located on the middle tier.
+
+The bottom tier allows up to 250 traffic lights with inductor loops to be controlled by the regional computer (Wang et al., 2016).
+
+PARAGRAPH
+
+With the deployment of multi agents and video cameras (Kell et al., 1990) in Intersection Agents (IAs), number of vehicles can be detected.
+
+The local communication between IAs and Vehicle Agents (VAs) facilitate the prediction of pheromone intensity.
+
+In fact, the PMAS is an upgrade to SCATS, focused on Vehicle-to-Infrastructure (V2I) communication to enable the exchange of information including route intention, GPS speed, and location data, predicted pheromone intensity and suggested paths for vehicles.
+
+PMAS relies on V2I communication, rather than Vehicle-to-Vehicle (V2V) communication, which is susceptible to broadcast storm (Sukuvaara, 2015).
+
+Additionally, V2I is less likely to suffer from non-line-of-sight (NLOS) communication issues, implying almost full communication coverage is achieved at each intersection avoiding signal blockage owing to buildings (Wang et al., 2016).
+
+PARAGRAPH
+
+Intersection Agents (IAs) can prioritize the messages sent to and from the Vehicles Agents (VAs) to ensure the available bandwidth is not exceeded.
+
+To predict the traffic density of a target road, the IA only prioritize the traffic information from the target road and its corresponding upstream links.
+
+When a congestion is predicted to occur on a target road, only the m-hop upstream road links are notified and re-suggested with new routes by IAs.
+
+Additionally, each IA can prioritize relevant information sent from VAs namely GPS data and route intention.
+
+Other non-relevant information namely entertainment messages can be filtered.
+
+The architecture of the proposed PMAS is shown in Fig. 1 below:
+
+PARAGRAPH
+
+The interactions of each hierarchical level are illustrated as follows:
+
+PARAGRAPH
+
+Considering bidirectional roads with a four-way intersection, each IA accounts for the prediction of four road links, rather than all road links within a city.
+
+For signalized intersections, the prediction of each road link relies on the remaining traffic light phases and durations from the target road and its direct upstream roads in every time step, but not in per-second basis.
+
+As only relevant traffic information is prioritized by IAs, the data packets involved are relatively smaller, which reduce the delay and bandwidth utilization (Gupta and Kumar, 2000).
+
+The localized communication among IAs justify their efficiency in performing short-term traffic forecasting.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+Section 2 summarizes the related work and illustrates the key differences of our work.
+
+Section 3 details the traffic pheromone and proposed color pheromone intensities while Section 4 describes the fusion process of these pheromones to form three new models, an algorithmic model of EPM, and two machine learning models of εSVR-EPM and ANNPSO-EPM.
+
+Section 5 illustrates the experimental settings, performance indices, and comparative results between the recent pheromone models and all three proposed models with statistical analysis.
+
+Conclusions and future works are presented in Section 6.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+Recent development in big data has encouraged the application of neural networks in short-term traffic prediction.
+
+These neural network models include a deep learning architecture that can capture non-linear spatiotemporal effects during non-recurrent events (Polson and Sokolov, 2017), and a Long Short-Term Memory (LSTM) network which models spatiotemporal correlation in traffic system via a two-dimensional network composed of many memory units (Zhao et al., 2017).
+
+Additionally, a hybrid system of Multi-Kernel Support Vector Machine (MSVM) and Adaptive Particle Swarm Optimization (APSO) was developed to perform prediction based on rapid changing traffic conditions particularly during rush hours (Ling et al., 2017).
+
+In 2016, an improved k-Nearest Neighbor (KNN) model was proposed by Cai et al. (2016) to enhance forecasting accuracy which achieved multistep forecasting based on spatiotemporal correlation.
+
+Habtemichael and Cetin (2016) also enhanced the KNN model to predict traffic conditions in multiple forecasting steps under missing traffic data situations.
+
+Last but not least, an adaptive Kalman Filter was proposed by Guo et al. (2014) to update process variances in real traffic conditions to predict short-term traffic flow.
+
+As the aforementioned models forecast traffic conditions in the prediction interval of at least five minutes, the ability to capture dynamic changing traffic events that happen within five minutes is therefore an open question.
+
+PARAGRAPH
+
+To fill this gap, the focus is centered on developing pheromone-based short-term traffic forecasting model with the prediction interval of only five seconds.
+
+Early in 2009, Kurihara et al. (2009) proposed a pheromone model which predicts road traffic density by using the pheromone information from the current traffic density of the target road and its corresponding neighbors.
+
+The consideration of both yellow and red phases in traffic modeling was not well explored.
+
+Moreover, traffic forecasting was not performed on a real-world traffic map.
+
+PARAGRAPH
+
+Another pheromone model proposed by Jiang et al. (2014) estimated the incoming vehicle counts through the remaining green traffic light duration.
+
+The assumption of no vehicles traversing an intersection during red phase reduced the prediction accuracy.
+
+In the case when the prediction time step exceeds the remaining red phase duration, the traffic has turned green, and there exists a possibility for vehicles to travel into and out from a road unit.
+
+In the same manner, the yellow phase, which is an important phase that warns drivers that the traffic signal is about to change to red, was not properly modeled in Jiang et al. (2014).
+
+PARAGRAPH
+
+Recently, Cao et al. (2017) proposed a pheromone-based traffic management framework which was leveraged from the pheromone model proposed by Jiang et al. (2014) with the implementation epsilon-Support Vector Regression (εSVR) to improve traffic forecasting accuracy.
+
+Despite employing a real-world Singapore Map, the investigation of traffic forecasting during both yellow and red phases, as well as non-signalized intersections was still in the infancy stage.
+
+PARAGRAPH
+
+In order to address all the aforementioned issues, three short-term traffic forecasting models, namely the Extended Pheromone Model (EPM), Extended Pheromone Model with epsilon-Support Vector Regression (εSVR-EPM) and Extended Pheromone Model with Artificial Neural Network optimized by Particle Swarm Optimization (ANNPSO-EPM) are proposed with enhanced accuracy.
+
+These models are different from the existing pheromone models (Kurihara et al., 2009; Jiang et al., 2014; Cao et al., 2017) as follows:
+
+SECTION
+
+Traffic pheromone and color pheromone
+
+PARAGRAPH
+
+This section illustrates the fundamental of two types of pheromones, namely the traffic pheromone and color pheromone in a vehicular system.
+
+SECTION
+
+Traffic pheromone, Tt(p, t)
+
+PARAGRAPH
+
+Traffic pheromone, Tt(p, t) that represents the current traffic density of a particular road p, is defined as follows: Ttp,t=Np,t×LvehLp×Nlanep,0≤Tt(p,t)≤1where N(p, t) is the number of vehicles on road p in time (t−1,t] in unit amount, Lveh is the mean vehicle length in unit meter, L(p) is the length of road p in unit meter and Nlane(p) is the number of lanes of road p in unit amount.
+
+Based on Eq. (1), it is worth noticing that the amount of traffic pheromone is proportional to the number of vehicles, N(p, t).
+
+An increase in N(p, t) signifies a higher number of vehicles depositing traffic pheromone Tt(p, t), implying the possibility of the occurrence of traffic congestion in near future, and vice versa.
+
+This dimensionless Tt(p, t) pheromone is computed by Intersection Agents after obtaining the number of cars on road p, N(p, t) information from the video camera sensor.
+
+SECTION
+
+Color pheromone, Tc(p, t + 1)
+
+PARAGRAPH
+
+Existing pheromone models (Jiang et al., 2014; Cao et al., 2017) introduced intention pheromone to predict near future traffic density for roads with signalized intersections based on drivers’ route intention (Li et al., 2009; De Weerdt et al., 2013).
+
+In this paper, a new color pheromone is proposed to adaptively predict near future traffic density based on four different traffic scenario: (1) red phase, (2) yellow phase, (3) green phase, and (4) non-signalized intersections.
+
+Defined as the color pheromone, the dimensionless Tc(p, t+ 1) estimates near future traffic density on road p, as in follows: Tcp,t+1=Ninp,t+1−Noutp,t+1×LvehLp×Nlanep,Tc(p,t+1)∈Rwhere Nin(p, t+ 1) and Nout(p, t+ 1) represent the numbers of incoming and outgoing vehicles on road p in time (t−1,t], respectively.
+
+The term color is used as Intersection Agents can dynamically estimate Nin(p, t+ 1) in Eq. (3) and Nout(p, t + 1) in Eq. (7) based on the recognition of traffic light phases for signalized intersections, and time step for non-signalized intersections to compute color pheromone.
+
+In essence, a positive value in Tc(p, t+ 1) reflects the incoming vehicle count, Nin(p, t+ 1) is higher than the outgoing vehicle count, Nout(p, t + 1), and vice versa.
+
+This corresponds to a net positive vehicle count traversing road p to deposit additional pheromone Tc(p, t+ 1).
+
+To improve traffic prediction accuracy, both Eqs. (1) and (2) follow the same formulation.
+
+SECTION
+
+Incoming vehicle count, Nin(p, t + 1)
+
+PARAGRAPH
+
+The color pheromone Tc(p, t + 1) is computed based on bothNin(p, t + 1) and Nout(p, t + 1) equations under four color definitions.
+
+As depicted in Eq. (3), a novel incoming vehicle count equation, Nin(p, t+ 1) comprised of four different sub-traffic scenarios, is proposed as follows: Ninp,t+1=0,redphase,Tstep≤Tremain_red,3(i)∑p′∈pneiffreep′×(Tstep−Tremain_red)xρin,redphase,Tstep>Tremain_red,3(ii)∑p′∈pneifavgp′×Tstep×ρin,yellowphase,Tstep≤Tremain_yellow,3(iii)∑p′∈pneifavgp′×Typ′×ρin,yellowphase,Tstep>Tremain_yellow,3(iv)∑p′∈pneiffreep′×Tstep×ρin,greenphase,Tstep≤Tremain_green,3(v)∑p′∈pneiffreep′×Tgp′×ρin,greenphase,Tstep>Tremain_green,3(vi)∑p′∈pneiffreep′×Tstep×ρin,notrafficlight,3(vii) with 0≤ρin≤1,ffree,favg,Tstep,Tremain_red,Nin(p,t+1)∈R+where:
+
+PARAGRAPH
+
+(1) Red color pheromone
+
+PARAGRAPH
+
+The color pheromone, Tc(p, t + 1) is red when Nin(p, t+ 1) andNout(p, t+ 1) respectively take the form of Eqs. (3)(i)–(ii) and Eqs. (7)(i)–(ii) (see Section 3.2.2).
+
+Two scenarios during red phase are described below:
+
+PARAGRAPH
+
+(a) time step (Tstep) ≤ remaining red light duration (Tremain_red)
+
+PARAGRAPH
+
+No incoming vehicle traversing from neighboring road p′ to road unit p as the traffic phase remains red within the time step (prediction interval).
+
+PARAGRAPH
+
+(b) time step (Tstep) > remaining red light duration (Tremain_red)
+
+PARAGRAPH
+
+Red phase has turned green, allowing vehicles traversing into road p in time Tstep −Tremain_red.
+
+PARAGRAPH
+
+The recent pheromone models in (Jiang et al., 2014; Cao et al., 2017) assume no vehicles traveling from neighboring roads p′ to p during red phase, which suffer from low prediction accuracy.
+
+The proposed color pheromone Tc(p, t+ 1) is computed based on Eq. (2), after obtaining Nin(p, t + 1) and Nout(p, t + 1) via red color pheromone.
+
+PARAGRAPH
+
+(2) Yellow color pheromone
+
+PARAGRAPH
+
+Yellow color pheromone Tc(p, t + 1) is computed via Nin(p, t+ 1) in Eqs. (3)(iii)–(iv) and Nout(p, t + 1) in Eqs. (7)(iii)–(iv) (see Section 3.2.2).
+
+This yellow color pheromone models the traffic conditions during yellow phase, which has not been properly described in existing pheromone models (Kurihara et al., 2009; Jiang et al., 2014; Cao et al., 2017).
+
+Eqs. (3)(iii)–(iv) describe the following scenarios:
+
+PARAGRAPH
+
+(a) time step (Tstep)≤ remaining yellow light duration (Tremain_yellow)
+
+PARAGRAPH
+
+The incoming number of vehicles is accounted within Tstep, as the yellow phase has yet to turn red.
+
+PARAGRAPH
+
+(b) time step (Tstep) > remaining yellow light duration (Tremain_yellow)
+
+PARAGRAPH
+
+The total yellow phase duration Ty(p′) is taken into account for Nin(p, t + 1), as the traffic phase has turned red.
+
+PARAGRAPH
+
+To promote practicality, the total yellow phase duration Ty(p′) is implemented in accordance to the equation defined below (Amer et al., 2011; Li et al., 2012): Typ′=PRT+Vapproach2(α+gG),Ty(p′)∈R+where PRT is the average drivers’ perception-reaction time (s); Vapproach is the approaching vehicle speed (m s−1), g is the gravitational acceleration (9.81 m s−2), α is the acceptable deceleration rate and G is the roadway grade in decimal.
+
+This Ty(p′) includes a PRT to describe the reaction time when drivers perceive the change of yellow phase to red phase, as well as the acceptable deceleration rate, α to illustrate the safety deceleration rate before the vehicles come to stop.
+
+(Amer et al., 2011; Li et al., 2012).
+
+PARAGRAPH
+
+(3) Green color pheromone
+
+PARAGRAPH
+
+The green color pheromone Tc(p, t + 1) deposited by Vehicle Agents is collected by Intersection Agents to estimate Nin(p, t+ 1) via Eqs. (3)(v)–(vi), and Nout(p, t + 1) via Eq. (7)(v)–(vi) (see Section 3.2.2).
+
+The two cases described by green color pheromone in Eqs. (3)(v)–(vi) are similar to Eqs. (3)(iii)–(iv) presented in yellow color pheromone, by just replacing Ty(p′) with total green phase duration, Tg(p′) and favg(p′) with ffree(p′).
+
+It is noticeable that ffree(p′) is employed as vehicles are assumed to travel at free speed on road p′ during green phase.
+
+Conversely, favg(p′) is employed as vehicles are about to stop and no longer traveling on road p′ at free speed in yellow phase.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Color pheromone Tc(p, t + 1) is considered colorless, when both Nin(p, t + 1) and Nout(p, t + 1) describe roads with non-signalized intersections.
+
+In this case, Eq. (3)(vii) is always valid, without the need to consider the remaining traffic phase duration as the traffic lights are absent in the intersection.
+
+PARAGRAPH
+
+The s(p′) in Eq. (4), which represents the number of vehicles that can pass through the stop-line in the remaining traffic light duration (Tremain_red,Tremain_yellow and Tremain_green) from p′ to p, is summarized in Algorithm 1:
+
+PARAGRAPH
+
+Lines 3–10 describe the traffic condition during red phase.
+
+When Tstep ≤ Tremain_red, no vehicles are allowed to pass through the stop-line, and s(p′) is not incremented.
+
+In the event when Tstep > Tremain_red, red phase has turned green and there exists possibility for vehicles to pass through the stop-line in time Tstep -Tremain_red,as illustrated in lines 4–6.
+
+In essence, Lpass_distance and Lremain_distance are compared to determine the number of vehicles that can pass through the stop-line.
+
+s(p′) is incremented by one when the remaining distance to the intersection (Lremain_distance) is less than the expected distance from the intersection in which the vehicle is considered to pass through the stop-line (Lpass_distance).
+
+PARAGRAPH
+
+In line 6, the Lpass_distance is derived as: Lpass_distance=1−Tremain_redTstep×L(p′),ifTstep>Tremain_red,Lpass_distance∈R+ When Tstep > Tremain_red, a condition when red phase has turned green, Lremain_distance and Lpass_distance are computed.
+
+The ratio of 1−Tremain_redTstep determines the proportion of L(p′) in which a vehicle is considered to pass through the stop-line.
+
+Lpass_distance is then computed by multiplying the ratio 1−Tremain_redTstep with L(p′).
+
+When Lremain_distance ≤ Lpass_distance, s(p′) is incremented by one.
+
+There is no increment in s(p′) when Tstep ≤ Tremain_red during red phase, as no vehicles are allowed to pass through an intersection during red light.
+
+PARAGRAPH
+
+For all other conditions particularly yellow phase (yellow color pheromone), green phase (green color pheromone), and no traffic lights (colorless pheromone), Tveh_pass which is the time required for a vehicle to travel from its current location to the intersection is computed based on line 12.
+
+For yellow phase, in the event when Tstep ≤ Tremain_yellow and Tveh_pass ≤ Tstep are fulfilled, s(p′) is incremented by one as the vehicle is considered to pass through an intersection.
+
+When Tstep > Tremain_yellow and Tveh_pass ≤ Tremain_yellow, vehicles are able to pass through an intersection before yellow phase turns red and s(p′) is incremented by one.
+
+Lines 22–32 which describe the algorithm for green phase, are similar to the yellow phase, by just replacing Tremain_yellow with Tremain_green.For non-signalized intersections, the vehicle is considered to pass through an intersection when Tveh_pass ≤ Tstep, incrementing the s(p′) by one.
+
+SECTION
+
+Outgoing vehicle count, Nout(p, t + 1)
+
+PARAGRAPH
+
+Take note that Nout(p, t + 1) follows similar formulation as depicted in Eqs. (3)–(6).
+
+As Nout(p, t+ 1) computes the number of vehicles that can traverse from road p to other road links, the neighboring road p′ notations are replaced with p.
+
+The summation notations are not applied in Nout(p, t+ 1) as in Eq. (7), as the focus lies in estimating the vehicle numbers of a road unit p at time t.
+
+The Nout(p, t+ 1) is proposed as in below: Noutp,t+1=0,redphase,Tstep≤Tremain_red,7(i)ffreep×(Tstep−Tremain_red)×ρout,redphase,Tstep>Tremain_red,7(ii)favgp×Tstep×ρout,yellowphase,Tstep≤Tremain_yellow,7(iii)favgp×Typ×ρout,yellowphase,Tstep>Tremain_yellow,7(iv)ffreep×Tstep×ρout,greenphase,Tstep≤Tremain_green,7(v)ffreep×Tgp×ρout,greenphase,Tstep>Tremain_green,7(vi)ffreep×Tstep×ρout,notrafficlight,7(vii) with 0≤ρout≤1,ffree,favg,Tstep,Tremain_red,Nout(p,t+1),∈R+where:
+
+SECTION
+
+Fusion of traffic pheromone and color pheromone
+
+PARAGRAPH
+
+To forecast traffic density of a vehicular system, both trafficpheromone and color pheromone are fused through three proposed techniques: (i) Propagation–Evaporation Pair to form EPM, (ii) epsilon-Support Vector Regression to form εSVR-EPM, and (iii) Particle Swarm Optimized Artificial Neural Network to form ANNPSO-EPM.
+
+SECTION
+
+Propagation–evaporation pair
+
+PARAGRAPH
+
+In Extended Pheromone Model, a new Propagation–Evaporationpair is proposed to model the combinational effect of evaporation of pheromones on road p and propagation (diffusion) of pheromones from neighboring roads p′ into p.
+
+In Eq. (9), the evaporation rate of road p at time t, evap(p, t), is inspired from the ant communication, whereby ants lay down pheromone trails while finding food source, following back the trail when returning to their colonies.
+
+These pheromone trails evaporate progressively, thus reducing its attractive strength.
+
+In traffic forecasting model, each vehicle leaves pheromone trail on road p, and it evaporates after some time.
+
+If there is no future incoming vehicles traversing into road p, the pheromone trail keeps reducing, implying lesser traffic congestion on road p.
+
+A new concept of propagation rate of road p at time t, prop(p, t) which is leveraged from the evaporation rate of neighboring road p ∈ pnei, is proposed to update the pheromone accurately.
+
+Similarly, the idea of propagation rate originates from the situation when vehicles travel from neighboring road p′ to road p, whereby pheromone trail in neighboring road p′ evaporates and diffuses into road p. Both evap(p, t) and prop(p, t) are defined as follows: evapp,t=Vavg(p,t)Vfree(p)×11+|NHalt(p,t)|,0≤evap(p,t)≤1propp,t=1−evap(p′,t),0≤prop(p,t)≤1 where | Nhalt(p, t)| is the number of vehicles that have stopped owing to red traffic phase and congestion.
+
+These evaporation rate and propagation rate are proposed as the Propagation–Evaporation Pair, to fuse the traffic pheromone Tt(p, t) and color pheromone Tc(p, t + 1).
+
+The Intersection Agents collect two types of information namely Tt(p, t) and Tc(p, t + 1), and fuse them via both evap(p, t) and prop(p, t) defined above, as shown in equation below: T(p,t+1)=1−evapp,t×Tt(p,t)+evapp,t×Tc(p,t+1),Ttp,t≠0andTcp,t+1=0,Ttp,t≠0andTcp,t+1≠0,Ttp,t=0andTcp,t+1=0,11(i)Tt(p,t)+propp,t×Tc(p,t+1),Ttp,t=0andTcp,t+1≠0,11(ii) with 0≤T(p,t+1)≤1,0≤evap(p,t)≤1,0≤Tt(p,t)≤1,0≤prop(p,t)≤1,Tc(p,t+1)ϵR
+
+PARAGRAPH
+
+In Cao et al. (2017), the fusion of pheromones is solely performed via Eq. (11)(i), the consideration of the event when no vehicles traveling on road p (Tt(p, t) = 0) and incoming vehicles entering road p from neighboring roads p′ (Tc(p, t+ 1)≠0) is therefore not well explored.
+
+When road p is free of vehicles, Tt(p, t) and evap(p, t) are estimated to be zero, and T(p, t) is predicted to be zero.
+
+This ignores the important impact of incoming vehicles that have the intention to enter an empty road p (Tc(p, t+ 1) ≠ 0).
+
+To fill this gap, the role of the proposed propagation rate comes into play to address the aforementioned scenario by estimating T(p, t + 1) through Eq. (11)(ii).
+
+SECTION
+
+Extended pheromone model with epsilon-support vector regression εSVR-EPM)
+
+PARAGRAPH
+
+Instead of fusing Tt(p, t) and Tc(p, t+ 1) via a Propagation–Evaporation Pair, another approach is to employ a machine learning technique to perform the same task.
+
+As one of the prominent machine learning techniques, epsilon-Support Vector Regression (εSVR), which is the extension of Support Vector Machine, is adopted to fuse Tt(p, t) and Tc(p, t+ 1), further enhancing traffic forecasting accuracy.
+
+The εSVR in LIBSVM (Chang and Lin, 2011) is adopted, with the training instances {(x1,y1),…,(xt,yt)}, where xt ϵ R2 is a feature vector and yt ϵ R1 is the target output, as follows: xt=Ttp,t−1,Tcp,tyt=Tp,t=Ttp,t
+
+PARAGRAPH
+
+Analogous to the soft margin loss function in Bennett and Mangasarian (1992), Cortes and Vapnik (1995) introduce slack variables ξi, ξi∗ which allow some errors to model noise in training data.
+
+This convex optimization problem is formulated as follows: minω,b,ξi,ξi∗12ωTω+C∑i=1l(ξi+ξi∗)subject toωTxi+b−yi≤ε+ξi,yi−ωTxi−b≤ε+ξi∗,ξi,ξi∗≥0,i=1,…,lwhere ε is the precision, ω is the weight vector, b is the bias, ξi, ξi∗ are slack variables, C > 0.
+
+It turns out that the primal problem in real optimization problems in Eq. (14) can be solved more easily in its dual formulation, which is the key to extending to nonlinear functions.
+
+Hence, the standard dualization method with Lagrange multiplier is shown below: minα,α∗12α−α∗TQα−α∗+ε∑i=1lα+α∗+∑i=1lyiα−α∗subject to eTα−α∗=0,0≤α,α∗≤C,i=1,…,lwhere Qij = K(xi, xj) ≡ φ(xi)T φ(xj),α,α* are estimated parameters solved by ε-SVR.
+
+PARAGRAPH
+
+After obtaining the pheromone intensities in Eqs. (12) and (13) in time (t-1,t], and solving for Eq. (15), the digital pheromone is forecasted as follows: T(p,t+1)=yt+1=∑i=1l−α+α∗Kxi,xj+band the training set includes t = 100 instances.
+
+SECTION
+
+Extended pheromone model with artificial neural networks and particle swarm optimization (ANNPSO-EPM)
+
+PARAGRAPH
+
+Besides εSVR, the combination of Artificial Neural Network and Particle Swarm Optimization is incorporated to fuse Tt(p, t) and Tc(p, t + 1).
+
+Inspired by the operation of biological neurons, Artificial Neural Networks (ANNs) are systems composed of neurons organized in input, output, and hidden layers, which are connected to each other by a set of synaptic weights (Meissner et al., 2006).
+
+The synaptic weights of ANN are continuously updated until a specific number of iterations or a target tolerance value is achieved during its learning process.
+
+PARAGRAPH
+
+In this paper, to update the synaptic weights, Particle Swarm Optimization (PSO) is adopted as an alternative backward propagation algorithm to fill the gap of the conventional gradient descent algorithm which is more susceptible to the problems of convergence to local minimal and over-fitting (Ch and Mathur, 2012).
+
+As a population-based heuristic optimization technique (Ch and Mathur, 2012), Particle Swarm Optimization (PSO) searches the solution by adjusting the trajectory of each individual vector (particle) based on its own previous best performance (pbest) and global best performance (gbest).
+
+Additionally, in order to speed up the learning process, the objective function of Random Inertia Weight is adopted to replace the Chaotic Inertia Weight (Bansal et al., 2011).
+
+The algorithm 2 of the proposed ANNPSO-EPM is summarized as follows:
+
+PARAGRAPH
+
+In line 12, the Random Inertia Weight objective function, particle velocity and particle position are defined as in Eqs. (17)–(19) respectively, as shown below: w=0.1+0.4∗rand()Vidj+1=wVidj+C1r1pbest,idj−xidj+C2r2gbest,idj−xidjxidj+1=xidj+Vidj+1 where Vidj+1 is the updated velocity of particle i in dimension d search region at iteration j+1; Vidj is the velocity of particle i at iteration j, xidj+1 is the updated position of particle i in dimension d search region at iteration j+1; xidj is the position of particle i at iteration j.
+
+PARAGRAPH
+
+PARAGRAPH
+
+In Algorithm 2, the initialization of all PSO parameters are illustrated from lines 1–10.
+
+The while loop continues if the number of iteration is less than #Nmax_itr and the current tolerance value, #Ntolerance exceeds the threshold tolerance value, #Nthres_tolerance.
+
+In lines 12–17, the weights are firstly determined via a Random Inertia Weight objective function, with all particle velocities and positions are updated accordingly, followed by the evaluation of the fitness function of RMSE for each particle.
+
+Next, particle positions corresponding to their best value of fitness functions are then stored as pbest while the global particle position corresponding to the neighboring best value of fitness function is stored as gbest.
+
+Finally, the absolute RMSE difference between the current particle and the global best particle, #Ntolerance is computed.
+
+In the case when the current #Ntolerance is less than #Nthres_tolerance = 10 × 10−8, the loop terminates and the neural network is then determined.
+
+SECTION
+
+Experimental results and discussion
+
+PARAGRAPH
+
+The objective of this experiment is threefold:
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+The experiment is conducted via the Simulation of Urban Mobility platform, SUMO (Behrisch et al., 2011), which is an open source, microscopic, highly portable and dynamic traffic simulator.
+
+The Singapore Cityhall, which is the downtown area of Singapore, is downloaded from OpenStreetMap, as shown in Fig. 2.
+
+MATLAB software which is interfaced with TraCI (Wegener et al., 2008), is employed to perform the experiment.
+
+PARAGRAPH
+
+The configurations of the experiments are described below:
+
+SECTION
+
+Performance indices
+
+PARAGRAPH
+
+Two common statistical measures of effectiveness are adopted to evaluate the performance of all models.
+
+These statistical metrics include Root Mean Square Error (RMSE) (Tang et al., 2017) and Coefficient of the Determinant (R2) (Chang and Lin, 2011).
+
+RMSE illustrates the measure of standard deviation of the residuals (prediction error) from the regression line, while R2 represents the evaluation of the fitness of regression line (Yu et al., 2017).
+
+The equations of RMSE and R2 are given as follows (Chang and Lin, 2011): RMSE=1n∑i=1nf(xi)−yi2R2=n∑i=1nfxiyi−∑i=1nf(xi)∑i=1nyi2n∑i=1nfxi2−∑i=1nfxi2n∑i=1nyi2−∑i=1nyi2 where fxi is the predicted traffic density T(p, t + 1), yi is the actual traffic density and n is the number of samples.
+
+SECTION
+
+Experimental analysis and discussion
+
+PARAGRAPH
+
+It is worth noticing that the existing PM, εSVR-PM, and ANNPSO-PM could only predict roads with signalized intersections by considering red and green phases (Cao et al., 2017).
+
+Some modifications are performed to ensure fair comparisons across all proposed models.
+
+To simulate traffic forecasting for non-signalized intersection in Cao et al. (2017), Tg(p′) is employed with the assumption that the non-signalized intersection exhibiting similar traffic behaviors as the green traffic phase.
+
+The proposed models fill this gap by introducing a new color pheromone intensities as proposed in Eqs. (3) and (7), which dynamically compute future traffic density based on different traffic phases.
+
+In conducting this experiment, 100 samples, ranging from 1 s to 496 s with the time step, Tstep of 5 s, are employed as the training samples while the next 100 samples, ranging from 501 s to 996 s are employed as the testing samples.
+
+Boldfaced values indicate the best values in Table 1 for the prediction metrics (RMSE and R2) across all models.
+
+PARAGRAPH
+
+From Table 1, three important conclusions are derived as follows:
+
+PARAGRAPH
+
+Each of these conclusions is explained in details as illustrated in Sections 5.3.1–5.3.3.
+
+SECTION
+
+Comparison between algorithmic models (EPM and PM)
+
+PARAGRAPH
+
+As exhibited in Table 1, the proposed EPM achieves a lower RMSE of 0.011135 compared to the PM in Cao et al. (2017), indicating that EPM provides relatively lower standard deviations of the residuals (prediction errors).
+
+The R2 in EPM represents 75% variations in the predicted traffic density are explained by actual traffic density.
+
+Looking from another perspective, EPM achieves better goodness of fit as compared to PM.
+
+These results can be discerned in Fig. 3, along with the following observations:
+
+PARAGRAPH
+
+The main contributions to better results are illustrated as follows.
+
+First, the proposed color pheromone in EPM estimates future traffic density on roads leading to non-signalized intersections via Eqs. (3)(vii) and (7)(vii).
+
+Second, Eqs. (3)(i)–(vi) and Eqs. (7)(i)–(vi) effectively represent the real-world traffic scenario composed of all three color phases with higher accuracy.
+
+SECTION
+
+Comparison between machine learning models (εSVR-EPM andεSVR-PM; ANNPSO-EPM and ANNPSO-PM)
+
+PARAGRAPH
+
+As depicted in Table 1, both proposed εSVR-EPM and ANNPSO-EPM outperform the corresponding εSVR-PM and ANNPSO-PM in Cao et al. (2017), by achieving lower RMSE and higher R2.
+
+Based on Figs. 4 and 5, several observations are summarized below:
+
+PARAGRAPH
+
+The superior results of εSVR-EPM and ANNPSO-EPM are contributed by the refinements made for Tc(p, t+ 1), by virtue of the ability to adaptively compute Nin(p, t + 1) and Nin(p, t + 1) based on traffic light phases.
+
+Hence, machine learning models that learn from previous refined pheromone information provide higher accuracy in capturing non-linear traffic behaviors.
+
+SECTION
+
+Comparison across all three proposed models (EPM, εSVR-EPM, and ANNPSO-EP)
+
+PARAGRAPH
+
+At the first glance, both machine learning models (εSVR-EPM and ANNPSO-EPM) outperform the algorithmic model (EPM) in terms of RMSE and R2.
+
+Particularly, both εSVR-EPM and ANNPSO-EPM achieve competitive results.
+
+To provide deeper insights, numerous observations can be deduced from Fig. 6 as follows:
+
+PARAGRAPH
+
+Several reasons contribute to the aforementioned performances.
+
+First, the convex optimization problem in εSVR provides a unique global minimum, enhancing the performance of searching algorithm (Melki et al., 2017).
+
+Second, the application of a regularization parameter prevents the model from over-fitting the training dataset (Boyd and Vandenberghe, 2004).
+
+Third, the use of kernel trick (RBF) in εSVR allows more flexibility and knowledge in training model in accordance with the number of support vectors (Kecman, 2001).
+
+Fourth, the Particle Swarm Optimization technique employed in optimizing ANN may be trapped in the local minima, which leads to premature convergence and fails to obtain the real optimum results (Zhang and Xia, 2017).
+
+SECTION
+
+Robustness of machine learning models
+
+PARAGRAPH
+
+The robustness of machine learning models is evaluated against the number of training samples (Ts).
+
+As the algorithmic models, PM and EPM are not evaluated based on the training samples size.
+
+Generally, the RMSE decreases with increasing training sample size.
+
+As depicted in Fig. 7(a), εSVR-EPM and εSVR-PM achieve relatively constant RMSE in Ts ∈ [100,140].
+
+Despite achieving competitive convergence, the RMSE of εSVR-EPM is lower than the corresponding counterpart of εSVR-PM, showing that εSVR-EPM is more effective in short-term forecasting.
+
+While the ANNPSO-PM shows a stable RMSE of Ts ∈ [115,140], the convergence of RMSE in ANNPSO-EPM appears to be faster with Ts ∈ [100,120].
+
+The contribution of ANNPSO-EPM is more noticeable when the corresponding RMSE emerged to be much lower than ANNPSO-PM.
+
+PARAGRAPH
+
+The R2 of both εSVR-EPM and εSVR-PM remains relatively constant for Ts ∈ [90,140], with εSVR-EPM achieves much higher R2compared to εSVR-PM.
+
+It is worth noticing that ANNPSO-PM exhibit a varying trend in R2 within the range of sample sizes.
+
+On the other hand, the R2 of ANNPSO-EPM remains relatively stable in Ts ∈ [95,120].
+
+A closer investigation reveals that ANNPSO-EPM displays relatively slight variation in terms of RMSE and R2 in Ts ∈ [120,140], which are caused by overfitting of training samples.
+
+To summarize, both εSVR-EPM and ANNPSO-EPM are more robust than their counterparts of εSVR-PM and ANNPSO-PM.
+
+Despite achieving competitive results in both RMSE and R2, εSVR-EPM is robust within Ts ∈ [100,140], whereas ANNPSO-EPM is robust in Ts ∈ [100,120].
+
+Hence, 100 training samples are employed in the experiments.
+
+SECTION
+
+Conclusion and future work
+
+PARAGRAPH
+
+In this manuscript, a new color pheromone concept in three proposed extended pheromone-based traffic forecasting model is proposed with two significant objectives: (i) to predict inconsistently changing traffic scenarios on roads with non-signalized intersections, and (ii) to forecast traffic density on the roads with signalized intersections by considering all red, yellow and green phases.
+
+PARAGRAPH
+
+To verify the effectiveness of the proposed models, the experiments are conducted through SUMO to compare their prediction accuracy in terms of RMSE and R2.
+
+Overall, all three proposed EPM, εSVR-EPM and ANNPSO-EPM outperform the corresponding recent PM, εSVR-PM and ANNPSO-PM models by achieving a lower RMSE and a higher R2.
+
+Comparing across all proposed models display that both εSVR-EPM and ANNPSO-EPM outperform the EPM, with εSVR-EPM achieving slightly lower RMSE.
+
+The superiority of εSVR-EPM is mainly contributed by the nature of its convex optimization property, the use of kernel trick and regularization parameters, allowing convergence to a unique global minimum.
+
+PARAGRAPH
+
+Further improvements could be made to account for ever-changing weather conditions such as snowy and rainy seasons when predicting short-term traffic conditions.
+
+Similarly, accident cases can be explored in future.

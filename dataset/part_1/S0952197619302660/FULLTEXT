@@ -1,0 +1,625 @@
+10.1016/j.engappai.2019.103309
+
+FULLTEXT
+
+TITLE
+
+Optimizing speed/accuracy trade-off for person re-identification via knowledge distillation
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Person re-identification refers to the problem of identifying a person of interest across a camera network (Zheng et al., 2017a; Panda et al., 2017).
+
+This task is specially important in surveillance applications, since nowadays the security systems in public areas such as airports, train stations or crowded city areas, are continuously improving to ensure the population’s welfare.
+
+In big cities, there are extensive networks of cameras in the most sensitive locations.
+
+Identifying an individual requires finding it among all the instances that are present on the collection of images captured by the cameras.
+
+These images show usually complex crowded scenes, thus increasing even more the computational complexity of the problem.
+
+Therefore, the automation of this task that involves large-scale data becomes essential, as otherwise it would be a laborious task to be performed by humans.
+
+PARAGRAPH
+
+The aim of person re-identification is to find a person of interest, also referred as query, across a gallery of images.
+
+The difficulty of this problem lies in the fact that the images are subject to variations in the point of view, person pose, light conditions and occlusions.
+
+Fig. 4 shows examples of gallery images for identities with such kind of variability.
+
+Fig. 1 shows the full person re-identification system, including the previous person detection stage.
+
+In the person re-identification module, a query image of a person of interest is compared against the gallery, retrieving the images that correspond to the same identity.
+
+To compare them, the system first extracts a feature representation that describes every image, either by using a hand-crafted descriptor or a deep neural network.
+
+Usually the features of the gallery are previously computed offline and stored, so that at test time we only have to extract the features for the query image.
+
+Once the features are extracted, they can be compared with the features of the gallery by computing a similarity measure.
+
+Finally, all the gallery images are ordered by the degree of similarity, obtaining a ranked list of the most similar images in the gallery to the person of interest (Zhong et al., 2017).
+
+PARAGRAPH
+
+In real scenarios, in order to have a feasible application that is able to work with large-scale datasets in an efficient and effective way, we have to address the problem of optimizing the computational cost of the system at test time, without decreasing drastically its accuracy.
+
+For that purpose, we consider both classical and deep learning based person re-identification methods.
+
+Although deep learning based techniques outperform significantly hand-crafted methods in terms of accuracy, their drawback is that they require dedicated hardware, i.e. GPUs, and big amounts of data for training, which takes usually long periods of time, i.e. weeks, in order to be effective.
+
+PARAGRAPH
+
+To make deep learning approaches computationally efficient several works use model compression (Bucilu et al., 2006; Ba and Caruana, 2014).
+
+The idea behind model compression is to discard non-informative weights in the deep networks and perform a fine-tuning to further improve performance.
+
+Although these methods make the architecture more efficient in terms of computational complexity, they also result in a drop of the accuracy on the compressed models.
+
+This drop is specially prominent when the dataset is large or the number of classes is higher, which is often the case in the person re-identification problem.
+
+In contrast, network distillation works have shown that the smaller or compressed model trained with the support of a much bigger/deeper network is able to achieve very similar accuracy as the deeper network but having a much lower complexity (Romero et al., 2015; Zagoruyko and Komodakis, 2017; Ba and Caruana, 2014).
+
+Therefore, in this work we explore network distillation in the context of efficient person-re-identification.
+
+SECTION
+
+Contribution .
+
+PARAGRAPH
+
+The goal of this work is first, to provide an analysis of the trade-off between accuracy and computational cost at test time in a person re-identification problem, considering the most suitable configuration for a real-world application conditions, and second, to propose an improvement to optimize this trade-off.
+
+The contribution of this work is, first, to provide such trade-off analysis on two challenging large-scale person re-identification benchmarks, that are Market-1501 (Zheng et al., 2015) and DukeMTMC-reID (Ristani et al., 2016), and finally to introduce and analyse network distillation (Hinton et al., 2015) for optimizing this trade-off for the deep learning approach.
+
+For this purpose, we use ResNet-50 (He et al., 2016), acting as teacher, to transfer the knowledge to a more compact model represented by MobileNet (Howard et al., 2017), acting as student.
+
+PARAGRAPH
+
+The paper is structured as follows.
+
+In Section 2, we review the literature related with person re-identification and distillation.
+
+In Section 3, we review the distillation approach.
+
+The experimental results are reported in Section 4.
+
+Finally, in Section 5, we present our conclusions and provide some guidelines for future work.
+
+SECTION
+
+Related work
+
+SECTION
+
+Person re-identification
+
+PARAGRAPH
+
+Classical methods for person re-identification consider it as two independent problems, that are feature representation and metric learning.
+
+For the first task, visual description, popular frameworks like Bag of Words (Zheng et al., 2009) or Fisher Vectors (Perronnin et al., 2010) were initially used to encode the local features.
+
+Later, the LOMO (Liao et al., 2015) descriptor was introduced and commonly used on the person re-identification problem (Varior et al., 2016; Zhong et al., 2017; Panda et al., 2017).
+
+In the exhaustive comparison performed by Karanam et al. (2018), LOMO is the second hand-crafted feature descriptor that performs best across several datasets.
+
+The GOG (Matsukawa et al., 2016) features are superior in terms of accuracy, but computing them is more computationally expensive, since it requires modelling each subregion in which the image is divided, by a set of Gaussian distributions.
+
+Indeed, in Matsukawa et al. (2016), LOMO features are extracted in 0.016 seconds/image, while GOG features are extracted in 1.34 second/image.
+
+PARAGRAPH
+
+Metric learning consists in learning a distance function that maps from the feature space to a new space in which the vectors of features that correspond to the same identity are close, while those that correspond to different identities are not, being the distance a measure of the similarity.
+
+Once learnt, this mapping function is used to measure the similarity between features of the person of interest and the gallery images.
+
+PARAGRAPH
+
+One of the most popular metrics is KISSME (Koestinger et al., 2012), that uses the Mahalanobis distance.
+
+Later, XQDA (Liao et al., 2015) was introduced as an extension of KISSME to cross-view metric learning, but doing the mapping function from the feature space to a lower dimensionality space, in which the similarity metric is computed.
+
+More recently, Ali and Chaudhuri (2018) proposed a novel metric learning method that address the small sample size problem, which is due to the high dimensionality of the features on person re-identification.
+
+According to this metric, the samples of distinct classes are separated with maximum margin while keeping the samples of same class collapsed to a single point, to maximize the separability in terms of Fisher criterion.
+
+PARAGRAPH
+
+Nowadays, deep learning based methods are outperforming hand-crafted techniques.
+
+Some approaches used deep learning to compute better image representations, then computing the similarity metric as usual.
+
+Considering each identity as a different class, the features are extracted from a classification Convolutional Neural Network (CNN), that is trained on the target dataset.
+
+Then the features, that we denote as deep features, are the logits, i.e. the output of the network before the classification layer.
+
+Some works that use this approach are Zheng et al. (2016), Xiao et al. (2016) and Bak and Carr (2017).
+
+A more complex framework is proposed in Li et al. (2017), where using a multi-scale context-aware network, they compute features that contain both global and local part-based information.
+
+PARAGRAPH
+
+In a different line of work, siamese models were used to learn jointly the representations, computing the similarity between the inputs, that are image pairs.
+
+The similarity measure provided by the output of the network, determines whether the input images correspond to the same identity or not.
+
+This architecture was first introduced by Bromley et al. (1994) for signature verification, where the features for two signature images were extracted and compared by computing the cosine of the angle between the two feature vectors as a measure of the similarity.
+
+Similarly, in person re-identification, siamese networks take as an input two person images.
+
+This original approach is followed in Yi et al. (2014).
+
+Other architectures such as Li et al. (2014) or Ahmed et al. (2015) use the softmax layer to provide a binary output.
+
+A siamese framework is also used in Zheng et al. (2019b), where the authors propose an architecture with an enhanced attention mechanism, in order to increase the robustness for cross-view matching.
+
+Closely related to siamese networks, triplet networks, which were introduced in Schroff et al. (2015) for face recognition, take triplets of images as inputs, corresponding only two of them to the same person (Cheng et al., 2016; Zhang et al., 2019; Zheng et al., 2019a).
+
+Similarly, a quadruplet loss was proposed in Chen et al. (2017).
+
+PARAGRAPH
+
+Recent approaches aim at increasing the robustness of person re-identification systems.
+
+Some address the problem of domain adaptation, i.e. applying to an unseen dataset a model is trained on a set of source domains without any model updating (Song et al., 2019; Liu et al., 2019).
+
+To this end, image synthesis (Deng et al., 2018; Zhong et al., 2018) or domain alignment (Lin et al., 2018; Wang et al., 2018; Wei et al., 2018) are used.
+
+Other works propose generative approaches for data augmentation.
+
+In Qian et al. (2018) the synthesized images help learning view-point invariant features by normalizing across a set of generated enhanced pose variations, while in Zheng et al. (2019c) they compose high-quality cross-identities images.
+
+SECTION
+
+PARAGRAPH
+
+Network distillation
+
+PARAGRAPH
+
+Network distillation approaches appeared as a computational effective solution to transfer the knowledge from a large, complex neural network (often called teacher network) to a more compact one (referred as student network), with significantly less number of parameters.
+
+This idea was originally proposed in Hinton et al. (2015).
+
+On their approach, the student network was penalized based on a softened version of the teacher network’s output.
+
+The student was trained to predict the output of the teacher, as well as the true classification labels.
+
+In Romero et al. (2015), they proposed an idea to train a student network which is deeper and thinner than the teacher network.
+
+They do not only use the outputs, but also the intermediate representations learned by the teacher as hints to improve the training process and final performance of the student.
+
+A different approach was proposed in Luo et al. (2016), where the knowledge to be transferred from the teacher to the student is obtained from the neurons in the top hidden layer, which preserve as much information as the softened label probabilities, but being more compact.
+
+PARAGRAPH
+
+Network distillation approaches have also been applied recently to the person re-identification problem.
+
+In Zhang et al. (2018), the authors propose using a pair of students to learn collaboratively and teach each other throughout the training process.
+
+Each student is trained with two losses: a conventional supervised learning loss, and a mimicry loss that aligns each student’s class posterior with the class probabilities of other students.
+
+This way, each student learns better in such peer-teaching scenario than when learning alone.
+
+In Ge et al. (2018), feature distillation is used to learn identity-related and pose-unrelated representations.
+
+They adopt a siamese architecture, consisting each branch of an image encoder/decoder pair, for feature learning with multiple novel discriminators on human poses and identities.
+
+The recent work in Wu et al. (2019) resembles ours in some aspects, although their scope is semi-supervised and unsupervised person re-identification, in contrast to our fully-supervised formulation.
+
+Similarly to us, they consider lightweight models to reduce testing computation as well as network distillation as an strategy of knowledge transfer.
+
+However, their distillation approach is not probability based, but similarity based.
+
+They propose the Log-Euclidean Similarity Distillation Loss that imitates the pairwise similarity of the teacher instead of using soft labels as we do.
+
+They explore a multiple teacher-single student setting and propose an adaptive knowledge aggregator to weight the contributions of the teachers.
+
+SECTION
+
+Reviewing distillation
+
+PARAGRAPH
+
+Besides improving the performance of the person re-identification pipeline in terms of computational cost at test time, we also aim at maximizing the performance of a small network to be as accurate as possible.
+
+PARAGRAPH
+
+As discussed in Hinton et al. (2015), the simplest way to transfer the knowledge is to use the output of the teacher network as soft targets for the student network, additionally to the hard targets provided by the ground truth.
+
+However, when the soft targets have high entropy, they provide more information to learn from.
+
+Then, a network that is very confident about its prediction, will generate a probability distribution similar to a Dirac delta function, in which the correct class has a very high probability and the rest of classes have almost zero probability, having a very low entropy and consequently providing less information than a less confident network.
+
+While a less confident network will assign higher probabilities to the incorrect classes, as shown graphically in Fig. 2.
+
+The intuition behind high entropy distributions help the distillation, is that by learning from the probabilities assigned to incorrect classes, the student network is learning how the teacher model generalizes.
+
+PARAGRAPH
+
+Therefore, the authors propose to increase the entropy of the probability distribution generated by the teacher model, i.e. the output of the softmax layer, so that when the student network uses that output to learn from it, it can provide more information.
+
+In order to maximize the entropy, they propose to increase the temperature of this distribution.
+
+PARAGRAPH
+
+The inputs of the softmax layer, that are the logits, denoted as zi, are converted to probabilities pi by the softmax function, which expression is (1), where T is the temperature, that is a selected constant value in the distillation case, and it is equal to 1 when there is no distillation. pi=exp(zi∕T)∑jexp(zj∕T)
+
+PARAGRAPH
+
+The knowledge transfer is performed via the loss function of the student model.
+
+The loss function for the kth training example Lstudentk is defined as (2) and it is the weighted sum of two terms: Lstudentk=H(pteacher(T=T0),pstudent(T=T0))︸Distillation term+λH(hardtargets,pstudent(T=1))︸Cross-entropy losswhere H(p,q) denotes the cross-entropy between two probability distributions p and q.
+
+The first term is the cross-entropy between the soft targets extracted from the teacher (pteacher(T=T0)), i.e. the softened probability distribution of the teacher that is obtained by applying the softmax function (1) to the logits of the teacher divided by a temperature T0, and the softened probability distribution of the student (pstudent(T=T0)) using the same value T0 as for the teacher.
+
+The second term of the loss is the cross-entropy between the hard targets, that is the ground truth which has a value equal to 1 assigned to the correct class and 0 to the rest of them, and the probability distribution of the student (pstudent(T=1)), that is the output of the softmax using a T=1.
+
+This second term is the cross-entropy loss function, which minimizes the cross-entropy between the prediction of the network and the ground truth.
+
+These two terms are balanced by a regularization parameter λ.
+
+PARAGRAPH
+
+A graphical summary of the process is shown in Fig. 3.
+
+In the current framework of person re-identification, once the student network is trained via distillation, it is used to extract the features of the images at test time, to then measure their similarity using the Euclidean distance.
+
+PARAGRAPH
+
+SECTION
+
+Experiments
+
+SECTION
+
+Datasets
+
+PARAGRAPH
+
+In a real world application, there are often several cameras that can capture images of people from different points of view in different illumination conditions and even with occlusions.
+
+Thus, we choose datasets that simulate as much as possible a real scenario.
+
+Market-1501 (Zheng et al., 2015) or DukeMTMC-reID (Ristani et al., 2016) have these characteristics, providing images taken from 6 cameras in the case of Market-1501 and 8 in the case of DukeMTMC-reID, as shown in Fig. 4, that are captured in outdoor public areas, being also two of the largest-scale public datasets for person re-identification.
+
+PARAGRAPH
+
+Market-1501 provides an average of 14.8 cross-camera ground truths for each query, containing in total 32,668 bounding boxes of 1,501 identities, from which 12,936 bounding boxes with 751 identities belong to the training set.
+
+The mean of images per identity is 17.2.
+
+All the bounding boxes are of size 128 × 64.
+
+PARAGRAPH
+
+The DukeMTMC-reID dataset is an extension of the DukeMTMC tracking dataset.
+
+The bounding boxes are then extracted from the full frames provided by the original dataset and therefore, their size is not fixed.
+
+It contains 36,441 bounding boxes that belong to 1,404 identities plus 408 distractor identities that only appear in a single camera.
+
+Among them, 16,522 bounding boxes with 702 identities are used for the training set.
+
+The mean number of images per identity is 20, with a maximum of 426 images for the identity with the largest amount of images.
+
+SECTION
+
+Evaluation
+
+PARAGRAPH
+
+In a re-identification task, the query is compared to all the gallery, computing a similarity metric that is used to rank the gallery images sorted by similarity.
+
+The rank-1 accuracy gives the probability of getting a true match from the gallery in the first position of the ranking.
+
+Similarly, the rank-5 accuracy evaluates whether we find a true match in the five first positions of the ranking.
+
+However, since the person of interest may appear many times in the gallery, we need an evaluation metric that also considers finding all the true matches that exist in the gallery, evaluating also the recall.
+
+The mean average precision (mAP) is suitable for evaluating on datasets in which an identity appears more than once in the gallery, such as Market-1501 and DukeMTMC-reID.
+
+PARAGRAPH
+
+We also report the computational cost at test time of the algorithms proposed, by providing the time that feature extraction takes per image of a single individual.
+
+We do the feature extraction for all the gallery and compute the average time per image.
+
+We report as a computational cost metric, the number of images the system extracts the features from in a second, for the different considered architectures.
+
+Then, we report separately the computational cost for the metric learning step.
+
+SECTION
+
+Implementation details
+
+PARAGRAPH
+
+To analyse the trade-off between accuracy and computational cost at test time, we evaluate both classical and deep learning based approaches.
+
+In a real world application, both of them can be considered depending on the scenario.
+
+PARAGRAPH
+
+As a classical approach, we use the LOMO feature description and the XQDA metric learning algorithms (Liao et al., 2015), as they aim at being effective and computationally efficient.
+
+As we discussed in Section 2.1, LOMO presents the best trade-off between accuracy and computational cost for all the methods considered in the exhaustive analysis performed in Karanam et al. (2018).
+
+PARAGRAPH
+
+In a deep learning based approach, as described in Section 2.1, the feature representations are extracted from a CNN considering the identities as classes and taking the output from the last layer before the softmax layer as the deep features.
+
+Our baseline is the one presented at Zheng et al. (2016) for the Market-1501 dataset, using the ResNet-50 (He et al., 2016) model.
+
+Since ResNet-50 might be too large for the datasets we consider, we also explore another smaller networks that can be more efficient and still perform well.
+
+In particular, we consider MobileNets (Howard et al., 2017) as an alternative architecture.
+
+PARAGRAPH
+
+MobileNets are presented as efficient light weight models suitable for mobile applications.
+
+The MobileNets architecture can be adapted to particular requirements of the system.
+
+In order to decide the network size, two parameters are introduced to control its latency and accuracy: the width multiplier α∈0,1 and the resolution multiplier ρ∈0,1.
+
+The width multiplier can make the model thinner, by multiplying the number of input and output channels on each layer by α. ρ
+
+is implicitly selected when determining the input size of the network, that can be 224, 192, 160 and 128.
+
+Finally, as the similarity metric to compare the features extracted from the gallery images, we use the Euclidean distance.
+
+SECTION
+
+Hand-crafted features.
+
+PARAGRAPH
+
+To evaluate the LOMO features independently to XQDA, we compare the Euclidean distance, KISSME (Koestinger et al., 2012) and XQDA as similarity metrics.
+
+PCA is commonly applied previously to KISSME in order to reduce the dimensionality of the LOMO features, in our case from 26960 to 200.
+
+XQDA allows to select the dimensionality of its subspace.
+
+Thus, we also evaluate the performance of LOMO + XQDA depending on the XQDA dimensionality.
+
+The maximum value that we consider is the highest one with eigenvalues greater than 1.
+
+Following this criteria, we get a maximum dimensionality of 76 for the features extracted from the Market-1501 dataset.
+
+Therefore, we consider values of the XQDA dimensionality from 25 to 75.
+
+Finally, to evaluate the computational cost, we measure the inference time of the method, running these experiments on a laptop with a CPU Intel Core i5-6300U CPU @ 2.40 GHz.
+
+SECTION
+
+Deep features.
+
+PARAGRAPH
+
+Our deep learning based methods are implemented using the TensorFlow library.
+
+The training and validation splits used for deep features are the ones provided on the original baselines.
+
+For Market-1501, Zheng et al. (2016) use a validation split of 1,294 images leaving 11,642 for training.
+
+The baseline for DukeMTMC-reID (Zheng et al., 2017b) uses the whole set of training images.
+
+Finally, to evaluate the computational cost, we measure the inference time, running the experiments on a NVIDIA GTX1070 GPU.
+
+SECTION
+
+Network distillation.
+
+PARAGRAPH
+
+We propose ResNet-50 as teacher, but also MobileNet 1.0, which has the biggest capacity among the MobileNets configurations.
+
+The number of parameters for MobileNets are 4.24M, 2.59M, 1.34M and 0.47M for width multiplier values of 1.0, 0.75, 0.5 and 0.25 respectively, while ResNet-50 has 23.5M of parameters.
+
+Since we want an efficient network, the student is the MobileNet with the smallest width multiplier (MobileNet 0.25).
+
+We analyse the effect of the hyperparameters of the distillation, that are the temperature T and the regularization weight λ for the distillation loss.
+
+We consider the range of temperatures 1−30, being T=1 the case in which the entropy of the soft targets is not modified and T=30 a case of very high temperature.
+
+The highest temperature is selected based on the observed softened probability distribution that is generated by the teacher network for T=30, as it is shown in Fig. 5.
+
+In that probability distribution, the difference between the probabilities assigned to the incorrect classes and the one assigned to the correct class is less than a 0.1%.
+
+This is due to a very high temperature with which the probability distribution is almost flat (which is the case of maximum entropy).
+
+To do the analysis for T in that range, we use intervals of 5, and 1 for the lowest values.
+
+For λ, we choose the values 0.0001, 0.001 and 0.01.
+
+They have been chosen by analysing the contribution of the loss terms while monitoring the training process, as shown in Fig. 6.
+
+When using a value of λ=0.1, the cross-entropy loss leads the training and the distillation term barely affects, but we noted from our experiments that it makes the training harder to converge, resulting in a performance drop.
+
+Therefore, we do not consider λ=0.1 and higher values for our analysis.
+
+PARAGRAPH
+
+For each value of T, we evaluate both the Rank-1 accuracy and mAP with the features extracted from the student network.
+
+We try several combinations of the hyperparameters, i.e., learning rate, batch size, number of epochs, etc.
+
+However, most of the experiments perform best using the same hyperparameters, i.e, we obtain that the same optimum configuration of parameters for several values of T and λ.
+
+Then, all the Rank-1 and mAP values reported in Section 5 for each value of T, are those that perform best among all the experiments performed.
+
+Most of the distillation experiments use SGD, with an initial learning rate of 0.02 that decays 0.1 every 20000 steps, and a momentum of 0.9, being trained for 39 epochs.
+
+PARAGRAPH
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+The performance of the classical approach using LOMO and XQDA is shown in Table 1.
+
+We verify that the usage of metric learning algorithms such as KISSME or XQDA significantly improves the performance of hand-crafted features.
+
+However, we must consider that in this table, PCA is previously applied in the case of KISSME to reduce the dimensionality of the LOMO features to 200.
+
+The dimensionality in the XQDA space is 75, which is considerably smaller.
+
+Thus, XQDA performs better than KISSME even with a stronger dimensionality reduction.
+
+PARAGRAPH
+
+However, both XQDA and KISSME require a metric learning step that increases the computational cost.
+
+In particular, the XQDA training, i.e finding the projection matrix from the training set samples, takes 892 s for Market-1501, whose training set contains 12936 images.
+
+Also, comparing a query image against the gallery takes a mean time of 1,951 ms per image.
+
+Thus, using XQDA, the system compares the individuals’ features at a rate of 0.5 images∕s. Regarding the computational cost for feature extraction with LOMO, the mean CPU time to extract the LOMO features per image is 17.5 ms. Then, the system is able to get the descriptors for the images of the individuals at a rate of 57 images∕s.
+
+PARAGRAPH
+
+The performance of LOMO+XQDA reported in Table 1 corresponds to the highest dimensionality value for XQDA.
+
+We also show the dependency of the performance with the XQDA dimensionality on Fig. 7.
+
+The accuracy increases with the dimensionality of XQDA, since more information can be encoded in the feature vector with a higher dimensionality.
+
+Although we expect a saturation on the performance from a certain value, we do not reach such value.
+
+This is probably because the maximum dimensionality in our case is 75, which is considerably low.
+
+It is much lower than the dimensionality of the smallest feature vectors considered in this work that is 256 for MobileNet 0.25.
+
+PARAGRAPH
+
+For the deep features baseline, Zheng et al. (2016) get a 72.54% of rank-1 accuracy and 46% mean average precision on the Market-1501 dataset, with deep features extracted from ResNet-50.
+
+Following the same strategy, in Zheng et al. (2017b) the baseline results for the DukeMTMC-reID dataset are a 65.22% of rank-1 accuracy and 44.99% of mean average precision.
+
+PARAGRAPH
+
+Fine-tuning the ResNet-50 and MobileNets architectures to the datasets considered, we obtain the performance presented in Table 2.
+
+For Market-1501, the middle size MobileNets are the models that perform best, even slightly better than the biggest one and ResNet-50.
+
+However, MobileNet 0.25 presents a lower performance.
+
+The reason why the middle models perform so well, could be that all of them have enough capacity to solve the problem.
+
+Then, a bigger architecture, such as ResNet-50, would not involve an improvement.
+
+Moreover, as mentioned in Section 4.3, training the networks on a dataset with a high number of classes and a small number of samples per class is not straightforward.
+
+The baseline achieved with ResNet-50 by Zheng et al. (2016) suggests that a higher performance could be achieved for this network.
+
+PARAGRAPH
+
+For the DukeMTMC-reID dataset, MobileNets do not perform as good as they do for Market-1501.
+
+The reason might be that this dataset is more challenging, and requires a higher capacity of the network to perform a good description of the identities.
+
+Since the size of the bounding boxes vary and all of them have to be resized to 128 × 128, losing thereby the aspect ratio, the input images have a higher variability.
+
+PARAGRAPH
+
+We perform the network distillation experiments using pre-trained ResNet-50 and MobileNet 1.0 networks as teachers, whose performance is reported in Table 2.
+
+We show in Figs. 8 and 9 the Rank-1 accuracy and mAP dependency with the temperature in the distillation, for the Market-1501 and DukeMTMC-reID datasets respectively.
+
+The performance of the teacher and the student trained independently is also drawn in the previous figures to provide the comparison with the baseline without distillation.
+
+All the experiments improve significantly the performance of the student, and even the performance of the teacher for low temperatures.
+
+The only case in which the student does not outperform the teacher is for the DukeMTMC-reID dataset for the distillation from ResNet-50 (Fig. 9 (a,b)).
+
+However, in this case, the difference of performance between the teacher and the student is higher than for the other experiments.
+
+PARAGRAPH
+
+For a fixed value of λ, there is always a peak of performance in T=3.
+
+The worst performance across all the values of the temperature T, is for T=1, which corresponds to the case in which the temperature is not increased, i.e. the original logits from the teacher models are used.
+
+This demonstrates the importance of raising the temperature to produce suitable soft targets.
+
+Also, from a certain value of T, the performance gets saturated, probably because the probabilities are already very softened and they do not change significantly for those values of T, as Fig. 5 (e,f) shows for the values of T=20,30.
+
+The differences of probabilities among both distributions are less than a 0.1%.
+
+PARAGRAPH
+
+In Table 3, we compare our configuration with the highest performance for network distillation against the state-of-the-art.
+
+Although the accuracy achieved is not better than the state-of-the-art, our method is specifically designed to be efficient, which can compromise the accuracy.
+
+PARAGRAPH
+
+Finally, to summarize all the considered methods, we show in Fig. 10 and in Table 4, the trade-off between computational cost and accuracy.
+
+In this table, we compare the performance of the classical approach (LOMO+XQDA), the deep features extracted from the MobileNets architectures trained with the cross-entropy loss as well as the deep features extracted from MobileNet 0.25 being distilled from the MobileNet 1.0 and ResNet-50 models, whose performance is reported in the table.
+
+On the Market-1501 dataset, we compute the LOMO features and then apply XQDA with dimensionality 75, while the results for the DukeMTMC-reID dataset is from Zheng et al. (2017b).
+
+PARAGRAPH
+
+Note that LOMO is measured in CPU time, while all the deep features methods are measured in GPU time.
+
+Therefore, the comparison for computational cost is not strictly fair.
+
+In terms of accuracy, the LOMO+XQDA accuracy is with a large margin the lowest, as expected for a hand-crafted method.
+
+Then, this kind of method would be suitable only for an application in which either a GPU, or a large amount of annotated data, is not available.
+
+The results show that distillation improves effectively the performance of efficient networks, providing the best accuracy among all the considered methods, as well as the lowest inference time.
+
+It is also worth mentioning the gap of computational cost between ResNet-50 and MobileNets, while their performance in terms of accuracy is very similar.
+
+Then, it is important to choose a suitable architecture for the problem we want to solve.
+
+For the Market-1501 dataset, a network of the size of MobileNet can describe the features of the identities effectively.
+
+In the case of DukeMTMC-reID, ResNet-50 performs much better.
+
+SECTION
+
+Conclusions and future work
+
+PARAGRAPH
+
+In this work, we have evaluated the trade-off between accuracy and computational cost for LOMO and XQDA as a classical approach, also for features extracted from the ResNet-50 and MobileNets networks, as a deep learning based method.
+
+This evaluation was performed on large-scale datasets, aiming to simulate the scenario of a real-world application.
+
+In such scenario, the kind of images on which the re-identification is performed, frequently show crowded scenes, which justifies the necessity of having an efficient system that is able to identify as many individuals as possible in the shortest time.
+
+PARAGRAPH
+
+We showed that using features from CNN outperforms by a large margin the accuracy achieved with a classical approach and it is also much faster, when using a GPU.
+
+However, this requirement as well as the large amount of annotated data that a network needs to be trained are the drawbacks to consider.
+
+Both ResNet-50 and MobileNets achieve a good performance being the second one 4 times faster at test time.
+
+Additionally, we proposed network distillation for improving the performance of MobileNets at test time, demonstrating its effectiveness.
+
+The student MobileNets networks even outperformed the teacher ResNet-50 model, achieving an accuracy that could not be achieved by training the student independently.
+
+PARAGRAPH
+
+There are still research lines to explore for the deep learning case applied to a real scenario.
+
+The problem of domain adaptation is still open.
+
+It refers to the situation when networks trained with labelled datasets can still perform well with new data recorded in different conditions.
+
+Also, the retrieval module in the person re-identification pipeline is a bottleneck since a brute-force search is needed in order to compare the person of interest against all the gallery.
+
+To solve this, some clustering and indexing approaches have been proposed to reduce the computational cost at test time too, but there is still room for improvement.

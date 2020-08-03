@@ -1,0 +1,529 @@
+10.1016/j.jhep.2018.11.034
+
+FULLTEXT
+
+TITLE
+
+Metformin modulates innate immune-mediated inflammation and early progression of NAFLD-associated hepatocellular carcinoma in zebrafish
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is a common cause of cancer-related deaths with increasing mortality worldwide.1
+
+In Western societies, 30–40% of patients with HCC are obese and have non-alcoholic steatohepatitis (NASH), an aggressive form of non-alcoholic fatty liver disease (NAFLD).2–5
+
+Abnormal lipid accumulation in hepatocytes increases oxidative stress and leads to lipotoxicity, which triggers liver inflammation, a hallmark of NAFLD progression to HCC.6
+
+Pro-tumorigenic subsets of neutrophils, macrophages, and other immune cells provide the tumor microenvironment (TME) with growth factors, matrix-remodeling factors and inflammatory mediators that optimize tumor growth.7–10
+
+Hepatic macrophages in particular, including both monocyte-derived or tissue-resident macrophages known as Kupffer cells, have been identified as potential drug targets to treat liver disease.11
+
+Several studies have shown that NAFLD progression to HCC involves inflammatory macrophages12 and Kupffer cells.13
+
+Adaptive immune cells can also be modulators of hepatocarcinogenesis.
+
+NAFLD/NASH impairs tumor surveillance by inducing apoptosis of CD4+ T cells.14
+
+Taken together, this previous work suggests that the innate and adaptive immune systems are key players in the progression of NAFLD-associated HCC.
+
+However, the specific cellular and molecular immune mechanisms that regulate the pathogenesis of early NAFLD/NASH-associated HCC remain unclear.
+
+PARAGRAPH
+
+Metformin is a well-tolerated drug commonly used to treat diabetes with some evidence suggesting beneficial effects in HCC and other types of cancer.15
+
+In hepatocytes, metformin increases AMPK activity,16 and also decreases gluconeogenesis and increases fatty acid oxidation,17 supporting its use in NAFLD.18
+
+The role of metformin in treating HCC remains controversial,19 although its use is supported by some in vitro, ex vivo and xenotransplant mouse models.20,21
+
+However, the effect of metformin on the TME immune composition or HCC progression in vivo remains unclear.
+
+PARAGRAPH
+
+To image the immune response and liver tumorigenesis in live intact animals, we developed a zebrafish model of NASH-associated HCC.
+
+Here we combine a high-fat diet (HFD) with an established transgenic zebrafish model of HCC.22
+
+Zebrafish have remarkable similarities to humans, including hepatic cellular composition, function, signaling, and response to injury.23
+
+We found that HFD enhances HCC progression and modulates the immune response in the liver TME.
+
+HFD induces changes in macrophage polarization with increased numbers of TNFα-positive macrophages in the liver.
+
+Metformin blocks the effects of a HFD on the inflammatory microenvironment and HCC progression.
+
+Moreover, the findings suggest that metformin inhibits HCC progression specifically in NASH-associated HCC by reducing diet-induced liver inflammation and potentially restoring tumor T cell surveillance.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Zebrafish husbandry and maintenance
+
+PARAGRAPH
+
+All protocols using zebrafish in this study were approved by the University of Wisconsin-Madison Institutional Animal Care and Use Committee (IACUC).
+
+Adult zebrafish and embryos up to 5 days post-fertilization (dpf) were maintained as described previously.24
+
+At 5 dpf, larvae were transferred to feeding containers and kept in E3 media without methylene blue.
+
+For all experiments, larvae were anesthetized in E3 media without methylene blue containing 0.16 mg/ml Tricaine (MS222/ethyl 3-aminobenzoate; Sigma-Aldrich).
+
+Zebrafish lines used are summarized in Table S1.
+
+SECTION
+
+Diet preparation and feeding of zebrafish larvae
+
+PARAGRAPH
+
+Larval diets were prepared as previously described25 using Golden Pearl Diet 5–50 nm Active Spheres.
+
+At 5 dpf, zebrafish larvae were separated into treatment groups in E3 without methylene blue.
+
+According to the number of larvae, larvae were maintained in a 15 cm petri dish (up to 20 larvae), a small breeding box (20–75 larvae) or a big breeding box (75 up to 150 larvae), and fed for 8 days with normal diet or HFD (with 2 mg, 4.5 mg or 6–8 mg daily, respectively), E3 was replaced daily.
+
+Before any experimental procedure, larvae were fasted for 24 h.
+
+At 13 dpf, larvae were prescreened for HCC (Green Eye marker) or no HCC, and/or liver marker (Green Liver or Red Liver markers) on Zeiss Axio Zoom stereo microscope (EMS3/SyCoP3; Zeiss; Zeiss; PlanNeoFluar Z 1X:0.25 FWD 56 mm lens).
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+All experiments were replicated independently a minimum of 3 times with multiple samples in each replicate.
+
+Least Squared Means analysis in R (www.r-project.org)26 was performed on pooled replicate experiments, using Tukey method when comparing more than 2 treatments.
+
+This analysis method was used in all experiments with the exception of lipid, Glycogen, micronuclei scorings and steatosis, for which we used Chi-square test.
+
+Statistical analysis was performed with the assistance of a Biostatistician in the Department of Pediatrics at the University of Wisconsin-Madison.
+
+Graphical representations were done in GraphPad Prism version 7.
+
+SECTION
+
+Other methods and reagents
+
+PARAGRAPH
+
+Other methods are described in the Supplementary Material and Methods.
+
+To enhance the reproducibility of all the methods used in this study a Supplementary CTAT Table is also provided.
+
+SECTION
+
+Results
+
+SECTION
+
+HFD and HCC increase liver size and induce angiogenesis during early progression in a zebrafish HCC model
+
+PARAGRAPH
+
+The zebrafish is a powerful model organism for liver disease research, including NAFLD and HCC.23
+
+Here we used a HCC transgenic zebrafish model that expresses hepatocyte-specific activated β-catenin (Tg (fabp10a:pt-β-cat)).22
+
+We focused our study on the early progression phase of HCC and used 13 days post-fertilization (dpf) Tg (fabp10a:pt-β-cat) larvae, with or without a liver marker, Tg(fabp10a:egfp) or Tg(fabp10a:h2bmCherry), referred to here as HCC larvae (Table S1).
+
+In addition, to induce NAFLD in zebrafish,25,27 we fed wild-type larvae a high-cholesterol diet, hereafter referred to as a HFD, from days 5–12.25
+
+Oil red staining showed that the short-term feeding of a HFD was able to induce steatosis in the liver of 13 dpf larvae (Fig. S1).
+
+Liver size was increased both in the HCC model and with a HFD alone (Fig. S2A-C; Fig. 1A and C); importantly these effects were not associated with changes in total body size (Fig. S3A-C).
+
+PARAGRAPH
+
+Increased angiogenesis is an important feature of HCC progression,28 and it has also been associated with NAFLD progression in mouse models after long periods of feeding.29–31
+
+We therefore characterized the vasculature in the liver using an established transgenic line that labels the vasculature, Tg (flk:mcherry) (Table S1).
+
+HCC larvae exhibited increased vessel density index by liver volume and liver surface area compared to control siblings (Fig. 1A, B and D; Fig. S2D; Movie S1 and S3).
+
+Surprisingly, larvae fed with a HFD also showed increased vessel density index by liver volume and liver surface area after only short-term feeding (Fig. 1A, B and D; Fig. S2D; Movie S1 and S2), suggesting that diet alone is sufficient to induce angiogenesis after short durations in zebrafish larvae.
+
+SECTION
+
+Histologic changes with HFD and HCC
+
+PARAGRAPH
+
+Both HCC and a HFD induce histologic changes in the liver in zebrafish.22,27,32
+
+To determine if the characteristic histological changes are present during the larval period, we first performed a blinded, conventional histopathological evaluation of hematoxylin and eosin-stained sections in 13 dpf larvae (Fig. S4).
+
+We performed semiquantitative analysis of lipid accumulation and non-lipid vacuolar change (glycogen accumulation/ballooning degeneration), which are histologic features associated with NASH, and found that these features were more pronounced in larvae fed with HFD (Fig. S4A-D).
+
+HCC larvae displayed histologic characteristics of hepatocellular carcinoma, including altered tissue architecture (such as thickened hepatic cords), increased nuclear pleomorphism, and increased mitotic index (Fig. S4A, B, D and E); such features were not found in control or with HFD alone.
+
+We next took advantage of the optical accessibility of zebrafish larvae to evaluate several cellular and nuclear parameters associated with malignancy using non-invasive imaging techniques.
+
+We outcrossed a transgenic line with labeled hepatic nuclei, Tg(fabp10a:pt-β-catenin)/(fabp10a:h2b-mCherry), with a line that labels F-actin specifically in hepatocytes, Tg(fabp10a:lifeact-egfp) (Table S1).
+
+We measured hepatocyte area, nuclear area, nuclear circularity and nuclear cytoplasmic ratio (N:C ratio) (Fig. 1E-J).
+
+In HCC larvae, we observed an increase in hepatocyte area (Fig. 1E and G).
+
+Nuclear alterations associated with carcinogenesis were also observed, such as enlarged nuclei, measured by nuclear area, and altered nuclear shape, measured by nuclear circularity (Fig. 1E, F, H and I).
+
+As expected, larvae exposed to HFD showed cell morphology changes characterized by a ballooning effect on hepatocytes, as indicated by increased hepatocyte area (Fig. 1E and G).
+
+The short-term high-fat feeding alone did not induce nuclear alterations (Fig. 1E, F, H and I).
+
+However, we observed enlarged hepatocytes with displaced nuclei localized at the edge of the cell with HFD, as reported in NAFLD/NASH disease33 (Fig. 1E).
+
+No significant changes were found in N:C ratio at this stage(Fig. 1J).
+
+DNA damage is also a hallmark of carcinogenesis, which is usually associated with repeated rounds of nuclear envelope rupture and repair that promotes formation of micronuclei or nuclear herniation.34
+
+Using our zebrafish transgenic lines with the nuclear marker H2B-mCherry (Table S1), we visualized the presence of micronuclei in larvae in vivo.
+
+We found that both HCC and HFD induced the presence of micronuclei and/or nuclear herniation, which was not found in control larvae (Fig. 1F and K).
+
+Our findings suggest that HCC and HFD have distinct effects on histologic features, consistent with the changes noted in human disease.
+
+SECTION
+
+NAFLD and HCC zebrafish models exhibit an early increase in leukocyte infiltration
+
+PARAGRAPH
+
+Next, to address the inflammatory response in larvae with HCC or HFD alone, we used a double-labeled macrophage and neutrophil transgenic line (Tg(mfap4:tdTomato-caax)/(lyzc:bfp) (Table S1).
+
+The translucency of zebrafish larvae enabled non-invasive time-lapse imaging of leukocytes in the liver area.
+
+Both HCC and HFD alone displayed a significant increase in macrophage density at 13 dpf (Fig. 2A, B and D; Movie S5-7).
+
+Hepatic macrophages were present in control larvae, and displayed crawling and patrolling both in the liver and the surrounding area that was increased in HCC (Movie S5 and S7).
+
+Macrophages in larvae fed with HFD displayed a more stationary phenotype than in control larvae (Movies S5 and S6).
+
+The diet also induced a rounder and larger macrophage morphology, not observed in control or HCC larvae (Fig. 2A, B and E; Movie S6 and S7).
+
+Neutrophil density was also increased in larvae with HCC and fed HFD compared to control siblings (Fig. 2A, C and F; Movie S5-7).
+
+These results demonstrate that short-term feeding of HFD induces a NASH-like phenotype in zebrafish.
+
+Altogether, our data suggest that liver inflammation is triggered early both in HCC and by HFD.
+
+SECTION
+
+HFD stimulates cancer progression in zebrafish HCC larvae
+
+PARAGRAPH
+
+NAFLD and NASH can lead to the progression to HCC in humans.1
+
+NASH-associated HCC incidence is increasing, however there are a lack of animal models amenable to live imaging and drug screening.
+
+Therefore, we combined two established zebrafish models for NASH and HCC, and developed a model of NASH-associated HCC by feeding HCC zebrafish larvae with a HFD (HCC + HFD larvae).
+
+We first addressed the diet effect on HCC progression by measuring liver size.
+
+In HCC larvae, a HFD induced liver enlargement as measured by area, surface area and volume without affecting larval length, but significantly increasing larvae width (Fig. 3A, C and D; Fig. S2A and B; Fig. S3A-C).
+
+Vessel formation was also increased in HCC + HFD larvae compared to HCC alone (Fig. 3A, B, E and F; Movie S3 and 4).
+
+Importantly, histopathological analysis revealed that HCC larvae fed a HFD displayed features of both NAFLD and HCC (Fig. S5A-F).
+
+HCC + HFD larvae also exhibited increased hepatocellular lipid and glycogen accumulation compared to HCC larvae (Fig. S5A-D).
+
+The lipid accumulation translated into an increase of hepatocyte size in HCC + HFD larvae (Fig. 3G and I).
+
+Although greater nuclear pleomorphism and a trend toward more trinucleated cells was noted in the HCC larvae fed a HFD, significant changes in trinucleated cell numbers and mitotic index were not observed in hematoxylin and eosin analysis (Fig. S5A, B, E and F).
+
+However, in vivo imaging showed that HFD for a short duration is able to induce malignant cellular and nuclear changes during the early HCC progression phase.
+
+HCC + HFD larvae exhibited lower nuclear circularity, higher N:C ratio and more micronuclei and nuclear herniation compared to HCC larvae alone (Fig. 3G, H, J-L).
+
+Together, these findings suggest that HFD enhances malignancy-related histologic and morphologic features in HCC larvae.
+
+SECTION
+
+HFD increases proliferation and induces lipotoxicity in zebrafish HCC larvae
+
+PARAGRAPH
+
+Lipid accumulation in hepatocytes mediates endoplasmic reticulum stress and mitochondrial dysfunction and triggers apoptosis.6,35
+
+We next addressed the lipotoxic effect of the diet in HCC larvae by quantifiying apoptosis using whole-mount immunofluorescence against active-caspase 3 (act-casp3).
+
+An increase in hepatic apoptosis was observed in HCC + HFD compared to HCC alone (Fig. 3M and N).
+
+This lipotoxicity effect in the liver was accompanied by an increase in proliferation of HCC larvae fed with HFD measured by EdU incorporation (Fig. 3O and P).
+
+Importantly, control larvae exposed to the diet also showed increased apoptosis and proliferation suggesting that these mechanisms are activated by the exposure of larvae to the HFD (Fig. S6A and B).
+
+SECTION
+
+NASH-associated HCC larvae display altered immune cell responses
+
+PARAGRAPH
+
+We next sought to determine if a HFD alters the immune phenotype of HCC larvae.
+
+We found that macrophage influx in the liver was not affected by diet in HCC larvae (Fig. 4A, B and D; Movie S7 and 8).
+
+However, there was a change in macrophage behavior and morphology, as it was previously observed in larvae fed HFD alone (Fig. 2A, B and E; Movie S6).
+
+In HCC larvae, HFD induced a shift in behavior from the patrolling macrophages to a more stationary phenotype (Movie S7 and 8).
+
+The diet also induced a rounder and larger macrophage morphology (Fig. 4A, B and E; Movie S8).
+
+As for neutrophils, neutrophil density was significantly increased with the diet (Fig. 4A, C and F; Movie S8).
+
+Adaptive immune cells also play an important role in hepatocarcinogenesis.36,37
+
+To further characterize the immune response in this NASH-associated HCC model, we used a transgenic line with labeled T cells, Tg(cd4.1:mCherry)/(lck:egfp) to compare the effects of a conventional and HFD (Table S1).
+
+Surprisingly, in HCC + HFD larvae, T cell density was reduced in the liver area in comparison to HCC siblings (Fig. 4G and H).
+
+Interestingly, the same effect was observed in control larvae fed with this diet (Fig. S6C).
+
+Overall, these data show that the inflammatory response is triggered early in HCC, but when combined with a NAFLD model, the presence of lipid accumulation significantly alters the innate and adaptive immune response in the tumor microenvironment during the early progression phase of HCC in zebrafish.
+
+SECTION
+
+HFD induces pro-inflammatory macrophage polarization in zebrafish HCC
+
+PARAGRAPH
+
+Live imaging revealed a change in macrophage morphology and dynamic behavior in HCC larvae in the presence of a HFD.
+
+Interestingly, we did not observe an increase in macrophage infiltration into the liver with a change in diet.
+
+To determine if this change in macrophage morphology is associated with altered polarization of the macrophages we utilized a reporter of TNFα expression, Tg(tnfa:egfp) (Table S1), to identify pro-inflammatory macrophages in the liver.
+
+TNFα is an important marker of macrophage polarization to a pro-inflammatory phenotype, classically referred to as a M1 macrophage, and has been used in zebrafish to identify these macrophage sub-populations.38
+
+It is important to note that other cells in the liver can express TNFα including hepatocytes.39
+
+However, pro-inflammatory subsets of hepatic macrophages are the main source of TNFα in the liver in NAFLD/NASH disease.40,41
+
+To address macrophage polarization, we crossed the zebrafish HCC model to the TNFα reporter line.
+
+We found increased numbers of TNFα-positive macrophages in HCC + HFD compared to HCC control (Fig. 5A-D).
+
+The same effect was observed in control larvae fed with HFD (Fig. S6D).
+
+Taken together, our findings suggest that HFD induces pro-inflammatory macrophage polarization in the liver during early HCC.
+
+SECTION
+
+Macrophages are necessary for progression of HCC induced by diet
+
+PARAGRAPH
+
+To further address the role of macrophages in the HCC + HFD phenotype, we outcrossed the HCC line with a transgenic line that allows for 80–90% depletion of macrophages, Tg(mpeg1: NTR-eYFP) (Table S1), with metronidazole (MTZ) treatment.42
+
+We began MTZ treatment at 4 dpf to ablate macrophages before we introduced the HFD.
+
+Using liver growth as an indicator of disease progression, we found that macrophage ablation reduced liver size to control levels in the HCC + HFD larvae (Fig. 5E and F).
+
+Surprisingly, macrophage ablation affected liver size in HCC + HFD larvae but not in HCC or HFD alone (Fig. S7B and C).
+
+Taken together, our findings suggest that macrophages, and specifically macrophage polarization, play a key role in the early progression of NAFLD/NASH-associated HCC in larval zebrafish.
+
+SECTION
+
+Metformin inhibits diet-induced progression specifically in NASH-associated HCC
+
+PARAGRAPH
+
+Metformin is a drug that induces AMPK activation and is being used to treat diabetes and NAFLD.17,43,44
+
+Metformin can also reduce HCC incidence in obese/diabetic patients.17
+
+However, the role of metformin in treating HCC remains unclear.19
+
+We therefore sought to determine if metformin was able to reduce HCC progression in NASH-associated HCC in larval zebrafish.
+
+Interestingly, metformin treatment of HCC + HFD larvae reduced liver size to levels similar to HCC alone (Fig. 6A and D), suggesting a reduction of NASH-associated HCC progression.
+
+No change was observed in HCC larvae treated with metformin in the presence of a normal diet (Fig. 6A and D).
+
+Next, we addressed if metformin was able to reverse the malignant cellular and nuclear changes enhanced by HFD in HCC larvae (Fig. 3G-L).
+
+We found HCC + HFD larvae treated with metformin had a significant decrease in hepatocyte area and increase in nuclear circularity (Fig. 6B, C, E and F).
+
+Although a trend toward a decrease N:C ratio was noted in HCC larvae fed with HFD treated with metformin, no significant changes were observed (Fig. 6B and G).
+
+In addition, metformin significantly reduced the incidence of micronuclei and nuclear herniation in HCC + HFD larvae (Fig. 6B, C and H).
+
+Interestingly, metformin had no effect on any of the malignant features measured in HCC larvae alone (Fig. 6B-H).
+
+Altogether, these data suggest that metformin might be a useful therapeutic approach to specifically treat NASH-associated HCC progression.
+
+SECTION
+
+Metformin reverses HFD effect on liver tumorigenesis and decreases inflammation and restores T cells in NASH-associated HCC larvae
+
+PARAGRAPH
+
+Metformin has tumor-suppressive effects by inhibiting angiogenesis and proliferation.15
+
+Metformin also decreases steatosis and lipotoxicity associated with high fat intake.43
+
+To determine the effect of metformin on the TME of NASH-associated HCC larvae we measured vessel formation, steatosis, lipotoxicity and proliferation.
+
+We found that metformin reverses the diet-induced increase in vessel formation, steatosis, lipotoxicity and proliferation in HCC + HFD larvae (Fig. 7A-H).
+
+Metformin treatment is also reported to reduce inflammation and modulates macrophage polarization in vitro.45,46
+
+Accordingly, we found that metformin treated HCC + HFD larvae had a reduced density of TNFα-positive cells and neutrophils (Fig. 8A-D).
+
+Interestingly, metformin also reversed the inhibitory effect of diet on T cell recruitment to the liver (Fig. 8E-F).
+
+These data suggest that metformin reduces diet-induced increases in angiogenesis, steatosis, lipotoxicity and non-resolving inflammation and restores T cell infiltration and potentially surveillance.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+HCC incidence is increasing worldwide, particularly NASH-associated HCC.
+
+Unfortunately, treatments for HCC are limited.
+
+A better understanding of the cellular and molecular players in the liver TME is crucial to identify therapeutics to treat the different types of HCC.
+
+It is particularly important to understand the effect of a Western diet on factors that affect the risk of uncontrolled inflammation that occur in NASH, which can enhance liver tumorigenesis but also alters patient’s response to therapy.
+
+A key gap is the ability to live image intercellular interactions within the liver microenvironment that mediate inflammation and contribute to disease progression.
+
+Here we employ tools to visualize features of disease progression and inflammation phenotypes in real time in zebrafish NAFLD/NASH and HCC larval models.
+
+We also probe the effect of the drug metformin on inflammation and progression in NASH-associated HCC.
+
+PARAGRAPH
+
+Our findings demonstrate that a HFD exacerbates larval HCC including increasing liver size and angiogenesis.
+
+These findings are consistent with previous reports showing increased angiogenesis in NASH,29–31 although here we show increased angiogenesis at early stages after introduction of a HFD.
+
+Importantly, a HFD also induced alterations in nuclear parameters associated with malignancy during early progression in this HCC model.
+
+Most notably, a HFD induced the increased formation of micronuclei, indicating DNA damage, likely associated with lipotoxicity and an increase in oxidative stress.47
+
+To our knowledge this is the first time that these changes have been visualized in vivo, and after short a duration of a HFD, suggesting that short-term dietary changes can enhance hepatocarcinogenesis.
+
+PARAGRAPH
+
+Myeloid cell infiltration has been associated with HCC in humans and in experimental models, but not previously in this zebrafish model of β-catenin induced carcinogenesis, in particular at this stage of progression.22
+
+This pro-inflammatory phenotype is likely an early driver of the malignant process.
+
+Neutrophils can be pro-tumorigenic and enhance hepatocarcinogenesis48 by releasing growth factors that promote angiogenesis and tumor proliferation,49 or chemotactic cues that modulate recruitment and polarization of macrophages and regulatory T cells.50
+
+Increasing neutrophil-to-lymphocyte ratios have been associated with poor prognosis in patients with HCC and are being used as a prognostic factor.51
+
+In addition to the increased liver neutrophil infiltration, NASH-associated HCC larvae also had a decrease in the total number of T cells suggesting that diet may modulate T cell numbers in the liver and potentially tumor surveillance.
+
+Interestingly, this effect on T cells is consistent with what was reported by Ma et al.14 showing that NAFLD limits liver tumor T cell surveillance in a mouse model because of reduced numbers of CD4+ T lymphocytes.
+
+PARAGRAPH
+
+Our finding that a HFD induces changes in macrophage polarization into a pro-inflammatory TNFα-positive population without affecting overall cell number is intriguing.
+
+TNFα is a key inflammatory component associated with lipotoxicity in NASH-associated HCC progression.52–54
+
+This pro-inflammatory cytokine not only serves as a key mediator of hepatocyte apoptosis resulting in liver damage but also plays an important role in cellular proliferation leading to liver regeneration or hepatocarcinogenesis.39
+
+Indeed, we observed that a HFD induced proliferation in the liver of both control and HCC larvae.
+
+Several cells in the liver can express TNFα, including hepatic macrophages, neutrophils, dendritic cells, natural killer cells, lymphoid cells, endothelial cells and fibroblasts.39,55
+
+However, pro-inflammatory hepatic macrophages are the main source of TNFα in liver in NAFLD/NASH disease,40,41 consistent with our findings.
+
+It has been reported by others that pro-inflammatory sets of macrophages and Kupffer cells play a major role in liver disease progression,56 specially in NAFLD/NASH.12.
+
+Macrophage activation in the liver occurs through sensing of a wide variety of signals such as HMGB1, ATP, IL1β or reactive oxygen species that are released from damaged hepatocytes due to lipotoxicity.57
+
+In the case of HCC, tumor-associated macrophages can play dual functional roles by clearing premalignant senescent hepatocytes and preventing progression to HCC or by providing tumorigenic signals which drive HCC progression.57
+
+In our NAFLD/NASH-associated HCC zebrafish model, macrophage depletion also decreased HCC progression.
+
+Surprisingly, our data identified macrophages as key modulators of NAFLD/NASH-associated HCC progression in zebrafish but not for HCC alone.
+
+Overall, tumor-associated macrophage infiltration is generally associated with poor prognosis in HCC and can contribute to HCC progression by promoting proliferation, angiogenesis and later metastasis.7,11,57
+
+In the future it will be important to determine what macrophage-derived signals are involved in HCC progression to enable potential macrophage-specific drug targets for the treatment of NAFLD/NASH-associated HCC.
+
+PARAGRAPH
+
+Metformin is mainly used as an anti-diabetic drug17 and in recent years, this drug has gained attention due to its pleiotropic effect and lower cancer incidence in treated patients17.
+
+Metformin may have tumor-suppressive therapeutic effects for HCC and other cancers15,17 due to its inhibitory effects on inflammation, oxidative stress and angiogenesis,58,59 in addition to inducing autophagy or apoptosis.60
+
+Several in vivo and in vitro studies have supported the clinical use of metformin to treat HCC, althought its role in vivo is still unclear.19
+
+Our data suggest that the effect of metformin on HCC progression may depend on the type of HCC.
+
+In NASH-associated HCC in zebrafish, metformin abrogated the effect of a HFD on HCC progression.
+
+Importantly, the inhibitory effect of metformin in NASH-associated HCC larvae was associated with decreased inflammation and hepatocyte proliferation, as well as affecting micronuclei formation.
+
+Metformin can antagonize cancer cell proliferation by multiple mechanisms including inhibition of mTOR signalling,58 suppressing mitochondrial-dependent metabolic intermediates,16,61 or indirectly through its effects on inflammation.
+
+Several studies have shown that metformin induces a downregulation in TNFα and hypoxia-inducible factor 1α, which can limit angiogenesis.58
+
+We found that metformin modulates the TME immune cell composition in the NASH-associated HCC zebrafish by reducing diet-induced non-resolving inflammation and increasing T cell infiltration.
+
+These data are in accordance with the literature, which shows that increased AMPK activity inhibits NF-κB and IL-6/STAT3 signaling activity suppressesing inflammation in the liver.20
+
+In the future, it will be interesting to determine if neutrophils and macrophages are involved in the effect of diet on liver tumor surveillance, and how metformin modulates this process.
+
+PARAGRAPH
+
+In summary, these data suggest that a HFD induces a non-resolving inflammatory microenvironment in HCC, decreasing tumor surveillance and accelerating liver tumorigenesis in a zebrafish model of NASH-associated HCC.
+
+Indeed, our findings show that metformin, a drug known to modulate macrophage polarization and reduce lipotoxicity in hepatocytes, provides beneficial effects in limiting inflammation and potentially restoring tumor surveillance in NASH-associated HCC zebrafish larvae.
+
+In the future, metformin might be a useful therapeutic approach to specifically target NASH-associated HCC and decrease diet-enhanced hepatocarcinogenesis.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+AH was funded by NCI CA085862; SdO is supported by EMBO ALTF 620-2015 and Cancer Research Institute (USA)/Fibrolamellar Cancer Foundation (USA); NG is supported by Molecular Biosciences Training Grant T32-GM07215 and Laboratory for Optical and Computational Instrumentation and the Morgridge Institute for Research (KE); VM is supported by American Heart Association (USA) (17POST33410970)
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Conceived and designed experiments: SDO and AH.
+
+Performed experiments: SDO, RAH, AG, NG, BGK and VM.
+
+Performed analysis: SDO, RAH, AG and VM.
+
+Wrote the manuscript: SDO and AH.
+
+Critically reviewed and edited the manuscript: RAH, NG, VM and AH.

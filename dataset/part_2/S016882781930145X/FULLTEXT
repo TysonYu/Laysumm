@@ -1,0 +1,515 @@
+10.1016/j.jhep.2019.02.023
+
+FULLTEXT
+
+TITLE
+
+Radiomic analysis of contrast-enhanced CT predicts microvascular invasion and outcome in hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is one of the most common primary hepatic malignant tumors and its incidence is increasing worldwide.1
+
+It is the second leading cause of cancer-specific mortality in the Asia-Pacific regions, and especially in China.2
+
+Surgical resection and liver transplantation (LT) are potentially curative for patients with HCC,3 but recurrence after surgical treatment is common.
+
+Some studies maintained that approximately 70% of patients would suffer from recurrence within 5 years after surgical resection, and 35% after LT.4–8
+
+PARAGRAPH
+
+Microvascular invasion (MVI) is one of the most important prognostic factors for HCC after surgical treatment.9–11
+
+Contrary to macrovascular invasion, which can be detected with diagnostic imaging, MVI is a histologic finding that can only be postoperatively diagnosed with a surgical specimen.12
+
+Preoperative prediction of MVI is still challenging.
+
+A variety of imaging findings have been described, with variable diagnostic utility.
+
+Previous studies found that imaging features such as tumor size, multinodular tumor morphology, tumor margins, and peritumoral enhancement were associated with MVI.13–15
+
+In addition, Renzulli et al. showed that a 2-trait predictor of venous invasion can be a useful preoperative predictor of MVI.14
+
+Banerjee et al. showed that a radio-genomic venous invasion (RVI) predictor, based on the association between imaging features and gene expression, achieves high accuracy in predicting MVI in HCC.8
+
+However, these criteria for a preoperative imaging diagnosis of MVI in HCC have not yet been widely recognized.
+
+PARAGRAPH
+
+Radiomics is a newly emerging form of imaging analysis using a series of data-mining algorithms or statistical analysis tools on high-throughput imaging features to obtain predictive or prognostic information.
+
+By building appropriate models with refined features, it achieved successful assessment and prediction abilities in various challenging clinical tasks.16–19
+
+A landmark study in colorectal cancer revealed clear associations between CT radiomics and lymph node metastases, and a combination of radiomic and clinico-radiologic factors could achieve significant clinical benefits.20
+
+However, despite its potential, the use of radiomics as a clinical biomarker still necessitates amelioration and standardization.21
+
+Greater integration between radiomics and other sources of data is required for clinicians to fully and confidently accept its role in patient management.
+
+To the best of our knowledge, only one study to date has assessed the prognostic aspect of radiomics for MVI in a group of 304 patients with HCC.22
+
+However, stronger evidence is needed in support of the implications for tumor progression and the reliability of the methodology.
+
+Additionally, MVI concerns tumor edges, while in previous studies radiomic features were only extracted inside the tumor, where by definition there is no microvascular involvement.
+
+A more effective evaluation should focus on the radiomic features at the tumor periphery.
+
+PARAGRAPH
+
+The purpose of this study was to investigate whether a computational approach integrating large-scale clinical and imaging modalities, especially radiomic features extracted from contrast-enhanced CT (CECT), could be useful to predict MVI and the long-term clinical outcomes in patients with HCC.
+
+Additionally, the added value provided by radiomics to evidence-based clinico-radiologic factors was investigated.
+
+SECTION
+
+Material and methods
+
+SECTION
+
+Patients
+
+PARAGRAPH
+
+This retrospective study involved standard care performed at a single medical institution.
+
+Ethics committee approval was granted by the local institutional ethics review board, and the requirement for written informed consent was waived.
+
+All procedures involving human participants were performed in accordance with the 1975 Helsinki declaration and its later amendments.
+
+PARAGRAPH
+
+We queried our institution’s medical records to derive all surgically confirmed cases of HCC between January 2009 and August 2017.
+
+A total of 619 confirmed cases of HCC were screened in this query.
+
+Among these, 495 consecutive patients (417 males and 78 females; mean age, 56.6 ± 11.4 years; range, 25–86 years) were identified who underwent surgical resection (n = 479) or LT (n = 16) and formed the primary cohort, according to the patient recruitment pathway and the inclusion and exclusion criteria listed in the supplementary information (Fig. S1).
+
+PARAGRAPH
+
+Routine preoperative laboratory examinations included liver and renal function tests, hepatitis B and C immunology, serum α-fetoprotein (AFP) level, Child-Pugh class, serum alanine aminotransferase (ALT), aspartate aminotransferase (AST), serum total bilirubin (TB), conjugated bilirubin (CB), serum albumin (ALB), platelet count (PLT), prothrombin time (PT), international normalized ratio (INR), and serum creatinine (Scr).
+
+The preoperative diagnosis of HCC was based on the criteria of the American Association for the Study of Liver Diseases (AASLD).23
+
+SECTION
+
+Histopathology
+
+PARAGRAPH
+
+All patients underwent surgical treatment within 2 weeks of CECT examination.
+
+All surgical specimens were examined by 2 pathologists, in particular to detect the presence of MVI.
+
+The histologic parameters ordinarily included Edmondson-Steiner grade, size, number, surgical margin and MVI status of the resected tumor.
+
+MVI was defined as the presence of tumor in a portal vein, hepatic vein, or a large capsular vessel of the surrounding hepatic tissue lined by endothelium that was visible only on microscopy.
+
+Additionally, the histologic grade of liver fibrosis at the tumor periphery was reported on the basis of the Scheuer scoring system, where grades ≥G2, ≥G3, and =G4 indicated significant fibrosis, advanced fibrosis, and cirrhosis, respectively.
+
+SECTION
+
+Follow-up
+
+PARAGRAPH
+
+Patients were consistently followed-up after liver resection at intervals of 3 to 6 months, based on AFP and imaging examinations, and the time of disease-specific progression (local recurrence or distant organ metastasis) or death was recorded.
+
+Patients were censored in case of emigration, or on 31 Dec 2018, whichever came first.
+
+SECTION
+
+Radiographic evaluation
+
+PARAGRAPH
+
+Our protocol requirements for CECT imaging met the criteria recommended by the AASLD guideline.23
+
+The technical specifications of CT imaging are described in the supplementary information (S-text-1).
+
+PARAGRAPH
+
+All CECT images were retrospectively interpreted by 2 radiologists (Z.H., 3 years of liver imaging experience, and Z.Y., 10 years of liver imaging experience) who were blinded to the clinical and pathological data.
+
+Both readers were members of the institution’s liver disease management team and had read >2,000 liver CT studies.
+
+Before the study, they followed a whole day lecture-based and hands-on instruction session that explained in detail a structural liver imaging score (LI-score) system.
+
+During the session 100 cases randomly selected from the institutional PACS database (not included in this study cohort) were reviewed individually, scored, and then reviewed as a group.
+
+PARAGRAPH
+
+The LI-score method, partly referring to Renzulli et al.14 and Banerjee et al.,8 consisted of 12 primary imaging features: i) lobes with tumor involvement (0, 1 lobe involved; 1, more than 1 lobe involved); i) number of lesions detected (0, 1 lesion; 1, more than 1 lesion); iii) maximum tumor length (0, L-max: ≤5 cm; 1, L-max >5 cm); iv) tumor margin (0, smooth margin; 1, non-smooth margin); v) tumor growth pattern (0, intrahepatic growth; 1, extrahepatic growth); vi) intratumor necrosis (0, absent; 1, present); vii) intratumor hemorrhage (0, absent; 1, present); viii) pseudo-capsules (0, well-defined pseudo-capsules; 1, ill-defined pseudo-capsules); ix) peritumoral arterial enhancement (0, absent; 1, present); x) peritumoral star lesion (0, absent; 1, present); xi) intratumoral vascularity (0, hypo-/mild arterial enhancement; 1, hyper-arterial enhancement); and lastly, xii) a 2-point RVI (0, RVI-absent; 1, RVI-present) recorded on the basis of independent estimations from internal arteries (0, absent; 1, present) and hypodense halos (0, absent; 1, present).
+
+PARAGRAPH
+
+All cases were scored individually first and then reviewed together by the 2 readers 2 weeks after the individual evaluation.
+
+Any disagreement between the readers was discussed until a final consensus was generated.
+
+Individual scores were used for the calculation of inter-observer agreement, and consensus scores were used for classifying performance.
+
+When patients had multiple liver lesions, LI-score evaluation was assessed on the largest lesion.
+
+SECTION
+
+Radiomics analysis
+
+PARAGRAPH
+
+In the next step, 3 radiologists (L.Q., reader #3, radiology resident; X.X., reader #4, 5 years of liver imaging experience; and Z.F., reader #5, 10 years of liver imaging experience) who were not involved in the LI-score assignment were involved in radiomics analysis.
+
+PARAGRAPH
+
+Tumor segmentation was performed with a dedicated in-house software written in Python 3.6.1 (https://www.python.org) on 1.5 mm arterial-phase and 1.5 mm portal-venous-phase CT images.
+
+The software allows the semi-automatic identification of the entire-volumetric interest (VOIentire) of the tumor with a combination of automatic segmentation algorithm and a manual approach (Fig. 1).
+
+Then, 50% of the entire tumor volume (VOI50%) and a region at a 5 mm distance from the tumor surface was automatically reconstructed on the basis of the VOIentire contours with an erosion and dilation algorithm.
+
+The VOI50% and VOIentire were assigned to core areas of the tumor, to reflect intratumoral heterogeneity.
+
+The VOI at 5 mm distance from the tumor surface was assigned to the penumbra zone of the tumor (VOIpenumbra), where there is potential for microvascular involvement.
+
+PARAGRAPH
+
+Radiomic features were extracted from each VOI using the pyradiomics package (http://www.radiomics.io/pyradiomics.html).
+
+The whole radiomic analysis process was integrated into an open-source software package for feature analysis and exploration deposited on the Github website (https://github.com/salan668/FAE).
+
+Image normalization was performed by remapping the histogram to fit within µ ± 3σ (µ: mean gray-level within the VOI; σ: gray-level standard deviation).
+
+A total of 1,210 radiomic features (https://pyradiomics.readthedocs.io/en/latest/features.html#) for each CT imaging modality were computed for each VOI (supplementary information, S-text-2).
+
+The extracted radiomic features were normalized to a standard unit and zero-centered using the following equation:
+
+PARAGRAPH
+
+xn→normalzied=xn→-xn-x1n2+x2n2+⋯+xmn2 E1, where xn→ is the value of feature N, and xn- is the average value of all features.
+
+To evaluate intra-observer reliability, reader #3 and reader #4 repeated feature extraction twice in a 1-week period.
+
+Reader #5 completed the remaining image segmentations, and the readout sessions were conducted over a period of 2 months.
+
+The reliability was calculated by using intra-class correlation coefficient (ICC).
+
+Radiomic features with both intra-observer and inter-observer ICC values greater than 0.9 (indicating excellent stability) were selected for subsequent investigation.
+
+SECTION
+
+MVI-related radiomic signatures
+
+PARAGRAPH
+
+The samples were randomly grouped into 3 sets for training (n = 300), validation (n = 50), and testing (n = 145).
+
+We used a recursive feature selection support vector machine (Ref-SVM) to develop the MVI-related radiomic signatures.24,25
+
+By allowing feature interactions, Ref-SVM returns a ranking of all features by recursively training an SVM classifier and removing the feature with the smallest ranking score: At each iteration, the feature whose removal least affects the objective function was removed.
+
+The iterations continued until the desired number of features was reached.
+
+The desired number of MVI-related features and classifier parameters were selected as those that resulted in the best overall accuracy and smallest estimate error over the training/validation data.
+
+At the end of iterations, the output of Ref-SVM model was converted into a probability score, namely the radiomic score (R-score), indicating the individual relative risk for MVI.
+
+SECTION
+
+Development, performance, and validation of the predictive model
+
+PARAGRAPH
+
+Uni- and multivariate analyses with an adjusted odds ratio (OR) regression model were performed to determine MVI risk factors and construct the MVI risk model, namely the radiologic-radiomic (RR) model, from multi-scale clinico-radiologic and radiomic signatures.
+
+The candidate clinical variables were age, sex, history of hepatic virus infection (0, negative; 1, history of HBV, HCV or HBV + HCV), history of cirrhosis (0, absent; 1, present), Child-Pugh class (0, class A; 1, class B or C), ALT (0, ≤50 U/L; 1, >50 U/L), AST (0, ≤40 U/L; 1, >40 U/L), TB (0, ≤19 μmol/L; 1, >19 μmol/L), CB (0, ≤6.8 μmol/L; 1, >6.8 μmol/L), ALB (0, ≤40 g/L; 1, >40 g/L), PLT (0, ≤100x109/L; 1, >100 × 109/L), INR (0, ≤1.0; 1, >1.0), PT (0, ≤13 s; 1, >13 s), AFP (0, ≤400 ng/ml; 1, >400 ng/ml), and Scr (0, ≤133 µmol/L; 1, >133 µmol/L).
+
+Radiologic features included the 12 LI-scores assigned by radiologists, as well as 6 two-point R-scores measured from arterial and portal-venous phase in VOI50%, VOIentire, and VOIpenumbra.
+
+The threshold of R-scores was determined using receiver operating characteristic (ROC) analysis by maximizing the Youden index.
+
+PARAGRAPH
+
+Variables significantly associated with MVI by univariate analyses were selected as candidates for step-wise multivariate analysis.
+
+The RR model was formulated based on the results of multivariate regression.
+
+The model is based on proportionally converting each regression coefficient in multivariate logistic regression to a 0- to 100-point scale.
+
+The effect of the variable with the highest β coefficient (absolute value) is assigned 100 points.
+
+The points are added across independent variables to derive total points, which are converted to predicted probabilities (Pi).
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+The discrimination performance of the RR model was quantified by the area under the ROC curve (AUC) value in the primary training/validation set and internally validated in the independent test set.
+
+Additionally, a decision curve analysis was performed to evaluate the clinical usefulness and net benefits of the developed radiomic signatures.
+
+The decision curve estimates the net benefit of a model as the difference between the true-positive and false-positive rates, weighted by the odds of the selected threshold probability of risk.26
+
+PARAGRAPH
+
+Disease-specific survival was computed from the date of surgery to date of death or censored at the date of last follow-up.
+
+Progression-free survival (PFS) and overall survival (OS) were defined as the interval between surgery and radiographic detection of recurrence, last follow-up, or death.
+
+Survival curves were generated with the Kaplan-Meier method and compared by a 2-sided log-rank test.
+
+Univariate and multivariate analyses with Cox proportional hazards regression determined the predictors of disease-specific recurrence and mortality.
+
+Variables that reached statistical significance in the univariate analysis were considered for the multivariate model.
+
+Statistical analysis was performed using the R software (version 3.4.4, R Project for Statistical Computing, http://www.r-project.org).
+
+Two-sided p values less than 0.05 were considered statistically significant.
+
+SECTION
+
+Results
+
+SECTION
+
+Basic clinico-radiologic characteristics
+
+PARAGRAPH
+
+Out of 495 patients included, histologic MVI was diagnosed in explanted tissue of 149 patients (30.1%).
+
+Patients with MVI were younger, and had higher ALT, AST, PLT, INR and AFP levels than those without MVI.
+
+The 2 groups were similar in their distribution of sex, hepatic virus infection, cirrhosis, Child-Pugh stage, TB, CB, ALB, PT and Scr test.
+
+Risk coefficient estimated by univariate analysis is summarized in Table 1.
+
+HCCs with and without MVI demonstrated significantly different imaging features when assessed with the structural LI-scoring method (Table 2).
+
+SECTION
+
+Radiomic analysis
+
+PARAGRAPH
+
+Radiomic features were selected and quantitatively integrated into 6 R-scores on the basis of VOI50%, VOIentire, and VOIpenumbra from the arterial and portal-venous phase CECT images of the primary training/validation cohort (Fig. S2).
+
+The AUCs of the R-scores in the test set were very close to those of the training/validation set, suggesting a good reproducibility of the newly developed radiomic signatures in internal validation (Table 3).
+
+PARAGRAPH
+
+The R-scores showed a significant difference (p <0.001) between the MVI-absent and MVI-present groups (Fig. S3).
+
+The 6 R-scores had similar diagnostic performance for histologic MVI status, with pairwise comparison of ROC curves showing no significant differences (AUC, 0.798–0.823; p >0.05; Fig. S4).
+
+SECTION
+
+Predictive RR model
+
+PARAGRAPH
+
+Among all clinico-radiologic and radiomic factors, 19 significant predictors including 6 clinical variables (age, ALT, AST, PLT, INR, and AFP), 11 LI-scores (all except intratumoral hemorrhage) and 6 R-scores were identified by univariate analysis.
+
+In the multivariate regression model, 8 predictors were independent prognostic factors of histologic MVI: higher AST (>40 U/L), higher AFP (>400 ng/ml), non-smooth tumor margin, extrahepatic growth pattern, ill-defined pseudo-capsule, peritumoral arterial enhancement, presence of RVI, and higher R-score (VOIentire) (Fig. 2A).
+
+These independently associated risk factors were used to form the RR model, described by the formula: Y = −5.58 + 0.69 × AST + 0.70 × AFP + 1.43 × tumor margin + 0.74 × growth pattern + 1.63 × capsule + 1.11 × peritumoral enhance + 0.80 × RVI + 0.85 × R-score (VOIentire) (Fig. 2B).
+
+PARAGRAPH
+
+The resulting RR model demonstrated good accuracy in estimating the risk of MVI, with an AUC of 0.909 (95% CI 0.869–0.928) in the training/validation set and 0.889 (95% CI 0.851–0.919) in the test set (Fig. 3A).
+
+The calibration curve of the model demonstrated good agreement between predicted and observed MVI in both the training/validation and the test set (Fig. 3B); The Hosmer-Lemeshow test gave a chi-square of 5.44 (p = 0.71) for the training/validation set and 6.55 (p = 0.59) for the test set, indicating that the RR model was appropriate in both data sets.
+
+Using an optimal threshold chosen to maximize the Youden index of the ROC analysis from the training/validation data, the diagnostic performance of the RR model is summarized in Table 4.
+
+PARAGRAPH
+
+As part of this study, we also tested the incremental value of the R-scores with respect to LI-scores for predicting MVI using a decision curve analysis, as described in Fig. S5.
+
+Decision curves were estimated using LI-scores and LI-scores added with R-scores, respectively, and showed that adding the R-scores did not result in a net benefit compared with the use of conventional LI-scores.
+
+SECTION
+
+Predictors of survival
+
+PARAGRAPH
+
+As of Dec. 2018, 405/495 (81.8%) patients had completed the PFS follow-up and 439/495 (88.7%) had completed the OS follow-up.
+
+The overall recurrence rate was 48.9% (198/405) and the overall death rate was 34.5% (151/438).
+
+PARAGRAPH
+
+The median PFS of the patients was 38.3 (range, 27.1–47.8) months, and in particular 9.2 (5.8–18.6) months for those with MVI and 46.7 (38.3–66.4) months for those without MVI (log-rank test, p <0.001).
+
+Similar results were observed in the RR model: The median PFS was 12.9 (7.1–25.5) months for patients with RR-predicted MVI presence and 49.5 (42.3–93.7) months for those with RR-predicted MVI absence (log-rank test, p <0.001).
+
+PARAGRAPH
+
+The median OS for all patients was 64.4 (60.3–68.6) months, and specifically 42.3 (33.8–50.9) months for those with MVI and 72.5 (68.0–76.9) months for those without MVI (log-rank test, p <0.001).
+
+The median OS was 47.3 (40.6–54.1) months for those with RR-predicted MVI presence and 76.3 (71.6–80.8) months for those with RR-predicted MVI absence (log-rank test, p <0.001, Fig. 4).
+
+PARAGRAPH
+
+Clinical stage (0, stage I-II; 1, stage ≥III), histologic findings such as tumor size, number of tumors (0, No. <3; 1, No. ≥3), Edmondson-Steiner grade (0, grade I; 1, grade II; 2, grade III), and histologic MVI, as well as the RR-predicted Pi were assessed as survival predictors by means of multivariate Cox regression.
+
+The results showed that RR-predicted Pi (OR 1.57; 95% CI 0.96–2.56), histologic MVI (OR 1.49; 95% CI 1.01–2.22), and tumor size (OR 1.05; 95% CI 1.01–1.11) were independent predictors of disease-specific recurrence.
+
+Edmondson-Steiner grade (OR 3.02; 95% CI 2.06–4.42), MVI (OR 1.70; 95% CI 1.10–2.62), RR-predicted Pi (OR 1.69; 95% CI 0.97–2.96), and tumor size (OR 1.05; 95% CI 1.01–1.10) were independent predictors of disease-specific mortality.
+
+A representative case is provided to show the discriminative ability of a computational model for stratifying MVI and predicting OS (Fig. 5).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The aim of this study was to investigate the prognostic aspects of computational-assisted models derived from large-scale clinical and imaging data, especially radiomic features from CECT, for preoperative prediction of histologic MVI status and clinical outcomes in a cohort of 495 patients with HCC.
+
+We concluded that CT tumor radiomic features, converted into quantitative R-scores, can be independent predictors of MVI, but less relevant than radiologist scores.
+
+A risk model integrating clinico-radiologic factors and R-scores can identify more than 88% of the MVI-positive cases with a specificity of 76.8%–79.2%.
+
+Additionally, the model predictions were independently associated with disease-specific recurrence and long-term mortality, suggesting that our findings play an important role in the clinical treatment of HCC.
+
+PARAGRAPH
+
+Radiomics has been recognized as an important imaging technology in oncology.16–19
+
+Nevertheless, its use as a clinical biomarker faces several technical and methodological challenges.
+
+An important challenge is how to precisely define the tumor boundary for radiomics analysis.
+
+The manual method is simple and effective in delimiting regions, but is challenged by poor inter-reader reliability, and the results may not reflect the true edge features of the target tumor.
+
+Instead of the manual approach or the approach consisting of drawing the single largest imaging slice, mostly used in previous studies,22,27,28 we used a simple dichotomic classification algorithm to semi-automatically segment the entire volumetric tumor contours.
+
+The VOI derived from this 3D segmentation can provide the entire volumetric imaging features of the tumor and may be less influenced by hand-related artifacts.
+
+Another important factor is that radiomic features are usually extracted from the intratumor regions, reflecting the biological properties related to intratumor heterogeneities.
+
+However, MVI generally occurs on the tumor edges: For this reason, we proposed a novel approach to determine multi-scale radiomic features, from the center (VOI50%), the entire volume (VOIentire), and the edge zone (VOIpenumbra) of the tumor.
+
+Interestingly, we found that the R-scores at the VOIpenumbra can differ according to the presence of MVI, but are not superior to features obtained from the VOIentire in predicting MVI.
+
+This may imply that, in current CT imaging, we cannot observe MVI status directly from the peritumoral regions potentially associated to it.
+
+Instead, MVI status could be predicted by analyzing substantial radiomic features from both intratumoral and peritumoral regions.
+
+Among those 7,000 + radiomic features, factors related to tumor size (e.g., shape surface area) and heterogeneities (e.g., gray-level non-uniformity, wavelet busyness, complexity, and entropy) were the most important components for predicting histologic MVI.
+
+Shape surface area is a measure of the relative size of the image array, where a greater surface area implies a greater tumor size.
+
+This finding was in agreement with those of previous studies reporting tumors larger in size having higher MVI risk.13
+
+Uniformity, busyness, complexity, and entropy measure the image array heterogeneity, with greater values of these factors implying greater heterogeneity or a larger range of discrete intensity values: This is partly in agreement with the findings of Akai et al.28
+
+PARAGRAPH
+
+However, the radiomic signatures developed in our study were less important, in the regression model, than radiologist scores such as capsule, tumor margin, and peritumoral enhancement, and the AUCs (0.787–0.841) measured from radiomics were relatively low compared to evidence-based clinico-radiologic factors reported by Renzulli et al.14 and Banerjee et al.8
+
+PARAGRAPH
+
+Given the lack of a single highly reliable factor to predict MVI, computational-assisted models combining different factors associated with MVI status become a viable alternative.29
+
+Zhao et al.30 developed a scoring model including intratumoral arteries, non-nodular HCC type, and absence of tumor capsule on preoperative contrast-enhanced CT for predicting MVI, regardless of tumor size.
+
+The AUCs of this model were 0.872 and 0.856 in the training and validation group, respectively.
+
+Lei et al.13 developed a nomogram by incorporating tumor diameter, number, capsule, AFP, platelet level, HBV-DNA load and typical MRI dynamic features to predict MVI of HBV-related HCC within the Milan criteria, resulting in an accuracy of 0.81 and 0.80 in the training and validation group, respectively.
+
+Our risk model, comprising 8 clinico-radiologic and radiomic predictors, achieved an AUC of 0.909 in the training/validation set and 0.889 in the test set.
+
+This finding was in excellent agreement with Renzulli et al.,14 who similarly used a combination of 3 significant imaging features, obtaining an AUC of 0.90.
+
+Among our risk factors, tumor capsule, margin and peritumoral enhancement were more important, in the regression model, than the R-score.
+
+This finding differs from the results of Peng et al.,22 in which the radiomic signature was the top predictor, followed by clinico-radiologic factors.
+
+Such inconsistencies among established studies might be associated with differences in population characteristics or imaging and measurement methodologies, but nevertheless question the role of radiomics in routine clinical practice.
+
+PARAGRAPH
+
+Both R-scores and LI-scores originate from primary CT images, but analysis methods and biological implications are different.
+
+The R-scores originate in microscopic features related to tumor heterogeneities, while LI-scores are macroscopic observations of imaging features of the original lesions and surrounding areas by human experts.
+
+The R-score is limited by its complexity and the lack of algorithmic standardization, but strengthened by its high level of automaticity and lower inter-reader variability.
+
+Meanwhile, the LI-score, an expert-based evaluation, notwithstanding its reproducibility and comparability problems, is still a basic tool to interpret the primary imaging features of HCC and predict its biological properties.
+
+Thus, combining the 2 approaches within a computational framework could be a viable alternative in clinical practice, allowing for better patient management.
+
+PARAGRAPH
+
+Histologic MVI has been reported to be associated with poorer HCC prognosis in many studies,13,29,31 and we obtained similar results.
+
+In our primary cohort, patients with different RR-computed probability, histologic MVI, tumor size, and Edmondson-Steiner grade had different clinical outcomes, and those risk factors were independently associated with disease-specific recurrence and mortality, implying their prognostic relevance for the long-term management of patients.
+
+PARAGRAPH
+
+Some limitations of this study should be noted.
+
+First, because of its retrospective character, a large number of patients who are clinically deemed “high-risk” for MVI but who did not undergo surgical management were excluded.
+
+Potential selection bias may hamper the reproducibility and comparability of the results, and the clinical usefulness of this computational approach still needs improvement and independent validation in further studies.
+
+Moreover, multi-parametric MRI has recently become an essential part of the assessment of liver neoplasia, but there is no clear consensus on whether CT or MRI are more useful for predicting histologic status in HCC, so that further studies are needed about this aspect as well.
+
+Third, in contrast to previous reports, L-max was not selected in our step-wise regression model.
+
+This can be explained by the high level of collinearity between imaging size and the R-score: The R-score retained in the model did contain size factors (e.g., shape surface area).
+
+Finally, this study was a single-center experience limited to our medical center, and expanding the study results to other medical centers will be required to validate its reproducibility.
+
+PARAGRAPH
+
+In conclusion, we systematically investigated the outcomes of patients with HCC undergoing surgical resection with curative intent by analyzing large-scale clinical and imaging data, and especially radiomic features from CECT.
+
+We thus answered 2 important questions posed at the beginning of the study: i) The R-score, together with 7 clinico-radiologic biomarkers, forms a set of independent predictors of histologic MVI of HCC; and ii) the R-score does not provide statistically significant added value to radiologist scores in predicting MVI.
+
+Considering its automaticity and objectivity, radiomics integrated with other data sources consistently achieved positive results in our primary cohort.
+
+Therefore, this model-dependent integration will be required in future studies for clinicians to fully accept and be confident in its role in patient management.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by China Postdoctoral Fund (grant number 2015M580453, Z.Y.) and a Key Social Development Program for the Ministry of Science and Technology of Jiangsu Province (grant number BE2017756, Z.Y.).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+SECTION
+
+Authors' contributions
+
+PARAGRAPH
+
+Conception and design: Yu-Dong Zhang, Xi-Sheng Liu.
+
+Development of methodology: Xun Xu, Hai-Long Zhang, Qiu-Ping Liu, Shu-Wen Sun, Fei-Peng Zhu, Jing Zhang, Xu Yan, Guang Yang, Yu-Dong Zhang, Xi-Sheng Liu.
+
+Acquisition of data (acquired and managed patients, provided facilities, etc.): Xun Xu, Hai-Long Zhang, Qiu-Ping Liu, Shu-Wen Sun, Fei-Peng Zhu, Jing Zhang, Xu Yan, Guang Yang, Yu-Dong Zhang, Xi-Sheng Liu.
+
+Analysis and interpretation of data (e.g., statistical analysis, biostatistics, computational analysis): Xun Xu, Hai-Long Zhang, Qiu-Ping Liu, Shu-Wen Sun, Fei-Peng Zhu, Jing Zhang, Xu Yan, Guang Yang, Yu-Dong Zhang, Xi-Sheng Liu.
+
+Writing, review, and/or revision of the manuscript: Xun Xu, Yu-Dong Zhang, Xi-Sheng Liu.
+
+Administrative, technical, or material support (i.e., reporting or organizing data, constructing databases): Xun Xu, Hai-Long Zhang, Qiu-Ping Liu, Shu-Wen Sun, Fei-Peng Zhu, Jing Zhang, Xu Yan, Guang Yang, Yu-Dong Zhang, Xi-Sheng Liu.
+
+Study supervision and guarantors: Yu-Dong Zhang, Xi-Sheng Liu.

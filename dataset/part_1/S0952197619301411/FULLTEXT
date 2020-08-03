@@ -1,0 +1,985 @@
+10.1016/j.engappai.2019.06.002
+
+FULLTEXT
+
+TITLE
+
+UAV trajectory optimization for Minimum Time Search with communication constraints and collision avoidance
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Nowadays, there is a strong research interest in UAVs mission planning due to their advantages in several applications, such as mission planning (Atencia et al., 2018), target tracking (Pulford, 2005), target monitoring (de Moraes and de Freitas, 2019; Khan et al., 2017) or fire fighting (Bilbao et al., 2015).
+
+This work focuses on search under uncertainty or Probabilistic Search (PS), more concretely on Minimum Time Search (MTS) algorithms which propose search trajectories that minimize the target detection time.
+
+MTS has several applications that vary from searching for survivors after natural disasters (e.g. a fire or an earthquake) to look for military targets.
+
+An example is shown in Fig. 1, where several UAVs search for a life boat while the mission is being monitored from the base station located on a ship.
+
+MTS algorithms exploit the available information about the target location, which is typically modeled with a probability map that states the prior target presence probability distribution.
+
+Fig. 1 depicts a search mission where the prior knowledge of the target (life boat) position is represented by a discretized probability map.
+
+In this map, cells with warmer colors indicates higher probability of target presence.
+
+In order to reduce the target detection time, cells with higher probability of target presence should be explored as soon as possible by the UAVs.
+
+PARAGRAPH
+
+Probabilistic search theory has its origins in the research done by the USA Anti-Submarine Warfare Operations Research Group (ASWORG) during World War II, whose results were later summarized in Koopman’s report “Search and Screening” Koopman (1946).
+
+In probabilistic search, the uncertainty associated to the problem is tackled from a probabilistic approach, considering probabilistic models of the target position (probability map) and sensor performance (sensor likelihood model).
+
+Besides, some works like (Lanillos et al., 2012; Chang-jian et al., 2015; Pérez-Carabaza et al., 2018) or this work include the possibility of incorporating information about the possible target movements (target dynamic model).
+
+PARAGRAPH
+
+Due its NP-hard computational complexity (Trummel and Weisinger, 1986), this problem is usually tackled with a wide range of methods such as greedy search (Carpin et al., 2013), gradient based methods (Lanillos et al., 2014), genetic algorithms (Lin and Goodrich, 2009), cross entropy optimization (Lanillos et al., 2012) or ant colony optimization (Pérez-Carabaza et al., 2017).
+
+In this work, the ant colony based algorithm Max–Min Ant System (MMAS) by Stützle and H. Hoos (2000) is used due to its ability to handle the unconstrained MTS problem (Pérez-Carabaza et al., 2018) and to incorporate specific knowledge of the problem through the ant colony heuristic information mechanism.
+
+PARAGRAPH
+
+Many PS works focus on the optimization of a probabilistic search criterion (e.g. probability of detection or entropy) and only a few take into account additional criteria that must be considered to make the results obtained by the algorithm applicable to real-world PS missions.
+
+However, the problem complexity and the strict regulations for UAV flights, which often require that the UAV’s states are continuously monitored during the mission, make the use of many known search algorithms to real missions difficult (Carpin et al., 2013).
+
+For this reason, the proposed MTS algorithm, ensures continuous communications between the Ground Control Station (GCS) and the UAVs, as well as collision-free trajectories by including a constraint handling technique.
+
+PARAGRAPH
+
+In order to obtain search trajectories without collisions and communication loss, three different penalty-based methods are tested, which allow to transform the constrained problem into an unconstrained one that can be solved with MMAS.
+
+Furthermore, the proposed MTS algorithm benefits from the inclusion of three heuristics, especially designed for MTS, communication maintenance and collision avoidance, that allow the algorithm to converge faster to high quality solutions.
+
+PARAGRAPH
+
+In short, the main contributions of this work are:
+
+PARAGRAPH
+
+The remainder of this paper is organized as follows.
+
+Section 2 reviews relevant state of the art algorithms and discusses the differences to the proposed approach.
+
+Section 3 presents preliminary work, introducing ant colony based algorithms and constraint handling techniques.
+
+Section 4 describes the MTS problem formulation.
+
+Section 5 presents the proposed MTS algorithm, describing its main operations, the new heuristic for maintaining communication and collision avoidance, and the constraint penalizing functions.
+
+Section 6 analyzes the performance of the proposed algorithm with a simulation study of several search scenarios and compares it with other two MTS algorithms.
+
+Finally, Section 7 draws the main conclusions and introduces future research directions.
+
+SECTION
+
+State of the art
+
+PARAGRAPH
+
+This section discusses different approaches and formulations of the Probabilistic Search (PS) problem, which aims at determining the best search trajectories of one or several autonomous vehicles (UAVs in this case) based on the available uncertain information.
+
+The comparison between the related approaches that have motivated this paper and this work is based on eight properties, explained below and represented in the columns of Table 1, where related work is sorted by their publication year.
+
+PARAGRAPH
+
+Fitness Criteria.
+
+Depending on the type of the PS problem different fitness criteria are chosen.
+
+Many PS works maximize the probability of target detection (Pd), which represents the probability of detecting the target within a given time horizon.
+
+This strategy prefers search trajectories that explore areas with higher probability values and is followed by works labeled with Pd in the first column of Table 1.
+
+Alternatively, another criterion is to maximize the information gain (IG), which is the difference between the previous entropy of the probability map and the posteriori entropy after incorporating the sensor measurements.
+
+Maximizing IG distributes the UAVs prioritizing to explore the cells where there is more uncertainty about the target presence.
+
+Some approaches complement the optimization of IG with a coverage criterion (Cov.),
+
+with the distance criterion (Dist.)
+
+to the destiny cell or with Pd and a cooperative criterion (Coop.).
+
+Another approach minimizes the uncertainty (Uncer.)
+
+while maximizing a coverage criterion.
+
+In all these cases, the multiple criteria are linearly combined into a single objective.
+
+Furthermore, when there is no prior information about the location of a static target, a uniform probability map can be used and the search problem can be viewed as a coverage problem.
+
+This is investigated for example in Khan et al. (2015), which considers the distance to the locations whose probability values are over a certain threshold as fitness criterion.
+
+PARAGRAPH
+
+However, as none of these strategies minimize directly the target detection time, they are often not the most appropriate approach for MTS.
+
+For this reason, Lanillos et al. (2012) propose a modification of the Pd criterion (Discounted Time Reward, DTR) that gives higher rewards to earlier measurements, based on the idea that better measurements during the first time instants result in a lower detection time.
+
+Alternatively, as the exact target detection time corresponding to a given search trajectory cannot be determined due to uncertain information (associated to the target location, target dynamics and sensor performance), a common strategy followed in MTS works, such as (Lanillos et al., 2012; Pérez-Carabaza et al., 2018) and this paper, consists in minimizing the Expected value of the detection Time (ET) obtained from the probability functions that model the uncertainty sources.
+
+Moreover, Pérez-Carabaza et al. (2016) consider a Multi-Objective optimization (MO-ET) that complements the ET with other objectives such as fuel consumption.
+
+Finally, Meghjani et al. (2016) use a different MTS strategy: computing the expected detection time as the mean value of the target detection times obtained in several Monte Carlo simulations that start with a different initial target position sampled from the initial probability map (Mean Time To Find, MTTF).
+
+PARAGRAPH
+
+Multi UAV.
+
+The search can be carried out by a single UAV or multiple UAVs.
+
+Works that, as the proposed MTS algorithm, enable to optimize the search trajectories of multiple UAVs are indicated with a checkmark in the corresponding column of the table.
+
+In general, considering multiple UAVs enables to obtain better search trajectories at the expenses of increasing the complexity of the problem (number of decision variables to optimize).
+
+Furthermore, despite some works such as Chang-jian et al. (2015) include additional cooperative objectives, many PS methods do not consider such objectives, since the collaborative behavior arises naturally from the optimization of the probabilistic search criteria (e.g. Pd or ET).
+
+PARAGRAPH
+
+Moving Target.
+
+Probabilistic search can be also classified into approaches that only deal with static targets and approaches that can handle dynamic targets, modeling for example the sea currents that drift a lost boat.
+
+This work models the target dynamic information through a Markovian motion model, an approach already considered in previous PS works.
+
+PARAGRAPH
+
+UAV Model.
+
+Furthermore, PS works can be differentiated according to the considered model of the UAV dynamics, which influences the solution space and determines the shapes of the search trajectories.
+
+On one hand, several works consider high-level (HL) UAV trajectories where the UAVs are allowed to move over a grid, from its current cell to its neighborhood following high-level movement commands such as turn East or continue straight.
+
+For instance, within the HL group, (Lanillos et al., 2012; Pérez-Carabaza et al., 2018; Meghjani et al., 2016) and this work allow the movement from the current UAV cell to its eight neighbor cells in a square grid, while (Berger et al., 2016; Yao et al., 2017; Liu et al., 2018) impose a turning restriction of 45 degrees, leaving as an option only three neighbor cells.
+
+On the other hand, other works consider more complex dynamical models that do not restrict the UAVs state to the cells of the grid and permit the UAVs to move to any position of the search region through low-level (LL) movement commands while ensuring the UAV maneuverability constraints.
+
+This is the case for Gan and Sukkarieh (2010) and Lanillos et al. (2014), which consider simple linear constant velocity models or Pérez-Carabaza et al. (2016, 2017), which use a non-linear UAV dynamical model implemented in Simulink.
+
+Although both types of models are useful, high-level models are more adequate for quadrotors and have the advantage of requiring lower computational resources, while low-level models are more appropriate for fixed-wing UAVs that generally have stricter dynamical restrictions.
+
+PARAGRAPH
+
+Optimization Method.
+
+In addition, due to the high computational complexity of PS a great variety of approximated optimization methods (see Table 1) have been applied, such as reinforcement learning techniques (Q-learning), Genetic Algorithms (GA), Cross Entropy Optimization (CEO), Bayesian Optimization Algorithm (BOA), Particle Swarm Optimization (PSO), ant based algorithms, greedy methods, local approximations, gradient descend based methods or the max-sum algorithm.
+
+Alternatively, Chang-jian et al. (2015) implement a Model Predictive Controller (MPC) and Liu et al. (2018) a Recursive Horizon Controller (RHC) with a short horizon that allows to find the optimal solution within each planning horizon.
+
+Finally, Berger et al. (2016) formulate the problem as a Mixed-Integer linear and Quadratic Programming (MIQP) and Raap et al. (2016) as a Binary Integer Linear Programming (BILP).
+
+PARAGRAPH
+
+The optimization in this work is supported by MMAS, an ant based algorithm, because it has been applied successfully to solve the unconstrained MTS problem by Pérez-Carabaza et al. (2018).
+
+However, as the communication and collision constraints included in this work considerably increase the complexity of the unconstrained MTS, this work also analyzes the benefits of including different constraint handling techniques in MMAS and of employing specific heuristics to facilitate the generation of feasible solutions.
+
+PARAGRAPH
+
+Centralized or Distributed Planning.
+
+Moreover, PS algorithms can be categorized as centralized (C) or decentralized (D) planning.
+
+While in centralized PS planning the GCS or main UAV computes the search trajectories of all the UAVs, in distributed or decentralized planning each UAV computes its own path.
+
+Although distributed planning is more robust in case of failure (because each UAV obtains its own trajectory), centralized planning is better for global decision-making (as it optimizes the paths of all the UAVs as a whole).
+
+PARAGRAPH
+
+Collision Avoidance Constraints.
+
+It is also possible to distinguish between the works that consider collision (Coll.)
+
+constraints and the ones that do not.
+
+Several works avoid dealing with collision constraints by simply assuming that the UAVs operate at different heights.
+
+Within the works that explicitly avoid UAV collisions, (Hoffmann et al., 2006; Chang-jian et al., 2015; Liu et al., 2018) and this work implement penalty constraint handling methods, Pérez-Carabaza et al. (2016, 2017) prefer feasible solutions (that maintain a security distance between UAVs) over the infeasible ones and, lastly, Yao et al. (2017) assigns each UAV to different subregions of the search area.
+
+PARAGRAPH
+
+Communication Constraints.
+
+Finally, the last column indicates the type of communication considered: perfect (P) communication assumption, limited (L) communication or fully (F) connected communication.
+
+Most of PS state of the art works fall into the first type (P), as they simply ignore the communication restrictions or assume perfect communication between the UAVs.
+
+Alternatively, the recent distributed online approaches by Khan et al. (2015) and Saadaoui and El Bouanani (2018) consider limited (L) communication restrictions between the UAVs, where only neighbor UAVs (closer than a given communication range) are able to exchange their plans and past measurements.
+
+Finally, within the fully (F) connected group, Liu et al. (2018) consider the connectivity maintenance between the UAVs and this work between the UAVs and the GCS.
+
+In order to maintain connectivity, Liu et al. (2018) add a potential field (which penalizes the movements that may break the communication) weighted by a coefficient to the fitness criteria.
+
+This approach has the disadvantage of requiring to set an appropriate value for the penalty coefficients, which is problem dependent and may vary for different problem instances.
+
+For this reason, this work tests several constraint penalty techniques whose settings do not have problem dependent parameters and that allow the new MTS algorithm to avoid UAVs collisions and maintain the communication among the UAVs and the GCS.
+
+Besides, unlike the state of the art approaches, the new approach includes problem specific heuristic information that allows the algorithm to quickly obtain high quality solutions that fulfill the constraints.
+
+PARAGRAPH
+
+To sum up, this work presents a multi-UAV search algorithm for dynamic targets based on MMAS that, unlike the state of the art approaches, ensures full communication connectivity and collision free trajectories, and that takes advantage of specific heuristics that guide the search towards high quality solutions with the purpose of accelerating the algorithm convergence.
+
+It is also worth mentioning that the proposed communication constraint handling method can be usefully adapted to other state of the art centralized PS algorithms or to decentralized algorithms that assume full connectivity, such as (Gan and Sukkarieh, 2010; Hoffmann et al., 2006; Yang et al., 2007; Delle Fave et al., 2010).
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+This section introduces the preliminaries required for the proposed algorithm: ant colony based algorithms and several penalty based methods widely used in evolutionary computation to handle constraint optimization problems.
+
+SECTION
+
+Introduction to ant colony optimization (ACO)
+
+PARAGRAPH
+
+ACO is a metaheuristic inspired by the foraging activity of natural ants, capable of finding the shortest path between a food source and their nest through pheromone deposit.
+
+It is an iterative algorithm which uses the concept of stigmergy, the indirect communication between the ants that share their knowledge learned in previous iterations through a pheromone table.
+
+At each algorithm iteration, a set of artificial ants constructs their paths (solutions) combining the information of a problem specific heuristic with the knowledge learned from previous iterations (saved in the pheromone table).
+
+When a certain stop condition is reached, ACO returns the best solution (ant trajectory) found so far.
+
+PARAGRAPH
+
+Since the first ACO algorithm was presented by Dorigo (1992) more recent ACO variants have been presented, outstanding Max–Min Ant System (MMAS) by Stützle and H. Hoos (2000) and Ant Colony System (ACS) by Dorigo and Gambardella (1997).
+
+These techniques have been successfully applied to different combinatorial optimization problems ranging from the quadratic assignment problem (Stützle and Dorigo, 1999) to automatic landing of quadrotors (Nobahari and Sharifi, 2014).
+
+These ACO variants maintain the basic idea of the original ACO algorithm, but implement different rules to update the pheromone table with the purpose of avoiding early convergence into local optima.
+
+SECTION
+
+Constraint handling in metaheuristics
+
+PARAGRAPH
+
+Natural inspired metaheuristics (e.g. ACO or GA) have shown a good performance to solve high complexity problems where exhaustive methods require excessive computation time.
+
+However, as they were originally unconstrained techniques, they usually require to incorporate constraint handling methods to solve Constrained Optimization Problems (COPs), which can be specified as minimizef(x)gl(x)≤0,l=1,…,Lwhere f(x) represents the fitness function, gl(x) the constraint functions, x a possible solution and L the number of constraint functions.
+
+Solving a COP, as Eq. (1) states, consists in determining the solution (x) with the best fitness function f(x) values within the feasible region induced by several constraint functions gl(x)≤0.
+
+Maximization problems (maxf(x)) can also be solved by minimizing the opposite fitness function (minf(−x)).
+
+PARAGRAPH
+
+Within the constraint handling techniques, it is possible to distinguish between direct methods that only consider feasible solutions and indirect methods that handle both feasible and infeasible solutions during the search process.
+
+This last group has the advantage of exploiting the information of infeasible solutions and usually performs better in problems where the optimal solutions are near the infeasible region.
+
+Within the indirect methods, constraint penalty functions ϕ(x) are widely used (Kramer, 2010) and combined with different approaches (represented by F(⋅) in Eq. (2)) with the fitness criterion f(x) in order to let the algorithm optimize ψ(x) instead of f(x).
+
+Moreover, when the solution is feasible (i.e. gl(x)≤0∀l), the constraint penalty function has null value ϕ(x)=0 and ψ(x)=f(x). ψ(x)=F(f(x),ϕ(x))
+
+PARAGRAPH
+
+The selection of the constraint penalty functions and the combination method is important as both are responsible of indirectly letting the algorithm distinguish among feasible and infeasible solutions, and between different unfeasibility levels (i.e. if the solution is closer or further from the feasibility region).
+
+In this regard, constraint penalty functions that consider the distance to the feasible region are usually a better option than binary penalties that only indicate if the constraint is fulfilled (Coello, 2002).
+
+PARAGRAPH
+
+Among the wide range of existing penalty based methods often incorporated to the unconstrained metaheuristics, the following three approaches have been selected in order to check which one provides better solution for the MTS problem within MMAS:
+
+PARAGRAPH
+
+Death Penalty (DP) is based on assigning an infinity penalty to any infeasible solution, i.e. ϕ(x)=+∞,∀x if ∃l where gl(x)>0.
+
+Moreover, infeasible solutions are rejected and generated again.
+
+This method is easy to implement but has the disadvantage of not considering potential information contained in infeasible solutions.
+
+PARAGRAPH
+
+Static Penalty (SP) uses the same penalty function ϕ(x) during the whole optimization process.
+
+The static penalty method by Hoffmeister and Sprave (1996) assumes that it is possible to define ϕ(x) as a function that measures the distance (e.g. as the number of constraints violations) of each solution to the feasible region and defines a comparison operator between a pair of solutions that ensures that infeasible solutions are dominated by all feasible solutions.
+
+This is equivalent to using Deb’s method (Deb, 2000) and making ψ(x)=f(xopt)+∑lH(gl(x))gl(x), where xopt stands for the best solution in the set of current solutions and H(⋅) for the heaviside function.
+
+Examples of use of this constraint handling technique within evolutionary algorithms are the optimal design of multilayer optical coatings by Schütz and Sprave (1996) and a medical image processing problem by Li et al. (2006).
+
+PARAGRAPH
+
+Adaptive Penalty Methods (APM) incorporate mechanisms that tune the penalty influence considering the information gathered during the optimization process.
+
+The adaptive method by Barbosa and Lemonge (2003) makes ψ(x)=f(x)+∑lrlH(gl(x)) for the infeasible solutions and calculates the penalty coefficients rl=〈f(xpop)〉〈gl(xpop)〉∑l=1L(〈gl(xpop)〉)2 for each algorithm iteration, where 〈f(xpop)〉 stands for the average value of the objective function in the current population and 〈gl(xpop)〉 for the average violation value of the lth constraint in the current population.
+
+For instance, this penalty method has been applied to constraint structural design problems solved by ant based techniques by Angelo et al. (2015) and to particle swarm optimization by Carvalho et al. (2017).
+
+SECTION
+
+Problem formulation
+
+PARAGRAPH
+
+This section describes the Minimum Time Search (MTS) formulation following the approach presented in Pérez-Carabaza et al. (2018).
+
+The main objective of PS problems is to determine the best search trajectories of a set of U UAVs, where best in MTS means the ones that will find the target as soon as possible.
+
+To achieve this, PS algorithms take advantage of the following information, which is partially modeled probabilistically due to the uncertain nature of the problem:
+
+PARAGRAPH
+
+Probability Map.
+
+The target probability map b(νt)=P(νt) contains the available information about the target location at time t, placed somewhere inside the search area Ω, and described by the random variable νt.
+
+The probability map or belief is a spatial discretization of the target position probability that can be represented with a matrix of (wx,wy) size where the value of each element corresponds to the probability of target presence inside a cell of the discretization of the search area Ω into a rectangular grid GΩ of wx⋅wy cells.
+
+The initial probability map, P(ν0) at t=0, is considered as an input of the PS algorithm.1
+
+Since the target is assumed to be located somewhere within Ω, the initial probability map fulfills ∑ν0∈GΩP(ν0)=1.
+
+PARAGRAPH
+
+Target Dynamical Model.
+
+The available information about the target dynamics is modeled by the target dynamical model P(νt|νt−1) that contains the probability that the target moves from one cell νt to another one νt+1 within a single time step of length △.
+
+The target dynamical model enables to update the probability map according to the target dynamical information modeled by P(νt|νt−1).
+
+For instance, this information may be obtained from the sea currents in case of a lost target in the sea or from the possible movements of a vehicle over a roadmap.
+
+PARAGRAPH
+
+Sensor Model.
+
+Assuming that the sensor position and UAV position coincide, the sensor model P(zut|νt,sut) contains the probability of obtaining a certain measurement zut conditioned by the target position νt and the location of the uth UAV sut.
+
+The use of sensor models enables to update the probability map with the information from new sensor measurements.
+
+For the MTS problem two possible sensor measurements are considered: target detection zut=D and non-target detection zut=D¯, whose complementary probabilities satisfy P(zut=D|νt,sut)=1−P(zut=D¯|νt,sut).
+
+PARAGRAPH
+
+UAV Model.
+
+The UAVs make decision movements at discrete time steps within a single time step of length △ and the deterministic UAV dynamical model sut+1=f(sut,cut) returns the UAV position sut+1 at the time step t+1 given the previous UAV position sut and control action cut.
+
+Using UAV dynamical models allows PS algorithms to define the UAVs trajectories either by the UAV positions s1:U0:t or by the UAV initial positions s1:U0 and the sequence of control actions c1:U1:t, and enables to take as decision variables either the search trajectories or the sequence of control actions (taking advantage of indirectly obtaining trajectories that fulfill the dynamic restrictions implicit in sut+1=f(sut,cut)).
+
+This work considers a simple dynamic model that allows each UAV to move from its current cell to its neighbor cells following one of the cardinal directions cut={N,NE,E,SE,S,SW,W,NW}.
+
+PARAGRAPH
+
+Fitness criterion.
+
+As the MTS main objective is to minimize the target detection time, in this work the expected value of target detection time for the given trajectories ET(s1:U0:t) is selected as fitness criterion f(x).
+
+Assuming that the UAVs take measurements at discrete time instants, ET(s1:U0:t) can be obtained with Eqs. (3) and (4) (Lanillos et al., 2012).
+
+In order to obtain the expected time in time units instead of time steps, the expected time step should be multiplied by the time interval △ between two consecutive measurements.
+
+ET(s1:U0:∞)=∑t=0∞P(z1:U1:t=D¯|s1:U0:t)=∑t=0∞∑νt∈GΩb̃(νt) b̃(νt)=∏u=1:UP(zut=D¯|νt,sut)∑νt−1∈GΩP(νt|νt−1)b̃(νt−1)
+
+PARAGRAPH
+
+ET is therefore obtained with Eq. (3) adding up all cell values of b̃(νt) for each time step from zero to infinity, which are obtained recursively with Eq. (4) after updating the previous time step b̃(νt−1) with the target dynamical information contained in P(νt|νt−1) and the non-detection likelihood information contained in P(zut=D¯|νt,sut).
+
+For the starting case (t=0), we define b̃(ν0)=b(ν0).
+
+In this way, Eqs. (3) and (4) allow to compute the fitness criterion ET in terms of the inputs of the MTS problems: initial probability map b(ν0), target dynamical model P(νt|νt−1) and sensor model P(z1:U1:t|s1:U0:t).
+
+Besides, Eq. (4) is in fact a Recursive Bayesian Estimator (RBE, Bourgault et al., 2006) with non-detection events z1:U0:t=D¯ and without normalization step, facts that make ∑νt∈GΩb̃(νt) a non-increasing function that takes values within [0, 1] (Lanillos et al., 2012).
+
+PARAGRAPH
+
+Although Eq. (3) returns the expected value of the target detection time step adding up all the cell values of b̃(νt) at each time step t up to infinity, in PS problems the optimized trajectories have often a fixed horizon length N (maximum time step and number of actions optimized for each UAV).
+
+This happens due to the intractability of optimizing infinite length trajectories and to the limited resources of the UAVs (e.g. fuel capacity).
+
+Therefore, a truncated version of Eq. (3) is generally optimized (Lanillos et al., 2013, 2012; Pérez-Carabaza et al., 2018).
+
+From now on, this paper indifferently refers to ET or its truncated version of Eq. (5).
+
+ET(s1:N0:N)=∑t=0NP(z1:U1:t=D¯|s1:U0:t)=∑t=0N∑νt∈GΩb̃(νt)
+
+PARAGRAPH
+
+The probability of target detection Pd, defined as the probability of having at least one detection measurement along the trajectory, is used in many PS works.
+
+Although it is not an appropriate fitness function for MTS (Lanillos et al., 2013), this work analyzes the values of ET and Pd for a given solution s1:U0:N, because Pd complements the truncated ET by letting us also know the chances of detecting the target.
+
+It is possible to obtain Pd with Eq. (6), exploiting the fact that Pd is complementary to the probability of non-detecting the target along the whole trajectory (which is already calculated within Eqs. (3) and (5)).
+
+Pd(s1:U0:N)=1−P(z1:U1:N=D¯|s1:U0:N)=1−∑νt∈GΩb̃(νN)
+
+PARAGRAPH
+
+As a clarifying example, Fig. 2 displays at the left the initial probability map b(ν0) of a static target and at the right the b̃(νN) corresponding to the search trajectory of a unique UAV (represented with a black line) equipped with an ideal sensor.
+
+The final expected time is ET=15.25 and the probability of finding the target Pd=0.62.
+
+For further details in the calculation of the ET value, the reader is referred to Pérez-Carabaza et al. (2018).
+
+SECTION
+
+ACO for MTS with communication maintenance and collision avoidance constraints
+
+PARAGRAPH
+
+This section presents a new approach to MTS with safety constraints (communication maintenance and collision avoidance) based on the ant colony algorithm MMAS.
+
+First, the communication and collision penalty functions are specified and then the proposed algorithm and problem specific heuristics are presented.
+
+SECTION
+
+Communication maintenance and collision avoidance constraints
+
+PARAGRAPH
+
+Two necessary constraints (and their corresponding penalty functions) are considered to ensure a safe execution of the search plan; communication maintenance and UAV collision avoidance.
+
+PARAGRAPH
+
+Communication Penalty Function.
+
+The communication constraint ensures that the state and information collected by the UAVs during the search mission can be sent to the GCS.
+
+Communication constraints are simply represented by a communication graph with UAVs and GCS as nodes (located at s1:Ut and sGCS respectively) and communication links as edges.
+
+A communication link is present when the distance between two UAVs or between a UAV and the GCS is less than the communication range R.
+
+The communication constraint can be expressed by maintaining the communication graph connected throughout the entire mission.
+
+Feasible solutions must maintain at every time step a multi-hop network (i.e. the connectivity of the communication graph).
+
+Network topologies that ensure a multi-hop connection link between all the UAVs and the GCS are often used (e.g. in Pal et al., 2013; Scherer and Rinner, 2016; Sánchez-García et al., 2018), as they restrict less the UAV movements than fully connected networks (where the maintenance of the communication between every pair of nodes is imposed).
+
+PARAGRAPH
+
+The proposed communication penalty function gCOM(x) for a given solution x=s1:U0:N is the number of time steps where the communication graph is disconnected.
+
+It is computed with Eq. (7), where GraphConnection(s1:Ut,sGCS,R) is a function that returns 1 if the communication graph is disconnected at time step t and 0 otherwise.
+
+In order to determine if the communication graph is connected, GraphConnection function checks if the Fiedler value (the second smallest eigenvalue λ2 of the Laplacian matrix of the connectivity graph, whose magnitude reflects how well the graph is connected) is bigger than zero (Pal et al., 2013). gCOM(s1:U0:N)=∑t=1N(1−GraphConnection(s1:Ut,sGCS,R))
+
+PARAGRAPH
+
+Collision Avoidance Penalty Function.
+
+The collision constraint avoids possible impacts between UAVs.
+
+The collision avoidance penalty function gCOL(s1:U0:N) is the total number of collisions of the solution.
+
+It is computed with Eq. (8), where Collision(sit,sjt) is a function that returns 1 when UAVs i and UAV j impact each other (since both are flying at time step t over the same cell) and returns 0 otherwise. gCOL(s1:U0:N)=∑t=1N∑i=1U∑l=1+iUCollision(sit,slt)
+
+PARAGRAPH
+
+A solution s1:U0:N is feasible only when gCOM(s1:U0:N)=0 and gCOL(s1:U0:N)=0, that is, if it maintains the communications and avoids UAV collisions during the whole mission.
+
+Eqs. (7) and (8) define both constraints as functions of the distance to the feasible region.
+
+They have been selected because they generally let the algorithm achieve a better performance than when including binary penalties (Coello, 2002).
+
+SECTION
+
+MTS with safety constraints algorithm based on MMAS
+
+PARAGRAPH
+
+This section presents the new MTS with safety constraints algorithm based on MMAS.
+
+First, taking as starting point the unconstrained MTS algorithm presented in Pérez-Carabaza et al. (2018), the formulation of MTS with MMAS algorithm, the solution construction process and how the information is saved in the pheromone table is introduced.
+
+Then, this section presents the heuristic used by the ant-based algorithm, which combines information from the MTS perspective (already presented in Pérez-Carabaza et al., 2018) with the new information from the communication maintenance and collision avoidance requirements.
+
+SECTION
+
+MTS-MMAS with safety constraints
+
+PARAGRAPH
+
+In ant colony based algorithms, M ants construct their paths incrementally considering previously learned information saved in the pheromone table τ and the information given by a problem specific heuristic η.
+
+When the stop condition is reached the best solution found so far (best ant tour) is returned.
+
+In the formulation of MMAS for MTS presented by Pérez-Carabaza et al. (2018), each ant tour represents a possible solution s1:U1:N.
+
+At each algorithm iteration, the ant tours are incrementally constructed: at each step of the solution construction loop each UAV chooses its next action a from the 8 possible actions considering the pheromone and heuristic information for the current cell sut.
+
+The probability of action a to be chosen at time step t for UAV u is given by Eq. (9).
+
+P(a,t,u)=τ[a,sut,u]αη(a,sut,t)β∑a=1:8τ[a,sut,u]αη(a,sut,t)βwhere τ[a,sut,u] contains the pheromone value of action a associated to the UAV u at cell sut, η(a,sut,t) returns the heuristic value of action a at time t and cell sut, and α and β are parameters that control the pheromone and heuristic influence.
+
+PARAGRAPH
+
+The pheromone table τ contains the learned information about the suitability of the possible actions to be taken for each UAV at each cell of GΩ.
+
+The information learned for each UAV is saved separately, as usually in MTS the UAVs tend to distribute themselves and have quite different paths.
+
+Therefore, the pheromone table is a three dimensional matrix of size 8⋅w⋅U, where w is the total number of cells of the grid w=wx⋅wy, which are numbered column-wise from 1 to w.
+
+An example of the initial pheromone matrix for a simple scenario with a square grid (wx=wy=10) and a single UAV (U=1) is shown below, where the elements of the j−th column of τ contain the pheromone values associated to the 8 actions of the j−th cell of the grid.
+
+PARAGRAPH
+
+Initially, all pheromones elements have the same value, except those elements for actions that would move the UAV outside the search area which have a value of 0.
+
+This is a simple way to avoid actions that would move a UAV outside of the search area (see Eq. (9)) and, therefore, to maintain all ant tours inside the search area.
+
+PARAGRAPH
+
+For instance, the pheromone values of cell 1 (which is placed within the upper-west corner of the discretized search area Ω) are stored in the first column of τ.
+
+Besides, as actions c1={1,2,6,7,8}={N,NE,SW,W,NW} move the UAV outside the search zone, only τ[3,1,1],τ[4,1,1] and τ[5,1,1] have non null pheromone values.
+
+In the case of cell 100 (lower-east corner of Ω) actions c1={2,3,4,5,6}={NE,E,SE,S,SW} move outside the search area and therefore have associated null pheromone values.
+
+PARAGRAPH
+
+In order to evaluate the solutions of the M ant tours constructed at each iteration of the proposed new algorithm, not only their ET values are computed (Pérez-Carabaza et al., 2018), but also their communication maintenance gCOM and collision avoidance gCOL penalty constraints.
+
+Then, their constraint penalty value ϕ and their penalized fitness ψ are obtained according to the penalty based technique considered (DP, SP or AMP).
+
+Next, the pheromone table is updated with the information learned from the best (less ψ value) solution found at the current iteration.
+
+The pheromone update can be divided in three steps: pheromone reinforcement, evaporation and bounding.
+
+First, the corresponding pheromone values of the best solution of the current iteration ∗s1:U0:N are increased according to Eq. (10), where ∗cut and ∗sut stand for the actions and locations of ∗s1:U0:N.
+
+Second, all the pheromone values are decreased according to the evaporation rate ρ, using Eq. (11).
+
+And third, all the pheromone values (except those associated to cells and actions leading the UAV outside Ω) are bounded into the interval [τmin,τmax] with Eq. (12), avoiding in this way early stagnation of the optimization process. τ[∗cut,∗sut−1,u]←τ[∗cut,∗sut−1,u]+1ψ(∗s1:U0:N) τ[a,i,u]←(1−ρ)⋅τ[a,i,u] τ[a,i,u]←max{τmin,min{τmax,τ[a,i,u]}}
+
+PARAGRAPH
+
+The solution construction and pheromone update are iteratively repeated until the maximum computational time restriction is reached.
+
+Then, the best solution found by the algorithm is returned, where best means the solution with best ET among the solutions with minimum constraint violation ϕ(x).
+
+The algorithm implementation is detailed in Appendix.
+
+SECTION
+
+Heuristics
+
+PARAGRAPH
+
+Although ant colony based algorithms may be used without heuristic (i.e. using only the pheromone table), the inclusion of appropriate heuristics can help ant colony based algorithms to find better solutions faster.
+
+This is the case of the MTS heuristic used in Pérez-Carabaza et al. (2018), which guides the UAVs towards the closest areas with the highest probability of target presence.
+
+However, that heuristic does not consider any communication or collision information, so solutions constructed with it may be infeasible.
+
+For this reason, this work proposes a new heuristic Hη that combines MTS (HMTS), communication maintenance (HCOM) and collision avoidance (HCOL) information through the product of three different heuristics: η(a,sut,t)=Hη(a,sut,t)=HMTS(a,sut,t)⋅HCOM(a,sut,t)⋅HCOL(a,sut,t)
+
+PARAGRAPH
+
+The MTS heuristic, HMTS, presented in Pérez-Carabaza et al. (2018), is a spatial function that depends on the current position of the UAV and on the current value of b̃(νt).
+
+In order to compute the value associated to an action a given the current cell i of the UAV u at time step t, the heuristic sums up in Eq. (14) the values of b̃(νt) weighted by a function of the distance between the UAV cell i and the still reachable cells j within the triangle corresponding to the cardinal action a (j∈triangle(a,i,N−t)).
+
+As Fig. 3 shows the set of cells considered to compute HMTS(a,i,t) are the ones that are contained inside triangle(a,i,N−t), defined by the perpendicular bisector of length N−t associated to the direction of action a starting at cell i.
+
+Besides, the weighting function F(distance(i,j)) gives higher weights to the cells j of b̃(νt) that are closer to the current cell i of the UAV.
+
+In this way HMTS increases the likelihood of selecting cardinal actions that move the UAVs towards areas with higher and closer probabilities of target presence that are reachable within the remaining time steps N−t.
+
+HMTS(a,i,t)=∑j∈triangle(a,i,N−t)F(distance(i,j))b̃(νt=j)
+
+PARAGRAPH
+
+The new communication maintenance heuristic, HCOM, gives higher chances to the actions that lead to a higher connectivity of the communication graph defined by the UAV and GCS positions.
+
+To do it, HCOM, defined in Eq. (15), considers the Fiedler value, i.e. the second smallest eigenvalue λ2 of the Laplacian matrix 0≤λ1≤λ2≤⋯≤λU+1 whose magnitude reflects how well connected is the overall graph (Pal et al., 2013).
+
+Therefore, HCOM gives higher chances to the actions a that favor more connected communication graphs.
+
+Besides, the HCOM adds a fixed constant to ensure that the heuristic provides a non-zero value to the action in the situations where all possible actions break the communication.
+
+HCOM(a,i,t)=0.1+λ2
+
+PARAGRAPH
+
+Finally, the new collision avoidance heuristic, HCOL, assigns with Eq. (16) low values to actions that would lead to a collision (i.e. when the position of two UAVs coincide in the same cell) and high values to safe actions.
+
+HCOL(a,i,t)=0.8sut≠skt∀u≠k0.2otherwhise 
+
+SECTION
+
+PARAGRAPH
+
+Results
+
+PARAGRAPH
+
+This section analyzes the performance of the proposed MMAS based algorithm for MTS with safety constraints with several simulation scenarios.
+
+First, the scenarios and the comparison method are described, then the effect of the constraint handling techniques and the power of the proposed heuristic within MMAS are analyzed, next the proposed approach is compared against other two algorithms (CEO and GA) already applied for the unconstrained MTS, and finally the effect of the communication range within the obtained solutions is analyzed.
+
+SECTION
+
+Scenarios
+
+PARAGRAPH
+
+Due to the lack of benchmarking test data, the performance of PS algorithms is typically evaluated with a set of scenarios predefined by the authors.
+
+For instance, Lin and Goodrich (2009) test their algorithm over three single UAV scenarios (whose initial beliefs are composed by a single Gaussian, two separated Gaussians and two overlapping Gaussians), Berger et al. (2016) analyze their approach over two static scenarios (with exponential and uniform beliefs) using 5 UAVs, and Pérez-Carabaza et al. (2018) perform their study over six scenarios (whose beliefs are composed by several static or dynamic Gaussians, and that use different numbers of UAVs).
+
+PARAGRAPH
+
+This paper follows the usual approach (by designing four scenarios specifically to highlight the algorithm capabilities to minimize the search time while maintaining the communication) and incorporates another set of randomly generated scenarios (in order to perform a more systematic analysis of the performance of the algorithm under study).
+
+The following subsections present the main characteristics of each set of scenarios.
+
+PARAGRAPH
+
+Besides, the sensor model used in all the scenarios in this work is an ideal likelihood function where the target is detected when the target and UAV are in/over the same cell, (i.e. P(zut=D|νt,sut)=1 when νt=sut and P(zut=D|νt,sut)=0 when νt≠sut).
+
+SECTION
+
+Predefined scenarios
+
+PARAGRAPH
+
+The predefined scenarios under analysis are shown in Fig. 4.
+
+In all, the UAVs (represented in different colors with bladed circles) start near the ground control station (marked with a gray square) and have a communication range of R=5 cells.
+
+The underneath probability maps show warmer/cooler colors for cells with higher/lower probability of target presence.
+
+Besides, Scenario C represents a dynamic target whose movements are depicted with arrows and a dashed cones.
+
+The four scenarios can be described as follows:
+
+PARAGRAPH
+
+Scenario A.
+
+The probability is concentrated on the left of the two UAVs initial positions.
+
+A single UAV is not able to reach the high probability area of its left side without losing connectivity with the GCS.
+
+Therefore, one UAV has to act as a relay to allow the other UAV to gather probability without breaking the communication with the GCS.
+
+PARAGRAPH
+
+Scenario B.
+
+There are two high probability areas slightly further away from the GCS than the communication range.
+
+Therefore, in order to maintain the communication, both UAVs should fly first to one of the probability areas and then to the other one.
+
+PARAGRAPH
+
+Scenario C.
+
+This is a dynamic scenario, where the probability is initially concentrated in two Gaussians and moves eastward while spreading.
+
+The three UAVs should first fly westward to reach the high probability areas and then follow their spreading movement towards east without losing connection with the GCS.
+
+PARAGRAPH
+
+Scenario D.
+
+This scenario has two probability areas out of reach for any single UAV from its initial positions.
+
+Therefore, to reach any of the high probability areas a relay UAV is needed to maintain connection with the GCS.
+
+SECTION
+
+Randomly generated scenarios
+
+PARAGRAPH
+
+To support a more general analysis, the results of additional simulation studies with a new set of 3 types of scenarios with randomly generated beliefs are also presented.
+
+The scenarios within each type share the initial position of the UAVs (close to the GCS placed in the center of the search area), the grid size (20 × 20 cells), the planner horizon (N=25) and the communications range (R=7).
+
+The scenarios differ in the number of UAVs and initial probability maps that are generated randomly according to the procedures explained below.
+
+Fig. 5 depicts two instances of each scenario type.
+
+PARAGRAPH
+
+Random Scenarios Type A.
+
+The search is carried out by two UAVs and the initial probability map is formed by two Gaussians placed at random positions inside the search area and with random standard deviations that range from 1 to 10 cells.
+
+PARAGRAPH
+
+Random Scenarios Type B. Five UAVs search for a target whose initial probability map is composed by four rectangles with uniform probabilities placed at random positions within the search area and with sizes uniformly ranging from 1 to 5 cells.
+
+PARAGRAPH
+
+Random Scenario Type C. Three UAVs search for a dynamic target whose belief is represented with a Gaussian density function initially centered at a random position inside the search area, with a standard deviation that ranges from 1 to 10 cells, and which moves towards a random direction.
+
+SECTION
+
+Comparison methodology
+
+PARAGRAPH
+
+Due to the stochastic nature of MMAS and of the other algorithms under comparison, it is necessary to perform a statistical analysis of the results obtained by all the approaches.
+
+Therefore, each algorithm (which stores, at each iteration, the computation time,2  the best found solution, its ET and its constraint violation values) is run 20 times for each search scenario.
+
+With this information, the performance of the different algorithms or MMAS versions is analyzed with two types of graphs:
+
+PARAGRAPH
+
+ET Evolution Graphs.
+
+These type of graph appear in the first row of Figs. 6–8 and display, in different colors for each algorithm or variant, the mean ET and standard deviation of the best feasible solution found at each algorithm iteration versus the mean computational time of each iteration.
+
+The mean ET of each iteration is represented with a dot and its standard deviation with a colored shadowed area.
+
+As it is not reasonable to compare the fitness criterion of feasible solutions with infeasible ones, ET evolution graphs only consider feasible solutions.
+
+This type of graph allows to see the evolution of the fitness criterion along the optimization process and to compare the fitness and convergence velocity of different algorithms.
+
+PARAGRAPH
+
+Constraint Penalty Functions Evolution Graphs.
+
+Similarly, the constraint penalty function evolution graphs appear in the second row of Figs. 6–8, and represent, in the same colors used for the ET curves of each approach, the mean and standard deviation of the constraint violation function ϕ(x) of the best solution found at each algorithm iteration versus the mean computational time of each iteration.
+
+The constraint violation function values are dependent on the penalty method used.
+
+For DP, the represented ϕ(x) is always zero, as this approach rejects infeasible solutions and generates new ones.
+
+For SP, ϕ(x)=gCOM(x)+gCOL(x), because the proposed penalty functions are always zero when the constraints are fulfilled.
+
+Finally for APM, ϕ(x)=rCOM⋅gCOM(x)+rCOM⋅gCOL(x), where rCOM and rCOL are calculated, as explained in Section 3.2, at each algorithm iteration according to the quality of the solutions of the population.
+
+Therefore, although the values of the different constraint handling techniques are not directly comparable, this type of graph allows seeing which algorithm is able to obtain feasible solutions faster and how many iterations an algorithm requires, on average, to find a feasible solution.
+
+PARAGRAPH
+
+Finally, the parameters used in MMAS for this work are the same as the ones used for the unconstrained MTS in Pérez-Carabaza et al. (2018): a pheromone rate ρ=0.5, the population size is the product of the planning horizon N and number of UAVs U, and the initial pheromone values and limits are determined and recomputed each time a new best solution is found following the methodology by Stützle and H. Hoos (2000).
+
+The pheromone and heuristic influence parameters are α=1 and β=1, except when the performance analysis requires to disable the pheromone effects (making α=0) or the heuristics (making β=0).
+
+PARAGRAPH
+
+SECTION
+
+Performance analysis of MMAS
+
+PARAGRAPH
+
+This section analyzes the benefits of the different mechanisms, penalty methods and heuristic functions, that have been incorporated in MMAS in order to handle the constraints and to speed up the planning.
+
+SECTION
+
+Constraint handling techniques within MMAS
+
+PARAGRAPH
+
+With the purpose of efficiently dealing with the safety constraints, the results obtained over the predefined MTS scenarios by MMAS are compared with three different constraint handling techniques: Death Penalty (DP), the Static Penalty (SP) method by Hoffmeister and Sprave (1996) and the Adaptive Penalty Method (APM) by Barbosa and Lemonge (2003).
+
+PARAGRAPH
+
+To do it, the performance of six variants of MMAS with pheromones are tested: three (one per constraint handling technique) with the heuristics enabled (by setting the heuristic influence parameter β=1) and the other three with the heuristic disabled (with β=0).
+
+The methods with heuristic are labeled here after as MMASDP+Hη, MMASSP+Hη and MMASAPM+Hη, while the methods without heuristic are labeled as MMASDP, MMASSP and MMASAPM.
+
+The ET and constraint penalty function evolution graphs of this setup over the prefixed scenarios are shown in Fig. 6: the first two rows of graphics show the results with the heuristics enabled and the last two display the results with the heuristic disabled.
+
+PARAGRAPH
+
+The graphs show that MMASSP+Hη and MMASAPM+Hη always find feasible solutions from the first iteration, while their counterparts without heuristics (MMASSP and MMASAPM) require a few iterations to obtain feasible solutions in Scenarios B and D.
+
+As the death penalty method rejects infeasible solutions, the constraint penalty function of MMASDP+Hη and MMASDP is always zero, but both variants require a much longer computational time for each algorithm iteration (see the separation of the dots over the mean curves) than the remaining four variants (that accept infeasible solutions).
+
+Additionally, the heuristic information helps MMASDP+Hη to generate feasible solutions and considerably reduce the computational time of each iteration in comparison with MMASDP, specially in Scenarios B and D. With regard to the ET evolution graphs (where lower values are better), it is clear that the death penalty method produces the worst results (either with and without heuristic).
+
+Furthermore, the variant with the adaptive penalty method reaches better results and converges quicker than the variant with static penalty method.
+
+Therefore, the adaptive penalty method proposed in Barbosa and Lemonge (2003) is selected to handle the safety constraints.
+
+SECTION
+
+Influence of the heuristics and pheromones within MMAS
+
+PARAGRAPH
+
+This section analyzes the effects that the pheromone deposit mechanism and the proposed heuristic Hη (which combines MTS, communication maintenance and collision avoidance information) have on the proposed algorithm.
+
+In order to analyze the benefits of the heuristic, the performance of the proposed algorithm (MMASAPM+Hη) is compared with the performance of the variant with the heuristic information disabled (MMASAPM).
+
+Moreover, in order to see the effects of the different information sources contained in the proposed heuristic Hη, the performances of the following variants are also compared: a variant with only the MTS heuristic enabled (MMASAPM+HMTS), a variant with only the communication maintenance heuristic enabled (MMASAPM+HCOM) and a variant with only the collision avoidance heuristic enabled (MMASAPM+HCOL).
+
+Finally, with the purpose of determining if the pheromone deposit mechanism helps the heuristic (or on the contrary, if only the heuristic is guiding the search), a variant of MMAS without pheromone information (Hη), is also set up (by making the pheromone influence parameter α=0) and analyzed.
+
+PARAGRAPH
+
+The results obtained over the prefixed scenarios with the different MMAS versions analyzed in this section are shown in Fig. 7, which displays for each scenario (column) the expected time (first row) and the constraint penalty functions (second row) evolution graphs.
+
+The graphs show that the proposed algorithm MMASAPM+Hη reaches either better solutions (in Scenarios A, C and D) or at least with equal fitness (Scenario B) in less computational time than the remaining variants under analysis.
+
+From the comparison of MMASAPM+ Hη (blue) with the version without heuristic MMASAPM (orange), it is possible to conclude that the heuristic helps the algorithm to obtain considerably better solutions from the first iteration in all scenarios and to converge to a lower ET in scenarios A, C and D. Besides, it can be observed that the benefits that the proposed heuristic provides to the algorithm are due to the three information sources contained in Hη, as the variants that employ each of the heuristic sources independently reach worse solutions.
+
+On one hand, when only the MTS heuristic is considered, MMASAPM+HMTS (yellow) is able to finally converge to good results but it requires a considerably amount of time to find feasible solutions (ϕ=0), specially in Scenarios A and D.
+
+This happens because the MTS heuristic is designed to get solutions with good ET but not to fulfill the safety constraints and, as during the first algorithm iterations the influence of the heuristic is stronger than the influence of the pheromones, this variant cannot generate feasible solutions.
+
+On the other hand, when only the communication maintenance MMASAPM+HCOM or collision avoidance MMASAPM+HCOL heuristics are considered (red and green respectively), both variants are able to find feasible solutions from the first iterations but their fitness (ET) and their convergence speed are considerably worse than MMASAPM+ Hη.
+
+Furthermore, from the comparison of the results of MMASAPM+Hη with the version without pheromone deposit mechanism (Hη), it follows that the heuristic by itself has worse performance: although at the first iterations (when the pheromones table still does not contain information about the best paths to follow) both variants produce similar results, as the iterations advance, the information learned by the pheromones in MMASAPM+ Hη is exploited to generate better solutions enabling the proposed algorithm to converge faster to better solutions.
+
+SECTION
+
+Performance comparison of MMAS with other MTS algorithms
+
+PARAGRAPH
+
+This section compares the selected algorithm (MMASAPM+Hη) with two different algorithms based on Cross Entropy Optimization (CEO) and Genetic Algorithm (GA) that have been already used in the unconstrained MTS problem (Lanillos et al., 2012; Pérez-Carabaza et al., 2018).
+
+The section starts describing shortly each algorithm and continues comparing their performances against the approach presented in this work over the predefined and randomly generated scenarios.
+
+PARAGRAPH
+
+SECTION
+
+Selected algorithms
+
+PARAGRAPH
+
+The approaches, CEO and GA, are chosen because they have been previously applied to the same unconstrained MTS scenarios (Lanillos et al., 2012; Pérez-Carabaza et al., 2018) in order to illustrate if the unconstrained MMAS algorithm, which has served as the basis of the new approach developed in this paper, is a good choice.
+
+However, as they cannot be directly applied for the constrained MTS scenarios of this paper, they are both modified in order to include the communication and collision constraints through the selected adaptive constraint handling technique proposed by Barbosa and Lemonge (2003).
+
+Their main properties are explained in the following.
+
+PARAGRAPH
+
+Cross Entropy Optimization (CEO) is an iterative algorithm that learns at each iteration the distribution of the optimal solution from the best found solutions of the population, randomly generated at the first iteration (Rubinstein, 1999).
+
+It is first applied to the MTS by Lanillos et al. (2012), where the algorithm learns the probability distribution of the best actions to be performed by the UAVs at each time step c1:U1:N.
+
+In order to adapt the MTS algorithm by Lanillos et al. (2012) to the new constrained MTS problem, the solutions selected to update the probability distribution are chosen considering their fitness value (ET) plus the adaptive constraint penalty violation function defined by Barbosa and Lemonge (2003).
+
+PARAGRAPH
+
+Genetic Algorithms (GA) are widely known techniques inspired in the natural selection of genes, where the population of candidate solutions gets better at each iteration through mechanisms of selection, crossover and mutation (Goldberg, 1989).
+
+They are applied to a probabilistic search problem (maximizing Pd for static targets) by Lin and Goodrich (2009) and for the unconstrained MTS problem by Pérez-Carabaza et al. (2018), using binary tournament selection, single point crossover and a uniform mutation towards the surrounding directions.
+
+The unconstrained MTS GA has been adapted to the new constrained MTS by considering also, in the parent selection process, the adaptive constraint penalty violation function by Barbosa and Lemonge (2003).
+
+SECTION
+
+Comparison over predefined scenarios
+
+PARAGRAPH
+
+Fig. 8 shows the results obtained over the predefined MTS scenarios by two MMAS variants (MMASAPM+Hη and MMASAPM), the constrained CEO (CEOAPM) and the constrained GA (GAAPM).
+
+They show that the proposed MMAS based algorithm with heuristic (MMASAPM+Hη) gets better results in lower computational time than the other approaches (including MMAS without the heuristic).
+
+The proposed heuristic Hη helps MMASAPM+Hη to get, from the first iteration, better results than the other approaches (that lack of heuristic knowledge).
+
+The comparison among the approaches without heuristic information shows that GAAPM presents better performance in Scenarios B and D, MMASAPM in scenario A, and CEOAPM is the worst in all the scenarios.
+
+Besides, all of them manage to find feasible solutions in all scenarios after few iterations.
+
+SECTION
+
+Comparison over randomly generated scenarios
+
+PARAGRAPH
+
+For each random scenario type, 20 instances for each algorithm and scenario are simulated.
+
+As each instance is in fact a different scenario the fitness values of different instances are not directly comparable.
+
+Therefore, the mean of the fitness values obtained by each algorithm for the 20 instances and the percentage of improvement of the proposed algorithm MMASAPM+ Hη over the other algorithms are computed.
+
+Results are shown in Table 2, where the highest values in each row allow to identify the worst algorithm (i.e. the algorithm that is more improved by MMASAPM+ Hη) for each type of scenario, and the lowest values the algorithm closest to ours.
+
+The results show similar conclusions to the ones of the previous analysis.
+
+On one hand, the use of the proposed heuristic in MMASAPM+Hη always improves the quality of solutions (MMASAPM column) and the pheromone deposit mechanism also improves the results in all the scenarios (Hη column).
+
+On the other hand, the proposed algorithm obtains better results than the other MTS algorithms based on CEO and GA, the percentage of improvement depends on the scenario ranging from 2.16% to 49.10% for CEO and from 4.00% to 47.05% for GA.
+
+SECTION
+
+Influence of the communication range
+
+PARAGRAPH
+
+Finally, in order to analyze how the communication constraint affects the quality of the solutions, the new approach (MMASAPM+ Hη) is run over the prefixed scenarios with different communication ranges R.
+
+PARAGRAPH
+
+Fig. 9 displays the mean of the expected time (ET) and its standard deviation obtained for the 20 optimizations performed for each communication range (R={2,3,…,12} cells) over each prefixed scenario.
+
+It is possible to observe that the change of the communication range has similar effects in all the scenarios: the ET (in the y-axis) is usually reduced while R increases (in the x-axis).
+
+PARAGRAPH
+
+To illustrate better the influence of R in the solutions, each row and column of Fig. 10 respectively shows a representative solution obtained for the prefixed Scenarios A and B for different communication ranges (indicated on the top of each column).
+
+Each of these graphs contain the final b̃(νN) corresponding to the search trajectories (displayed in different colors and with vertical yellow lines indicating the cells where the no detection measurements were taken) and the GCS position with a gray square.
+
+Besides, above each graph, the expected time (ET), the probability of target detection (Pd) and constraint penalty function (ϕ) values are indicated.
+
+The examples show:
+
+PARAGRAPH
+
+Scenario A. For R=2, the high probability area on the left is out of reach of both UAVs and their search trajectories allow to collect a negligible probability of detecting the target (Pd=0.001) and require a high expected time of detection (ET=18.98).
+
+For R=5, one UAV gathers measurements from the high probability area while the other acts as a relay.
+
+Finally, with R=10, both UAVs can freely explore the high probability area without breaking the communication graph and the UAVs are able to gather great part of the belief Pd=0.941 and achieve a lower expected time ET=9.07.
+
+PARAGRAPH
+
+Scenario B. For R=2 the probability gathered by the UAVs is very small (Pd=0.022) and the expected time high (ET=29.40).
+
+When R=5 one UAV acts as a relay while the other explores one of the high probability areas and then they change roles to explore the other probability area.
+
+Finally with R=10, the UAVs distribute their efforts and each one flies directly to one of the two high probability areas.
+
+Comparing the solutions obtained with R=5 and R=10, Pd improves from Pd=0.862 to Pd=0.982, but the ET is halved (from to ET=13.78 to ET=6.55).
+
+This great ET improvement happens because when R=10, both probability areas are reached soon, while with R=5, the second probability area is reached much later, after the UAVs have explored the other probability region situated on the opposite direction.
+
+PARAGRAPH
+
+All cases show that when the communication range R is too small and none of the UAVs can reach a high probability area without losing the network connectivity, the ET has the worst value.
+
+Besides, once R is large enough to let some UAV explore parts of the high probability areas while the other UAVs are used as relays to maintain the connectivity, the ET improves.
+
+Finally, once R is large enough such that no relay is required, all UAVs can focus just on gathering all the probability areas as soon as possible.
+
+Moreover, in this last case, the constrained MTS problem is similar (except for the collision constraint consideration) to the unconstrained MTS problem solved in Pérez-Carabaza et al. (2018).
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+This work proposes a MMAS-based algorithm that minimizes the detection time of a target with unknown location while maintaining a multi-hop connection to the GCS and avoiding collisions between UAVs.
+
+To handle the infeasible solutions, communication maintenance and collision avoidance penalty functions are defined and added to the fitness criterion (expected target detection time) following a penalty based method.
+
+Besides, the proposed algorithm takes advantage of the possibility offered by the ant colony algorithms of including heuristic information and uses a new heuristic that combines MTS with safety (communication and collision avoidance) information, allowing the algorithm to obtain more appropriate feasible solutions from the first iterations.
+
+The performance of the algorithm is analyzed in detail and compared with other MTS algorithms over several prefixed scenarios and over several random scenarios.
+
+PARAGRAPH
+
+A future interesting research line would be to take advantage of the reduction of the computational time that the heuristic provides to adapt the approach to an online planning version.
+
+Furthermore, it would be interesting to extend this work to the case of including a continuous UAV dynamic model, more suitable for fixed-wing UAVs.
+
+This will require the consistent adaptation of the proposed heuristics and the use of an ant colony algorithm in the continuous domain, such as the one employed for MTS in Pérez-Carabaza et al. (2017).

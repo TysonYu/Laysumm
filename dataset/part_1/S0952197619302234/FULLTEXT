@@ -1,0 +1,893 @@
+10.1016/j.engappai.2019.103239
+
+FULLTEXT
+
+TITLE
+
+Multiobjective great deluge algorithm with two-stage archive support
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Many real-life problems can be formulated more realistically within multiobjective optimization (MOO) framework since a set solutions, rather than a single solution, exhibiting different forms of concession among multiple and often conflicting objectives is provided as result of the optimization process (Abraham et al., 2005).
+
+Such a set of solutions containing different degrees of trade-off among multiple objectives is commonly known as a Pareto-optimal set in which Pareto-optimality is defined in terms of a dominance relation between two solutions as follows: given two solutions s1 and s2, s1≠s2, s1 is said to dominate s2 if s1 is not worse than s2 in all objectives and s1 is strictly better than s2 for at least one objective.
+
+For example, for a minimization problem, minf(x)=(f1(x),f2(x),…,fP(x)), x=(x1,x2,…,xn)∈Rn, solution s1∈Rn is said to dominate solution s2∈Rn, denoted as s1⪰s2, if and only if fi(s1)≤fi(s2) for i=1,2,…,j−1,j+1,…,P and fj(s1)<fj(s2) for at least one 1≤j≤P, where P is the number of objectives.
+
+PARAGRAPH
+
+A common difficulty with multi-objective optimization problems is the presence of a number of conflicting objectives and, in general, none of the feasible solutions allow simultaneous optimality for all objectives.
+
+Hence, any favourable Pareto optimum provides a solution exhibiting a subjective compromise between the problem objectives.
+
+Even though some classical methods transform a multiobjective optimization problem into a single-objective one, through different scalarization and objective combination methods, and aim to obtain one single globally optimal solution, this approach includes serious drawbacks in terms of appropriate representation of the real-world problems and quality of resulting solutions.
+
+In order to have better mathematical models for real-world problems and increase the efficiency of search within arbitrarily complex solution spaces, through providing a set of solutions rather than a single solution, some advanced MOO techniques have been proposed.
+
+These techniques are generally based on some metaheuristics such as Simulated Annealing (SA)  (Kirkpatrick et al., 1983; Smith, 2006; Bandyopadhyay et al., 2008), Evolutionary Algorithms (EA) (Fonseca and Fleming, 1993; Deb et al., 2002; Zitzler et al., 2002), Particle Swarm Optimization (PSO) (Coello and Lechuga, 2002; Durillo et al., 2009; Tripathi et al., 2011), Artificial Immune Systems (AIS) (Chen and Mahfouf, 2006; Tan et al., 2008; Pierrard and Coello, 2012), Cultural Algorithms (CA) (Best et al., 2010; Srinivasan and Ramakrishnan, 2013), Tabu Search (TS) (Glover, 1986; Hansen and Hansen, 2010; Jaeggi et al., 2005), Ant Colony Optimization (ACO) (Alaya et al., 2007; -Ibanez, 2012; -Vilela et al., 2013) and Artificial Bee Colony Optimization (ABC) (Zeng et al., 2010; Zou et al., 2011; Kumar et al., 2012).
+
+Obviously, this is a restricted list of well-known metaheuristics and their associated MO implementations, new proposals are frequently arriving in this hot research field.
+
+PARAGRAPH
+
+Great Deluge algorithm (GDA) is a trajectory based optimization algorithm that is similar to simulated annealing except for its dynamically adjusted level-based acceptance mechanism.
+
+The algorithm starts with a randomly constructed initial solution and has four fundamental parameters to be set initially.
+
+These are the estimated value of fitness for a globally optimal solution, the maximum number of iterations, the initial value of the level and the level decay parameter.
+
+Usually, the initial value of the level parameter is set equal to the fitness of the initial solution.
+
+Throughout the execution of GDA, the value of the level parameter is decayed linearly or nonlinearly, and the acceptance of new solutions depends on the level parameter.
+
+A detailed description of GDA is presented in Section 2.3.
+
+PARAGRAPH
+
+Considering that a Pareto front resulting from a MO search algorithm contains a set of nondominated solutions, almost all MO metaheuristics maintain an archive (memory) keeping the latest extracted Pareto front and use this archive also for efficient guidance of the search procedure.
+
+Using archive elements within the mechanisms of search operators allow intensification of search around the potentially promising solutions found so far while also diversifying the exploration within the solution space by using more than one reference template within the maintained archive.
+
+PARAGRAPH
+
+This paper introduces a two-stage external memory based implementation of GDA for real-valued multiobjective optimization problems.
+
+The objective is to use experience-based knowledge stored in a two-stage memory to localize the globally optimal solutions better while GDA’s level-based exploration within the solution space is also exploited.
+
+In this proposal, the first stage acts as a short-term memory that is updated frequently and it keeps promising solutions that dominate either their parents or a number of solutions on the current Pareto front.
+
+The second stage acts as a long-term memory that stores promising solutions from separate areas of parametric solution space so that further intensification can be performed around these solutions before they are being updated.
+
+Accordingly, the second stage memory is updated less frequently, after updating the first stage for a number of times, to allow exploitation of promising solutions within this stage in generation of multiple offspring individuals.
+
+PARAGRAPH
+
+The main motivation for implementing the proposed two-stage memory architecture within the GDA framework is the successful implementation of this idea in two recently published articles by  Acan and Unveren (2015a, b).
+
+In Acan and Unveren (2015a), a two-stage external memory is maintained within GDA and this approach, together with the associated memory-based search operators, is used for the solution of single-objective hard numerical optimization problems, namely the CEC2005 and CEC2010 competition benchmark problems.
+
+Results obtained for these multimodal and large-scale global optimization problems using the approach presented in Acan and Unveren (2015a) are highly competitive to those found by state-of-the-art metaheuristic which attended to both of the associated competitions.
+
+In Acan and Unveren (2015b), a similar algorithm is applied for the solution of quadratic assignment problem (QAP).
+
+The results presented in this article, for the solution of hard QAP problems, also showed that the proposed two-stage external memory architecture within the GDA framework and with dedicated memory-based combinatorial search operators reached close to optimal results that are as good as those found by well-known state-of-the-art algorithms for QAP.
+
+These highly successful studies led us to apply the two-stage external memory architecture and search principles of GDA for the solution of multiobjective optimization problems, the algorithmic description and experimental evaluations of the resulting algorithm are presented in the following sections.
+
+PARAGRAPH
+
+The rest of this article is organized as follows: Fundamentals of memory-based strategies and their principles of use in different metaheuristics are presented in Section 2.1.
+
+A general description of multiobjective optimization, associated benchmark problem instances, and recent algorithms exhibiting competitive success on benchmark problem instances are described in Section 2.2.
+
+Section 2.3 explains the algorithmic and application specific framework of GDA together with its state-of-the-art developments.
+
+The proposed multiobjective GDA with two-stage archive support is described in detail in Section 3.
+
+Modified search strategies based on the use of the two-stage archive, selection mechanisms and adaptation of some algorithmic parameters are also presented in this section.
+
+Section 4 demonstrates the experimental work and associated analyses using the presented method, state-of-the-art-competitors and well-known MOO test instances.
+
+Finally, Section 5 highlights the conclusions and the future research directions on the presented subject.
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+This section introduces the background knowledge on memory-based strategies in search and selection procedures of metaheuristics, multiobjective optimization and properties of common numerical benchmark instances, and the Great DeLuge algorithm with its methodological and application specific framework.
+
+SECTION
+
+Fundamentals of memory based strategies in metaheuristics
+
+PARAGRAPH
+
+Memory based search strategies have already been implemented within several metaheuristic algorithms and they are shown to be more successful compared to memoryless versions.
+
+In fact, memory-based implementations have first been used within the framework of genetic algorithms (GAs).
+
+Fundamentally, from GAs point of view, memory based strategies aim to adapt the GAs behaviour when either the solution quality is not improved over a number of generations, or a change in the problem environment is detected, or further exploration/exploitation of the solution space is required.
+
+Contents of the maintained memory can be either full-length representations, or randomly cut segments, or gene sequences randomly extracted from potentially promising solutions.
+
+A memory can be maintained either internally by incorporating accumulated experience into algorithmic parameters or externally as an archive to be used for experience-based guidance of the search procedure.
+
+A detailed review of memory-based strategies in genetic algorithms (GAs) is given in Acan (2004).
+
+In order to give a clear idea on the two types memory organizations, some characteristic examples are presented below.
+
+PARAGRAPH
+
+The earliest and the most widely used internally implemented memory method is elitist selection (or elitism) that is first used in GAs.
+
+Elitism is a mechanism of preserving the most promising individuals of a population over generations so that good characters accumulated on high-fitness parents are not lost and exploited in building offspring population.
+
+Elitism is implemented in several different GAs and some of the pioneering work of this topic are as follows: In Mahfoud’s deterministic crowding scheme, two parents and their two offspring compete based on their fitness values and the worse parent is replaced by the winner  (Mahfoud, 1992).
+
+In a similar work of Thierens et al. on elitist recombination, elitist selection is implemented as a tournament between two parents in crossover and their offspring such that the best two of (2 parents+2 offspring) are kept as members of the new population (Thierens and Goldberg, 1994).
+
+GENITOR, proposed by Whitley et al. generates one offspring at a time that replaces the worst element of the population  (Whitley and Kauth, 1988).
+
+Eshelman’s CHC combines current and offspring populations from which the best M individuals form the new population (Eshelman, 1991).
+
+Li’s SCGA partitions a population into species (clusters) and individuals representing partition centres (dominating individuals) are copied to the next generation (Li et al., 2002).
+
+Recently, as an extension of the ideas in Li et al. (2002), Liang et al. introduced AEGA, with elitist crossover and mutation operators, that adaptively adjusts the population size based on the dissimilarity of individuals (Liang and Leung, 2011).
+
+The authors claimed that AEGA is highly successful for multimodal optimization.
+
+PARAGRAPH
+
+Two population based external-memory approaches are introduced in Acan (2004, 2005) within ACO algorithm.
+
+In first of these approaches, variable-size solution segments taken from some elite individuals of previous iterations are stored in an external memory.
+
+In the second approach, partial permutation sequences extracted from a number of above average individuals are stored in the external memory.
+
+In both of the approaches, the memory is initially empty and a standard ACO algorithm runs for a small number of iterations to initialize the external memory.
+
+Stored solutions are associated with their parents’ objective function values that are used as measures for retrieval and updating the memory elements.
+
+Both of the approaches are used for the solution of quadratic assignment problem and significant improvements are achieved compared to conventional ACO implementations.
+
+SECTION
+
+Multiobjective optimization and multiobjective test instances
+
+PARAGRAPH
+
+Majority of the practical optimization problems have several and most probably conflicting objectives to be optimized simultaneously.
+
+These problems, named as multiobjective optimization (MOO) problems, are often treated as single-objective optimization problems either by transforming all objectives into one through a weighted sum of all objectives or by optimizing one selected objective while the others are treated as constraints.
+
+Formal definition of a MOO problem is as follows: minF(X)=[f1(x),…,fP(x)]subjecttoG(x)=[g1(x),…,gJ(x)]≥0H(x)=[h1(x),…,hK(x)]=0xiL≤xi≤xiU,i=1,…,N where x=(x1,…,xN)T is the vector of decision variables, P is the number of objectives, J is the number of inequality constraints, K is the number of equality constraints and, xiL and xiU are the lower and upper bounds of the decision variable xi, respectively.
+
+PARAGRAPH
+
+A solution to a MOO problem is a compromise among the P objectives such that to have more benefits along a particular objective, one needs to sacrifice from benefits of a number of other objectives.
+
+On the other hand, comparing qualities of two potential solutions s1 and s2 is also based on this principle and named as a dominance relation between s1 and s2 as follows: solution s1 dominates solution s2 if s1 is not worse than s2 in all objective function values and s1 is strictly better than s2 in at least one objective value.
+
+Dominance of s1 over s2 is denoted by s1⪰s2.
+
+If neither s1⪰s2 nor s2⪰s1, then s1 and s2 are two nondominating solutions.
+
+A set of mutually nondominated solutions is called a Pareto front and the objective of any MOO algorithm is to extract a Pareto front that is better than or as close as to the known optimal Pareto front.
+
+PARAGRAPH
+
+Although a MOO algorithm produces a set of nondominated solutions, a designer needs one of them as a final design decision.
+
+There are usually two approaches followed for this purpose: in the first approach, it is assumed that preference weights of all objectives are known in advance, and utilities expressed as weighted sum of all objective function values of solutions on the Pareto front can be compared easily.
+
+The second approach is based on an expert’s decision who uses multiple trade-off solutions with a wide range of values to make an appropriate choice for the design problem under consideration (Zio and Bazzo, 2012).
+
+PARAGRAPH
+
+As described above, a MOO problem is defined over an N- dimensional search space of decision variables x1,…,xN and P objective functions f1(x1,…,xN),…,fP(x1,…,xN).
+
+Each objective function maps a parameter vector from the search space to vector in the fitness space.
+
+The fitness space associated with a particular objective function is called its fitness landscape.
+
+One of the major concerns on the difficulty of MOO problems is the multi-modality of fitness landscapes of its objective functions.
+
+Multi-modal objective functions are difficult since optimization algorithms can usually stuck at locally optimal solutions.
+
+Another factor on the difficulty of MOO problems is bias that is a measure on the distribution of images of an evenly distributed set of parameter vectors in the objective space.
+
+Bias effects the distribution of nondominated solutions along a Pareto front.
+
+If the objective functions are highly biased, then some regions of the generated Pareto fronts become heavily crowded while only a few solutions are extracted along the others.
+
+MOO problems with highly biased objectives are more difficult than those with lightly biased objectives in extracting both the optimal Pareto fronts and getting evenly distributed solutions along the extracted fronts  (Huband et al., 2006; Li and Zhang, 2009).
+
+PARAGRAPH
+
+Parameter dependencies have been shown as a critical aspect on the difficulty of the MOO problems.
+
+Considering a single objective function fi(x) and a single dimensional variable xj, the optimization of fi(x) along xj, while all the other decision parameters are kept unchanged, is a single objective optimization problem.
+
+Let fi∗(x)|xj be the set of globally optimal solutions for this problem.
+
+If fi∗(x)|xj is the same for all values of x, then it is stated that xj is separable on fi(x).
+
+Accordingly, if all parameters of fi(x) are separable, then fi is a separable objective and if all of its objectives are separable, then MOO problem is separable.
+
+Separable MOO problems are simpler than the nonseparable ones since the optimization procedure can update each parameter in turn, independently of one another, that also simplifies the extraction of points on the optimal Pareto fronts (Huband et al., 2006; Li and Zhang, 2009).
+
+PARAGRAPH
+
+Geometry of the Pareto optimal front is also an important concern in describing the difficulty of MOO problems.
+
+A Pareto front can be convex, concave, mixed, linear, disconnected or a combination of these geometric descriptions.
+
+It is experimentally observed that MOO problems having convex and connected Pareto fronts are easier than those problems with disconnected and/or mixed geometries.
+
+This is fundamentally because of the fact that, for a convex optimal Pareto front, the optimization of a weighted sum of objectives as a single objective optimization problem results in a point on the convex front.
+
+Hence, a trade-off objectives is a single-objective optimization for a convex Pareto front (Huband et al., 2006; Li and Zhang, 2009).
+
+PARAGRAPH
+
+Based on the above described attributes of difficulty analysis of MOO problems, the associated difficulty attributes of problems considered in our self and comparative evaluations, namely the CEC2009 benchmark problems, are given Section 4.
+
+In addition to this, recent studies that claim competitive results for CEC2009 benchmarks are reviewed in the following subsection to highlight their pros and cons compared to the winning algorithm, MOEA/D, of CEC2009 contest on MOO.
+
+SECTION
+
+A review of recent studies for the benchmarks under consideration
+
+PARAGRAPH
+
+Considering the recent state-of-the-art of MOO algorithms that are claimed to produce highly competitive results for the test problems under consideration, six recently published algorithms that are improved versions of MOEA/D, that is the winner of CEC2009 contest, are briefly described below.
+
+These algorithms are namely MOEA/D-CPDE, MOEA/D-CMX-SPX, MOEA/D-DRA, MOEA/D-DE+PSO, ENS-MOEA/D and MOEA/D-HHsw.
+
+Comparative analysis of the proposed multiobjective GDA with these recently published methods follows their corresponding descriptions.
+
+PARAGRAPH
+
+Wang et al. introduced MOEA/D-CPDE based on a cloud model such that the algorithm first generates two individuals, c1 and c2, from each particle in the cloud using the best solution found so far as a seed  (Li et al., 2015).
+
+The particles associated with an individual in the cloud are generated using its expected value, its acceptable domain range, and dispersion of its domain.
+
+Then, a potential solution y is derived from c1 and c2 using cloud differential evolution operation, which is then mutated through polynomial or cloud particle mutation operators with equal probability.
+
+MOEA/D-CPDE is used to solve the ten problems in CEC2009 benchmarks set and it achieved significantly better IGD scores than MOEA/D in 9 of the 10 problems.
+
+Performance of MOEA/D-CPDE is also compared to another recently published MOEA/D based hybrid algorithm, MOEA/D-DE+PSO, and the presented results show that IGD scores of MOEA/D-CPDE are better in 6 of the 10 test problems.
+
+PARAGRAPH
+
+The work of Khan et al.
+
+MOEA/D-DRA-SPX+CMX, is on the use of two crossover operators, namely simplex crossover (SPX) and centre of mass crossover (CMX), within another MOEA/D variant with dynamic resource allocation MOEA/D-DRA (Khan and Zhang, 2010; Zhang et al., 2009a).
+
+The authors used a Tchebycheff aggregation function for decomposition of the given MOO problem into single-objective subproblems.
+
+The authors did not provide any comparative evaluation of their proposal.
+
+However, a detailed analysis of this algorithm’s results against its fundamental method MOEA/D-DRA, our proposal MOGDA and others under consideration is given below.
+
+PARAGRAPH
+
+A hybrid of MOEA/D with particle swarm optimization is proposed by Mashwani et al. in which PSO acts as a local search engine and DE works as the main search algorithm (Mashwani and Salhi, 2014).
+
+The authors named this algorithm as MOEA/D-DE+PSO.
+
+At the beginning of an iteration, The N subproblems found by decomposition is divided randomly into two subsets and the individuals in the first subset are dealt by PSO while the ones in the second subset are processed by DE.
+
+The number of elements in each subset is computed based on the ratio of successful solutions extracted by PSO to total number of successful solutions extracted by PSO and DE.
+
+Other steps of this algorithm are common to MOEA/D and the authors provided mean IGD scores for CEC2009 benchmarks over different population sizes.
+
+Based on their claim, the search ability of MOEA/D-DE+PSO is not much affected with different population sizes.
+
+PARAGRAPH
+
+Zhao et al. proposed another MOEA/D variant, named as ENS-MOEA/D, based on the use of an ensemble of different neighbourhood sizes (NS) with self-adaptation (Zhao et al., 2012).
+
+In MOEA/D, it is known that a larger neighbourhood makes the search more global, whereas a smaller neighbourhood results in local search.
+
+Hence, the main idea of ENS-MOEAD/D is appropriately adjusting NS for each subproblem to enhance performance of the baseline algorithm MOEA/D.
+
+For this purpose, K fixed NSs are used as a pool of candidates.
+
+Then, a NS is chosen for each subproblem based on the success of candidates over a fixed number of previous iterations.
+
+Probability of choosing a particular NS is computed as the ratio of its current success to sum of its success scores over the defined set of previous iterations.
+
+IGD scores of this algorithm are listed by the authors, however, no comparative evaluations against other MOO metaheuristics is provided.
+
+PARAGRAPH
+
+A research conducted by Golcalves et al. introduces an expansion of MOEA/D with a selection hyperheuristic (Goncalves et al., 2015).
+
+The proposed method, named as MOEA/D-HHsw, employs a choice function with sliding window to determine the DE mutation strategy (heuristic) to be applied on each subproblem.
+
+The choice function of a particular heuristics is defined over a linear scaling of three measures, namely its previous performance, its relation between itself other heuristics and the time elapsed since its last selection.
+
+The sliding window keeps a recent subset of low-level heuristics and heuristics selected through choice functions are applied to subset of subproblems resulting from a Tchebycheff function based decomposition method.
+
+The authors applied MOEA/D for the solution CEC2009 instances and comparatively evaluated their proposal with respect to four state-of-the-art metaheuristics.
+
+The results exhibited that MOEA/D-HHsw is a promising approach.
+
+PARAGRAPH
+
+Li et al. designed a bi-criterion evolution framework in which two populations are interactively evolved as follows: there are two populations where the evolution of the first is based on the Pareto criterion (PC population) such that it keeps only the non-dominated solutions of the two populations whereas the second population’s (NPC population) evolution follows the conventional non-Pareto environmental selection mechanism.
+
+Hence, NPC population contains both dominated and nondominated individuals (Li et al., 2016).
+
+The two populations share information in the sense that, when a new individual is developed in either of the populations it is considered to be a possible insertions in both populations.
+
+The main objective of this approach is to use PC population as a compensation for diversity loss in NPC population, while latter is helping the former in search of the optimal Pareto front.
+
+The authors named this proposal as BCE-MOEA/D+TCH and tested its success on several MOO benchmark problem sets, including CEC2009 benchmark problems, and the reported results exhibit that the proposed method is significantly better than its five competitors.
+
+PARAGRAPH
+
+For the purpose of decomposing a MOO problem into a set of simpler MOO subproblems, Ma et al. proposed a decision variable analyses approach that is based on two kinds of analysis of decision variables, namely control property analysis and variable linkage analysis.
+
+In control property analysis, variables are classified as position variables, distance variables, and mixed variables based on their control for convergence and spread Pareto optimal solutions.
+
+Based on the clusters of position and mixed variables, a MOO problem is decomposed into a set simpler subproblems.
+
+Then, based on the learned variable linkages, the distance variables are divided into a number of subcomponents such that each subcomponents is optimized independently by each sub-MOO problem one by one (Ma et al., 2016).
+
+This proposal, named as MOEA/DVA, is applied for the solution CEC2009 benchmark problems for which the achieved success is much better than those of its three competitors.
+
+SECTION
+
+Great Deluge algorithm
+
+PARAGRAPH
+
+Great Deluge algorithm (GDA), that is first proposed by Dueck (1993), is a trajectory-based local search algorithm similar to simulated annealing algorithm with the exception that acceptance rule is deterministic and controlled by a threshold parameter called the level.
+
+The basic GD algorithm is described in Algorithm 1.
+
+The algorithm starts with a randomly constructed initial solution, SIter, and has four fundamental parameters to be set initially.
+
+These are the estimated value of fitness for a globally optimal solution, FBest, the maximum number of iterations, MaxIter, the initial value of the level, LevelIter and the level decay parameter, ΔLevel.
+
+Usually, the initial value of the level parameter is set equal to the fitness of the initial solution.
+
+Throughout the execution of GDA, acceptance of new solutions depends on the level parameter and the value of this parameter is decayed linearly or nonlinearly.
+
+PARAGRAPH
+
+In its search in a solution space, a new solution is accepted if its fitness is better than the current one or less than a dynamically updated upper bound, that is the level.
+
+Estimated best fitness value of the objective function is usually set less than or equal to the fitness of the best solution known so far.
+
+Level is initially set to the fitness of the initial solution and is lowered iteratively by an additive parameter β computed as a function the initial value of level, estimated best fitness value of the objective function and the number of iterations.
+
+PARAGRAPH
+
+As it is seen from Algorithm 1, the fundamental distinction between SA and GDA lies in the acceptance rule.
+
+While SA accepts a new solution stochastically based on Boltzmann distribution, GDA applies a deterministic rule through a dynamically changing parameter, Level.
+
+In SA, the magnitude of a uphill climbing move is controlled by the temperature parameter, T, that effects the probability of being accepted from approximately all (when T is very large) to approximately none (when T is very small).
+
+The temperature is adjusted according to a predefined cooling schedule.
+
+In GDA, the magnitude of uphill climbing moves is controlled by the deterministic Level parameter such that all uphill moves resulting in a fitness less than the Level are accepted.
+
+The level parameter is adjusted according to a level decay mechanism.
+
+While SA is proved to be globally optimal under asymptotic thermal equilibrium conditions, no such proof exists for GDA.
+
+However, GDA is experimentally shown to be faster and more robust than SA for several hard optimization problems, like exam and course timetabling problems (Burke et al., 2003).
+
+Our proposal presented in this paper is a two-stage memory powered multiobjective GDA approach with adaptations and modifications in its fundamental parameters and acceptance mechanism towards developing a competitive algorithm.
+
+Details of its implementation and performance for well-known MO benchmark problem instances are presented in the following sections.
+
+PARAGRAPH
+
+After its initial introduction, several improvements of GDA are proposed in couple of publications.
+
+These improvements can be considered in two categories: changes in basic algorithm parameters and search operators, and hybridizations with other metaheuristics.
+
+Since GDA has two relatively important parameters, namely the level and the level decay rate β, algorithmic improvements based on different ways of changing these parameters have been proposed in several publications.
+
+Burke et al. implemented linear decreasing of decay rate β such that the amount of decay is computed based on the maximum number of iterations.
+
+The authors called this strategy as degraded ceiling algorithm (Burke et al., 2003).
+
+The authors claimed that this strategy produced most of the best results on benchmark examination timetabling problems.
+
+Later, Burke and Bykov developed the flex-deluge algorithm (FGDA) in which the acceptance of uphill moves is controlled by a flexibility parameter (Burke and Bykov, 2006).
+
+For the solution of exam timetabling problems, FGDA was claimed to provide good results particularly for large-scale problems.
+
+The modified great deluge algorithm (MGDA) proposed by Ravi (2004), introduced a new neighbourhood search and a new level decay mechanism that depends on the amount of improvement achieved when current solution is modified to get the new one.
+
+Basically, level is decreased if the fitness of new solution is below the current level, whereas it is increased otherwise.
+
+This approach is applied for reliability optimization and optimal redundancy allocation problems and was observed to perform as good as ant colony optimization, while it was significantly better than simulated annealing algorithm.
+
+Landa-Silva and Obit developed the nonlinear great deluge algorithm (NLGDA) that uses a nonlinear decay rate for the level parameter (Landa-Silva and Orbit, 2008).
+
+An exponential expression including four parameters is used to determine the shape and decay rate.
+
+When used for the solution of course timetabling problems, NLGDA updated the new best solutions for four benchmark instances among the eleven in the experimental set.
+
+The extended great deluge algorithm (EGDA), developed by McMullan, uses the concept of reheating from simulated annealing such that, if no improvement is obtained within a predefined period T4, the level parameter is reset to the current objective function value (McMullan, 2007).
+
+For the course timetabling benchmark problems set, EGDA produced the best solutions for five medium-size problems and for one large-size problem.
+
+Nahas et al. introduced IGDA that is an application of EGDA in two steps as follows: EGDA is used for N1 number of iterations to find a locally optimal solution.
+
+Then, best solution found in the first step is used as the initial solution for EGDA and it is improved through another N2,N2<N1, number of iterations (Nahas et al., 2010).
+
+For a set of 48 facility layout problems, IGDA is reported to update the best found results for 17 of them.
+
+Ozcan et al. combined reinforcement learning (RL) and the GDA within a hyperheuristic (HH) framework such that RL is used to select one of a set of low-level heuristics, then that is applied as a move to generate a new solution, whereas the GDA’s level-based decision mechanism is used to accept or reject the move (Ozcan et al., 2010).
+
+For a set of thirteen university examination timetabling problems, this approach is observed to perform better than simulated annealing and simple random hyper-heuristics for six problem instances.
+
+PARAGRAPH
+
+The second category of the improvements are in the form of hybridizations with other metaheuristics or slight modifications of level-based acceptance mechanism.
+
+Al-Milli (2010) used GDA as local search procedure within a genetic algorithm (GA) framework for the solution of course timetabling problems.
+
+After each generation, GDA is employed to improve the best solution found so far.
+
+The author claims that the proposed combination resulted in consistently good results for the benchmark problems used in experimental studies.
+
+Landa-Silva et al. proposed another hybrid of evolutionary algorithms and NLGDA where an individual selected from the current population by tournament selection is modified by mutation and the mutated individual is improved by NLGDA (Landa-Silva and Obit, 2009).
+
+If the resulting solution is better than the worst solution in the population, then the result of NLGDA replaces that worst solution in the population.
+
+The proposed hybrid approach is claimed to perform better than its competitors in most of benchmark course timetabling problem instances.
+
+A third GDA-related hybrid approach on the solution of course timetabling problem combines particle collision algorithm (PCA) and GDA such that GDA’s level-based acceptance criterion is used in the scattering phase of PCA  (Abuhamdah and Ayob, 2009).
+
+The experimental results presented in the paper show that the proposed hybrid approach performs better that its eleven competitors for the solution of eleven widely used course timetabling problem instances.
+
+In a sequential implementation of Tabu search and GDA, proposed by Abdullah et al. (2009a), the current solution is first modified by GDA and then the modified solution is improved by tabu search.
+
+Finally, the best of the solutions found by the two algorithms is used to start the next iteration.
+
+When used for the solution of course timetabling problem, the proposed method is reported to provide the best solutions for most of the benchmark problems.
+
+In another publication, Abdullah et al. combined GDA with an electromagnetic-like mechanism to solve the examination timetabling problem (Abdullah et al., 2009b).
+
+This population based method is implemented in two phases.
+
+In the first phase, a positive amount of charge is assigned to each timetable in the population based on their fitness relative to the fitness of the best timetable found so far.
+
+Consequently, the total force on each timetable is computed using an analogy to interaction of charged particles and these total force values are used to calculate the estimated qualities of individual timetables in the population.
+
+In the second phase, the level decay parameter of GDA is determined based on the estimated quality values of individual timetables and GDA is applied on each timetable of the population for a number of iterations.
+
+Among the eleven examination timetabling instances and against the eight competitors in experimental evaluations, the authors reported that the proposed approach provided the best known solutions for nine instances.
+
+Among a few GDA hybrids used for real-valued function optimization, Ghatei et al. hybridized GDA and particle swarm optimization (PSO) in which GDA is used as final local search procedure to further improve the best solution found by the PSO algorithm (Ghatei et al., 2012).
+
+This approach is tested over only four benchmark functions and claimed to be better than GAs and PSO.
+
+SECTION
+
+The proposed multiobjective Great Deluge algorithm with two-stage archive support
+
+PARAGRAPH
+
+In multiobjective optimization, the fundamental aim is to extract a globally optimal Pareto front that represents a set of solutions.
+
+In many of the practical cases, this is a very difficult task due to large-size search spaces, unknown objectives landscapes, conflicting objectives and inefficient search operators.
+
+Considering computational cost of extracting globally non-dominated solutions, multiobjective metaheuristic algorithms are proved to be effective and computationally feasible alternatives, among many MOO methods, for the extraction close-to-optimal Pareto fronts.
+
+Based on the number of potential solutions used in exploration of the solution space, metaheuristics for global optimization can be categorized as population- and trajectory-based algorithms.
+
+Trajectory-based algorithms use only one solution at a time to explore the solution space while the population-based methods are employing multiple solutions for this purpose.
+
+In this respect, multiobjective implementations of both population- and trajectory-based metaheuristics are proposed and applied for the solution of difficult test problems.
+
+The method presented in this paper uses a kind of hybrid approach that uses one solution in exploration of the solution space while two archives of solutions are employed to efficiently direct the trajectory towards potentially promising regions.
+
+PARAGRAPH
+
+In the presented method, a solution vector X, a two-stage external memory M=MFS∪MSS and NDS are maintained, where MFS and MSS denote the first and the second stages of the external memory M, and NDS is the set of non dominated solutions found so far, respectively.
+
+Elements of M are promising solutions discovered throughout the search process and the reasoning behind the two stage architecture is exploiting the useful information in both the objective space considering the dominance measure and the variable decision space in term of the dissimilarity of the extracted solutions.
+
+In this respect, the first stage memory MFS acts as a short−term memory whose elements are changing frequently whenever a solution dominates the one of its elements is extracted, whereas the second stage memory MSS functions as a long−term memory whose components are updated only after a certain number of elements of MFS is updated.
+
+Information stored within the elements of the first stage are potentially on or close to the current Pareto front while those in the second stage are nondominated solutions that are maximally dissimilar to each other so that search is directed to distant regions of the solution space.
+
+PARAGRAPH
+
+As mentioned above, elements of MFS are elite solutions in objective space whereas those in MSS are promising solutions distributed over distant regions of the search space.
+
+First stage memory MFS has a fixed size |MFS|=L, whereas the maximum size of the second stage memory is |MSS|=K, with the condition that K≤L.
+
+That is, the cardinality of MSS changes depending on the number of extracted nondominated solutions that are dissimilar to each other with respect to a similarity measure given below.
+
+Both memories are initially empty and MFS is initialized with randomly built solutions.
+
+Then, to initialize MSS, similarities between mutual elements of MFS are computed and dissimilar elements of MFS sorted in increasing order of their dominance ranks are inserted into MSS.
+
+As indicated before, the number of solutions inserted into MSS can be at most K and initialization of the external memory M is completed this way.
+
+Based on the experimental evaluations, size and random initialization of MFS results in a diverse distribution of its elements in the solution space and initial size of MSS is almost always equal to K. Elements of MFS with a rank of 0 constitute the initial Pareto front and are also inserted into NDS.
+
+PARAGRAPH
+
+After initialization of the two-stage external memory, the search procedure begins with a randomly built initial solution X, which is evaluated using the objective functions f1(.), ⋯, fP(.) to get its fitness as f(X).
+
+In order to implement a controlled diversification through the solution space and exploit the accumulated experience within the external memory, three different moves are defined to convert the current solution X into Xnew.
+
+The controlled diversification is implemented using a dynamically changing parameter Step_Size, whereas the elements of MSS are used to direct the search towards promising regions of the search space.
+
+Solutions in MSS act as templates of good quality solutions within distant regions of the search space.
+
+In this respect, assuming that the number of variables is N, the three moves are applied probabilistically as described in Algorithm 2 where randi([IMIN,IMAX]) is the function generating uniformly distributed integer numbers in [IMIN,IMAX], p1 and p2 are the parameters determining the frequency of selection for each of the three moves.
+
+Values of p1 and p2 are determined experimentally.
+
+PARAGRAPH
+
+As can be seen from the descriptions in Algorithm 2, the first move is a mutation operator along the ith variable axis.
+
+Accordingly, i−th component of X, X(i), is modified as Direction=sign(−1.0+2.0∗rand());Xnew(i)=X(i)+Direction∗rand()∗Step_Size(i);where Direction is a random factor in {−1,1} determining the sign of the step to be added to the current value of X(i) and rand() is the function generating a uniformly random number in [0,1].
+
+If the resulting value of X(i) exceeds its associated limits, then its value is set equal to the closest limit.
+
+The second move is similar to the first one except its directional bias along a randomly selected archive element in MSS.
+
+That is, the ith component of X is mutated by a random step that is proportional to the difference between X(i) and the ith component of a promising solution in the long−term memory.
+
+The algebraic description of this move is illustrated as, Direction=sign(−1.0+2.0∗rand());Xr=MSS(randi([1,|MSS|]));Xnew(i)=X(i)+Direction∗rand()∗(Xr(i)−X(i));where Xr represents the randomly retrieved memory element in MSS.
+
+Note that, the two moves described so far are acting along one variable axis only and they are applied sequentially along variable axes in the order of objective function’s arguments list.
+
+The third move aims a multidimensional step towards a randomly retrieved solution in MSS.
+
+This way the memory guided exploration of the search space is carried out both in single- and multi-variable directions.
+
+Description of the third move is given in Eq. (3) below, Direction=sign(−1.0+2.0∗rand(1,N));Xr=MSS(randi([1,|MSS|]));Xnew=X+Direction∗rand(1,N)∗Step_Size(1,N)∗(Xr−X);where Direction is an N-dimensional vector indicating the sign of random steps to be taken along each variable axis, the function rand(1,N) returns an N-dimensional vector of uniform random numbers in [0,1], and all vector operations are performed element-wise.
+
+Step_Size(1,N) for each variable sets the maximum step length along each variable axis and its elements are dynamically changed throughout the program execution as explained in Algorithms 3 and 4.
+
+PARAGRAPH
+
+Together with the above described memory-based search operators, another novelty brought by the proposed method is the structure and organization of the maintained two-stage external memory.
+
+The two stage architecture allowing the exploitation of accumulated search experience without causing premature convergence or poor spread of nondominated solutions works as follows: Initially the fixed-size first stage memory MFS is filled with randomly constructed solutions and the second stage memory MSS is empty.
+
+Elements of MFS are updated every time a new solution dominating its parent or an element of the current NDS is discovered.
+
+In such a case, the first dominated element of MFS is replaced by the new better solution.
+
+Elements of MFS are promising solutions that are selected based on their objective space dominance along a trajectory or against solutions within the latest set of nondominated solutions.
+
+Due the effectiveness of memory-guided search operators, solutions within this first stage memory are updated frequently.
+
+Another observation in our experimental studies is that, due to the trajectory-based search capability of GDA, use of a single archive MFS results in crowding such that extracted nondominated solutions become clustered around a few superior solutions.
+
+To avoid this problem, which is a kind of being stuck around locally optimal Pareto fronts, a second memory stage MSS is maintained so that its elements are required to be dissimilar to each other in decision variables space.
+
+This way, the aim is to direct search towards different promising locations of search space and get a good spread of nondominated solutions along objective axis.
+
+It is also expected that, using elements of MSS as templates representing distant regions of solution space will help to avoid locally optimal Pareto fronts with crowded regions around a few solutions.
+
+For these purposes, MSS are updated only after MFS is updated for a number of times.
+
+For this purpose, elements of MFS are checked for spatial similarity and only those elements with a similarity score lower than a predefined threshold λ are sorted in increasing order of their weighted sum of their objective fitness values and they are inserted into MSS in order without exceeding its maximum size, K. Hence, depending on the defined similarity threshold and the current iteration of algorithm execution, the number of elements in MSS might be lower than K.
+
+The distance based similarity measure used in the proposed approach is defined as follows: Sim(X,Y)=|min(X−Y)|+|max(X−Y)|where sum of the absolute values of the minimum and maximum differences between individual components of vectors X and Y is taken as a measure of closeness between the two vectors.
+
+From the above definition, it is clear that Sim(Y,X)=Sim(X,Y).
+
+When Sim(X,Y) is less than λ, then the two vectors are classified as similar and one of them is marked not to be inserted into MSS.
+
+This way, all elements of MSS are kept maximally apart from each other in the parameter space.
+
+This similarity based evaluation of solution vectors in variable space (not in objective space) allows diverse sampling of promising solutions within the solution space.
+
+Hence, representative solutions from different localities allows simultaneous intensification around more than one solution and helps to get uniform spread of solutions along the Pareto boundary.
+
+During the execution of the proposed algorithm, elements of MSS are updated as follows: when elements of MFS are updated for a predefined q number of times, the total external memory M is built as M=MFS∪MSS.
+
+Obviously, |M|=|MFS|+|MSS| depends on the iteration at which the union is made because of the iteration dependent size of MSS.
+
+Consequently, similarity scores between mutual components of M are calculated using Eq. (4) and only one of those elements that are similar to each other remain unmarked.
+
+Unmarked elements of M are sorted in increasing order of their weighted sum of objective fitness values and they are then inserted into MSS without exceeding its maximum limit.
+
+Details of this procedure are given below in Algorithms 3.
+
+This combined evaluation and update methodology for MSS enables the storage of representative solutions from multiple promising regions of the solution space and searching around them until they are replaced by better representative solutions.
+
+Based on the above explanations, an algorithmic description of the proposed method is presented in Algorithms 3 and 4.
+
+While Algorithm 3 introduces the steps of initializing the starting solution, search procedure parameters and two stages external memory, Algorithm 4 describes the fundamental computational details of the proposed algorithm.
+
+SECTION
+
+Experimental studies
+
+PARAGRAPH
+
+Performance evaluations of the proposed algorithm and exhibition of its comparative success against state-of-the art metaheuristics are carried out over the difficult problems in CEC2009 multiobjective optimization benchmarks.
+
+Detailed definitions of these benchmark functions are given in Zhang et al. (2008) and Zhang and Suganthan (2009).
+
+Also, in order to give an idea about the difficulty of each problem, based on the descriptions in Section 2.2, Table 1 illustrates dimensionality, variable domains, Pareto front geometries and fitness landscape characteristics of all these functions.
+
+The 10 multi-objective unconstrained problems within CEC2009 MOO benchmarks are mostly generated from the set of classical benchmarks through random shifting, random shifting and rotation, and hybrid composition operations.
+
+Among these problems UF1 to UF7 are two-objective and UF8, UF9 and UF10 are three-objective problems.
+
+For each of the test functions, the number of independent runs and the termination criterion, in terms of the number of fitness evaluations, are set the same as the ones used in the corresponding references so that fairness is guaranteed for all comparative evaluations.
+
+Algorithmic parameters of the proposed method are kept the same for all the test functions and no interactive intervention is made throughout the program executions.
+
+Additionally, number of variables for the test functions is also taken the same as the ones specified in the corresponding references.
+
+Accordingly, all results are averages over 30 runs and maximum number of fitness evaluations is set to 300,000.
+
+Based on the CEC2009 competition rules, problem size (number of variables) for each benchmark problem instance is set as 30 and the inverse generational distance (IGD) values are used to compare performances of algorithms.
+
+For this purpose, results of algorithms that participated in CEC2009 MOO competition are taken from Zhang and Suganthan (2009) and average results of the proposed algorithm, named as MOGDA form this point on, over 30 independent runs are compared to these published values for all problems.
+
+As stated in Zhang and Suganthan (2009), the maximum number of final Pareto-front solutions to be used for the computation of IGD scores is 100 for two-objective problems and 150 for three-objective problems.
+
+PARAGRAPH
+
+Algorithmic parameters of the proposed algorithm are as follows: considering the GDA and the proposed MOGDA’s parameters, size of the first stage memory, |MFS|, is set to 200 whereas maximum size of the second stage memory, |MSS|, is 100.
+
+The experimentally determined value for NILength is 100.
+
+That is, if the new solution Snew is rejected after 100 consecutive moves, the current solution is re-initialized randomly to get rid of the current locally optimal solution.
+
+The experimentally tuned values for the second stage archive indicator q and the similarity threshold λ are set to values 5×N and 0.18, respectively.
+
+As mentioned before, the parameter q determines the frequency of updating the second stage archive, MSS, and its value has a significant effect on the success of the proposed system.
+
+Experimental analysis and justification for the proposed setting of q are given in Section 4.2.
+
+Experimental evidences showed that setting q=5×N balances both the search around the promising but dissimilar solutions stored in MSS and lifetime of promising solutions in MSS to get a better spread along the PF.
+
+In addition to these, the two move selection probabilities p1 and p2, specified in Algorithm 1, are set to 0.25 and 0.75, respectively.
+
+All parameter values are globally used for all executions and for all problem instances.
+
+Implementation of the proposed system is carried out using Matlab®programming language environment and a personal PC with 8 GB main memory and 2.1 GHz clock speed.
+
+PARAGRAPH
+
+As stated above, IGD is claimed to be the only MOO assessment metric for CEC2009 benchmarks by MOO contest organizers and, accordingly, all self and comparative evaluations of the proposed algorithm are based on IGD scores.
+
+Table 2 illustrates the minimum, maximum, average IGD values and the standard deviations associated with the proposed MOGDA algorithm for the 10 benchmark problems over 30 independent runs for each problem.
+
+PARAGRAPH
+
+Results in Table 2 show that MOGDA is a successful and robust algorithm illustrated with small IGD values and the corresponding standard deviations.
+
+The largest IGD values belong to test problems UF6, UF8 and UF10 problems, however it can be seen that the mean and the minimum IGD values for these problems are very close to each other.
+
+This implies that the maximum IGD values occurred rarely throughout the 30 independent runs and smallness of the minimum and the mean values further point that MOGDA is steadily converging to near optimal solutions in almost all runs.
+
+PARAGRAPH
+
+Table 3 illustrates the ranks, mean IGD scores and corresponding standard deviations for all algorithms that took part in CEC2009 MOO contest and MOGDA.
+
+Rank scores are computed with respect to the average IGD values.
+
+Based on the published results in Zhang and Suganthan (2009), the best performing five algorithms in the competition are MOEAD (Zhang et al., 2009b), MTS (Tseng and Chen, 2009), DMOEADD (Liu et al., 2009), LiuLi (Liu and Li, 2009) and GDE3 (Kukkonen and Lampinen, 2009) in order.
+
+Hence, the winner of the competition was MOEAD.
+
+It can be seen from Table 3 that MOGDA performed better than MOEAD in 4 of the 10 test problems.
+
+The proposed algorithm takes the second position for three test problems (UF4, UF9, UF10) and takes the second or third positions in 50% of the ten benchmark problems.
+
+Among the 14 rank positions in Table 3, the worst rank of MOGDA is the sixth position that is taken for test problems UF6 and UF8.
+
+The proposed method took the second rank position for the difficult three-objective test problems UF9 and UF10 for which the achieved average IGD score is significantly better than the competitors in lower ranks.
+
+Considering the IGD standard deviations, except problem UF6, MOGDA is significantly better then MOEAD in majority of the benchmarks while the two algorithms’ scores are very close to each other for a few problem instances.
+
+PARAGRAPH
+
+Comparisons between MOGDA and MTS, which is the second best performing algorithm in the contest, show that the proposed algorithm is better than MTS in 5 of the 10 test problems.
+
+MOGDA’s performance is better for the test problems UF1, UF3, UF7, UF8 and UF9.
+
+Similarly, evaluations compared to the third, fourth, and the fifth rank algorithms of CEC2009 MOO competition exhibit that MOGDA achieved significantly better ranks than DMOEADD, LiuLi and GDE3 algorithms in 4, 7, and 8 test problems, respectively.
+
+MOGDA’s standard deviation scores are better than those of MTS for difficult problem instances UF7–UF10, whereas MTS performed better for smaller problems UF1, UF2 and UF4–UF6.
+
+PARAGRAPH
+
+In order to investigate the relative problem-dependent behaviour of MOGDA for individual benchmark problems, the following observations can be stated based on the results in Tables 1 and 3.
+
+First of all, there is no particular class of problems for which MOGDA is obviously better or obviously worse.
+
+For example, as Tables 1 and 3 illustrate, MOGDA performs relatively good for problems UF1 (convex, SP), UF3 (Convex, NS), UF4 (Concave, NS), UF5 (Linear, NS), UF9 (Linear, Disconnected, SP), and UF10 (Concave, NS) that have almost all features associated with the difficulty of MOO problems.
+
+Similarly, problems for which MOGDA has fifth or sixth rank among the 14 competitors are UF2 (Convex, NS), UF6 (Linear, disconnected, NS), UF7(Linear, NS), and UF8(Concave, SP) that also have the same distribution of problem specific features as the others do.
+
+In fact, MOGDA’s behaviour in this respect is not different than the other successful competitors.
+
+For example, the winner of CEC2009 competition, MOEAD, has the fourth rank for UF2 but achieved the first rank for UF3 even though both of the problems have convex PFs and non-separable variable dependencies.
+
+Also, MOEAD has the first and the fourth ranks for the two benchmark problems UF6 and UF9 with linear, disconnected PFs and non-separable (UF6) and separable (UF9) variable dependencies, respectively.
+
+Furthermore, for problems UF5 and UF7, both with linear PFs and non-separable variable dependencies, MOEAD occupied the eighth and the first ranks, respectively.
+
+The other algorithms under consideration have almost similar behaviour and it is hard to reach objective decisions on their weakness or strength based on particular problem dependent difficulty features.
+
+PARAGRAPH
+
+Figs. 1 and 2 illustrates the plots of best computed Pareto-Fronts obtained by MOGDA against the optimal one (PF-True) published as a result of the competition.
+
+The plots of computed Pareto fronts for two-objective test problems include 100 non-dominated solutions whereas those for three-objective problems cover 150 solutions.
+
+These solutions are selected based on the descriptions in Zhang and Suganthan (2009) as follows: Solutions on the computed Pareto front are clustered into 100 (150 for three-objective case) classes and a member that is nearest to the PF-True from each class is selected.
+
+PARAGRAPH
+
+Plots of computed Pareto fronts against the optimal ones demonstrate that the set of non-dominated solutions found by MOGDA has a good spread and the computed PFs are quite close to PF-Trues.
+
+Considering the test problems UF5 and UF6 for which there are local jumps out of the associated PF-trues, however these jumps also occurred on all plots given in Zhang et al. (2009b), Tseng and Chen (2009), Liu et al. (2009), Liu and Li (2009) and Kukkonen and Lampinen (2009) and the magnitude of these jumps for the computed PFs of MOGDA are significantly smaller than many of those found by the competitors.
+
+PARAGRAPH
+
+In order to check the statistical similarity of our results to those of others and determining the rank of MOGDA compared to all of its competitors, the Friedman Aligned Ranks Test (Derrac et al., 2011) is implemented over all average IGD scores achieved by the 13 algorithms in CEC2009 MOO contest and the proposed MOGDA algorithm.
+
+Table 4 shows the average rank values for all algorithms and the p-value of the test.
+
+Subscripted numbers for the best scores indicate the order of the corresponding algorithms.
+
+It can be seen that, the average rank value of MOGDA is the smallest one, which indicates that MOGDA is the best performing algorithm among the 14 competitors over all the ten benchmark instances.
+
+Meanwhile, the p-value is very close to zero implying that there is significant statistical difference among results of all algorithms.
+
+PARAGRAPH
+
+In order to present more insight about the statistical significance of IGD scores achieved by all algorithms under consideration, Friedman aligned ranks test is applied over groups of CEC2009 benchmarks based on their functional characteristics.
+
+Table 5 presents the Friedman test results for convex, concave, linear, disconnected, 2-objective and 3-objective problem instances.
+
+MOGDA keeps its first position rank for the seven 2-objective benchmarks while it is the second best performing algorithm for the 3-objective problems.
+
+Among the 14 competitors, the worst rank of MOGDA is the third position that is taken for convex and disconnected problem instances.
+
+Friedman test results with regard to problem characteristics also demonstrate that the proposed algorithm is a powerful alternative for numerical multiobjective optimization.
+
+SECTION
+
+PARAGRAPH
+
+Comparisons with recent state-of-the-art algorithms
+
+PARAGRAPH
+
+For further comparative evaluation of performance of the proposed algorithm, MOGDA, the results achieved for CEC2009 MOO benchmarks are compared to those obtained by a number of recently published algorithms presented in Section 2.2.1.
+
+PARAGRAPH
+
+Table 6 illustrates the IGD scores and the associated standard deviations of the recently published metaheuristics and our proposal MOGDA.
+
+It can be observed that none of the algorithms is the absolute winner, however considering the best average IGD scores one can conclude that best performing algorithms seem to be MOEA/D-HHsw, ENS-MOEA/D, MOEA/DVA and MOGDA that achieved the best scores for 3, 2, 4 and 1 test instances, respectively.
+
+MOGDA is ranked in first four positions for 5 of the 10 benchmark problems under consideration.
+
+Also, among the nine algorithms in Table 6, MOGDA took the last position for only one of the test problems.
+
+In order to give a better idea on the rank of MOGDA among its eight competitors, Fig. 3 illustrates the variation of IGD scores for each algorithm on the ten benchmark problems.
+
+Plots of the best four algorithms are indicated with thicker lines for easy comparisons.
+
+It can be seen that IGD scores of MOGDA do not have very wide variations and, for test problems UF4–UF7 for which there is a great deviation among IGD scores of metaheuristics, MOEAD/DVA, ENS-MOEA/D and MOGDA are clearly the most stable and the most robust algorithms compared to their state-of-the-art competitors.
+
+It can also be seen that for the other six problems, graphical shape of IGD scores of MOGDA is similar to those of best performing algorithms (see Fig. 3).
+
+PARAGRAPH
+
+To exhibit the comparative success of MOGDA with respect to its recently published competitors, Friedman aligned ranks test results for this second part of experimental work are presented in Table 7.
+
+It can be seen that the proposed algorithm has the fifth rank among the nine algorithms under consideration.
+
+The winner is ENS-MOEA/D which is followed by MOEA/D-HHsw algorithm.
+
+Similar to the first set of experimental results, the p-value is very small indicating that there significant statistical difference among mean IGD scores of all algorithms.
+
+PARAGRAPH
+
+Considering the problem characteristics of CEC2009 benchmarks, MOGDA’s and its competitors’ Friedman aligned rank scores are presented in Table 8.
+
+The proposed algorithm ranked in the first fifth positions for five of the six problem classes.
+
+While MOGDA is the second best performing algorithm for disconnected problems, it took the third position for concave problems.
+
+It is interesting to note that MOGDA is weak in convex multimodal problems while it is comparatively stronger for more difficult disconnected multimodal problems.
+
+This is in fact due to the superiority of MOEA/D-based decomposition algorithm in locating optimal solutions for convex problems.
+
+However, the use of the two-stage archive, which keeps the mutually distant promising solutions to facilitate further intensification around them, makes MOGDA a stronger algorithm for the more difficult disconnected multimodal problems.
+
+SECTION
+
+PARAGRAPH
+
+Experimental justification for setting the parameter q
+
+PARAGRAPH
+
+An important parameter on the success of the proposed systems is the frequency of updating the second stage archive, MSS, after updating the first stage archive, MFS, for a number of times that is stated as MSSUpCounter in Algorithm 4.
+
+Each time a new solution is inserted into MFS, MSSUpCounter is incremented by 1 and when the number of insertions exceeds a threshold q, MSS is updated as described in Section 4.
+
+Value of q is experimentally determined as 5N in the proposed method.
+
+To illustrate the effect of using different q values on the extracted PFs, three characteristic benchmark problems UF1 (Convex, SP), UF5(Linear, NS) and UF9 (Linear, disconnected, SP) are selected and their PFs are generated with settings q={N,2N,5N,10N,15N} while all the other experimental parameters are kept unchanged.
+
+Figs. 4–6 illustrate the generated PFs associated with the three problems for aforementioned q values.
+
+PARAGRAPH
+
+It can be seen from the above figures that smaller values of q, that means updating MSS more frequently with q={N,2N}, causes poor spread of solutions along the PFs.
+
+Let us note that elements of MFS are updated based on dominance in objective space only, whereas elements of MSS are updated based on dominance in objective space and dissimilarity in parameter space.
+
+When MSS is updated using smaller values of q, frequent exchange of solutions between MFS and MSS results in more search in the vicinity of a number of PF members without effectively tracing distant areas of the solution space.
+
+This is why the extracted solutions are still closer to optimal PF but they are localized along particular regions.
+
+In contrast to this, when elements of MSS are updated with larger values of q, that means less frequently with q={10N,15N}, then the search process advances with insufficient guidance from the promising elements of MSS and a few nondominated solutions above the optimal PF are extracted.
+
+Based on these experimental evidences, it can be stated that the experimentally determined setting q=5N balances both the search around the promising but dissimilar solution stored in MSS and sufficient amount of search around the promising solutions to get a better spread along the PF.
+
+SECTION
+
+Conclusions and future research directions
+
+PARAGRAPH
+
+A two-stage external memory based implementation of GDA for real-valued multiobjective optimization problems is introduced.
+
+The proposed trajectory-based method employs two archives to efficiently direct the trajectory to potentially promising regions of the search space.
+
+The proposed memory-based architecture is simple to implement and can be used within any multiobjective metaheuristic framework.
+
+PARAGRAPH
+
+The performance of the proposed algorithm is tested using the well-known set of CEC2009 benchmark problems and its achievements are comparatively evaluated against well-known modern MOO algorithms.
+
+Experimental results exhibited that significant improvements have been obtained using the proposed algorithm in comparison to all methods under consideration.
+
+Significantly small standard deviation values in Table 2 over 30 independent runs illustrate the robustness of the presented method.
+
+In addition to this, results in Table 3 showed that the proposed method MOGDA performed better than MOEAD, the winner of CEC2009 MOO contest, in four of the ten test problems.
+
+Also, MOGDA took the second and third ranks in 50% of the benchmark functions.
+
+Furthermore, statistical significance of MOGDA is exhibited using the Friedman aligned ranks test and MOGDA took the first rank position based on the results of this test.
+
+PARAGRAPH
+
+Further experiments are conducted to test the performance of the propose method against eight recently published state-of-the-art MOO algorithms.
+
+Based on the results in Table 5 and the illustrated plots in Fig. 6, it is clear that MOGDA is still a competitive alternative against its eight competitors.
+
+It can be seen from Fig. 6 that MOGDA is also a stable and robust algorithm that is demonstrated through smaller variation of its IGD scores for the ten test problems.
+
+PARAGRAPH
+
+Future research is planned to extend the proposed MOGDA with implementations in other metaheuristics and consider its use for large-scale global optimization problems.

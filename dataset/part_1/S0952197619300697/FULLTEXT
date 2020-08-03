@@ -1,0 +1,935 @@
+10.1016/j.engappai.2019.03.019
+
+FULLTEXT
+
+TITLE
+
+A new metric for individual stock trend prediction
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The individual stock trend prediction is challenging due to the high volatility, irregularity, and noisy signal in the environment of the stock markets.
+
+In recent years, it draws a lot of attention from researchers in various areas, especially Artificial intelligence.
+
+Some studies treat it as a regression problem (Bollen et al., 2011; Schumaker and Chen, 2009), aiming to predict the future value of stock price or profits.
+
+While other studies treat it as a classification problem (Hsieh et al., 2011; Huang et al., 2008), aiming to predict the trend of stock price movement.
+
+In most cases, the classification approaches achieve higher profits than the regression ones (Leung et al., 2000).
+
+The effectiveness of different classification approaches in individual stock prediction has been widely explored (Choudhry and Garg, 2008; Lin et al., 2013; Wang and Choi, 0000; O’Connor and Madden, 2006; Lee, 2009a).
+
+PARAGRAPH
+
+Evaluation metric plays a key role in model improvement despite of which specifical model is used to solve the problem.
+
+Therefore, it is essential to understand and account for the evaluation process.
+
+At present, the evaluation of a model for individual stock trend prediction consists of two stages (Kaastra and Boyd, 1996a; Ding et al., 2015; Li and Tsang, 1999; Zhai et al., 2007; Atsalakis and Valavanis, 2009a; Schumaker and Chen, 2009).
+
+The first stage is the model selection.
+
+At this stage, the optimal model is chosen by the performance under a given metric, especially the classification metric.
+
+Traditionally, Accuracy (Qian and Rasheed, 2007) (or Hit ratio (Huang et al., 2005)) and F-measure (F1) (Patel et al., 2015a), which are utilized to evaluate models both in binary and multiple classifications, are used to select the optimal model.
+
+Recently, the Matthews Correlation Coefficient (MCC) (Ding et al., 2015) is used to evaluate the effect of models in binary stock trend classification.
+
+The second stage estimates the profitability of the optimal model.
+
+The profitability of the selected model is often estimated by simulated trading which has many variables (Kaastra and Boyd, 1996a; Leung et al., 2000; O’Connor and Madden, 2006).
+
+It is obvious that the consistency between classification performance and profitability of the model is fairly important, i.e. the model with the highest metric value should achieve the biggest profit.
+
+PARAGRAPH
+
+However, there are usually  inconsistencies (Brownstone, 1996; Chang et al., 2009;  Schumaker and Chen, 2009;  Teixeira and De Oliveira, 2010a), as shown in Fig. 1.
+
+We call the inconsistency profit bias.
+
+Traditionally, model-oriented and data-oriented methods are used to address the profit bias.
+
+In model-oriented methods, researchers aim to alleviate profit bias by incorporating profit information into model’s learning targets.
+
+In Saad et al. (1998), they assign different weights to samples in the loss calculation to avoid false alarm.
+
+However, this also makes the model difficult to converge and affects the performance of other classes.
+
+In Moody and Saffell (2001) and Deng et al. (2017a), they use the direct reinforcement learning model to learn the trading signals directly.
+
+However, this method is less flexible in strategy settings.
+
+In the data-oriented methods, researchers aim to reduce the probability of profit bias by changing the original data distribution.
+
+In Kaastra and Boyd (1996b), they suggest removing some small changes from the dataset to avoid profit bias.
+
+In Luo and Chen (2013), they use the statistical-based method to segment and label the datasets.
+
+All data-oriented methods change the actual distribution of the original stock data.
+
+However, these above methods fail to fully address the profit bias.
+
+The key factor to trigger the profit bias is the inconsistency between the metrics used in the two-stage evaluation methods.
+
+PARAGRAPH
+
+A simple example is given to demonstrate the profit bias.
+
+Suppose two models (A and B) are used to predict the trend of a stock in three consecutive trading days.
+
+These trading days have profit rate 1.00%, 2.00%, and −4.00%, respectively.
+
+The results of each model are used as the trade signals for a day trader which invests $100 on each trade.
+
+Model A gives results of up, up and up.
+
+It suggests holding a long position each day.
+
+The profit of model A is −1.
+
+Model B gives a result of down, down, down.
+
+It suggests holding a short position for three days.
+
+The profit of Model B is 1.
+
+Model A’s accuracy is 0.667 (2 out of 3), while model B is 0.333.
+
+On one hand, model A has a higher accuracy, but a lower level of profit.
+
+On the other hand, model B with the lower accuracy but achieves more profits.
+
+So, there is an inconsistency between the model’s performance and the model’s profitability.
+
+This is just a very simple example of profit bias, a more detailed example of the problem will be discussed in the next section.
+
+PARAGRAPH
+
+The present study is aimed at overcoming profit bias by improving the effectiveness in the evaluation of individual stock trend prediction.
+
+Unlike previous works, we believe the present models can learn the profit information within stock data, and the profit bias is due to the ineffectiveness in selecting the optimal model.
+
+Therefore, this paper proposes a new metric, Mean Profit Rate (MPR), to evaluate models without profit bias.
+
+Experiments on five stock index data among four countries show that our metric can effectively select models due to its consistency with model’s profitability.
+
+The findings of the present study may be of some help in improving the effectiveness during the evaluation of individual stock trend prediction.
+
+PARAGRAPH
+
+The rest of this paper is arranged as follows.
+
+Section 1 describes the background of stock market prediction, including the classification metrics and simulated trading strategies.
+
+Section 2 shows the theoretical proof of the proportional relation between MPR and profitability of model after a careful analysis on a more detailed example of profit bias.
+
+Section 3 gives the settings of data, models, and evaluations in our experiments.
+
+The experiment results are given and discussed in Section 4.
+
+Section 5 presents the conclusions.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+This section firstly describes the stock market prediction.
+
+Then, the classification metrics used in model evaluation is described.
+
+Finally, the definition of simulated trading, which is used to estimate the profitability of a model, is summarized.
+
+SECTION
+
+PARAGRAPH
+
+Stock market prediction
+
+PARAGRAPH
+
+Researches on predicting stock markets mainly focused on proposing effective stock trend prediction methods.
+
+According to the emphasis of a research, previous researches can be divided into three categories: feature-oriented methods, model-oriented methods, and integration-oriented methods.
+
+Feature-oriented methods mainly use statistical-based methods such as principal component analysis (PCA) (Tsai and Hsiao, 2010) and information gain (IG) (Lee, 2009b) to select effective features.
+
+The performance of a given model will be improved if the low relevant features in the input are removed.
+
+Most of the features are real values of a certain range, and are weakly expressive for trend information.
+
+In order to obtain trend expressive features, some studies have introduced fuzzy logic to process feature data (Atsalakis and Valavanis, 2009b; Chang and Liu, 2008).
+
+They transform each feature value into a probability distribution over multiple categories, thereby improving the feature’s expressive for classification.
+
+The model-oriented approach focuses on improving the fitting ability of the model.
+
+The support vector machines (SVM) and neural networks (NN) have proven to be very effective for stock market predictions (Kara et al., 2011a).
+
+The SVM training algorithm has a cubic time complexity, and both NN and SVM are easily over-fitting due to the excessive parameter size.
+
+The Extreme Learning Machine (ELM), which can speed up training and improve generalization performance through randomly generated hidden layer units, is used to predict the stock market (Li et al., 2016).
+
+In recent years, deep learning models have many successful applications in computer vision and Natural Language Processing (NLP) tasks due to their powerful feature extraction capabilities.
+
+Therefore, deep learning has also been applied to many scenarios in the stock market prediction (Ding et al., 2015; Akita et al., 2016; Deng et al., 2017b).
+
+These above studies mainly use a single model.
+
+However, an ensemble of multiple models usually achieves better prediction performance than a single model.
+
+Therefore, ensemble models, such as Random Forest (RF) (Patel et al., 2015b), is applied for stock market prediction.
+
+The integrated-oriented methods often combine multiple artificial intelligence or statistical-based techniques to predict the stock market.
+
+Some studies combine the text classification (De Fortuny et al., 2014; Shynkevich et al., 2015) or sentiment analysis (Bollen et al., 2011) in NLP with a classification model to predict stock markets.
+
+Some studies have proposed feature selection methods based on genetic algorithm (GA) combined with NN model to select useful features (Kim and Han, 2000; Wu et al., 2007).
+
+Some studies have used the technical indicators used in technical analysis as the representation of stock data, combined with the classification model for prediction (Mizuno et al., 1998; Zhai et al., 2007; Teixeira and De Oliveira, 2010b).
+
+Some studies use turning points to segment the target sequence based on the piecewise linear regression, and then use NN to predict these points (Oh and Kim, 2002; Luo and Chen, 2013).
+
+It is worth noticing that many studies have used two-stage way to predict individual stock trend.
+
+SECTION
+
+Classification metrics
+
+PARAGRAPH
+
+The metric used for choosing the optimal model is the critical component in model selection.
+
+Table 1 lists the classification metrics, such as Accuracy (ACC), Matthews Correlation Coefficient (MCC) and F-measure (F1), in model selection.
+
+In this study, we use the Accuracy, MCC, and F1 as the represent of classification metrics.
+
+These metrics usually are calculated basing on the confusion matrix which has four components: True Positive (TP), True Negative (TN), False Positive (FP) and False Negative (FN).
+
+Accuracy is the rate of correct prediction and is calculated by the formula in Eq. (1). acc=TP+TNN.
+
+PARAGRAPH
+
+Here, N is the total number of samples in dataset.
+
+This metric is easy to understand and calculate.
+
+Therefore, Accuracy is often used in the evaluation of stock trend prediction models.
+
+The stock data usually is unbalanced data, which means that the number of one kind of trend is significantly more than the others.
+
+As in the Eq. (2), MCC is calculated to measure the quality of binary classification. mcc=TP×TN–FP×FN(TP+FP)(TP+FN)(TN+FP)(TN+FN).
+
+PARAGRAPH
+
+F-measure, usually F1, is another metric for classification.
+
+It considers both the recall and precision of the classification performance.
+
+The calculation of F1 is displayed in Eq. (3) f1=2×P×RP+R, P=TPTP+FP, R=TPTP+FN.Although these metrics have been successfully applied to evaluate models in individual stock trend prediction, there is an inefficiency due to the weak correlation between the outcome of classification metrics and model’s profitability.
+
+The latter is often estimated by simulated trading.
+
+In order to clarify the correlations between these metrics and the simulated trading, the definition of simulated trading is summarized in the next section.
+
+SECTION
+
+Simulated trading
+
+PARAGRAPH
+
+Simulated trading is the key component in profit estimation.
+
+It is a group of algorithms for estimating the model’s profitability in real stock market.
+
+Table 1 also lists the studies containing simulated trading.
+
+Simulated trading can be adapted to data with different frequencies, such as daily and minutely data.
+
+In order to simplify the highly complicated trading actions in real life, the algorithms just concern major factors about trading in the stock market.
+
+The model usually predicts the trend in the next time step.
+
+Therefore, the strategy in simulation is usually designed to hold the securities in one time step.
+
+The profitability of model is the profit earning per share.
+
+So, the simplified version of operations with the shares number ignored is used.
+
+For example, that we buy $1000 stock at price $11 means we will have $1000 value of stock.
+
+In the simulation, we simulate the behaviors of a day trader or intraday trader in the stock market.
+
+As defined in Eq. (6), a well-defined simulated trading algorithm usually includes trading method (TM), profit method (PM) and the trading cost (TC), profit=∑ftm(Ti,Ti˜)×fpm(ri,tc).Here, the function ftm generates the trading signal, which is a value in [−1,1].
+
+The function fpm is the profit function, which calculates the profit for each trade, the variable tc is the transaction cost.
+
+Advanced operations such as loss stop and gain stop  (Teixeira and De Oliveira, 2010a), which have similar effects to profits as TC, are not mentioned in this work.
+
+Ti is the real trend in price list, and Ti˜ is the predicted trend.
+
+The variable ri is the profit rate at time i.
+
+The Long (L) and Short (S) operation are trading methods.
+
+The L operation means to buy the stock shares or call option.
+
+It will gain profits if the price rises and vice versa (Hsieh et al., 2011).
+
+The S operation means to sell the stock shares or buy the put option.
+
+It will gain profits if the price declines and vice versa (Wen et al., 2010).
+
+PM contains two profit calculation methods.
+
+One is the addictive profit (A) method and the other is the multiplicative profit (M) method (Breiman et al., 1984).
+
+The A method accumulates the profits on every trade (Hsieh et al., 2011), while the M method multiplies one plus profit rate by the previous investment on each trade (O’Connor and Madden, 2006).
+
+TC includes many complicated components such as commissions, taxes and bid–ask spreads (Lee et al., 2014; Wu et al., 2006a).
+
+Therefore, TC is usually estimated by a certain rate of stock price (for example, 0.2%) for simplification (Wen et al., 2010).
+
+PARAGRAPH
+
+In simulation, a stock agent will execute a strategy based on model’s prediction.
+
+The agent has fixed the initial capital and adequate credits to carry out investment operations.
+
+We use the form of PM–TM–TC to represent the strategy.
+
+The strategy L-A-0 means the long only, additive profit method and no transaction cost strategy.
+
+The trade method L/S means the strategy can use L or S operation on each trade.
+
+For example, the commonly used L/S-M-0 strategy means both long and short operation are supported, the multiplicative profit method and zero transaction cost.
+
+The diversity of trade strategy can lead to various possible profit estimations.
+
+One model may make a profit under one strategy while suffer loss under other strategy.
+
+In summary, the simulated trading is an algorithm to estimate the profitability (earning per share), and it is bonded with certain strategy.
+
+SECTION
+
+Proposed metric
+
+PARAGRAPH
+
+This section gives the theoretical proof of the proportional relation between MPR and model’s profitability.
+
+Before the theoretical derivation, we will give the framework to evaluate the metrics consistency with the model’s profitability and analyze a more detailed example to explain the profit bias.
+
+SECTION
+
+Framework
+
+PARAGRAPH
+
+Fig. 2 illustrates the framework to evaluate the consistency between a metric and the model’s profitability.
+
+It has four mainly steps (Kaastra and Boyd, 1996a; Lin et al., 2013; Wang and Choi, 0000).
+
+The first step is to extract features from stock data.
+
+Some techniques, such as Technical Indicator (Teixeira and De Oliveira, 2010a), are applied to extract useful signals from the noisy stock data.
+
+The second step is model selection.
+
+The optimal model is selected by the outcome of the metric.
+
+The third step is profit estimation, which estimates the profitability of the optimal model by simulated trading.
+
+The last step is to evaluate the consistency between the metric and the model’s profitability.
+
+SECTION
+
+PARAGRAPH
+
+Profit bias
+
+PARAGRAPH
+
+A detailed example is given to explain the profit bias.
+
+Suppose the trend prediction is proceeded on six consecutive stock trading days 〈D1,D2,D3,D4,D5,D6〉.
+
+The daily closing prices are shown in the second line of Table 2, the profit rate rt of close prices at tth trading day can be calculated by Eq. (7). rt=|Ct+1Ct−1|.
+
+PARAGRAPH
+
+Here, Ct is the close price at day t.
+
+The values of profit rate from D1 to D5 are shown in the 3rd line of Table 2.
+
+The trends of the close price have two possible values: 1 or −1.
+
+1 means the trend is upward, −1 means the trend is downward.
+
+The trends of first five days are shown in the 4th line of Table 2.
+
+Assume two models, A and B, give the trend predictions as the 5th and 6th line in Table 2.
+
+PARAGRAPH
+
+F1 and Accuracy are shown in Table 3 which can be calculated by the trend prediction results of model A and B in Table 2.
+
+The scores of F1 and Accuracy of model A are better than those in model B. Because of this, model A is the optimal model according to the existing model selection method.
+
+However, one may ask whether model A achieves higher profit than model B.
+
+The L/S-M-0 simulated trading with 1000 initial capital, allowing long and short operations with multiplicative profit method and zero transaction cost, is carried out using the predictions of each model to estimate the profitability of each model.
+
+It turns out that model A has a higher level of accuracy but a lower level of profitability.
+
+PARAGRAPH
+
+This findings indicate that the major cause for profit bias lies in the ignorance of profit information in classification metrics.
+
+In the above example, model A accurately predicts the trends of 4 days, D1, D2, D3 and D5.
+
+The sum of the profit rates of these correctly predicted days is less than the profit rate of the single day D4.
+
+Although model A has made correct predictions on most days, it cannot make a profit in simulated trading.
+
+These findings indicate three features of an effective metric in model selection.
+
+First, the metric should be able to pick up the profitable model under a given strategy.
+
+Second, the metric should be consistent with model’s profitability under the given strategy.
+
+Third, the metric should be strategy free, which means the metric is able to indicate the profitability of model no matter what strategy is used.
+
+PARAGRAPH
+
+In summary, classification metrics suffer from profit bias due to the ignorance of profit information.
+
+They are ineffective in the evaluation of individual stock trend prediction, since the model with optimal metric value cannot guarantee the optimal profitability.
+
+Therefore, the metric consistency with the model’s profitability is needed.
+
+SECTION
+
+Mean profit rate
+
+PARAGRAPH
+
+This section firstly defines Mean Profit Rate (MPR), which is consistent with model’s profitability.
+
+Then, theoretical proof of the proportion relation between MPR and model’s profitability is given.
+
+SECTION
+
+Definition of MPR.
+
+PARAGRAPH
+
+MPR is the expectation of profit rate on individual trend prediction.
+
+Assume ri is the profit rate sequence of a stock for n time steps.
+
+The real trend of the stock at ith time step is Ti∈[−1,1].
+
+And Ti˜ is the model’s prediction at time step i.
+
+MPR is calculated by the formula in Eq. (8) below MPR=1n∑i=1nI(Ti,Ti˜)×ri.Here I(⋅) is an indicator function.
+
+It returns 1 when the Ti equals Ti˜, and returns −1 when Ti differs from Ti˜.
+
+MPR is supposed to be consistent with model’s profitability, so it can overcome the profit bias in model selection.
+
+The consistency can be proved if MPR is proportional to model’s profitability.
+
+Next, we define the simulated trading and then give the theoretical proof of the theorems about the proportion relations.
+
+SECTION
+
+Formulation of simulated trading.
+
+PARAGRAPH
+
+The simulated trading estimates the profit of a given model with fixed initial capital.
+
+Its outcome is equivalent to model’s profitability under a given strategy.
+
+In the simulated trading introduced in Section 2.3, TM, PM and TC are three major components to set up a strategy.
+
+Although long-only or short-only can be used in simulated trading, they cannot fully estimate the profitability of a model.
+
+Therefore, it is reasonable to use the L/M trading method in simulated trading under most circumstances.
+
+The simulated trading can be calculated by profit=C×∑i=1n(I(Ti,Ti˜)×ri−tc),PM=AC×{∏i=1n(1+I(Ti,Ti˜)×ri−tc)−1},PM=MHere, profit is the estimated profit.
+
+C is the initial capital. tc
+
+is the transaction cost rate.
+
+SECTION
+
+Theoretical proof.
+
+PARAGRAPH
+
+In this section ,we will give the theoretical proof of the proportional relation between MPR and model’s profitability.
+
+The profitability is equivalent to how much profit can be made when using a given strategy.
+
+Eq. (9) shows the two major series of strategies (A and M profit method) in simulated trading.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Fix the transaction cost tc and initial capital C, MPR is proportional to the profit with addictive profit method.
+
+That is, MPR∝profitA,where profitA is the profit estimated by simulated trading with addictive profit method.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The quantity profitA can be formulated as Eq. (9) when PM=A.
+
+That is, profitA=C×∑i=1n(I(Ti,Ti˜)×ri−tc)=C×n×1n∑i=1n(I(Ti,Ti˜)×ri−C×n×tc)=C×n×MPR−C×n×tc. This shows that MPR is proportional to the profit under the additive profit method.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Fix the transaction cost tc and initial capital C, MPR is proportional to the profit with multiplicative profit method.
+
+That is, MPR∝profitM,where profitM is the profit estimated by simulated trading with multiplicative profit method.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The quantity profitM can be formulated as Eq. (9) when PM=M.
+
+That is, profitM+C=C×∏i=1n(1+I(Ti,Ti˜)×ri−tc).Take the logarithm of both sides of Eq. (15), one obtains log(profitM+C)=logC+∑i=1nlog(1+I(Ti,Ti˜)×ri−tc).For simplicity, Ri is used to replace the term I(Ti,Ti˜)×ri−tc in Eq. (16), this gives log(profitM+C)=logC+∑i=1nlog(1+Ri).Using Taylor expansion, log(1+x)=x+o(x2).
+
+Them Eq. (17) can be rewritten as follows, log(profitM+C)=logC+∑i=1n(Ri+o(Ri2))=logC+C×n×1n∑i=1nI(Ti,Ti˜)×ri−C×n×tc+n×o(Ri2)=logC+C×n×MPR−C×n×tc+n×o(Ri2). Here, o(Ri2) is a very small value, so it can be ignored.
+
+The log function is a monotonically increasing function.
+
+Hence it can be concluded that MPR is proportional to profitM.
+
+PARAGRAPH
+
+In summary, MPR is proportional to the profitability estimated by simulated trading.
+
+This explains why MPR is consistent with model’s profitability.
+
+Although MPR can be served as an indicator to model’s profitability in simulated trading.
+
+MPR is strategy free while simulated trading is bonded with certain trade strategy.
+
+SECTION
+
+Experimental settings
+
+PARAGRAPH
+
+In this section, we first describe the data and feature used in our experiments.
+
+Then, we introduce the details of the models.
+
+Finally, the evaluation methods for metric in stock price prediction are given.
+
+SECTION
+
+Data and feature
+
+SECTION
+
+Data.
+
+PARAGRAPH
+
+Five daily index data in the stock markets around four different countries are used in our experiments.
+
+They consist of Dow Jones Industrial Average (DJIA), Standard and Poor’s 500 (S&P500), Hang Seng Index (HSI), Nikkei 225(N225) and Shanghai Stock Exchange composite index (SSE).
+
+We download the data from Yahoo Finance API between 01/22/2007 and 12/30/2017.
+
+Each dataset has approximately 2700 data points.
+
+In order to test the effectiveness of metrics under different time spans, we split the datasets using the slice windows method (Zhai et al., 2007), as shown in Fig. 3.
+
+Each dataset is splitted into 50 subsets with window size 30.
+
+Each subset contains 330 data points, 300 for training and 30 for testing.
+
+SECTION
+
+Features.
+
+PARAGRAPH
+
+The technical indicators can help reduce the noise in the stock data.
+
+In this work, ten technical indicators, as in Kara et al. (2011b) and Patel et al. (2015a), are used as the representation of the stock data on each dataset.
+
+They are describe in Table 4.
+
+The min–max normalization in Eq. (21) is applied to each feature to normalize each data into the range [0,1]: X=X−XminXmax−Xmin.Here, X is the feature list, Xmax is the maximum in X, and Xmin is the minimum in X.
+
+SECTION
+
+PARAGRAPH
+
+Classification models
+
+PARAGRAPH
+
+Classification models predict the movement direction, while level estimation models predict the range of profit or price.
+
+In some cases, the classification ones can achieve more profit than level estimate ones (Leung et al., 2000).
+
+As a result, eight classification models are compared in this study, some of them achieves the state-of-the-art performance in stock trend prediction.
+
+PARAGRAPH
+
+These models are used in our experiments.
+
+We set the ranges of the values for the parameters of each model as in Table 5.
+
+The degree (d) and regularization constant C are key parameters for SVMpoly.
+
+The parameter gamma (γ) and C are important parameters for SVMrbf.
+
+The number of neighbors (k) is the key parameter for KNN.
+
+One of the important parameters in DT is the max depth of the tree.
+
+Comparing to DT, number of the trees is an additional parameter in RF.
+
+K-ELM uses RBF kernel, so it has to set up γ and the number of hidden units n.
+
+For FDNN, the key parameter is the number of hidden units in the fuzzy layers (numfuzzy) and neural representation layers (numneural).
+
+In GA–NN, we test different settings of crossover probability (pcrossover) and mutation probability (pmutation).
+
+SECTION
+
+PARAGRAPH
+
+Evaluation
+
+PARAGRAPH
+
+Pearson Correlation Coefficient (PCC) and Selection Failure Rate (SFR) are used to evaluate the consistency between the metric and profit.
+
+PARAGRAPH
+
+PCC is often used to evaluate the correlation between metric values and profit.
+
+As shown in Eq. (22), it is the criterion for the linear correlation between the two variables X and Y. PCCX,Y=cov(X,Y)σXσY.Here, cov(X,Y) is the covariance of X and Y, σX and σY are the variance of X and Y, respectively.
+
+The value is a real number between −1 and 1.
+
+The value 1 means total positive correlation, 0 means no linear correlation, while −1 means total negative correlation.
+
+PARAGRAPH
+
+SFR is the failure rate of the metric used in model selection.
+
+Assume model A and model B make predictions on the same dataset.
+
+We using metric X to evaluate the models.
+
+We get the pair 〈xA,pA〉 for model A, where xA is the metric value of model A under metric X and pA is the profit of model A. Similarly, we get 〈xB,pB〉 for model B.
+
+When we select the optimal model using metric X, there are two possible conditions.
+
+As shown in Eqs. (23) and (24); condition1:[xA>xBandpA>pB]or[xA⩽xBandpA⩽pB],condition2:[xA>xBandpA⩽pB]or[xA⩽xBandpA>pB]. It suggests that condition2 is a failure in model selection.
+
+If we have to select the optimal model from N models, there are CN2=N×(N−1)∕2 result pairs.
+
+Then we obtain SFRX=2×(numberofcondition2)N×(N−1).Here, SFRX is the SFR when metric X is used for choosing the optimal model.
+
+SECTION
+
+Results and analysis
+
+PARAGRAPH
+
+In this section, we evaluate the effectiveness of Mean Profit Rate (MPR) in stock trend prediction compared to classification metrics.
+
+First, MPR’s ability in finding profitable models is compared with those of the classification metrics.
+
+Second, the consistency between MPR and model’s profitability is measured by Pearson Correlation Coefficient (PCC).
+
+Third, we use Selection Failure Rate (SFR) to evaluate our MPR in the model selection.
+
+Then, the strategy free characteristic of MPR is examined by multiple strategies with different settings.
+
+Finally, a demonstration of evaluation multiple models by MPR is given.
+
+SECTION
+
+Profitable model selection
+
+PARAGRAPH
+
+In this experiment, we use MPR and classification metrics to select the optimal model for each subset of five datasets.
+
+The profit of the selected model is estimated by simulated trading (L/S-A-0 and L/S-M-0).
+
+The metric which can get higher profits in simulated trading is considered to be more effective.
+
+Firstly, every model is trained using different parameters (Table 5) on the training set of each subset.
+
+Secondly, the models are evaluated by each metric separately on the testing set, and the model with the highest level of metric value is chosen as the optimal model.
+
+Finally, the profitability of the optimal model selected by each metric is estimated by the simulated trading profit on the testing set.
+
+PARAGRAPH
+
+Tables 6–10 lists the average profit of the optimal model on different datasets.
+
+For example, the 2nd column on the 2nd line is the average profit by L/S-A-0 strategy when using Accuracy to select the optimal KNN model.
+
+Table 11 lists the results of the t-test, which is carried out on the results between MPR and the classification metrics under L/S-A-0 strategy.
+
+Table 12 lists the t-test results under L/S-M-0 strategy.
+
+Three observations can be concluded from these results.
+
+PARAGRAPH
+
+From the above experimental results, it can be concluded that MPR is more effective in class selection than the classification indicators.
+
+MPR can choose a model with higher profitability.
+
+PARAGRAPH
+
+Next, we analyze the correlation between the metrics (MPR and classification metrics) and the model’s profitability.
+
+PARAGRAPH
+
+SECTION
+
+Consistency analysis
+
+PARAGRAPH
+
+We analyze the consistency between the metric and its profitability when evaluating a given model.
+
+The consistency is measured by Pearson Correlation Coefficient (PCC).
+
+A higher level of PCC value between these two indicates a better consistency.
+
+First, the results of the optimal model, MPR, classification metrics and profit for each model on each subset are collected in the form 〈acc,mcc,f1,mpr,profit〉.
+
+Then, PCC between metric and its profitability is calculated.
+
+In this case, the profit estimated by simulated trading is equal to the model’s profitability.
+
+We choose the mostly used strategy L/S-M-0 as our strategy in simulated trading.
+
+PARAGRAPH
+
+For example, PCC between ACC and profit is calculated basing on the result pairs 〈acc,profit〉.
+
+We get fifty (50 subsets) PPC results for each metric, and each of them is calculated basing on eight result pairs (eight models) on each subset.
+
+PCC between the metric and its profitability will be different due to that the distribution of profit differs on each subset.
+
+In order to study the dynamic distribution of PCC, we draw the box chart of PCC results on each data set.
+
+PARAGRAPH
+
+Figs. 4 to 8 show the distribution of PCC between each metric and the model’s profitability.
+
+In these pictures, we use the metric name to denote the PCC results between the metric and the model’s profitability.
+
+For instance, we use MPR to denote PCCMPR,profit.
+
+Firstly, PCC between MPR and model’s profitability is close to 1.
+
+It can be concluded that MPR strongly correlates with model’s profitability.
+
+This strong correlation is consistent with the theoretical proof before.
+
+Secondly, the classification metrics sometimes have a weak correlation with profit.
+
+That PCC is lower than 0.5 indicates a weak correlation.
+
+Intuitively, it has a great chance to suffer from profit bias when the metric has a weak correlation with model’s profitability.
+
+The main reason for this weak correlation is that the test set contains several data points with higher level profit than others.
+
+However, this is beyond the range of this paper’s main concerns.
+
+We will not discuss the details of the conditions which trigger this weak correlation.
+
+Finally, we conclude that the order of consistency level is MPR>ACC>MCC>F1.
+
+The higher PCC indicates the better consistency and means lower possibility to suffer from profit bias.
+
+Therefore, MPR is the least possible to suffer from profit bias.
+
+PARAGRAPH
+
+SECTION
+
+Effects in model selection
+
+PARAGRAPH
+
+We use Selection Failure Rate (SFR) to evaluate the effects of a metric in model selection.
+
+SFR is the rate when the model has a higher level of metric value but a lower level of profit.
+
+SFRACC is calculated basing on the result pairs A 〈acc1,profit1〉 and B 〈acc2,profit2〉.
+
+Figs. 9 to 13 show the distributions of SFR between each metric and the model’s profitability.
+
+We use the name of the metric to denote SFRmetric.
+
+For instance, we use MPR to denote SFRMPR.
+
+Firstly, MPR is unlikely to suffer from profit bias, because SFRMPR distributes near zero.
+
+The model has the lowest level of SFR.
+
+Hence MPR is unlikely to make incorrect selections in model selection.
+
+Secondly, SFR of classification metrics are greater than 0.1 on most subsets.
+
+It sounds unreliable when a metric has over 10% of chance making incorrect selections in model selection.
+
+Thirdly, we get the same effective metric order, MPR>ACC>MCC>F1.
+
+PARAGRAPH
+
+In summary, MPR has a lower level of SFR than the classification metrics.
+
+Our results indicate that MPR is more effective than the classification metrics in model selection.
+
+PARAGRAPH
+
+Next, we test the consistency between a given metric and the model’s profitability under different strategies.
+
+SECTION
+
+Strategy free
+
+PARAGRAPH
+
+An effective metric for individual stock trend prediction should be strategy free.
+
+It means that the metric is always consistent with the profit estimation when using different strategies to estimate the model’s profitability.
+
+The definition of strategy indicates that the model’s profitability is correlated to Trading Method (TM), Profit Method (PM) and Transaction Cost (TC).
+
+We design eight strategies to represent various strategies in real life.
+
+We use the combination of settings, listed in Table 13, to form strategies.
+
+In order to test whether the metric is strategy free, we design an experiment with three steps.
+
+First, eight models are trained with randomly chosen parameters on each training set of five chosen subsets (DJIA-23, S&P500-28, HIS-9, N225-24 and SSE-39).
+
+Second, the classification metrics and MPR are calculated on the testing set.
+
+Finally, PCC between each metric and the profitability under each strategy is calculated on the testing set.
+
+PARAGRAPH
+
+Table 14 lists the PCC values of eight strategies.
+
+PCC of ACC and the profit under L/S-A-0 strategy is listed on the second row and the second column.
+
+An effective metric should have better consistency with profit.
+
+The higher PCC indicates the metric has better correlation with profit.
+
+It will lead to higher consistency.
+
+PARAGRAPH
+
+Our results show two major findings.
+
+First, PCC between MPR and profit is the highest among four metrics no matter what strategy is taken.
+
+Second, PCCMPR,profit is nearly equal to one while other PCC values are below 0.71.
+
+This means MPR has stronger correlation with the profit no matter what strategy is chosen.
+
+These results suggest that MPR is strategy free.
+
+SECTION
+
+PARAGRAPH
+
+Demonstration of usage
+
+PARAGRAPH
+
+We demonstrate how to use MPR to evaluate models in individual stock tend prediction.
+
+Five subsets in the above Section are chosen as the dataset.
+
+The optimal models are chosen from the parameters in Table 5.
+
+Tables 15 to 19 list the evaluation results of the different models on five subsets.
+
+DJIA-23 is the 23rd subset of DJIA dataset, SVMrbf is the SVM model with RBF kernel, and SVMpoly is the SVM model with POLY kernel.
+
+We use L/S-M-0 to denote the profit estimated under L/S-M-0 strategy and L/S-A-0 to denote the profit estimated under L/S-A-0 strategy.
+
+PARAGRAPH
+
+We have three main conclusions.
+
+Firstly, MPR is consistent with the model’s profitability.
+
+The optimal model selected by MPR has the best profitability.
+
+For instance, FDNN has 0.29% MPR on DJIA-23 and over 800 units of profits, which is the highest among the eight models, under both strategies.
+
+Secondly, the classification metrics are not consistent with the model’s profitability in most cases.
+
+For instance, the model with the highest ACC value on DJIA-23, S&P500, and SSE-39 do not achieve the highest profits.
+
+Thirdly, the using of multiple classification metrics may not improve the efficiency in model selection.
+
+On HSI-9, ACC, MCC, and F1 select K-ELM, FDNN, and GA–NN as the optimal model, respectively.
+
+The using of multiple metrics can lead to confusing results, making model selection more inefficient.
+
+PARAGRAPH
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This paper proposed a new metric, Mean Profit Rate (MPR), to overcome the profit bias in evaluating models for stock trend prediction.
+
+MPR is the expectation of profit rate on each trend prediction.
+
+We theoretically proved that MPR is proportional to the model’s profitability.
+
+Therefore, MPR is a good indicator of model’s profitability due to the consistency.
+
+To evaluate our metric, we compared our MPR with the classification metrics in model selection.
+
+The experimental results suggested MPR can serve as a better selector in model selection than the classification metrics.
+
+The results of consistency analysis suggested MPR has higher Pearson Correlation Coefficient (PCC) with model’s profitability and lower Selection Failure Rate (SFR) than the classification metrics.
+
+The results of PCC between metrics and the model’s profitability under various strategies indicate MPR is insensitive to the change of strategies.
+
+We also demonstrated the effectiveness of MPR in evaluating stock prediction models.
+
+The findings of this study may shed some light on effectively evaluating models for individual stock trend prediction.

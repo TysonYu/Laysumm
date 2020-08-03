@@ -1,0 +1,27 @@
+10.1016/j.engappai.2020.103485
+
+ABSTRACT
+
+TITLE
+
+A new insight into implementing Mamdani fuzzy inference system for dynamic process modeling: Application on flash separator fuzzy dynamic modeling
+
+PARAGRAPH
+
+In this work, a novel approach to model the dynamic behavior of the flash separation process (as a main building block of non-reacting stage-wise operations) based on Mamdani Fuzzy Inference Systems is proposed.
+
+This model surmounts the need to solve various types of mathematical equations governing the system and does not require thermodynamic properties which are either not available or computationally demanding.
+
+Hence it can be easily used in dynamic simulation of multi-phase flow in distributed systems.
+
+In the proposed approach the overall model is broken into several simple sub-models based on intuitive analysis of an expert.
+
+Moreover, a new fuzzy concept, named “Linguistic Composition Variable” is introduced to represent components mole fractions of each phase as a fuzzy variable.
+
+Accordingly, large number of rules which is the main shortcoming of the Mamdani Fuzzy system is significantly reduced.
+
+PARAGRAPH
+
+The performance of the proposed dynamic model is evaluated through comparing its results against their corresponding counterparts for a flash separator of crude oil.
+
+Overall MAPE (Mean Absolute Percentage Error) values of 7.17% for the gas molar fractions, 3.06% for liquid molar fractions, 10.16% for the temperature, 0.63% for the pressure and 16.44% for the liquid level of the separator have been achieved showing that the proposed fuzzy model can effectively capture the general trends of process data of the dynamic process.

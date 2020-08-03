@@ -1,0 +1,17 @@
+10.1016/j.engappai.2019.02.018
+
+LAYSUMM
+
+TITLE
+
+Web image annotation based on Tri-relational Graph and semantic context analysis
+
+PARAGRAPH
+
+In this paper, we propose a Tri-relational Graph (TG) model for web image annotation, which comprises the image data graph, the region data graph and the label graph as subgraphs, and connects them by an additional tripartite graph induced from image segmentation results and label assignments.
+
+Multilevel Random Walk with Restart algorithm on TG is performed to produce vertex-to-vertex relevance.
+
+Then semi-supervised learning is used to predict labels for unannotated image regions by inserting unlabeled images and their regions into TG.
+
+Experiments demonstrate that our proposed TG model and multilevel RWR algorithm can achieve good performance on image region annotation.

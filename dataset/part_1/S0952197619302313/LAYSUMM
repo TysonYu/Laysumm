@@ -1,0 +1,17 @@
+10.1016/j.engappai.2019.103255
+
+LAYSUMM
+
+TITLE
+
+Therapy-driven Deep Glucose Forecasting
+
+PARAGRAPH
+
+Predicting the glucose level in Type 1 diabetes patients is a critical but also challenging task.
+
+We propose Deep Glucose Forecasting, a deep learning architecture based on recurrent neural networks which is able to predict the glucose level of a patient.
+
+We define an architecture composed by two models: one observing past measurements (injections, carbohydrate intake and glucose) and the second one exploiting future inputs over a fixed prediction horizon.
+
+The model, trained on 100 patients of the UVA/Padova simulator, outperforms classical population models generalizes to unseen real patients and reaches personalized models performance on a real patient via fine-tuning.

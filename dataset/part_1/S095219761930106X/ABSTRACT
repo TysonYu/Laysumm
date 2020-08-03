@@ -1,0 +1,49 @@
+10.1016/j.engappai.2019.05.006
+
+ABSTRACT
+
+TITLE
+
+Batch and data streaming classification models for detecting adverse events and understanding the influencing factors
+
+PARAGRAPH
+
+Constructing effective models for detecting, reducing, and/or preventing adverse events is very important in domains such as aviation safety, healthcare, drug administration, and war theaters.
+
+This study presents batch and data streaming models to detecting adverse events using data from a war theater context.
+
+In all the previous studies, regression models and several machine learning techniques were used for predicting continuous values in an active theater of war, and the error values reported on the test sets were large.
+
+In order to overcome the shortcoming, this study investigates the effectiveness of batch and data streaming classification algorithms in detecting or classifying adverse events given infrastructure development spending data and other variables in an active theater of war in Afghanistan.
+
+By the feature selection, the valid input variables are obtained and their indexes show that the input variables are mainly the adverse events (t-1) at the previous month, the population densities and related project investments.
+
+From the country level, fewer of the 14 project investments affect the adverse events.
+
+From the region level, some projects with higher index values, such as Security in the South Western region, Energy and Emergency Assistance in the North Eastern region, and Education in the Eastern region are mainly affecting factors.
+
+Three batch classification methods and three data streaming classification methods were assessed for their ability to detect adverse events given infrastructure development data.
+
+The study uses cost-sensitive measures to address the very unbalanced nature of the data and it applies variable reduction techniques to identify significant variables.
+
+The three batch classification algorithms are C4.5, k-nearest Neighbor, and Support Vector Machine.
+
+The three data streaming algorithms are Naïve Bayes, Hoeffding Tree, and Single Classifier Drift.
+
+In general, the performance of the cost-sensitive methods in the batch setting is comparable to those in the data stream setting.
+
+However, in the batch setting the cost matrix needs to be adjusted manually.
+
+In contrast the data stream setting allows one to adjust the models based on the analysis of the classifiers’ performance over time and changing data distribution.
+
+The Kappa values using Naïve Bayes are the highest in the three data stream algorithms in the whole country and its regions.
+
+The Naïve Bayes classifier has the best global performance.
+
+By the Kappa statistic curve, we can observe the concept drifts.
+
+In a region level, many models have a better performance including more investments related to project compared with those in a country level.
+
+In addition as data distribution becomes more balanced, the classifiers in the data stream setting outperform in terms of the overall classification rates in comparison to the classifiers in the batch setting.
+
+The results thus demonstrate the potential of data streaming algorithms to significantly outperform when the data become less unbalanced, and can be used for detecting adverse events in similar areas.

@@ -1,0 +1,451 @@
+10.1016/j.jhep.2019.09.032
+
+FULLTEXT
+
+TITLE
+
+Reliability of a single-region sample to evaluate tumor immune microenvironment in hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Identification of tissue-based immunological biomarkers is a critical step toward personalized immunotherapy and is usually conducted using formalin-fixed paraffin-embedded (FFPE) sections from a core biopsy specimen or a wax block from a previously resected tumor.
+
+However, the identification of predictive biomarkers for programmed cell death-1 (PD-1) inhibitors in patients with hepatocellular carcinoma (HCC) has not been achieved.
+
+Theoretically, the expression of programmed cell death ligand 1 (PD-L1) or the quantification of tumor-infiltrating T cells could predict responses to PD-1/PD-L1 blockade.
+
+However, none of these methods could clearly differentiate responders from non-responders in clinical trials.1,2
+
+PARAGRAPH
+
+One of the possible barriers to successful tissue-based biomarker identification is the considerable spatial heterogeneity of PD-L1 expression, T cell infiltration, or other immunological biomarkers within a tumor.
+
+For example, discordance of PD-L1 expression in different regions of a tumor has frequently been reported in cancer types with a higher mutational burden, such as non-small-cell lung cancer, melanoma, and head and neck cancer.3–7
+
+Some PD-L1-positive tumors may be misclassified as PD-L1-negative tumors, which leads to an unexpectedly high response rate of PD-1/PD-L1-blockade in patients with PD-L1-negative tumors.
+
+If the potential spatial heterogeneity of immunological biomarkers is a serious concern, multi-region tumor samples are preferred for biomarker studies to avoid biased biomarker-based patient selection or outcome correlation.
+
+Nevertheless, multi-region tumor samples are generally unavailable in cancer patients with disseminated metastasis when core needle biopsy is the only method for obtaining tumor tissue for analysis.
+
+PARAGRAPH
+
+As more novel immunotherapies targeting various immune cells, such as macrophages, regulatory T cells (Treg), and natural killer (NK) cells, are emerging for patients with HCC, biomarker studies beyond PD-L1 expression or T cell infiltration are expected in the near future.
+
+It remains to be determined whether a random, single-region HCC sample is reliable for evaluating the complex tumor immune microenvironment of a whole tumor.
+
+PARAGRAPH
+
+To address this concern, we conducted a prospective study to analyze the similarity in tumor immune microenvironments among different regions of a single resected tumor through conventional immunohistochemistry (IHC) and RNA-sequencing (RNA-seq) analyses.
+
+SECTION
+
+Patients and methods
+
+PARAGRAPH
+
+This study was approved by the Research Ethic Committee of National Taiwan University Hospital, Taiwan (REC no. 201702074RINA), and was conducted in compliance with the Declaration of Helsinki and other ethical guidelines.
+
+The study schema is shown in Fig. 1.
+
+SECTION
+
+Patients
+
+PARAGRAPH
+
+Patients with resectable HCC were asked before surgery to provide fresh tumor tissue and clinicopathological information.
+
+Written informed consent was required for each patient.
+
+The clinicopathological information was captured from the hospital electronic medical record system.
+
+SECTION
+
+Tumor tissue
+
+PARAGRAPH
+
+Multi-region sampling was conducted as shown in Fig. 1A. Multiple tumor samples were randomly collected using punch biopsy kits (4 or 8 mm in diameter, chosen according to tumor size) with necrotic or hemorrhagic areas avoided.
+
+SECTION
+
+IHC analysis
+
+PARAGRAPH
+
+IHC staining was performed using a Ventana BenchMark XT autostainer (Roche, Basel, Switzerland).
+
+Consecutive 5 µm- thick FFPE sections were deparaffinized, rehydrated, and pretreated in CCl (pH 8.0) for 20 min at 100 °C for antigen retrieval.
+
+The sections were incubated with primary antibodies for 16 min at 37 °C followed by visualization with the OptiView DAB IHC detection kit (Roche).
+
+The primary antibodies used were PD-L1 (E1L3N, 1:200) from Cell Signaling (Danvers, MA, United States); CD4 (IF6, 1:50) from Leica (Newcastle Upon Tyne, United Kingdom); CD8 (C8/144B, 1:100), CD20 (L-26, 1:200), CD68 (KP-1, 1:5,000), and myeloperoxidase (MPO) (Polyclonal, 1:1,000) from Dako (Santa Clara, CA, United States); forkhead box P3 (Foxp3) (236 A/E7, 1:100) from Abcam (Cambridge, United Kingdom); and dendritic cell-lysosomal associated membrane protein (DC-LAMP [also called LAMP3]) (HPA051467, 1:50) from Sigma (Munich, Germany).
+
+Histological images of each sample were acquired under 100× magnification (for all markers except DC-LAMP) or 200× magnification fields (for DC-LAMP only) regardless of immune cell abundances.
+
+Basically, the selected fields covered almost the whole section except the areas with hemorrhage or necrosis.
+
+PARAGRAPH
+
+Membranous staining was positive for all markers except Foxp3 (nuclear staining).
+
+PD-L1 expression was manually assessed by a skilled independent pathologist (YMJ), and was scored as: 0 (<1% of tumor or stromal cells stained); 1 (1%–10% of tumor or stromal cells stained); 2 (10%–50% of tumor or stromal cells stained); or 3 (>50% of tumor or stromal cells stained).
+
+Tertiary lymphoid structures (TLSs), which are lymphoid-like clusters of immune cells, were assessed on DC-LAMP-stained slides under 200× magnification.
+
+TLSs were further categorized into 2 subtypes: lymphoid aggregates (no DC-LAMP+ dendritic cells within the lymphoid cluster) and follicles (DC-LAMP+ dendritic cells within the lymphoid cluster).8
+
+The number of TLSs per sample was determined by manual counting.
+
+Immune cells in the TLSs were not excluded from counting.
+
+The density of immune cells (number/mm2) was determined as the average number of marker-positive cells under a 100× microscopic field (equal to 1.18 mm2) or a 200× microscopic field (equal to 0.293 mm2) using ImageJ software (NIH; Maryland, MD, United States), and was reviewed by an independent pathologist (YMJ).
+
+SECTION
+
+RNA-seq
+
+PARAGRAPH
+
+Parts of samples were selected for RNA-seq based on 2 criteria: first, adequate RNA quality and quantity; and second, disperse locations within the same tumor.
+
+Total RNA was extracted from frozen snaps using an AllPrep DNA/RNA mini kit (Qiagen, Hilden, Germany).
+
+Poly-A enriched strand-specific libraries were generated with the TruSeq® stranded mRNA library prep kit (Illumina, San Diego, United States) following the manufacturer’s instructions.
+
+Sequencing was performed on HiSeq HTv4 platform with 2× 150 cycles at NGS High Throughput Genomics Core at Biodiversity Research Center, Academia Sinica (Taipei, Taiwan).
+
+PARAGRAPH
+
+Trimming adaptor sequences and removing reads of low quality were performed by cutadapt (v2.3).
+
+Quantified reads were aligned to the human genome (GRCh38.p12) by STAR (v2.6.1 a)9 and then gene-level read counts were generated based on the annotations of Gencode (v28).10
+
+Gene-level read counts cross all samples were normalized using the trimmed mean of M-values method as implemented in the calcNormFactors function of edgeR package11 and gene expression in terms of log2(CPM + 1) (counts per million reads) was computed for further analysis.
+
+The abundance of each immune cell type was estimated as the average expression level of the corresponding genes.
+
+The genes in the immune signatures of interest are listed in the supplementary methods.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Correlation matrices were computed based on the Spearman correlation coefficients using GraphPad Prism 8.0 software (San Diego, CA, USA).
+
+Immune cell densities between different clinicopathological variables were compared using a Mann-Whitney U test.
+
+A p value of <0.05 was considered statistically significant.
+
+PARAGRAPH
+
+A Mahalanobis distance analysis12 was used to evaluate similarities in the tumor immune microenvironments of random tumor samples within a given tumor.
+
+In brief, the Mahalanobis distance analysis was used to calculate the distance from each region to the centroid in a multidimensional space by taking both variances and covariances into account.
+
+The formula is as follows:dr=xr-μRTS-1xr-μRwhere dr is the Mahalanobis distance of a specific region r in tumor R; xr is the quantification level of immune markers of a region in tumor R; μR is the mean quantification level of immune markers in tumor R, and S is the covariance matrix of all markers.
+
+If the distance of each region within a tumor is close to 0, it indicates that the tumor immune microenvironment is similar across different regions.
+
+Similarity in the tumor immune microenvironments of samples within a tumor was arbitrarily defined as a distribution of distance within the range of 0–10.
+
+To evaluate which immunological marker contributed most to dissimilarity in tumor immune microenvironments, we excluded 1 immunological marker from the Mahalanobis distance analysis each time.
+
+An immunological marker was considered the main contributor to dissimilarity if the range of distance distribution became narrow upon exclusion.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+Fourteen tumors were obtained from 13 patients with HCC from May 2017 to March 2018.
+
+One tumor (tumor number 10) was excluded from further IHC because of severe intratumor hemorrhage.
+
+Finally, 13 newly resected HCC (11 HBV-related; 2 non-HBV, non-HCV-related) tumors were subjected to IHC.
+
+The median tumor diameter was 9 cm (range 3–16 cm).
+
+The clinicopathological characteristics of the patients and their tumors are shown in Table 1.
+
+A median of 6 samples (range 3–12) were obtained from each tumor.
+
+Out of 79 samples, 77 were adequate for IHC analyses.
+
+Forty-one samples from 12 tumors (median 3 samples per tumor, range 2–5) were subjected to RNA-seq (tumor number 6 was excluded from RNA-seq study due to poor RNA quality in most samples).
+
+SECTION
+
+PD-L1 expression
+
+PARAGRAPH
+
+PD-L1 expression is shown in Table 2 and Fig. S1.
+
+Of 13 tumors, 8 (61.5%) and 1 (7.7%) had uniform scores for PD-L1 expression of 0 and 1, respectively, across different regions within the tumor.
+
+Collectively, 9 (69.2%) of 13 tumors had concordant PD-L1 expression within the tumor.
+
+Furthermore, regions with a score of 1 for PD-L1 expression were associated with higher densities of CD4+ helper T cells, CD8+ cytotoxic T cells, Foxp3+ Tregs, CD68+ macrophages, and DC-LAMP+ mature dendritic cells (p value: <0.05 for all; Fig. S2).
+
+SECTION
+
+Tertiary lymphoid structures
+
+PARAGRAPH
+
+The number of TLSs per region are plotted for each tumor in Fig. 2A. Sixty-six TLSs were identified in 24 of 77 regions.
+
+Thirty-six (54.5%) and 30 (45.5%) TLSs were lymphoid aggregates and follicles, respectively (representative images are provided in Fig. 2B).
+
+Five tumors had no TLSs in any region within the tumor, and 1 tumor had at least 1 TLS in every region within the tumor.
+
+Therefore, there was concordance between random samples for the identification of TLSs in 6 (46.2%) out of 13 tumors.
+
+SECTION
+
+Tumor-infiltrating immune cells
+
+PARAGRAPH
+
+The immune cell densities per region are plotted for each tumor in Fig. 3 (representative images in Fig. S3).
+
+Tumor number 2, 4, 5 and 7 appeared to exhibit wider ranges of densities for multiple immune cell types within the tumor.
+
+In addition to the mutual correlation between Foxp3+ Tregs and CD4+ helper T cells (Spearman’s correlation coefficient, r = 0.738), higher cell density correlations within a sample were noted between CD8+ cytotoxic T cells and CD4+ helper T cells (r = 0.6411); Foxp3+ Tregs (r = 0.6348); CD20+ B cells (r = 0.6137); and between CD4+ helper T cells and CD68+ macrophages (r = 0.6121) (p value: <0.0001 for each; Fig. S4).
+
+The correlations between various immune cell densities per region and corresponding clinicopathological features of the patient or tumor are shown in Fig. S5.
+
+SECTION
+
+Similarity in tumor immune microenvironments within a tumor using IHC analysis
+
+PARAGRAPH
+
+The results of the Mahalanobis distance analysis are shown in Fig. 4.
+
+Eight (61.5%) of 13 tumors had a narrow range (0–10) of Mahalanobis distance for all regions within the tumor, indicating a similar tumor immune microenvironment within each tumor.
+
+PARAGRAPH
+
+For tumor number 5 and 6, only 1 or 2 (11.1%–33.3%) regions of each tumor were outliers (Mahalanobis distance of >10), and the remaining regions were close to each other.
+
+The outliers of tumor number 5 were more likely attributed to CD20 and MPO, and the outlier of tumor number 6 was attributed to PD-L1 (mainly) and CD68.
+
+PARAGRAPH
+
+Tumor number 2, 4 and 7 were not only characterized by a wider range of Mahalanobis distance distribution (from 0 to more than 10) but also by a higher diversity of Malalanobis distance within the tumor.
+
+Most notably, the Mahalanobis distance of each region in tumor number 4 was >10, and did not drop to <10 after the exclusion of any immunological markers from the analysis.
+
+This suggests that tumor number 4 had highly dissimilar tumor immune microenvironments across different regions within the tumor.
+
+SECTION
+
+Similarity in tumor immune microenvironments within a tumor using RNA-seq data
+
+PARAGRAPH
+
+In selected regions where both IHC and RNA-seq data were available, the abundance of each immune cell type or feature measured by IHC staining generally correlated with the abundance measured by the corresponding transcriptomic signatures (p <0.05), except for the abundance of dendritic cells (Fig. S6).
+
+PARAGRAPH
+
+The IHC analyses on these selected regions (Fig. 5), compared to those on all regions (Fig. 4), identified the same 8 tumors (tumor number 1, 3, 8, 9, 11, 12, 13, and 14) displaying a narrow range of Mahalanobis distance distribution (0–10) for each tumor.
+
+Meanwhile, the RNA-seq analyses identified 8 tumors (tumor number 1, 3, 7, 8, 9, 12, 13 and 14) displaying a narrow range of Mahalanobis distance distribution (arbitrarily defined as 0–5) for each tumor.
+
+Overall, the 2 methods reached a high concordance rate (10/12; 83.3%) in evaluating the similarity in immune microenvironments within a tumor.
+
+PARAGRAPH
+
+Given RNA-seq data can provide more comprehensive immunological findings, we also performed Mahalanobis distance analyses for other immune-related pathways (Fig. S7).
+
+As expected, RNA-seq analyses identified more tumors with dissimilar immune microenvironments, particularly with regard to cytokines, ligands and receptors (Fig. S7B).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The heterogeneity of tumor immune microenvironments is a potential obstacle for the identification of immunologic biomarkers and the development of personalized immunotherapy.
+
+The current study investigated similarity in tumor immune microenvironments among different regions of a tumor and revealed that a single-region tumor sample might reliably represent the tumor immune microenvironment of an entire tumor in approximately 60–70% of HCC tumors.
+
+PARAGRAPH
+
+Studies evaluating the immune microenvironment of HCC tumors have mainly focused on interpatient heterogeneity and its clinical or molecular correlations.13–26
+
+Only a few studies have adopted multi-region analysis to investigate spatial intratumor heterogeneity of the immune microenvironment of HCC tumors.
+
+Shi et al.27 evaluated similarity in T cell receptor (TCR) repertoires among different regions of a given tumor, and 21 regions were sampled from 5 resected HCC tumors.
+
+They found that only a few TCRβ repertoires were ubiquitously present in all regions within a tumor, indicating the high spatial heterogeneity of T cells in HCC tumors.
+
+Kurebayashi et al.28 classified HCC into 3 immunosubtypes, immune-high, immune-mid and immune-low, through a multiplex IHC panel by using 919 random samples from 158 resected HCC tumors.
+
+More than 50% of HCC tumors could not be subjected to uniform immunosubtyping in all regions within the same tumor, suggesting considerable spatial heterogeneity in tumor immune microenvironment.
+
+The current study focused on one pivotal clinical question, namely the reliability of a single-region tumor specimen for providing a complete picture of the tumor immune microenvironment of HCC tumors.
+
+Given that the correlations between the abundance of each immune cell type and clinical outcomes are unclear, any classification based on an arbitrary cut-off value, such as the median level of abundance, may be misleading.
+
+Therefore, we considered the tumor immune microenvironment as a whole and evaluated the similarity in the tumor immune microenvironments among different regions within a tumor.
+
+Unexpectedly, we found that spatial heterogeneity of immune tumor microenvrionment is not as significant as expected.
+
+PARAGRAPH
+
+We identified 4 tumors (tumor number 2, 4, 5, and 7) through IHC method and 4 tumors (tumor number 2, 4, 5, and 11) through RNA-seq method, which displayed higher diversity of tumor immune microenvironments within each tumor, for which single-region samples were not adequate to provide correct interpretation.
+
+Larger tumors were initially considered to be more heterogeneous in tumor immune microenvironment, given that immune cells may not reach the central hypovascular region.
+
+However, tumor number 4, which exhibited markedly high dissimilarity in tumor immune microenvironments among regions, was a small tumor (3.5 cm in diameter).
+
+Therefore, the high dissimilarity in tumor immune microenvironments was probably more related to inherent characteristics rather than tumor size.
+
+Our preliminary data showed that the regional dissimilarity in tumor immune microenvironments of a tumor determined by IHC, compared to that determined by RNA-seq, correlated better with genomic intratumor heterogeneity (data not shown).
+
+We reasoned that the dissimilarity in tumor immune microenvironments was closely related to the genomic intratumor heterogeneity.
+
+Our hypothesis is supported by a recent study of non-small-cell lung cancer, which suggests that different regions of a tumor may undergo different stages of immune-editing of neoantigen-harboring cancer cells.29
+
+The effects of genomic and immune intratumor heterogeneity on the efficacy of immunotherapy are worthy of further investigation.
+
+PARAGRAPH
+
+The interpretation of PD-L1 expression in tumor tissue has been problematic in all types of cancer.
+
+In the current study, we used E1L3N PD-L1 antibodies, which have comparable performance to approved diagnostic antibodies in non-small-cell lung cancer, and semi-quantified PD-L1 expression into scores of 0, 1, 2, and 3 according to the percentage of PD-L1-stained viable tumor or stromal cells.
+
+To address the spatial intratumor heterogeneity of PD-L1 expression, we did not define PD-L1 positivity; instead, we compared the semi-quantitative scores of PD-L1 expression for different regions within a tumor.
+
+We found that approximately 70% of HCC tumors had concordant scores of PD-L1 expression in all regions within each tumor.
+
+Our results indicate that a single-region sample is reliable for reflecting the PD-L1 expression of an entire tumor in most patients with HCC.
+
+In addition, the samples with a score of 1 for PD-L1 expression, compared with those with a score of 0, were more inflamed (Fig. S2).
+
+Our results, consistent with others’ findings,30 suggest that PD-L1 expression in HCC is an adaptive response to pre-existing immunity that enables cancer cells to escape from immune-mediated cell killing, and is therefore correlated with poor prognosis.31–33
+
+PARAGRAPH
+
+TLSs have been considered essential for shaping a favorable tumor immune microenvironment for better tumor control through the in situ generation of antitumor cellular and humoral immune responses.34
+
+Calderaro et al.26 found that 47% of 273 patients with early-stage HCC had at least 1 intratumor TLS based on morphological findings in hematoxylin/eosin-stained slides.
+
+Moreover, the presence of TLSs was correlated with a lower risk of early relapse, and the correlation was even stronger for more mature TLSs (lymphoid follicles) than less mature early TLSs (lymphoid aggregates).
+
+It suggests that the presence of mature TLSs comprising activated dendritic cells, with or without the germinal center reaction, is an important prognostic factor in HCC.
+
+The current study used DC-LAMP, instead of morphological features, to differentiate lymphoid follicles from lymphoid aggregates, because DC-LAMP is considered to be the most reliable marker of activated dendritic cells.35,36
+
+We revealed that 8 (61.5%) out of 13 HCC tumors had at least 1 TLS in any region of the tumor, and most of those tumors had both lymphoid aggregates and follicles (data not shown).
+
+The higher prevalence of TLSs in our study was most likely due to the use of multi-region analysis.
+
+Furthermore, we showed that the reliability of a single-region sample in TLS identification is relatively low (46.2%) because of its rarity, and any mature or immature TLS-derived clinical correlations should be interpreted with caution.
+
+PARAGRAPH
+
+Peritumor, rather than intratumor, immune cell infiltration has been correlated with better outcomes in colorectal cancer37, but the prognostic role of peritumor immune cell infiltration remains unclear in HCC.
+
+We also assessed the similarities of the peritumor immune cell infiltration between samples randomly taken from the invasive margin (Fig. S8A).
+
+As previously reported38,39,13,40, peritumor densities of each immune cell type are higher than the corresponding intratumor densities.
+
+Interestingly, tumors which are dissimilar in intratumor immune microenvironment tend to be dissimilar in peritumor immune microenvironment too (Fig. S8B, C).
+
+This suggests that peritumor immune cell infiltration is also shaped by tumor-intrinsic characteristics.
+
+However, peritumor immune infiltration can only be examined on archived surgical specimens, not on the biopsy specimens which typically are not taken from the invasive margin.
+
+Therefore, exploration of similarity of peritumor immune microenvironments is outside the scope of our study.
+
+PARAGRAPH
+
+This study had several limitations.
+
+First, the sample size was relatively small, and most tumors were HBV-related.
+
+This may raise concerns regarding whether the results are generalizable to HCC of other etiologies.
+
+Second, conventional IHC cannot fully characterize the functional status of immune cells, such as naïve, effector, memory, or exhausted T cells; M1- or M2-polarized macrophages; and granulocytic- or monocytic-myeloid derived suppressor cells.
+
+Ideal methods that are applicable to clinically available FFPE specimens include multiplexed fluorescent IHC28 and mass spectrometry-based multiplexed ion beam imaging.41,42
+
+However, both are not routinely used in clinical research.
+
+Third, in the current study, we did not intend to investigate the inter-tumor heterogeneity in tumor immune microenvironments, such as the reliability of a single-region sample for evaluating similarities in tumor immune microenvironments between different tumors in the same patient.
+
+PARAGRAPH
+
+In conclusion, we demonstrated that a single-region tumor specimen might be reliable for evaluating the tumor immune microenvironment of an entire tumor in approximately 60–70% of patients with primary HCC.
+
+Our results will help improve the interpretation of clinical correlations based on tumor immune microenvironments.
+
+SECTION
+
+Abbreviations
+
+PARAGRAPH
+
+ALBI, albumin-bilirubin; DC-LAMP, dendritic cell-lysosomal associated membrane protein; FFPE, formalin-fixed paraffin-embedded; Foxp3, forkhead box P3; HCC, hepatocellular carcinoma; IHC, immunohistochemistry; MPO, myeloperoxidase; MVI, microvascular invasion; NBNC, non-HBV and non-HCV; NK, natural killer cells; PD-1, programmed cell death-1; PD-L1, programmed cell death receptor ligand 1; RNA-seq, RNA-sequencing; TLS, tertiary lymphoid structure; Tc, cytotoxic T cells; TCR, T cell receptor; Th, helper T cells; Treg, regulatory T cells.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was financially supported by National Taiwan University, Taiwan (YongLing Foundation Forum Research Grant FB006-001 and FB006-003), the Ministry of Education, Taiwan (NTU-108L901403 and the ‘Center of Precision Medicine’ from The Featured Areas Research Center Program within the framework of the Higher Education Sprout Project), and the Ministry of Science and Technology, Taiwan (MOST 108-3017-F-002-004).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+Ying-Chun Shen: government grant for this work; Chia-Lang Hsu: grants from Ministry of Science and Technology, Taiwan, during the conduct of the study; Yung-Ming Jeng, Ming-Chih Ho, Cheng-Maw Ho, Ching-Ping Yeh, Chia-Yu Yeh, Meng-Chi Meng, Rey-Heng Hu: none.
+
+Ann-Lii Cheng: personal fees from Bayer Schering Pharma, personal fees from Bristol-Myers Squibb, personal fees from Eisai, personal fees from Merck Serono, personal fees from Novartis, personal fees from Ono Pharmaceutical, personal fees from Exelixis, personal fees from Nucleix Ltd., personal fees from Roche/Genentech, personal fees from IQVIA, personal fees from Merck Sharp Dohme, personal fees from Bayer Yakuhin, personal fees from Amgen Taiwan, personal fees from Ispen; all outside the submitted work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Ying-Chun Shen: study design & coordination, data analysis, and writing manuscript.
+
+PARAGRAPH
+
+Chia-Lang Hsu: statistical analysis.
+
+Yung-Ming Jeng: quantification of PD-L1 expression, oversight of IHC staining and independent review of IHC analysis.
+
+Ming-Chih Ho: patient recruitment and oversight of tissue sampling.
+
+Cheng-Maw Ho: patient recruitment and oversight of tissue sampling.
+
+Ching-Ping Yeh: multi-region sampling, tissue processing and determination of immune cell densities.
+
+Chia-Yu Yeh: multi-region sampling, tissue processing and determination of immune cell densities.
+
+Meng-Chi Hsu: obtaining informed consent and clinical data collection.
+
+Ray-Heng Hu: patient recruitment and oversight of tissue sampling.
+
+Ann-Lii Cheng: study concept and design, oversight of the study.

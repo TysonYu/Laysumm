@@ -1,0 +1,871 @@
+10.1016/j.engappai.2019.06.011
+
+FULLTEXT
+
+TITLE
+
+Online learning control with Echo State Networks of an oil production platform
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In spite of the recent advances in renewable energies, oil and gas remain the most important energy sources in the world.
+
+As oil reservoirs are drained with time, more sophisticated technologies are required for extraction, to a great extent due to the loss of reservoir pressure and the accumulation of impurities, such as wax, gas hydrates, and asphaltene to name a few.
+
+These hurdles led to the concept of “flow assurance”, initially coined by Petrobras in the 90’s, which is concerned with the development and applications of technologies that ensure a stable and economically desirable production, under a wide range of operating conditions (Jahanshahi, 2013).
+
+PARAGRAPH
+
+One of the main flow assurance problems is the slugging flow in wells and risers, a phenomenon associated with the high oscillations that arise from the speed difference between the oil and gas flows.
+
+Most solutions found in the literature rely on models to design feedback control strategies, such as Jahanshahi (2013), de Oliveira et al. (2015), Campos et al. (2015), and Stasiak et al. (2012).
+
+Usually, the feedback control solutions to anti-slugging problems are either model-based or tuned based on a simplified model, which tends to lead to robustness issues due to either parametric or structural model mismatch (such as assuming the incorrect flow composition) (Jahanshahi, 2013).
+
+Rather than model-based approaches, this work turns to black-box data-driven approaches that continuously train online, using Recurrent Neural Networks (RNNs) to control a nonlinear plant.
+
+We can view the RNN as embedded in the controller, simultaneously learning the inverse model and controlling the plant.
+
+Throughout this paper, we will interchangeably use the terms controller and (recurrent neural) networks with the same meaning: an RNN-based controller.
+
+PARAGRAPH
+
+As the online learning RNN derives the control law, the controller can learn and adapt its parameters directly from streaming data in an online way, which renders it suitable to deal with unmodeled phenomena, for which limited knowledge of the structure and parameters is available (Nelles, 2001).
+
+However, a black-box approach can only generalize the phenomenology and physics in the region within which data were provided to fit the models (i.e., they are poor in extrapolating their predictions to regions outside the training input space), being a drawback when compared to phenomenological approaches.
+
+This is an issue specially in offline learning, where periodic retraining of the model would be necessary for learning new operating points and dynamical behaviors.
+
+In this case, a phenomenological model (if available) should be used specially if computational power is abundant and time constraints are not tight.
+
+On the other hand, online learning allows us to continuously learn from data, updating the model in real time to the most recent samples.
+
+The approach taken in this work follows that line of thought, whereby the controller endlessly adapts over time, making it capable of learning and controlling the system at any operating region, with no prior knowledge of the model.
+
+PARAGRAPH
+
+There are several examples of neural adaptive controllers in the literature.
+
+For instance, Lungu and Lungu (2018) adds a feed-forward neural network (NN) to a model-reference adaptive framework for airplane landing control.
+
+The Model-reference controller essentially forces the plant to behave as dictated by a reference model.
+
+This structure is linear by nature, so Lungu and Lungu (2018) proposed adding a feedback linearization based approach, by canceling out the non-linearities with their inverse model identified by the NN.
+
+This methodology is gray-box, because it still uses information from the linearized system to design the controller.
+
+Besides, since their work uses a feed-forward static neural network, the dynamics must be realized at the input layer through the use of lagged inputs, increasing input dimensionality by many folds.
+
+Also, as training uses backpropagation, problems such as local optima, numerical instabilities, and slow convergence can arise.
+
+PARAGRAPH
+
+Although recent advances in deep learning have made possible the effective training of special recurrent networks such as the LSTMs (Long Short Term Memory) for large training sets (Graves et al., 2013), in general RNNs are still hard to train, since Backpropagation through time (Werbos, 1990) is susceptible to local minima, slow convergence, bifurcation, and other instability related problems.
+
+One example of alternative ways to overcome these learning problems in nonlinear dynamic system identification is by Münker and Nelles (2018), who propose a network of local (linear) Finite Impulse Response (FIR) models where each local model is trained separately with the help of a special regularization matrix.
+
+The idea is that the network connection between multiple linear dynamic systems leads to a model capable of capturing nonlinear dynamics.
+
+PARAGRAPH
+
+In our work, to circumvent the aforementioned learning problems, the RNN used in our controller is trained according to the Reservoir Computing (RC) paradigm (Verstraeten et al., 2007).
+
+In particular, we employ Echo State Networks (ESN) (Jaeger and Haas, 2004; Jaeger, 2001), one of the flavors of RC, as a substrate for RNN-based controller learning.
+
+Liquid State Machines (LSM), originally from the computational neuroscience field, are another flavor of RC which use spiking neural networks as reservoirs instead of analog reservoirs as in ESNs (Maass et al., 2002) (the latter being easier to implement).
+
+RC (or ESN) networks are composed of two main parts: a dynamical non-linear state equation system which represents the recurrent part called reservoir, whose weights are randomly fixed and not trained, thus avoiding non-linear terms and dependence of time in the loss function; and a linear readout output layer, the sole part to be trained.
+
+Usually, the readout training in the RC approach is done through linear Least Squares or Ridge Regression, which has global convergence properties in contrast to LSTMs which use gradient-based learning on a nonlinear cost function, requiring orders of magnitude of more time to train than RC networks, for instance.
+
+ESNs have been successfully applied to a wide range of problems in the literature, such as learning complex goal-directed robot behaviors (Antonelo and Schrauwen, 2015), grammatical structure processing (Hinaut and Dominey, 2012), short-term stock prediction (technical analysis) (Lin et al., 2009), predictive control (Pan and Wang, 2012; Xiang et al., 2016), and noninvasive fetal detection (Lukoševičius and Marozas, 2014).
+
+Moreover, ESNs have shown promising results in identifying the complex dynamics involving a slugging flow riser (Antonelo et al., 2017), which is considered a difficult task in system identification.
+
+Chen et al. (2017a) present a tutorial on how to apply several types of neural networks, including Echo State Networks, into applications related to wireless communication, such as: using Unmanned Aerial Vehicles (UAV) as service providers; Virtual Reality with wireless networks; Content request prediction for mobile edge catching and computing; and even Internet of Things applications.
+
+Chen et al. (2017b) apply an enhanced version of Echo State Network into the context of cloud radio access networks, as a user behavior predictor.
+
+Chen et al. (2018) use ESNs in the context of virtual reality, using wireless networks to predict the quality of service of small base stations (information receivers and transmitters in the virtual reality framework) for the purpose of solving a resource allocation problem.
+
+Another successful use for Echo State Networks is the non-linear predictive control of a gas-lifted oil well with no prior model information (Jordanou et al., 2018).
+
+PARAGRAPH
+
+The ESN-based controller used in this work was first proposed by Waegeman et al. (2012), being referred herein also as the inverse model on-line learning controller.
+
+An Echo State Network implements the inverse model of the plant to be controlled, which is trained by the Recursive Least Squares (RLS) algorithm.
+
+This controller has been applied in problems such as: the heat tank temperature control assuming variable delay, airplane pitch angle control for steady cruise and balancing of an inverted pendulum system by Waegeman et al. (2012); position control of a real-world hydraulic excavator by Park et al. (2014); and robotic arm control by Waegeman et al. (2013).
+
+Bo and Zhang (2018) proposed another on-line learning control strategy that uses Echo State Networks.
+
+Based on an actor-critic framework, they derive an optimal control policy from the Bellman optimality equation to regulate the dissolved oxygen concentration in a wastewater treatment.
+
+Their controller is composed of four ESNs: two for modeling critics (as an approximation of the cost function to be minimized); one for modeling the plant (the forward model); and one for the actor, obtained analytically by deriving the steepest descent from the gradient of the model and critic networks.
+
+The ESNs are trained by a method based on the Recursive Least Squares.
+
+On the other hand, the controller employed in our work consists of only two ESNs, one that learns from past observed behavior in an online fashion (with RLS), and another that actually controls the plant.
+
+Knowledge is transferred in real time at every instant from the learning ESN to the control ESN.
+
+Compared to Bo and Zhang (2018), our framework is simpler and less computationally expensive, which can be readily applied to MIMO systems as shown in the experiments hereafter.
+
+The online learning control strategy used in this work is purely regulatory, while Bo and Zhang (2018) minimize an expected cost function to induce an optimal control policy in a reinforcement learning way.
+
+PARAGRAPH
+
+In oil and gas, our previous work (Jordanou et al., 2017) employed the online learning controller in order to control a gas-lifted oil well model, successfully realizing set-point tracking and disturbance rejection tasks.
+
+The current work can be considered as a comprehensive extension of Jordanou et al. (2017), where now:
+
+PARAGRAPH
+
+Finally, this work demonstrates that black-box strategies can be effective to the control of processes in oil production platforms, which is relevant for flow assurance as discussed above.
+
+PARAGRAPH
+
+This paper is organized as follows.
+
+Section 2 presents the Echo State Network in more detail.
+
+Section 3 describes the online learning control strategy and the Recursive Least Squares algorithm.
+
+Section 4 presents the well and riser models utilized, and further states the control challenges involved.
+
+Section 5 reports and discusses the simulation results.
+
+Section 6 concludes the work.
+
+SECTION
+
+Echo state networks
+
+PARAGRAPH
+
+An ESN is a type of recurrent neural network with useful characteristics for system identification (Jaeger et al., 2007), as it represents nonlinear dynamics well and the training consists in solving a linear least squares problem of relatively low computational cost.
+
+Proposed by Jaeger (2001), the ESN is governed by the following discrete-time dynamic equations: a[k+1]=(1−γ)a[k]+γf(Wrra[k]+Wiri[k]+Wbr+Woro[k])o[k+1]=Wroa[k+1] where: the state of the reservoir neurons at time k is given by a[k]; the current values of the input and output neurons are represented by i[k] and o[k], respectively; γ is called leak rate (Jaeger et al., 2007), which governs the percentage of the current state a[k] that is transferred into the next state a[k+1].
+
+The weights are represented in the notation Wfromto, with “o” meaning the output neurons, “r” meaning the reservoir, and “i” meaning the input neurons.
+
+“b” represents the bias; and f=tanh(⋅) is the activation function also called a base function in system identification theory (Nelles, 2001) being widely used in the literature.
+
+Fig. 1 depicts the schematic of an echo state network.
+
+PARAGRAPH
+
+The network has N neurons, which is the dimension of a[k] that must be several orders higher than the number of network inputs.
+
+As long as we use regularization, N can be as big as needed, but at the expense of increased computation time when generating the reservoir states according to Eq. (1).
+
+According to Jaeger (2002), the ESN has a memory capacity bounded by the number of neurons in the reservoir (MC ≤ N), assuming that linear output units are used.
+
+PARAGRAPH
+
+The recurrent reservoir should have the so-called Echo State Property (ESP) (Jaeger, 2001), i.e., a fading memory of its previous inputs, meaning that influences from past inputs on the reservoir states vanish with time.
+
+The ESP is guaranteed for reservoirs with tanh(⋅) as the activation function when the singular values of Wrr<1.
+
+However, this restriction limits the richness of the reservoir dynamical qualities, and is not used in practice.
+
+Note that all connections going to the reservoir are randomly initialized, usually according to the following steps:
+
+PARAGRAPH
+
+These scaling parameters, ρ and fir, fbr are crucial in the learning performance of the network, having an impact on the nonlinear representation and memory capacity of the reservoir (Verstraeten et al., 2010).
+
+Also, low leak rates allow for higher memory capacity in reservoirs, while high leak rates should be used for quickly varying inputs and/or outputs.
+
+The settings of these parameters should be such that the generalization performance of the network (loss on a validation set) is enhanced.
+
+PARAGRAPH
+
+While in standard RNNs all weights are trained iteratively using backpropagation through time (Mozer, 1995), ESNs restrict the training to the output layer Wro.
+
+In this work, reservoirs have no feedback from the output, i.e., Wor=0.
+
+Note that output feedback Woro[k] yields reservoirs without the ESP.
+
+Also, the inputs do not interfere directly in the output, as systems with direct transmission are less smooth and more sensitive to noise.
+
+SECTION
+
+Online-learning control
+
+PARAGRAPH
+
+Originally proposed by Waegeman et al. (2012), the ESN-based controller is an adaptive control framework composed of two recurrent neural networks: ESN-L, the “Learning Network”, and ESN-C, the “Control Network”.
+
+While ESN-L adapts its parameters in an online way, and is analogue to the “adaptive law” concept in an adaptive control framework (Astrom and Wittenmark, 1994), ESN-C computes the control action, and is analogue to the concept of the standard controller, whose parameters are defined by the adaptive law (Astrom and Wittenmark, 1994).
+
+PARAGRAPH
+
+Fig. 2 shows a block diagram representation of the control loop, which is composed of the two aforementioned Echo State Network blocks.
+
+The “ESN-L” takes both the present plant output (denoted as y[k] in Fig. 2) and a past plant output shifted δ timesteps to the past (denoted as y[k−δ]) as the network input.
+
+The constrained control action given at time k−δ (denoted as x[k−δ] in Fig. 2), corresponds to the desired output of a training sample.
+
+Aiming at finding the inverse model, the Learning Network is trained at each timestep with such a data sample (depicted by the dashed block in Fig. 2) using the Recursive Least Squares (RLS) online learning algorithm which adapts the output weights Wro (Waegeman et al., 2012).
+
+Note that the latter is shared between ESN-L and ESN-C, but in practice, just after ESN-L is trained, its adapted weights Wro are copied to the output layer of ESN-C in the same timestep.
+
+PARAGRAPH
+
+ESN-C outputs the control action u[k] according to the inverse model identified by “ESN-L” (defined by Wro), where it is estimated that, if the plant’s current output is y[k], the future output will be y[k+δ]=yˆ[k+δ].
+
+The present plant output y[k] and the desired plant output yˆ[k+δ] are the inputs to ESN-C.
+
+We assume that the model does not vary in the time interval δ, so this can be seen as the input to ESN-L, but displaced δ time-steps into the future.
+
+The control action u[k] is then processed by the S(x) block before being input as x[k] to the plant and the Recursive Least Squares algorithm as illustrated in Fig. 2.
+
+This block represents system constraints, such as saturation and rate limiting.
+
+The timestep delay represented by δ is a tunable parameter of the framework, which is proportional to the time constants of the system.
+
+Waegeman et al. (2012) present a proof of convergence for this type of control loop.
+
+SECTION
+
+Recursive least squares
+
+PARAGRAPH
+
+The Recursive Least Squares is an adaptive filter that solves a Weighted Linear Least Squares Problem using a recursive update formula for its parameters.
+
+The RLS used in this work is derived from the analytic solution of the Weighted Linear Least Squares Problem and obeys the following equations (Waegeman et al., 2012): P[0]=1αI e[k]=Wro[k−1]a[k]−d[k] P[k]=P[k−1]λ−P[k−1]a[k]aT[k]P[k−1]λ(λ+aT[k]P[k−1]a[k]) Wro[k]=Wro[k−1]−e[k]P[k]a[k]where k is the current timestep and P[k] is seen as an estimate of the covariance matrix at each time step k (Nelles, 2001); e[k] is the error between the desired ESN-L output d[k] (related to the control action input to the plant) and the actual ESN-L output (Wro[k−1]a[k]); I is the identity matrix.
+
+In the control framework, d[k] is built by using the bounded output of the ESN-C network x[k]=S(u[k]), i.e., according to previous section, d[k]=x[k−δ]. u[k],
+
+in turn, is generated by exciting ESN-C with a given reference signal yˆ[k+δ], usually generated randomly or by using staircase signals, as the experiments in this paper will show; α is a parameter that represents how much is known a priori about the system, for it serves to evaluate P[0].
+
+The larger the value of α, the more one is admitting to not know the nature of the system (the diagonal of P[0] becomes smaller).
+
+PARAGRAPH
+
+The forgetting factor λ models how much weight the most recent samples will have in relation to the previous ones.
+
+The actual cost function for a forgetting factor included in the RLS algorithm is: J=∑k=0NλN−k(d[k]−Wroa[k])2For λ<1, the most recent samples are penalized more strongly.
+
+Smaller values of λ tend to make the algorithm adapt better and quicker to real-time changes in the model while sacrificing steady-state performance.
+
+Heuristically, the literature recommends that λ>0.9.
+
+The parameter λ should be close to 1 when the dynamic system is in steady state; however, it is desirable to have λ close to 0.9 when the system is undergoing transients.
+
+SECTION
+
+Case study
+
+PARAGRAPH
+
+For the experiments, we used a composite model of a production platform consisting of two gas-lifted oil wells and a riser.
+
+The well model used to represent the two wells was developed by Jahanshahi et al. (2012).
+
+We also use the same parameter values.
+
+The riser model was developed by Jahanshahi and Skogestad (2011).
+
+The models are connected by a manifold, which contains no load loss due to friction.
+
+We describe each model as follows.
+
+SECTION
+
+Gas-lifted well
+
+PARAGRAPH
+
+The well model consists of a gas-lift injection choke valve, an annulus, a tubing, and a production choke valve at the end of the oil outlet.
+
+Fig. 3 illustrates the oil well model utilized, and also the physical location and meaning of each variable.
+
+The figure center depicts the “Tubing”, where oil is produced.
+
+The borders represent the “Annulus”, where gas is injected for gas lift.
+
+The gas-lifted oil well dynamics are described by the following state equations: ṁG,a=ωG,in−ωG,injṁG,tb=ωG,inj+ωG,res−ωG,outṁL,tb=ωL,res−ωL,out in which the name convention for variables is xy,z, the x represents the variable’s nature, with m being the mass and ω the mass flow, the y represents the variable’s phase, with G being the gas and L the liquid/oil phase, and no water phase is modeled.
+
+The z represents the variable’s location in the well, where tb is the tubing and a is the annulus.
+
+If y is absent and the variable is in the form xz, then the variable does not describe a specific phase.
+
+The subscript “res” refers to variables related to the oil and gas reservoir connected to the wells, “inj” refers to the injected flow from the annulus into the tubing, and “out” refers to the outlet variables.
+
+The parameter values are borrowed from well n°1 of Aguiar et al. (2015).
+
+PARAGRAPH
+
+The model assumes only the presence of a gaseous and a liquid phase flowing through the well.
+
+The state equations derive from liquid and gas mass balance relations in each well, where one state represents the total gas mass present in the well annulus, and the other two states represent the gas and liquid total mass in the tubing.
+
+The inflow of gas in the annulus, ωG,in, depends on the opening of the gas-lift choke valve ugs, and the gas-lift inlet pressure Pgs.
+
+The gas enters the tubing with mass flow ωG,inj after exiting the annulus.
+
+The tubing also receives gas and liquid from the reservoir with given mass flows ωG,res and ωL,res, respectively.
+
+These mass flows depend on the reservoir pressure, Pres.
+
+The liquid and gas exiting through the tubing, with mass flows ωL,out and ωG,out, respectively, depend on the pressure at the outlet, which in this work is a manifold connected to another well and a riser, and the production choke valve opening uch.
+
+PARAGRAPH
+
+All the flows are defined by the Bernoulli orifice equations, which depend on the pressure difference in each flow region.
+
+For more information on the formulation of the model, refer to Jahanshahi et al. (2012) and Appendix A, where more detailed information is available.
+
+In Jahanshahi et al. (2012), the well model was validated by comparison with the OLGA simulator, by capturing similar stability behavior, and thus serving the purpose of control benchmarking for oil and gas production.
+
+The well model has 42 algebraic variables, 3 state variables, 2 input variables, and 3 boundary conditions, where two of them (reservoir pressure and gas-lift pressure) are fixed.
+
+The outlet pressure, Pw,out is coupled via the manifold model to the rest of the system.
+
+In this work, two wells are considered, whose variables are defined by xy,z,i, following the previously defined nomenclature, where i refers to the index of the well i∈W=1,2.
+
+SECTION
+
+Pipeline-riser
+
+PARAGRAPH
+
+Jahanshahi and Skogestad (2011) idealized the pipeline-riser model utilized in this work.
+
+The same notation as the well model is used for the pipeline-riser model, considering only a biphase flow consisting of a liquid (oil and water) and a gaseous phase.
+
+Since slugging is related to the velocity difference between the gas and liquid phase, for anti-slug control applications, this model is reasonable.
+
+The liquid phase is also assumed to be incompressible.
+
+Jahanshahi and Skogestad (2011) demonstrate that this model provides a close approximation to an equivalent riser represented in the OLGA simulator.
+
+This model was made for benchmarking and designing anti-slug controllers, given that it represents well the dynamics related to the riser.
+
+Fig. 4 is a description of the model.
+
+PARAGRAPH
+
+The following state equations are considered: ṁG,p=ωG,in−ωG,lpṁL,p=ωL,in+ωL,lpṁG,r=ωG,lp−ωG,outṁL,r=ωL,lp+ωL,out These state equations are derived from mass balance, considering that the flow consists of only a gaseous and a liquid phase.
+
+The mass balance is evaluated in two connected regions: a horizontal pipeline, and a vertical tubing connected to it that elevates the production fluid.
+
+The mass flow rates ωG,in and ωL,in, which refer to the fluid entering the pipeline, are either assumed constant or connected to an outside source, such as a manifold.
+
+The fluid then exits the pipeline and enters the riser with flow rates ωL,lp and ωG,lp, and exit the system with flow rates ωG,out and ωL,out, which depend on the separator pressure Ps and the riser choke valve opening z.
+
+As in the case of the well model, the flows are calculated through the Bernoulli orifice equation, and pressure loss due to friction is inherent in the model.
+
+For more information on the riser model, refer to Jahanshahi and Skogestad (2011) and Appendix B, where more detail of the model is available.
+
+PARAGRAPH
+
+The pipeline-riser model possesses 4 state variables, 36 algebraic variables, and three boundary conditions, in which one (the outlet/separator pressure) is considered constant.
+
+SECTION
+
+Manifold connection
+
+PARAGRAPH
+
+The entity that connects the two wells and the riser is the Manifold.
+
+The manifold considered in this work has no load loss due to friction, so the outlet pressure is equal to the two inlet pressures.
+
+This essentially means that the pressure at the outlet of both wells is equal to the riser inlet pressure Pin, as defined in Eqn. (15): Pin=Pw,out,1=Pw,out,2Given the conservation of mass, the sum of the outlet mass flow from the wells is equal to the inlet flow of the riser. ωG,in,r=ωG,out,w1+ωG,out,w2ωL,in,r=ωL,out,w1+ωL,out,w2
+
+where ωx,y,r is a mass flow in the riser and ωx,y,wi is a mass flow in well i.
+
+PARAGRAPH
+
+The presence of the manifold then brings the complete system to possess: 10 state variables, 110 algebraic variables, and 5 input variables.
+
+Due to the junction of the two wells and the riser, the riser inlet flow and both well outlet pressures can no longer be considered boundary conditions.
+
+In the end, the boundary conditions left for the complete system are: both well gas-lift pressures Pgs,1=200 bar, and Pgs,2=200 bar, both well reservoir pressures Pr,1, and Pr,2, and the riser outlet pressure, which is connected to the surface of a platform.
+
+As in Jahanshahi and Skogestad (2011), the outlet pressure is assumed to be 50.1 bar.
+
+PARAGRAPH
+
+Fig. 5 depicts a schematic representation of the complete plant, where the manifold connects the two wells and the riser.
+
+SECTION
+
+Control challenges
+
+PARAGRAPH
+
+The oil production system depicted in Fig. 5 is sufficiently complex to bring about several control challenges, which are suitable for testing different control problems such as:
+
+SECTION
+
+Experiments and results
+
+PARAGRAPH
+
+This section presents the experiments using the online learning controller for controlling the oil production plant with two wells and one riser, aiming at analyzing the controller capacity in following set-points and rejecting disturbances.
+
+We now showcase each of the control problems proposed in Section 4.4 individually.
+
+SECTION
+
+Implementation
+
+PARAGRAPH
+
+The plant model was implemented using Jmodelica, an open source dynamic system modeling language which has an interface with Python 2.7.
+
+We used the Python libraries numpy and scipy to implement both the Echo State Networks and the online learning controller.
+
+The results were displayed using the matplotlib library.
+
+For all three cases, we utilized a sampling time of 60 seconds, a common setting in oil and gas production plants.
+
+SECTION
+
+Metrics and experimental setup
+
+PARAGRAPH
+
+Hafner and Riedmiller (2011) define the metrics utilized in this work.
+
+They argue that a viable control metric is the average trajectory error eT of the controller: eT=1N∑k=0N‖ŷ[k]−y[k]‖1where N is the total runtime in time steps, y[k] is the actual output and ŷ is the predicted output.
+
+Actually, this error metric is related to the cost function in the predictive control strategies (Camacho and Bordons, 1999), which uses the 2-norm instead of the 1-norm.
+
+PARAGRAPH
+
+Notice that the average error eT increases the longer the system takes to stabilize at a set-point, being an indirect evaluation of convergence time.
+
+Because this metric fails to capture the transient behavior in the controller, such as oscillations, we propose the mean variation of the control action as an alternative metric: ΔU=∑k=0N‖u[k]−u[k−1]‖1u[−1]=u0 The variation ΔU increases if the control action differs between consecutive time-steps, for instance when the system undergoes oscillations or during transients.
+
+In process control applications, we want the behavior of the system to be as conservative as possible while respecting process time constraints.
+
+So, the total control action variation should be as low as possible.
+
+PARAGRAPH
+
+In all experiments, the reference signal ŷ is composed of three parts.
+
+Each part has a duration of 2000 time steps, roughly 0.6 h, according to the following rules:
+
+PARAGRAPH
+
+In control, better results are expected if the deviation from one set-point to the next is small, as advocated by the linear systems approximation theory (Chen, 1998).
+
+So we should expect poor control performance when the distance between one set-point and the next is high.
+
+PARAGRAPH
+
+The mean trajectory error eT and the total control variance ΔU are computed, for each part of the simulation, which provides insights into how the controller has progressed.
+
+At each time k, we also plot the metrics eT and ΔU over the 100 previous time steps, which shows how the controller continuously progresses over time.
+
+SECTION
+
+On parameter selection
+
+PARAGRAPH
+
+In total, we tuned seven controller parameters according to either a grid search procedure or empirically analyzing the behavior of the controller and its parameters: for the ESN (reservoir), the leak rate γ, the spectral radius ρ, the input scaling fir and bias scaling fbr; for the RLS training of the output layer, the forgetting factor λ and α; and for the controller (externally to the network), the prediction time step δ.
+
+PARAGRAPH
+
+The forgetting factor λ should be small enough so that the RLS is sensitive to changes in the model, but large enough so that the covariance matrix P does not degenerate.
+
+The value λ=(1−10−6) was chosen by trial and error.
+
+We have analyzed the behavior of the main diagonal of the covariance matrix over time, and chosen a value for λ sufficiently high to guarantee that P does not diverge, which otherwise causes numerical instability, while maintaining the “forgetfulness” of past data by the RLS.
+
+PARAGRAPH
+
+When prior knowledge on the weights and covariance matrix is unavailable, we should select a small value for α to induce high variance in the diagonal of P, which in turn expresses a high degree of uncertainty.
+
+Notice also that a small value for α leads to a faster convergence rate of the RLS algorithm (Nelles, 2001).
+
+For the simulations herein α was set to 10−3.
+
+PARAGRAPH
+
+To select the number of neurons for the experiments in this work, we tested the controller using different values for the number of neurons, and obtained successful results with values as low as 50.
+
+However, the performance for randomly generated reservoirs of size 50 have a high variance when compared to reservoirs with more neurons.
+
+In all cases, 300 neurons proved to be enough to perform all tasks, considering learning and control of the system.
+
+More neurons require more computational power to calculate the control action, so it is desirable to keep the number of neurons sufficiently low for the controller to learn the system.
+
+PARAGRAPH
+
+For each experiment, Table 1 displays the rest of the parameters: the SISO case corresponds to the experiments where the controlled variable is the riser inlet pressure Pin, and the manipulated variable is riser choke opening z; the MISO case refers to the Pin control using both gas-lift valves ugs,1 and ugs,2; and the MIMO case refers to the control of the downhole pressures Pbh,i of both wells (i=1,2) by simultaneously manipulating the production choke valves uch,i of each well.
+
+Before doing a grid search, the reservoir’s weights are randomly initialized from the normal distribution and left fixed for the different sweeps of other parameters.
+
+Borrowing from results shown in Waegeman et al. (2012), we choose to keep the internal weight matrix fully dense.
+
+PARAGRAPH
+
+Lower values for fir are desirable since the controller behaves less aggressively.
+
+Also, the system behaves more like a linear system when the value of fir is small, since the input has small effect on the network.
+
+PARAGRAPH
+
+The controller was not able to track set points without the presence of bias (fbr=0) for the ESN, which shows that the task at hand is significantly complex and nonlinear.
+
+An empirical analysis of bias values revealed that fbr=0.2 produces better results for the SISO case, whereas a bias value fbr=0.1 was best for the super-actuated and coupled well cases.
+
+PARAGRAPH
+
+The SISO and MIMO applications were given a leak rate of 0.2, for having fast dynamics, so there is no retardation of the controller dynamics related to the plant, and a spectral radius of 1.0, which ensure a long-lasting memory for the reservoir (slow dynamics are present).
+
+The only parameters left to decide are ρ and γ for the MISO case, and δ for all three cases.
+
+PARAGRAPH
+
+For the MISO case, the leak rate γ and spectral radius ρ were chosen by performing a grid search for 0.3≤ρ≤1.2 and 0.1≤γ≤1 on discrete intervals of 0.1, considering both ΔU and eT evaluated during the last 4000 time steps (validation and generalization phases) after the initial training phase of 2000 time steps.
+
+Other parameters were fixed as shown in Table 1.
+
+The results of this batch of experiments are presented in Fig. 7, where black corresponds to high errors and white to low errors.
+
+For visualization purposes, we cut off points where eT>3 and ΔU>200 from the plot, where the performance was subpar, to better visualize the points that performed good in terms of the two metrics.
+
+From the plot, we can notice that the optimal combination of leak rate and spectral radius for the metric eT (where ΔU can be up to 100) is located at γ=0.5 and ρ=1.0 (where eT<0.6), while other parameter combinations have led to more oscillatory behaviors in our analysis — represented by gray and black areas in the total control variation plot in Fig. 7(b).
+
+Another view on the plot of ΔU is that, in general, as ρ gets higher, the dynamics of the ESN is enriched with more nonlinearity and short-term memory, causing the controller to behave more aggressively as well (darker areas of the plot).
+
+However, the interplay between the spectral radius and the leak rate in this application is not so evident, as the best blend of parameters takes place at γ=0.5 and ρ=1.0, suggesting a nonlinear relationship between parameters for the best learning and control performance.
+
+PARAGRAPH
+
+In addition, for γ<0.5, the ESN state dynamics slows down too much for the controller to effectively control the system — reflected by the top darker area with high error in Fig. 7(a).
+
+We have also noticed that when γ>0.7, the controller demonstrates behavior too aggressive to properly stabilize the plant — verified by the darker area with high ΔU in Fig. 7(b).
+
+Although the bottom left sections of the plots in Fig. 7 (where 0.7≤γ≤0.6) have a greyish aspect suggesting reasonable control performance, we have noticed that for these cases the covariance matrix P has not decreased over time, i.e., the output weights learned by the RLS method have high associated uncertainty (given by P) in the premature convergence of the RLS training.
+
+As a result, the norm for Wro goes up over time, bringing about numerical instability for long simulations.
+
+PARAGRAPH
+
+In order to choose the most suitable value for the prediction time step δ, as seen in Table 1, we evaluated eT and ΔU once again for the validation and generalization stages of the simulation during 4000 time steps, for values of δ varying from 1 to 30, while keeping fixed the ESN weights and setting other parameters as defined in Table 1.
+
+Fig. 8 depicts the results of these experiments for the MISO and MIMO cases.
+
+Note that the time step delay δ is the sole degree of freedom of the online learning control existing outside the ESN structure and adaptive RLS training blocks (Fig. 2).
+
+Some remarks on the experiments follow for the following cases:
+
+SECTION
+
+SISO riser inlet pressure tracking
+
+PARAGRAPH
+
+The experiments herein concern the first problem described in Section 4.4, the tracking of the riser inlet pressure Pin by manipulating only the riser choke valve.
+
+The design of a linear controller for this problem is particularly hard, since the static gain varies significantly per operating point (see Fig. 6(b)).
+
+Put another way, a linear controller designed for an operating point can become unsuitable for another.
+
+No gas-lift is injected into the wells ((ugs,1,ugs,2)=(0,0)).
+
+PARAGRAPH
+
+Before computing the control action, we scale the feasible range of the inlet pressure Pin from [88.8,95.0] bar to [−1,1], for better numerical conditioning, whereby 88.8 bar is the riser inlet pressure for a fully open choke, and 95.0 bar is the pressure when the choke is about 10% open.
+
+The control action is defined within the set [0.1,1.0] to prevent the well from being shut in.
+
+We then scaled the control action to [−1,1], to be in the same range as the controlled variable.
+
+PARAGRAPH
+
+Fig. 9 shows the results of the stable SISO Pin control experiment.
+
+In the first subplot, the red dashed line is the reference signal Pin and the blue solid line corresponds to the plant output signal.
+
+After approximately 1000 time steps, the Echo State Network converged1  and was able to thoroughly learn the system operating points.
+
+The ESN learning led the controller to track the setpoints afterward without the presence of oscillations.
+
+We see this behavior in the first plot of Fig. 9: the training and validation part of the simulation consist of the same tracking signal, but the controller succeeds in the validation part due to information obtained during the first 2000 time steps.
+
+The third part of the simulation (from 4000 to 6000 times steps) was designed to have low pressure set-points, whereas high pressures were set for the first two parts of the simulation (from 0 to 4000 time steps), as shown on the top plot of Fig. 9.
+
+Within the third part of the simulation, large changes in the riser choke opening imply small changes in the riser inlet pressure.
+
+The top two plots of Fig. 9 show this behavior.
+
+Notice that the controller can track the pressure profile within the third part, even though tracking was not consistently kept at low pressures in the first two parts of the simulation.
+
+PARAGRAPH
+
+The third and fourth plots of Fig. 9 present respectively the mean trajectory error eT and the total control variation ΔU of the 100 previous time steps, at each time step.2
+
+Error peaks correspond to system saturation and oscillations (e.g., at time step 1000, eT has a peak when Pin reaches its maximum value).
+
+Since the control action oscillates heavily, one expects that ΔU had higher values in the first 2000 time steps.
+
+The third part demonstrates the ESN learning ability: despite a random tracking trajectory leading to unexplored operation points, the error induced by the controller was still small.
+
+The magnitude of ΔU at the third part is also higher than the second, but this behavior is attributed to the distance between each control action to follow the desired set points at steady-state.
+
+PARAGRAPH
+
+Table 2 gives the mean trajectory error eT for each simulation part, as defined in Eq. (18), and likewise the control variation ΔU as defined in Eq. (19).
+
+These metrics corroborate the results shown in Fig. 9.
+
+PARAGRAPH
+
+We also have measured the time it took to compute the control action at each iteration.
+
+The average computation time was of 0.0042 s, the standard deviation was of 0.0032, and the worst case time was of 0.036 s.
+
+PARAGRAPH
+
+The same control strategy was applied to the case presented in Fig. 6(a), where the only difference from the system in this application is that (ugs,1,ugs,2)=(0.05,0), with one gas-lift valve fully closed and the other opened only at 5%.
+
+The controller has failed to stabilize the plant in that instance, but this might be due to the impossibility of reaching the proposed pressure set-points in a stable way using only the production choke as the manipulated variable.
+
+The difference in results shows that the gas-lift valves are essential in defining the system dynamics, making them important for pressure tracking.
+
+We tackle this approach in the next section.
+
+SECTION
+
+Super-actuated control
+
+PARAGRAPH
+
+This section considers a controller with two manipulated variables, namely the gas-lift chokes (ugs,1,ugs,2) while holding the riser choke fully open (z=1) to sustain full oil production.
+
+The goal is to track a reference signal for the riser inlet pressure Pin, a control problem in the MISO class.
+
+PARAGRAPH
+
+Multiple solutions for reaching a given set-point emerge from the additional degrees of freedom, posing a challenge to learn the ESN-based inverse model.
+
+For example, a pressure of 110 bar can be achieved with multiple combinations of (ugs,1,ugs,2).
+
+As the input–output relation is not bijective, the inverse model is not invertible and the controller must find an approximation that works.
+
+Another challenge to control design stems from the slow system dynamics, since a change on the gas-lift choke opening can take considerable time to influence the riser inlet pressure.
+
+PARAGRAPH
+
+We scaled the range for the riser pipeline pressure [100,120] to [−1,1], in which 100 bar is the lowest allowed pressure and 120 bar is the upper limit.
+
+The gas-lift choke opening [0,1] was likewise scaled to [−1,1] for both valves.
+
+PARAGRAPH
+
+The third column of Table 1 presents the parameters for this experiment.
+
+PARAGRAPH
+
+Fig. 10 depicts the results for the Super-Actuated control.
+
+Notice that the controller asymptotically stabilizes the plant for all set-points once the RLS algorithm converges, approximately after 400 time steps, even considering that, of all applications, the Super-Actuated case has the most complex dynamics, since the gas-lift valve is in the well annulus, and Pin is measured at the riser inlet (see Fig. 5).
+
+These results show that the controller can effectively learn the inverse plant model and thus control the plant, despite the additional degrees of freedom, and avoid potential oscillatory regimes.
+
+The controller also efficiently tracked the riser inlet pressure in the third part (generalization stage) of the simulation, where the set-points are set at random, even though abrupt set-point changes make it difficult to generate smooth dynamical responses.
+
+In the second subplot, the blue line represents ugs,1 and the green line ugs,2.
+
+PARAGRAPH
+
+The third and fourth plots of Fig. 10 are consistent with the previous experiments as measured by eT and ΔU.
+
+The performance in the second and third simulation parts, namely validation and generalization, respectively, are better than in the first learning part, which is devoid of prior knowledge of the inverse model.
+
+The larger set-point changes are the cause of the higher error in the third part.
+
+PARAGRAPH
+
+Because there is no feedback from the outputs to the state of the ESN (Wor=0), the control signals ugs,1 and us,2 are fully independent and computed by separate weight combinations of network states.
+
+Since both control signals are affecting the riser inlet pressure Pin, we can see each control action as a disturbance to one another.
+
+We can see this control structure as two separate controllers adjusting the same controlled variable by using a different manipulated variable each.
+
+The controllers will interfere with each other, rejecting disturbances in the form of multivariate coupling.
+
+PARAGRAPH
+
+Table 3 presents the metrics eT and ΔU for each of the three parts of the simulation.
+
+These metrics endorse the conclusions drawn above.
+
+For instance, the control variation is higher in the third simulation part, which is a result of the control action required to track a randomly changing set point.
+
+PARAGRAPH
+
+Measuring the control action computation time at each time step of the simulation, we have obtained an average of 0.0058 s, a standard deviation of 0.0041 and a worst-case computation time of 0.046 s.
+
+PARAGRAPH
+
+We applied the Least Mean Squares (LMS) algorithm (Nelles, 2001) instead of RLS for riser control, however the resulting controller did not manage to attain a satisfactory performance.
+
+Alternatively, an Extreme Learning Machine (ELM) (Huang et al., 2006) and a Radial Basis Function (RBF) network (Nelles, 2001) were implemented for the plant inverse model as a means to compare with the ESN-based controller.
+
+As initially proposed by Waegeman et al. (2012), the online learning control framework can use machine learning models other than reservoirs.
+
+PARAGRAPH
+
+The ELM operates according with the following equation: a[k]=tanh(Wini[k]+b)o[k]=Woa[k] where i[k] and o[k] correspond to the network input (plant output) and network output (plant input) respectively.
+
+The vector a[k] has the values of the hidden layer units.
+
+Unlike the ESN which has an internal dynamics given by the network state, the ELM is static and therefore yields the output depending only on the current input.
+
+Akin to an ESN, only the output weights Wo of the ELM are trained using RLS, while the weights Win and b are randomly initialized as suggested in the literature (Huang et al., 2006), in this case, using a standard normal distribution N(0,1).
+
+For comparison purposes, the vector a[k] has the same dimension as the reservoir in the ESN, i.e., N=300 units.
+
+PARAGRAPH
+
+A Radial Basis Function is roughly defined as a function f(x)=g(‖x−ci‖) that depends on the Euclidean norm of the difference between an input x and a center ci.
+
+Each radial basis function possesses a center ci and radius ri.
+
+In this work, we adopt a Gaussian-like function as RBF, defined as: f(x)=e−1ri‖x−ci‖2The RBF network combines multiple RBFs for the purpose of system identification.
+
+As each RBF influences locally in the identification, the centers must be well distributed.
+
+Since every variable is normalized before being input to the inverse model, the center ci of each RBF is drawn from the uniform distribution u(0,1).
+
+For the sake of simplicity, instead of using the radius ri, we implement the RBFs in terms of the parameter wi=1ri, drawn randomly from u(0.01,1).
+
+The resulting RBF network operates with the following equations: ai=e−wi‖i−ci‖2o=Woa where ai is the ith element from a, which has size N=300 in this experiment.
+
+As with the ESN and ELM, we train the output weights using RLS, leaving the remaining parameters static.
+
+The output weights Wo dictate the influence of each RBF in the resulting inverse model.
+
+PARAGRAPH
+
+To compare the performance of the controllers defined by the ESN, the RBF network and ELM, thirty simulations were carried out for each inverse model, with varying internal weights for the respective network.
+
+Besides the previous experiments with a time-step delay δ=10, experiments were also performed for δ=30 whereby 10 simulations were run for each inverse model.
+
+The results are reported in Table 4 in terms of the mean and standard deviation (std) of the tracking error eT.
+
+PARAGRAPH
+
+From the results in Table 4, we can infer that the Echo State Network outperforms the ELM as well as the RBF network on average, with smaller mean for the tracking error eT.
+
+In the case of δ=10 shown in Table 4(a), the mean error values produced by the RBF network are closer to the ESN than ELM; ESN yielded a lower variance on eT than ELM but slightly higher than the RBF network in the first two parts of the simulation.
+
+As the time-step delay δ becomes greater, that is, for tasks requiring even more memory3  (Waegeman et al., 2012), we expect that the ESN performance surpasses the other methods more strongly as the fading memory effect will be essential for the online learning control.
+
+This tendency is observed in Table 4(b), where δ=30, which shows that the deterioration in performance of the static models (ELM and RBF model) is greater than that of the ESN when dynamics becomes more important.
+
+Considering the last column (time steps 4000–6000), while in (a) the RBF model was about 8% worse than the ESN, in (b), the RBF model is about 51% worse on average than the ESN.
+
+Considering that weights are randomly initialized, the results indicate that a good ESN controller is more easily obtained for the slow dynamics setup than a controller based on ELM and RBF networks.
+
+SECTION
+
+Coupled well control
+
+PARAGRAPH
+
+This experiment concerns the manipulation of the production choke uch,i of both wells to control their bottom-hole pressure Pbh,i.
+
+For being a MIMO (Multiple Input, Multiple Output) plant, this experiment is the most complex in terms of learning.
+
+For instance, some desired set-point combination might not be feasible due to the plant physics, which imposes operational constraints.
+
+Such constraints make it harder for the controller to calculate choke openings that track the desired bottom hole pressures.
+
+PARAGRAPH
+
+We scale the well bottom-hole pressure from [170,220], which are the minimum and maximum bottom-hole pressure that the wells can reach, to [−1,1].
+
+Likewise, the production choke opening is scaled from [0.1,1] to [−1,1] for both wells, with 0.1 being the lowest allowable choke opening.
+
+PARAGRAPH
+
+The fourth column of Table 1 shows the parameters utilized in this experiment.
+
+Fig. 11 depicts the set-point tracking experiment.
+
+It took 500 time steps for the RLS to converge and the inverse model to be learned.
+
+Once the learning has converged, the controller tracked all the proposed set-points without oscillations, which is remarkable given the lack of prior knowledge and considering variable coupling.
+
+PARAGRAPH
+
+Table 5 shows the total control variation and mean trajectory error over the three phases of the simulation.
+
+These metrics corroborate the behavior shown in Fig. 11.
+
+Notice that the mean trajectory error eT is high during the learning phase, very low for the well behaved trajectory tracking part during validation, and slightly higher than the previous period when the set points are defined randomly in the generalization phase.
+
+PARAGRAPH
+
+With the aim of assessing the robustness of the online learning controller, we applied disturbances to the gas-lift source pressure of well 2 (Pgs,2).
+
+Fig. 12 shows the results of this experiment.
+
+The bottom-most plot of the figure shows the gas-lift disturbance, which consists of an abrupt parametric change in the model occurring at a certain point in time (i.e., step disturbance).
+
+The step disturbances for the gas-lift source pressure Pgs,2 happen at times t=3600 min, t=3900 min and t=4300 min (see Fig. 12).
+
+PARAGRAPH
+
+A 30 bar disturbance is usually considered large in the context of the application.
+
+Even though the RLS algorithm converged, which leads the learning algorithm to be less sensitive to changes in the plant, the controller still managed to compensate for the parametric change in the model.
+
+This means that the online learning controller adapts to model change with little performance degradation.
+
+Table 6 shows the result of this experiment with applied disturbance.
+
+We apply the disturbance at the end of the second phase and the beginning of the third phase.
+
+Notice that the results did not change by a large margin in comparison to the case without disturbance (see Table 5).
+
+PARAGRAPH
+
+For the undisturbed case, the average computation time for the control action at each time step was 0.0058 s, with a standard deviation of 0.0041 s, and worst case time of 0.052 s.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This work has shown that online learning control is able to control complex simulated dynamical systems in diverse scenarios without prior information.
+
+The ESN-based controller was used to control an oil production platform consisting of one riser and two wells connected by a manifold, where complex dynamics were present such as steady-state gain variation, multiple degrees of freedom, and coupled multi-variable control.
+
+Three control problems (SISO, MISO, and MIMO) involving different plant variables were tackled, extending substantially previous work.
+
+The ESN-based controller learned each different input–output dynamical behavior and performed set-point tracking and disturbance rejection, either explicitly or implicitly in a multivariate coupling scenario.
+
+Despite the remarkable challenge of controlling a plant without a model, the online learning framework has succeeded in all three proposed cases.
+
+Furthermore, the application of the learning controller using a single ESN architecture has proved effective also for multivariate problems as shown here, even when coupled variables were involved.
+
+As the worst case computation time for the control action obtained in all three simulation runs indicates, we can reliably use the online learning controller in applications where the sampling time is larger than 0.1 s given the utilized hardware conditions.
+
+For the oil and gas plant considered in this work, computation time is a non-issue, since the sampling time is of 1 minute, though it may pose a problem for faster applications.
+
+PARAGRAPH
+
+As future work, we plan to compare the current framework with other control approaches in the literature as well as to devise methods for significantly reducing the initial transients when controlling a plant, an actual hindrance for real-world applications.
+
+For instance, we can train a second ESN model beforehand as a proxy forward model (Antonelo et al., 2017, 2007) of the plant to be controlled, initializing the output layer of the ESN-based controller by running the initial steps of the control loop using the previously trained proxy model as a simulated plant instead of the real plant.

@@ -1,0 +1,575 @@
+10.1016/j.jhep.2019.05.008
+
+FULLTEXT
+
+TITLE
+
+Models estimating risk of hepatocellular carcinoma in patients with alcohol or NAFLD-related cirrhosis for risk stratification
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Annual HCC risk varies greatly in patients with cirrhosis ranging from as little as <0.2% to as high as >5%.
+
+Although this variability is well recognized, few models exist to estimate HCC risk in patients with cirrhosis and none are commonly used.
+
+Liver societies recommend the same screening strategy (abdominal ultrasonography every 6 months with or without concomitant serum alpha-fetoprotein [AFP]) irrespective of HCC risk.1–3
+
+Studies show poor compliance with these screening recommendations.4,5
+
+Stratification of HCC risk in patients with cirrhosis into low (e.g. <1% per year), medium (e.g. 1–3% per year) and high (e.g. >3% per year) would enable optimization and individualization of outreach efforts and screening strategies in patients with cirrhosis.
+
+It would also enable identification of high-risk patients for clinical trials of HCC screening.
+
+PARAGRAPH
+
+Many determinants of HCC risk in cirrhotic patients have already been described including routinely available clinical characteristics (e.g. etiology of cirrhosis, age, gender, race, body mass index, diabetes, HCV genotype) and serum laboratory tests (e.g. platelet count, albumin, aspartate aminotransferase [AST], alanine aminotransferase [ALT] and AFP).6
+
+These readily available predictors could potentially be combined into HCC risk estimation models with adequate discrimination and calibration.
+
+PARAGRAPH
+
+The incidence of HCC has been rising dramatically over time.7,8
+
+Therefore, HCC risk prediction models must be based on a recent cohort to avoid underestimating HCC risk.
+
+HCC risk is frequently calculated in patients with cirrhosis from the time they were first diagnosed with cirrhosis (i.e. as an “inception cohort”).
+
+However, this results in the diagnosis of many prevalent cases as well as incident cases in the early period after the inception of the cohort.
+
+For practicing clinicians, a more useful scenario would be to estimate HCC risk in a patient with cirrhosis when they are seen in clinic at some point during their natural history, not necessarily only when they first get diagnosed with cirrhosis.
+
+Also, HCC risk prediction models developed specifically to inform screening strategies, need to have a time horizon of approximately 5 years or less.
+
+This is counterintuitive since longer follow-up is usually considered better; however, HCCs destined to develop in 5 to 10 years from now are not going to be diagnosed by screening occurring “now” and therefore should not influence the prediction models.
+
+PARAGRAPH
+
+The 3 most common etiologies of cirrhosis in the United States, which also account for the majority of HCC cases, are hepatitis C virus (HCV), alcoholic liver disease (ALD) and non-alcoholic fatty liver disease (NAFLD).
+
+HCC risk prediction models need to be developed separately for different major etiologies of cirrhosis for a number of reasons.
+
+Firstly, HCC risk is greater in cirrhotic patients with HCV than those with other underlying liver diseases.6,9
+
+Secondly, certain predictors may be more important for some etiologies than others (e.g. obesity and diabetes may be more important in NAFLD-cirrhosis than in HCV-cirrhosis) while some predictors are unique to some etiologies (e.g. HCV genotype is unique to HCV-cirrhosis).
+
+Thirdly, direct-acting antiviral treatments have a dramatic effect on HCC risk in HCV-related cirrhosis, such that HCC risk has to be calculated specifically relative to the time of receipt of antiviral treatment.
+
+The prevalence of HCV-related cirrhosis is declining rapidly due to the decreasing prevalence of HCV since the year 2001 and the more recent dramatic increase in HCV cures after the introduction of direct-acting antiviral treatments.
+
+In contrast, the prevalence of cirrhosis related to NAFLD and ALD is increasing.7,10
+
+PARAGRAPH
+
+For these reasons, we aimed to develop and internally validate models that accurately estimate HCC risk in a recent cohort of patients with cirrhosis, specifically in patients with NAFLD-cirrhosis or ALD-cirrhosis.
+
+Furthermore, we wanted to evaluate the net benefit that would be derived by implementing HCC surveillance strategies based on HCC risk estimated by our models.
+
+Finally, we wanted to make our HCC risk prediction models available to clinicians as web-based tools so that HCC risk can be readily estimated in clinical practice.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Study design
+
+PARAGRAPH
+
+We identified all patients with ALD-cirrhosis or NAFLD-cirrhosis who received care in the Veterans Affairs (VA) healthcare system (VAHS) nationally in calendar year 2012, without a prior history of HCC.
+
+We followed them retrospectively from 2012 until 01/01/2018 for the development of incident HCC.
+
+We used baseline characteristics in 2012 to develop and internally validate HCC risk prediction models separately for ALD-cirrhosis and NAFLD-cirrhosis.
+
+SECTION
+
+Study population and data source
+
+PARAGRAPH
+
+The VAHS is the largest integrated healthcare system in the United States, with 168 VA Medical Centers and 1,053 outpatient clinics throughout the United States serving more than 8.9 million Veterans each year,11 including the largest number of patients with cirrhosis.7
+
+Nationwide, the VA uses a single comprehensive electronic healthcare information network which integrates all care applications into a single, common database.
+
+We derived electronic data on all VA patients with cirrhosis using the VA Corporate Data Warehouse (CDW), a national, continually updated repository of electronic VA data developed specifically to facilitate research.12
+
+Data extracted included all patient pharmacy prescriptions, demographics, inpatient and outpatient visits, problem lists, procedures, vital signs, diagnostic tests, and laboratory tests.
+
+The study was approved by the Institutional Review Board of the Veterans Affairs Puget Sound Healthcare System and a waiver of informed consent was granted.
+
+PARAGRAPH
+
+We identified 62,030 patients who had a diagnosis of cirrhosis first recorded at or before 12/31/2012 and who received VA healthcare in calendar year 2012, defined by having at least 1 inpatient or outpatient visit for any indication during that calendar year.
+
+We excluded 2,456 patients who had undergone liver transplantation before the beginning of follow-up, 2,970 patients who had a diagnosis of HCC first recorded before the beginning of follow-up, and 3,933 patients without available laboratory data in 2012.
+
+Among the remaining 52,671 patients, 16,175 had ALD-cirrhosis and 7,068 had NAFLD-cirrhosis (defined below) and were included in this study, while the remaining 29,428 had other etiologies of cirrhosis (mostly HCV) and were excluded.
+
+SECTION
+
+Definition of cirrhosis
+
+PARAGRAPH
+
+The diagnosis of cirrhosis was based on the presence of the ICD-9 codes for cirrhosis or complications of cirrhosis listed in Table S1, recorded at least twice in any inpatient or outpatient encounter.
+
+This approach has been validated and widely used in VA-based studies by us6,7,13–19 and others.20–24
+
+The diagnosis of cirrhosis using a single ICD-9 code in VA data has been shown to have a 90% positive predictive value (probability that cirrhosis is present among those with a code) compared to chart extraction.25
+
+By requiring the relevant ICD-9 codes to be recorded at least twice we have found that the positive predictive value increased to 97% in a random sample of 250 patients included in the current study.
+
+PARAGRAPH
+
+Among patients with cirrhosis, we defined ALD-cirrhosis and NAFLD-cirrhosis based on our previously published studies7 as follows:
+
+PARAGRAPH
+
+ALD-cirrhosis: Patients with ICD-9 codes for alcohol use disorders (Table S1) in the absence of serologic or virologic markers of chronic HCV or hepatitis B virus (HBV) infection and in the absence of ICD9 codes for hemochromatosis, primary biliary cirrhosis, primary sclerosing cholangitis, and autoimmune hepatitis (Table S1).
+
+PARAGRAPH
+
+NAFLD-cirrhosis: was defined in patients with diabetes (ICD-9 code 250–250.92, recorded at least twice25) or body mass index (BMI) ≥30 kg/m2 prior to the diagnosis of cirrhosis, who did not have alcohol use disorders, serologic or virologic markers of chronic HCV or HBV infection or ICD9 codes for hemochromatosis, primary biliary cirrhosis, primary sclerosing cholangitis, and autoimmune hepatitis (Table S1).
+
+NAFLD-related cirrhosis does not have pathognomonic serological, radiological, or histological features – even hepatic steatosis is frequently absent after cirrhosis develops.
+
+Hence we adapted a clinical definition of NAFLD based on previous work7,26 that reflects the diagnostic process used in clinical practice, in which NAFLD is suspected in the presence of risk factors such as obesity and diabetes after exclusion of other etiologies.
+
+SECTION
+
+Baseline patient characteristics
+
+PARAGRAPH
+
+We ascertained the values of all baseline characteristics as of calendar year 2012 (the year of inception of our cohort).
+
+We extracted age, sex, race/ethnicity and all the baseline laboratory tests shown in Table 1.
+
+BMI was calculated as the measured weight in kilograms divided by the square of the measured height in meters.
+
+For patients with multiple laboratory tests or BMI measurements we recorded the one closest to 01/01/2012.
+
+We also determined the presence of complications of cirrhosis (ascites, spontaneous bacterial peritonitis, encephalopathy, gastroesophageal varices with or without bleeding, hepatorenal syndrome, hepatopulmonary syndrome), type 2 diabetes mellitus, alcohol use disorders, substance use disorders and HIV infection based on appropriate ICD-9 codes recorded at least twice prior to the date of entry into the cohort in 2012 (Table S1).
+
+These ICD9-based definitions of cirrhosis, decompensated cirrhosis and other comorbidities have been widely used and validated in studies using VA medical records.7,19–24
+
+Since 2004, the VA has implemented annual screening for alcohol use disorders using the validated Alcohol Use Disorders Identification Test Consumption (AUDIT-C).
+
+We extracted the AUDIT-C score within 12 months prior to entry into the cohort.
+
+SECTION
+
+Diagnosis of hepatocellular carcinoma
+
+PARAGRAPH
+
+The diagnosis of HCC was based on the presence of ICD-9 code 155.0 and ICD-10 code C22.0 (the VA switched to ICD-10 codes on 10/1/2015) recorded at least twice.
+
+The ICD-9 code-based definition of HCC using VA records has been shown to have a positive predictive value of 84–94% compared to chart extraction23,27–28 and has been widely used by us6–7,18,29 and other investigators.30–32
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+We used multivariable Cox proportional hazards regression to model the risk of HCC using baseline characteristics ascertained in 2012 separately in patients with cirrhosis related to ALD or NAFLD.
+
+Follow-up started in 2012 (specifically the date of the latest blood draw during the period 1/1/2011 to 12/31/2012) and continued until 01/01/2018.
+
+We did not exclude any period of time following that blood draw from analysis (e.g. 3 or 6 months), even recognizing that there might be a higher likelihood of prevalent cases at the beginning, because we wanted the models to reflect the clinical scenario of a patient being seen by their provider in clinic.
+
+Patients who did not develop HCC by 01/01/2018, were censored at the time of death, liver transplantation or the date of last follow-up in the VA.
+
+We contemplated reporting a competing risks analysis, accounting for death as a competing risk, but it made little difference to the models and would have unnecessarily complicated the methodology.
+
+SECTION
+
+Model building
+
+PARAGRAPH
+
+We considered 25 characteristics listed in Table 1 as potential predictors of HCC for inclusion in our models.
+
+We used an iterative process to determine which predictors to include in our final models.
+
+First, we estimated measures of discrimination, calibration, and significance when each predictor was added to the base model and identified the top 5 predictors with the greatest improvement in these measures.
+
+We chose the predictor that was consistently in the top 5 with a preference for a p value <0.10 and an improvement in the main measures of discrimination and calibration, namely Gönen and Heller’s κ, Royston and Sauerbrei’s D-statistic, calibration slope, and integrated Brier score (IBS).
+
+We verified graphically that the added predictor improved the observed versus predicted risk plot, thus allowing assessment over the entire time period.
+
+A pooled k-fold cross-validation was used to calculate all measures of model performance.
+
+A k equal to 10 was chosen to address the bias versus variability in a database with a large sample size, but relatively few events.
+
+PARAGRAPH
+
+We then updated the base model to include the chosen predictor and removed any predictors with a p value <0.10; removed predictors were added back into the list of potential predictors.
+
+We favored variables that are objectively ascertained (such as laboratory test) and those that have been consistently associated with HCC in previous studies (such as age and sex).
+
+PARAGRAPH
+
+We considered both dummy-categorical as well as continuous (linear or transformed) modeling of laboratory tests.
+
+Interaction terms were explored in cases where there were biological indications.
+
+The distribution of the model predictions was checked for normality.
+
+SECTION
+
+Measures of model discrimination, calibration and accuracy
+
+PARAGRAPH
+
+Discrimination refers to the ability to separate those who will get HCC from those who will not.
+
+The measures of discrimination chosen were Harrell’s C-index33 (which measures the degree of concordance between pairs and is sensitive to censoring), Gönen and Heller’s κ34 (which is also a measure of concordance but is robust to censoring), and Royston and Sauerbrei’s D-statistic35 (which can be interpreted as the log hazard ratio of risk between the low and high risk groups dichotomized at their median values).
+
+Calibration refers to the degree of agreement between model-derived probabilities and observed probabilities.
+
+As a calibration measure, we evaluated the calibration slope,36 which is robust to censoring and ideally takes a value of 1.
+
+Additionally, we evaluated calibration graphically, by comparing the observed Kaplan-Meier estimates of HCC-free survival and lowess-smoothed model predictions of HCC-free survival after categorizing risk into low, medium, or high groups.
+
+Model prediction accuracy was evaluated using the IBS,37 which is the mean squared difference between the predicted probability and the actual outcome and the area under the receiver operating characteristic curve (AUROC), derived from a logistic regression of model predictions and diagnosis of HCC.
+
+PARAGRAPH
+
+Measures of discrimination and calibration were estimated using k-fold cross-validation during model building.
+
+In addition, to obtain the most conservative estimates of discrimination and calibration, we split the data in half, into derivation and validation datasets balanced on number of events and on VA facility (i.e. patients from approximately half of the VA facilities were included in the derivation dataset and from the other half in the validation dataset).38
+
+Measures of assessment were then calculated for each dataset using model coefficients from the derivation data.
+
+PARAGRAPH
+
+We also calculated the performance measures of the “Toronto HCC risk index” in predicting HCC risk in our study population as a comparison.39
+
+This is a recently published HCC risk prediction tool that uses 4 predictors: age, sex, etiology of liver disease, and platelet count.
+
+Additionally, for comparison, we calculated the performance measures of the fibrosis-4 (FIB-4) score,40 which incorporates age, platelet count, and AST/√ALT, and correlates with HCC, and the model for end-stage liver disease (MELD) score, as a measure of liver dysfunction.
+
+SECTION
+
+Use of decision curves to estimate the net benefit of using our risk prediction models
+
+PARAGRAPH
+
+We used decision curves to estimate the standardized net benefit that would be expected in a population if our models are used to estimate HCC risk and patients are screened only when their estimated risk exceeds a pre-established risk threshold, compared to the “screen-all” approach.
+
+A decision curve is a novel graphical plot of net benefit versus risk threshold that was proposed in 2006 for assessing the potential population impact of adopting a risk prediction instrument.41
+
+A risk threshold is defined as that probability of HCC above which screening would be favorable over not screening.
+
+“Standardized” net benefit is the proportion of total possible net benefit, which would be achieved by a “perfect” risk model that places all the patients with HCC above the risk threshold for screening without any false positives (i.e. without placing patients without HCC above the risk threshold).
+
+To avoid over-fitting, decision curves were calculated using repeated 10-fold cross-validation41 The cross-validation was repeated 50 times and results were averaged.
+
+SECTION
+
+Results
+
+SECTION
+
+Characteristics of study population
+
+PARAGRAPH
+
+Among 23,243 patients with ALD-cirrhosis or NAFLD-cirrhosis in VA care in 2012, most were male (97%) and non-Hispanic White (73%) (Table 1).
+
+Compared to patients with ALD-cirrhosis, those with NAFLD-cirrhosis were older (67.1 vs. 63.0 years old), had higher BMI (33.0 vs. 28.5 Kg/m2) and were more likely to have diabetes (78% vs. 36%).
+
+Substance use disorders were more common in ALD-cirrhosis than NAFLD-cirrhosis (22.5% vs. 2.6%).
+
+By definition, alcohol use disorders were universal in ALD-cirrhosis and absent in NAFLD-cirrhosis.
+
+Only 3% of patients in the NAFLD-cirrhosis group reported unhealthy alcohol use (AUDIT-C 4–12 in men or 3–12 in women) – which further confirmed our diagnostic definition of NAFLD-cirrhosis –compared to 29.4% in the ALD-cirrhosis group.
+
+Complications of portal hypertension were present in a similar proportion in both groups at baseline (37.7%) and mean MELD score was 11.2%.
+
+SECTION
+
+HCC incidence
+
+PARAGRAPH
+
+During a mean follow-up of 3.7 years (range 1 to 6), 1,278 out of 23,243 patients with cirrhosis developed HCC (Fig. 1).
+
+The annualized incidence of HCC was similar in ALD-cirrhosis (1.44%) and NAFLD-cirrhosis (1.56%) and mean follow-up practically identical (3.7 years).
+
+The annual incidence was significantly greater in the subset of patients with FIB-4 >3.25 (2.68%) than FIB-4 <3.25 (0.68%).
+
+However, a substantial proportion of HCCs (354/1,278 or 28%) occurred in patients with FIB-4 <3.25, justifying our decision not to exclude patients with a diagnosis of cirrhosis who had a FIB-4 <3.25.
+
+SECTION
+
+HCC predictors
+
+PARAGRAPH
+
+Older age, male sex and low platelet count were strong, independent predictors of HCC, consistent with many published studies (Table 2).
+
+In addition, low albumin and high AST/√ALT were strong, independent predictors of HCC.
+
+Increasing BMI was a significant predictor in ALD-cirrhosis but not NAFLD-cirrhosis and diabetes was a stronger predictor in ALD-cirrhosis than NAFLD-cirrhosis.
+
+However, the associations of BMI and diabetes with HCC in patients with NAFLD-cirrhosis were blunted because presence of diabetes or BMI >30 were used as defining characteristics for NAFLD-cirrhosis.
+
+SECTION
+
+Development of models estimating HCC risk
+
+PARAGRAPH
+
+Out of the 25 potential predictors that we considered (shown in Table 1), 7 were included in the final models that we developed: age, sex, BMI, diabetes, platelet count, serum albumin and serum AST/√ALT ratio (Table 2).
+
+The same 7 predictors were selected for the models in NAFLD-cirrhosis and ALD-cirrhosis.
+
+However, the coefficients (and hazard ratios) for each predictor were slightly different for each, especially for diabetes and BMI.
+
+Of these 7 predictors, 4 predictors (age, platelet count, serum AST/√ALT ratio and albumin) accounted for most of the prediction, i.e. accounted for most of the explained risk42 (93.9% in NAFLD-cirrhosis and 94.0% in ALD-cirrhosis).
+
+The coefficients of the models are shown in Table S2 and the baseline cumulative incidences at years 1–5 in Table S3, providing all the necessary information for other investigators to apply or externally validate the models.
+
+PARAGRAPH
+
+We also developed a model for the combined population of NAFLD-cirrhosis and ALD-cirrhosis (Table 2), which included the same 7 predictors.
+
+We considered including the type of cirrhosis as a covariate in the model, but it was not a significant predictor and hence was omitted.
+
+PARAGRAPH
+
+Measures of discrimination were generally very good and slightly higher for the ALD-cirrhosis than the NAFLD-cirrhosis model (Table 3).
+
+For example, the Harrell’s C index in the validation half of the dataset was 0.74 for ALD-cirrhosis and 0.72 for NAFLD-cirrhosis.
+
+Predicted versus observed cumulative incidence curves showed great overlap (Fig. 2).
+
+The calibration slope was excellent for all models as was the prediction accuracy measured by the IBS.
+
+The AUROC in the validation-half of the dataset was ∼0.75, which is considered very good.
+
+PARAGRAPH
+
+Using the published “Toronto HCC Risk Index”39 to estimate HCC risk resulted in lower Harrell’s C index (0.67) and AUROC (0.68) than when using our models.
+
+The FIB-4 score, which is calculated as the product of 3 measurements (age, inverse platelet count and AST/√ALT) all of which are strong predictors of HCC, performed well with a Harrell’s C (0.70) and AUROC (0.71) that were slightly worse than our models.
+
+The MELD score performed poorly (Harrell’s C 0.598, AUROC 0.527).
+
+SECTION
+
+Standardized net benefit of model-based HCC surveillance ascertained by decision curves
+
+PARAGRAPH
+
+Decision curves plotted in Fig. 3 show that the risk model-based screening strategy has superior standardized net benefit than the “screen-all” strategy if the screening threshold is >1.5% per year (or >7.5% over 5 years) for ultrasound-based screening, as recommended by the American Association for the Study of Liver Diseases (AASLD) guidelines43.
+
+The decision curves also show that screening based on risk estimates derived from our model (i.e. screening patients who exceed a given risk threshold) is superior to the screen-all strategy for a wide range of plausible screening thresholds.
+
+For more intensive screening strategies, such as those using abbreviated MRI, which are proposed for patients at even higher HCC risk (e.g. >3% per year), the risk-based screening is superior to “screen-all”.
+
+SECTION
+
+Web-based HCC risk estimating tools (available at www.hccrisk.com)
+
+PARAGRAPH
+
+We implemented the 2 models shown in Table 2 for ALD-cirrhosis and NAFLD-cirrhosis as web-based tools to allow clinicians to estimate HCC risk in individual patients.
+
+The models can be executed at www.hccrisk.com.
+
+Table 4 shows 5-year HCC risk estimated by our models using the baseline characteristics shown in selected patients in “low-risk” (annualized risk 0–1%), “medium-risk” (annualized risk >1–3%) and “high-risk” (annualized risk >3%) categories.
+
+Table 4 shows that 5-year risk can vary from as low as 0.4% to as high as 30% depending on the values of the 7 simple predictors included in our models.
+
+We envision that the web-based HCC risk calculator will be used in the future to risk-stratify patients into low, medium and high-risk categories for the purposes of outreach efforts to improve screening uptake, development of future risk-based screening strategies and selection of patients for clinical trials of screening (Fig. 4).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+We demonstrated that HCC risk (i.e. incidence) varies dramatically in patients with ALD-cirrhosis or NAFLD-cirrhosis, which questions the utility of having a single screening strategy for all patients.
+
+We developed and internally validated models that accurately estimate HCC risk in patients with NAFLD-cirrhosis or ALD-cirrhosis according to 7 readily available characteristics: age, sex, BMI, diabetes, platelet count, serum albumin and serum AST/√ALT ratio.
+
+HCC surveillance strategies based on HCC risk estimates derived from our models resulted in greater predicted net benefit that the current “one-size-fits-all” strategy.
+
+Our models can be used to stratify patients according to estimated annual HCC risk into low-risk (e.g. annual risk <1%), medium-risk (e.g. annual risk 1–3%) and high-risk (e.g. annual risk >3%).
+
+Such risk stratification can be used to select patients for clinical trials, to inform screening outreach efforts and to develop risk-based HCC screening strategies, such as more intensive screening strategies (e.g. abbreviated MRI) for high-risk patients.
+
+Future research should evaluate specific risk-based strategies, such as screening by abbreviated MRI versus ultrasonography for patients in the high-risk category.
+
+Our models are available as web-based tools that can be used to estimate HCC risk in individual patients (www.hccrisk.com).
+
+PARAGRAPH
+
+HCC risk varies widely in cirrhotic patients.6
+
+In the patients depicted in Table 4, estimated HCC risk varied by more than 30-fold depending on the distribution of readily available HCC risk factors.
+
+Despite this, national guidelines recommend a “one-size-fits-all” surveillance strategy, whereby the same screening strategy (biannual ultrasonography ± AFP) is recommended for all patients with cirrhosis1 irrespective of HCC risk.
+
+We believe that great improvements in HCC screening can be achieved if patients are first stratified according to HCC risk and then offered risk-appropriate screening (Fig. 4).
+
+However, no widely accepted method is available for estimating HCC risk in cirrhotic patients.
+
+Accurate estimation of HCC risk by the models that we developed could potentially improve HCC surveillance efforts, increase early detection of HCC, reduce harms related to unnecessary surveillance and facilitate the design of future HCC surveillance trials.
+
+Patients at high risk of HCC could be targeted for interventions to improve their uptake of HCC surveillance.
+
+It is currently estimated that ≤20% of cirrhotic patients undergo surveillance consistent with guidelines in the United States.44,45
+
+Different surveillance strategies could potentially be proposed for different categories of HCC risk.
+
+For example, more effective strategies that are also more expensive or more invasive/harmful, such as screening by MRI, abbreviated MRI or CT, would be more cost-effective if they focus on the higher risk groups.46
+
+In healthcare systems with limited resources unable to support universal surveillance of all cirrhotic patients, surveillance could be limited to patients with higher HCC risk.
+
+Past AASLD guidelines recommended that “for patients with cirrhosis, surveillance should be offered when the risk of HCC is >1.5% per year”.43
+
+If the HCC risk could be accurately predicted, those with incidence well below 1.5% may not be recommended surveillance thus reducing costs and potential downstream harms such as unnecessary CT scans (radiation and iv contrast), liver biopsies and other procedures (assuming that the risk threshold of >1.5% is indeed valid).47
+
+Estimation of HCC risk could enable individualized counseling of patients by their providers leading to improved compliance with surveillance recommendations and engagement in care.
+
+Finally, our models could be used to identify high-risk patients for participation in clinical trials of HCC surveillance or HCC risk modifiers.
+
+PARAGRAPH
+
+We hope that the strategy of HCC risk stratification will be utilized more widely in patients with cirrhosis by individual physicians for individual patients or by healthcare systems for patient populations.
+
+To that end we created web-based tools to execute our models and estimate HCC risk in patients with NAFLD-cirrhosis or ALD-cirrhosis available at www.hccrisk.com.
+
+We also provided all the coefficients and baseline cumulative incidence rates of the models (Tables S2 and S3) to allow other investigators to execute or externally validate the models.
+
+These new models extend the models we published recently estimating HCC risk in patients with HCV infection,48 also available on the same website.
+
+PARAGRAPH
+
+Notable efforts have been made recently to develop models estimating HCC risk in patients with cirrhosis using readily available predictors.39,49
+
+The best example is probably the “Toronto HCC risk index”, which combined 4 predictors (age, sex, etiology of liver disease, and platelet count) into an HCC risk prediction model that performed reasonably well and was externally validated.39
+
+However, the majority of the patients in that study (1,279 out of 2,079) had viral hepatitis B and C, in whom antiviral treatment dramatically reduces HCC risk, a factor not captured in the prediction model.
+
+We believe that distinct models need to be developed for cirrhotic patients with cured HCV48 and adequately treated HBV, as well as for patients with NAFLD and ALD-cirrhosis, as we have done.
+
+Indeed, when we used the “Toronto HCC risk index” in our study population we obtained a lower Harrell’s C index (0.67) than that reported in their study population (0.76).
+
+The “Adress-HCC” model was developed among patients on liver transplant waitlists and used 6 baseline clinical variables to estimate HCC risk (age, diabetes, race, etiology of cirrhosis, sex, and severity of liver dysfunction).49
+
+However, median follow-up was short (1.3 years) and patients were limited to those waitlisted for transplantation.
+
+The field of HCC risk calculation is still in its infancy and it is likely the models will continue to evolve, possibly incorporating novel biomarkers and likely developing different models for distinct subpopulations of patients with cirrhosis.
+
+PARAGRAPH
+
+Decision curves plot the standardized net benefit that would be expected from risk-based screening strategies at different “appropriate” HCC risk thresholds for screening.
+
+Fig. 3 shows that at a threshold of >1.5% per year (or 7.5% per 5 years), which is commonly recommended in patients with cirrhosis50, the net benefit is greater with screening based on our models (i.e. screening only patients with estimated HCC risk >1.5% per year) compared with screening all patients.
+
+However, if the appropriate risk threshold is much lower (<0.8% per 5 years) then there is no difference between the screen-all and model-based screening strategies.
+
+It is important to emphasize that decision curves cannot be used to determine the appropriate HCC risk threshold at which screening is deemed to be beneficial.
+
+Instead, this threshold needs to be determined by estimating the harms of missing a case relative to the harms of unnecessarily screening a non-case.
+
+Decision analytic theory suggests that if the harms of missing a case are x-times greater than the harms of unnecessarily screening a non-case, then the appropriate threshold for screening is a risk exceeding 1/(x + 1).51
+
+Therefore, the greater the harms of missing a case (or the greater the benefits of diagnosing a case) the lower the risk threshold at which screening is beneficial.
+
+Conversely, the greater the harms of screening the higher the risk threshold.
+
+Decision curves have been used before to evaluate the value of predictive models for recommending CT screening for lung cancer,52 but not for HCC screening.
+
+PARAGRAPH
+
+A major limitation of our study is that we have not externally validated our models yet in non-VA populations.
+
+We suspect that our models may be a good predictors in other similar populations i.e. unselected, predominantly male patients with cirrhosis not limited to transplant centers or tertiary referral centers.
+
+However, other models such as the “Toronto HCC risk index”39 or the “Adress-HCC”49 model may be better predictors in patients at tertiary referral or transplant centers similar to the ones used for their model development.
+
+It will be critical to externally validate our models in non-VA populations and also ideally in populations undergoing routine HCC surveillance (although the frequency of surveillance does not affect the incidence (or risk) of HCC in a given population).
+
+It is possible that ultimately different models might be developed for different subpopulations of patients with cirrhosis, just as we have already developed different models for HCV-infected patients undergoing antiviral treatment.
+
+PARAGRAPH
+
+Substantial strengths of this study include the large sample size and the large number of incident HCC cases.
+
+Additionally, this study was performed recently and incorporated an appropriate length of follow-up.
+
+Baseline characteristics necessary for modeling were available.
+
+All patients were derived from a single, national healthcare system with fairly uniform practices and guidelines across its facilities.
+
+PARAGRAPH
+
+In conclusion, we developed and internally validated models estimating HCC risk in patients with ALD-cirrhosis and NAFLD-cirrhosis.
+
+These models, which are available as web-based tools, can help stratify patients according to HCC risk and, consequently, help determine an appropriate screening strategy based on a patient’s calculated risk.
+
+An intensive screening strategy targeting those who exceed a certain predetermined HCC risk may be more efficacious and cost-effective than the current “screen-all” or “screen-none” strategies which depend solely on cirrhosis status.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The study was funded by a NIH/NCI grant R01CA196692 and VA CSR&D grant I01CX001156 to GNI.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+All authors approved the final version of the manuscript.
+
+George Ioannou is the guarantor of this paper.
+
+George Ioannou: Study concept and design, acquisition of data, statistical analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript, obtained funding.
+
+Pamela Green: Acquisition of data, creation of analytic variables Kristin Berry: Study design, analysis of data, critical revision of manuscript.
+
+Kathleen F. Kerr: Interpretation, statistical analysis of decision curves.
+
+SECTION
+
+Role of funding source
+
+PARAGRAPH
+
+The funding source played no role in study design, collection, analysis or interpretation of data.
+
+SECTION
+
+Disclaimer
+
+PARAGRAPH
+
+The contents do not represent the views of the U.S. Department of Veterans Affairs or the United States Government.

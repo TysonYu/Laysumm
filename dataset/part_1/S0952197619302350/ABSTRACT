@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.103263
+
+ABSTRACT
+
+TITLE
+
+Super-resolved thermal imagery for high-accuracy facial areas detection and analysis
+
+PARAGRAPH
+
+In this study, we evaluate various Convolutional Neural Networks based Super-Resolution (SR) models to improve facial areas detection in thermal images.
+
+In particular, we analyze the influence of selected spatiotemporal properties of thermal image sequences on detection accuracy.
+
+For this purpose, a thermal face database was acquired for 40 volunteers.
+
+Contrary to most of existing thermal databases of faces, we publish our dataset in a raw, original format (14-bit depth) to preserve all important details.
+
+In our experiments, we utilize two metrics usually used for image enhancement evaluation: Peak-Signal-to-Noise Ratio (PSNR) and Structural Similarity Index Metric (SSIM).
+
+In addition, we present how to design a SR network with a widened receptive field to mitigate the problem of contextual information being spread over larger image regions due to the heat flow in thermal images.
+
+Finally, we determine whether there is a relation between achieved PSNR and accuracy of facial areas detection that can be analyzed for vital signs extraction (e.g. nostril region).
+
+The performed evaluation showed that PSNR can be improved even by 60% if full bit depth resolution data is used instead of 8 bits.
+
+Also, we showed that the application of image enhancement solution is necessary for low resolution images to achieve a satisfactory accuracy of object detection.

@@ -1,0 +1,853 @@
+10.1016/j.engappai.2019.103401
+
+FULLTEXT
+
+TITLE
+
+Detecting indicators of cognitive impairment via Graph Convolutional Networks
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In recent years, cognitive decline and mental diseases in ageing people have become a major public health problem all over the world.
+
+Alzheimer’s Disease International estimated that there were 50 million people suffering from dementia worldwide in 2018 and the number will increase to 82 million by 2030 and to 150 million by 2050 (The State of the Art of Dementia Research: New Frontiers 2018, 2018).
+
+Cognitive impairment is a mental health disorder that causes a decline in cognitive abilities, including memory and thinking skills.
+
+Elderly people with cognitive decline experience a gradual loss of their ability to perform daily life activities due to memory impairments.
+
+Thus, they need special care and help from their caregivers which represent a social, psychological, physical and economic burden on families, caregivers and the society as a whole.
+
+PARAGRAPH
+
+The assessment of cognitive decline is useful to identify care needs during Activities of Daily Living (ADLs), and to monitor the evolution of the condition.
+
+Most dementia patients have a strong desire to live autonomously in their known environments (Wild, 2010).
+
+The use of smart home technologies can substantially support the lives of people with dementia.
+
+This kind of technology would also be helpful to in detecting the symptoms/signs of dementia and to warn the caregivers and medical doctors for further diagnosis.
+
+PARAGRAPH
+
+Recent studies show that deviations in activity patterns can be indicators of cognitive decline (Wild, 2010; Urwyler et al., 2017; Arifoglu and Bouchachia, 2019; Arifoglu and Bouchachia, 2019).
+
+Although people do not perform the same activities in the same way every time, these activities still follow a set of patterns in terms of locations, time and frequency in each day.
+
+Deviations from these emerging patterns may be indicators of cognitive decline worth detecting.
+
+Behavioural changes such as sleep disturbance, night-time waking and inability to complete tasks can be indicators of cognitive impairment (Amiribesheli and Bouchachia, 2015; Bhat et al., 2018; Dhiman and Vishwakarma, 2019).
+
+For example, an elderly person with cognitive decline may forget to have her lunch, take multiple lunches instead, wake up in the middle of the night, or go to the toilet frequently.
+
+She may also get confused and do mistakes during the execution of daily life activities.
+
+Unfortunately, currently there are no smart homes specially designed for elderly people suffering from cognitive impairment.
+
+PARAGRAPH
+
+Although there are a few promising methods developed to assess behaviour change unobtrusively in real-time (Dawadi et al., 2014; Riboni et al., 2015; Kirste et al., 2014), the translation of the current knowledge into assisted living technologies still needs more work.
+
+In this paper, a novel approach is proposed to detect the indicators of cognitive impairment.
+
+The main idea of our work is that daily life activity patterns are indicators of cognitive decline (Wild, 2010).
+
+This study aims to detect these indicators and assist the diagnosis and decision making of medical doctors and clinicians.
+
+PARAGRAPH
+
+In image recognition, the pixels in images form edges and edges construct different shapes and then shapes form objects.
+
+Similar to image recognition, there are granular-level patterns in daily life activities.
+
+Daily life activities are often composed of several sub-activities (Naeem et al., 2015; Zhang et al., 2017) or granular actions (Rodríguez et al., 2014) and have hierarchical structure (Rafferty et al., 2013).
+
+For example; the activity wash clothes implies the following actions: get clothes from basket, fill up washing machine, turn on washing machine.
+
+When we think about sensor based activities, some daily life activities such as sleeping or wash dishes may not have explicit sub-activities involved in, but we can exploit motion sensors replaced at home, and their relative location and relationship with each other as sub-activities.
+
+As depicted in 1, the activity wash dishes consists of sub-activities move to the kitchen area, move to the kitchen sink and use water.
+
+The ordered sequence of motion sensors M3,M4,M6 form these sub-activities hierarchically resulting in wash dishes activity.
+
+An occupant in a house may mainly move around the kitchen sink in the wash dishes activity triggering sensors next to the sink and kitchen in some order, or a person may stay around the bedroom area during sleeping activity.
+
+PARAGRAPH
+
+Sub-activities and their relations with each other are important clues to understand and assess the cognitive status of an elderly person.
+
+The anomalies related to dementia may be reflected in the repetition frequency of granular level actions and their relation with each other.
+
+For example, when an elderly person wants to make a phone call, he/she may check the phonebook many times and perform this step more than once, even though they can successfully complete this activity.
+
+Thus, building activities from their granular units hierarchically would be helpful to understand the internal dynamics of the activities.
+
+In the present study, we model sub-activities and their relationship exploiting raw sensor measurements in a graph structure.
+
+Modelling these sub-activities and constructing upper level activities based on a hierarchical relationship of these granular level structures would be helpful to better understand and model abnormal behaviour related to dementia.
+
+PARAGRAPH
+
+Existing studies represent sensor activations in a fixed feature vector which can be thought as a bag (Kasteren and Krose, 2007; Cook and Schmitter-Edgecombe, 2009).
+
+This representation ignores the fine-grained details such as the frequency and the order of activations.
+
+The present study addresses this shortcoming by focusing on raw sensor activations to recognise activities and then flag deviations related to dementia.
+
+Using raw sensor activations coming as a data stream allows us to capture the interaction between sensor activations as well as their intensity and ordering.
+
+As mentioned above, the granular level details (sub-activities, sensor activations and their inter-relationships) of activities are important in terms of understanding anomalies stemming from cognitive status in the context of dementia.
+
+However, current traditional features lose this information coming from raw sensor activation data.
+
+Thus, in this study our aim is to make use of this information to model activities better for the detection of abnormal behaviour.
+
+Secondly, this unstructured raw sensor activation data cannot be modelled by using fixed length features.
+
+Therefore, in this study, the problem of activity recognition is emulated as a graph labelling problem where each sensor activation is represented as a node in a graph.
+
+Modelling activities based on their sensor activations in a graph gives the opportunity to build the hierarchical relationship of sub-activities.
+
+Inspired by work on graph labelling (Duvenaud et al., 2015; Seo et al., 2016; Vashishth et al., 2018), we explore the use of Graph Convolutional Networks (GCNs) to model activities from their low-level units.
+
+Moreover, there exists no publicly available datasets on abnormal behaviour of elderly people with dementia.
+
+Producing such datasets requires time and adequate experimental environment.
+
+A method is proposed to artificially produce abnormal activities reflecting on typical behaviour of elderly people with dementia.
+
+Similar studies (Forkan et al., 2015; Lundström et al., 2016) have also adopted simulation.
+
+PARAGRAPH
+
+The main contributions of the present paper are as follows:
+
+PARAGRAPH
+
+The rest of the paper is organised as follows (see Fig. 2).
+
+Section 2 summarises the related work in the area.
+
+Section 3 describes the dataset used and explains the simulation of dementia related abnormal behaviour.
+
+Section 4 presents sensor representation and Graph Convolutional Networks (GCNs) to detect abnormal activities.
+
+Section 5 describes the experimental set-up, the experimental evaluations along with a discussion.
+
+Finally, Section 6 concludes the paper.
+
+SECTION
+
+Literature review
+
+PARAGRAPH
+
+Currently, expert knowledge is required to assess the cognitive status of elderly people.
+
+In-person examinations of experts include questionnaires, recall of events or brief snap-shots of function which have some limitations such as their episodic nature, and possible biased reporting.
+
+For example, in Seelye et al. (2013), elderly people are asked to complete a sequence of scripted actions while being monitored via Web camera.
+
+In Dawadi et al. (2013), sensor based features such as the duration of the activity and the number of sensors triggered are fed into some machine learning algorithms to do cognitive status assessment.
+
+However, a brief description for each task is provided to the participants.
+
+Our method does not impose aid, so activities are done on the fly without any intervention.
+
+PARAGRAPH
+
+In Riboni et al. (2015), a Markov Logic network based hybrid technique is used to detect abnormal behaviour of elderly people.
+
+The method includes supervised learning, rule-based reasoning and probabilistic reasoning.
+
+However, steps of each action are defined prior to the construction of the model.
+
+The inference engine evaluates the rules such as taking a medicine that was not prescribed.
+
+These rules are extracted from Mild Cognitive Impairment (MCI) indicators.
+
+These rules however depend on the home environment, sensors and the particular habits of the person.
+
+Rule-based systems rely on experts to manually add specific rules to the system, since daily life routines change for each person.
+
+PARAGRAPH
+
+In Dawadi et al. (2016), the authors introduce activity curves which model daily activity routines into individuals.
+
+Abnormal behaviour is detected by comparing the activity curves against the actual behaviour.
+
+In Aran et al. (2016), the authors use an abstraction layer to create a common ground for home sensor configurations.
+
+Then, a probabilistic spatio-temporal model is built to summarise daily patterns.
+
+The probabilistic model defines a likelihood of the person’s activity based on the location at each hour of the day.
+
+Abnormal behaviour, such as not leaving the bed for a long time or not going to the bedroom for sleeping during the night, is detected using a cross-entropy measure.
+
+In Arifoglu and Bouchachia (2017, 2019), the authors exploit Recurrent Neural Networks (RNNs) and Convolutional Neural Networks (CNNs) to detect abnormal behaviour stemming from dementia in a daily living scenario.
+
+However, their study fails to capture the intrinsic structure of activities and cannot detect anomalies occurring at low-level since they rely on fixed length features ignoring the sensor activation relationship and ordering.
+
+PARAGRAPH
+
+In some studies, the assessment is done by attaching motion sensors on kitchen utilities and observing their usage frequency and time (Virone, 2009; Suryadevara et al., 2013).
+
+In Forkan et al. (2015), the authors exploit Hidden Markov Model (HMM) and fuzzy rules to detect duration, time and frequency related anomalies.
+
+In Ordóñez et al. (2015), behavioural patterns of the residents are extracted using Bayesian statistics.
+
+These patterns are used to detect abnormal behaviour that potentially indicates deviations in cognitive status of the person.
+
+In Enshaeifar et al. (2018), a Markov chain model is used to model the daily routines based on historical data.
+
+An entropy rate is calculated to detect the unusual patterns of people with dementia in their day-to-day life.
+
+PARAGRAPH
+
+In Basaia et al. (2019), 3D Convolutional Neural Networks (CNNs) are applied on brain structural MRI scan data to predict the individual diagnosis of Alzheimer’s disease (AD) and mild cognitive impairment.
+
+Moreover, data augmentation methods, such as rotation, flipping and scaling, deformation and cropping, are used to reduce overfitting in CNNs by providing more training and validation examples.
+
+In Wang et al. (2019), the limitation of training data on brain MRI data is tackled by introducing dense connections to 3D-CNN.
+
+Also a probability-based fusion method was used to combine the base classifiers of 3D-CNNs.
+
+PARAGRAPH
+
+When there is no real world data available, data simulation can be an alternative (Forkan et al., 2015; Lundström et al., 2016; Virone, 2009; Ordóñez et al., 2015).
+
+In Forkan et al. (2015), the authors modified a real-world dataset to synthesise health related abnormal behaviour for their experiments.
+
+Eight daily activities such as sleeping, waking up, walking, eating are chosen and health related abnormal behaviour like frequent toilet visit, no exercise, slept without dinner are synthesised.
+
+In Lundström et al. (2016), more data is synthesised using Hidden Markov Models (HMMs) based on a small set of real data collected.
+
+To increase the realism of data simulation, the sensor events were modelled by a combination of Markov chains and the Poisson distribution.
+
+However, in both Forkan et al. (2015), Lundström et al. (2016), it is not mentioned in detail how the data synthesis was done.
+
+In Virone (2009), the authors modified a real-life data set of an older adult converting basically the rooms into activities.
+
+The authors focused on walking and eating in conjunction with the sleeping activity and samples of these activities are manually inserted in the XML data set.
+
+In Ordóñez et al. (2015), abnormal sensor readings are manually identified by a trained expert.
+
+A real dataset is taken as a base and synthetic errors were generated.
+
+In Arifoglu and Bouchachia (2019), Recursive Auto-Encoders (RAE) are used to cope with the scarcity of data.
+
+The authors demonstrate the idea of using transfer learning When there is limited data available.
+
+They learn “normal” behaviour in a source household, and then transfer the parameters of a RAE to another house (source) to detect abnormal behaviour of dementia sufferers.
+
+PARAGRAPH
+
+Graph-structured data can be found in different domains such as chemistry, natural language semantics, social networks, and knowledge bases (Duvenaud et al., 2015; Seo et al., 2016; Vashishth et al., 2018).
+
+Graph convolutions have been widely used to learn high-level features by considering spatio-temporal relationships among nodes of a graph.
+
+In Nikolentzos et al. (2017), graph kernels are used to embed meaningful local neighbourhoods of the graphs in a continuous vector space.
+
+In Tixier et al. (2017), the authors represent graphs as multi-channel image-like structures that allow them to be handled by 2D Convolutional Neural Networks (CNNs).
+
+In Li et al. (2017), molecules are represented as an undirected Graph Convolution Networks (GCNs) to predict molecular properties.
+
+Moreover, in anomaly detection literature, graph-based methods are preferred when there is inter-dependent data since graphs can offer powerful representation abilities (Akoglu et al., 2015; Zhang et al., 2017; Akter and Holder, 2014).
+
+The most similar approach to ours is Akter and Holder (2014), where motion sensors in a smart home are represented as nodes in a graph and resident’s movements are encoded as edges.
+
+Then graph-based features are extracted and used as input for an SVM.
+
+If sensor A is activated after sensor B, then there is an edge between the corresponding nodes.
+
+Each triggered edge is considered in the data as a feature.
+
+If an edge exists in the graph for a current activity, then corresponding edge attributes are represented as a value in the feature vector.
+
+However, in our case instead of taking sensors as nodes, we encode each activation as a node, which allows us to capture the ordering of sensor activations.
+
+SECTION
+
+Dementia-driven data generation
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+Aruba test-bed of CASAS smart home (Cook et al., 2013) is chosen to evaluate the proposed method and compare it with state-of-the-art methods.
+
+The data in this test-bed is collected by using 3 door, 31 motion and 5 temperature sensors over 224 days.
+
+However, in this paper we use only door and motion sensors in our study since they are useful in the context of dementia.
+
+The data collected is represented as a list of sensor name and time-stamp measurements (see Table 1).
+
+The sensors used has only binary states, namely OFF and ON status.
+
+The activities in this dataset are the daily life activities that can be used to simulate abnormal behaviour in daily life routines of elderly people suffering from dementia.
+
+These 11 activities are, Meal Preparation, Relax, Eating, Work, Sleeping, Wash dishes, Bed to toilet, Enter home, Leave home, Housekeeping and Respirate.
+
+They are performed by an adult and they do not include any abnormal ones.
+
+Thus, we need to modify some of these activities to generate some artificial abnormal behaviour.
+
+SECTION
+
+PARAGRAPH
+
+Augmented data
+
+PARAGRAPH
+
+In this study, two types of abnormal behaviour of elderly people are tackled: (1) activity related anomalies and (2) sub-activity related anomalies.
+
+In activity related anomalies, an activity itself is totally normal while there is an anomaly related to its frequency or its timing in a day.
+
+On the other hand, sub-activity related anomaly is related to the context and the quality of activity performed such as frequency of sensor activations involved as well as their order and correlation.
+
+In the first one, activities as a whole are repeated or forgotten (e.g. having dinner); while in the second one, some steps (sensor activations) of activities are forgotten or repeated (e.g. adding salt to a dish).
+
+SECTION
+
+Activity related abnormal behaviour
+
+PARAGRAPH
+
+To simulate this type of indicators, we insert a specific set of activities within a sequence of daily activities (see Algorithm 1).
+
+This will give multiple occurrences of the same activity.
+
+Moreover, insertion in some inadequate time of the day will generate time-related abnormality such as having dinner in the middle of the night.
+
+We insert the instances of the following activities: preparing meal, eating, working, washing dishes, leaving home, entering home into the normal activity sequences.
+
+PARAGRAPH
+
+We simulate sleep disorders and night time wandering anomalies by inserting some activities in the normal night-time activity sequences of a person.
+
+More specifically, we insert eating, bed to toilet, resperate into the sleeping activity of normal activity sequences.
+
+This will reflect on the abnormal behaviour such as having a drink and going to the toilet frequently in during the night.
+
+PARAGRAPH
+
+As described in Algorithm 1, all insertions are done randomly.
+
+First a random instance of a given activity type (for example, meal preparation) from whole dataset is chosen, and then it is injected in a random position.
+
+Note that these activities are totally normal on their own, but become abnormal when they occur at a wrong time of the day or after/before a specific activity.
+
+In all, we generate 77 abnormal activity instances.
+
+A set of modified abnormal behaviour is depicted in Table 2.
+
+SECTION
+
+Sub-activity related abnormal behaviour
+
+PARAGRAPH
+
+This kind of abnormal behaviour is generated by repeating specific sensor activations in a given activity.
+
+For this purpose, given random instances of working, eating, meal preparation, bed to toilet, we randomly insert specific sensors (M26,M14,M18,M4 respectively) involved in these activities (see Algorithm 2).
+
+For example, for working activity, the sensor M26 is repeated more than usual to emulate the usage of a computer (see Fig. 3).
+
+PARAGRAPH
+
+SECTION
+
+GCN-based abnormal behaviour detection
+
+PARAGRAPH
+
+In this paper, we aim to detect abnormal behaviour reflecting the cognitive status of elderly people exploiting GCNs.
+
+For this purpose, the following steps of Fig. 2 are applied: (1) Raw sensor data is represented as a graph.
+
+(2) Graph convolution network (GCN) is trained to model activities.
+
+(3) Abnormal activities are detected using GCN.
+
+SECTION
+
+Sensor representation
+
+PARAGRAPH
+
+Current studies take all sensor activations triggered at a given time and put them in a vector of fixed length N, where N is the total number of sensors in the dataset.
+
+Thus, each sensor is represented only once ignoring the frequency and the order of activation in that given time.
+
+This representation resembles to bag-of-words representation in textual document representation, thus we name it as Bag-Of-Sensors (BOS).
+
+In this study, each sensor activation coming from raw data will be represented as a node in the graph.
+
+Firstly, a graph is constructed as in Fig. 4.
+
+There are two node types in our graph, namely inner nodes and outer nodes.
+
+Each inner node in the graph represents a sensor activation from input data.
+
+These nodes have one-hot encoding of their sensor activations.
+
+For example, if we consider the one-minute piece of raw sensor data in Table 1.
+
+It is mapped into raw sensor data of M4,M7,M5,M3, if we only consider ON status of each activation.
+
+Then there will be 4 inner nodes in this graph, where each inner node represents a sensor activation.
+
+For example, the first inner node M4 will have one-hot encoding feature of 1×34, where the index at 4 is 1 while others are 0.
+
+These inner nodes will have dummy labels as they do not have any activity labels of their own.
+
+Considering that there are 11 activities in our dataset and 1 activity for nil activity, labels are represented by a vector of size 1 × 12.
+
+For example, the nodes having label 2 will have the label vector 0100000000000.
+
+For inner nodes, all values of label vector will be zero, meaning they do not have any labels.
+
+Inner nodes are connected to their subsequent ones as shown in Fig. 4.
+
+PARAGRAPH
+
+Outer nodes represent time-slice activity labels of sensor activities.
+
+Inner nodes which fall within a certain t-minutes time-slice (e.g. 1 minute) are merged with their outer node.
+
+Thus, there is only one outer node for each t-minutes sensor activations.
+
+Here, note that the number of sensor activations (the number of inner nodes) is arbitrary.
+
+An outer node will have its corresponding time-slice’s activity label.
+
+However, an outer node has an empty feature vector of the same size 1×N.
+
+Outer nodes are connected to the subsequent outer nodes and to their corresponding inner nodes.
+
+If whole data is split into n time-slices, then there are n outer nodes in the constructed graph.
+
+The data (outer nodes) is split into 3 subsets: training, testing and validation.
+
+We group inner nodes within one-minute chunks which is chosen experimentally.
+
+SECTION
+
+Graph convolutional networks
+
+PARAGRAPH
+
+CNNs can extract their own features from the raw data.
+
+CNNs are currently the state-of-the-art method for many problems in the literature.
+
+However, irregular data such as graphs cannot be handled by CNNs since CNNs require a fixed dimension of input.
+
+Recently, there has been a growing interest in GCNs to apply the same convolution idea on graph-structured data (Kipf and Welling, 2016; Duvenaud et al., 2015; Seo et al., 2016; Vashishth et al., 2018).
+
+The convolution is done on the spatial neighbourhood of a graph network.
+
+PARAGRAPH
+
+Inspired by the solutions offered by GCNs, in this study, we use the GCN model proposed by Kipf and Welling (2016), which obtains a linear-time graph-CNNs of spectral graph convolutions by using a convolutional architecture via a localised first-order approximation in Fourier-domain.
+
+In GCNs, the hidden layers serve as a kernel and calculate feature maps.
+
+They encode graph structure and features coming from nodes and their neighbours to extract fruitful features.
+
+PARAGRAPH
+
+In a graph structured neural network, f(X,A,L), f(.) is a differentiable function like a neural network, X is a matrix of feature vectors and A is an adjacency matrix and L is one-hot encoding labels of instances.
+
+A∈  RN×N where N is the number of nodes in the graph, X∈  RN×F where F is the number of features.
+
+Before calculating the hidden layer activations, a degree matrix D is calculated where Dii=∑jAij.
+
+Then, self-connections of nodes are added to the graph adjacency matrix A so that Ã=A+IN, where IN is the identity matrix.
+
+Then the new degree matrix D̃ becomes D̃ii=∑jÃij.
+
+After these calculations, given W(l) and H(l), a layer-wise propagation rule is applied using activation function σ(.).
+
+This activation function is Rectified Liner Unit (ReLu), where ReLU(x)=max(0,x).
+
+Here, W(l) is a trainable weight matrix specific layer l and H(l)∈RN×M is the matrix of activations of the lth layer, where M is the number of hidden neurons in that layer.
+
+In the first layer, H(0)=X since the first layer is the input layer.
+
+Then the activations of hidden layer l+1, H(l+1), is calculated in Eq. (1).
+
+H(l+1)=σ(D̃−1∕2ÃD̃−1∕2H(l)W(l))  Z=f(X,A)=softmax(AˆReLu(AˆXW(0))W(1))
+
+PARAGRAPH
+
+After calculating Aˆ=D̃−1∕2ÃD̃−1∕2, a forward propagation rule is applied for a GCN which has two layers in Eq. (2).
+
+Here, W(0)∈RC×H is a weight matrix from input to hidden layer for a hidden layer with H feature maps (hidden neurons) and C input channels.
+
+W(1)∈RH×F is a weight matrix from hidden to output layer.
+
+PARAGRAPH
+
+The GCN weights W(0) and W(1) are optimised exploiting the gradient descent where full batch training is used in every iteration.
+
+As a loss function of the model, cross-entropy error is used as in Eq. (3), where YL is the set of training nodes that have labels.
+
+E=−∑l∈YL∑f=1FYlflnZlf
+
+SECTION
+
+Activity recognition and abnormal behaviour detection
+
+PARAGRAPH
+
+To recognise activities for outer nodes, firstly, a graph is constructed as shown in Fig. 4.
+
+The sensor activations are represented as inner nodes, while the labels are represented as outer nodes (Section 4.1).
+
+The adjacency matrix A and feature matrix X are constructed based on the graph structure used to train the GCN on normal activities.
+
+To detect abnormal activities, we use the confidence probability values of assigned labels and then by using a threshold value, we decide if they are abnormal or not (see Algorithm 3).
+
+SECTION
+
+Experiments
+
+SECTION
+
+Experimental set-up
+
+PARAGRAPH
+
+In order to evaluate the proposed GCN model, Aruba dataset (Section 3) is split into training and testing sets.
+
+The training dataset consists of the first 139 days.
+
+Next 15 days are used for validation and the remaining 70 days are used for testing.
+
+The split is done based on days to use the information coming from time-series data (Suryadevara et al., 2013; Arifoglu and Bouchachia, 2019).
+
+Since there is no abnormal activities in the original data, the test set is modified as described in Section 3.
+
+The modifications are done separately for the abnormal behaviour types, activity and sub-activity, which result in two different test sets.
+
+We analyse the two anomalies separately to see the affect of GCNs on both anomalies individually.
+
+PARAGRAPH
+
+Moreover, GCNs are compared with the following state-of-the-art supervised methods: LSTMs (Long Short Term variants of RNNs), Naïve Bayes (NB) classifier, Hidden Markov Models (HMMs) and Conditional Random Fields (CRFs).
+
+In these classifiers, BOS representation is adopted since these methods require fixed-length input vectors (1×N), for N being the number of sensors in the dataset.
+
+Each sensor activated in 1 minute is represented as 1, while others are given 0.
+
+PARAGRAPH
+
+Keras Deep Learning library’s (François, 2015) and Theano’s (Team, 2016) implementation of LSTM and CNN is used in this study.
+
+NB, HMM and CRF are based on the implementation provided in Van Kasteren et al. (2011).
+
+In the LSTM and CNN related experiments, Adam optimiser (Kingma and Ba, 2014) is used.
+
+The models and the parameters are decided experimentally as follows.
+
+In the LSTM related experiments, the instances are fed into the system with a batch size of 20.
+
+In LSTM, two hidden layers of 50 and 100 nodes are used.
+
+Then, dense layers of size 100, 128 and 50 are added to the network, followed by a softmax layer.
+
+There are drop-out layers with a probability of 0.5 between each two layers in LSTM models.
+
+As for CNN, time-series window of length 10 seconds is extracted from the raw sensor readings.
+
+The CNN model has the following layers: A 2D convolutional layer (with 20 kernels of size 5 × 10), a Max Pooling layer (with a pooling size of 2 × 2), a 2D convolutional layer (with 10 kernels of size 10 × 15), a Max Pooling layer (with a pooling size of 2 × 2), a flatten layer, and two dense layers of size 128 and 50, followed by a softmax layer to do the classification.
+
+PARAGRAPH
+
+In activity recognition experiment, nodes are represented by two different features.
+
+In the first one, we only consider the ON status of activations, while in the second one we also consider the OFF status.
+
+The feature vector for ON representation is of size 1 × 34, where 34 is the total number of sensors in the dataset.
+
+The OFF status is represented by adding another 34 values to the feature vector, which results in a feature vector of size 1 × 68.
+
+For example, if the sensor M3 has status ON, the one-hot encoding feature vector of 1 × 34 will have 1 at position 3, while if the same sensor has status OFF, then feature vector of 1 × 68 will have 1 at position 37  (=34+3).
+
+Moreover, activations of GCN hidden neurons are fed into an LSTM network to carry temporal information further.
+
+Here, the same LSTM network is used as described above.
+
+Thus activity recognition experiments with GCN have 3 variants: (1) when only ON status of sensor activations are used, (2) when both ON and OFF are used and (3) when kernels’ (hidden layers) activations of GCN are fed into an LSTM network.
+
+SECTION
+
+Evaluation metrics
+
+PARAGRAPH
+
+Precision, recall, accuracy and F-measures are used to evaluate classifier performance.
+
+Precision and recall are calculated for each class separately and then the average is taken over all classes.
+
+It is important to use these particular measures because we are dealing with unbalanced datasets where some classes appear much more frequently than others.
+
+As classes are considered equally important, the average precision and recall are taken over all classes.
+
+The accuracy gives information about the percentage of correctly classified time-slices, resulting in a larger weight for more frequently occurring classes.
+
+Van Kasteren et al. (2011) gives a detailed description of these measures.
+
+PARAGRAPH
+
+In order to assess the abnormal behaviour detection success, True Positive Rate (TPR) and False Positive Rate (FPR) are used.
+
+These values for different thresholds are depicted on a receiver operating characteristic (ROC) curve.
+
+Moreover, Area Under Curve (AUC) is calculated for each model to interpret the results in a better way.
+
+True Positive Rate (TPR) refers to the method’s ability to correctly detect instances which are abnormal.
+
+FPR gives the percentage of mislabelled normal instances, thus reflects on the method’s ability to differentiate between normal and abnormal activities.
+
+PARAGRAPH
+
+GCN experiments are performed based on Kipf et al.’s Python implementation (Kipf and Welling, 2016) with raw data.
+
+Learning rate is set to 0.01, drop-out value to 0.5, weight decay to 0.00005 and the number of hidden neurons to 64.
+
+The training is done in 100 epochs with an early stopping of 10.
+
+The experiments are conducted in two parts: (1) Activity recognition and (2) Abnormal behaviour detection.
+
+SECTION
+
+Activity recognition experiments
+
+PARAGRAPH
+
+In these experiments, we only used the test set with activity related abnormal behaviours since our focus is on abnormal behaviour detection rather than activity recognition.
+
+Moreover, activity recognition results are very similar for both test sets.
+
+PARAGRAPH
+
+Table 3 shows the activity recognition results.
+
+In particular, the best accuracy is retrieved by LSTM (85.95%), while GCN-LSTM comes after with a slight difference (85.67%) when ON and OFF activations are used.
+
+However, GCN model using ON and OFF without LSTM gives higher precision (52.25%) and recall values (50.86%).
+
+In terms of F-measure, LSTM-BOS achieves 43.29%, while GCN-LSTM achieves 43.11% and GCN with ON and OFF achieves 51.55%.
+
+This shows that GCN with ON and OFF status is good at differentiating classes.
+
+This comes from the ability of GCN to model activity slices by taking sensor activation relationships into account.
+
+Moreover, LSTM experiment is performed with BOS representation which ignores the relationship between sensor activations.
+
+Thus, BOS representation might affect the performance of LSTM as well.
+
+On the other hand, feeding GCN activations to LSTM causes a decrease in precision and recall (42.61% and 43.62%).
+
+The reason for this might be that LSTM learns the temporal information of the most frequent classes and gives more importance to them.
+
+PARAGRAPH
+
+Although GCN with ON and OFF achieves slightly the same accuracy (84.06%) with its ON version (84.01%), it ends up with better F-measure (51.55% compared to 48.16%).
+
+Since F-measure is averaged on each class, this means that adding OFF status helps to differentiate the classes better.
+
+When OFF status is used, the model can understand the ordering of the sensor activations better.
+
+This ordering provides an update for the location of the person since sensors are activated one after another based on the location of replaced sensors .
+
+This gives more insight to the activity being performed.
+
+For example, results with only ON status show that leave home activity is confused with enter home activity, while eating activity is confused with meal preparation since the same sensor types are involved.
+
+However, adding OFF status improves the accuracy for these activities since it reduces the confusion.
+
+No method can identify Wash dishes well and most of the test instances are recognised as the Meal preparation activity.
+
+The reason is that these activities occur in the kitchen and use very similar objects.
+
+PARAGRAPH
+
+Despite the high ability of CNNs to capture spatial context, CNN model achieves relatively less accuracy (80.68%) because of the BOS representation.
+
+Moreover, CRF model outperforms NB and HMM in terms of accuracy (80.39%, 74.59% and 72.97% respectively) but NB and HMM perform better in terms of recall (69.09% and 77.47% respectively).
+
+The reason is that CRF favours the most frequent class in the dataset.
+
+PARAGRAPH
+
+Also, we compared different variants of per-layer propagation model  (Kipf and Welling, 2016), namely Chebyshev filter and Multi-layer perceptron.
+
+In Chebyshev filter, the propagation model is updated using a Chebyshev filter, while in multi-layer perceptron, the propagation model is changed with a dense perceptron (Kipf and Welling, 2016).
+
+As seen in Table 3, GCN gives the best accuracy results compared to the others.
+
+PARAGRAPH
+
+A hyperparameter sensitivity analysis is performed to show the effect of individual parameters.
+
+For this experiment, the default parameters are set to the ones in Kipf and Welling (2016), and then a value of only one hyperparameter among the set drop-out, weight decay, learning rate, number of hidden neurons is changed.
+
+The following values have been considered: drop-out 0.1,0.2,0.3,0.4,0.5, weight decay 0.05,0.005,0.0005,0.00005,0,000005, learning rate 0.1,0.01,0.001, number of hidden neurons 20,16,12,8,4.
+
+As seen on Fig. 5 below, the hyperparameters proposed in Kipf and Welling (2016) are the best ones for this task.
+
+Therefore, we have relied on those values to run the experiments.
+
+SECTION
+
+Sensor pattern extraction
+
+PARAGRAPH
+
+A quantitative analysis is provided for each activity class to show which sensors are involved the most during the classification decision of GCN.
+
+For this purpose, the average of all GCN hidden layer activations is calculated for each feature of each activity.
+
+The normalised sensor activations are visualised in Fig. 6.
+
+The following abbreviations are used for the activities.
+
+N: Nil, S: Sleeping, M: Meal preparation, E: Eating, R: Respirate, W: Working, B: Bed to toilet.
+
+For example the outer nodes of meal preparation activity correlate more with sensor M19, while nodes of eat activity are affected by M14, and resperate nodes are affected by M25.
+
+Wash dishes nodes are affected by M15,M18,M19, bed to toilet nodes by sensors M3,M4,M5,M6 and leave home and enter home by M30 and D4 while work nodes gets excited by M26 and M27.
+
+These are the sensors which are involved at most in these activities when we look at the sensor lay-out and raw sensor measurements.
+
+PARAGRAPH
+
+Fig. 7 presents a set of example sub-graphs from each activity category.
+
+For example, meal preparation outer node is affected by sensors M15,M17,M18.
+
+Moreover, we extract the most common and important patterns for each activity class in the graph.
+
+This is similar to frequent sub-graph mining, which is about discovering interesting patterns in graphs.
+
+In our case, sensor readings which are triggered frequently in an activity represent a pattern.
+
+If activation scores of a group of sensors are high, this means that there is an outer node which gets excited by that combination of sensors.
+
+For this purpose, all n-grams are calculated for inner nodes and their average sensor activation scores are calculated.
+
+Then all activations are sorted, and the top−500 nodes, which is decided empirically, are taken for each activity class to calculate n-gram patterns.
+
+We calculate n-grams with only n=2 and n=3, which is enough to see the patterns in the dataset.
+
+A sample set of extracted patterns is shown in Table 4.
+
+For example, the sensors M19 and M15 are grouped in meal preparation activity.
+
+In the sensor layout, these sensors are placed close to each other and when the resident performs meal preparation activity, these sensors are triggered one after another.
+
+The pattern constructed by these two sensors are identified in Zhang et al. (2017) as near the kitchen range and sink.
+
+Another grouping of sensors, namely M18, M19, M15 shows another pattern in this activity, which is again (M18 and M19) found as a movement pattern in Zhang et al. (2017).
+
+In eating activity, we see that M14 and M18 represent a pattern and M14, M13, M15 represent another pattern which is constructed by the sub-pattern M13, M15 and the sensor M14.
+
+For the activity sleeping, the most frequent pattern is M2, M3.
+
+This makes sense because these sensors are on the bed and they will be triggered one after another during sleeping activity.
+
+SECTION
+
+Abnormal behaviour detection
+
+PARAGRAPH
+
+The abnormal behaviour detection results are visualised for activity and sub-activity related modified test sets separately on ROC curves in Fig. 8(a).
+
+Moreover, AUC bars of ROC curves are shown in Fig. 9(a).
+
+For activity related abnormal behaviours, the results show that GCN with only ON and with ON and OFF achieves the best with AUC of 66% and 67% respectively.
+
+Adding LSTM layer to the activations of GCN (with ON and OFF) reduces the AUC rate slightly to 63%.
+
+The reason for this might be that LSTM encodes temporal information further and tolerates small variations in the sequence.
+
+Adding OFF status to GCN model does not improve the result that much (around 1%), since activity related abnormality does not occur at sensor activation level.
+
+PARAGRAPH
+
+Although CNN and LSTM are powerful models, they perform slightly worse than GCN models (with AUC of 57% and 59% respectively), since they rely on BOS representation.
+
+However, CNN catches GCN models at TPR (82%) and FPR (56%) on ROC curve.
+
+NB performs the worst because of its simple modelling capabilities.
+
+HMM and CRF, with AUC of 42% and 54%, does not perform well because of BOS representation.
+
+PARAGRAPH
+
+Results for anomaly detection with sub-activity related test set are shown in Figs. 8(b) and 9(b).
+
+LSTM performs the best AUC (63%), since inserting additional sensor activations (see Section 3), changes BOS representations.
+
+Thus, the activations mistakenly appear and LSTM can detect these changes by encoding temporal information.
+
+GCN-LSTM with ON and OFF produce AUC rate of 57% while GCN with only ON and GCN with both ON and OFF have similar AUC rate 56%.
+
+Thus, adding LSTM to GCN with ON and OFF improves the results reaching an FPR of 73% and TPR of 58% on ROC.
+
+Although, adding OFF helps differentiating between classes in activity recognition, it also increases the noise to detect abnormal activities.
+
+NB, with AUC of 52%, does not perform well since it is a simple model and can relate neither temporal nor spatial information.
+
+Although HMM can relate previous input to the current one, it achieves an AUC of 54%.
+
+As a discriminate model CRF performs only an AUC of 54%.
+
+PARAGRAPH
+
+Moreover, in health-care problems, missing an anomaly - a true positive (TP)- may cause more serious problems than retrieving a high number of false positives (FP).
+
+Although our model fails to eliminate a high number of false positives, it is good at detecting abnormal behaviour (high TPR), which is more important in the context of health-care.
+
+Furthermore, data imbalance contributes to the complexity of anomaly detection as normal instances outnumber abnormal instances.
+
+Thus, the model learns the normal behaviour better than abnormal behaviour, and fails to prune a good amount of FPs.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This paper presented a method to detect abnormal behaviour that stem from cognitive difficulties of elderly people.
+
+To cope with the scarcity of data, we proposed a data generation method to simulate abnormal behaviour reflecting cognitive status of elderly people with dementia.
+
+In contrast to the state-of-the-art, instead of relying on fixed length feature vectors, we exploited raw sensor measurements to encode information derived from sensor activations such as frequency and order of activations.
+
+We represented raw sensor activations in a graph and used Graph Convolutional Networks (GCN) to recognise activities and detect abnormal ones.
+
+The results show that the proposed GCN-based method can flag abnormal behaviour, not only related to activity patterns, but also the ones related to the intrinsic structure of activities in the context of cognitive decline.
+
+However, this method cannot relate one instance to another and neglects temporal information between time-slices.
+
+In the future, we will combine Recurrent Neural Networks (RNNs) with GCNs so that we can take both temporal and granular level information into account.
+
+The current simulation method does not reflect on the gradual decline in cognitive status.
+
+Therefore, the proposed approach may fail to detect abnormal behaviour arising from gradual deterioration of the elderly person’s cognitive capabilities.
+
+The approach is not designed to cope with such a problem.
+
+In the future, we are planning to collect real-world data that reflect gradual cognitive decline and adapt our method to detect gradual changes.

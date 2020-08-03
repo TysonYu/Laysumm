@@ -1,0 +1,651 @@
+10.1016/j.engappai.2019.02.018
+
+FULLTEXT
+
+TITLE
+
+Web image annotation based on Tri-relational Graph and semantic context analysis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Web images are exploding at an exponential rate due to the rapid development of image acquisition technology, which makes the analysis and understanding of image becoming more difficult.
+
+How to effectively express, classify and manage images from the vast web image database has become a research hotspot in the field of computer vision.
+
+Traditional automatic image annotation technology extracts the semantic information through analyzing the low-level features of images by machine learning methods, which could not solve the problem of semantic gap effectively.
+
+With the development of the Web2.0, users can share their comments conveniently on online socializing platform, which causes that web images always being around with abundant contextual information (Lu et al., 2016).
+
+And these text context information of web images can be effectively used to alleviate the problem of semantic gap in image annotation and understanding.
+
+PARAGRAPH
+
+Understanding the similarity of images is important in many areas such as image retrieval (Yang et al., 2018c, a, b) and image annotation.
+
+Deng et al. use the relative relationship of the tags to obtain a more general semantic relevance for image retrieval (Deng et al., 2018).
+
+In Deng et al. (2014), they introduce a new co-regularized multi-graph Learning framework, and utilizes the complementary nature of features effectively.
+
+PARAGRAPH
+
+A variety of automatic image annotation (AIA) methods haveachieved good performance in image understanding and semantic annotation (Zhang et al., 2012).
+
+However, Most of AIA methods analyze the semantic concept of the whole image without considering the semantics of different regions (Ke et al., 2017), which is called global-based image annotation method.
+
+These methods (Hu and Lam, 2013; Wang et al., 2009b; Mahmood et al., 2014; Jian et al., 2014; Yang et al., 2009; Mei et al., 2008) usually cannot locate all relevant semantic concepts accurately, since the characteristics and semantics of different regions in an image are not considered.
+
+Region-based image annotation methods detect the semantic concept of each independent region and can describe the visual features more accurately as a semantic concept (Yuan et al., 2007; Memon et al., 2017; Zhang et al., 2015; Souly and Shah, 2016; Zhang et al., 2018), and they also can address the inability to predict small objects owing to the limited discrimination of global visual features (Zhang et al., 2016).
+
+PARAGRAPH
+
+An image usually contains several labels, and these labels are often strongly correlated in terms of semantics.
+
+For example, the labels “sky” and “airplane” tend to appear in same image, while the probability of the labels “sea” and “train” appearing at the same time is small.
+
+As a result, many multi-label image annotation algorithms exploit label correlations to improve the overall classification performance.
+
+For example, label correlations can be used for label refinement (Zhang et al., 2018; Liu et al., 2009; Hou and Lin, 2015; Li and Tang, 2017; Uricchio et al., 2013; Wang et al., 2010a; Uricchio et al., 2017; Wang et al., 2010d; Tsoumakas et al., 2009), or be used to seek discriminative subspaces (Wang et al., 2010c; Blei and Jordan, 2003; Li et al., 2011; Ji et al., 2010; Wang et al., 2010b).
+
+In addition, label correlations can also be incorporated into the graph so that the graph has both visual and semantic features (Chen et al., 2008; Kang et al., 2006; Wang et al., 2011; Pham et al., 2014; Wang et al., 2009a, 2010e).
+
+PARAGRAPH
+
+AIA methods (Lin et al., 2013; Li et al., 2014, 2016; Hou and Lin, 2015) usually assume that the images in the training set are completely annotated.
+
+In fact, acquiring an annotated image data set is expensive and time consuming.
+
+Hence the researchers propose many semi-supervised learning methods for image annotation, which can use large amount unlabeled data and small amount labeled data to train the model.
+
+Traditional graph-based semi-supervised methods (Chen et al., 2008; Tong et al., 2006) build data graph only with image visual similarity, which omit the semantic correlations between labels.
+
+Wang et al. proposed a Bi-relational Graph (BG) for automatically multi-label image annotation through semi-supervised learning (Wang et al., 2011).
+
+The BG contains two subgraphs: data graph and label graph, which are connected by an additional bipartite graph induced from label assignments.
+
+Each label semantic class and its labeled image in BG are considered as a semantic group, and Random Walk with Restart (RWR) algorithm (Fellbaum and Miller, 1998) is performed iteratively to calculate the correlation values between semantic groups and images.
+
+Then the calculated correlation value can be used to predict unlabeled image tags.
+
+In addition, Pham et al. proposed a semi-supervised learning algorithm based on local and global consistency (Pham et al., 2014).
+
+This algorithm merges two different entities (images and labels) into a single graph, and performs label propagation based on label correlation to obtain the correlations between unannotated images and labels.
+
+PARAGRAPH
+
+Graph-based semi-supervised automatic image annotationalgorithms proposed in Wang et al. (2011) and Pham et al. (2014) are based on full-image semantic analysis, and do not consider the image region semantics, which makes the annotation results being not as accurate as the region-based image annotation methods.
+
+In order to achieve more detailed description of image region and full image, we propose a novel Tri-relational Graph (TG) model for image region annotation and use web social context analysis for full image label expansion.
+
+TG model is constructed by analyzing the global similarity, regional similarity among images, the semantic correlation of image labels and the relationships between each subgraph.
+
+Then a new multilevel RWR is used to update the label-to-region scores and predict labels for unannotated image regions.
+
+Finally, proper noun and keywords extracted by Natural Language Processing (NLP) algorithm from web semantic context and expanded by WordNet (DeviantArt, 0000), are used to extended the annotation results.
+
+PARAGRAPH
+
+The original contributions made in this paper are illustrated as follows:
+
+PARAGRAPH
+
+The remaining of this paper is organized as follows.
+
+Section 2 describes the framework of our proposed web image annotation method.
+
+In Section 3, we describe the definition of Tri-relational graph model and label prediction algorithm based on TG.
+
+Then image label expansion algorithm by web context analysis is introduced in Section 4.
+
+Experiment results and analysis are given in Section 5, followed by conclusion and future work in Section 6.
+
+SECTION
+
+Web image annotation method
+
+PARAGRAPH
+
+Considering that large amount text context information is attached to the web images, we propose a web image annotation method based on Tri-relational Graph (TG) and semantic context analysis.
+
+The framework of annotation method is shown in Fig. 1.
+
+There are mainly three parts in this framework: the construction of TG, the image region annotation based on TG with web context analysis, and image label expansion.
+
+PARAGRAPH
+
+In TG, the semantic correlation between the labels is analyzed to generate the label subgraph.
+
+By segmenting the web images, the low-level visual features are extracted to represent the image content of each image region, and the region subgraph in the TG is generated by measuring the visual similarity between regions.
+
+Finally, the visual similarity between the whole images is calculated to generate the image subgraph of TG.
+
+PARAGRAPH
+
+In this paper we adopt Texture-enhanced JSEG algorithm (Zhang et al., 2018) to segment the image and construct the region graph.
+
+Texture-enhanced JSEG (TJSEG) segmentation method combines the texture class map with color class map for accurate image segmentation and uses the point-line-region (PLR) model to reduce over-segmentation.
+
+TJSEG can segment the image into relatively independent semantic regions, and avoid over-segmentation effectively.
+
+PARAGRAPH
+
+After the image is segmented into regions by TJSEG, BoW model is used to represent features of regions by visual words.
+
+We segment every region by blocks of 4 × 4 pixels.
+
+Due to the irregular shape of the region, we use the rule that for each grid G which has M0×M0 pixels, if most of the pixels belong to a certain region, the grid is labeled according to that region.
+
+We adopt SIFT, HSVH, CM and Gabor texture features to construct visual words and represent the feature of image region.
+
+PARAGRAPH
+
+The semantic context analysis module mainly analyzes the contextual text information of image including title, description and comments obtained from the web.
+
+Then it combines WordNet to analyze the keywords and proper nouns in the contextual information to describe the image content.
+
+PARAGRAPH
+
+The image annotation and label expansion module obtains the keyword through the semantic context analysis and semi-supervised learning on the TG, and obtains the most relevant semantic labels for unannotated regions.
+
+In addition, we add context-analyzed proper nouns to the global labels of the corresponding web images, which greatly enhances the abundance and accuracy of the web image labels.
+
+PARAGRAPH
+
+Next, we will introduce our web image annotation method from two parts: image region label prediction based on TG, and image label expansion by web semantic context analysis.
+
+SECTION
+
+Image region label prediction based on TG
+
+PARAGRAPH
+
+We propose a novel Tri-relational Graph (TG) and carry out semi-supervised learning on TG to realize the image region annotation.
+
+PARAGRAPH
+
+Problem formalization.
+
+For image annotation task, we define images set χ=X1,…,Xn, semantic labels set C=c1,…,cK and regions set T=r1,…,rQ.
+
+At the same time, the image Xi is divided into a number of regions Ri⊆T represented by a binary vector y1i∈0,1Q, such that y1i,q=1 if Xi contains the qth region, and y1i,q=0 otherwise.
+
+PARAGRAPH
+
+We define Y1=y11,…,y1n.
+
+The image Xi is associated with a number of labels Li⊆C represented by a binary vector y2i∈0,1K, such that y2i,k=1 if Xi indicates the kth label, and y2i,k=0 otherwise.
+
+And we set Y2=y21,…,y2n .
+
+For the region rq, it is associated one label ck∈C, represented by a binary vector y3q∈0,1K, such that y3q,k=1 if rq is labeled as the kth label, and y3q,k=0 otherwise.
+
+Also we set Y3=y31,…,y3Q.
+
+PARAGRAPH
+
+We define WX to represent the relationship among of images, and define WXi,j is the similarity between Xi and Xj.
+
+WR represents the relationship among of the image regions, and WRi,j is the similarity between ri and rj.
+
+WL represents the relationship among of semantic labels, and WLi,j is the semantic co-occurrence between ci and cj.
+
+Suppose that the first ξ images are annotated and the first ζ regions of images data are annotated.
+
+Our goal is to predict the labels for regions represented as rjj=ζ+1Q of unannotated images represented as Xii=ξ+1n.
+
+SECTION
+
+Tri-relational Graph
+
+PARAGRAPH
+
+Traditional graph-based semi-supervised learning methods only consider the image data graph gX=vX,εX induced from WX , where vX=χ and εX⊆vX×vX .
+
+Then BG proposed a multi-label annotation approach to build the relation WL between the labels, which inducing gL=vL,εL , where vL=C and εL⊆vL×vL .
+
+And we propose a novel graph g=vX∪vL∪vR,εX∪εL∪εR∪εXL∪εXR∪εLR as shown in Fig. 2, where εXL⊆vX×vL , εXR⊆vX×vR and εLR⊆vL×vR .
+
+Obviously, the image data graph gX, the region data graph gR, and the label graph gL are all subgraphs of the graph g.
+
+They are connected graphically to each other through gXL=vX,vL,εXL , gXR=vX,vR,εXR and gLR=vL,vR,εLR. gXR
+
+connects the image and the region, its adjacency matrix is Y1 ; gXL connects to the image and the semantic label, its adjacency matrix is Y2 ; gLR connects the semantic labels and regions, and its adjacency matrix is Y3 . g
+
+delineates three forms of entity: images, regions, and semantic labels, with εX , εR and εL describes the entity’s internal relations respectively, with εXL, εXR and εLR describes the entity’s external relations respectively.
+
+We call g as Tri-relational Graph (TG).
+
+PARAGRAPH
+
+Transition probability matrix M on TG.
+
+Given a TG g, constructed by a multi-label image data set, we can define the transition probability matrix M for Random Walk algorithm as following: M=MXMXRMXLMRXMRMRLMLXMLRMLwhere MX , MR and ML are the internal transformation matrix of gX , gR and gL, respectively.
+
+MXR and MRX are the matrix of external transition probability between gX and gR , MXL and MLX are the matrix of external transition probability between gX and gL, MLR and MLR are the external transition probability matrix between gL and gR.
+
+Let β∈0,1 be the jumping probability, i.e., the probability that a random walker hops from one graph to the other graph.
+
+When β=0, the random walk algorithm is performed on one of the three subgraphs.
+
+The probability of random walker hops from one level to another level is β∕2.
+
+PARAGRAPH
+
+In the original TG, not all images are attached to the labels, and not all the regions connected to the labels.
+
+In random walk algorithm, when walking to a node that does not have an external connection, it jumps to other nodes according to the standard random walk strategy.
+
+To be more precise, let diX=∑jWXi,j, the transition probability from Xi to Xj is defined as: pXj|Xi=MXi,j=WXi,j∕diXifdiY1=0anddiY2=01−βWXi,j∕diXotherwise
+
+PARAGRAPH
+
+Similarly, let diL=∑jWLi,j , the transition probability from ci to cj is: pcj|ci=MLi,j=WLi,j∕diLifdiY1=0anddiY3=01−βWLi,j∕diLotherwise
+
+PARAGRAPH
+
+let diR=∑jWRi,j , the transition probability from ri to rj is: prj|ri=MRi,j=WRi,j∕diRifdiY2=0anddiY3=01−βWRi,j∕diRotherwise
+
+PARAGRAPH
+
+The probability of external transitions between entities can be obtained in the following way, let diY1T=∑jY1Ti,j , the transition probability from Xi to rj is: prj|Xi=MXRi,j=β2Y1Ti,j∕diY1T,ifdiY1T>00,otherwise
+
+PARAGRAPH
+
+Accordingly, let diY1=∑jY1i,j , the transition probability from ri to Xj is: pXj|ri=MRXi,j=β2Y1i,j∕diY1,ifdiY1>00,otherwise
+
+PARAGRAPH
+
+let diY2T=∑jY2Ti,j , the transition probability from Xi to cj is: pcj|Xi=MXLi,j=β2Y2Ti,j∕diY2T,ifdiY2T>00,otherwise
+
+PARAGRAPH
+
+Accordingly, let diY2=∑jY2i,j , the transition probability from ci to Xj is: pXj|ci=MLXi,j=β2Y2i,j∕diY2,ifdiY2>00,otherwise
+
+PARAGRAPH
+
+let diY3T=∑jY3Ti,j , the transition probability from ri to cj is: pcj|ri=MRLi,j=β2Y3Ti,j∕diY3T,ifdiY3T>00,otherwise
+
+PARAGRAPH
+
+Accordingly, let diY3=∑jY3i,j , the transition probability from ci to rj is: prj|ci=MLRi,j=β2Y3i,j∕diY3,ifdiY3>00,otherwise
+
+PARAGRAPH
+
+We present Eqs. (2)–(10) together with a concise matrix form following by the definition of Eq. (1), which is illustrated as following: M=1−βDX−1WXβ2DY1T−1Y1Tβ2DY2T−1Y2Tβ2DY1−1Y11−βDR−1WRβ2DY3T−1Y3Tβ2DY2−1Y2β2DY3−1Y31−βDL−1WLwhere DX=diagd1X,…,dnX,DR=diagd1R,…,dQR,DL=diagd1L,…,dKL,DY1T=diagd1Y1T,…,dnY1T,DY1=diagd1Y1,…,dQY1,DY2T=diagd1Y2T,…,dnY2T,DY2=diagd1Y2,…,dKY2,DY3T=diagd1Y3T,…,dQY3T,DY3=diagd1Y3,…,dKY3,
+
+SECTION
+
+Web semantic context analysis
+
+PARAGRAPH
+
+Web images always contain many text contextual information, and there are many keywords and proper nouns that describe the content of the images in these context.
+
+Therefore, analyzing these contexts can help us understand the image content more precisely.
+
+Analyzing all the information is a huge task because the contextual information of web images is complex and redundant, and it is not necessary for understanding the image content.
+
+Therefore, we only consider image title, description and comment information for more accurate image annotation.
+
+PARAGRAPH
+
+We use Natural Language Processing(NLP) technology to segment these textual information, and mainly use the nouns to depict the image content.
+
+Due to the limited diversity of text information and the image content description words provided by our algorithm, we use WordNet to expand the annotation keywords.
+
+In terms of the synonym relationship between the words in semantic dictionary, we achieve the keywords and proper nouns for further image annotation.
+
+PARAGRAPH
+
+We can obtain the keywords with the contextual information of the web image Xi and the appearance frequency of them Ψi, Ψi=Z1,…,ZK by NLP, where Zk is the frequency of the semantic label ck appearing in the context of the image Xi.
+
+PARAGRAPH
+
+First, we normalize the contextual keyword information to get the relevance of each labeled word.
+
+We define the label association vector of image as Xi is Ψi∗, and the associated value of each label as: Ψi∗k=Zik∕∑kZik,ifZik≥00,otherwise
+
+SECTION
+
+Semi-supervised learning on TG
+
+PARAGRAPH
+
+Given a TG, the problem of image annotation translates into the problem of measuring the relationship among images, regions and labels.
+
+We propose a multilevel Random Walk with Restart (RWR) algorithm to complete image annotation.
+
+The multilevel RWR is described as following: pt+1j=1−α∑iptiMi,j+αejwhere 0≤α≤1 is the constant parameter, ej is the initial value of vertex j.
+
+When the value of the vertex converges, the fixed assignment value p∗ after random walk can effectively measure the relationship between each vertex.
+
+PARAGRAPH
+
+Although semi-supervise learning with RWR algorithm can realize the image region annotation, the original RWR model does not make full use of the information in the dataset.
+
+Therefore we propose a novel concept which is called compound nodes, and propose multilevel RWR algorithm that uses vertex-to-vertex to measure the relevance between semantic tag and unlabeled image, semantic tag and unlabeled region.
+
+PARAGRAPH
+
+Since each semantic label can be assigned to many regions and images, and each image contains several regions and labels, we define a triad as follows: Gq=rq∪Xi|Y1i,q=1∪ck|Y3q,k=1
+
+PARAGRAPH
+
+Hence, we proposed a multilevel RWR algorithm which improve the original RWR model by using compound nodes to represent the relationship of region, images and labels.
+
+Each triad (region, image, label) is defined as a semantic group hq. hq1≤q≤Q
+
+is defined as follows: hq=γhqX1−γ−λhqRλhqL∈R+n+K+Qwhere if Y1i,q=1 , hqXi=1∑iY1i,q, otherwise hqXi=0; if i=q, hqQi= 1, otherwise hqQi=0 .
+
+PARAGRAPH
+
+We determine the value of hqLi based on the context information of web images.
+
+When the image region has been annotated, that is 1≤q≤ζ.
+
+If Y3q,k=1 , then hqLk=1∑iY3q,k , otherwise hqLk=0.
+
+When the image region belongs to the unannotated regions, that is ζ+1≤q≤Q.
+
+If Y1i,q=1 , then hqLk=Ψi∗k , otherwise hqLk=0. γ∈0,1
+
+controls the random walker to jump to the image data graph gX . λ∈0,1
+
+controls the random walker to jump to the label graph gL .
+
+Then we achieve ∑ihqi=1, in which hq is a probability distribution.
+
+The multilevel random walk formula can be defined as: pqt+1j=1−α∑ipqtiMi,j+αhqj
+
+PARAGRAPH
+
+Here we describe a random walk process based on the TG.
+
+In this algorithm, the center of random walk process jumps on the transition matrix M with a probability of 1−α, and at the same time jumps to the specified vertex hq with the probability α.
+
+PARAGRAPH
+
+The final distribution pq∗ of this random walk process is decided by pq∞=1−αMTpq∞+αhq , which can be defined as: pq∗=αI−1−αMT−1hq
+
+PARAGRAPH
+
+pq∗iζ+1≤q≤Q,1≤i≤K measures the correlation between the ith label and the qth unannotated image region, hence we can predict labels for region rqq=ζ+1Q by our proposed algorithm.
+
+PARAGRAPH
+
+We apply semi-supervised machine learning by our proposed multilevel RWR algorithm for image region label prediction.
+
+When the value of each node is in a steady state, we can use the value of the node to measure the relationship among each image, region and semantic label.
+
+Then we select the nodes with maximum correlation degree, and assign unique semantic label to each unlabeled region.
+
+In order to determine whether the multilevel RWR algorithm is in a stable state, we set the termination condition as follows: 1Q∑jpqt+1j−pqtj2≤ϑwhere ϑ is the parameter that controls the termination condition of multilevel RWR algorithm.
+
+PARAGRAPH
+
+The algorithm of image region label prediction by TG is illustrated in Algorithm 1.
+
+We apply multilevel RWR algorithm to adjust parameters, and make the TG change to a stable state for predicting the labels of regions.
+
+SECTION
+
+Image label expansion by web semantic context analysis
+
+PARAGRAPH
+
+As we all know, there are many image semantic information implied in web image context text, such as semantic keywords and proper nouns.
+
+In Section 3.2, we propose a semantic context analysis method, which can obtain the proper nouns from the contextual information of the image.
+
+Although these proper nouns cannot be directly mapped to predefined label vocabulary, but they can describe the content of the image exactly, such as “Beijing”, “Paris”, “Eiffel Tower”, “Statue of Liberty” and so on.
+
+Obviously these words cannot be obtained by machine learning techniques, but they describe the content of the image more detailed.
+
+PARAGRAPH
+
+To make up for this deficiency, we propose a new image label expansion method, which analyze the text context information of web image, and expand the semantic keywords and proper nouns by WordNet for detailed and abundant annotation results.
+
+The sample algorithm diagram is illustrated in Fig. 3.
+
+Based on the results of the automatic image region annotation method proposed in Section 4, we further analyze the web context text including title, description and comments by NLP algorithm and obtain the semantic keywords and proper nouns.
+
+These global labels and proper nouns are further expanded by WordNet.
+
+During the semantic analysis and filtering, we can achieve more abundant image annotation results, such as scene, proper nouns and so on.
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+In order to verify the effectiveness of our proposed web image annotation algorithm based on TG and semantic context, We conducted a series of experiments on a web image data set from the DeviantArt image sharing website, and compare the image annotation results with different image annotation methods.
+
+SECTION
+
+Experiment data and evaluation criteria
+
+PARAGRAPH
+
+DeviantArt is a popular image-sharing website with tens of millions of images (DeviantArt, 0000).
+
+Each image has a title and description provided by the uploader.
+
+Other users can post their own comments under the image.
+
+Title, description and comments make up the main parts of web image text context information.
+
+In our experiments, 3000 images with their text context information are obtained from DeviantArt website, and divided into three sub-dataset of “Building”, “Scenery” and “Vehicle” according to the theme.
+
+At the same time, a predefined label set has been set up for these datasets.
+
+We select the labels for the different datasets according to the label sets of Corel5k image corpus.
+
+Corel5k image corpus is publicly available and diffusely used to evaluate the methods of image annotation and retrieval.
+
+It contains 5,000 images from 50 themes and 374 concepts defined in LSCOM, in which one image contains 3.14 labels on average.
+
+We select three themes of Corel5k image corpus and adopt the labels from each datasets as our label sets, which is illustrated in Table 1.
+
+We divide these images into training dataset and testing dataset, and manually annotate them as groundtruth.
+
+PARAGRAPH
+
+For more effectively evaluate the performance of the proposed algorithm, we apply three different evaluation metrics: Mean Precision (mPr), Mean Recall (mRe) and Mean F-Measure (mF1) (Zhang et al., 2015), which are defined as follows.
+
+PARAGRAPH
+
+Mean precision (mPr) is a common evaluation metric that is widely used in image annotation. mPr
+
+is the mean of the precision of all test images, which is defined as follows: mPr=1Λ∑τ=1ΛPrτwhere Λ is the size of test images.
+
+For a given test image Iτ, the precision (Prτ) can be calculated as following: Prτ=|Tτ∩Mτ||Tτ|where Tτ is a collection of ground truth labels, Mτ is the collection of labeling results for image Iτ.
+
+PARAGRAPH
+
+Same as mPr, Mean recall (mRe) is the mean of the recall of all test images, which is defined as follows: mRe=1Λ∑τ=1ΛReτwhere Reτ=|Tτ∩Mτ||Mτ|
+
+PARAGRAPH
+
+Mean F-Measure (mF1) is the harmonic mean of mPr and mRe, which can be interpreted as a weighted mean of precision and recall.
+
+For image Iτ, the F1τ is defined as follows: F1τ=2×Prτ×ReτPrτ+Reτ mF1 is defined as follows: mF1=1Λ∑τ=1ΛF1τ
+
+SECTION
+
+Experiments on different parameters of multilevel RWR algorithm
+
+PARAGRAPH
+
+We proposed a multilevel RWR algorithm based on TG to automatically predict the labels of unannotated images.
+
+According to the formula 17, when the predefined conditions are reached in random walk, the compound node reaches a stable state.
+
+The values of the compound nodes clearly reflect the relationship among images, regions, and labels.
+
+Next, we will discuss the terminating conditions for reaching stable state.
+
+PARAGRAPH
+
+It can be known from the formula 17 that the standard deviation between the value of the compound node of tth iterations and the value of t−1th is used as the iteration terminating condition.
+
+We select different values of ϑ and experiment on the “Building” image set to analyze its influence on the image region label prediction.
+
+The experimental results for different values of ϑ are shown in Table 2.
+
+PARAGRAPH
+
+From the experimental results, when the iteration terminating condition of RWR algorithm ϑ is set to 0.01, we will achieve the worst annotation results compared to that the ϑ value is set to 0.005 and 0.001.
+
+When the standard deviation threshold ϑ is set to 0.001 and 0.005, the average precision, average recall, and harmonic average of the image annotation results are not significantly different.
+
+However in terms of the characteristics of RWR algorithm, when the standard deviation threshold is set smaller, the number of iterations of RWR algorithm will increase, and the efficiency of image annotation will reduce.
+
+Therefore, we set the standard deviation threshold ϑ as 0.005, at which our proposed algorithm has the best performance for image region annotation.
+
+SECTION
+
+Experiments on different image data subgraphs in TG
+
+PARAGRAPH
+
+Image and region subgraph of TG are constructed by visual similarity between images and regions.
+
+Different visual features and similarity measures will influence the structure of TG and the further image region annotation.
+
+In this paper, we apply three experiments on different data subgraph construction of TG and analyze the experimental results in detail.
+
+PARAGRAPH
+
+In the first experiment, we apply SIFT feature and Euclidean distance to describe the visual similarity between two images or two regions.
+
+The two images that have more matched feature points will be defined as similar images and there will have an edge between them in image data subgraph, the same as region data subgraph.
+
+PARAGRAPH
+
+In the second experiment, we apply SIFT feature and BoW (Bag of Words) model to present the visual content of images and regions.
+
+BoW is a promising content representation model, in which images were segmented into grids and visual features are extracted from each grid to form feature vectors.
+
+Then the vocabulary of visual words was constructed by clustering the feature vectors, and images were represented by histograms of visual words.
+
+Image content representation by BoW model can effectively reduce the computational complexity and improve the accurate of visual content representation.
+
+PARAGRAPH
+
+For verifying the effectiveness of multi-feature fusion, we fuse SIFT features, HSVH features, CM (Color Moments) features and Gabor Texture features by BoW model to represent the images and regions content in the third experiment.
+
+The experiments results are illustrated in Table 3, which present the image region annotation results by GT with above different data subgraph construction methods.
+
+PARAGRAPH
+
+Experimental results show that for constructing image data subgraph multi-feature fusion is better than single SIFT features, and BoW model with SIFT feature is better than original SIFT feature.
+
+Among them, the method of multi-feature fusion with BoW model achieves the best performance on image region annotation, which shows that the image content representation by multi-feature with BoW is more objective and accurate.
+
+SECTION
+
+Experiments on image region annotation with web semantic context analysis
+
+PARAGRAPH
+
+In Section 3.2, we analyze web text context information and achieve keywords expanded by Wordnet, which can be used to improve the accurate of image region annotation by TG.
+
+For verifying the effectiveness of web context information, we carry out experiments on image region annotation by TG with web semantic context information, and compared the experimental results with the algorithm that does not use the web context information (TG∗).
+
+The experimental results are illustrated in Fig. 4 and Table 4.
+
+PARAGRAPH
+
+From Table 4, we find that the image annotation results by TG with web context analysis are significantly better than the algorithm by TG∗.
+
+After adding the web context analysis, the mPr is increased by 1.74%, and mRe is increased by 1.95%.
+
+This means that web text context contains many important image semantic information, and web context analysis can effectively improve the accurate of image region annotation based on TG.
+
+SECTION
+
+PARAGRAPH
+
+Comparative experiments
+
+PARAGRAPH
+
+In order to prove the validity of our proposed web image annotation method based on TG and web semantic context analysis, we compare our proposed method with graph-based semi-supervised automatic image annotation algorithm based on bi-relational graph (BG) (Wang et al., 2011).
+
+In addition, we also compare our proposed method with the image annotation method in Zhang et al. (2016a).
+
+The experimental results are illustrated in Table 5.
+
+PARAGRAPH
+
+From the experimental results, we find that the mPr of TG is better than that of BG on the “Building” and “Scenery” datasets.
+
+Since the images in these two datasets have relatively fewer labels and simple scenes, the value of the compound node is also relatively concentrated, which results in higher precision and lower recall of annotation results.
+
+On the other hand, the images in the dataset “Vehicle” have many labels and the scene is complex, hence mPr of TG is lower than that of BG by 9.66%, but mRe is significantly improved by 20.06%.
+
+From Table 5, it is not difficult to find that the performance of TG is obviously better than that of BG according to average f1-measure on all the three datasets.
+
+PARAGRAPH
+
+Compared with the supervised machine learning method in Zhang et al. (2016a), our proposed method significantly improve the mPr by 41.89% and mF1 by 25.83%.
+
+The experimental results shows that our proposed web image annotation algorithm based on TG and semantic context can achieve good performance on image region annotation and outperform the similar algorithms.
+
+SECTION
+
+Experiments on image label expansion by web semantic context analysis
+
+PARAGRAPH
+
+In our method, we expand the annotation results of TG by social context analysis of web image.
+
+By the text context analysis, some proper nouns that contain high-level semantic information are extracted for more accurate image annotation.
+
+As shown in Fig. 5, the expanded labels are richer and express more complex semantic information.
+
+PARAGRAPH
+
+To visualize the experimental results of image annotation by TG and label expansion by social context, we illustrate five examples in Fig. 5.
+
+The proposed method achieves accurate regions annotation results, and label expansion by web image context makes the annotation results more abundant and precise.
+
+For example, we only can achieve the region labels of “sky”, “building”, and “plant” by TG from the first image in Fig. 5.
+
+With the social context of this image, we are able to obtain some extra high level semantic information, such as “Eiffel tower”, “Paris” and “France”.
+
+These proper nouns cannot be achieved by machine learning method, since they are too abstract.
+
+And social context analysis of web image can overcome this problem and make the annotation results more abundant and accurate.
+
+PARAGRAPH
+
+The original label acquisition is based on TG and semantic context analysis.
+
+It is closely related to the characteristics of the image regions, and cannot obtain the global semantics of image.
+
+The acquisition of expanded labels are based on the analysis of web text context, and obtain more abstract semantic information about the whole image by means of natural language processing based keywords extraction.
+
+Experimental results illustrate that our label expansion methods can achieve more abundant and precise semantic labels and make the annotation results more satisfactory.
+
+SECTION
+
+Conclusion and future work
+
+PARAGRAPH
+
+In this paper, we proposed a novel Tri-relational Graph (TG) model to place image data graph, region data graph and label graph of a region based image data set in a unified framework, on which we considered a semantic label vertex and its image vertices and region vertices as a triple compound vertex and performed random walk to produce class-to-image relevances, region-to-class and class-to-class relevances.
+
+Then unannotated images are inserted into the TG, and cross-level random walk algorithm is used to update the values of all complex nodes until all the vertices reach a relatively stable state.
+
+The semantic label with the highest degree of relevances to the unlabeled image region is selected as the prediction label of the unannotated region.
+
+In addition, through analyzing the web semantic context of image, we extract the proper nouns and keywords from text information around the web image.
+
+Then we extend these annotation words by WordNet, and achieve more accurate and abundant annotation results with semantic context analysis.
+
+In the future work, we will further improve the TG model by adding visual features relevance analysis, so that it can achieve image area semantic analysis more accurately.

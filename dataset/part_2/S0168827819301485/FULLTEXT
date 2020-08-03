@@ -1,0 +1,595 @@
+10.1016/j.jhep.2019.03.007
+
+FULLTEXT
+
+TITLE
+
+A comprehensive study of epigenetic alterations in hepatocellular carcinoma identifies potential therapeutic targets
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is the most common primary liver cancer and usually occurs in patients with cirrhosis.1
+
+HCC is the sixth most frequent solid tumor and the second leading cause of cancer-related death worldwide and, unfortunately, its incidence and mortality are steadily increasing in Western countries.1
+
+Liver resection, transplantation, and tumor ablation are considered curative options although they are applied in only 30–40% of patients.
+
+The multikinase inhibitors sorafenib, as first line therapy, and regorafenib, as second line therapy, have been approved for advanced HCC, yet they have modest impact on patient survival.1,2
+
+Thus, there is an urgent need for new effective therapies.
+
+PARAGRAPH
+
+Epigenetic mechanisms that affect DNA based processes, such as transcription, DNA repair and replication through changes in the chromatin conformation and ultimately in the cell state are common in human cancers.3
+
+Among epigenetic mechanisms, histone post-translational modifications (HPTMs) are a set generally reversible marks including phosphorylation, acetylation, methylation and Ubiquitination.3
+
+In particular, histone acetylation and methylation have emerged as key regulators of gene transcription that can dynamically modify gene expression.4
+
+The governance of chromatin structure through changes in HPTMs involves the action of writers, readers and erasers.
+
+Writers, including histone acetyltransferases (HATs) and lysine methyltransferases (KMTs), are enzymes that add the post-translational modifications.
+
+On the other hand, erasers such as lysine demethylases (KDMs) and histone deacetylases (HDACs) remove the HPTMs.
+
+Finally, readers are a set of proteins that recognize specific HPTMs allowing the binding of other proteins to specific chromatin locations.5
+
+Among readers, bromodomains (BRDs) recognize chromatin regions that have acetylated histones.5
+
+PARAGRAPH
+
+Cancer hallmarks are a set of modifications acquired by cancer cells during tumor growth and development;6 it has been reported that epigenetic plasticity can affect many of these cancer cell traits.
+
+For instance, changes to DNA packaging allow tumor cells to resist cell death through tumor suppressor silencing or oncogene activation.
+
+Similarly, changes in gene expression patterns allow invasion and metastasis via epithelial-mesenchymal transition.6
+
+In human HCC, it has been reported that several lysine methyltransferases (EZH-2, SETDB1 and EHMT2/G9a) and lysine demethylases (KDM3A, KDM4B, KDM5B and KDM1A) are frequently upregulated.7–13
+
+In addition, high levels of these enzymes in HCC have been associated with poor prognosis in patients, and their knockdown decreased HCC cell proliferation and tumorigenicity in experimental models.7–13
+
+Thus, given the importance of HPTMs on HCC development, growth and metastasis, pharmacologic inhibition of these epigenetic pathways could emerge as a new therapeutic strategy.5
+
+Recently, 2 HDAC inhibitors, belinostat and reminostat, have been tested in phase I/II clinical trials in patients with HCC, showing that these targeted therapies have potential efficacy.14
+
+PARAGRAPH
+
+In recent years, strong efforts have been made to develop new generation epigenetic inhibitors using innovative technologies to target the epigenetic enzymes involved in cancer growth and progression.5,15–31
+
+Herein, we sought to comprehensively investigate alterations in epigenetic readers, writers and erasers in HCC and to preclinically assess the therapeutic potential of their pharmacological inhibition.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+TCGA analysis
+
+PARAGRAPH
+
+Clinical information, gene expression and mutations data (RNA sequencing [RNA-Seq]) for the indicated genes were obtained from The Cancer Genome Atlas (TCGA) for patients with HCC (n = 365) using the FIREBROWSE portal (http://firebrowse.org).
+
+Overall survival of high and low expression groups was compared with the Log-rank test using GraphPad prism program.
+
+For tumor (T) vs. adjacent non-tumoral (NT) tissue comparison, a sub-cohort of 50 cases of paired samples from both types of tissues were used to calculate the individual fold changes.
+
+SECTION
+
+Cell viability assay
+
+PARAGRAPH
+
+Standard MTS assays were performed on cells treated during 4 days with increasing doses of epigenetic inhibitors.
+
+Dose response curves were plotted using a non-linear regression model and IC50 values were determined from the fitted curves using GraphPad prism.
+
+SECTION
+
+Cell cycle and apoptosis assays
+
+PARAGRAPH
+
+Floy cytometry (BD FACSCalibur) was used to analyze the cell cycle (with propidium iodide) and apoptosis (with Annexin-V).
+
+SECTION
+
+In vivo experiment
+
+PARAGRAPH
+
+Animal experiments were carried out under approved IACUC protocols (protocol number: APN-2017-001) and followed the requirement of the state authority for animal care procedures.
+
+Animals were housed in open polycarbonate cages with standard mouse chow and a water bottle.
+
+The mice were maintained in a temperature controlled environment under a 12 h/12 h light/dark cycle.
+
+Six-to-eight-week-old male C3H/HeJ mice were purchased from Comisión Nacional de Energía Atómica, Ezeiza, Buenos Aires, Argentina.
+
+Orthotopic tumors were established by subcapsular inoculation of 1.25 × 105 Hepa129 cells into the left liver lobe of C3H/HeJ mice by laparotomy.
+
+Seven days after tumor implantations a group of mice received JIB-04 (at indicated doses) or vehicle intraperitoneally or by oral gavage.
+
+Mice were sacrificed at 2 weeks and tumor size and number of HCC satellites were evaluated.
+
+SECTION
+
+Histone post-translational modifications analysis
+
+PARAGRAPH
+
+HuH7 were treated with JIB-04, GSK-J4, SD-70 (2 times IC50 concentration) or DMSO for 24 h. Then, cells were harvested, histones extracted and the levels of different HPTMs were evaluated using the EpiQuik Histone H3 Modification Multiplex Assay Kit (cat# P-3100-96) and western blot.
+
+SECTION
+
+Histone demethylase activity assay
+
+PARAGRAPH
+
+For histone demethylase activity determination, HuH7 cells treated as above were harvested, cell extracts prepared, and demethylase activity assayed using the Epigentek kit P-3081 for H3K9me3 demethylation or P-3084 for H3K27me3 demethylation.
+
+SECTION
+
+Transcriptome analysis
+
+PARAGRAPH
+
+The RNA-Seq analysis was performed on HuH7 cells treated as above.
+
+Genes were considered differentially expressed when log2 (fold change) was greater than 0.3 or lower than −0.3 with a false discovery rate (FDR) <0.05.
+
+Gene ontology and pathway analysis were done using the ToppGene suite.32
+
+Results were validated by quantitative reverse transcription PCR (qRT-PCR) in Hep3B, SK-Hep-1 and PLC/PRF/5 cell lines.
+
+SECTION
+
+Hierarchical clustering
+
+PARAGRAPH
+
+Using our gene signature (CENPA, KIF20A, NCAPG and PLK1), unsupervised hierarchical clustering was performed to segregate the TCGA and the GSE14520 cohorts of patients with HCC using the  software.
+
+SECTION
+
+Statistical analyses
+
+PARAGRAPH
+
+Statistical analysis was performed using IBM SPSS version 17 and PRISM 6.0 software package.
+
+p <0.05 was considered as statistically significant.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Identification of epigenetic modifiers with altered expression in human HCC
+
+PARAGRAPH
+
+Epigenetic reprogramming is considered a key event during carcinogenesis and, therefore, a target for cancer therapy.5
+
+We wondered whether epigenetic modifier alterations are common events during hepatocarcinogenesis and whether they could be a therapeutic target for HCC.
+
+To address this, we analyzed HCC data (n = 365) from TCGA to determine the mutation frequencies of BRDs (n = 8), HATs (n = 18), KMTs (n = 35) and KDMs (n = 29).
+
+Here we report that 75% of patients present a somatic mutation in at least 1 of the epigenetic modifiers studied.
+
+Furthermore, 20% of them have more than 5 epigenetic modifiers mutated (Fig. 1A).
+
+In addition, we observed that the frequency of patients with HCC and at least 1 somatic mutation is 20% for BRDs, 38% for HATs, 57% for KMTs, and 35% for KDMs (Fig. 1A).
+
+Analyzing individual modifiers, 23 of the 90 epigenetic modifiers studied are mutated in at least 4% of patients with HCC (Fig. 1B).
+
+Among them, the genes BRD9, NCOA2, SETDB1, ASH1L, SMYD2, SMYD3, and KDM5B are highly amplified in patients with HCC.
+
+We then determined the relationship between the presence of mutations in the epigenetic modifiers studied here and clinical-pathological features such as alpha-fetoprotein (AFP levels: high >100, low <100), HCC risk factors, cirrhosis, and massive macrotrabecular architecture.
+
+It should be noted that the presence of genetic lesions in any of the 90 epigenetic modifiers and the clinical-pathological features are independent (Table S1).
+
+Similarly, there is no significant correlation between mutations in most of the epigenetic modifiers studied and largely representative HCC mutations such as TP53, CTNNB1, TERT, AXIN1, HNF1A, RPSKA3, PIK3CA, ATM, FGF9 and TSC1/TSC2.33
+
+Interestingly, we found that several epigenetic modifier mutations co-segregate with other HCC mutations (Table S1).
+
+It could be hypothesized that this co-segregation is due to the close proximity of the genes in the chromosome.
+
+For instance, we found a co-segregation between mutations of: BRD9 with TERT both located at chromosome 5p15.33 region; CREBBP with AXIN1 both located at chromosome 16p13.3 region; either PHF8 (located at chromosome Xp11.22 region) or KDM6A (located at chromosome Xp11.3 region) with RPS6KA3 (located at Chromosome Xp22.12 region); and KDM2A (located at chromosome 11q13.2 region), and FGF19 (located at chromosome 11q13.3 region).
+
+Meanwhile, we also found 2 examples where the mutations co-segregate but are on different chromosomes.
+
+These cases are FGF19 and KDM7A located on chromosome 11q13.3 region, and chromosome 7q34 region, respectively, and KDM5C and TSC1/TSC2 located on chromosome Xp11.22 region, 16p13.3 region, and 9q34.13 region, respectively.
+
+PARAGRAPH
+
+Then, we investigated whether the events of amplification observed above could correlate with the expression levels of those epigenetic modifiers when comparing T vs. NT tissues in matched samples using TCGA RNA-Seq data (Table S1, n = 50).
+
+Here we found that 37% of BRDs (3/8), 38% of HATs (7/18), 51% of KMTs (18/35) and 38% of KDMs (11/29) are upregulated in T in comparison with matched NT tissue (Table S1, Fig. 1C).
+
+Moreover, when analyzed in aggregate 43% and 22% of the epigenetic modifiers are upregulated or downregulated, respectively.
+
+Particularly, among the genetically amplified epigenetic modifiers, BRD9, EHMT-2, ASH1L, SMYD2, SMYD3, and KDM5B were upregulated in HCC (Table S1, Fig. 1C).
+
+Nevertheless, it should be noted that most of the cases that have T and NT paired samples do not have genetic alterations in these genes, indicating that the main driver of the deregulated expression is not genetic.
+
+(Fig. S1A).
+
+Furthermore, BRD8, HAT1A, KAT2A, SUV39H1, SUV39H2, SETDB1, KMT2B, KMT2D, NSD1, NSD2, DOT1L, KMT5C, EZH2, EZH1, MECOM, FBXL19, KDM3B, KDM4D, RIOX1, HIF1AN are enriched in T vs. NT tissue by at least 1.3-fold in patients with HCC (Fig. 1D).
+
+Importantly, BRD9, EHMT-2, SMYD2, EZH-2 and KDM5B are potentially druggable targets for which pharmacological inhibitors have been developed (Table S2).
+
+PARAGRAPH
+
+Taking these results into consideration, we wondered whether the expression levels of these upregulated genes correlated with the clinical prognosis of patients (n = 365).
+
+Previously, it has been reported that patients with high tumor expression levels of EZH-2, EHMT2/G9a, KDM3A, KDM4B, and KDM1A have a significantly worst prognosis.
+
+Here we found that in addition, higher levels of BRD9, HAT1A; the KMTs: SUV39H2, SMYD1, NSD2 and KMT5A; and the KDMs: KDM1A, KDM1B, KDM3A, KDM5C and RIOX2 correlated with poor prognosis among patients with HCC (Table S1, Fig. 1E).
+
+However, we did not confirm previous reports for KDM5B and SETDB1 (Fig. S1B).
+
+These analyses also showed that high expression of the KDMs, KDM8 and PHF8, which are downregulated in T vs. NT tissue (Table S1), correlate with a better prognosis (Fig. S1C).
+
+Interestingly, epigenetic inhibitors are commercially available for several of these KDMs (Table S2).
+
+Taken together, these results could define subgroups of patients that may benefit from therapeutic epigenetic modulation with different families of inhibitors, if tumors are actually driven by these modifiers.
+
+SECTION
+
+Epigenetic compounds have antitumor effects against HCC in vitro
+
+PARAGRAPH
+
+We first tested the antiproliferative activity of a set of epigenetic small-molecules targeting the epigenetic modifiers described on a panel of HCC cell lines (Table S2).
+
+High to moderate antiproliferative effect after 4 days of drug exposure was observed for the inhibitors of the Jumonji C family of KDMs (JmjCs) JIB-04, GSK-J4, SD-70 and ML-324; the KMT inhibitors BIX-1294 and LLY-507; and the BRD4 inhibitor JQ-1 (Fig. 2A, Fig. S2, Table S3).
+
+Interestingly, the range of IC50 values for these inhibitors were similar for those observed for belinostat, an HDAC inhibitor already tested in patients with advanced HCC (Fig. 2A, Fig. S2, Table S3).14
+
+Meanwhile, middle to low antiproliferative activity was observed for another set of JmjC inhibitors (PBIT, CPI-455, NCDM-32B and KDM5-C70), KDM1A demethylase inhibitors (GSK-LSD1 and GSK-2879552), EZH-2 methyltransferase inhibitors (EPZ-6438 and CPI-1205), bromodomain inhibitors (BI-9654 and BI-7273), the SMARCA bromodomain inhibitor (PFI3), and the WDR5/KMT2A interaction inhibitor OICR-9429 (Fig. 2A, Fig. S2, Table S3).
+
+We next evaluated if the presence of mutations or differences in the expression levels of the targets of the inhibitors would explain the difference observed in the IC50 values across HCC lines.
+
+To test this, genetic and expression data of HuH7, Hep3B, HepG2, SK-Hep-1 and PLC/PRF/5 cells were obtained from the Cancer Cell Line Encyclopedia.34
+
+We observed that KDM2A is amplified in HuH7 and Hep3B cells; KDM4C is deleted in PLC/PRF/5 cells, and that RIOX1 is deleted in HepG2 cells.
+
+The analysis of the expression levels showed that there are no significant differences in the expression of the different targets of our panel of epigenetic inhibitors (Fig. S3A).
+
+Furthermore, we also correlated the IC50 values of the inhibitors with the expression of their respective targets (Table S4).
+
+This analysis showed significant correlation only between the expression of KDM3B and KDM5B, and the IC50 values for JIB-04 and PBIT, respectively (Fig. S3B).
+
+Strikingly, in both cases the correlation was inversely proportional, suggesting that tumors with high expression of these 2 epigenetic modifiers will potentially be more sensitive to JIB-04 or PBIT inhibitors.
+
+These results are encouraging since both KDM3B and KDM5B are overexpressed in T vs. NT tissues (Fig. 1D).
+
+SECTION
+
+In vitro characterization of the antitumoral effect of KDM and KMT inhibitors on HCC
+
+PARAGRAPH
+
+To study the mechanisms involved in the anticancer activity of the most effective inhibitors, we evaluated their effect on cell cycle progression and apoptosis.
+
+Cell cycle analysis by FACs revealed that while BIX-01294 and JQ-1 induce a cell cycle arrest in G1 phase, LLY-507 arrests the cells in S/G2 phases (Fig. 2B and Fig. S4A).
+
+JmjC inhibitors induced a consistent cell cycle arrest in the G1/S interphase in different HCC cell lines (Fig. 2B and Fig. S4B).
+
+To complement these studies, we evaluated the expression levels of a set of cyclin genes after treatment with the epigenetic inhibitors.
+
+HCC cells treated with JmjC inhibitors, BIX-1294 or JQ-1 express high levels of G1 cyclins, and low levels of cyclins that regulate the progression through the other cell cycle phases (Fig. 2C, Fig. S4C).
+
+LLY-507 treatment results in reduced levels of multiple cyclins, yet S to G2 transition cyclins are unaltered and cells accumulate at this transition.
+
+In addition, Annexin-V FITC staining showed that this subset of epigenetic inhibitors was able to induce apoptosis in HCC cells after 24 h of exposure (Fig. 2D, Fig. S5A-C).
+
+Since inhibitors of JmjC demethylases showed consistently low IC50 and were able to induce a strong pro-apoptotic effect and cell cycle arrest in vitro, we further characterized the anticancer mechanisms of action of JIB-04, GSK-J4 and SD-70 epigenetically and transcriptionally in HCC cells.
+
+SECTION
+
+JmjC inhibitor-treated HCC cells exhibit robust changes in histone 3 global methylation levels
+
+PARAGRAPH
+
+Recently, it was demonstrated that cell death induced by genotoxic compounds, such as doxorubicin or paclitaxel, leads to an increase in H3K27me3, H3K4me3 and H3K9me2 and a decrease in global acetylation.35
+
+To assess if the anticancer effect of JmjC inhibitors was on-target, we investigated differences in global post-translational modification after treatment with JIB-04, GSK-J4 and SD-70 in HuH7 cells by ELISA (24 h treatment, Fig. 3A) or western blot (24 h and 48 h treatment, Fig. 3B).
+
+Both JIB-04 and SD-70 treated cells showed increased levels of H3K4me3, H3K9me3, H3K27me3 and H3K36me3.
+
+GSK-J4 treated cells accumulated H3K27me3 and all 3 inhibitors decreased H3K27ac levels.
+
+No changes were observed in the levels of acetylation of lysines that are not modified by methylation, such as H3K14 and H3K56 (Fig. 3A).
+
+To corroborate that the increase in levels of histone methylation was due to JmjC inhibition we measured H3K9me3 and H3K27me3 enzymatic demethylase activity in treated cell lysates on exogenous histone substrates.
+
+As observed in Fig. 3C, H3K9me3 demethylase activity was decreased by 24 h or 48 h treatment with JIB-04 or SD-70 but not by GSK-J4 treatment.
+
+H3K27me3 demethylase activity was blocked by all 3 JmjC inhibitors (Fig. 3D).
+
+Similar results were observed in Hep3B cells (Fig. S6).
+
+Taken together, these results indicate that the increased histone methylation observed is the direct result of inhibition of JmjC demethylases.
+
+SECTION
+
+JmjC inhibitors reverse an aggressive gene transcription program of cell proliferation, cell death evasion and WNT pathway signaling in HCC
+
+PARAGRAPH
+
+To investigate the transcriptional changes induced by the inhibition of JmjC activity leading to cell cycle arrest and induction of apoptosis we performed global gene expression profiling in HuH7 HCC cells by RNA-Seq.
+
+After 24 h of treatment, we identified 3,358 genes with log2(fold change) of 0.3 or more triggered by JIB-04, 1,693 by GSK-J4 and 2,842 by SD70 (p <0.05, Table S5).
+
+In addition, 3,708, 2,018 and 3,089 genes were downregulated by these compounds, respectively (log2(fold change) <−0.3, p <0.05, Fig. S7A, Table S5).
+
+Comparison of the differentially expressed genes (DEGs) in HuH7 cells treated with JIB-04, GSK-J4 and SD-70, showed that the 3 inhibitors induced overlapping gene expression signatures (Fig. S7B, Table S5).
+
+Consistent with their effect on cell cycle, gene ontology functional enrichment (GO) analysis indicated that 205 of these DEGs modulated either by JIB-04, GSK-J4 or SD70 are related to cell cycle progression (Fig. S7B).
+
+Likewise, pathway enrichment analysis showed that genes related to gene expression, the cell cycle, and mitosis were also modulated by the 3 inhibitors (Fig. S7B).
+
+Analysis of overlapping genes showed that 904 genes were commonly depleted, and 728 genes were commonly enriched, after exposure to these JmjC inhibitors (Fig. 4A, Table S5).
+
+In addition, 1,730 downregulated genes and 1,684 upregulated genes were commonly modulated by JIB-04 and SD-70 but not by GSK-J4.
+
+GO analysis showed that downregulated common genes were related to “positive regulation of cell proliferation”, “negative regulation of apoptosis” and “WNT pathway” among other GO terms (Fig. 4A, Table S5).
+
+The upregulated common DEGs included GO terms such as “apoptotic process”, “positive regulation of cell death”, “positive regulation of programed cell death” and “negative regulation of cell proliferation” (Fig. 4A, Table S5).
+
+To gain insight into the role of these genes in the development and progression of HCC, we investigated if the DEGs modulated by either JIB-04, GSK-J4 or SD-70 are part of an expression program required by HCC.
+
+We compared the expression of these genes between NT and T in patients with HCC using TCGA data.
+
+It should be noted that among the genes commonly depleted by JmjC inhibitors, 55% (104/189) of cell proliferation genes, 46% (20/43) of cell death genes and 35% (12/35) of WNT pathway genes were upregulated in T vs. NT samples (Fig. 4B, Table S6).
+
+Likewise, the analysis of the commonly enriched genes by JmjC inhibitors showed that 44% (50/113) of the negative regulation of cell proliferation genes and 49% (45/92) of cell death DEGs were downregulated in T vs. NT tissue (Fig. 4B, Table S6).
+
+Examples of these genes are shown in Fig. 4C.
+
+These data indicate that JmjC inhibitors can partially normalize the aggressive gene expression pattern characteristic of HCC tissue.
+
+We also found a small group of genes associated with “cell proliferation” or “cell death” GO terms that were down- or upregulated, respectively, in both HCC treated cells and human HCC samples (Fig. S8A, Table S6).
+
+GO analysis of these subgroup of genes indicates an anti-proliferative and pro-apoptotic phenotype (Fig. S8B).
+
+To validate the results observed by RNA-Seq on HuH7 cell line, we performed qRT-PCR of 9 representative genes in Hep3B, SK-Hep-1, and PLC/PRF/5 cells treated with the JmjC inhibitors and observed similar gene expression profiles.
+
+These results confirm that JmjC inhibitors generally reverse malignant HCC transcriptional patterns (Fig. S9).
+
+PARAGRAPH
+
+Next, we evaluated if the common DEGs correlate with the prognosis of patients with HCC.
+
+This analysis showed that high expression of 39% (74/189) of cell proliferation genes, 35% (15/43) of anti-cell death genes and 25% (9/35) of WNT pathway genes, depleted by inhibitor treatment, correlated with a worst prognosis in patients with HCC (Fig. 4D, Table S6).
+
+In addition, high expression of JmjC inhibitor enhanced genes correlates with a better prognosis (Fig. 4D, Table S6).
+
+Fig. 4E shows representative genes that correlate with poor patient prognosis when highly expressed and that are commonly decreased by the inhibitors.
+
+SECTION
+
+A 4-gene signature identifies a group of patients with poor prognosis that might potentially benefit from JmjC inhibitor therapy
+
+PARAGRAPH
+
+Considering the strong modulatory effect achieved of JmjC inhibitors on HCC cells we wondered whether we could identify a group of patients who could eventually benefit from treatment with these drugs.
+
+Fifty-eight genes, which are upregulated in HCC and whose high expression correlates with poor prognosis, were depleted by JmjC inhibitors (Fig. 5A).
+
+Meanwhile, 18 genes, which are downregulated in HCC and whose low expression correlates with poor prognosis, were enriched after JmjC inhibition (Fig. 5B).
+
+Further stringent filtering identified the genes that were altered in HCC T vs. NT tissues with the most significant hazard ratios.
+
+This allowed us to identify a 4-gene signature composed of CENPA, KIF20A, PLK1 and NCAPG.
+
+Based on our 4-gene signature, unsupervised hierarchical clustering separated the patients with HCC into 4 major groups that have increased expression levels of KIF20A, CENPA, PLK1 and NCAPG (Group 1 < Group 2 < Group 3 < Group 4) (Fig. 5C, Table S7).
+
+There is no clear correlation between amplifications in any 1 of the genes (CENPA, KIF20A, PLK1 and NCAPG) and the 4 subgroups of patients (p = 0.1239 by Fisher’s exact test).
+
+This raises the possibility that the differences observed in CENPA, KIF20A, PLK1, or NCAPG expression levels between the different groups could be due to epigenetic deregulation.
+
+Importantly, our signature defines a group with good prognosis, with a median survival of 5.8 years (Group 1), and a group with poor prognosis, with a median survival of 0.95 years (Group 4, Fig. 5D).
+
+In addition, the univariate analysis showed that the performance status, TNM staging, positive margin resection, systemic adjuvant treatment and signature groups were all associated with overall survival.
+
+However, the multivariate analysis presented the signature groups and performance status as the only independent predictors of overall survival (Table 1 and Table S8).
+
+PARAGRAPH
+
+To further characterize the groups defined by our signature we evaluated correlations within the different groups for clinicopathological and molecular features characteristic of HCC.
+
+We found that Group 4 and Group 3 were associated with high levels of AFP, a massive macrotrabecular histoarchitecture, and mutations in TP53 (Table 2).
+
+In addition, while Group 4 is associated with mutations of TSC1/TSC2, Group 3 is associated with wild-type genotype of CTNNB1 and TERT.
+
+On the other hand, Group 1 and Group 2 are associated with low levels of AFP, and while Group 1 is associated with non-alcoholic fatty liver disease (NAFLD), Group 2 does not.
+
+At the molecular level, while Group 1 is associated with mutations in CTNNB1 and HNF1A and with wild-type TP53, TERT, FGF19 and TSC1/TSC2 status, Group 2 is associated with TERT mutations (Table 2).
+
+PARAGRAPH
+
+To validate the 4-gene signature in an independent cohort, we performed clustering analysis using the microarray data from 221 HCC samples from patients chronically infected with hepatitis virus B (HVB) from the GSE14520 dataset.36
+
+Strikingly, the clinical relevance of this molecular signature is highlighted due its capability to clearly separate patients of the GSE14520 dataset into 2 groups, with good vs. poor prognosis (Fig. 5E, Fig. S10A).
+
+Analysis of patients with hepatitis B infection in the TCGA database yielded survival curves similar to those obtained for the GSE14520 dataset (Fig. 5E and Fig. S10B-D).
+
+Therefore, the differences in the number of groups identified by the gene signature in the TCGA vs. GSE14520 datasets is likely driven by different characteristics in these patient populations.
+
+While TCGA includes a heterogeneous population representing multiple risk factors including hepatitis B virus, hepatitis C virus and NAFLD, the GSE14520 population is homogenous and formed by patients with hepatitis B virus only.
+
+To facilitate the future classification of new patients we defined a gene predictor using a Diagonal Linear Discriminant Analysis (Fig. 5F).
+
+The classifier generated here correctly classifies 94.5% of the patients from the TCGA database.
+
+PARAGRAPH
+
+Importantly, considering that the analysis of the RNA-Seq data and the qRT-PCR validation showed that JmjC inhibitor treatment strongly deplete the expression of CENPA, KIF20A, PLK1, and NCAPG in HCC cells, our results suggest that patients from Group 4, who have the worst prognosis, could highly benefit from JmjC inhibitor therapy when it becomes clinically available (Fig. 5G).
+
+SECTION
+
+JIB-04 exert a potent antitumor effect in vivo
+
+PARAGRAPH
+
+To test the therapeutic potential of JmjC inhibition on HCC tumors in vivo, we evaluated JIB-04 efficacy in an orthotopic animal model of HCC established in fibrotic livers (Fig. 6A).37
+
+Both oral and systemic JIB-04 therapy inhibited HCC tumor growth, satellite nodule development, and carcinomatous ascites (Fig. 6B-D), confirming the potential of JmjC inhibitors for HCC treatment.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Accumulated evidence has unmasked the linkage between aberrant gene expression and the hepatocarcinogenesis process.8
+
+Our data revealed that deregulation and somatic mutations of multiple HPTMs writers (HATS and KMTs), readers (BRDs) or erasers (KDMs) are a striking hallmark of human HCC.
+
+In this study, we found not only that more than 75% of patients have at least 1 mutated epigenetic modifier, but also that NCOA2, SETDB1, ASH1L and KDM5B are mutated in more than 10% of patients.
+
+These 4 genes are added to other epigenetic modifiers that are frequently mutated in HCC such as the members of the SWI/SNF chromatin remodeling complexes ARID1A (4%-17%) and ARID2 (3%–18%).
+
+Nevertheless, it should be noted that according to their role as tumor suppressors ARID1A and ARID2 present mostly deleterious mutations.33
+
+However, amplifications are more frequent in the epigenetic modifiers studied here.
+
+We found that 43% of the 90 epigenetic modifiers evaluated are upregulated in HCC T tissue compared to NT tissue.
+
+In addition, high expression of 12 of these 90 epigenetic modifiers correlates with a worse prognosis in patients with HCC.
+
+Supporting our data, similar results have been reported for some of these genes, including EZH-2, SETDB1, SUV39H1, KMT1C, KDM1A, KDM3A, KDM5B and KDM5C.7–13
+
+Our data suggests that although some of the epigenetic enzymes could impair HCC growth, most have a pro-tumoral effect.
+
+Further functional studies are necessary to confirm this.
+
+PARAGRAPH
+
+Interestingly, the presence of alterations is more frequent in KMTs and KMDs than in HATs or BRDs.
+
+In addition, contrary to what is observed in the other families of epigenetic modifiers in which upregulation is more frequent than downregulation, the percentage of KDMs that are up- and downregulated is similar.
+
+One possible explanation for this observation is that histone acetylation is always an activation mark of chromatin, whereas the effect of histone methylation on chromatin depends on its localization.
+
+For example, trimethylation at H3K4 or H3K36 are marks of active chromatin, but di- or trimethylation at H3K9 or H3K27 correlate with repressed chromatin.38
+
+Thus, alterations in the methylation levels at different lysines by the same enzyme could activate some genes and repress others allowing complex expression programs.
+
+For instance, KDM4B or KDM4D, both upregulated in HCC, could remove both the active mark H3K36me3 and the inactive mark H3K9me3.38
+
+PARAGRAPH
+
+In the last years, several targeted therapeutic strategies, such as sorafenib or regorafenib, have been developed to inhibit individual pathways that are altered in HCC.2
+
+Nevertheless, even when these therapies improved overall survival of patients with HCC they do not meet the curative clinical expectations.2
+
+Here we propose that therapies based on JmjC inhibitors could normalize several expression programs activated during hepatocarcinogenesis.
+
+Thus, epigenetic inhibitors that act as single agents could impact on multiple genes and pathways maximizing the clinical benefit.
+
+Recently, modest results have been reported in clinical trials using 2 HDAC inhibitors (belinostat and reminostat) for HCC treatment.14
+
+However, these studies highlight the current interest in epigenetic targeted therapies for this tumor type.
+
+By testing a panel of epigenetic inhibitors on HCC cell lines, we have determined that JmjC inhibitors JIB-04, GSK-J4, SD-70 and ML-324, the lysine methyltransferase inhibitors BIX-1294 and LLY-507, and the BRD4 inhibitor JQ-1 had a potent effect on cell survival at nM/low-µM doses.
+
+Particularly, JIB-04, a JmjC family pan inhibitor, had an IC50 in the nM range for most of the cell lines tested.
+
+Conversely, EZH-2 and KDM1A inhibitors had a poor effect on HCC cell survival.
+
+This latest result was unexpected as previous experiments have highlighted the role of EZH-2 or KDM1A in HCC cell growth, apoptosis evasion and sorafenib resistance.39,40
+
+Nevertheless, recent reports showed that strategies targeting EZH-2 facilitate HCC eradication by natural killer cells, while those targeting KDM1A re-sensitized sorafenib-resistant tumors.41,42
+
+Taken together, these data indicate that therapies based on epigenetic modifiers could induce antitumor effects not only through their antiproliferative effect on HCC cells but also by stimulating the immune system.
+
+KDM1A and EZH-2 inhibitors are being tested in clinical trials.5
+
+Here we showed that JIB-04 exerted antitumoral effects in orthotopic xenografts when administered both by gavage or intraperitoneal injection.
+
+Consistently, analogous observations have also been made in other cancer models including breast, lung and colorectal cancer.15,43,44
+
+PARAGRAPH
+
+It has been reported that carcinomatosis in HCC depends on uncontrolled cell division and is related to overexpression of cell cycle related genes.45
+
+In addition, the WNT pathway is highly relevant not only during hepatocarcinogenesis but also in HCC cancer stem cells.46,47
+
+Our data showed that most of the cell proliferation, anti-cell death, and WNT pathway genes depleted by the JmjC inhibitors are overexpressed on HCC T vs. NT tissues.
+
+The enriched DEGs in treated cells are downregulated in the T vs. NT tissues.
+
+These results indicate that JmjC inhibitors reverse transcriptional programs that are activated during hepatocarcinogenesis, restoring the cellular signaling balance.
+
+PARAGRAPH
+
+Several reports have suggested that CENPA, KIF20A, PLK1 and NCAPG genes could have potential as therapeutic targets for HCC since their knockdown affects HCC cell proliferation.48–51
+
+These genes constitute a signature we identified, which correlates with overall survival, and can be used to cluster patients into 4 prognostic groups.
+
+Group 4 has the worst prognosis and has similar clinicopathological and molecular features (high AFP, massive macrotrabecular, and mutant TP53 and TSC1/TSC2) as those in the G3 transcriptomic class defined by Boyault et al.49,50 The properties of Group 1 patients are similar to the G4, G5 and G5 transcriptomic classification (low AFP, NAFLD and CTNNB1 mutations).
+
+Unlike other tumors, therapy in patients with HCC is decided on the basis of performance status, tumor stage and liver function but not based on molecular signatures.1
+
+On the contrary, breast cancer treatment decisions are based, at least in part, on the Oncotype DX molecular test.52
+
+In this scenario, our signature defines a subgroup of patients who have an upregulated proliferation program that could strongly benefit from JmjC inhibitor treatment.
+
+Since HCC diagnosis is based on imaging techniques and is not usually accompanied by liver biopsy,1 research samples are mostly from patients with early stage disease.
+
+However, the subgroup of patients identified by our signature shows a poor prognosis independently of the tumor stage.
+
+PARAGRAPH
+
+In summary, the present work highlights the importance of epigenetic alterations in HCC development and in patient prognosis.
+
+We propose that aberrant histone methylation is a major event during tumor growth based on the high number of KMTs and KDMs overexpressed and mutated in HCC.
+
+A combined in-silico and in vivo strategy was applied to identify therapeutic strategies to target epigenetic mechanisms, and to inhibit pro-tumoral expression programs activated during hepatocarcinogenesis.
+
+Furthermore, in this study we developed a gene signature based on CENPA, KIF20, PLK1, and NCAPG gene expression and defined a subgroup of patients that have an upregulated proliferative expression program that is susceptible to JmjC inhibition.
+
+Finally, given the increasing number of small compounds that target epigenetic enzymes, the data provided here support the development of HCC treatments targeting these families of epigenetic modulators.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was partly supported by The Welch Foundation (I-1878 to EDM), by the NCI (R01 CA125269 to EDM), by a DoD Concept award (W81XWH-16-1-0129 to EDM), by CPRIT (RP160493 to EDM) and by ANPCyT (PICTO-2016-0101, PICT-2015-2630 to GM).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+J.B. performed experiments, analyzed data and wrote the manuscript; E.J.F and L.M.D. performed experiments and analyzed data; A.R helped with TCGA analysis; M.M analyzed data and helped to write the manuscript; J.A., M.R. and C.A. analyzed data; M.G.G. helped to write the manuscript.
+
+E.D.M. helped to guide the work and wrote the manuscript; G.M. guided the work, analyzed data and wrote the manuscript.

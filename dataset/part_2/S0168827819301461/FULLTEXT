@@ -1,0 +1,447 @@
+10.1016/j.jhep.2019.02.024
+
+FULLTEXT
+
+TITLE
+
+Loss of fibrocystin promotes interleukin-8-dependent proliferation and CTGF production of biliary epithelium
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Congenital hepatic fibrosis (CHF) is a rare genetic liver disease (1/20,000 births) characterized by ductal plate malformation during bile duct development and progressive hepatic fibrosis.
+
+CHF is also frequently associated with autosomal recessive polycystic kidney disease.1
+
+Liver transplantation is necessary for the treatment of patients with progressive CHF and a severe phenotype.
+
+There is lots of pathological evidence to indicate that the mechanism of fibrosis in CHF is quite different from liver cirrhosis due to chronic hepatitis: in patients with CHF, neither necroinflammatory changes in hepatocytes nor hepatic stellate cell activation are observed.
+
+Fibrotic change in the CHF liver is limited to periportal areas of the hepatic lobes and is not observed around the central vein.2
+
+The pathophysiology of ductal plate malformation and progressive fibrosis in the CHF liver remains unclear.
+
+PARAGRAPH
+
+Research models using human induced pluripotent stem (iPS) cell-derived hepatic cells have been used to investigate the pathophysiology of various diseases including genetic disorders.3
+
+Human iPS cell lines derived from patients with genetic diseases are often used to establish the disease models; however, there are some limitations in such studies due to different genetic backgrounds, lack of phenotypic markers, various mutation patterns in disease, and the varied multipotency of iPS cell lines.
+
+Therefore, it is reasonable that genetically engineered human iPS cells derived from healthy individuals are used for the study of diseases.4,5
+
+PARAGRAPH
+
+PKHD1, the gene responsible for CHF, is a large gene composed of >400,000 bases and >400 mutation patterns have been reported in patients with CHF of different severity.6–8
+
+It encodes the fibrocystin protein, which is localized in the primary cilia of cholangiocytes.7–9
+
+The dysfunction of primary cilia lacking fibrocystin was suggested to be essential in the development of CHF.
+
+Animal models of CHF, spontaneous mutant polycystic kidney rat and gene-targeted Pkhd1 mutated mice, have been developed;10–12 however, there are several phenotypic differences between human CHF and these animal models.
+
+The marked infiltration of inflammatory cells around the portal vein, cysts of the pancreatic duct, and dilation of the extrahepatic bile duct are observed in Pkhd1-knockout (PKHD1-KO) mice, but are rare in patients with CHF, probably because of variations due to species specificity.10,12
+
+Thus, a disease model using human cells is necessary for the study of CHF pathophysiology.
+
+It is difficult to clarify such mechanisms using an iPS-cell model derived from patients with CHF because of the numerous mutation patterns without specific correlation between genetic and phenotype variations.
+
+Furthermore, the complete functional loss of fibrocystin is lethal in the fetal period.13
+
+PARAGRAPH
+
+In this study, we investigated the pathophysiology of CHF by establishing a human iPS cell model derived from healthy individuals, in which the function of fibrocystin was lost by genome-editing technology, to explore novel therapeutic agents for CHF.
+
+Our disease model demonstrated that the loss of fibrocystin in human iPS-derived cholangiocyte-like cells increased the proliferation of such cells in an interleukin-8 (IL-8)-dependent manner via activation of the mitogen-activated protein kinase (MAPK) pathway and promoted the production of connective tissue growth factor (CTGF [or CCN2]).
+
+Moreover, the expression of IL-8 and CTGF was increased in the livers of patients with CHF, consistent with the results of the human iPS model.
+
+These results indicated that increased IL-8 and CTGF production, caused by the dysfunction of fibrocystin, is essential for the development of bile duct malformation and progressive fibrosis in patients with CHF.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Generation of PKHD1 mutant iPS cells
+
+PARAGRAPH
+
+A human iPS cell line, TkDA3-4 clone (established from dermal fibroblasts of a normal healthy human) was cultured using the Cellartis® DEF-CS™ 500 culture system (Takara Bio, Shiga, Japan).
+
+Targeted homologous recombination of the gene cassette into TkDA3-4 iPS cells was performed by electroporation (Fig. 1A and Fig. S1A).
+
+Briefly, 1 × 106 iPS TkDA3-4 cells were transfected using Lonza 4D-Nucleofector (Lonza, Basel, Switzerland) with 2.5 µg of plasmid expressing Cas9 and gRNA and 2.5 µg of the targeting vector containing a puromycin resistance gene cassette.
+
+After electroporation, the cells were immediately resuspended in pre-warmed iPS cell culture medium and then incubated at 37 °C.
+
+The culture medium was changed every 24 h after transfection.
+
+Puromycin (0.5 µg/ml) was added to the medium from 3 to 6 days after the transfection to select the recombined cells.
+
+The clones were picked under a microscope and cultured.
+
+The genotype of the clones was determined by PCR (Fig. S1B).
+
+Clones carrying the mutant fragment were selected and the DNA sequences of the wild-type fragment were determined by direct sequencing.
+
+Clones with a premature stop codon in PKHD1 exon 2 were selected as the PKHD1-KO cell line and the loss of fibrocystin in the KO lines was confirmed by immunostaining.
+
+To exclude the possibility that an off-target mutation by the CRISPR/Cas9 genome-editing method affected the phenotype of such clones, 2 different gRNA sequences were used for genome editing, and the phenotype of such cells was analyzed using more than 3 clones derived from genome-edited clones using each gRNA sequence (Figs. S1 A-E, S2A, S2E and S4B).
+
+The mutant protein in KO cells was predicted to retain only the first 11 amino acids.
+
+More than 3 hepatic progenitor-like cell (HPC) clones derived from 1 PKHD1-KO iPS clone were established and were analyzed.
+
+SECTION
+
+Human samples and ethical statement
+
+PARAGRAPH
+
+Patients with clinically diagnosed congenital hepatic fibrosis and age matched control patients with chronic hepatitis C were recruited in this study.
+
+All human samples used in this study were retrospective samples.
+
+Liver biopsies were performed for pathological diagnosis or follow-up evaluation with clinical necessity and the remaining formalin fixed paraffin embedded samples were used in this study.
+
+PARAGRAPH
+
+The study protocol conformed to the ethical guidelines of the Declaration of Helsinki and was approved by the institutional ethics committees of Tokyo Medical and Dental University and Saiseikai Yokohamashi Tobu Hospital (authorization number: Tokyo Medical and Dental University M2016-185, Saiseikai Yokohamashi Tobu Hospital 2016085).
+
+Written informed consent or informed assent for the use of stored samples was obtained from the patients or their legal guardians.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Generation of PKHD1-KO iPS-derived hepatic progenitor-like cells as a model for congenital hepatic fibrosis
+
+PARAGRAPH
+
+To delete the function of fibrocystin, exon 2 (start codon) of the PKHD1 gene was replaced by a targeting gene cassette in a human iPS cell line (derived from a healthy human, TkDA3-4 clone) using CRISPR/Cas9 genome-editing methods (Fig. 1A).
+
+Heterozygously mutated PKHD1 (PKHD1-Hetero) iPS clones obtained using same gRNA as PKHD1-KO iPS clones were used as control cell lines in this study to exclude the possibility that an off-target mutation by the genome-editing method affected the phenotype of such clones.
+
+The loss of fibrocystin in PKHD1-KO iPS clones was validated by immunostaining for fibrocystin (Fig. 1B).
+
+Fluorescence-activated cell sorting and quantitative reverse transcription (RT-qPCR) analysis demonstrated that the expression of TRA-1-60, SSEA-4, NANOG, and OCT3/4 (or POU5FI) in PKHD1-KO clones were similar between WT and PKHD1-Hetero clones (Fig. 1C and S1).
+
+These data indicated that the pluripotency of such iPS clones was maintained.
+
+PARAGRAPH
+
+Next, PKHD1-KO or PKHD1-Hetero iPS clones were differentiated into the hepatic lineage, and the CD13highCD133+ cell fraction in the cultured cells was sorted onto feeder cells as previously described (Fig. 1D).14
+
+Clones of these cells were stably maintained and cultured as iPS cell-derived hepatic progenitor-like cells (iPS-HPCs), which expressed both hepatocytic and cholangiocytic markers (Fig. 1E).
+
+SECTION
+
+Loss of PKHD1 increases the cell proliferation of iPS-derived cholangiocytic cysts
+
+PARAGRAPH
+
+To evaluate the phenotype of PKHD1-KO cells in the biliary lineage, we employed a 3D-culture system as previously described.14
+
+In this culture system, iPS-HPC-derived cells form cyst-like structures exhibiting the characteristics of cholangiocytes and cell polarity, termed cholangiocytic cysts (CCs, Fig. 2A and S2A).
+
+CCs were composed of a monolayer of cytokeratin (CK) 7-positive cells with clear luminal spaces and cell polarity, where F-actin was located at the apical membrane and β-catenin was present at the basolateral side (Fig. 2B).
+
+Fibrocystin was expressed on the luminal side in PKHD1-Hetero CCs (Fig. 2B).
+
+Human iPS-derived CCs transport rhodamine 123, a substrate for MDR1 (also called ABCB1), from the basal to the apical side (Fig. 2C, left panel), demonstrating that iPS-derived cholangiocyte-like cells in cysts exhibit both the structural and functional characteristics of cholangiocytes.
+
+PARAGRAPH
+
+Gene expression related to cholangiocytic differentiation, including CK19 (or KRT19), Jagged1/2 (JAG1/2), hepatic nuclear factor (HNF)1β, and sex determining region Y-box 9 (SOX9) in PKHD-KO CCs, were similar to those in PKHD1-Hetero CCs (Fig. 2C, right panel).
+
+Expressions of aquaporin 1 (AQP1), cystic fibrosis transmembrane conductance regulator (CFTR) and AE2 (or SLC4A2) were significantly higher in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Fig. S2B).
+
+These were preferentially localized to the lateral and apical membranes of the cells in PKHD1-Hetero CCs, whereas accumulation of these proteins in basal membranes was observed in PKHD1-KO CCs (Fig. S2C).
+
+Analysis using scanning electron microscopy revealed that the length of primary cilia was shorter in PKHD1-KO CCs (∼1.8–3.0 µm) compared to that in PKHD1-Hetero CCs (∼4.9–6.0 µm, Fig. S2D).
+
+These data were compatible with the phenotypes of cholangiocytes in rodent models of CHF.9,15
+
+PARAGRAPH
+
+The numbers and the sizes of PKHD1-KO CCs were significantly greater than those of PKHD1-Hetero CCs (Fig. 2A and 2D, left panel) because of the increased numbers of cells that composed the CCs (Fig. 2D, right panel).
+
+Both the production of proliferating cell nuclear antigen (PCNA) and expression of cyclin-family genes were significantly increased in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Fig. 2E and F).
+
+These data demonstrated that the proliferation of PKHD1-KO iPS-derived cholangiocytes was upregulated similarly to the cholangiocytes in CHF animal models,16,17 suggesting that this abnormal proliferation mimics the ductal plate malformation observed in the liver of patients with CHF.
+
+SECTION
+
+IL-8 production promotes the abnormal proliferation of PKHD1-KO CCs in an autocrine manner
+
+PARAGRAPH
+
+To investigate the pathophysiology of the abnormal proliferation of cholangiocytes (ductal plate malformation) in CHF, we analyzed the gene expression in iPS-derived CHF-model cholangiocytes, PKHD1-KO CCs.
+
+Comprehensive analysis using microarray demonstrated that the gene expression pattern in PKHD1-KO CCs was different from that in PKHD1-Hetero CCs (Fig. 3A, left panel).
+
+Pathway analysis using a microarray database indicated that pathways related to cell proliferation were significantly upregulated in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Table S1 and S2).
+
+Interleukin-8 (IL-8) exhibited the greatest increase among the humoral factors derived from PKHD1-KO CCs.
+
+The expression and production of IL-8 were significantly increased in PKHD1-KO CCs (Fig. 3A and Fig. S2E).
+
+IL-8 expression in PKHD1-KO CCs was significantly upregulated compared with PKHD1-KO HPCs (Fig. 3A, upper-right panel).
+
+There was no significant difference in IL-8 expression between PKHD1-Hetero HPCs and PKHD1-Hetero CCs, demonstrating that the upregulation of IL-8 induced by the dysfunction of fibrocystin was enhanced in the cholangiocyte stage relative to the hepatoblast stage.
+
+The receptor of IL-8 was expressed on PKHD1-Hetero and PKHD1-KO CCs (Fig. S2F).
+
+The expressions of C-X-C motif chemokine ligand (CXCL) 1, CXCL5, and MCP-1 (or CCL2) were also significantly elevated in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Fig. S2G).
+
+PARAGRAPH
+
+To determine whether IL-8 is essential for the abnormal proliferation of PKHD1-KO CCs, the effects of IL-8 and an IL-8 receptor antagonist on CCs were evaluated.
+
+The numbers and the sizes of PKHD1-Hetero CCs were increased by IL-8 stimulation (Fig. 3B), whereas those of PKHD1-KO CCs were decreased dose-dependently by treatment with a C-X-C motif chemokine receptor (CXCR) 1 antagonist (reparixin, Fig. S3A) or a CXCR2 antagonist (SB225002, Fig. 3C).
+
+Cyclin D1 (CCND1) expression in PKHD1-Hetero CCs was increased by IL-8 stimulation and was suppressed in PKHD1-KO CCs in the presence of the CXCR1 antagonist (Fig. S3A) or the CXCR2 antagonist (Fig. 3D and E).
+
+Immunoblot analysis of PCNA revealed that the proliferation of CC cells was regulated in an IL-8-dependent manner (Fig. 3D and E).
+
+These data clearly show that autocrine-IL-8 production and the IL-8-CXCR1/2 signaling cascade are necessary for the abnormal proliferation of human cholangiocytes lacking fibrocystin.
+
+SECTION
+
+Loss of fibrocystin increases IL-8 expression through the activation of MAPK pathway in cholangiocytes
+
+PARAGRAPH
+
+To clarify the molecular mechanisms underlying the upregulated expression of IL-8 caused by the loss of fibrocystin function, we evaluated phosphorylation of the MAPK pathway that was activated in cholangiocytes in a rodent model of CHF.16,18
+
+Immunoblot analysis of PKHD1-KO and PKHD1-Hetero CCs revealed that the phosphorylation of ERK (MAPK3), JNK (MAPK8), and c-Jun was upregulated in PKHD1-KO CCs compared with PKHD1-Hetero CCs, whereas the phosphorylation of p38MAPK in PKHD1-KO CCs was similar to that in PKHD1-Hetero CCs (Fig. 4A).
+
+The total amounts of JNK and c-Jun protein were also increased in PKHD1-KO CCs compared with PKHD1-Hetero CCs.
+
+Gene set enrichment analysis using microarray data also revealed a significant enrichment of ERK-related pathways of MAPK in PKHD1-KO CCs (Fig. 4B).
+
+PARAGRAPH
+
+Previous reports showed that IL-8 expression was regulated by AP-1, formed from c-Jun and c-Fos.19
+
+The MEK (MAP2K) pathway activates the transcription of AP-1 via Elk-1, which upregulates the protein production of c-Jun.20
+
+Thus, the relationship between activated MAPK pathways and IL-8 expression in PKHD1-KO CCs was evaluated.
+
+Both the numbers of CCs and IL-8 expression were significantly suppressed in PKHD1-KO CCs by 72 h treatment with the selective MEK-1 and MEK-2 inhibitor U0126 (Fig. 4C), which functionally antagonizes AP-1 transcriptional activity.20
+
+Expression of CCND1 was also significantly suppressed in PKHD1-KO CCs by U0126 treatment (Fig. S3B).
+
+IL-8 expression was suppressed in PKHD1-KO CCs by U0126 treatment for 24 h, whereas the number of the CCs did not change at this point of time (Fig. 4C).
+
+These data demonstrated that the proliferation of cholangiocytes in CCs is suppressed by the MEK/ERK inhibitor in a time-dependent manner, and that the suppression of IL-8 in the CCs does not result from the decreased proliferation itself.
+
+IL-8 expression, numbers of CCs, and CCND1 expression were significantly suppressed in PKHD1-KO CCs by a JNK inhibitor for 72 h (SP600125, Fig. 4D and S3C).
+
+IL-8 expression was also suppressed in PKHD1-KO CCs by the JNK inhibitor for 24 h, whereas the number of CCs did not change (Fig. 4D) as is the case with MEK/ERK inhibitor.
+
+Meanwhile, the expression of other chemokines such as CXCL1 and MCP-1 was not suppressed by U0126 or SP600125 (Fig. 4E and F).
+
+These data showed that the abnormal activation of MAPKs, especially the MEK and JNK pathways, are responsible for the increased expression of IL-8 and subsequent cell proliferation in fibrocystin-deficient cholangiocytes.
+
+SECTION
+
+IL-8 increases CTGF production derived from PKHD1-KO cholangiocytic cysts
+
+PARAGRAPH
+
+To investigate the relationship between the abnormally increased IL-8 production and fibrotic changes, we analyzed the expression of candidate genes sharing a common transcriptional factor with IL-8 (Fig. S4A-B).
+
+Among them, the expression of CTGF was significantly elevated in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Fig. 5A and S4B).
+
+ELISA showed that the production of CTGF was significantly increased in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Fig. 5B and S4B).
+
+Transforming growth factor (TGF)-β1 expression was also elevated in PKHD1-KO CCs compared with PKHD1-Hetero CCs (Fig. S4C).
+
+CTGF expression was upregulated in PKHD1-Hetero CCs by IL-8 stimulation (Fig. 5C and D) and suppressed in PKHD1-KO CCs by treatment with the IL-8 receptor antagonists (Fig. 5E and S4D).
+
+The expression of CTGF and TGF-β1 were also suppressed in PKHD1-KO CCs by a MEK inhibitor (Fig. 5F and S4E-F).
+
+Conversely, the expression of IL-8 in PKHD1-KO CCs was upregulated by CTGF stimulation (Fig. S4G).
+
+These data showed that the expression of IL-8 and CTGF in human cholangiocytes lacking fibrocystin are increased by each other, and that a positive feedback mechanism between IL-8 and CTGF is regulated by MAPK activation, including MEK and JNK-c-Jun pathways.
+
+SECTION
+
+Expression of IL-8 and CTGF are increased in the liver of patients with CHF
+
+PARAGRAPH
+
+To validate the significance of IL-8 and CTGF obtained in the in vitro study of CHF using PKHD1-KO iPS-derived CCs, liver and serum samples obtained from patients with CHF were analyzed.
+
+We retrospectively collected liver tissues and serum samples of patients with clinically diagnosed CHF and chronic hepatitis C (CHC).
+
+Liver samples of healthy children cannot be obtained for ethical reasons, and thus samples derived from pediatric patients with CHC were used as controls in this study.
+
+The clinical backgrounds of patients with CHF or CHC are shown in Table 1.
+
+Liver biopsies were performed for patients with CHF or CHC at the follow-up and before the start of antiviral treatments, respectively.
+
+Fibrotic expansion in the portal area and ductal plate malformation were observed in all patients with CHF (Fig. S5).
+
+A previous report showed minimal changes in inflammation in the CHF liver;21 however, it is unclear whether the accumulation of macrophages occurs in the liver of patients with CHF.
+
+We evaluated the number of CD68+ macrophages accumulated around the portal area in the liver of patients with CHF and found that it was equivalent to that of patients with CHC (Fig. 6A and B).
+
+All patients with CHC exhibited grade 1 portal inflammation based on the Scheuer histological activity index (Fig. S5).
+
+PARAGRAPH
+
+Serum IL-8 levels were significantly higher in patients with CHF than those with CHC after viral eradication (Fig. 6C).
+
+The time-course of serum IL-8 was as followed: Patients 1 and 2 underwent liver transplantation at 1 year after their final visit and patient 5 was on the waiting list for liver transplantation.
+
+The levels of serum IL-8 in patients with CHF who needed liver transplantation were markedly increased in parallel with progression of the disease (Fig. 6D).
+
+PARAGRAPH
+
+Quantitative analysis of gene expression revealed that the expression of IL-8 and CTGF in the liver of patients with CHF was significantly higher than in those with CHC prior to antiviral treatment (Fig. 6E).
+
+However, there was no significant difference in the expression levels of CXCL1 and MCP-1 (Fig. S6).
+
+CXCL10 was undetectable in the liver of both patients with CHF and CHC.
+
+These data indicated that the increased expression of IL-8 and CTGF in the liver is a characteristic feature of CHF when compared with CHC.
+
+Taken together, these results obtained using patient samples demonstrated that abnormally increased IL-8 expression in the liver was present in patients with CHF, consistent with our in vitro human iPS-disease model of CHF.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This study reports the first evidence that human IL-8 is an essential molecule for the development of cholangiocyte proliferation in CHF (Figs. 3 and 6).
+
+Furthermore, our data revealed that the production of CTGF, a fibrogenic molecule, is increased in PKHD1-KO cholangiocytes in an IL-8-dependent manner (Fig. 5).
+
+The phenotype of human iPS-derived cholangiocytes corresponds to intrahepatic cholangiocytes rather than extrahepatic bile ducts, suggesting that our iPS-model can mimic the phenotype of CHF caused by an abnormality of intrahepatic cholangiocytes better than an organoid model derived from human extrahepatic bile ducts.22
+
+CHF is closely associated with cholangiocyte differentiation during the fetal stage; thus, the investigation of cholangiocytic development from hepatoblasts using a human iPS model might lead to an essential pathophysiological finding.
+
+Our data suggested that ductal plate malformation in CHF is caused by the upregulation of cholangiocyte proliferation by IL-8 stimulation in an autocrine manner.
+
+The increase in IL-8 and CTGF expression during cholangiocyte differentiation of PKHD1-KO iPS cells also indicated that progressive fibrosis in patients with CHF is initiated at the developmental stage of ductal plate formation.
+
+These results from our iPS-model study are consistent with the results of analysis using patient samples.
+
+Therefore, our disease model of CHF mimics the pathophysiology of CHF.
+
+PARAGRAPH
+
+The increased cell proliferation and MAPK activation in PKHD1-KO cholangiocytes (Fig. 4) were consistent with data from rodent CHF models.16,18
+
+However, there is no homologous gene to human IL-8 in rodents.
+
+IL-8 is secreted from macrophages and epithelial cells and promotes the proliferation of these cells.17,23–25
+
+Increased IL-8 expression in cholangiocytes was reported in several diseases with cholangiocyte damage, including ductular reaction,25,26 whereas the significance of IL-8 in CHF is unknown.
+
+Inflammation was reported to be minimal in CHF compared with chronic hepatitis induced by hepatitis viruses; however, our data show that cholangiocytes lacking the functions of fibrocystin produce inflammatory chemokines, and macrophage accumulation around the portal vein was evident in CHF (Fig. 6).
+
+Our data suggest that inflammatory chemokines, secreted by cholangiocytes lacking the functions of fibrocystin, play an important role in the pathophysiology of CHF.
+
+Production of CTGF was increased in PKHD1-KO cholangiocytes and is highly expressed around the portal area in CHF compared with viral or alcoholic hepatitis.27
+
+IL-8 and CTGF were abnormally produced in PKHD1-KO cholangiocytes via a positive feedback mechanism (Fig. 5).
+
+CHF is characterized by progressive hepatic fibrosis without any specific exogenous stimulation; therefore, this positive feedback mechanism may play a central role in the development and progression of CHF.
+
+PARAGRAPH
+
+The activation of MAPK induced by the influx of intracellular calcium with fibrocystin dysfunction has been reported in a murine CHF model.28
+
+Our data also demonstrated the activation of MEK and JNK-c-Jun pathways in PKHD1-KO iPS-derived human cholangiocytes (Fig. 4).
+
+This is the first evidence that the MAPKs are activated in human cholangiocytes in the absence of fibrocystin function.
+
+The inhibition of MEK activation strongly suppressed IL-8 and CTGF expression compared with the JNK inhibitor, suggesting the MEK inhibitor had a direct inhibitory effect on the expression of IL-8 and CTGF.
+
+Taken together, our data demonstrate that the loss of fibrocystin function induces the activation of MAPK pathways and increases the expression of IL-8 and CTGF in human cholangiocytes.
+
+PARAGRAPH
+
+Several data in this study are consistent with the phenotype in CHF rodent models reported previously; however, there are differences between our human data and the phenotype in these models.
+
+The expression of MCP-1, CXCL1, and CXCL10 were significantly increased in Pkhd1-mutant mice compared with control mice, and the infiltration of inflammatory cells around the portal area in Pkhd1-mutant mice was quite prominent.
+
+CXCL1 is reported to be a functional homolog of human IL-8 in mice.29
+
+Our data revealed that the expressions of both IL-8 and CXCL1 were facilitated in PKHD1-KO CCs (Fig. S2), and that CXCL10 expression was not detected in the liver samples from patients with CHF.
+
+The accumulation of CD68+ macrophages around the portal vein in samples from patients with CHF was not severe, but mild as previously reported (Fig. 6A and B).27
+
+There are 2 possibilities to explain these discrepancies between humans and rodents.
+
+One is the difference in cytokine/chemokine profiles between species; there is no gene homologous to human IL-8 in rodents.
+
+The other possibility is that some reactions induced by cytokines/chemokines are specific to species and differ between human and rodents.
+
+The former is supported by the result that CXCL10 is highly expressed in murine Pkhd1-mutant cholangiocytes but was not detected in our human liver sample.
+
+The latter is supported by the result that CXCL1 and MCP-1 were expressed in human PKHD1-KO CCs (Fig. S2) and liver samples from patients with CHF (Fig. S5).
+
+PARAGRAPH
+
+Liver transplantation is the only established treatment for CHF.
+
+This study revealed that an inhibitor of the IL-8 receptor suppressed the abnormal cell proliferation of PKHD1-KO cholangiocytes and the expression of CTGF (Figs. 3 and 5).
+
+A MEK inhibitor also suppressed the expressions of IL-8 and CTGF in PKHD1-KO cholangiocytes.
+
+Our data strongly suggest that IL-8, CTGF, and MAPK will be new therapeutic targets for blocking the progression of CHF, and that future clinical trials using drugs targeting such molecules might improve patient survival and reduce the need for liver transplantation in patients with CHF.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported in part by Grants-in-Aid for Scientific Research from the Ministry of Education, Culture, Sports, Science and Technology in Japan (15K08988, 15K08989, 15K15285, 16H05285, 17K09407, 17K19647, 18H02790, and 18K07964).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+S. Kakinuma and Y. Asahina belong to a donation-funded department funded by Gilead Sciences, AbbVie GK, Chugai Pharmaceutical, Fujirebio, and Merck Sharp & Dohme.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+T.T. performed the experiments and wrote the manuscript.
+
+S.K. planned this study, wrote the manuscript, and organized the experiments.
+
+M.M., S.K., A.S., and J.T. discussed about the methodology of this study and assisted the experiments of cell culture and flowcytometry.
+
+A.K. provided several cell lines and discussed about the strategy of this study.
+
+F.K., S.N., M.M, Y.I., M.N., and S.A. discussed about the methodology of this study and technically supported the experiments.
+
+T.S., H.K., R.M., A.I. and T.F. collected patients’ samples and clinical data, and precisely discussed about the strategy of this study.
+
+H.N., Y.A. and M.W. precisely discussed about the strategy of this study, and organized the experiments and the staff for this study.

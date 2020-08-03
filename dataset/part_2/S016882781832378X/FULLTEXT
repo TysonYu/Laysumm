@@ -1,0 +1,459 @@
+10.1016/j.jhep.2018.08.027
+
+FULLTEXT
+
+TITLE
+
+Development of pre and post-operative models to predict early recurrence of hepatocellular carcinoma after surgical resection
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Worldwide, hepatocellular carcinoma (HCC) is the sixth most frequent malignancy and the second most common cause of cancer-related death.1
+
+There is a wide variety of therapeutic options for patients with HCC, depending on tumour burden, liver function and performance status.2
+
+Potentially curative therapy recommended for those patients with very early/early stage tumour (Barcelona Clinic Liver Cancer [BCLC] 0/A) consists of surgical resection, liver transplantation or local ablation.
+
+Because of the scarcity of donor organs, surgical resection and ablation are the mainstay of curative treatment options in Asian-Pacific countries, which account for three-quarters of all new patients globally.1
+
+Surgical resection provides better clinical outcome than local ablation particularly among patients with well-preserved hepatic function.3,4
+
+PARAGRAPH
+
+However, tumour recurrence is a major post-operative complication and is generally classified into early or late recurrence by using 2 years as the cut-off.5,6
+
+Early recurrence (i.e. within 2 years of resection) accounts for more than 70% of tumour recurrence and is assumed to represent ‘true recurrence’ whereas after this period “recurrences” are assumed to be largely accounted for by ‘de novo’ tumours.7
+
+The 2-year recurrence-free survival (RFS) is about 50% and 30% among those with BCLC 0 or A tumours, respectively.7–9
+
+Identification of patients after potentially curative surgery who are at high risk of recurrence allows clinicians to provide appropriate surveillance to detect recurrent HCC at its earliest stage, when curative therapy may still be feasible.
+
+PARAGRAPH
+
+Curative therapy offers much more favourable long-term survival than palliative therapy among patients with recurrent HCC.3,10,11
+
+Patients at high risk of early recurrence are potential candidates for clinical trials of adjuvant therapy although there is no standard of care for adjuvant therapy for surgically treated patients with HCC.6,12–15
+
+PARAGRAPH
+
+Currently, there is no consensus regarding the optimal tool for risk stratification, which may partially contribute to failure of clinical trials of adjuvant therapy because of suboptimal patient selection.
+
+Except for the American Joint Committee on Cancer (AJCC) tumour-node-metastasis (TNM) system, the majority of HCC staging systems are not derived from surgically managed patients.
+
+Their prognostic performances on classifying post-operative early recurrence have not been fully evaluated.
+
+A few models including the Singapore Liver Cancer Recurrence (SLICER) score, the Korean model, Surgery-Specific Cancer of the Liver Italian Program (SS-CLIP), have been developed specifically to detect tumour recurrence after surgical resection but none of them have been externally validated.8,9,16
+
+Moreover, microvascular invasion is an important component of AJCC TNM, SLICER, SS-CLIP and Korean models, but can only be evaluated pathologically in the resected specimen after operation.
+
+A prognostic model that only requires parameters that are available preoperatively may help surgeons to better select surgical candidates.
+
+PARAGRAPH
+
+In this study, we employed large cohorts from different countries to develop and validate prognostic models for surgically treated patients with HCC based on readily accessible clinical and pathological parameters in order to predict early recurrence.
+
+Two models were developed: one included parameters available before surgery enabling prediction of early recurrence preoperatively, and a second included parameters available only after resection to give a more accurate prediction.
+
+SECTION
+
+Patients and methods
+
+PARAGRAPH
+
+This analysis was reported according to the TRIPOD (Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis) guidelines.17
+
+SECTION
+
+Patients
+
+PARAGRAPH
+
+In this international retrospective cohort study, a total of 3,903 surgically treated patients with HCC from 6 centres in different countries were accrued.
+
+These centres comprise Hong Kong (the Chinese University of Hong Kong), mainland China (the First Affiliated Hospital of Wenzhou Medical University, Wenzhou; Affiliated Tumour Hospital of Guangxi Medical University, Nanning), Italy (S.Orsola-Malpighi Hospital, University of Bologna and Gastrointestinal Surgery, Istituto Nazionale Tumori, Milan), Japan (Ogaki Municipal Hospital), and the United States (personal experience Sasan Roayaie, New York).
+
+All centres fulfilled ethical requirements (including informed consent) according to local practice and it is our understanding that such studies do not require formal protocol approval.
+
+Inclusion requirements were that the patients underwent surgical resection of HCC with curative intent.
+
+Patients who underwent resection for tumour rupture were excluded.
+
+All resections were undertaken after the year 2000 except for the Japanese cohort where patients were recruited between 1990 and 2014.
+
+There was no statistically significant difference in survival or recurrence rates between those treated before and after the year 2000.
+
+Table 1 summarizes baseline characteristics of the patient cohorts.
+
+Patients with missing data were excluded from the analysis.
+
+PARAGRAPH
+
+The preoperative and post-operative Early Recurrence After Surgery for Liver tumour (ERASL) models were built on the Hong Kong dataset (dates 2001–2012) and then internally validated on a similar population from Hong Kong (dates 2013–2015).
+
+We then validated the models externally on datasets from mainland China, Italy, Japan and the United States.
+
+The criteria for surgical resection in Eastern centres (Hong Kong, mainland China and Japan) included: good liver function indicated by a 15 min ICG retention rate of <30% (Hong Kong and Japan) or Child-Pugh A with presence of appropriate residual liver volume determined by volumetric computed tomography and/or magnetic resonance imaging (mainland China); a single HCC, or not more than 3 HCCs, located in the same segment; less than 85 years of age (<75 years in Wenzhou); and absence of extrahepatic metastasis.
+
+In Italy,18 and the United States, a personalized approach was undertaken based on multidisciplinary discussion.
+
+PARAGRAPH
+
+All clinical and laboratory parameters were collected and reviewed from patients’ records.
+
+The albumin-bilirubin (ALBI) score was computed by the formula, −0.085 × (albumin g/l) + 0.66 × log (bilirubin µmol/l).19
+
+Patients were stratified into 3 groups according to previously described cut-offs resulting in 3 grades: ALBI grade 1 (≤−2.60), grade 2 (>−2.60 to −1.39) and grade 3 (>−1.39).19
+
+Macrovascular invasion was defined as vascular invasion of large vessels detectable radiologically, whereas microvascular invasion was vascular invasion of small vessels only identifiable histologically.
+
+There was no microvascular invasion data available in the Nanning cohort, hence this cohort was used for validation of the preoperative model only.
+
+Patients in the Hong Kong cohort were classified according to 7th edition of AJCC TNM, Korean model (including 5 parameters: gender, tumour volume, microvascular invasion, serum albumin and platelet count) and SLICER score (using 8 parameters: symptomatic, cirrhotic background, Child-Pugh grade, surgical resection margin distance, tumour size, tumour number, vascular invasion, and preoperative serum alpha-fetoprotein [AFP]).8,9
+
+After tumour resection, all patients were followed up according to institutional practice including clinical assessment serum AFP 6-monthly and ultrasound or contrast-enhanced computed tomography every 6 to 12 months.
+
+RFS was defined as the time from date of curative surgery to the time of recurrence.
+
+Patients with no recurrent disease were censored at the last time at which they were known to be recurrence free.
+
+Those dying within 90 days of surgery were not excluded from the analysis.
+
+The 90-day mortality rate was 0.6% (Hong Kong derivation cohort), 0.7% (Hong Kong internal validation cohort), 1.5% (Japan), 7.7% (the United States), 0% (Wenzhou, China), 0.9% (Nanning, China) and 2.7% (Italy).
+
+SECTION
+
+Statistical analyses
+
+PARAGRAPH
+
+All statistical analyses were performed in R version 3.2.5 (R Foundation for Statistical Computing, Vienna, Austria) or Stata/SE 14.2 (StataCorp, Texas, USA).
+
+Continuous variables were reported as mean (with standard deviation [SD]) or median (with interquartile range [IQR]), the latter for variables with highly skewed distributions.
+
+Categorical variables were presented as percentages.
+
+We constructed 2 models to predict early recurrence using the derivation cohort.
+
+One model, the preoperative model, was based on clinicopathological parameters available before surgery; the second, the post-operative model, was developed on all available parameters.
+
+Clinicopathological parameters that were shown to be potentially relevant (with p <0.2 in the univariable Cox regression) were considered for generating the multivariable Cox model.
+
+The multivariable Cox regression model was built by stepwise backward selection of variables significant at the 10% level.
+
+A number of potentially clinically plausible interactions were also included in the selection.
+
+Model β-estimates were used to compute hazard ratios and calculate the risk score for prediction of early recurrence.
+
+The risk score was a weighted sum of those significant parameters, of which the weights were β-estimates from the multivariable Cox regression analysis.
+
+The proportional hazards assumption of the models was tested by examining the plots of scaled Schoenfeld residuals against time for each variable in the models.
+
+By applying previously reported cut-offs (50th and 85th centile) to the score.20
+
+3 risk groups (low, intermediate and high) were generated.
+
+Kaplan-Meier survival curves according to the risk groups were plotted for each of the derivation and validation sets.
+
+Median RFS, hazard ratio, and percentage RFS at 2 years were also calculated for each risk group.
+
+PARAGRAPH
+
+Model discrimination was assessed via the “regression on the prognostic index (PI)” approach,20 also known as the “calibration slope”.
+
+The regression coefficient on the risk score in the validation sets was estimated and compared to that of the derivation set, which is by construction exactly 1.
+
+If the validation set coefficients equals to 1, <1 or >1, they reflect as good as, poorer or better discrimination respectively in relation to the derivation set.
+
+PARAGRAPH
+
+Model discrimination in the derivation and validation sets was also measured by the Harrell’s c-index, Gönen & Heller’s K, Royston-Sauerbrei’s R2D and time-dependent receiver operating characteristic curve (tdAUC).20–22
+
+Cumulative/dynamic tdAUC was evaluated because we aimed to discriminate between individuals experiencing recurrence and those recurrence-free prior to 2 years.
+
+Discriminatory performance of our newly established models was also compared to AJCC TNM, the Korean model and the SLICER in the Hong Kong derivation and validation sets.
+
+PARAGRAPH
+
+Models were calibrated using calibration plots and comparing model-predicted vs. observed survival curves.
+
+PARAGRAPH
+
+Calibration plots were applied to the derivation and validation sets.
+
+Estimates of predicted vs. observed values were generated via bootstrapping (with 200 resampling).
+
+In order to obtain a continuous calibration plot for a specific survival time, regression-spline interpolations23,24 were used to generate a continuous observed survival probability.
+
+The resulting plot was also “optimism-corrected” by a method described by Harrell et al.25
+
+PARAGRAPH
+
+Model-predicted mean survival curves were generated by applying fractional polynomial regression to approximate the log baseline cumulative hazard function as a smooth function of time.20
+
+Model-predicted vs. Kaplan-Meier estimates was then plotted according to each risk group in the derivation and validation sets.
+
+SECTION
+
+Results
+
+SECTION
+
+Construction of the model predicting early recurrence
+
+PARAGRAPH
+
+In the derivation cohort, 451 patients receiving curative surgery between 2001 and 2012 were recruited after excluding 44 patients who were complicated by tumour rupture before operation.
+
+There were only 2 patients with missing data on at least 1 of the variables.
+
+ALBI grade 2 and ALBI grade 3 were group together due to low sample size in the latter.
+
+A total of 162 patients (35.9%) developed recurrence within 2 years of surgery.
+
+Among 18 clinicopathological parameters analysed, 12 were found to be potentially relevant with p <0.2 in the univariable Cox regression analysis (Table S1).
+
+Four of these, namely positive resection margin, alanine aminotransferase, alkaline phosphatase and international normalized ratio, had to be excluded because they were not available in all of the external validation cohorts.
+
+Two parameters, namely (intraoperative blood loss and microvascular invasion) were only recorded after the operation and hence excluded in the multivariable analysis for establishing the preoperative model, whereas all 8 parameters were employed for building the post-operative model.
+
+By the stepwise multivariable analysis, independent parameters were identified for both models (Table 2).
+
+We did not detect any significant violation of the proportional hazard assumption, assessed by scaled Schoenfeld residuals on functions of time.
+
+PARAGRAPH
+
+The preoperative model, the ERASL-pre score, was constructed; its formula shown in Table 2.
+
+The RFS of an individual patient with a particular ERASL-pre score can be estimated by applying a previously described formula (Table S2).26
+
+Using 2.558 and 3.521 as the cut-off values of the ERASL-pre score (which correspond to the 50th and 85th centile of the score in the derivation cohort, respectively), 3 prognostically distinct groups were stratified (derivation cohort): low-risk (2-year RFS: 76.3%), intermediate-risk (2-year RFS: 57.4%; p <0.001 in comparison to low-risk) and high-risk (2-year RFS: 29.5%; p <0.001 in comparison to intermediate-risk) (Table 3; Fig. 1A).
+
+The ERASL-pre score could identify 15% of patients at particularly high-risk (70.5%) of early recurrence.
+
+For routine clinical application a simple online calculator that takes the variables from the model(s) and returns the ERASL scores, the risk group and the RFS likelihood at any time between 1 and 24 months after resection for the individual patient was developed and is available at: https://jscalc.io/calc/Fu3bREKIInObXCtj
+
+PARAGRAPH
+
+Similarly, the post-operative model, ERASL-post, was built according to the formula shown in Table 2.
+
+As in ERASL-pre, the RFS of an individual patient with a particular ERASL-post score can be estimated (Table S2).
+
+Using the 50th and 85th centiles of the ERASL-post scores in the derivation cohort, 2.332 and 3.445 respectively, as cut-off values, 3 prognostically distinct groups were classified (derivation cohort): low-risk (2-year RFS: 80.9%), intermediate-risk (2-year RFS: 50.9%; p <0.001 in comparison to low-risk) and high-risk (2-year RFS: 30.0%; p <0.001 in comparison to intermediate-risk) (Table 4; Fig. 2A).
+
+The ERASL-post score was able to identify 15% of patients at high-risk (70.0%) of early recurrence.
+
+SECTION
+
+Internal and external validation of the ERASL models
+
+PARAGRAPH
+
+Both ERASL models were first validated in an internal validation cohort, which was composed of 130 patients with HCC receiving curative surgery between 2013 and 2015 in Hong Kong.
+
+There was no missing data in the internal validation set.
+
+By using the cut-off values established in the derivation cohort (2.558 and 3.521), the ERASL-pre model categorized patients into low-risk (2-year RFS: 77.1%), intermediate-risk (2-year RFS: 67.5%; p = 0.313 in comparison to low-risk) and high-risk (2-year RFS: 19.4%; p <0.001 in comparison to intermediate-risk) groups (Table 3; Fig. 1B).
+
+Similarly, patients from the independent external validation cohorts from 5 centres (after exclusion of patients with incomplete data on predictor parameters), Japan (n = 582), the United States (n = 548); Wenzhou, China (n = 98); Nanning, China (n = 1,198); and Italy (n = 742), could be also categorized into 3 separate risk groups by the ERASL-pre model (Fig. 1C-F) (Table 3).
+
+Likewise, the ERASL-post model subdivided patients from the internal and external validation cohorts into 3 distinct risk groups (Fig. 2C-F) (Table 4).
+
+SECTION
+
+Assessing model discrimination
+
+PARAGRAPH
+
+Overall, the regression coefficient on the ERASL-pre and post scores showed good discrimination relative to the derivation set across validation cohorts (coefficient figures ranging from 0.70 to 1.21) although discrimination was less good in the Italian cohort (ERASL-pre: 0.59, ERASL-post: 0.65).
+
+PARAGRAPH
+
+Similarly, the discriminatory performance of the models was compared via Harrell’s c-index, Gönen & Heller’s K, Royston-Sauerbrei’s R2D and tdAUC as shown in Table 5.
+
+Both models showed similar performance in the derivation and internal validation sets.
+
+In the external validation cohorts, good discrimination was also observed, although there was a slight deterioration in the measurement figures, which was most pronounced in the Italian cohort.
+
+PARAGRAPH
+
+The discriminatory performance of both ERASL models exceeded those of AJCC TNM, the Korean model and the SLICER score in predicting early recurrence (Table 5).
+
+By including microvascular invasion, ERASL-post showed a better performance than ERASL-pre.
+
+SECTION
+
+Calibration
+
+PARAGRAPH
+
+The calibration plots showed an overall good agreement between the predictions made by the ERASL-pre and ERASL-post models and observed outcome in the Hong Kong derivation and internal validation sets (Fig. 3A-F).
+
+This was also the case for the external validation sets (Fig. S1A-H).
+
+PARAGRAPH
+
+Plots of Kaplan-Meier estimates vs. ERASL-pre predicted survival curves were overall very similar (Fig. S2A-F), with the exception of the Chinese cohort, the lowest risk groups of the Japanese, US and Italian cohorts where the ERASL-pre model overestimated RFS.
+
+In the ERASL-post model, there was also an overall agreement between Kaplan-Meier estimates and model-predicted survival probabilities (Fig. S3A-F), with the exception of model overestimation of RFS in the low risk categories of Japan and Italy.
+
+Nevertheless, despite some of discrepancies between predicted and Kaplan-Meier estimates in some of the risk groups, the stratification of each of the cohorts into 3 groups according to risk was maintained.
+
+PARAGRAPH
+
+Kaplan-Meier survival plots according for the ERASL-pre and post risk groups involving the entire cohort are shown (Fig. S4).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Two models (ERASL-pre and ERASL-post) that enable risk assessment of early recurrence before and after resection have been derived and validated in a large international multicentre study of surgically treated patients with HCC.
+
+Although they were derived from a hepatitis B prevalent region (Hong Kong), their application was generalizable to regions with predominant hepatitis C (Japan and Italy) or mixed aetiologies (the United States).
+
+They were capable of stratifying patients into 3 groups with discrete risk profiles.
+
+Using the ERASL-pre model, the high-risk group consisted of 13.1% of the patients among the entire cohort but accounted for 79.3% of those who developed early recurrence, whereas the low-risk and intermediate-risk groups comprised of 46.1% and 40.8% of patients but only 35.2% and 57.5% of those who developed early recurrence, respectively (Fig. S4).
+
+Correspondingly, the ERASL-post also identified a high-risk group comprising 12.3% of patients among the entire cohort with 73.9% chance of early recurrence (Fig. S4).
+
+Both models are clinically relevant because they allow the identification of a small, but potentially manageable, portion of patients at high risk of early recurrence.
+
+Although it may not be considered appropriate to exclude those patients at high risk of early recurrence from curative surgery, more intensive surveillance might be offered and they would be candidates for clinical trials of adjuvant therapy.
+
+The ERASL models are also reliable as they are the first models designed to predict early recurrence that have been externally validated in different geographic regions and with different aetiological factors.
+
+Despite, a minor degree of discrepancy between predicted and Kaplan-Meier estimates (Figs. S2 and S3), the stratification of each of the cohorts into 3 groups according to risk was maintained.
+
+Although the ERASL-pre model is the first to be applicable solely on the basis of pretreatment parameters, it still appears to outperform existing models which require additional postoperatively acquired variables.
+
+It may also help surgeons to identify those surgical candidates at high risk of early recurrence before operation.
+
+Furthermore, the models only require simple, readily available clinicopathological parameters.
+
+PARAGRAPH
+
+Vascular invasion, in particular microvascular invasion, is a well-known independent prognostic factor associated with more advanced tumour stage, tumour progression and poorer clinical outcome.27
+
+Microvascular invasion is the single parameter shared by ERASL-post, SLICER, SS-CLIP and Korean models.8,9,16
+
+It is also an essential component in the AJCC TNM system.
+
+The incidence of microvascular invasion was 33.1% (26.8–73.1%) in our current cohorts.
+
+Assessment of microvascular invasion currently relies on histological examination of surgically resected specimens by pathologists.
+
+Subjectivity and sampling error are undoubtedly potential problems in evaluating microvascular invasion.
+
+Serum tumour markers, preoperative imaging and gene signatures have been investigated as possible approaches to predict microvascular invasion but none has yet been validated and they are not routinely applicable in daily clinical practice.27
+
+Histological classifications of microvascular invasion have been proposed but none of them are universally accepted and their clinical significance has yet to be validated.28–30
+
+Hence, for simplicity and better acceptance, only the presence/absence of microvascular invasion was used in the ERASL-post model.
+
+Other parameters that might influence RFS could be added to our models although it is evident that extent of surgical resection, resection margin and degree of blood loss did not emerge as independent prognostic variables.
+
+Nonetheless, the models give strikingly clear-cut risk groups and show very similar results within each of the validation sets.
+
+Adding more prognostic variables is unlikely to improve our models’ performance significantly other than further narrowing the current confidence intervals.
+
+PARAGRAPH
+
+Liver (dys)function is another independent prognosticator to predict tumour recurrence used in ERASL, SLICER and SS-CLIP models.8,16
+
+To evaluate liver dysfunction, our ERASL models used ALBI grade, whereas the latter 2 models used Child-Pugh grade.
+
+The ALBI grade is our recently proposed, widely-validated and evidence-based refinement of the Child-Pugh grade.19,31
+
+The majority of surgically treated patients with HCC belong to Child-Pugh A, which accounted for more than 95% of patients in our current dataset and SLICER and SS-CLIP and Korean cohorts, respectively.8,9,16
+
+We previously demonstrated that Child-Pugh A patients were composed of 2 prognostically distinct subgroups as classified by the ALBI grade.4,19
+
+Therefore, ALBI grade rather than Child-Pugh grade was incorporated in our ERASL models to provide better discriminatory power.
+
+However, the underlying reason for the association between liver dysfunction and early recurrence remains unclear.
+
+PARAGRAPH
+
+Tumour recurrence may represent either intrahepatic metastases or development of de novo tumours.
+
+Time of recurrence is 1 of the factors that has been proposed to distinguish these 2 entities,32,33 although the exact differentiation requires assessment of recurrence clonality by genetic/genomic analyses.34,35
+
+Early recurrence is generally believed to represent pre-existing intrahepatic metastasis, whereas late recurrence is regarded as de novo tumour.
+
+A cut-off of 2 years has been generally adopted to classify early and late recurrence.6
+
+Our findings echo other studies in that early and late tumour recurrence are 2 distinct entities associated with different risk factors.7,32,36
+
+Early recurrence is mainly determined by aggressive characteristics of the primary (resected) tumour such as tumour size, tumour multiplicity, vascular invasion and higher serum AFP level.
+
+These associations support the contention that early recurrence is likely to result from intrahepatic metastasis disseminated from the primary tumour.
+
+In contrast, late relapse is primarily associated with aetiology and cirrhotic background, which are well-established risk factors of hepatocarcinogenesis and provide fertile soil for development of de novo tumours.2,6,37
+
+PARAGRAPH
+
+There are limitations to our study.
+
+Our models, at first sight, may appear complex and difficult to apply at the bedside, but our simple online calculator overcomes this problem.
+
+The online calculators, by providing a quantitative measure of recurrence risk at any post-operative time point, are an important step in our ultimate goal of providing personalized prognostication.
+
+Antiviral treatment has not been included in our models because it was not recorded in all of our cohorts.
+
+However, although the use of antiviral treatment for hepatitis B-related HCC has been consistently shown to improve overall survival, its effect on post-operative recurrence prevention is still inconclusive.38–40
+
+Reduction of tumour recurrence by antiviral agents on hepatitis C-related HCC is also controversial.41,42
+
+Third, tumour size and number were measured radiologically or pathologically in different centres.
+
+Although there might be some variations in tumour size depending on the method of assessment, the discrepancies are unlikely to be clinically significant.
+
+PARAGRAPH
+
+In summary, tumour recurrence after curative surgery for HCC is a serious and common complication.
+
+Our ERASL models are clinically relevant, externally validated and offer powerful tools to predict early recurrence.
+
+Further prospective studies are required to explore the clinical applicability of ERASL models in patient allocation for more frequent follow-up and clinical trials for adjuvant therapy.
+
+We are currently developing a more general prognostic model that is applicable to both early and late recurrence, and the performance of the ERASL models is being prospectively evaluated in an adjuvant clinical trial.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+SB and MGF acknowledges support from the UK EPSRC grant EP/N014499/1.
+
+SECTION
+
+Conflicts of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Concept and design: PJJ, AWHC.
+
+Data collection: JZ, HD, AC, KS, TT, CCNC, BDX, LQL, PBSL, VM, MK, TK, SR.
+
+Statistical analysis: SB, AWHC, MGF.
+
+Writing of article: all authors

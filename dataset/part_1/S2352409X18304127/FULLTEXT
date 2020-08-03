@@ -1,0 +1,473 @@
+10.1016/j.jasrep.2018.09.021
+
+FULLTEXT
+
+TITLE
+
+Search for new final Palaeolithic rock shelter sites in the Federal State of Hesse
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Environmental change is often regarded to be one of the major triggers of prehistoric culture change and technological adaptation.
+
+Particularly, long-term changes and corresponding human responses are typically at the centre of archaeological investigation.
+
+However, intense and rapid changes, such as environmental disruptions triggered by volcanic events, may also induce shifts in human lifeways (e.g. Cashman and Giordano, 2008; Oppenheimer, 2011; Riede, 2016b; Sheets, 2015).
+
+PARAGRAPH
+
+During the Late Glacial Interstadial Complex, the eruption of the Laacher See volcano in Germany at around 13,000 cal BP destabilized the ecological framework throughout large parts of Central Europe (Baales et al., 2002; Schmincke, 2006).
+
+Among other things, it likely induced a cooling of the northern hemisphere estimated at 0.5 to 2 °C (Graf and Timmreck, 2001; Riede, 2017).
+
+In fact, a multitude of hazards can be attributed to the volcanic event and in particular to the ejected tephra which was deposited across Europe in a swath ranging from Italy in the south to north-western Russia in the east (Riede, 2017).
+
+At the time of the eruption, Europe was occupied by hunter-gatherer groups generally assigned to the Final Palaeolithic arch-backed point techno-complex, although many workers see regional variation emerging at this time (see Sauer and Riede, 2018 for a summary of arguments for and against regionalisation in this period).
+
+Foragers operating in Central Europe at the time of the eruption were subject to the sudden and intense change of environmental conditions. >
+
+300,000 km2 were covered with ash fallout (Fischer and Schmincke, 1984; Riede et al., 2011).
+
+For these Final Palaeolithic hunter-gatherers, the effects of the Laacher See eruption (LSE) likely extended throughout most of their range and affected their lifeways in various ways.
+
+PARAGRAPH
+
+In the proximal zone (0–50 km) around the eruptive centre, numerous Final Palaeolithic sites predating the LSE are known (Baales, 1999; Baales, 2002; Baales et al., 1996; Bolus, 1992; Heinen, 2008; Kegler, 2002).
+
+This situation is at least in part related to the massive pumice cover, which led to a favourable preservation of the often ephemeral remains of these highly mobile foragers.
+
+Furthermore, the site of Bad Breisig, which post-dates the eruption and lies just the north of the eruptive centre, attests to the recolonization of the desolated near-vent region some decades or centuries after the eruption (Waldmann et al., 2001).
+
+In the medial zone (50–500 km), however, excavated sites – and particularly those showing a clear stratigraphic association of LSE tephra and Final Palaeolithic archaeology – are less frequent (Riede, 2012).
+
+At the same time, a plethora of surface collections can be attributed to the Final Palaeolithic arch-backed point techno-complex, indicating the presence of these foragers in the Central European uplands during the Late Glacial Interstadial Complex (Sauer, 2018).
+
+PARAGRAPH
+
+Using radiocarbon dates and Bayesian modelling (Riede and Edinborough, 2012), network approaches (Riede, 2014) and lithic studies (Dev and Riede, 2012; Riede, 2009), previous research has suggested considerable long-range impacts of the LSE on the culture-historical trajectories of forager groups in northern Europe (Riede, 2008; Riede, 2017).
+
+At the same time, this ‘Laacher See hypothesis’ predicts a depopulation or at least substantial reduction in land-use in the region north-east between the eruptive centre and the North European Plain (Riede, 2012; Riede, 2016a).
+
+PARAGRAPH
+
+We here present a GIS-based predictive model that seeks to find new sites that would allow us to investigate the effects of the LSE on the lifeways of the foragers inhabiting the medial fallout zone.
+
+At the current state of research, the model is used solely for explorative purposes rather than for reconstructing past land use.
+
+Better understanding the human impacts of the LSE ‘on the ground’ necessitates the discovery and excavation of new archaeological sites with both Final Palaeolithic strata and tephra of the Laacher See eruption.
+
+Tephra does not, however, preserve well in open-air archaeological contexts (cf. Housley and Gamble, 2015).
+
+Likewise, the preservation conditions for archaeological materials are also often limited in such settings (but see Veil, 2006).
+
+Our search for new contexts is therefore focused on rock shelters that are (a) known to be sediment traps for tephra (Grote, 1994) and (b) known to have been attractive features for human settlement in the period (Gehlen, 2001; Grote, 1994; Gumpert, 1933; Kaulich, 1996; Kaulich, 2004; Taute, 1972).
+
+We draw on a little-known legacy dataset of potential rock shelter locations collated for the Federal State of Hesse in the late 1980s and 1990s (Fiedler, 1991; Hofbauer, 1991; Hofbauer, 1995) and the currently known far-field distribution of Laacher See tephra (Riede et al., 2011), which together provide the basis for geostatistical analysis, surveying and eventual excavation.
+
+SECTION
+
+Material & methods
+
+SECTION
+
+Study area & rock shelter database
+
+PARAGRAPH
+
+The Laacher See Tephra (LST) is distributed over large parts of Central and Eastern Europe (Fig. 1).
+
+Although the majority of outcrops is located in the proximal and medial zone, traces of the Laacher See eruption can be found as far as northwestern Russia (Andronikov et al., 2015; Andronikov et al., 2016).
+
+The distribution of tephra indicates that the main fan extended eastward from the caldera, with substantial fallout settling in the area today known as the Federal State of Hesse in Germany.
+
+While numerous tephra outcrops are known in Hesse, only three archaeological sites show Late Glacial occupation layers associated with volcanic ash.
+
+Since these sites are open-air locations, preservation conditions are unfavourable and stratigraphic resolution limited.
+
+In contrast, rock shelters usually provide good conditions for the preservation of (geo-)archaeological material.
+
+Good examples are the rock shelter sites in the Leinebergland region of Lower Saxony (e.g. Bettenroder Berg I and IX), which contain well-preserved Final Palaeolithic occupation layers capped by a substantial ash cover (Grote, 1990; Grote, 1994).
+
+PARAGRAPH
+
+With the goal of finding archaeological locations similar to Bettenroder Berg, a database of potential rock shelter locations was compiled for the Federal State of Hesse throughout the late 1980s and early 1990s (Fiedler, 1991; Hofbauer, 1991; Hofbauer, 1995).
+
+Spending several years on the project, Helen Hofbauer's work eventually resulted in a register of >700 potential locations.
+
+Although at least one rock feature has been excavated in the area subsequently, the selection has been driven by cultural heritage management concerns only and, at any rate, no Palaeolithic material was encountered (Fiedler and Braun, 2004).
+
+Unfortunately, the “Rock Shelter Database of Hesse” was never, to our knowledge, actually put to use for finding new Final Palaeolithic sites in the study area.
+
+PARAGRAPH
+
+In 2017, this register was selected for renewed efforts to locate Final Palaeolithic rock shelter locations in the Federal State of Hesse.
+
+The dataset was obtained as scans of 1100 pages, including standardised data entry forms and map sheets.
+
+The forms contained information pertaining to the location, morphology, orientation, height and geological context for each rock shelter.
+
+This information was digitised using the Tesseract optical character recognition (OCR) software library (Smith, 2007; Smith, 2013) in conjunction with a German language character set and dictionary.
+
+Two distinct types of typewritten form were encountered.
+
+The first, most straightforward, of these consisted of each attribute on a separate line of text, with keys and values separated by a colon.
+
+The second type was more challenging, as the data were structured in tabular form.
+
+This required defining subsets of the scanned form for each field, and passing these individually to the OCR engine.
+
+However, because the information was entered onto the printed form using a typewriter, and as a result was imperfectly registered with the cell locations, a significant number of errors were introduced in a number of the fields, and a large portion of these data required manual correction.
+
+Further processing of the information contained in both form types was conducted using Python, in particular the conversion of coordinates from map sheet plus six or eight figure grid references to full coordinates (GK-coordinates; EPSG: 31467) usable in GIS software.
+
+Following this, all the data were manually checked for errors and inconsistencies.
+
+PARAGRAPH
+
+It became apparent that given the age of the dataset, locational information sometimes was not sufficient to locate the potential rock shelter locations in GIS.
+
+Since the coordinates where extracted from map sheets, the investigators did not always note the last digits of the individual location.
+
+This problem was addressed by cross-checking the individual locations on the copied map sheets in which locations were noted as well.
+
+Attributes like location type (e.g. cave, escarpment or individual block) were inconsistently noted and sometimes had to be extracted from the comment column.
+
+Other information, like orientation, slope or geological layer where largely incomplete.
+
+In these cases, supplementary sampling from digital maps was conducted to retrieve the respective information.
+
+In the end, the locational information is the most reliable part of the dataset.
+
+Other attributes face challenges in serving as viable data due to inconsistencies and errors.
+
+However, for the task of generating a predictive map, these issues are arguably negligible.
+
+In total, 768 locations and associated attribute data-points were digitised (Fig. 2).
+
+SECTION
+
+Predictive model
+
+PARAGRAPH
+
+To isolate promising locations in the rock shelter database, an archaeological predictive model was developed.
+
+The goal was to remove locations from consideration, which are situated in a topographic context atypical for Final Palaeolithic sites, and to rank the entries so as to produce a manageable number of survey locations.
+
+Archaeological predictive modelling is facing recurring criticism, particularly with regard to its strong focus on topographical parameters and its neglect of ecological patterning or culturally determined push and pull factors as well as its disregard for source filtering by other constraints (Grøn, 2018, van Leusen, et al., 2002, Verhagen, 2007).
+
+Fully cognisant of the need for including these other factors (Sauer, 2018), we still see predictive modelling as a valid and necessary tool for increasing the likelihood of success in our research endeavour.
+
+Almost certainly, our models do not cover the entirety of determinants that have led to the real and total Final Palaeolithic settlement pattern, which, at any rate, is incompletely known.
+
+Since the work presented here focusses on rock shelter locations, other source filters come into play: the choice of location by prehistoric foragers is restricted by the presence, position and extent of the features themselves.
+
+In contrast to the open landscape representing an environment of continuously varying suitability, rock shelters (and caves) offer discrete locales with particularly high suitability values.
+
+PARAGRAPH
+
+The predictive model was designed using the weighted layer overlay (WLO) approach (Brandt et al., 1992, Mischka, 2007, Sauer, 2018, van Leusen et al., 2005).
+
+WLO evaluates the predictive potential of a respective topographical parameter by analysing the relative frequency of site occurrence and its independence from the background distribution.
+
+Site-distribution is tested for independence by applying the Chi2-Test for independence.
+
+When archaeoprognosis contains multiple criteria, the weights of the different layers are summed and normalized to create a composite map of favoured topographic conditions.
+
+PARAGRAPH
+
+Three criteria were selected for developing the predictive model: (i) orientation, (ii) distance to water and (iii) mean landscape accessibility.
+
+Although altitude and slope are typical predictors in archaeoprognosis, both factors were dismissed.
+
+Given the spatial extent of the reference data (known archaeological sites), altitude values would be associated with very wide ranges resulting in misleading or invalid weights.
+
+Since rock shelters are comparatively small features, not represented in any but the most highly resolved remotely sensed digital elevation models (DEM), and typically diverge strongly from the surrounding geomorphological conditions (Fig. 2), slope was also not employed as a predictor value in this model.
+
+Rock shelters are regarded as independent from local slope.
+
+PARAGRAPH
+
+Topographic information was collected from 140 Final Palaeolithic sites in the Central Uplands of Germany (Fig. 3, and Supplementary Table 1).
+
+Since the study area of Hesse did not provide a statistically sufficient number of sites to create a valid predictive model, the reference area had to be extended to encompass most of the Central Uplands.
+
+A reference area this large can only highlight general tendencies in the placement of prehistoric sites.
+
+Therefore, the model does not capture regional peculiarities.
+
+Furthermore, both sheltered locations and open-air sites are incorporated in the model.
+
+Strictly speaking, only open-air sites reflect an entirely independent selection of settlement location, since shelters and caves restrict the selection in the landscape.
+
+However, in the reference area, only 13 rock shelters and six caves showed traces of Late Glacial occupation (Supplementary Table 1).
+
+To allow for significant predictions, open-air sites therefore had to be included.
+
+The reference area was curtailed by 23 third-order environmental landscape units provided as a digital dataset by the German Nature Conservation Authorities (Meynen et al., 1962a; Meynen et al., 1962b; Bundesamt für Naturschutz, 2016).
+
+The reference area provided the basis for statistical testing of independence from the background distribution.
+
+As an underlying digital elevation model, the 25 m DEM provided by the European Environment Agency (EEA, 2013) was used and processed using the QGIS (QGIS Team, 2016) and SAGA software suites (Conrad et al., 2015).
+
+PARAGRAPH
+
+Topographic information was collected from 140 Final Palaeolithic sites in the Central Uplands of Germany (Fig. 3, and Supplementary Table 1).
+
+Since the study area of Hesse did not provide a statistically sufficient number of sites to create a valid predictive model, the reference area had to be extended to encompass most of the Central Uplands.
+
+A reference area this large can only highlight general tendencies in the placement of prehistoric sites.
+
+Therefore, the model does not capture regional peculiarities.
+
+Furthermore, both sheltered locations and open-air sites are incorporated in the model.
+
+Strictly speaking, only open-air sites reflect an entirely independent selection of settlement location, since shelters and caves restrict the selection in the landscape.
+
+However, in the reference area, only 13 rock shelters and six caves showed traces of Late Glacial occupation (Supplementary Table 1).
+
+To allow for significant predictions, open-air sites therefore had to be included.
+
+The reference area was curtailed by 23 third-order environmental landscape units provided as a digital dataset by the German Nature Conservation Authorities (Meynen et al., 1962a; Meynen et al., 1962b; Bundesamt für Naturschutz, 2016).
+
+The reference area provided the basis for statistical testing of independence from the background distribution.
+
+As an underlying digital elevation model, the 25 m DEM provided by the European Environment Agency (EEA, 2013) was used and processed using the QGIS (QGIS Team, 2016) and SAGA software suites (Conrad et al., 2015).
+
+PARAGRAPH
+
+Before sampling, the three predictor maps were generated from the DEM and reclassified.
+
+The aspect map of the study area was classified into nine different classes, eight of which reflect a 45° bracket starting with the first class, North, at 337.5°.
+
+The ninth class represented areas with a slope angle of 0° resulting in no aspect values.
+
+PARAGRAPH
+
+The distance to water map was processed from the 25 m DEM and the digital landscape model (DLM) of Germany (Bundesamt für Kartografie und Geodäsie, 2017).
+
+The DLM dataset contains vector data on river courses including the approximated width of the respective water feature.
+
+Only major watercourses, with a width exceeding 12 m, were used.
+
+This decision was made to only incorporate such water features, which are likely to have been present in the Late Glacial period.
+
+The distance to the nearest watercourse was modelled using a cost distance approach, which estimates walking speed and walking time at any point in the DEM based on the local slope (Sauer, 2016; Sauer, 2018; Uthmeier et al., 2008; van Wagtendonk and Benedict, 1980; Watts et al., 2003).
+
+The resulting time-distance was reclassified into 30-min brackets (Table 1).
+
+PARAGRAPH
+
+Mean accessibility of the landscape surrounding the sites was also estimated based on this walking-function.
+
+Mean walking-time per raster cell was sampled in a 2 km radius for every raster pixel in the dataset.
+
+The resulting map set was reclassified into 8 classes with a class-interval of 0.25 s/m.
+
+PARAGRAPH
+
+The sample of all reference sites was sub-sampled regarding the predictor maps and tested for independence against the background distribution.
+
+The background distribution consists of all cells in the 25 m raster map in the study area.
+
+The results indicated a preferred placement of Final Palaeolithic camps in regions with a W and SW orientation (Fig. 4) – ideal also for capturing airfall tephra approaching from the south-east – a good accessibility of the surrounding landscape (Fig. 5) and short distances to the nearest major watercourse (Fig. 6).
+
+The distribution of sites might be skewed towards the river valleys due to surveying bias and agricultural land use as it could be shown for a part for the study area in northern Bavaria (Sauer, 2018).
+
+However, for the task of circumscribing areas of potentially higher probability of success, these issues were considered negligible.
+
+PARAGRAPH
+
+After generating the factor maps, the individual predictor layers – weighted by the relative frequency of occurrence – were added, normalized and transferred to the rock shelter database by sampling the predicted potential at any location in the dataset.
+
+A Kvamme's Gain (Kvamme, 1988) value of 0.76 indicates a good predictive performance, which can be traced back to the strong focus on the distance to the next major watercourse (Fig. 7).
+
+Although predictions were only made based on three factors indicating general tendencies in site-placement throughout the Central Uplands, the number of potential sites in the database was narrowed down greatly.
+
+Out of all 786 locations only 24 (3.1%) fall within the 75–100% correspondence bracket of the predictive model and 106 (13.5%) within the 50–75% bracket.
+
+Rock shelters and caves are predominantly features indicative of a karstic environment.
+
+This, in turn, implies that the highest potential for finding such locations is associated with such bedrock geologies (BGR, 2017).
+
+This restriction was considered when planning the ensuing survey.
+
+In addition, we further narrowed our focus on regions dominated by limestone, often associated with favourable preservation conditions, although other sites located in other geological substrates were also visited.
+
+SECTION
+
+Survey
+
+PARAGRAPH
+
+To verify modelling results and to identify locations suitable for subsequent keyhole excavations, two survey campaigns were conducted in November 2017 and March 2018 respectively.
+
+In total, 2600 km were travelled and 80 potential rock shelters were visited throughout the entire survey area.
+
+PARAGRAPH
+
+During the first survey, the main focus lay on western Hesse in the regions of “Westerwald” and “Hintertaunus”.
+
+Although the model indicated good correspondence values for numerous locations in this area, the igneous bedrock of these regions did not usually form or erode into rock shelter sites.
+
+The predicted locations are typically located at keratophyr outcrops.
+
+This brittle, effusive rock typically forms horizontal and vertical cracks, leading to the slipping of large boulders.
+
+Therefore, overhang situations are rare.
+
+This does not mean that these areas were not visited by Final Palaeolithic foragers – surface collections from western Hesse are known (Fiedler, 1990; Fiedler, 1994) – but the vertical cracks rather than overhang situations simply do not form natural shelters that both attract humans and preserve traces of their presence (Fig. 8).
+
+PARAGRAPH
+
+Besides geological restrictions, medieval and modern quarrying (Fig. 9) as well as construction of streets and railways has evidently influenced the situation visible today.
+
+Not all the escarpments listed in the rock shelter database turned out to be natural features.
+
+In several cases, the visited locations actually were small quarrying locations, a situation also encountered by Grote (Grote, 1988) in his earlier survey in the Leinebergland region just to the north of our study area.
+
+Furthermore, the larger river valleys also were the corridors in which railway tracks were constructed, often destroying potential rock shelters in the course of construction, such as the important site of Wildweiberhaus in southern Hesse (Herrmann, 1987).
+
+PARAGRAPH
+
+Best conditions prevailed in the regions dominated by limestone bedrocks.
+
+These are linked to the Upper Permian ‘Zechstein’ layers which extend over the northern parts of Hesse (Unteres Werra Land, Waldecker Tafel, Ost-Waldecker Randsenken, Kellerwald).
+
+Here, karstic conditions led to the formation of rock shelters and caves.
+
+Consequentially, the distribution of archaeologically attractive features correlates with the exposed ‘Zechstein’ layers.
+
+PARAGRAPH
+
+Of the 80 locations visited, seven showed strongly favourable characteristics for conducting invasive fieldwork (Fig. 11, Fig. 12).
+
+These qualities are (i) a sheltered area, protected by an overhang, (ii) a substantial sediment cover in the protected area and (iii) a sediment cone in front of the feature bearing the potential for the preservation of Late Glacial strata.
+
+None of the seven locales has previously been investigated archaeologically.
+
+SECTION
+
+Future prospects
+
+PARAGRAPH
+
+In the course of surveying, four locations were selected for further investigation in subsequent field campaigns, all located in the Upper Permian layers of the ‘Zechstein’, with the remaining three candidate sites forming a back-up list.
+
+Since the distribution of karstic limestone is largely limited to the north and northeast of Hesse (compare Fig. 10), all of the locations selected for keyhole excavations are located there.
+
+PARAGRAPH
+
+The rock shelters of Alraft 1 and Alraft 2 are both situated in the valley of the Werbe creek.
+
+The small stream incised into both the strata of the ‘Buntsandstein’ and the underlying limestone of the Zechstein layers (BGR, 2017).
+
+The horizontally layered limestone bedrock of the Upper Zechstein formed the perfect basis for the erosion of rock shelter locations.
+
+Alraft 1 is situated on the eastern side of the creek close to a secondary dry valley.
+
+It opens towards the South and the West and provides a series of overhang situations about three to four metres above the current valley floor filled with Holocene sediments.
+
+Particularly the sections of the location that open southwards towards the dry valley are filled almost entirely with sediments, which might contain Late Glacial strata.
+
+A substantial sediment mound extends down to the valley floor.
+
+PARAGRAPH
+
+A comparable situation shows at the location of Alraft 2, which lies at the western flanks of the valley, opening towards the south as well.
+
+Although the rock shelter here is smaller than in its sister location, it still provides a substantial sediment cone that merits archaeological investigation.
+
+Both Alraft locations show morphology and locational parameters much like the sites at Bettenroder Berg (Grote, 1990; Grote, 1994).
+
+Both features line up along the slopes of subordinate valleys, which themselves are interrupted by small tributary valleys.
+
+Located on the medial to upper slopes, they contain substantial amounts of sediment infill.
+
+At Bettenroder Berg IX, archaeological layers spanning the Middle Palaeolithic, Magdalenian, Final Palaeolithic and Mesolithic reflect the recurring use of the rock features over a considerable amount of time.
+
+PARAGRAPH
+
+Another potential site is located near the village of Baumbach in the valley of the rather larger Fulda river.
+
+The small overhang situations are part of a limestone feature that protrudes into the valley floor and provides features, which open towards the South and West.
+
+Although both shelters do not cover overly large areas, the sediment mound in front of them is quite substantial.
+
+Particularly the topographic setting makes for a promising location: the floodplain context of the Fulda river potentially provided wetland conditions during the relatively warm and wet Final Palaeolithic.
+
+Site placement in such environmental frameworks is common for Late Glacial foragers throughout the Central Uplands.
+
+It indicates a focus on associated resources like fish, waterfowl, attendant floodplain and wetland vegetation, and large game seeking water (Sauer, 2018).
+
+PARAGRAPH
+
+While these three locations are comparably inconspicuous features in the surrounding landscape, the Wetterstein (also known as Wetzstein or Andreasstein) is an impressive limestone needle that overlooks the valley of the Werra river near the village of Kleinvach.
+
+It towers about 25 m above the valley floor and features a rock shelter at its base.
+
+The overhang covers an area of c. 45 square metres.
+
+It is situated about ten metres above Holocene infill of the valley bottom and opens southwards towards the floodplains.
+
+Again, this geomorphological and environmental context coincides with conditions known from other Final Palaeolithic locales (Sauer, 2018).
+
+PARAGRAPH
+
+At all four locations, keyhole excavations will be conducted in subsequent fieldwork.
+
+Although our focus rests firmly with discovering new Final Palaeolithic occupation layers in direct association with LST, there is significant potential for encountering other – younger as well as older – archaeological remains.
+
+Our closest parallels are the sites at Bettenroder Berg at a distance of no >100 km.
+
+As already alluded to, remains, at times quite spectacular, from various different periods were identified there.
+
+Rock features like the “Wetterstein” at Kleinvach were frequently used as sacrificial locations during the Neolithic and younger periods (Müller, 2003).
+
+With the Mesolithic, site density increases drastically in the Central Uplands as reflected by the heritage database of Bavaria (Sauer, 2018) and also in reviews of the prehistory of Hesse (Fiedler, 1990; Fiedler, 1994).
+
+In the Bettenroder Berg sites the Mesolithic is represented by rich occupation debris as well as human burials.
+
+PARAGRAPH
+
+For field documentation, we have adopted and adapted the tablet and photogrammetry-based digital documentation system used at the Bad Kösen excavations since 2017, conducted by the Collaborative Research Centre (CRC) 806 – Our way to Europe at the University of Cologne (CRC 806, 2018).
+
+We have additionally introduced GIS functionality, enabling the on-site generation of georeferenced, relational digital maps and 3D models.
+
+Beyond the potential of interactive in-the-field data analysis, this also facilitates efficient post-processing, not least with a view to meeting administrative requirements.
+
+These excavations will offer a first test for the methodology described here, although a test sample size of four remains minute compared to the total number of possible rock shelter sites in this overlooked but promising region.
+
+SECTION
+
+Discussion and conclusion
+
+PARAGRAPH
+
+Regarding the purpose of narrowing down the number of location suitable for field work, the predictive model performed well.
+
+Particularly, the combination of in silico desktop modelling with the geological and land-use assessments of the characteristics of the potential sites proved to be a valuable tool allowing for a more efficient site selection process.
+
+PARAGRAPH
+
+To evaluate the potential of the northern Hessian rock shelters for the preservation of Final Palaeolithic occupation remains and to further evaluate the completeness of the original rock shelter register dataset, further analysis of a focus area is planned.
+
+Here, we will employ a high-resolution digital elevation model with a one-metre resolution.
+
+The goal is to extract potential escarpments and rock shelters directly from these maps and to compare the results of such a GIS-based approach with data collection in the field.
+
+This will allow us to further improve the performance of the model and will potentially result in the discovery of additional promising rock shelter locations in the Federal State of Hesse.
+
+PARAGRAPH
+
+The following are the supplementary data related to this article.
+
+Locational information for sites used in the predictive model in this paper.
+
+PARAGRAPH
+
+Supplementary data to this article can be found online at https://doi.org/10.1016/j.jasrep.2018.09.021.

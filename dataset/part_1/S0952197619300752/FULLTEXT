@@ -1,0 +1,743 @@
+10.1016/j.engappai.2019.03.025
+
+FULLTEXT
+
+TITLE
+
+Integrated and concurrent detailed design of a mechatronic quadrotor system using a fuzzy-based particle swarm optimization
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Mechatronic systems are multidisciplinary products, that incorporate an interactive and synergistic application of various domains such as mechanics, electronics, controls, and computer engineering.
+
+Due to the large number of couplings and dynamic interdependencies between subsystems and components, the design of mechatronic systems is considered to be a challenging and complex task, which requires a cross disciplinary design thought process (Torry-Smith et al., 2013; van Amerongen, 2003).
+
+This calls for a more systematic and multi-objective design approach to mechatronics (Mohebbi et al., 2014d).
+
+More precisely, a concurrent and integrated design method is needed to obtain more efficient, reliable and flexible products in less complex ways and at a lower cost (Mohebbi et al., 2014a).
+
+A number of research efforts have demonstrated that designing the structure and control concurrently, improves the system’s performance and efficiency (Cruz-Villar et al., 2009; de Silva and Behbahani, 2013; Li et al., 2001; Van Brussel, 1996; Zhang et al., 1999).
+
+Although, in most of these efforts, the mechanical structures of the system were usually determined in advance without considering the future aspects of the controller design.
+
+Therefore, a perfect control action may be far from practical concerns, due to limitations imposed by the poorly designed mechanical structure.
+
+PARAGRAPH
+
+Multidisciplinary system design can be treated as an optimization problem by using a proper evaluation function.
+
+Due to their non-convex nature, solving optimization problems involving various structural and control parameters can be present many difficulties.
+
+Thus, despite the advances in optimal control system design, optimal integrated mechatronic system design is still an area that is currently being researched.
+
+Most of the existing multidisciplinary design frameworks utilize gradient-based solvers as an optimization driver for all the disciplines.
+
+Although, due to the extensive improvement, in the recent years, of the computational capacity of modern computers as well as the ability of using large numbers of parallel processors, the use of non-gradient based and probabilistic search algorithms has attracted much interest.
+
+This class of algorithms typically requires many more function evaluations than comparable gradient-based algorithms, but in return, it provides designers with several attractive characteristics.
+
+In addition, these algorithms are usually easy to implement, do not require continuity of response functions, and are better suited to finding global or near-global solutions.
+
+(Affi et al., 2007) presented a genetic algorithm-based method for the design and optimization of the geometry and dynamic behaviors of a four-bar mechatronic system.
+
+(Hammadi et al., 2014) proposed a new methodology for optimizing mechatronic systems based on a multi-agent approach.
+
+They decomposed the design process to three design agents and coordinated the local optimizations towards these agents.
+
+PARAGRAPH
+
+Particle Swarm Optimization (PSO) is a recent addition to non-gradient-based stochastic and population-based optimization algorithms that was first introduced by (Eberhart and Kennedy, 1995).
+
+This method is based on a simplified social model that is closely tied to swarming theory and is inspired by the social and cognitive behaviors of birds in a flock seeking food.
+
+Each bird makes use of its own memory, as well as knowledge gained by the flock as a whole, to efficiently adapt to its environment and find food (Eberhart and Kennedy, 1995; Kennedy et al., 2001).
+
+PSO is able to solve discontinuous, multi-modal, non-convex problems, and thus it is a suitable tool to support engineering design problems (Campana et al., 2006; Schutte et al., 2004; Van Den Bergh and Engelbrecht, 2006).
+
+According to the literature, while the PSO algorithm has been applied to many engineering and design problems, only a few multidisciplinary applications are known (Venter and Sobieszczanski-Sobieski, 2002).
+
+In this paper, a multiobjective PSO is used and tailored to a constrained multi-disciplinary design problem.
+
+PARAGRAPH
+
+In mechatronics design, modeling all subsystems and their interconnections, while simultaneously modeling interactions between the design criteria over several engineering domains, is not a trivial task.
+
+(Mohebbi et al., 2014a) presented a new approach based on their multi-criteria mechatronic profile (MMP) for the conceptual design stage.
+
+In order to facilitate the design process and supporting decision-making, in the presence of interacting criteria, they used fuzzy integrals (Mohebbi et al., 2014b, c) which are proven to be precise and reliable in a multi-criteria problem with interaction between the objectives.
+
+The Choquet integral is one of the most expressive preference models used in decision theory.
+
+It enables the expression of positive and negative interactions while covering an important range of possible decision behaviors, that are generally ignored in other MCDM methods (Grabisch, 1996, 1997).
+
+PARAGRAPH
+
+In this work, we propose a novel Cascade Fuzzy-based multidisciplinary objective function which aggregates all the design criteria and requirements from various subsystems involved.
+
+This objective function is then optimized using a particle swarm optimization (PSO) algorithm for the purpose of detailed design of a mechatronic system.
+
+Using the proposed method, we can simultaneously consider the relative importance of each sub-objective or design criteria and also model the interdependencies and interactions amongst them.
+
+Subsequently, the proposed method can replace the commonly used sequential design approach which deals with the different subsystems and domains (i.e. mechanical, electrical, software, fluid, thermal, etc.) separately and enables design engineers to simultaneously design all subsystems by taking into account their co-influences.
+
+We validate our method to design a vision-guided quadrotor UAV as a complex mechatronic system.
+
+In terms of system dynamics, a quadrotor, an underactuated system with six degrees of freedom and four inputs, is inherently unstable and difficult to control.
+
+Thus, the design and control of this nonlinear system is a challenge from a practical and a theoretical point of view (Bouabdallah et al., 2004a; Bouabdallah and Siegwart, 2007; Mian and Wang, 2008; Salih et al., 2010).
+
+Thus, this is an excellent case for the formulation of a multidisciplinary design problem.
+
+However, integrating the sensors, actuators and intelligence into a lightweight vertically flying system with a suitable operation time is a challenging task since numerous interdependent design parameters originating from various engineering disciplines need to be considered.
+
+Moreover, in order to enable the system with autonomous capabilities, a visual feedback control strategy, i.e. visual servoing, is needed.
+
+This increases the number of requirements and objectives that need to be fulfilled, thus increasing the overall complexity of the design task.
+
+PARAGRAPH
+
+The following sections of this paper are organized as such: Section 2 gives a brief description of the PSO algorithm and the incorporating design constraints in the optimization process using a penalty function.
+
+Section 3 introduces the Choquet integrals and the fuzzy-based multicriteria aggregation.
+
+Section 4 formulates the proposed detailed design for mechatronic systems as well as the process of identifying the necessary parameters for the optimization algorithm and modeling the interaction among objectives.
+
+Section 5 presents the modeling of the quadrotor system considering the various engineering aspects involved.
+
+Section 6 discusses the design of the control system consisting of the flight motion controller and visual servoing system.
+
+This section also presents a formulation for an image-based stereo visual servoing system.
+
+Section 7 includes the performance requirements for designing each subsystem and the constraints acting upon each of them.
+
+The results obtained from the optimization process for our detailed design method are presented and discussed in Section 8.
+
+Section 9 shows the results using a computer simulation and compares the performance of the system against a benchmark product.
+
+Finally, a conclusion is presented in Section 10.
+
+SECTION
+
+Particle Swarm Optimization (PSO)
+
+PARAGRAPH
+
+Particle Swarm Optimization (PSO) is a heuristic optimization method generally used to find an optimal solution in a complex search space.
+
+PSO is a population-based method, in which the feasible solutions are represented by a swarm of particles, P={p1,…,pn}, that is iteratively modified until a termination criterion is satisfied.
+
+Each particle, pi, is defined as a vector of its position and velocity, searching the space for a solution by modifying the trajectories.
+
+The particles are attracted stochastically towards a better position after considering their best position both individually and globally.
+
+PSO is both easy and fast to implement because of its simple and intuitive structure and it can be applied to optimization problems of large dimensions, often producing quality solutions more rapidly than alternative methods.
+
+In PSO, each particle has its neighborhood Ni, which is a subset of the population P.
+
+The neighborhood structure is called the “swarm topology”, which can be represented by a graph e.g. fully connected topology (Medina et al., 2009).
+
+SECTION
+
+PSO Algorithm
+
+PARAGRAPH
+
+Each particle i, at iteration t has a set of characteristics such as position, xit , last (historically) best position, pit, last best position of the neighboring particles, lit, and the speed vit , which it is the step size between xit and xit+1.
+
+The overall pseudo code of PSO is described in Algorithm I below.
+
+PARAGRAPH
+
+From above, wt is the inertia weight or damping factor; ζ1 and ζ2 are acceleration coefficients, and ui1,t and ui2,t are random real values uniformly distributed in [0, 1] to provide variation in motion and life-like appearance.
+
+New random values are generated for each particle and generation.
+
+The algorithm is terminated after a given number of iterations, or once the fitness function values of the particles are close enough in some sense.
+
+SECTION
+
+Constrained optimization
+
+PARAGRAPH
+
+In constrained optimization, solutions must satisfy a number of constraints, which either restrict the parameter values to certain intervals or define dependencies among them.
+
+The use of a penalty function is one of the most common approaches to deal with constraints in evolutionary computation (Coello, 2002).
+
+If a minimization problem is assumed, the objective function f(x→) is modified to fpso(x→) such that: fpsox→=fx→+∑i=1paimax0,gix→α+∑j=1qbj|hjx→|βwhere α, β, and the penalty coefficients, ai and bi>0, are user-defined parameters, that must be carefully selected.
+
+When very low penalty coefficients are chosen, the population might explore infeasible space whereas when chosen too high, the particles are distracted from the boundaries and might be unable to locate disconnected feasible regions.
+
+SECTION
+
+Multicriteria fuzzy aggregation
+
+PARAGRAPH
+
+In order to incorporate all the objectives and design criteria into one objective function that will be minimized using a PSO algorithm, an aggregation operator should be used.
+
+In this paper, fuzzy measures are employed to represent the degree of importance allocated to each criterion and to the interactions amongst criteria.
+
+Each fuzzy measure is simply a weighting factor of a subset of criteria on the universe N satisfying the following conditions: μϕ=0,μN=1.A⊆B⊆N→μA≤μB.
+
+PARAGRAPH
+
+Using the fuzzy measures on the criteria vector F={f1,f2,…,fn}, the discrete Choquet integral is defined by: Cμf=∑i=1nfi−fi−1μAi,where indices have been permuted so that for the assessed criteria we have 0≤f1≤⋯≤fn and Ai=i,…n, and A(n+1)=∅ while f0=0.
+
+In the context of mechatronic design, a global evaluation can be formulated with the aid of the Choquet fuzzy integral.
+
+More details about the incorporation of fuzzy measures in Choquet integrals as well as the most common semantic interactions among criterion pairs and the corresponding fuzzy measures are given in (Mohebbi et al., 2014a, 2018).
+
+PARAGRAPH
+
+The main difficulty in using Choquet integrals is identifying the (2n−2) coefficients of fuzzy measures μ, where n is the number of criteria.
+
+Using the Shapely value for importance of criteria i, ϕ(μ,i), and the interaction index between criteria i and j, I(μ,ij) (Marichal, 2002), the Choquet integral in Eq. (4) can be expressed as: Cμ(f)=∑i=1nϕμ,ifi−12∑{i,j}⊆NI(μ,ij)|fi−fj|
+
+PARAGRAPH
+
+This representation is easier to be used in a design case as it only requires the designer to specify n importance and nn−12 Interaction indices.
+
+For example, for a design problem with 5 criteria the designer should specify 15 parameters rather than 25−2=30 fuzzy measures.
+
+In the above expression, when I(μ,ij)=0, it means that criteria i and j are independent.
+
+When I(μ,ij)>0 it means that there is a complementary relationship between i and j; thus both criteria have to be met in order to get a satisfactory alternative.
+
+When I(μ,ij)<0 there is a substitutability or redundancy between i and j.
+
+This means that for the decision maker only one of the two criteria has to be met to have a satisfactory alternative.
+
+It is worth noting that a positive correlation leads to a negative interaction index, and vice versa.
+
+SECTION
+
+Integrated mechatronic detailed design formulation
+
+PARAGRAPH
+
+Designing mechatronic systems is known to be both a very complex due to the high number of system components and their multi-physical aspects.
+
+This complexity is more evident when the designer also must meet highly dynamic and interconnected design requirements.
+
+It is crucial to abandon the traditional end-to-end and sequential design process and to consider all aspects of a design problem concurrently.
+
+The process of detailed design of a mechatronic system can be ideally formulated in a multi-objective multidisciplinary design optimization problem in which the design objectives of all subsystems are considered alongside the corresponding constraints.
+
+For example, for a UAV system we can assume that we have Six⇀wherei=1,…,n1, which represents the design objectives for the structural subsystem, Cix⇀wherei=1,…,n2 for the control system, Aix⇀wherei=1,…,n3 for the aerodynamics design requirements, Vix⇀wherei=1,…,n4 for the visual servoing system, and finally Oix⇀wherei=1,…,n5 for the overall system-level design objectives.
+
+Moreover, gi(x⇀) and hi(x⇀) are inequality and equality constraints for all the aforementioned subsystems.
+
+SECTION
+
+Cascade fuzzy-based multidisciplinary objective function
+
+PARAGRAPH
+
+In order to provide the optimization algorithm with an interactive objective function which includes all the design requirements from the various disciplines involved, we propose a cascade Choquet integral-based aggregation.
+
+This takes into account all the interactions amongst design objectives and also their relative importance in the design process.
+
+Fig. 1 illustrates the proposed aggregation approach.
+
+In this approach, the fuzzy measures are used to model the interactions among all objectives in a subsystem.
+
+For example, for the control system we have: fcμx→=CμC1x→,C2x→,…,Cn2x→
+
+PARAGRAPH
+
+Finally, the multiobjective PSO optimization problem can be formulated as follows: minx→fpsox→=Cμfsx→,fcx→,fAx→,fVx→,fOx→+∑i=1paimax0,gix→α+∑j=1qbj|hjx→|β.
+
+SECTION
+
+PARAGRAPH
+
+Parameter selection for PSO
+
+PARAGRAPH
+
+During the implementation of the PSO algorithm, many considerations are required to facilitate the prevention of swarm explosion and divergence.
+
+These considerations include selecting acceleration coefficients, ζi , limiting the maximum velocity and choosing inertia weight wt.
+
+The velocity of the particles is a stochastic variable.
+
+Therefore, it creates an uncontrolled trajectory to follow wider cycles in the problem (Hu et al., 2004).
+
+To avoid this problem, the upper and lower limits of the particles’ velocities are defined as follows (Shi, 2001): If vi,d>vmax then vi,d=vmaxIf vi,d<−vmax then vi,d=−vmax
+
+PARAGRAPH
+
+If vmax is very large, then there is a possibility of moving beyond the solution space.
+
+On the other hand, if vmax is too small, then the movement of the particles is limited.
+
+Therefore, an optimal solution may not be obtained.
+
+According to the problem characteristics, the value of vmax is selected empirically.
+
+Fan and Shi (2001) proposed a maximum velocity to ensure that the uniform velocity throughout all the dimensions: vmax=(xmax−xmin)∕Nint,where xmax and xmin are the maximum and minimum values of the particle positions found thus far, and Nint is the number of intervals.
+
+Accelerations, pi and li, are controlled by the acceleration coefficients ζi.
+
+The larger values of these coefficients may diverge the particles, while small values may limit movement.
+
+Ozcan and Mohan (1999) concluded that the trajectory of a particle goes to infinity when ζi>4.
+
+They suggested that reasonable values for the starting acceleration coefficients are ζ1=ζ2=2.
+
+Even though the acceleration coefficients and maximum velocities may be well defined, the particles might diverge.
+
+This is known as the “swarm explosion”.
+
+Using inertia weights is a way to control the explosion of the swarm (Shi and Eberhart, 1998).
+
+This weight usually decreases from around 0.9 to 0.4.
+
+PARAGRAPH
+
+SECTION
+
+Identification of fuzzy measures
+
+PARAGRAPH
+
+There are a variety of methods for identifying (2n−2) fuzzy measures which are subsequently used in a Choquet integral for aggregating interactive criteria or objectives (Grabisch, 1996; Marichal and Roubens, 1998).
+
+The designer can intuitively choose these fuzzy measures or use a systematic approach to calculate them.
+
+Among all the data-driven or explicit calculation methods (Grabisch, 1995; Timonin, 2013), we choose to use Sugeno’s method (Sugeno, 1975) in this study for its ease of implementation and need for specifying less parameters.
+
+In this method, the entire lattice of fuzzy measures is automatically generated based on just the μi singleton densities.
+
+It is proven that a unique λ can be found by solving the following equation: λ+1=∏i=1n(1+λμi),−1<λ<∞,λ≠0where μi=μxi.
+
+Thus, the n densities determine the 2n values of fuzzy measures.
+
+SECTION
+
+Quadrotor system modeling
+
+PARAGRAPH
+
+The modeling of a quadrotor system requires careful considerations of the various engineering aspects involved and their affecting factors such as aerodynamic, and inertial counter torques, frictions, as well as gyroscopic and gravitational effects.
+
+The quadcopter structure is presented in Fig. 2 along with the corresponding angular velocities, torques and forces created by the four rotors, while Fig. 3 shows a schematic of the quadrotor body structure and corresponding masses.
+
+In this section, we present the general descriptions of the quadrotor’s model while the modeling details about the structure, dynamics, motor model and aerodynamics of the quadrotor are thoroughly described in Appendices A–D.
+
+PARAGRAPH
+
+The complete quadrotor’s equations of motion taking into account all the aforementioned forces and moments can be expressed as follows: Ixxϕ̈=Jrθ̇(w1+w3−w2−w4)+(Iyy−Izz)θ̇ψ̇+btL(w42−w22)−h∑i=14Hyi+∑i=14−1i+1Mxi,Iyyθ̈=Jrθ̇(w1+w3−w2−w4)+(Iyy−Izz)θ̇ψ̇+btL(w32−w12)+h∑i=14Hxi+∑i=14−1i+1Myi,Izzψ̈=−dw42+w22−w12−w32+(Ixx−Iyy)ϕ̇θ̇+L(Hx2−Hx4)+L(Hy3−Hy1)+∑i=14−1iDi.mẍ=SψSϕ+CψSθCϕbt∑i=14wi2−∑i=14Hxi,mÿ=−CψSϕ+SψSθCϕbt∑i=14wi2−∑i=14Hyi,mz̈=mg−CθCϕbt∑i=14wi2.
+
+PARAGRAPH
+
+From the above equations, ϕ,θ,ψ are Roll, Pitch and Yaw angles respectively, wi is the angular velocity of rotor i, and Ixx,Ixx,Ixx are the inertia moment about x,y and z axes respectively.
+
+Moreover, L is the quadrotor lever length as depicted in Fig. 3, bt is the rotor thrust factor, d is the drag factor, and Jrot is the total inertia moment of each rotor.
+
+From the aerodynamics, h is the vertical distance from the center of propeller to center of gravity (COG), Hi is the hub force acting on rotor i, Di is the Drag moment and Mi is the Propeller’s Rolling moment.
+
+SECTION
+
+Control system design
+
+PARAGRAPH
+
+The control system of the proposed quadrotor is composed of two components: a motion control system and a visual servoing (vision-based control) system.
+
+Basically, the vision system is needed for the quadrotor to track and follow a moving target.
+
+The cooperative configuration of these control systems is illustrated in a single control structure presented in Fig. 4.
+
+SECTION
+
+Flight control system
+
+PARAGRAPH
+
+In order to enable a quadrotor to follow a predefined trajectory, a full control of the system’s attitude (ϕ,θ,ψ), altitude z, and position (x,y) is necessary.
+
+Accordingly, to control the attitude of the quadrotor system, a PID controller will be used in this paper.
+
+PID control is a benchmark control scheme that can be designed quickly and has shown good performance with low complexity.
+
+In order to successfully design this controller, the model has to be linearized around the hover situation (equilibrium point).
+
+Position control can be also implemented using a PID controller design, which actuates the vehicle’s roll and pitch angles as control inputs.
+
+Tilting the vehicle in any direction causes a component of the thrust vector to point in that direction.
+
+In other words, commanding pitch and roll is equal to enforcing accelerations in the x–y plane.
+
+For that reason, in this paper we solely try to control the attitude of the quadrotor.
+
+Based on the control inputs, rotor dynamics equations and rotor velocities, the overall quadrotor PID control scheme can be illustrated as shown in Fig. 5.
+
+PARAGRAPH
+
+The full description of the control system along with the inputs and the controller is given in Appendix E.
+
+SECTION
+
+Visual servoing system
+
+PARAGRAPH
+
+Using an image-based visual servoing system, the goal of the control problem can be stated as minimizing the error that is defined as: evt=s−s∗,where s and s∗ are the vectors of current and desired image features, respectively.
+
+These features may include detected edges on the target object, colored markers, image moments, etc.
+
+PARAGRAPH
+
+In this study we assume that the vision system is composed of a stereo camera system with two parallel lenses perpendicular to the baseline (Mohebbi, 2013; Mohebbi et al., 2014e).
+
+The focal points of two cameras are at a distance of b∕2 apart, with respect to the origin of sensor frame {C} on the baseline; that is, the origin of the camera frame is in the center of these points.
+
+The focal distance of both cameras is fc; the image planes and corresponding frames for the left and right cameras are located at a distance fcfrom the focal points and are orthogonal to the optical axis.
+
+We assign {L} and {R} as the frames of the left and right images, respectively.
+
+Fig. 6 illustrates the case where both cameras observe a 3D point, CP.
+
+More details about implementing a stereo visual servoing system is available in (Mohebbi et al., 2014e).
+
+PARAGRAPH
+
+In the case of a proportional controller, and by assuming that the camera is mounted on the central hub as depicted in Fig. 4, the input of the visual servoing controller uc is designed by letting ėv=−λev, as such: uc=−λvJe+ev,where Je is the image interaction matrix which relates the time variation of error e with the camera velocity uc, and Je+ is the Moore–Penrose pseudo-inverse of the interaction matrix. λv
+
+is the proportional gain for the visual servoing controller.
+
+In the case of moving (non-stationary) image features, we have: uc=Je+(−λvev−∂ev∂t),where the term ∂ev∕∂t represents the time variation of the error caused by the target motion which is considered to have a constant velocity.
+
+Using the image interaction matrices for the left and right cameras the stereo image interaction matrix, Jst, can be calculated as: Je=Jst=JLCLTJRCRTwhere CLT and CRT are transformation matrices from the left and right cameras to the sensor frame and JL and JR are the image interaction matrices for left and right cameras and are calculated such that: JL,R=−1zL,R0−xL,RzL,R−(1+xL,R2)yL,R0−1zL,R−yL,RzL,R−xL,R.yL,R−xL,R
+
+PARAGRAPH
+
+From above, xL,R, yL,R, zL,R are the coordinates of the visible features with respect to the left or right camera.
+
+PARAGRAPH
+
+Using the calculated stereo interaction matrix Jst the visual servoing control system can be formed as depicted in Fig. 7.
+
+SECTION
+
+PARAGRAPH
+
+Detailed design objectives and constraints
+
+PARAGRAPH
+
+In this section, we discuss the requirements for designing each subsystem including the objectives required for the performance of the system towards a certain requirement and also the constraints acting upon each design variable.
+
+Throughout this section, x̃ is a subset of all design variables x.
+
+We also provide a table of values for the parameters considered in the objectives and constraints of each subsystem.
+
+SECTION
+
+Structure and body design objectives
+
+PARAGRAPH
+
+As the first requirement and based on a series of commercial benchmarks and flight specifications, the quadrotor is subjected to the following physical constraints: g1,2x̃:0.15≤L≤0.25(m)g3,4x̃:0.4≤L≤0.6(kg)g5−8x̃:0.0025≤Ixx,Iyy≤0.0050(kg m2)g9,10x̃:0.0045≤Izz≤0.0090(kg m2)
+
+PARAGRAPH
+
+The first design objective, in terms of the body and structure of the quadrotor, is to maximize the payload and minimize the body weight.
+
+We define the payload to be the maximal weight the quadcopter can support at its center of mass while hovering.
+
+By formulating in negative standard form for minimization, we can write the above objectives as follows: S1x̃=−mPLS2x̃=mbody
+
+PARAGRAPH
+
+With regards to the structural strength, we can assume that each arm of the quadrotor behaves as a cantilever beam where the motor thrust and rotor weight act on the ends as depicted in Fig. 8.
+
+Accordingly, we can define an objective function, S2, and also a constraint based on the beam’s deflection and maximum allowable bending stress as follows: S3x̃=δL=fi−mRgL33EIg11x̃:σ=fi−mRgLrLI≤1SFσt where the area moment of the rod is equal to I=πrL4∕4 , E is the elastic modulus, σt is the tensile strength of carbon fiber, and SF is the safety factor.
+
+PARAGRAPH
+
+The rod can fail due to resonance when the natural frequency of the rod matches the frequency of the motor.
+
+Hence the rod should be designed in such a way that the natural frequency of the rod is significantly different than the frequency of the motor.
+
+The natural frequency of the cantilever beam is given as (see Fig. 9):
+
+PARAGRAPH
+
+Thus, we get the following constraints for the rotor frequencies with regards to the arm’s natural frequency: g12x̃:|wi−wn1|≥δwg13x̃:|wi−wn2|≥δwg14x̃:|wi−wn3|≥δw where δw is the minimal difference between the rotor frequency and the natural frequency of the arm; δw is considered to be equal to 30 rad/s.
+
+SECTION
+
+Aerodynamics and propulsion system objectives
+
+PARAGRAPH
+
+The “propulsion cost factor” describes the power needed to lift a gram of mass.
+
+The cost factor is an indicator in the design process that represents the power spent for each gram of the system’s total mass.
+
+Thus, the cost factor Cprop can be used as a design objective to be minimized, as follows: A1x̃=Cprop=Pefig−mR[Wgr]in which Pe is the electrical power from the battery, fi is the thrust force and mR is the rotor (and propulsion system) mass.
+
+Moreover, the “propulsion quality index” describes the quality of mass lifting, indicating also whether the system is being disturbed during the lifting.
+
+This index is necessary to take into account the notions of actuator bandwidth and thrust/weight ratio.
+
+This index can be formulated as an objective function to be minimized, as follows: A2x̃=Qprop=BpropβwCprop[Hz gr/Rad W]where Bprop is the propulsion system bandwidth and β is the thrust/weight ratio.
+
+SECTION
+
+Control system objectives
+
+PARAGRAPH
+
+The optimization problem for the proposed PID flight controller can be formulated to achieve the controller gains; this is done in order to optimize some particular control performance functions in the presence of physical, stability and control constraints.
+
+For the flight control system, we consider four sets of PID controller gain: for altitude (z) and attitude control (ϕ,θ,ψ).
+
+Thus, we have 12 design variables for this subsystem as: K=kpz,kiz,kdz,kpϕ,kiϕ,kdϕ,kpθ,kiθ,kdθ,kpψ,kiψ,kdψT=Kz,Kϕ,Kθ,KψT
+
+PARAGRAPH
+
+Accordingly, we consider the controller gains to be all non-negative values.
+
+Moreover, in order to avoid sudden shocks and abrupt motion, we consider an upper bound of 4 for every gain; g15−27x̃:K=Kz,Kϕ,Kθ,KψT>0.
+
+PARAGRAPH
+
+Having the rotor dynamics in Eqs. (71)–(72) and using the motor inputs in the Laplace domain, we can achieve the following transfer functions for the attitude control system: Gϕs=ϕsU2s=B2Ls2s+A2Ixx,Gθs=θsU2s=B2Ls2s+A2Iyy,Gψs=ψsU2s=B2s2s+A2Izz, where A and B are the coefficients of the linearized rotor dynamics from Eq. (72).
+
+Moreover, the transfer function of the closed-loop system for each ϕ,θ and ψ is as follows: Cs=kp+kis+kds=kds2+kps+kis
+
+PARAGRAPH
+
+Subsequently, using the Routh–Hurwitz stability criterion we can get the following constraints on the attitude flight control variables: g28−31x̃:Kd<2A3Γg32−35x̃:2A3Kd−ΓKd2−4A2Kp+2AKi>0g36−39x̃:Γ31−12AKiKd2−2AΓ3KpKd2+2A2Γ21−AKiKd+8A2Γ2KiKp+4A4Γ2KdKp−2A5ΓKi−2AΓ2Ki2−8A3Γ2Kp2>0 where Kp=[Kpϕ,Kpθ,Kpψ], Ki=[Kiϕ,Kiθ,Kiψ], Kd=[Kdϕ,Kdθ,Kdψ], and Γ=Γϕ,Γθ,Γψ for which Γϕ=B2LIxx , Γθ=B2LIyy and Γψ=B2Izz.
+
+PARAGRAPH
+
+Moreover, based on frequently used commercial benchmark parameters for a gentle and non-aerobatic flight, the following constraints for control inputs are imposed on the controller design: g40−41x̃:|ϕ|≤40degg42−43x̃:|θ|≤40degg44−45x̃:0≤ψ≤10deg
+
+PARAGRAPH
+
+For translational speed and rate of descent we also have: g46−47x̃:|ż|≤1ms−1g48−49x̃:|ẋ|≤2ms−1g50−51x̃:|ẏ|≤2ms−1
+
+PARAGRAPH
+
+One of the major physical limitations of a quadrotor is the propeller’s rotational speed that is constrained by the motor saturation speed.
+
+For the propellers, this saturation speed should be approximately 41% higher than the hovering speed (Cutler et al., 2011).
+
+The propellers’ rotational speed when hovering, can be found by solving Eqs. (81)–(87) for equilibrium point: wH=mg4bt12
+
+PARAGRAPH
+
+Consequently, the speed of each rotor should agree with the following constraint: g52x̃:wi≤0.41mg4bt12
+
+PARAGRAPH
+
+Finally, we formulate the goals of the flight control systems as optimization objective functions.
+
+The first control objective can be defined as the minimization of a linear combination of the settling times for altitude and attitude control systems, where the settling time, Ts, is the time required by the response to reach and remain steady within the specified ranges of 2% and 5% of its final value.
+
+The same type of objective is also considered for the system’s rise time, Tr, and maximum overshoot, MP.
+
+Thus, we have: C1x̃=αs1Tsϕx̃+αs2Tsθx̃+αs3Tsψx̃+αs4Tszx̃,C2x̃=αr1Trϕx̃+αr2Trθx̃+αr3Trψx̃+αr4Trzx̃,C3x̃=αP1TPϕx̃+αP2TPθx̃+αP3TPψx̃+αP4TPzx̃, where αsi, αri and αPi are the objective function coefficients defined by the designer for settling time, rise time and maximum overshoot, respectively.
+
+Fig. 10 illustrates the properties of the flight control system and an example of the initial and desired control system responses.
+
+PARAGRAPH
+
+Additional constraints on the flight control systems are imposed with respect to the system’s phase margin and gain margin in order to guarantee performance and robustness as follows: g53x̃:GMx̃>6dBg54x̃:PMx̃>45deg.
+
+SECTION
+
+Visual servoing system objectives
+
+PARAGRAPH
+
+When designing the visual servoing system, the first objective is to minimize the index of the feature error.
+
+Here, we use the integral squared error (ISE) as follows: V1x̃=ISEv=∫0tfst−s∗2dt.
+
+PARAGRAPH
+
+The overshoot and settling time in reaching the desired image feature positions are also indices, which should be minimized for the visual servoing system.
+
+Thus, as a second objective we need to minimize the following: V2x̃=MPVSx̃.where MPVS is the maximum overshoot for the visual servoing control system.
+
+PARAGRAPH
+
+One structural constraint imposed on the physics of the visual servoing system is the distance b between the focal points of the cameras in the stereo vision system: g55−56x̃:5≤b≤20cm
+
+SECTION
+
+System-level objectives
+
+PARAGRAPH
+
+From a system-level perspective, various performance indices can be considered as the objective functions to be optimized.
+
+Here, we consider two energy-related measures to express the behavior of the system.
+
+First, we try to solve for a set of system design variables that minimize the consumption of energy by the four rotors.
+
+This can be described as a summation of the rotor speeds during all instances of flight.
+
+Accordingly, we have: O1x̃=∫0tf∑iwidt,where tf is the flight time.
+
+PARAGRAPH
+
+Moreover, the operational time is an indicator of the endurance of the system in a flight.
+
+A common formulation of the operational time, as described below, is a measure we would like to maximize: O2x̃=−topx̃=−mbatCbatPe[s]where mbat is the battery mass and Cbat is the battery capacity.
+
+PARAGRAPH
+
+By using the model of the adapted system and making some simplifications, it is possible to analyze the longitudinal dynamic stability of the system for near-hover conditions where the motion of the system is largely decoupled in each axis (Prouty, 1995).
+
+Due to the assumed symmetry of the quadrotors, the important attitude dynamics can be described by a single equation.
+
+Here, an analysis of the natural stability of the system’s dynamics is presented to provide additional system-level constraints.
+
+The necessary simplifying assumptions are:
+
+PARAGRAPH
+
+The system differential equations in terms of stability derivatives in x and θ are (Pounds et al., 2006; Prouty, 1995): mẍ+∂x∂ẋẋ+∂x∂θθ−mgθ=0,∂M∂ẋẋ−Iyyθ̇+∂M∂θθ=0, where M is the pitch moment.
+
+Using Routh’s Discriminant, the stability of the system can be assessed for varying physical parameters.
+
+The characteristic equation is given by the polynomial in the form of As3+Bs2+Cs+D=0: s3−1m∂x∂ẋ+1Iyy∂M∂θs2+gIyy∂M∂ẋ=0
+
+PARAGRAPH
+
+The stability derivatives can be presented as system-level design constraints: g57x̃:1m∂x∂ẋ+1Iyy∂M∂θ>0,g58x̃:gIyy∂M∂ẋ>0.
+
+SECTION
+
+PARAGRAPH
+
+Quadrotor detailed design implementation - Optimization results
+
+PARAGRAPH
+
+In this section, we describe the proposed method of detailed design for a test case of redesigning a commercial quadrotor UAV known as the AR.
+
+Drone.
+
+Fig. 11 shows the structure of this benchmark system.
+
+In the beginning, we need to specify the design variables for which we want to search the design space and the design parameters which are assumed constant during the process.
+
+The following equations present a list of design variables and parameters and Table 1 lists these design parameters with their corresponding values and units which have been partially adopted from (Krajník et al., 2011; Li, 2014; Puerta et al., 2012). x=x1,x2,…,x12T=rL,L,rH,LH,Ixx,Iyy,Izz,b,λv,Kp,Ki,KdT,p=mR,mbat,ρcf,bt,d,Jm,km,ke,R,γ,rrot,Ap,ρa,CT,CH,CD,CM,fc,E,SF,σt,β,CbatT.
+
+PARAGRAPH
+
+Now, it is essential to specify our implementation parameters of the optimization algorithm described in Section 4.
+
+Table 2 shows the best-constrained PSO parameters used in the proposed detailed design method and Table 3 shows the constrained handling penalty coefficients, described in Eq. (21), for different groups of design constraint functions.
+
+PARAGRAPH
+
+Moreover, to model the interactions and relative importance of criteria involved in the detailed design, we need to specify the fuzzy measures and indices based on the method described in Section 4.
+
+The mechanism used to assign the fuzzy measures to each criterion and sub-criterion from various domains has been depicted in Fig. 2.
+
+Table 4 shows the results of the identification of fuzzy measures based on the Sugeno λ-method, where: μstructure,μcontrol,μaero,μvisual,μsyslevel=μ1,μ2,μ3,μ4,μ5.
+
+PARAGRAPH
+
+Tables 5–7 present the fuzzy measures for the objective functions for each subsystem.
+
+PARAGRAPH
+
+Based on the fuzzy measures obtained using the identification algorithm, we attain the following resulting interaction and importance indices: I=ϕ1I12I13I14I15I21ϕ2I23I24I25I31I32ϕ3I34I35I41I42I43ϕ4I45I51I52I53I54ϕ5=0.206−0.0078−0.0050−0.00610.0085−0.00780.224−0.0055−0.00670.0093−0.0050−0.00550.149−0.00420.0060−0.0061−0.0067−0.00420.1770.00730.00850.0093−0.00600.00730.244Is=ϕ1sI12sI13sI21sϕ2sI23sI31sI32sϕ3s=0.29050.0117−0.00720.01170.4386−0.0109−0.0072−0.01090.2709Ic=ϕ1cI12cI13cI21cϕ2cI23cI31cI32cϕ3c=0.3822−0.0163−0.0191−0.01630.2846−0.0142−0.0191−0.01420.3332Ia=ϕ1aI12aI21aϕ1a=0.54−0.02−0.020.46Iv=ϕ1vI12vI21vϕ1v=0.525−0.05−0.050.475Io=ϕ1oI12oI21oϕ1o=0.685−0.03−0.030.315
+
+PARAGRAPH
+
+Using the parameters described in Tables 1–7 and Eqs. (60)–(67), the proposed PSO algorithm for detailed design was executed using the MATLAB Optimization and Global Optimization toolboxes as well as a multiobjective PSO implementation (MOPSO) by (Coello et al., 2004).
+
+The optimization process was carried out for a fully connected swarm topology while the swarm size and maximum number of iterations were varied.
+
+While Table 8 shows the original specifications of the AR.
+
+Drone 2, Tables 9–10 present the results from the proposed detailed design algorithm.
+
+Here, the controller gains are Kp=kpϕ,kpθ,kpψ,kpz,Ki=[kiϕ,kiθ,kiψ,kiz] and Kd=[kdϕ,kdθ,kdψ,kdz].
+
+With each described PSO configuration, Tables 11–12 show the values for the design objectives and also the final normalized value of the overall objective function.
+
+It is worth noting that we have considered αs=0.3,0.3,0.2,0.2, αr=[0.3,0.3,0.2,0.2] and αP=[0.27,0.27,0.27,0.19] as the objective function coefficients for the settling time, rise time and maximum overshoot, respectively.
+
+PARAGRAPH
+
+SECTION
+
+Simulation
+
+PARAGRAPH
+
+In order to visualize the results achieved in the optimization algorithm and to observe the effectiveness of the obtained system’s variables, we have built a simulation model based on the derived mathematical model for the overall system and each subsystem.
+
+Then, we used SIMULINK to integrate all the subsystems and test the integrated final model when performing a specific task.
+
+The testing scenario for the quadrotor was to start flight at an altitude of z=7.0(m), detect a moving target on the ground and follow it for a distance of 5(m) at a maximum velocity of 0.5(m s−1) and at an altitude of z=4(m), and finally approach and intercept the target on the ground.
+
+The target is located using four feature points to be tracible with the visual servoing system.
+
+Fig. 12 describes the test scenario in the simulation model.
+
+PARAGRAPH
+
+Figs. 13 shows the step response of the original AR Drone compared to the ones obtained by using the optimization results for attitude and altitude control systems.
+
+Moreover, Fig. 14 shows the tracking error results for the visual servoing system.
+
+Fig. 15 illustrates the image feature trajectories during the interception sequence.
+
+Finally, Fig. 16 shows the quadrotor velocity screws during the visual tracking and interception.
+
+PARAGRAPH
+
+From the results listed in Tables 11–12 and also Figs. 13–16, it can be inferred that with regards to most objective functions, system performance is improved by using the proposed detailed design algorithm.
+
+Moreover, using a larger swarm size and more iterations, the results are refined.
+
+The results demonstrate that we have better performance with regards to flight control and visual servoing systems throughout the optimization process.
+
+From the step response graphs, we can observe that the rise time, settling time and maximum overshoot are all decreased throughout both optimization runs.
+
+The image feature tracking errors show less oscillations in the second attempt; as well, the main frame translational velocity components start with relatively lower speeds during the visual tracking process.
+
+The visual servoing steady state error for both executions converges to zero, but it occurs earlier for the second system.
+
+The results also demonstrate that the image feature trajectories are smoother, with less unnecessary motions, in the system with the results of the second optimization.
+
+The smoothness of the trajectories can be seen in the image plane trajectories (Fig. 15).
+
+PARAGRAPH
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+In this paper, a fuzzy-based particle swarm optimization (PSO) algorithm has been created and integrated into a multiobjective design framework for mechatronic systems.
+
+Our proposed methodology is then applied to the detailed design and optimization of a vision-guided quadrotor UAV system and the results are presented.
+
+Since the PSO is a gradient-free method and can solve discontinuous, multi-modal and non-convex problems, it is a suitable tool to be incorporated into engineering design frameworks.
+
+Using the proposed fuzzy-based method, all the design criteria and objectives from various disciplines and subsystems can be integrated into a single performance index, while considering the interactions and correlations among these objectives.
+
+Furthermore, this design methodology offers an integrated, concurrent, and system-based viewpoint to mechatronic design, which differs from the non-optimal sequential design methodologies.
+
+The detailed design results and related computer simulations show the ability of the proposed method to find solutions for an optimal mechatronic design.
+
+In addition, the use of the proposed multi-level objective aggregation highlights the possibility of distributing the objective function evaluations in multiple computers or even building upon a multi-agent platform; this will be the subject of further investigation.

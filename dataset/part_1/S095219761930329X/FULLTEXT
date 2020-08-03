@@ -1,0 +1,931 @@
+10.1016/j.engappai.2019.103427
+
+FULLTEXT
+
+TITLE
+
+Stochastic parallel extreme artificial hydrocarbon networks: An implementation for fast and robust supervised machine learning in high-dimensional data
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Machine learning is continuously releasing its power in a wide range of applications.
+
+Large and big data paradigms allow these algorithms to make more accurate and timely predictions; but it carries a cost that involves challenges in model scalability and distributed computing.
+
+Moreover, machine learning and data mining tasks in big data includes different nature of inputs that typically exhibit high dimensionality, e.g. more than 1000 features, far from current acceptable scales computing in a single machine (Bekkerman, 2012).
+
+PARAGRAPH
+
+Machine learning can be characterized by the nature of learning feedback, target of learning tasks, and timing of data availability.
+
+In many different domains, data have highly nonlinear representations that nature-inspired models can easily capture, outperforming simple models.
+
+However, these machine learning models require to learn thousands, even millions, of model parameters that classical techniques like gradient descent algorithms (GDA) do not find feasible solutions (Bengio, 2012).
+
+PARAGRAPH
+
+Falling into local optimum solutions is one of the most frequent limitations of GDA when training machine learning algorithms (Bengio, 2012).
+
+In addition, oscillations near to valley-shapes of the search space slows down the convergence of the algorithms (Qian, 1999).
+
+In this regard, literature reports different modifications to GDA.
+
+For example, one of first attempts is the inclusion of a momentum term to reduce the oscillation and improve the convergence (Qian, 1999), as developed in the Nesterov accelerated gradient (Yurii, 1983) that predicts future steps in the gradient that accelerates the procedure.
+
+Adaptive subgradient methods for online learning and stochastic optimization (Adagrad) (Duchi and Singer, 2011) outperforms the optimization process in sparse spaces, but the auto-updating in its parameters becomes inefficient after several iterations.
+
+For instance, in Lin et al. (2019), Adagrad method is used to improve recognition of facial expressions.
+
+An improvement of Adagrad is Adadelta/RMSprop (Zeiler, 2012) which restricts the parameters in the first steps to keep it effective.
+
+An alternative method is Adam (Kingma and Ba, 2014) that adapts its parameters and performs bias-correction that improves its performance in comparison to Adadelta/RMSprop.
+
+Its main advantages are related to low computational complexity requirements, reduced number of parameters, and its suitability for efficient resolution of complex problems.
+
+This approach is currently applied for improving climate-affected image resolutions (Zhang et al., 2019), on deep learning concepts to address electrocardiogram-based pulse detection problems (Elola et al., 2019), or identification of cardiac arrhythmia through the use of intelligent models (Hannun et al., 2019).
+
+Furthermore, stochastic gradient descent (SGD) methods (Konecny et al., 2016; Robbins and Monro, 1951) addresses the issue of high computational cost by having much faster convergence (Sharma, 2018).
+
+In machine learning, SGD solve problems related to convolutional neural networks efficiently.
+
+Noteworthy, there are models in the literature that report the usage of SGD like in Zhang et al. (2015a) that deals with scene identification and classification, in Pinckaers et al. (2019) in which the authors proposed a model dealing with problem-solving in prostate cancer identification, or in Mall et al. (2019) where the authors investigated the identification of breast cancer in mammography exams.
+
+Finally, in the identification area of real-world image denoising (Chen et al., 2019), the stochastic approach to optimization seeks to solve problems with complex images.
+
+PARAGRAPH
+
+On the other hand, meta-heuristics optimization algorithms are useful in a wide range of applications because of their characteristics (Marini and Walczak, 2015; Zhang et al., 2015b): they are based on simple ideas for easy implementation; they are able to find optimal neighborhood solution; and they can be implemented in different problem domains.
+
+Moreover, meta-heuristic optimization algorithms can overcome the difficulties of falling into local optimum solutions (Sharma, 2018), in comparison with GDA.
+
+PARAGRAPH
+
+For instance, there are the population-based optimization methods, in which possible solutions are represented by individuals.
+
+They are typically inspired on social behavior of animals and other entities.
+
+These meta-heuristic optimization algorithms generates a set of candidates that traverse the search space to find optimal solutions.
+
+At each step, these individuals share information to follow the best solution found so far.
+
+Mechanisms like cooperation, organization and decentralization of the individuals allow emerging intelligence in the population, so near-optimal solutions can be reached out (Dorigo and Birattari, 2010; Mirjalili et al., 2014; Xu et al., 2018).
+
+As an example of nature-inspired population-based optimization algorithm is particle swarm optimization (PSO).
+
+It is a heuristic global optimization method based on swarm intelligence.
+
+It aims to simulate the biological behavior of fish schooling and bird flocking (Xu and Yu, 2018).
+
+PARAGRAPH
+
+Recently, artificial hydrocarbon networks (AHN) –a supervisedlearning method inspired on organic chemical structures and mechanisms– have shown improvements in predictive power and interpretability in comparison with other well-known machine learning models, such as neural networks and random forests (Ponce et al., 2014a; Ponce and Martínez-Villasenor, 2017a).
+
+However, AHN are currently very time-consuming and are not able to deal with big data.
+
+Big data is mainly characterized by the amount of information that can be process, the speed of data generation and the variety in data involved.
+
+Existing machine learning algorithms need to be adapted to profit the advantages of big data and process more information efficiently.
+
+PARAGRAPH
+
+The original AHN model uses a gradient-based learning algorithm that, due to its complexity, hinders the scalability of the model.
+
+Regarding scalability, as the input dimensionality of real-world applications increases, the execution time of the training phase grows dramatically.
+
+This training algorithm coupled with the AHN model has shown favorable results and properties in regression and classification problems, such as: stability, robustness, packaging data and parameter interpretability (Ponce et al., 2014a; Ponce and Martínez-Villasenor, 2017a).
+
+PARAGRAPH
+
+To overcome the above limitations regarding to the gradient-based training algorithm implemented in AHN (i.e. falling into local optimum solutions), we consider using meta-heuristic optimization methods.
+
+Specifically, optimization algorithms have been incorporated to machine learning models for their ability to approximate high dimensional functions.
+
+They also achieve measurable accuracy and precision with gradient-free optimization approaches, making it easier to compute on real-world problems.
+
+From these algorithms, meta-heuristic approaches have yielded especially accurate results for classification and regression tasks (Mirjalili, 2015).
+
+However, meta-heuristic algorithms tend to increase computational cost if they are based on population exploration.
+
+To minimize the impact of meta-heuristic approximations on the training phase, distributed computing frameworks and parallel strategies have been implemented.
+
+While distribution strategies look to divide the tasks in numerous executors that compute the algorithm on a portion of the data set, parallelism strategies look to use all available cores to enable multi-threaded execution (Bekkerman, 2012).
+
+PARAGRAPH
+
+From the above, in this paper, we introduce the stochastic parallel extreme artificial hydrocarbon networks (SPE-AHN), an algorithm for fast and robust training of supervised AHN models in high-dimensional data.
+
+This training algorithm comprises three key components: (i) the implementation of the generalized inverse for one-shot learning in a subset of the model parameters, (ii) a parallel-computing approach based on the well-known particle swarm optimization (PSO) algorithm for near optimal convergence learning in the remaining model parameters, and (iii) a stochastic learning approach for consuming large data.
+
+PARAGRAPH
+
+To test the performance of the proposed SPE-AHN algorithm, we conducted three experiments with synthetic and real data sets, varying different parameters such as the number of samples and the number of features.
+
+These experiments were conceived to demonstrate the feasibility of SPE-AHN for training AHN models, fast and robust.
+
+Furthermore, we present two case studies with real data to validate our approach.
+
+The first case study (i.e. a regression problem) considers predicting the deployment and adoption of solar-panels in United States of America.
+
+The second case study (i.e. a classification problem) refers to classify different types of human falls and daily activities for healthcare monitoring.
+
+Two public databases were occupied for this purpose.
+
+As shown in the results, the usage of SPE-AHN allows to obtain AHN-models that improve the machine learning models employed in the original works in each of the case studies.
+
+PARAGRAPH
+
+The contribution of this work relies on the implementation and evaluation of hybrid models for training AHN faster and with same reliable, compared to the original training algorithm, on high dimensional data.
+
+PARAGRAPH
+
+We anticipate our new training algorithm to be useful in many applications of AHN like robotics, finance, medical engineering,aerospace, and others, in which large amounts of data (e.g. big data) is essential.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+Section 2 describes the supervised learning AHN method, the original training algorithm and the current issues.
+
+Section 3 formally introduces the proposal in detail.
+
+After that, Section 4 describes three experiments to support the advantages of the proposed method, while Section 5 summarizes two case studies in which the proposed method is implemented for regression and classification problems.
+
+Section 6 includes advantages and limitations of the proposal.
+
+Lastly, Section 7 concludes the work.
+
+SECTION
+
+Artificial hydrocarbon networks
+
+PARAGRAPH
+
+Artificial hydrocarbon networks (AHN) is a supervised machine learning method firstly proposed by Ponce and Ponce (2011).
+
+It aims to model data using the inspiration of carbon networks, simulating the chemical rules involved within organic molecules to represent the structure and behavior of data (Ponce et al., 2014a, 2016a).
+
+PARAGRAPH
+
+This method inherits from a general framework, i.e. artificial organic networks (Ponce et al., 2014a), that proposes to build artificial organic models, including: (i) a graph structure related to their physical properties, (ii) a mathematical model behavior related to their chemical properties, and (iii) a training algorithm that finds suitable parameters for the model.
+
+The main property of artificial organic networks is packaging information in modules called molecules (Ponce et al., 2014a).
+
+These packages are then organized and optimized using heuristic mechanisms based on chemical energy, defined in the training algorithm.
+
+Actually, artificial organic networks and the algorithms designed under this framework, e.g. AHNs, allow: modularity and organization of data, structural stability of data packages, and inheritance of packaging information.
+
+The AHN method has several properties very useful when considering regression and classification problems.
+
+See Appendix for details on these properties and related applications reported in literature.
+
+SECTION
+
+Description of the AHN method
+
+PARAGRAPH
+
+AHN is a supervised learning method that loosely simulates the chemical interactions of hydrocarbon molecules.
+
+For readability,Table 1 summarizes the description of the chemical-based terms and their meanings used in the AHN technique introduced below (Ponce et al., 2016b, 2014a).
+
+PARAGRAPH
+
+This method is only composed of hydrogen and carbon elements that can be linked together with up to one and four atoms, respectively (see Fig. 1).
+
+The basic unit information is called CH-molecule, or simply molecule, and it is formed when one carbon atom is linked with 1≤k≤4 hydrogen atoms, denoted as CHk.
+
+Generally speaking, one molecule models a chunk of data in its parameters (hydrogen and carbon atoms) and configuration.
+
+The molecule has a structural representation, i.e. configuration, as shown in Fig. 1, and a chemical behavior.
+
+Mathematically, the behavior φ of a molecule with k hydrogen atoms is expressed as in (1); where, σ∈Rn is called the carbon value, Hi∈Rn is the ith hydrogen atom attached to the carbon atom, and x=(x1,…,xn) is the input vector with n features. φ(x,k)=∑r=1nσr∑i=0k≤4Hirxri
+
+PARAGRAPH
+
+Two or more unsaturated molecules, i.e. those with hydrogen atoms less than 4, can be joined together.
+
+In AHN, this new structure is called compound.
+
+Different compounds have been defined in literature (Ponce et al., 2014a, 2015b, 2014b).
+
+The simplest one is the saturated and linear chain of m molecules.
+
+It is composed structurally of two CH3 molecules and (m−2) CH2 molecules, as shown in Fig. 1.
+
+The behavior ψ of a saturated-and-linear compound is defined as (2); where, φj is the behavior of the jth associated molecule that represents a subset Σj of the input x such that Σj={x|argminj(x−μj)=j}, and μj∈Rn is the center of the jth molecule (Ponce et al., 2016b; Ponce and Martínez-Villasenor, 2017a).
+
+In fact, Σj1∩Σj2=0̸ if j1≠j2. ψ(x)=φ1(x,3)x∈Σ1φ2(x,2)x∈Σ2⋯⋯φm−1(x,2)x∈Σm−1φm(x,3)x∈Σm
+
+PARAGRAPH
+
+Compounds can interact among them in definite ratios αt, so-called stoichiometric coefficients or weights, forming a mixture S(x).
+
+It is represented as shown in (3); where, c represents the number of compounds in the mixture and αt is the weighted factor of the tth compound (Ponce et al., 2014a).
+
+S(x)=∑t=1cαtψt(x)
+
+PARAGRAPH
+
+Formally, an AHN is a mixture of compounds (see Fig. 1) each one computed using a chemical-based heuristic rule, expressed in the so-called AHN-algorithm (Ponce et al., 2014a; Ponce and Ponce, 2011; Ponce et al., 2015b).
+
+Literature reports extensive usage of AHN with a single saturated-and-linear compound (Ponce and Ponce, 2011; Ponce et al., 2014a,b, 2016b,a; Ponce and Martínez-Villasenor, 2017a).
+
+In this work, Algorithm 1 represents the simplest training algorithm (original-AHN), see Appendix for more details.
+
+SECTION
+
+Issues on the training algorithm
+
+PARAGRAPH
+
+The original-AHN training algorithm has reported well performance in predictive power for low-dimensional input spaces, and large training time for computing suitable parameters in the model (Ponce and Martínez-Villasenor, 2017b; Ponce, 2019).
+
+These two issues are mainly due to: (i) the hierarchical training, that it requires firstly to find optimal parameters in molecules and then to update the center of molecules; (ii) the split of data, that it is performed each time the center of molecules are recalculated; and (iii) the usage of QR-factorization for solving LSE in molecules, that it lacks of effectiveness while increasing the dimensionality in the inputs (Ponce et al., 2016b,a; Ponce, 2014; Schwarz, 1973).
+
+In that sense, other mechanisms for training AHN are required, as the one proposed following.
+
+SECTION
+
+Stochastic parallel extreme artificial hydrocarbon networks
+
+PARAGRAPH
+
+In this section, we present our proposal of stochastic parallel extreme artificial hydrocarbon networks (SPE-AHN), an algorithm for fast and robust training of AHN.
+
+This proposal is a hybrid method that comprises three key components: (i) generalized inverse for learning parameters in molecules, (ii) parallel-computing based meta-heuristic optimization for near optimal convergence of centers of molecules, and (iii) stochastic learning for consuming large data.
+
+Fig. 2 shows the block diagram of the proposed training algorithm.
+
+Following, details about these components and the proposed training algorithm are presented.
+
+SECTION
+
+PARAGRAPH
+
+Generalized inverse and inspiration on extreme learning machines
+
+PARAGRAPH
+
+In previous works, original-AHN have reported difficulties for large dimensionality data and over-fitting (Ponce et al., 2016b,a; Ponce, 2014).
+
+Then, there is a necessity to improve the robustness and reliability of the algorithm for large datasets.
+
+In that sense, we propose to use the generalized inverse (i.e. the Moore–Penrose pseudo-inverse) (Lu et al., 2015) in the LSE method for learning parameters in molecules.
+
+This action takes place as inspiration in extreme learning machines (ELM) proposed by Huang et al. (2006b).
+
+PARAGRAPH
+
+In a nutshell, ELM is a training approach with low computational complexity, proposed by Huang et al. (2006b), that aims to be an alternative for those learning models based on iterative computing for parameter adjustments, i.e. back-propagation for neural networks (Rumelhart et al., 1986).
+
+To overcome the iterative process, ELM was proposed to avoid repetitive adaptation in learning.
+
+PARAGRAPH
+
+In a single layer neural network, it considers one hidden layer with random parameters and one output layer in which weights are solved analytically using LSE.
+
+From that, the number of attributes to be calculated decreases significantly, making the solution more robust to learn (Huang et al., 2006b).
+
+Moreover, it was proved that ELM is an effective universal approximation model (Huang et al., 2006a) when using as supervised learner.
+
+For instance, applications of ELM can be found in Henríquez and Ruz (2019), Chin and Ji (2018), Wang and Han (2015), Raghuwanshi and Shukla (2018), Wang et al. (2017), Geng et al. (2017), Nobrega and Oliveira (2015), Hu et al. (2017), Lu and Kao (2016), Yu et al. (2016) and Vitor de Campos Souza (2018).
+
+PARAGRAPH
+
+In ELM, a random initialization of parameters is done firstly(Hayashi et al., 1990; Pao and Takefuji, 1992; Pao et al., 1994; Lowe, 1988).
+
+Then, given n random training samples with γ features and d associated outputs, composing pairs of type (xi,yi)i=1n∈Rγ×d.
+
+So, the ELM model described as single hidden layer feed-forward networks (SLFN) with k hidden nodes, can be described as in (4), where wj is the weight vector of the connections between the γ input and the jth hidden neuron, f(⋅) is the activation function, Γj is the weight vector of the connections between the jth hidden neuron and the d neurons at the output of the network, and θj is the bias of the jth hidden neuron. yi=∑j=1kΓjf(wj,xi,θj)i=1,…,n.
+
+The model defined in (4) can be equivalent to GΓ=Y, as shown in (5).
+
+G=f(w1,x1+θ1)…f(wk,x1+θk)f(w1,x2+θ1)…f(wk,x2+θk)f(w1,xn+θ1)…f(wk,xn+θk)n×kΓ=[Γ1,Γ2,…Γk]γ×kTY=[y1,y2,…,yn]d×nTUsing the above definitions, it is possible to find suitable elements of Γ such that GΓ=Y holds within a set of samples given for G and Y. ELM proposes to use the pseudo-inverse of G, denoted as G+, and then compute the values of Γ as expressed in (6), where AT and A−1 denotes the transpose and the inverse of A. Γ=(GT⋅G)−1⋅GTY=G+Y
+
+PARAGRAPH
+
+From the above, we propose to compute molecular parameters {Hj,σj} (i.e. hydrogen and carbon weights), assuming centers ofmolecules are fixed at this iteration.
+
+In that sense and in inspiration on ELM, molecular parameters are learned in one shot per iteration process.
+
+In details, we initialize randomly the centers of molecules μj in AHN, which it enables to compute the molecular parameters {Hj,σj} analytically.
+
+To do so, firstly consider that the behavior of a molecule φ of (1) can be equivalent to (7); where wir are the weights to be learned. φ(x,k)=∑r=1nσr∑i=0k≤4Hirxri=∑r=1n∑i=0k≤4wirxriwithwir=σrHir,H1r=1
+
+PARAGRAPH
+
+Thus, we can compute the weights wir, from the LSE method, using the Moore–Penrose pseudo-inverse A+ as expressed in (8); where wir is the element of w in row i and column r, y=[y1,…,yq]T is the set of the q samples targets, and A+ represents the generalized inverse of A=[a1,…,ai,…,aq]T in which each row-element is defined as in (9). w=A+y ai=[1,xi1,xi12,…,xi1k,…,1,xin,xin2,…,xink]
+
+PARAGRAPH
+
+Notice that this updating in molecular parameters occurs one for each molecule and that the training data is a subset Σj, as denoted in (2).
+
+After all molecules are updated, the centers of molecules can be modified and iterates until convergence.
+
+PARAGRAPH
+
+For implementation, the Moore–Penrose pseudo-inverse can be computed using singular value decomposition (SVD) (Kokkinos and Margaritis, 2018).
+
+It is more robust and reliable, and it can handle rank deficiency and near-singularity, that might occur in learning models, more efficiently than QR-factorization (Heath, 2002).
+
+SECTION
+
+Parallel-based particle swarm optimization
+
+PARAGRAPH
+
+The main procedure of the proposed SPE-AHN training algorithm is the computation of the centers of molecules using a meta-heuristic optimization.
+
+For that, we propose to use particle swarm optimization (PSO).
+
+Since it is a population-based method and it might be time consuming, we also consider parallel-computing.
+
+PARAGRAPH
+
+PSO is a population-based stochastic optimization algorithm that was proposed as the model of the intelligent behavior in bird flocking (Xu and Yu, 2018).
+
+This method is able to find a near-optimal solution to an unconstrained optimization problem based on a set of particles that encodes possible solutions and shares information related to the performance of that value solutions so far.
+
+PARAGRAPH
+
+The basic PSO with momentum, also known as standard-PSO (Zhang et al., 2015b), is defined as follows.
+
+It sets a population of N particles that represent candidate solutions.
+
+Each particle pi=(p1,…,pj,…,pD) of D dimensions records the best solution, pbest, found at iteration t.
+
+In addition, the whole algorithm records the best particle solution, gbest, found at iteration t.
+
+PARAGRAPH
+
+To move particles, each one has a velocity vi.
+
+In the standard-PSO, at each iteration t, the velocity of each particle is updated using the rule of (10), where w refers to the inertia weight, and α1>0 and α2>0 are the cognitive and social coefficients, respectively.
+
+PARAGRAPH
+
+Velocity values are bounded to velocity limits.
+
+Then, the position of all particles are updated using (11).
+
+Once again, the resultant positions are bounded by position limits of the search space. vi,j(t+1)=w×vi,j(t)+α1×ri,j1×(pbest,j(t)−pi,j(t))+α2×ri,j2×(gbest,j(t)−pi,j(t)) pi,j(t+1)=pi,j(t)+vi,j(t+1)
+
+PARAGRAPH
+
+For our proposal, we set two components of the standard-PSO: (i) the particle encoding and (ii) the objective function.
+
+On one hand, for particle encoding, we are simply representing the set of centers of molecules μj as the dimensions of the particles, such that pi=(μ1,…,μm) for all i=1,…,N (see Fig. 2).
+
+On the other hand, the objective function obj is proposed such that hydrogen and carbon values (w) are calculated using the Moore–Penrose pseudo-inverse for LSE, while fixing the center of molecules μj.
+
+After that, the error E between the response of the molecular behavior and the targets is computed.
+
+This error value is then occupied as the value of the objective function fi, such that fi= obj (pi, Σ, m).
+
+Algorithm 2 shows the objective function obj proposed.
+
+Notice that the for-loop is actually computed in parallel for improving time processing.
+
+PARAGRAPH
+
+It is remarkable to say that when standard-PSO runs, the inner calls of the objective function run in parallel (e.g. computation of molecular parameters).
+
+Moreover, objective function evaluation of particles are also proposed to run in parallel.
+
+This parallel computing is inspired in the work of Ouyang et al. (2015) in which authors presented a parallel-PSO contribution for initialization, objective function evaluation, finding the best solution (local and global), and updating of position and velocity of particles.
+
+A similar parallel-PSO was described in Manne (2016).
+
+To this end, our proposal accelerates the computation highly, as shown later in the experiments (see Section 4).
+
+Algorithm 3 depicts the implementation of the whole SPE-AHN, including the proposed parallel-PSO.
+
+More details of the standard-PSO can be found in literature (Marini and Walczak, 2015; Kiran, 2017; Zhang et al., 2015b).
+
+SECTION
+
+Stochastic learning
+
+PARAGRAPH
+
+It is well-known that population-based meta-heuristic optimization methods are very time-consuming (Wu et al., 2019).
+
+Although these types of algorithms tend to global solutions and parallel computing accelerates them, increasing the number of samples and features for machine learning could lead in heavy loads of computation.
+
+In that sense, we got inspiration from stochastic methods (Konecny et al., 2016), and particularly from the stochastic gradient descent algorithm (Robbins and Monro, 1951; Konecny et al., 2016), to improve the execution time of SPE-AHN.
+
+PARAGRAPH
+
+Consider the objective function f, parameterized by w, to be convex.
+
+It can be expressed as the average of convex functions ft, like in (12) (Konecny et al., 2016).
+
+Moreover, let w be the set of the centers of molecules p and the training data set Σ=(xt,yt) for all samples t=1,…,q, such that (13) holds.
+
+Then, the gradient ∇ft(p,xt,yt), using one training sample t, can be seen as the stochastic estimate of ∇f(p,x,y). f(w)=1q∑t=1qft(w) f(p,x,y)=1q∑t=1qft(p,xt,yt)
+
+PARAGRAPH
+
+It can be proved that ∇ft has non-vanishing variance and that the solution p can go far away from the optimal solution p∗, c.f. Konecny et al. (2016).
+
+For this issue in stochastic methods, literature has reported the usage of a subset of training samples in order to get a better estimate of the gradient (Konecny et al., 2016).
+
+PARAGRAPH
+
+To this end, we propose the usage of a subset (batch), of size 0<β≤1 (expressed in percentage), of training samples.
+
+In addition, to avoid bias and over-fitting, we also consider shuffling the batch.
+
+This stochastic action can be observed in the related evaluations of the objective function in Algorithm 3.
+
+Notice that, even though the objective function f might not be smooth (and therefore ∇f cannot be computed), the derivative-free scheme of the population-based meta-heuristic optimization method can handle the stochastic learning proposal, as experimentally shown in Section 4.
+
+SECTION
+
+Experimentation
+
+PARAGRAPH
+
+In this section, we present three experiments to demonstrate the performance of the proposed SPE-AHN algorithm.
+
+The goal of these experiments is to validate the improvement of the execution time (in training) without diminishing the predictive power (in testing) of the AHN-model.
+
+The first two experiments comprise synthetic data sets, while the third one is a public real data set.
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+The three experiments are as follows: (Experiment 1) a synthetic data set of one feature, (Experiment 2) a synthetic data of two features, and (Experiment 3) a real data set of 27 features.
+
+For the first two experiments, we change the number of samples to q=1000,10000 and 100000, and the last experiment was conducted using the whole data set (19735 samples).
+
+In each of the experiments, we vary the number of molecules (m=3,7,10,20,50 and 100).
+
+Data sets are described following:
+
+PARAGRAPH
+
+SECTION
+
+Building models
+
+PARAGRAPH
+
+We randomly split the data in 70% for training and 30% for testing, in each experiment.
+
+Then, we perform a 30-fold cross-validation, with samples randomly chosen, for each combination.
+
+For comparison purposes, we conduct the same experiments using the original-AHN (Algorithm 1), the proposed training algorithm without stochastic learning (PE-AHN) and the full-proposal SPE-AHN (Algorithm 3).
+
+PARAGRAPH
+
+The following hyper-parameters were employed in the experimentation: learning rate η=0.1 for original-AHN; population size N=100, cognitive and social coefficients α1=1.49, α2=1.49 and an adaptive inertial weight ranging in w∈[0.1,1.1] for PE-AHN and SPE-AHN; additionally, batch size β=0.1 for SPE-AHN.
+
+To this end, all the tests were performed on a computer Core™ 2 Duo CPU, 2.27 GHz with 3-GB RAM.
+
+SECTION
+
+PARAGRAPH
+
+Evaluation metrics
+
+PARAGRAPH
+
+We evaluate both the execution time and the predictive power resulting from the building models.
+
+On one hand, for the execution time, we simply measure the time (in seconds) that the training takes from the invocation of training algorithm until it returns the resulting AHN-model.
+
+We also measure the execution time that takes the process for getting the estimates, from the invocation of the prediction until it returns the values.
+
+On the other hand, for the predictive power, we measure the root-mean square error (RMSE) of the difference between the estimates yˆt and the targets yt, as in (15).
+
+RMSE=∑t=1q(yt−yˆt)2q
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+As described above, we conducted three experiments for training AHN models.
+
+Tables 2–4 show the performance of the three training algorithms (original-AHN, PE-AHN and SPE-AHN) for Experiment 1, Experiment 2 and Experiment 3, respectively.
+
+This performance evaluated the execution time and RMSE in both training and testing sets, and these metrics are presented in the form as mean ± standard deviation.
+
+For some instances, the training procedure was not finished after three days of computations, so they are marked as N/A in tables.
+
+PARAGRAPH
+
+In addition, Fig. 4 shows the log-values of training execution time when different parameters change as: the number of samples (first row), the number of molecules (second row), and the number of features (third row).
+
+In general, training execution time increases while the number of molecules, samples and features also increase.
+
+PARAGRAPH
+
+For instance, in Fig. 4 (first row) the original-AHN is the worst algorithm in terms of execution time when increasing the number of samples.
+
+As shown, larger number of samples and larger number of molecules decrease the performance of the original-AHN until unreachable training response, as in cases of Experiment 2 with m=50 and 100, or Experiment 3 with m=3,7,10,20,50 and 100.
+
+In addition, PE-AHN and SPE-AHN have slightly different performance between them; but, both of them are not too much affected by the number of features.
+
+PARAGRAPH
+
+Training execution time is very affected in dependence on the increasing number of molecules, as shown in Fig. 4 (second row).
+
+It is more visible when using the original-AHN, in any of the experiments.
+
+Moreover, the original-AHN could not train the model in Experiment 3.
+
+Besides, PE-AHN and SPE-AHN show a quasi-constant behavior when the number of molecules increases.
+
+In this case, it is evident that SPE-AHN is faster than PE-AHN.
+
+PARAGRAPH
+
+We also compared the training execution time against the number of features, as depicted in Fig. 4 (third row).
+
+Since the original-AHN did not compute complete values for Experiment 2 and Experiment 3, this graph shows the performance when the number of samples is q=19735 that corresponds to the samples of the third experiment.
+
+To show the values when the number of features are 1 or 2, we interpolated the values from Experiment 1 and Experiment 2 taking the training execution time values when the number of samples are q=10000 and q=100000.
+
+In addition, we computed predicted values of the original-AHN when features=27.
+
+To do so, we obtained a linear regression model (R2=0.829 and RMSE=1.26), for simplicity, using the information of the original-AHN in all the experiments when available.
+
+Thus, values in the graph shown in Fig. 4 (third row) should be interpreted carefully.
+
+From this graph, we can observe that the original-AHN has the worst performance in terms of the training execution time, while PE-AHN and SPE-AHN remain almost constant.
+
+However, it is clear that SPE-AHN is better than PE-AHN.
+
+PARAGRAPH
+
+From the above, SPE-AHN outperforms in terms of the training execution time, while comparing with the others.
+
+Table 5 shows a comparison of speed between the training algorithms in the worst case scenario when using the largest number of samples in each experiment.
+
+As noticed, SPE-AHN accelerates the training procedure, in a nonlinear way, in comparison with the original-AHN, while it tends to a constant ratio in contrast to PE-AHN.
+
+When the number of molecules used in AHN models are the largest (m=100) in this comparative analysis, we can conclude that SPE-AHN outperforms the training execution time over original-AHN: 136.58x using one feature, 9824.05x using two features and 531.09E + 35x using 27 features.
+
+It is remarkable to say that the last two values were computed using the linear regression model, and it might be quite different in real situations.
+
+However, the reported values can be considered of importance and worthy for comparison purposes.
+
+Similarly, SPE-AHN accelerates the training procedure against PE-AHN as follows: 6.09x using one feature, 9.42x using two features and 8.53x using 27 features.
+
+The latter results validated that our proposal increases speed up in training AHN over both original-AHN and PE-AHN.
+
+PARAGRAPH
+
+On the other hand, we also compared the training error performance.
+
+Fig. 5 shows that RMSE values increase, in each of the experiments, as the number of molecules increases.
+
+For instance, Experiment 1 shows an increasing of RMSE values for larger number of molecules, as depicted in Fig. 5 (first row).
+
+However, it is interesting to observe that larger number of samples does not influence dramatically in RMSE.
+
+Both original-AHN and SPE-AHN performed worst while PE-AHN performs better.
+
+In contrast, when we observe Experiment 2 in Fig. 5 (second row), the original-AHN performs the worst while PE-AHN and SPE-AHN show smaller RMSE values.
+
+Again, the number of samples does not impact dramatically in the training error values.
+
+Lastly, Experiment 3 shows that the number of molecules influences in the performance of the training algorithms, reaching PE-AHN the best position and SPE-AHN secondly, as shown in Fig. 5 (third row).
+
+But, RMSE values remain similar in both cases.
+
+As described earlier, the original-AHN did not computed a feasible solution for the latter experiment, so there is no comparison.
+
+PARAGRAPH
+
+From the above, observations validated that the original-AHN obtained poor performance in both execution time and error in training.
+
+In this regard, PE-AHN and SPE-AHN perform much better.
+
+To this end, there is trading off between execution time and error, as demonstrated with PE-AHN and SPE-AHN.
+
+In this regard, if batch size β=1 (i.e. PE-AHN), execution time is longer than smaller values of batch size (e.g. β=0.1 in experiments with SPE-AHN).
+
+However, larger values of β improves the RMSE values, but execution time increases as well.
+
+These experiments give strong evidence that SPE-AHN with 0<β<1 outperforms the original-AHN in both execution time and error, and SPE-AHN with β=1 improves the error significantly and shows speed up better than the original-AHN.
+
+SECTION
+
+PARAGRAPH
+
+Case studies
+
+PARAGRAPH
+
+After experimental validation of our proposal, we implemented SPE-AHN for training AHN-models in two case studies.
+
+The first one refers to a regression problem for estimating the deployment of solar-based technologies in United States of America, and the second one considers a classification problem for human fall classification using a multimodal data set combining daily activities and falls.
+
+It is important to highlight that the two data sets employed in these case studies cannot be treated by the original-AHN algorithm due to the impossibility to be trained in high dimensional data (as observed in Tables 3 and 4).
+
+SECTION
+
+Case study 1 (regression): Solar-based technologies deployment estimation
+
+PARAGRAPH
+
+This case study considers estimating the implantation of solar panel technologies at the level of the census sector, using environmental and socioeconomic factors.
+
+First, an overview of the study of photo-voltaic solar panel identification in the territory of the United States of America is presented.
+
+Then, we describe the public data set used in this work.
+
+Lastly, the experimentation and results are shown.
+
+SECTION
+
+Solar panel identification from satellite images
+
+PARAGRAPH
+
+Problems related to the generation and distribution of energy are of concern to modern society, especially that hydroelectric power plants are suffering from climatic impacts in the world, which causes the amount of water in these structures to become smaller and smaller.
+
+Alternative sources of energy are essential for the balance of energy production and for maintaining the industrial levels of highly industrialized countries.
+
+Therefore, the investment in technologies that can produce electric energy are highly encouraged in several countries in the world, where the energy source from photo-voltaic solar panels stands out (Yu et al., 2018).
+
+PARAGRAPH
+
+There are several such plates in United States of America that a recent study (Yu et al., 2018) was done for identification of these devices through satellite images.
+
+As a result, a convolutional neural network model capable of identifying solar panels in the American territory was reported.
+
+Moreover, this model related aspects not also about industrial productivity, but also on socioeconomic and environmental aspects.
+
+Analysis of results demonstrated that solar panels were adopted by people with economical issues or that live in regions with limited natural resources availability for energy generation.
+
+This study revealed the presence of nonlinear features in the above mentioned regions; thus the work, powered by the machine learning model, might help to regulatory agencies to define the best locations to invest for solar panel installation.
+
+SECTION
+
+Description of the database
+
+PARAGRAPH
+
+For this case study, we use a public data set1  originated from a collection of satellite images that previously identified photo-voltaic solar panels in the United States of America (Yu et al., 2018).
+
+The data set contains 72 537 samples (i.e. census tracts) with 167 different features about technical specifications, industrial productivity, socioeconomic and environmental indicators.
+
+Using this information, a machine learning model aims to estimate the solar panel implantation at the level of the census sector.
+
+More details about this data set can be found in Yu et al. (2018).
+
+SECTION
+
+Estimation of solar panel deployment using AHN
+
+PARAGRAPH
+
+For this case study, we trained an AHN-model using the proposed SPE-AHN training algorithm.
+
+We set the following parameters: molecules m=3 and batch size β=0.01.
+
+We computed a 10-fold cross-validation training approach using 70% training and 30% testing data, randomly selected from the data set.
+
+In addition, we compared our results with those machine learning models reported in the original work of this data set (Yu et al., 2018): linear regression (LR), multivariate adaptive regression splines (MARS), random forest (RF) and SolarForest (SF), and variants of them (see Table 6).
+
+We employed the coefficient of determination, R-squared, as metric.
+
+Table 6 shows the performance of the machine learning models in the census tract data set for solar-based technologies deployment prediction.
+
+PARAGRAPH
+
+As shown in Table 6, SPE-AHN improves the previous results reported in literature (c.f. Yu et al., 2018), in terms of the R-squared metric.
+
+It can be observed that the other models in the benchmark are ensembles or variations of pure machine learning methods, while AHN is not.
+
+Also, it is important to highlight that without the proposed SPE-AHN, the original-AHN training algorithm would not be able to obtain a feasible model due to the large number of samples and features in this data set.
+
+To this end, the SPE-AHN in the case study spent 242.4969±3.0725 s to train the AHN-model.
+
+SECTION
+
+Case study 2 (classification): Multimodal fall classification and daily activity recognition
+
+PARAGRAPH
+
+This case study considers classifying multiple types of human falls and daily activities using AHN trained with the proposed SPE-AHN algorithm.
+
+First, fall detection monitoring is briefly presented.
+
+Then, the fall data set employed for this case study is described, and lastly experimentation and results are shown.
+
+SECTION
+
+Fall detection monitoring
+
+PARAGRAPH
+
+Human activity recognition developments have been increasingly focused on healthcare and medical applications.
+
+As such, applications on critical health issues like fall detection are being further explored (Zhao et al., 2018).
+
+This issue is especially relevant in the elderly, since they are the most likely to trip, fall and sustain the most serious injuries (Hou et al., 2018).
+
+The latest developments on this issue focus on fall recognition based on motion sensor data taken from wearable sensors or smartphones; typically using integrated gyroscopes and accelerometers, and processed online (Vavoulas et al., 2017).
+
+Applications of classification methods such as support vector machines, deep learning and decision trees use data that has been previously filtered and divided into time windows to make pattern recognition easier by smoothing the motion data, thus enhancing performance of the classifier (Zhao et al., 2018; Hou et al., 2018; Hassan et al., 2018).
+
+PARAGRAPH
+
+Performance on the classification task has been observed to be good on offline and non-continuous activities, reaching more than 99% accuracy using support vector machines and decision trees; but accuracy of classification is heavily impacted when continuous activity recognition with overlapping time windows is attempted, with accuracy shown to drop up to 84% using support vector machines (Zhao et al., 2018; Hou et al., 2018).
+
+SECTION
+
+Description of the database
+
+PARAGRAPH
+
+For this case study, the database used is called UP-Fall Detection data set (Martinez-Villasenor et al., 2019).
+
+It comprises of two data sets2 : the consolidated and the feature sets.
+
+In this work, we consider the feature data set for experimentation.
+
+The latter was collected from 17 test subjects, measured from wearable sensors, ambient sensors and vision devices.
+
+The subjects were 9 males and 8 females from 18 to 24 years old without any impairment.
+
+This data set includes 11 activities: 6 simple human activities and 5 different types of human falls.
+
+The five falling types are: falling forward using hands (1), falling forward using knees (2), falling forward backwards (3), falling sideward (4) and falling sitting on a missing chair (5).
+
+The remaining six activities are: walking (6), standing (7), sitting (8), picking up an object (9), jumping (10) and laying (11).
+
+Unknown activities or falls were classified as tag (12).
+
+PARAGRAPH
+
+Data was collected from 14 devices: 6 infrared sensors at 4 Hz sampling rate, 2 cameras at 18 Hz, 1 EEG headset at 512 Hz and 5 wearable sensors located at the ankle, pocket, waist, neck and wrist of the subjects at a sampling rate ranging from 50 Hz to 100 Hz.
+
+The sampling rate of the final data set is 18 Hz (Martinez-Villasenor et al., 2019).
+
+Features extracted from the wearable and infrared sensors are summarized in Table 7, and features from vision devices were computed as described below.
+
+A windowing process was done at intervals of 1 second with overlapping of 0.5 s. Missing values were replaced with the most up-to-date values.
+
+At the end, the final data set employed in this work comprises of 28 356 samples with 1269 features, and twelve label classes were considered.
+
+PARAGRAPH
+
+As previously introduced, the data set also contains features that represent the relative motion of pixels between two consecutive images, obtained from the Horn-and-Schunck optical flow method (Horn and Schunck, 1981).
+
+Using that information, we computed the following processes.
+
+For each camera, we retrieved all image features inside a window.
+
+These features are the horizontal and vertical relative movements in the scenes, known as u and v respectively.
+
+These u and v components are two numeric matrices with the same size of the original images.
+
+For interpretability, we combined these two components resulting in the magnitude of the relative movement as shown in (16), where d is the resultant matrix of size equals to the original image. di,j=ui,j2+vi,j2
+
+PARAGRAPH
+
+We, then, resized the resultant matrix d from 640 × 480 to 20 × 20 size.
+
+After that, we reshaped matrix d in a row vector of 400 elements.
+
+Lastly, all these row vectors from image features inside a window were averaged.
+
+Thus, a 400-row vector was obtained for each window, representing the features for images.
+
+PARAGRAPH
+
+To this end, we aggregated the final feature data set comprising the features from sensors (wearables and ambient ones) and the features from the two cameras.
+
+SECTION
+
+Fall classification using AHN
+
+PARAGRAPH
+
+For this work, we trained an AHN-model using the proposed SPE-AHN training algorithm.
+
+We set the following parameters: molecules m=5 and batch size of β=0.01.
+
+Since AHN is mainly for regression, we included a soft-max function (He et al., 2018) at the output of the AHN, so that classification can be performed easily.
+
+This soft-max function is expressed as (17), where the output yˆ∈Ro is a zero-vector of indexes with value 1 in the position that represents the class of the human activity/fall, and ψi(x) is the ith response of the AHN-model. yiˆ=exp(ψi(x))∑i=1oexp(ψo(x))
+
+PARAGRAPH
+
+We adopted the 10-fold cross-validation training approach mainly used in fall detection systems (Medrano et al., 2014; Ofli et al., 2013).
+
+At each fold, 70% of training and 30% of testing data were randomly selected from the feature data set.
+
+In addition, we built eight machine learning models recognized in fall detection systems (Kozina et al., 2013; Igual et al., 2015; Bulling et al., 2014; Teleimmersion Lab, 2013; Ofli et al., 2013; Medrano et al., 2014; Mir and Nasiri, 2019; Ji Zhu et al., 2009): random forest (RF), support vector machines with linear kernel (SVM-L), support vector machines with radial basis function kernel (SVM-RBF), twin support vector machines with linear kernel (Twin-SVM-L), twin support vector machines with radial basis function kernel (Twin-SVM-RBF), AdaBoost of decision trees-based ensemble, multi-layer perceptron (MLP) and k-nearest neighbors (kNN).
+
+Five metrics were also evaluated (Martinez-Villasenor et al., 2019): accuracy, precision, sensitivity, specificity and F1-score.
+
+Table 8 shows the performance of the machine learning models for fall classification.
+
+These results were sorted based on the F1-score, a typical metric employed in fall classification, that measures the balance between precision and sensitivity.
+
+PARAGRAPH
+
+It can be observed that AHN-model computes the best metrics, including F1-score.
+
+MLP is the second best machine learning model, and it is interesting that both Twin-SVM models and the AdaBoost ensemble ranked the lowest.
+
+Two important metrics in fall classification are: accuracy that measures how well the model estimates the output classes, and specificity that measures how well the model estimates a non-output class.
+
+In both cases, AHN got the best scores (97.11% and 99.73%, respectively).
+
+PARAGRAPH
+
+This case study validated that our proposed SPE-AHN training algorithm can build AHN-models with a very competitive predictive power (e.g. in terms of accuracy, precision, sensitivity, specificity and F1-score); but also, it can handle large amount of data (28 356 sample-pairs of 1269 features and 12 output-vector classes).
+
+To this end, SPE-AHN took 413.0969±14.6461 s to train the AHN-model.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+From the experimentation and results presented above, it can be observed that SPE-AHN has several advantages, as follows.
+
+First, SPE-AHN accelerates the training procedure in AHN models.
+
+As noticed, it outperforms the training execution time in comparison with the original-AHN and PE-AHN algorithms.
+
+Moreover, SPE-AHN allows AHN models to work with large data sets in both samples and features.
+
+This is the first time AHN reported suitable trained models for large data sets.
+
+Moreover, as shown in Fig. 4, SPE-AHN improves the training performance when dealing with large number of molecules, samples and features.
+
+It also improves the training error in contrast to the original-AHN; and the SPE-AHN with β=1, i.e. PE-AHN, gets the best case scenarios in training error performance.
+
+Case studies demonstrated the feasibility of SPE-AHN to deal with large data sets and the improvement in performance over the machine learning models developed in the original works of the problems.
+
+As highlighted previously, obtaining the results of these case studies would not be possible without the improvements in the original-AHN training algorithm as the SPE-AHN does in this proposal.
+
+PARAGRAPH
+
+It is also remarkable to say that this work combines three methods, to say, the generalized inverse, the parallel-computing of PSO, and the stochastic learning approach.
+
+The main difference of this hybrid training algorithm over the independent above-mentioned methods, is that it was specifically adapted for AHN constrained to the following: (i) it needs two levels of optimization, one at the molecular parameters (i.e. solved using the generalized inverse) and the other at the center of molecules (i.e. solved using the parallel-PSO), and (ii) it needs to handle large amount of data (i.e. solved using the stochastic learning approach).
+
+As validated from the results, the main advantages of this hybrid model are: the acceleration in training AHN and the feasibility to train AHN models for high dimensional and large data, in comparison with the original-AHN training algorithm.
+
+PARAGRAPH
+
+However, it is important to consider some limitations of SPE-AHN.
+
+For instance, it is not clear how to select the optimal batch size parameter β.
+
+Throughout this work, this parameter was selected manually.
+
+Similarly, choosing the hyper-parameters of the PSO algorithm is also important.
+
+In this work, we employed values generally chosen in the literature (Marini and Walczak, 2015; Wu et al., 2019; Zhang et al., 2015b); but, a more extensive analysis should be done while implementing in SPE-AHN.
+
+Besides, SPE-AHN is based on parallel technology, thus the operating system in which it will run should be prepared for that, as well as the programming language for implementation.
+
+PARAGRAPH
+
+To this end, experimental results validated that SPE-AHN outperforms the original-AHN training algorithm in terms of execution time and error performance, allowing to obtain feasible supervised AHN models for large data sets in both samples and features.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+This work proposed a stochastic parallel extreme artificial hydrocarbon networks, an algorithm for fast and robust training of supervised AHN models in high-dimensional data.
+
+The proposed training algorithm comprised of three key components: a generalized inverse implementation for learning parameters in molecules, parallel-computing based on PSO for near optimal convergence of centers of molecules, and stochastic learning approach for consuming large data.
+
+PARAGRAPH
+
+We tested the proposed SPE-AHN method in three experiments with synthetic and real data sets, varying: the number of samples, the number of features, and the number of molecules in AHN.
+
+Experimental results validated that SPE-AHN outperforms the original-AHN algorithm in both execution time (i.e. 136.58 times in one-feature data sets, 9824.05 times in two-feature data sets, and theoretically 531.09E + 35 times in 27-feature data sets) and error.
+
+Moreover, two case studies were presented for regression and classification.
+
+In both cases, SPE-AHN improves the performance in estimation over the machine learning methods reported in the original works in each field.
+
+Thus, SPE-AHN is also able to obtain feasible supervised AHN models for large data sets.
+
+PARAGRAPH
+
+For future work, we consider an exploratory analysis about the influence of hyper-parameters in the SPE-AHN training algorithm, and the way to simplify this approach for edge computing and limited hardware resources.

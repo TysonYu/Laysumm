@@ -1,0 +1,21 @@
+10.1016/j.engappai.2019.103346
+
+ABSTRACT
+
+TITLE
+
+Fault prognostics by an ensemble of Echo State Networks in presence of event based measurements
+
+PARAGRAPH
+
+Fault prognostics aims at predicting the degradation of equipment for estimating the Remaining Useful Life (RUL).
+
+Traditional data-driven fault prognostic approaches face the challenge of dealing with incomplete and noisy data collected at irregular time steps, e.g. in correspondence of the occurrence of triggering events in the system.
+
+Since the values of all the signals are missing at the same time and the number of missing data largely exceeds the number of triggering events, missing data reconstruction approaches are difficult to apply.
+
+In this context, the objective of the present work is to develop a one-step method, which directly receives in input the event-based measurement and produces in output the system RUL with the associated uncertainty.
+
+Two strategies based on the use of ensembles of Echo State Networks (ESNs), properly adapted to deal with data collected at irregular time steps, have been proposed to this aim.
+
+A synthetic and a real-world case study are used to show their effectiveness and their superior performance with respect to state-of-the-art prognostic methods.

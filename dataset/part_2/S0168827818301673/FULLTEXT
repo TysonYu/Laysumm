@@ -1,0 +1,525 @@
+10.1016/j.jhep.2018.02.029
+
+FULLTEXT
+
+TITLE
+
+Spatial and temporal clonal evolution of intrahepatic cholangiocarcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Intrahepatic cholangiocarcinoma (ICC) is the second-most frequent type of primary liver cancer with an increasing global incidence during the past decades.
+
+Although hepatectomy is a curative treatment method for early ICC, five-year survival rates after resection varies around 30–35%.1
+
+For those in the late stage that only receive cisplatin-based chemotherapy, the median overall survival is as low as 11.7 months.2
+
+The lack of commonly accepted effective medical treatments highlights the importance of understanding ICC pathogenesis, to develop new treatment strategies.3
+
+PARAGRAPH
+
+Recently, genomic sequencing studies have provided insights into the genetic landscape of ICC.4–6
+
+The driver alterations identified in ICC may represent potential candidates for personalized targeted therapy.
+
+However, genomic alterations identified in most of these studies were obtained by single sampling in individual cases, and little is known about the spatial intratumoral heterogeneity (ITH) or temporal clonal evolutionary processes in ICC.
+
+In fact, anti-tumor drug development may require not only an understanding of genetic alterations but also an appreciation of the clonal status of driver alterations and evolutionary processes.
+
+During tumor progression, accumulating somatic mutations bestow a selective advantage on subclonal expansion, through which the fittest subclone will dominate.
+
+In turn, the presence of subclonal mutations may affect the efficacy of the targeted therapy.
+
+For example, in BRAFV600-mutant melanoma, the subclonal heterogeneity of PI3K-PTEN-AKT signaling is involved in the resistance to BRAF inhibitors.7
+
+Therefore, therapeutics targeting clonal somatic events or a combination of multiple target sites seem to be more effective.
+
+PARAGRAPH
+
+Studies adopting multiregional whole-exome sequencing (M-WES) have uncovered the complex ITH and evolutionary pattern in several types of cancer, including prostate cancer, hepatocellular carcinoma and non-small cell lung cancer.8–11
+
+Since ICC contains a large proportion of non-tumor components,12 sequencing tumor sampling directly may be confounded by low tumor purity, resulting in unexpected impacts on the accuracy of the mutational landscape and clonal structure.
+
+As a countermeasure, patient-derived primary cancer cells (PDPCs) obtained by single sampling were developed for their high purity and cell population representativeness.13
+
+Previous studies on hepatocellular carcinoma and lung cancer have shown that PDPCs can enable an accurate assessment of intratumor genetic heterogeneity and represent a potential powerful tool for drug screening.13–15
+
+PARAGRAPH
+
+To reconstruct the genome history and evaluate how clonal structure can affect therapeutic responses in ICC, we performed multiregional WES of six ICC tumors containing a total of 69 related PDPCs that represented the broad intratumor mutational spectrum.
+
+The multiregional cell culture model derived from geographical sampling allowed us to study mutation frequencies, observe clonal evolution, and correlate the evolutionary process with the therapy development of ICC.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Patients and sample collection
+
+PARAGRAPH
+
+Samples were collected from patients diagnosed with ICC who underwent curative resection without any adjuvant therapy before.
+
+All six patients were from Zhongshan Hospital of Fudan University.
+
+Patents’ clinicopathologic information are presented (Table S1).
+
+After resection, characteristic spatially separated regions of each primary tumor were collected as previously described.15
+
+Major part of each regions were subjected to primary culture, and minor parts were sent for H&E staining.
+
+Details of the establishment of PDPCs are described in the Supplementary Material.
+
+The study was approved by the Research Ethics Committee of Zhongshan Hospital, and written informed consent was obtained from each patient.
+
+PARAGRAPH
+
+WES, Sanger validation, fluorescent in situ hybridization, Immunohistochemistry, cell proliferation assays, genome-wide analysis of mutation calling, copy number alteration (CNA) and phylogenetic tree construction, and statistical analyses were all performed as described in the supplementary information.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Establishment of multiregional patient-derived primary cancer cells from ICC
+
+PARAGRAPH
+
+To illustrate ITH in ICC, fresh tissues were collected from 69 spatially distinct tumor regions (range, 7–16 per case) in six cases, who received curative resection (Table S1).
+
+In particular, ICC1239P and ICC1239R were resected from the same patient, the latter of which was a recurrent lesion after seven months of primary resection.
+
+Each sample was subjected to low-passage primary culture to generate PDPCs, followed by short tandem repeat typing identification and WES.
+
+WES achieved a mean coverage of 100X on those 69 low-passage PDPCs and matched peripheral blood samples, as well as 300X on the corresponding tumor tissues (Table S2).
+
+PARAGRAPH
+
+As the low-passage primary culture would filter out most of the non-proliferative stromal components, the average purity of PDPCs finally achieved was 94.4% (range, 67%–98%), compared to 40% (range, 20%–54%) in the tumor tissues (Fig. S1A).
+
+Thus, the high purity of PDPCs could minimize the confounding effect of non-tumor components on genomic analysis and was more conducive to building a model close to the real clonal structure.16
+
+Moreover, in each patient, the number of mutations detected in multiple PDPCs was significantly higher than that in its corresponding tissue (median, 832 vs. 312), while the number of mutations detected in the tissue with 300X sequencing depth were higher than those detected in any single PDPC with 100X depth (Fig. S1B), indicating that both multiregional sampling and higher sequencing depth could improve the efficiency of mutation detection.
+
+In addition, consistent with previous studies,13,15 there existed a similar mutation spectrum and mutation types between PDPCs and corresponding tissues.
+
+Altogether, multiregional PDPCs could cover the whole mutational landscape and clonal structure more efficiently.
+
+SECTION
+
+Spatial intratumor heterogeneity and clonal status of SNV
+
+PARAGRAPH
+
+We identified a total of 1,596 non-silent mutations, including 1,312 missenses, 85 nonsenses, 25 splice-site variants and 174 insertions or deletions in those 69 PDPCs.
+
+Sanger validation of 1,331 randomly selected non-silent somatic mutations showed a high true discovery rate (94.4%) (Table S4).
+
+The median number of non-silent mutations was 93 in each PDPC and regions from the same patients had similar numbers of mutations (Fig. 1A, Fig. S2 and Table S3).
+
+We found a high degree of spatial ITH in ICC.
+
+The median ITH index (Supplementary Method) is 60.3% (range 45.6%–71.6%), which is substantially higher than other cancers, such as esophageal adenocarcinoma (25%), non-small cell lung cancer (30%) and hepatocellular carcinoma (39%).9,15,17
+
+In addition, we found that the genetic variability increased linearly with the number of sampling regions,18 showing that more regions were needed to accurately estimate the ITH level (Fig. 1B).
+
+PARAGRAPH
+
+For each individual region, we calculated the cancer cell fraction (CCF) and classified the mutations as clonal or subclonal using Pyclone.19
+
+Notably, almost half of the mutations (median 42.8%, range 8.3%–79.4%) were classified as subclonal, implying that each individual region had high level of heterogeneity (Fig. 1C, Fig. S3).
+
+The proportion of subclonal mutations in the regions was higher than that of the cancers previously reported based on The Cancer Genome Atlas data, such as bladder cancer (∼18%), glioblastoma (∼32%) and lung adenocarcinoma (∼30%).20
+
+Remarkably, because of large variations in the variant allele frequency among regions, a number of variants detected as clonal within some tumor regions were subclonal or absent in other regions from the same patients, producing an “illusion” of clonal dominance,9,21 and these clonal illusion mutations were detected in nearly all regions (Fig. 1D).
+
+For instance, in ICC892, a missense mutation in KDM3A (pAla776Val), a member of the Jumonji C-domain-containing histone demethylases involved in cisplatin-resistance in ovarian cancer and tamoxifen-resistance in breast cancer,22,23 was estimated to be clonal in regions R2, R3 and R8 but was subclonal in the eight other regions (Fig. 1E).
+
+In fact, without multiregional WES, nearly 8% of subclonal mutations would be misinterpreted as clonal events.
+
+This misinterpretation may have serious adverse influence on the targeted therapy if only one region was used for sequencing analysis.
+
+SECTION
+
+Tumor evolution of ICC
+
+PARAGRAPH
+
+We further used Pyclone to construct a phylogenetic tree to elucidate the evolutionary trajectory of each patient19 (Fig. 2A).
+
+On the phylogenetic trees, each cluster represented a node and the branch length was proportional to the mutation numbers in the corresponding cluster.
+
+In each patient, the trunk cluster consisted of clonal mutations and occurred at an early tumor stage.
+
+The trunk mutations formed the mutational profile of the founder population, representing optimal therapeutic targets.
+
+All six patients displayed clear evidence of branched evolution.
+
+About half of the tumor regions (35/69, 50.2%) carried subclones located in only a single branch of the phylogenetic tree, once again demonstrating a high level of heterogeneity.
+
+The trunk cluster of other cancer types often held the majority of the driver genes.9,17,24
+
+However, the driver genes in ICC were scattered along the phylogenetic tree, with only a minority located in the trunk.
+
+On average, the trunk had only 4.3(15%) driver mutations and non-trunk had 24.7(85%) driver mutations.
+
+This indicated that the force to drive tumor diversity persisted along ICC evolution (Fig. 2B).
+
+Considering the heterogeneity and the complex regulating network in ICC development,4,5,25 we clustered non-truncal missense genes into multiple pathways using the KEGG database, which exhibited that cAMP signaling, Calcium signal, cGMP-PKG signal, Gap junction and ECM-receptor pathways may have a crucial role in ICC progression (Fig. 2C).
+
+We also adapted a dN/dS model to quantify the selection pressure in the tree.
+
+Although these data were still limited, dN/dS∼1 appeared to characterize somatic evolution in ICC, while the ratio in missense mutations was higher than that in nonsense mutations (Wilcoxon test, p = 0.006) (Fig. S4).
+
+PARAGRAPH
+
+The same patient could have different and seemingly functional redundant mutations in the same driver gene.
+
+This is consistent with the parallel evolution that the same genetic pathway within a tumor was independently destroyed in different tumor subpopulations.26
+
+For example, in ICC772, two separate subclonal lineages, R3 and R7, carried different USP6 driver mutations that may activate USP6 oncogenic function and affect Wnt signaling individually27 (Fig. 2E).
+
+Meanwhile, previous studies revealed that parallel evolution might also be driven by focal amplification.9,28
+
+In ICC892, the gene SMARCB1, a chromatin remodeler gene, had a trunk amplification, but was further amplified in subclonal clusters, finally resulting in copy number hyper-diversity in the tumor sub-regions.
+
+These amplifications were validated by fluorescent in situ hybridization (FISH) analysis, using two probes labeling SMARCB1 (green) and 22q12 (red) respectively (Fig. 2F).
+
+Interestingly, the amplified alleles were always the SMARCB1-mutated (p.Arg367Met) allele.
+
+PARAGRAPH
+
+When chromosome damage persists, the expression of SMARCB1 might be upregulated by multiple mechanisms, such as amplification, transcriptional and post-transcriptional regulation, while loss-of-function mutations in this gene may interfere with the actual effect of amplification.
+
+Therefore, high expression of SMARCB1 mainly reflected the high level of chromosomal instability (CIN) and might be related to ICC prognosis.
+
+Immunostaining showed a typical nuclear staining of SMARCB1 in ICC, and 63% (197/311) of patients displayed upregulation of SMARCB125 (Fig. 2G).
+
+SMARCB1 expression was independent of patients’ clinicopathologic characteristics (Table S5), and its high expression significantly correlated with dismal clinical outcome (Fig. 2H).
+
+Multivariate analysis also confirmed SMARCB1 expression as an independent prognosticator for recurrence (hazard ratio [HR] 1.37; 95% CI 1.01–1.85; p = 0.043) and survival (HR 1.59; CI 1.19–2.97; p = 0.002) (Tables S6 and S7).
+
+SECTION
+
+Temporal dissection of mutational spectrum and signatures
+
+PARAGRAPH
+
+We further analyzed the mutational spectrum based on the timeline of mutation acquisition, i.e., early trunk, late trunk and non-trunk mutations.
+
+Among all mutations, C>A transversion, C>T and T>C transitions were the predominant changes, a feature shared by hepatocellular carcinoma and ICCs.29
+
+Like previous reports in ICC,5,6 the C>T transitions in our six ICCs were enriched in CpG sites, implying a common mechanism underlying ICC pathogenesis.
+
+In addition, C>A transversion increased dramatically in non-trunk mutations, while the proportion of T>C transition decreased in non-trunk (Fig. 3A and B).
+
+PARAGRAPH
+
+To figure out the cause of such mutational shift, we analyzed the mutational signatures using DeconstructSigs to map the mutation to the COSMIC signatures30 (Fig. 6A).
+
+The signatures in the trunk and non-trunk mutation demonstrated significant differences.
+
+Corresponding to the change of C>A transversion, signature 24, observed in a subset of hepatocellular carcinoma that correlated with aflatoxin B exposure, displayed a prominent increase only in non-trunk events, especially in ICC880 and ICC1969.
+
+Additionally, the tobacco-related signature 29 was elevated in non-trunk events, consistent with the smoking history of these patients.
+
+Moreover, signature 5 was increased in four patients with ICC, but the etiology of this signature was still unknown.
+
+These ICCs could acquire different branched driver genes with similar mutational signatures, indicating the innate essence of malignancy rather than the specific mutational signature may be the predominant driver of the branch process (Fig. 3C).
+
+PARAGRAPH
+
+The distribution of signatures in the trunk was more diverse than that in the non-trunk (Fig. 3C), implying that complicated etiology may be involved in the tumorigenesis of different individuals.
+
+Signature 1, reflecting spontaneous deamination of methylated cytosines, was identified in ICC880 and ICC1969 and was significantly more prevalent in the trunk mutation.
+
+This signature was associated with ICC patient age at diagnosis, indicating these initial mutations may accumulate with age.
+
+Another tobacco-related signature, signature 4, was found in the trunk, indicating that tobacco consumption will affect the entire evolutionary process.
+
+Signature 16 was also found to be elevated in the trunk mutation.
+
+Signature 16 was linked with an exceptionally strong transcriptional strand bias for T>C mutations at ApTpN, but its etiology is still unknown.
+
+SECTION
+
+The heterogeneity of CNA and chromosomal instability
+
+PARAGRAPH
+
+We next analyzed heterogeneity at the copy number level.
+
+In contrast to the high degree of ITH in somatic mutations, CNAs showed less intratumor heterogeneity.
+
+We detected deletions on chromosomes 1p, 4q, 7q, 8p, 13q, 16q and 22q (deletion: <=1 copy number relative to ploidy).
+
+These deletions harbored well-known tumor suppressors, such as TP53 (17p13), RB1 (13q13) and ARID1A (1p36).
+
+ARID1A was identified as an ICC driver in previous genomic sequencing studies,5,6 and its inactivation was proven to promote ICC carcinogenesis.5
+
+We also noted high levels of amplification on chromosomes 6p, 7p, 8q, 9q and 12p, 22q (amplification: >= 2X ploidy).
+
+Known oncogenes, such as EGFR, CDK6, MET, MYC, HOXA9, and SALL4, were located in these regions (Fig. 4A).
+
+Circos plots of six patients were also drawn to present the CNA profiles (Fig. S5).
+
+In addition, the somatic CNAs in our cohort were compared with those in another 99 patients with ICC using an in-house algorithm based on BICseq2 and GISTIC2.0.6,31,32
+
+In total, 30 amplified segments and 20 loss segments also existed in at least one sample in our cohort, indicating a significant overlap with this dataset (Fig. 4B).
+
+Deletions of both TP53 and ARID1A were found in half of ICCs (50/99), and high frequent amplification of the aforementioned oncogenes was also observed.
+
+PARAGRAPH
+
+Remarkably, except for ICC1239 (diploid), the remaining five cases held high-ploidy karyotypes.
+
+ICC772, ICC 892, ICC1370 and ICC1969 were triploid and ICC 880 was tetraploid (Fig. 4A).
+
+The allele information of these high-ploidy tumors showed that genome doubling (GD) was shared by all regions and hence GD would be an early event in tumor progression.
+
+All the high-ploidy patients had deletion of 17p, where the tumor suppressor gene TP53 is located.
+
+Increasingly more evidence indicated that GD events were associated with increased CIN and may forecast poor prognosis.33
+
+A previous study showed that a 20% threshold of the weighted genome instability index (wGII) could accurately distinguish CIN+ from CIN− tumors.34
+
+We found that all tumor regions in our cohort demonstrated high levels of wGII (median, 0.67; range, 0.31–0.93), indicative of CIN+.
+
+Considerably higher wGIIs were detected in high-ploid (ploidy ≥3) than diploid tumors, consistent with results in colorectal cancer33 (Fig. 4C).
+
+Alternatively, studies reported that microsatellite instability existed in some ICC with a more favorable outcome and could predict the response to PD-1 blockade.35,36
+
+However, samples in this cohort showed very low MSI scores (Fig. S6).
+
+These data conformed with the model that extensive CIN occurred along with the evolution and provided sufficient fuel for clonal diversification in ICC.
+
+SECTION
+
+Timing of clonal mutations and chromosomal alterations
+
+PARAGRAPH
+
+Alterations in a number of driver genes were mostly truncal and occurred before GD, indicating their involvement in tumor initiation.
+
+For instance, other than SMARCB1, several other SWI/SNF complex genes, including SS18, PBRM1 and SMARCC1, also harbored clonal inactivating mutations in 4/6 cases, and most of them occurred before GD.
+
+In our five high-ploidy ICCs, GD was found to mainly occur later in the trunk, resulting in mutated allele copy number ≥2 for most of truncal mutations (median 83%, range, 78–89%).
+
+In other words, a significant mutational burden had already accumulated before GD in ICC.
+
+PARAGRAPH
+
+Clonal chromosomal-arm alterations were further timed by mutated allele copy number of all genes on a given arm.
+
+In the five ICC, early alterations were estimated to include the amplifications of 6p, 7p and 12p and the loss of heterozygosity (LOH) of 1p, 8p, 13q and 22q12 before GD.
+
+For example, 22q12 LOH (2+0), harboring the tumor suppressor NF2, was likely to have occurred prior to GD and promote the initiation of ICC892; Otherwise, it would require two independent hits.
+
+The copy number of 22q12 was validated by FISH analysis in regions R3, R8 and R9 (Fig. 2F, the red spot).
+
+SECTION
+
+Intrahepatic metastasis and polyclonal seeding
+
+PARAGRAPH
+
+Next, we assessed the temporal association between the primary and recurrent lesions in ICC1239.
+
+Considering that both of them shared the same clonal mutations and similar mutation spectrum, we inferred that ICC1239R was formed by the early intrahepatic metastasis from the primary tumor ICC1239P, rather than a new multi-centric tumor (Fig. 5A).
+
+If a recurrence was seeded by a single tumor cell, it should carry a series of alterations that presented in all tumor cells.
+
+However, in ICC1239R, multiple mutational clusters presented subclonally in more than one recurrent region.
+
+Thus, the recurrence would most likely come from multiple seeding by two or more distinct primary clusters, indicative of polyclonal metastatic seeding in ICC (Fig. 6B and C).
+
+The multiple seeding events could be attributed to two factors: firstly, a cooperative relationship existed among these clusters; second, early colonization was actively involved in remodeling the local microenvironment to make it conducive to later colonization.
+
+Consistently, recent studies revealed subclonal reciprocal interaction through Wnt and Notch pathways to promote cancer metastasis.37,38
+
+PARAGRAPH
+
+Moreover, ICC1239R had an equal number of clonal mutations but many fewer subclonal mutations compared to ICC1230P (Fig. S4).
+
+Many subclonal mutations in primary site, such as mutations in the genes KIAA0232 and IGF2BP3, could not be detected in the recurrence.
+
+This was consistent with the “founder effect” theory that the diversity of genome alteration in the metastases was much less than primary tumors39,40 (Fig. 5B and C).
+
+In addition, new oncogenic events occurring during metastatic progression would endow the recurring tumor with a new phenotype.
+
+Although ICCs are highly chemoresistant tumors, genetic alterations related to chemoresistance would make ICC1239R respond differently to chemotherapy.
+
+For example, a non-silent mutation in PFKP (p.Ile752Leu), a gene that potentiated cancer cell survival under metabolic stress and mediated resistance to cisplatin in ovarian cancer,41 was clonal in the region ICC1239R_R2, but undetectable in all other primary or recurrent regions.
+
+Additionally, two chemoresistance-related genes in ICC1239R_R2 exhibited copy number loss.
+
+One was a nucleotide excision repair gene ERCC2.
+
+Its deficiency would contribute to cisplatin sensitivity in urothelial cancer and non-small cell lung cancer.42,43
+
+The other was AKT2.
+
+The loss of AKT2 could lead to apoptosis via Bcl-2 downregulation and Bax upregulation, and sensitize cells to cisplatin.44
+
+Therefore, we tested the effect of cisplatin on cell viability of the primary cells derived from 1239R_R1/R2 in vitro, and the result was consistent with the genomic prediction (IC50 of R1 and R2: 11.3 μmol/L and 3.5 μmol/L, respectively) (Fig. 5D).
+
+Thus, these alterations made ICC1239R_R2 more sensitive to cisplatin-based chemotherapy than other regions.
+
+SECTION
+
+Potential target strategy for ICC treatment
+
+PARAGRAPH
+
+We next considered all alterations with available or in-development therapeutics.
+
+To maximize tumor response, the first strategy was to target clonal events in all tumor cells.
+
+In 5/6 patients, there were actionable clonal truncal mutations (see Supplementary Material).
+
+TP53 in ICC1370 and ICC880, SMARCB1 and RB1 in ICC892 were clonal in all the regions, but there were no FDA-approved drugs targeting these genes.
+
+ICC1239 had a truncal IDH1 mutation (p.Arg132Cys) and a JAK1 mutation (p.Tyr1059Cys).
+
+The IDH inhibitor ivosidenib and JAK inhibitor ruxolitinib might be used for these two mutations.
+
+ICC880 had a truncal KRAS mutation (p.Gly12Asp) and the patient may benefit from panitumumab or combinational treatment of cetuximab plus chemotherapy.45,46
+
+Except region R3, EGFR amplification was detected in all regions of ICC1969, making them potentially sensitive to gefitinib47 (Fig. S7).
+
+We selected gefitinib, an EGFR inhibitor, to test its effect on cell viability of PDPCs from ICC1969 using ICC772 cells without EGFR alterations as a control.
+
+The results showed that EGFR amplification indeed made ICC1969 cells more susceptible to anti-EGFR therapy (Fig. S8).
+
+PARAGRAPH
+
+Considering the clonal structure in the recurrence ICC1239R, adaptive therapy, an evolution-based therapeutic strategy that aimed to prolong time to progression rather than to reduce tumor size,48 would be optimal to control its progression.
+
+ICC1239_R2 was sensitive to cisplatin-based chemotherapy, and thus would cost fewer intracellular resources to maintain resistance and consequently have higher fitness than resistant cells when not treated49 (Fig. 5E).
+
+In this model, the patient may be first given targeted trunk therapy, such as ruxolitinib and ivosidenib, to dwindle the population of all clusters, followed by a non-treatment stage to allow the cell population with higher fitness (1239_R2) to expand and suppress the growth of the chemoresistant population.
+
+Next, a cisplatin-based chemotherapy in low and short burst dosage would be applied to kill most of the sensitive cells with little influence on the resistant population, this would then be withdrawn.
+
+Gradually, the resistant population would be inhibited by the sensitive population, leading to slow growth.
+
+Another round of targeted trunk therapy could be initiated again when the resistant population did progress.
+
+Adaptive strategies like adjusting the drug vacations and treatments targeting different tumor branches, in conjunction with medical imaging or liquid biopsy to monitor subclonal growth ratios, could stimulate clonal competition and restrain general tumor growth.50
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this study, we depicted an overall picture of intratumor genetic heterogeneity and unmasked the evolutionary trajectories in ICC.
+
+Our results demonstrated that multiple evolutionary mechanisms, like branch evolution and parallel evolution of late mutations, “illusion” of clonal dominance and polyclonal metastatic seeding, had important roles in ICC progression.
+
+In addition to intrinsic genetic instability, we found that extrinsic factors, such as carcinogenic exposure, smoking history, aging and others, might collectively contribute to shape intratumor genetic heterogeneity of ICC.
+
+Notably, all the tumors in our cohort carried subclonal driver alterations, stressing the importance of spatial heterogeneity in ICC on fully capturing tumor evolutionary history and on more accurately identifying driver events as attractive therapeutic targets (Fig. 6).
+
+PARAGRAPH
+
+The evolution trajectory was constructed based on somatic alterations to reflect the history of ICC development, showing that branch evolution was the dominant pattern.
+
+In fact, several targetable driver mutations, including those in JAK1, IDH1, and KRAS, were almost exclusively truncal events, which could be optional targets for devising new therapies.
+
+However, over 85% of putative driver mutations, such as ERBB2, CTNNB1, NOTH1, HIF1A, TTN, KDM3A and IKZF1,5,6,51,52 were found to be subclonal in these six ICCs.
+
+Furthermore, evidence of parallel evolution of branch alterations in both single nucleotide variants (SNVs) and CNAs was noted, and FISH-based analyses confirmed the heterogeneity of copy number changes.
+
+These driver alterations in parallel branches were relatively late events during tumor evolution and represented the constraints imposed on cancer development.
+
+Therefore, targeting parallel evolutionary events and exploiting these cancer dependencies may be a compelling approach.
+
+In a word, we can reasonably infer that the trunk mutations in ICC may just confer the fundamental ability for tumorigenesis, while the non-truncal mutations preferentially favor distinct subclonal expansions after establishment of the founding clones.
+
+PARAGRAPH
+
+Meanwhile, our study also provided information on the divergent chromosomal instability processes related to ICC evolution and their dynamics over time.
+
+GD events, a macro-evolutionary step in cancers,33 were observed in five out of six patients with ICC.
+
+In all five patients, GD events were found to occur before subclonal diversification but after acquisition of most of the early driver mutations, consistent with findings in colorectal and esophageal cancer that GD may accelerate cancer genome evolution.17,33
+
+Furthermore, we found that all tumor regions in our cohort demonstrated high levels of chromosomal instability index, along with mutations or deletions in specific genes involved in maintaining genome integrity and DNA repair, e.g. the chromatin-remodeling complex.
+
+It is worth noting that truncal mutations can be lost by later copy number deletion, which will restrict the potential of targeted truncal strategy, especially in tumors with high chromosomal instability.
+
+Consequently, these findings suggested that chromosomal instability was widespread in ICCs at both early and late stages and fueled the evolutionary process.
+
+As a potential therapeutic strategy, reduced genome instability may limit the ensuing heterogeneity and adaptability of cancer cells to treatments.
+
+PARAGRAPH
+
+Interestingly, in ICC1239 with primary and intrahepatic metastatic tumors, the clear evidence of polyclonal metastatic seeding supported tumors existing as symbiotic communities of multiple clones that were maintained during metastasis.53
+
+Despite intratumoral heterogeneity, the truncal alterations were generally consistent between the primary and intrahepatic metastasis, indicating that multi-region sequencing of primary tumor could be adequate to find the targets in the trunk to deal with the metastasis.
+
+Meanwhile, genetic diversity of polyclonal populations could be greatly reduced in the metastasis by the “founder effect”, with several newly acquired alterations.
+
+New alterations in 1239R_R2 made it more sensitive to cisplatin than other recurrences, validated by in vitro drug testing, which might provide a theoretical basis for adaptive therapy and showed a potential to evoke the competition between clonal subgroups in ICC.
+
+PARAGRAPH
+
+Several limitations may undermine this study.
+
+Firstly, although M-WES achieves more tumor diversity than single biopsy, the tissue it sampled is still limited.
+
+Hence, this approach still underestimates the number of subclones present within a given tumor, leading to limited resolution of the evolutionary trajectory.
+
+Conceivably, higher sequencing depth and integrated omics data, like epigenomics, transcriptomics and proteomics, may help to generate a fine structure.
+
+Secondly, compared to somatic mutations, detection of subclonal CNAs remains challenging, and significant subclonal amplifications or deletions may be ignored.
+
+Novel technologies, such as the third-generation sequencing, are needed to overcome this limitation.
+
+Thirdly, therapeutic strategies proposed here need further validation in large-scale preclinical and clinical studies.
+
+PARAGRAPH
+
+In summary, integrating PDPC culture and multiregional WES, we revealed strong spatial, temporal ITH and diversity of clonal status, constructed the clonal evolution trajectory in ICC, and marked the chromosomal instability as the main power source of evolution.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+Supported by the National Natural Science Foundation of China (Nos. 81572292 and 81522036), Basic Research Project from Technology Commission of Shanghai Municipality (No.17JC1402200), and National Program for Special Support of Eminent Professionals and Science.
+
+This work was also supported by the National Key Basic Research Project of China (No.2015CB856000 and 2016YFC0207705), the National Natural Science Foundation of China (Nos. 11471022 and 71532001).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+L.Q.D, Y.S, L.J.M, J.F, R.B.X and Q.G provided clinical concept and study design; L.X.Y, W.X.Y, Z.B.D, A.W.K, J.Z, J.F and Q.G performed liver surgeries and collected fresh samples; L.J.M, Z.C.W, Z.Z, M.D, L.Z.L, B.H.Z and Q.G conducted the primary cell culture; Y.S, S.Z, K.Y, R.B.X and Q.G performed sequencing and acquisition of data; L.Q.D, L.J.M, Z.C.W, Z.Z, M.D, L.Z.L, B.H.Z, D.M.G and Q.G conducted biochemical and cellular experiments; L.Q.D, Y.S, L.J.M, K.Y, R.B.X and Q.G analyzed data; L.Q.D, Y.S, R.B.X and Q.G wrote the paper; J.F, R.B.X and Q.G were in charge of study supervision.

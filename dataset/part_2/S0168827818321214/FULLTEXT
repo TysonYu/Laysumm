@@ -1,0 +1,487 @@
+10.1016/j.jhep.2018.05.036
+
+FULLTEXT
+
+TITLE
+
+Modeling NAFLD disease burden in China, France, Germany, Italy, Japan, Spain, United Kingdom, and United States for the period 2016–2030
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Non-alcoholic fatty liver disease (NAFLD) is a leading cause of liver disease globally.1–3
+
+This condition is characterized by excess liver fat in the absence of other causes such as alcohol consumption.4,5
+
+Obesity, type 2 diabetes mellitus (DM) and metabolic syndrome are consistently identified as the most important risk factors for NAFLD.4,6
+
+PARAGRAPH
+
+In order to classify the population, NAFLD may be divided into two groups: NAFL (steatosis only) or non-alcoholic steatohepatitis (NASH), where steatosis is accompanied by inflammation and ballooning.
+
+NASH frequently progresses to liver fibrosis,7 which is the main risk factor for liver-related mortality. 8
+
+Odds of progression to advanced liver disease, including hepatic decompensation and hepatocellular carcinoma (HCC), are higher among those with NASH compared to those with NAFL.7
+
+Increasing age, obesity, DM and the presence of NASH have been consistently identified as risk factors for progression to cirrhosis.6,9
+
+PARAGRAPH
+
+There is an ongoing need to better define the current and future burden of NAFLD-related liver disease.
+
+Modeling can be used as a tool to take into account existing epidemiology parameters to forecast disease burden.
+
+Several recent analyses assessed the disease and economic burden associated with NASH.10–12
+
+Prior studies were based on existing data reported in the literature, but such studies are confounded by varying case definitions, diagnostic techniques, and staging used for NAFLD/NASH; as well as relatively small and varying sample populations.
+
+Furthermore, most studies do not quantify disease regression, which can occur spontaneously in the disease course.7
+
+A recently developed dynamic model of NAFLD overcomes several of these limitations.13
+
+In this analysis, we report the results of such a model across multiple regions.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Model
+
+PARAGRAPH
+
+The Markov model was built for China, France, Germany, Italy, Japan, Spain, UK and US.
+
+The selection of countries was based on the availability of data, the willingness of the national experts to collaborate, and our capacity to conduct parallel analyses.
+
+These countries represent regions with varying levels of risk factors for NAFLD development.
+
+Fibrosis progression rates were back-calculated based on surveillance data, and they were adjusted for the level of obesity in each country (see details in the supplementary information).
+
+Progression to advanced liver disease (HCC or decompensated cirrhosis) and liver-related death were based on published estimates (Tables S3 and S4).13
+
+A literature search was performed to identify reported estimates of NAFLD/NASH prevalence and incidence, including reports of late stage disease (e.g. HCC attributed to NAFLD/NASH) (Table S2).
+
+National estimates for adult prevalence of obesity (body mass index [BMI] ≥25 kg/m2 for China and Japan; BMI ≥30 kg/m2 for other countries) and DM were also used in the analysis to estimate underlying trends in NAFLD incidence (Table S2).
+
+In addition to the literature search, a Delphi process was used in which experts from each country were interviewed to identify critical modeling inputs and review model outputs against estimates of disease burden (Table S1).
+
+Input data were typically collected during different time frames, so modeling was used to calibrate to reported years of data collection.
+
+The model tracked each country’s NAFLD population by fibrosis stage and NASH status (steatosis only or NASH).
+
+Progression of disease through fibrosis and liver disease stages (Fig. S1) was estimated with adjustment for all-cause mortality (including general background mortality, excess cardiovascular mortality, and liver-related mortality).
+
+PARAGRAPH
+
+For each model, uncertainty intervals were defined for key uncertain inputs including total NAFLD prevalence, excess cardiovascular mortality multipliers, and fibrosis transition probabilities (Table S4).
+
+For all uncertain inputs, Beta-PERT distributions were used.14
+
+Monte Carlo simulation and sensitivity analysis were conducted using an Excel® add-in (Crystal Ball® 11.1.3708.0 by Oracle®) to estimate 95% uncertainty intervals (Fig. S3).
+
+The sensitivity analysis was conducted to identify the inputs that accounted for the greatest variation in modeled outcomes.
+
+SECTION
+
+New NAFLD cases
+
+PARAGRAPH
+
+For the countries studied, accurate longitudinal estimates of NAFLD incidence were either unavailable or were limited to special populations.
+
+Therefore, annual changes in the number of new cases were back-calculated based on trends for adult prevalence of obesity and DM as described in the supplementary information (Fig. S2).
+
+SECTION
+
+Prevalence
+
+PARAGRAPH
+
+There are varied estimates of NAFLD prevalence in the general population.
+
+A reported 17–51% of adults have NAFLD,4,15–18 while a meta-analysis of studies from 2006–2014 estimated NAFLD prevalence of 24% (20–29%) in the general population,10 largely based on studies of populations in Western countries.
+
+PARAGRAPH
+
+Based on a data review and the Delphi process described, input prevalence values were entered in the models.
+
+It was assumed that 25% of individuals aged ≥15 years in 2015 experienced NAFLD in France, Germany, Spain and the UK.
+
+For the Italy model, it was assumed that 25% of the population (all ages) experienced NAFLD, equivalent to 28% prevalence among persons aged ≥15 years.
+
+In China and Japan, there was a starting NAFLD prevalence rate of 20% among individuals aged ≥15 years, equivalent to 17% among all ages.
+
+For the US model, a starting prevalence of 30% among the population aged ≥15 years in 2015 was the assumption.
+
+PARAGRAPH
+
+For the age and gender distribution of the NAFLD population, data from national studies were used, when available18–20 (Table S2).
+
+For countries without general population prevalence distributions, it was assumed that overall prevalence among males was 30% higher than in females, with prevalence rates increasing with age.
+
+As prevalence studies typically did not include children, it was assumed that prevalence would decline among the youngest age groups not included in prevalence estimates.
+
+Given that childhood dietary patterns are correlated with later development of NAFLD,21–23 obesity among pediatric populations was assumed to increase with age.
+
+SECTION
+
+NASH status
+
+PARAGRAPH
+
+The NAFLD population was classified within the model as NAFL (steatosis only) or NASH.
+
+The prevalence of NASH was based on reported figures, in addition to time- and age- dependent fibrosis progression modeling.
+
+It was assumed that up to 5% of NAFLD cases without NASH could be NASH regressors, with most NASH regressors having no fibrosis (F0 stage).
+
+Therefore, a relatively small number of fibrotic cases (F1-F4) were classified as non-NASH NAFLD.
+
+The vast majority of modeled fibrotic cases (F1-F4) were assumed to be NASH.
+
+PARAGRAPH
+
+Reported estimates state that 3–5% of adults have NASH.4,16,24,25
+
+The model for the US assumed that approximately 20% of NAFLD cases would be classified as NASH in 2015.26–28
+
+Fibrosis progression rates and NASH status were first calibrated to US data and then extrapolated to other countries with adjustment for varying levels of overweight and obesity.6
+
+Due to demographic factors,29 in addition to rates of overweight and obesity, the proportion of NASH cases varied between countries, with overall aging of the population associated with an increased proportion of NASH cases among the total NAFLD population.
+
+For distribution by fibrosis score, the US model was calibrated to the assumption that approximately 20% of NASH cases would be classified as ≥F3 in 2015.30
+
+SECTION
+
+Mortality
+
+PARAGRAPH
+
+For each country, background mortality rates by age and gender were based on historical and medium fertility variant projected estimates for total deaths from the United Nations population database29 divided by population estimates by age group and gender from the same database.29
+
+Background rates were adjusted to account for incremental increases in mortality related to cardiovascular disease (CVD).
+
+A range of estimates have been reported for excess mortality among patients with NAFLD, with some studies demonstrating little increase and others suggesting that cardiovascular mortality is significantly elevated compared to the non-NAFLD population.31–34
+
+A standard mortality ratio of 1.15 was applied to all background mortality rates in all years of the model with an input range of 1.00 (background mortality rates with no adjustment) to 1.3133 for uncertainty analysis.
+
+While excess CVD mortality may increase with NAFLD severity, data for this are sparse and a constant multiplier was applied to all stages of disease.
+
+Liver-related mortality is markedly increased in the NASH population35 and was calculated separately as part of the liver disease progression modeling (Tables S3 and S4).
+
+Liver-related deaths were modeled as a function of HCC, decompensated cirrhosis, and liver transplant populations.
+
+SECTION
+
+Transplants
+
+PARAGRAPH
+
+Annual liver transplantations by country were reported by the European Liver Transplant Registry and by country-specific reporting entities, including the China Liver Transplant Registry and US Organ Procurement and Transplantation Network (Table S1).
+
+Analyses of transplants from the European Liver Transplant Registry demonstrated that NAFLD may be under-recognized as an indicator for liver transplant, with many transplants classified simply as cirrhosis or HCC.36
+
+Studies of transplant recipients in Sweden and Germany report that over 40% of cases classified as cryptogenic cirrhosis were NASH-related37 and NASH was the third leading cause of HCC resulting in transplantation.38
+
+In the US, there is evidence that numerous transplants indicated for cryptogenic or idiopathic cirrhosis are NAFLD-related based on obesity rates in this population.39,40
+
+As changes occur to the transplantation system in China, there will be uncertainty surrounding the future availability of donated livers.41–43
+
+Given the uncertainties around transplant demand and availability, it was assumed that the annual number of NAFLD-related transplants would remain constant through 2030.
+
+This is a conservative estimate as data already suggest that the proportion of transplants attributable to NAFLD is increasing.40
+
+SECTION
+
+Results
+
+SECTION
+
+NAFLD population
+
+PARAGRAPH
+
+Total prevalent NAFLD case estimates ranged from 10.53 M (Spain) to 243.67 M (China) in 2016 (Fig. 1).
+
+While China was estimated to have the greatest number of cases, the estimated prevalence of NAFLD was lower than the other countries at 17.6% (all ages) (Table 1).
+
+The highest overall 2016 rate (26.3%) was estimated for the US.
+
+By 2030, the total NAFLD population was projected to increase by 18.3% to 100.9 million cases, with prevalence of 28.4%.
+
+In the European countries, the estimated NAFLD population in 2016 ranged from 18.45 M cases (Germany) to 10.53 M cases (Spain).
+
+By 2030, the number of cases had increased most in the UK (20.2%; from 14.08 M cases in 2016 to 16.92 M cases in 2030), while the number of cases increased least in Germany (13.5% increase from 18.45 M cases in 2016 to 20.95 M cases in 2030).
+
+By 2030, the highest prevalence was estimated in Italy (29.5%) and the lowest in France (23.6%).
+
+The greatest overall and relative increase in NAFLD prevalence was estimated for China, where cases were estimated to increase 29.1% from 246.33 M cases in 2016 to 314.58 M NAFLD cases in 2030.
+
+Of the countries studied, China had the largest relative rate increase over the time period to 22.2%.
+
+The largest number of prevalent cases was estimated for the cohort of 55–59 year olds followed by the cohort of 50–54 year olds, with these groups comprising over 20% of model cases in 2016 (Fig. S4).
+
+PARAGRAPH
+
+Results of the uncertainty analysis showed the potential range of NAFLD cases for each country based on the uncertainty around key inputs (Fig. S3).
+
+For each country, uncertainty surrounding NAFLD prevalence estimates in the general population were the key driver of model uncertainty, followed by the range of standard of mortality ratios for increased risk of CVD.
+
+When considering forecasted uncertainty around prevalence in 2030, the input general prevalence rate and standard mortality ratio together accounted for over 95% of modeled uncertainty.
+
+SECTION
+
+NAFL population
+
+PARAGRAPH
+
+The NAFL population was defined as individuals with simple steatosis who have never progressed to NASH, or a relatively small number of cases who were formerly NASH and experienced disease regression.
+
+Nearly all cases were estimated to be F0 with a small number of fibrotic cases related to regressed NASH.
+
+The NAFL population was estimated to increase most in China (26.2%; from 211.05 M cases in 2016 to 266.32 M case in 2030), and least in Germany (7.2%; from 15.12 M cases to 16.21 M cases).
+
+In Japan, the NAFL population decreased by 2.6% from 18.90 M cases in 2016 to 18.41 M cases in 2030 (Fig. 1).
+
+PARAGRAPH
+
+When considering only fibrotic NAFL cases (≥F1), Japan was estimated to have the smallest increase in this population with 24,310 ≥F1 NAFL cases in 2016 increasing 13% to 27,455 cases in 2030, while the combined cirrhotic and HCC NAFL population increased by 65% from 310 to 510 cases.
+
+The greatest increase in the ≥F1 NAFL population was estimated in China where cases increased 51% from 202,470 in 2016 to 304,990 in 2030.
+
+The greatest increase in the combined cirrhotic and HCC population was observed in France where cases increased 159% from 190 to 490 cases.
+
+SECTION
+
+NASH population
+
+PARAGRAPH
+
+Total cases in 2016 were estimated to be most numerous in China (32.61 M cases), but the proportion classified as NASH was the lowest (13% of total NAFLD) of the studied countries, potentially reflecting a more recent onset of the obesity and diabetes epidemics (Fig. 2).
+
+By 2030, the NASH population in China was projected to increase 48% to 48.26 M cases, or 15% of all NAFLD cases.
+
+In the five European countries, total NASH cases in 2016 ranged from 1.80 M (Spain) to 3.33 M (Germany).
+
+Increases during 2016–2030 ranged from 43% (Germany) to 49% (Spain), and the most numerous cases in 2030 were estimated in Germany (4.74 M).
+
+The proportion of total NAFLD cases classified as NASH in 2016 ranged from 16% (France) to 18% (UK).
+
+By 2030, the proportion ranged from 21% (France) to 23% (Germany).
+
+In the US, the relative increase in NASH cases was estimated at 56%, increasing from 17.32 M cases (2016) to 27.00 M cases (2030).
+
+Among NASH cases in 2016, an estimated 21% in the US had F3/F4 fibrosis or advanced liver disease, encompassing approximately 3.55 M cases (Fig. 2).
+
+By 2030, this number increased at a greater rate than other studied countries (124%) to 7.94 M cases, accounting for 29% of all NASH cases.
+
+Japan had the smallest estimated increase in these cases from 665,970 cases in 2016 to 990,850 cases in 2030 (49% increase).
+
+In 2016, the highest proportion of NASH cases in advanced disease states was estimated in Italy (22%) while the smallest was in China (12%).
+
+By 2030, the highest proportion was observed in Spain where 792,110 individuals (29.5%) were estimated to have NASH-related advanced disease and the lowest was China with 7,942,280 cases (16.5%).
+
+In every country studied, increases in the number of advanced fibrosis cases in the NASH population were larger than increases in earlier fibrosis stages.
+
+SECTION
+
+Cirrhosis and end-stage disease
+
+PARAGRAPH
+
+The number of NAFLD cases with compensated cirrhosis and end-stage disease is projected to increase in every country.
+
+The smallest increase (64%) was projected for Japan where prevalent cases increase from 127,840 to 282,670 during 2016–2030, and the largest percentage increase was expected in France where cases increase 156% from 104,290 to 267,440 cases.
+
+PARAGRAPH
+
+Prevalent decompensated cirrhosis was projected to show the highest percentage increase in France from 11,560 cases in 2016 to 33,180 cases in 2030 (187% increase), followed by the US where cases increase from 144,210 to 376,140 cases, a 161% increase.
+
+The smallest increase was projected in Japan where cases increase 75% from 21,070 to 36,830 cases during 2016–2030.
+
+PARAGRAPH
+
+In the US, incident decompensated cirrhosis is modeled to increase by 150%, from 42,220 cases in 2016 to 105,430 cases in 2030, while cumulative incidence during 2016–2030 was estimated at 1,062,430 cases (Fig. 3).
+
+Among the European countries, cumulative incidence of decompensated cirrhosis ranged from 92,510 cases (France) to 171,030 cases (Germany), while cumulative incidence in China was estimated at 751,190 cases.
+
+The greatest relative increase in incident decompensated cirrhosis was observed in France where cases increase 164% from 3,500 cases (2016) to 9,250 cases (2030), while the smallest increase was estimated for Japan where cases increase 67% during 2016–2030 from 5,870 to 9,780 cases.
+
+PARAGRAPH
+
+In all countries, prevalent HCC cases related to NAFLD are estimated to increase, ranging from increases of 47% in Japan (2,200 cases in 2016 increasing to 3,240 cases in 2030) to 130% in the US (10,820 increasing to 24,860 cases).
+
+China had the greatest number of prevalent HCC in all years, increasing 86% from 14,090 cases (2016) to 26,240 cases (2030).
+
+Among the European countries, estimated increases during 2016–2030 in prevalent HCC ranged from 93% (UK) to 125% (France) during 2016–2030.
+
+The largest number of prevalent HCC cases in 2016 and 2030 was estimated for Germany with 1,970 and 4,090 cases, respectively.
+
+PARAGRAPH
+
+By 2030, China was projected to have the most incident HCC cases (12,780 cases), an increase of 82% from 2016 (7,000 cases) (Fig. 3).
+
+Japan experienced the smallest increase (44%), from 1,050 to 1,520 cases annually.
+
+In the US, incident HCC cases increase by 122% during 2016–2030 from 5,510 to 12,240 cases.
+
+In Europe, France was projected to have the largest increase (117%) in incident HCC cases from 560 to 1,200 cases annually, while the UK had the smallest increase (88%) from 850 to 1,600 cases annually.
+
+SECTION
+
+Liver-related mortality
+
+PARAGRAPH
+
+Liver-related deaths in 2016 ranged from 2,490 (France) to 30,240 (US) (Fig. 3).
+
+By 2030, China surpasses the US and is forecasted to have the largest number of liver-related deaths (103,840 deaths) and Spain the fewest (4,530 deaths).
+
+The relative increase in annual liver deaths was greatest in France, increasing 182% from 2,490 to 7,030 deaths, and the smallest increase was in Japan, where liver deaths increased 73% from 4,720 to 8,130 deaths annually (Fig. 3).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This study presents results from dynamic Markov modeling of the burden of NAFLD-related disease in eight countries, comprising over one-quarter of the total world population.29
+
+A number of inputs included in national reports were used to design and validate the models, along with both a review of the literature and expert opinion on trends in disease prevalence and transition to more advanced disease states.
+
+For all countries, as the national obesity prevalence grows at slower rates and levels off, it is estimated that the prevalence of NAFLD will follow a similar pattern with a five-year delay (Fig. S2).
+
+The proportion of individuals with NASH among the NAFLD population is forecasted to increase in the coming decades due to an aging population and the projected rising prevalence of DM among an aging population.
+
+These projections hold even if adult obesity prevalence does not increase substantially from its already high levels, since there is an approximate 10–15 year delay between the change in obesity and DM.
+
+The proportion of diabetic individuals with NASH is higher than that in a general obese population;10,18,44 thus, we estimate that the total burden of disease due to NASH will continue to rise in the coming decades.
+
+PARAGRAPH
+
+China has the youngest median age of all countries studied.
+
+This implies relatively lower rates of advanced liver disease in the near term and forecasted large increases in disease burden in the coming decades (Fig. S3) as the population ages.
+
+In China, increases in obesity and diabetes in the general population did not begin on a large scale until decades after the US and Europe.
+
+This means that the greatest impact in terms of advanced liver disease and mortality will occur later, compared to Western countries.
+
+If obesity levels continue to increase in China up to the level observed in the US currently (about 30% of adults are obese [≥30 BMI]), then the disease burden would be even higher in China than shown here.
+
+The lifestyle and genetic factors that cause diabetes and NAFLD begin at a lower BMI, in China and Japan, compared to Caucasians.45–47
+
+PARAGRAPH
+
+The results of this modeling can inform public health care systems about the coming disease burden associated with NAFLD and NASH.
+
+Effective strategies are needed to prevent and treat NASH in order to avert marked increases in the incidence of end-stage liver disease and related mortality.
+
+Since NAFLD is reversible, treatment can include diet and exercise programs.
+
+A future with increasing disease burden is supported by recent data demonstrating the growing contribution of NASH toward demand for liver transplantation.1,40
+
+NAFLD is increasingly identified as an etiology of chronic liver disease in Europe.48
+
+In North America, NASH has been identified as the second leading etiology for HCC cases requiring liver transplantation.49
+
+Given the expense associated with transplantation,50 limitations in organ supply,51 and the prevalence of multiple co-morbidities that preclude transplantation, the procedure is not a feasible solution to NASH-related outcomes at either the global or national levels.52
+
+Another notable result is the rapid projected increase in individuals with cirrhosis, especially decompensated cirrhosis that is cost and resource-intensive.53–55
+
+Increased incidence of decompensated cirrhosis would be expected to have a proportionate impact on healthcare resources and costs associated with advanced liver disease,55,56 and magnify the negative consequences of increasing disease burden.
+
+PARAGRAPH
+
+NAFLD is now reported as the principal etiology contributing to the incidence of HCC in North America,1 while the proportion of HCC attributed to NAFLD is growing rapidly in Europe.57
+
+The growing burden of NAFLD will lead to further increases in incidence of HCC.
+
+Many incident HCC cases are not diagnosed until they have progressed to a stage where the most effective treatment options, including liver transplantation, are not an option.58
+
+Interventions that slow the progression of NAFLD-related liver disease have the potential to reduce the number of incident liver cancer and related mortality.
+
+PARAGRAPH
+
+The strength of the current analysis is the forecasted mortality among NAFLD cases: excess cardiovascular-related and NASH liver-related mortality.
+
+There will clearly be a marked increase in liver-related mortality in those afflicted by NASH.
+
+A critical factor that is likely to drive the increase in NASH-related mortality is the increased number and proportion of individuals who will have cirrhosis within the growing NASH population over time.
+
+This is linked to both the aging of the population, a known risk factor for having more advanced disease6 and the natural progression of the disease toward more advanced stages of NASH.4,7
+
+Importantly, in this study, the spontaneous regression estimates from published literature were applied to generate the most accurate projections for disease progression possible.
+
+It highlights the need to identify NAFLD cases, particularly those who have already developed clinically significant fibrosis and target them for therapy.
+
+While the model adjusted for the greater current magnitude of obesity and DM, there have been dramatic increases in childhood obesity60 and the onset of DM at younger ages is expected,61 suggesting a longer course of disease with a potentially greater risk of developing end-stage liver disease.
+
+PARAGRAPH
+
+A limitation of this model, and all NAFLD modeling, is a dearth of general population studies measuring hepatic steatosis using consistent methods.
+
+Furthermore, some estimates are based on data collected several years ago,18 and likely do not reflect the true burden of disease, given recent increases in obesity and DM.
+
+Most population-based methods used ultrasound for NAFLD screening, which only reliably detects steatosis of >20%.5
+
+Greater uncertainty surrounds the NASH diagnosis where classification of cases based on histology is challenging, with relatively weak inter-observer agreement for some parameters, such as hepatocellular ballooning and fibrosis.30,59
+
+PARAGRAPH
+
+A related limitation to all studies quantifying NAFLD at the population level is the lack of consistent diagnostic measures.
+
+Rates of NAFLD prevalence have been shown to vary between studies with measures based on liver enzymes resulting in lower estimates than imaging/histology10 and NASH can be histologically detected in many NAFLD cases with normal liver enzymes.62
+
+While there is considerable uncertainty surrounding NASH diagnosis (yes, no, or probable), staging of fibrosis alone has been shown to be an effective predictor of long term outcomes in NAFLD cases;63,64 and non-invasive tests are available to predict advanced fibrosis, but still have not been approved for this purpose.65
+
+However, there is a need to better identify risk factors for progression among early fibrosis cases.66
+
+Also, age is a confounding factor when using non-invasive prediction models for advanced fibrosis, which could thus be underestimated in patients aged ≥65 years.67
+
+Finally, the analysis is based on the change in obesity rates in each country, yet there are examples of lean NAFLD.
+
+In these cases, NAFLD occurs in individuals with normal or low BMI.
+
+Lean NAFLD cases account for a minority of total cases, and were not modeled separately.
+
+PARAGRAPH
+
+The results of this analysis demonstrate a large and growing burden of disease associated with NAFLD and NASH, in concert with a global pandemic of obesity.68
+
+The World Health Organization has called for efforts to halt the rise of diabetes and obesity at the global level,69 with sustainable development goal 3.4 calling for a reduction by one-third in premature mortality from non-communicable diseases by 2030 through prevention and treatment.
+
+Efforts to mitigate disease burden are critical, and should be linked to strategies that curb the growth of obesity and DM at both the national and global levels.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+Funding for this project was provided by Intercept Pharmaceuticals, Gilead Sciences and Boehringer Ingelheim.
+
+The funders had no role in the study design, data collection, analysis, interpretation of data, or preparation of the manuscript.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+CE and HR prepared the first draft and finalized the draft based on comments from other authors.
+
+All other authors provided data, analyzed data, reviewed results, provided guidance on methodology, and provided critical feedback on the manuscript.

@@ -1,0 +1,863 @@
+10.1016/j.engappai.2019.02.019
+
+FULLTEXT
+
+TITLE
+
+A new hierarchical approach to requirement analysis of problems in automated planning
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Planning defines a specific type of state-transition problem where the goal is to find an admissible sequence of actions to bring the system from a given initial state to a target final state.
+
+Some approaches in the literature aim to improve the performance of intelligent automated planners by trying to optimize search algorithms for a general solution (Edelkamp and Jabbar, 2006).
+
+In addition, most existing work on AI planning use a domain independent approach where specific knowledge and restrictions of the target problem are not modeled and analyzed in the planning domain.
+
+However, even domain independent approaches lead to very smart solution frameworks – normally based on STRIPS – and in practice, can be adapted to solve real problems.
+
+In this work, a domain-independent general approach is still used as inspiration for planners algorithms, but before planners start the search for a sequence of actions that lead to the final state the whole planning domain is modeled and analyzed based on requirements (Vaquero et al., 2013b).
+
+PARAGRAPH
+
+After extensive development combining domain independent and domain specific approaches some authors started to apply planning techniques to real world problems – as real logistic systems – with a great amount of variables, where a sole domain independent approach would be computationally prohibitive (Vaquero et al., 2012).
+
+That opened some space to alternative approaches that use also specific knowledge and a direct approach to the knowledge engineering process by building and modeling the problem domain.
+
+Such approach could lead to good results treating challenge problems and give some feedback on how to solve fully automated domain-independent problems.
+
+PARAGRAPH
+
+Therefore, the automated planning area carries a dual challenge:
+
+PARAGRAPH
+
+Indeed, complex domains are hard to deal with when no abstraction is provided.
+
+In such domains, a hierarchical decomposition of the problem, based on a topological structure, can lead to better performance.
+
+The use of formal approaches to domain analysis such as Petri Net can then be justified.
+
+PARAGRAPH
+
+For a case study we will take the challenge launched in ROADEF 2005 (Solnon et al., 2008), which brings a problem domain synthesized from automotive industry where a significant improvement in performance is achieved when hierarchical models are introduced.
+
+The advantage of hierarchical approach relies in the possibility to see abstract integration analysis – for assembling, painting, etc – without a sacrifice of the formalism.
+
+Details can be added (or reused) by the insertion of hierarchical components.
+
+PARAGRAPH
+
+Another important domain is called Logistics which is also proposed in ROADEF, where a topological abstraction of the real world is the key issue to define problem requirements.
+
+In Logistics, several packages must be transported by planes from their initial location to various destinations.
+
+It is part of the input knowledge a map of cities connected by airline routes.
+
+Transportation inside cities can be done by trucks located on each city.
+
+Details about the cities are abstracted and treated as a set of connected streets — some of which are temporarily blocked or permanently unavailable.
+
+Inside a city, a truck can go from any point to any destination at no cost — in a simplified mode1  (Botea et al., 2003).
+
+PARAGRAPH
+
+We will use both domains to illustrate requirement analysis using a formal procedure.
+
+In fact, this process starts by eliciting and representing requirements in UML 2.4 – a semi-formal presentation – before the formal modeling based on classic Petri Nets (Murata, 1989).
+
+This approach was embedded in a knowledge based tool called itSIMPLE (Integrated Tool and Knowledge Interface to the Modeling of Planning Environments) (Vaquero et al., 2013b, a, 2007).
+
+The new approach presented in this paper update the representation of elicited requirements to UML 2.4 (originally UML 2.1 was used) and introduces the discussion about which would be the proper set of diagrams to be used besides analyzing pors and contras of this process.
+
+Formal requirements analysis is based on unified Petri Nets, that is, on nets that follows ISO/IEC 15.909 standard, which implies in having in the same environment a classic Place/Transition, High-Level and Asymmetric net and user extensions such as the hierarchical approach presented here.
+
+A transfer language based on XML is part of the standard – PNML (Petri Net Markup Language) (Weber and Kindler, 2003) – and is used to link UML specification and domain model.
+
+PARAGRAPH
+
+In the original itSIMPLE system requirements are analyzed with hierarchical nets should be translated to a transfer language understood by planners.
+
+If the analysis is done in classic Petri Nets this transfer language is the Planning Domain Definition Language — PDDL (Kovacs, 2011; Strobel and Kirsch, 2014), but to hierarchical approach the specification should be adapted to SHOP2 Nau et al. (2013) to obtain practical results.
+
+PARAGRAPH
+
+The paper organization is described as: Section 2 introduces automated planning approaches.
+
+Section 3 will focus on the knowledge engineering approach, particularly in state of art of requirements analysis, using semi-formal and formal methods to requirement analysis, to move from a potentially inconsistent set of requirements to a stable and consistent formal set in Petri Nets.
+
+Section 4 will show some aspects about the design process used in automated planning, followed by a brief description of itSIMPLE environment.
+
+The proposed approach is introduced in Section 5, based on dynamic analysis of hierarchical planning domains.
+
+Formal analysis in Petri Nets depend on a new algorithm proposed in Section 6.
+
+A case study is presented in Section 7, based on a manufacturing problem extracted from ROADEF 2005 challenge, that illustrate the use of hierarchy.
+
+Finally, Section 8 presents a further possibility to enhance the requirements analysis by using Goal Oriented Requirements Engineering instead of UML.
+
+Moving to objective requirements can improve reliability since the planning designer does not have to worry with the equilibrium between functional and non-functional requirements.
+
+SECTION
+
+Automated planning approach
+
+PARAGRAPH
+
+According to Ghallab et al. (2004) Automated Planning is a sub-area of Artificial Intelligence which studies planning processes over a computational environment.
+
+Here, planning process focus on choosing and ordering a sequence of actions to achieve an objective goal, a key issue for service systems and intelligent machines.
+
+PARAGRAPH
+
+From an initial state s0, a goal state sk can be reached by a repeated execution of admissible actions belonging to a set A. Therefore, a planning problem P={s0,sk,A} can be solved by Artificial Intelligence if there exists enough knowledge to select the proper action.
+
+PARAGRAPH
+
+Formally, a planning problem solution - a plan - can be defined as a sequence of actions π=(a0,…,ak) where k≥0 linking an initial state to the final state by the executing of a particular sequence of admissible actions belonging to A.
+
+The length of a plan |π|=k is the number of actions to be performed (Ghallab et al., 2004).
+
+PARAGRAPH
+
+Without AI resources a direct approach to these problems would imply, theoretically, a combinatorial search algorithm, which could be prohibitive from a computational point of view.
+
+Consequently, very few (if any) real problems could be really solved (Sette et al., 2008) with this direct approach.
+
+Also, addressing the problem by a direct STRIPS – like treatment imply in the simplification that actions are deterministic and isolated from the work domain – the surroundings were the system is embedded.
+
+PARAGRAPH
+
+Another important aspect is that real problems demand a problem structure, which means building a model where important properties can be separated from less important ones, where restrictions, dependencies and, eventually, fluctuations from deterministic results of actions are present.
+
+Another important aspect is the possibility to deal with distributed agents in a formal model, which would require a formalism such as Petri Nets.
+
+All that should precede the use of a planning software.
+
+A better convergence can emerge from this process, which would include the analysis of state space and extraction of heuristics and intermediary goals to guide the planner.
+
+PARAGRAPH
+
+The itSIMPLE environment was proposed to model planning domains including both the modeling of planning problem and work plan, and presented good results treating some real time problems (Vaquero et al., 2005a).
+
+In this paper we enhance this potential including also a hierarchical modeling.
+
+SECTION
+
+Hierarchical task network planning
+
+PARAGRAPH
+
+The main difference between Hierarchical Task Network Planning (HTN) planning and classical planning is the plan abstraction and how it used to find a path to reach the goal.
+
+An HTN planner should look for tasks hierarchically attached to sub-goals to make a high-level plan.
+
+This is not a novelty and even classic methods in the 70’s already used abstractions.
+
+The difference from the classic and even modern planning methods is that now we introduce knowledge engineering phase which are supposed to provide sound and formal guide to find abstract plans.
+
+PARAGRAPH
+
+A theoretical development concerning Hierarchical Task Network planning was proposed by Georgievski and Aiello (2015).
+
+The proposition of a formal structural approach is one of the goals of the present work.
+
+Hierarchical sub-goals are matched to proper elements, that is, instances of sub-plans with one entry state and a unique output state with the warranty that there is at least one live path conducting from one to the other.
+
+That was inherited from the Structured Programming Theorem proposed by Böhm and Jacopini (1966).
+
+PARAGRAPH
+
+A formal description of HTN is based on Predicate Logic.
+
+A predicate should be like my_predicate(τ1,…,τn), where the elements τi are called terms and the index i stands for the arity of the predicate.
+
+The set of all predicates will be denoted by Q.
+
+A state s∈2Q is a set of ground predicates over which we assume the closed-world hypothesis.
+
+PARAGRAPH
+
+Thus, a primitive task is an expression tp(τ), where tp∈Tp and Tp is the set of all primitive tasks, which is represented by a plan operator.
+
+Similarly, compound task is an expression tc(τ), where tc∈Tc and Tc is the set of all compound tasks, which would stand to what we called a strategy or covering plan.
+
+PARAGRAPH
+
+A method m is a pair (c(m),tn(m)), where c(m) is a compound task, and tn(m) is a task network.
+
+PARAGRAPH
+
+Now it is possible to define a HTN planning problem formally as a tuple P=(Q,O,M,tn0,s0) where
+
+PARAGRAPH
+
+In terms of real-world applications HTN planning has been more widely used than other planning approaches (Ghallab et al., 2004).
+
+SECTION
+
+Requirement analysis approaches: Formal and semi-formal methods
+
+PARAGRAPH
+
+The Knowledge Engineering approach for automated planning has been discussed since the 90’s (McCluskey and Porteous, 1993).
+
+Later, a new proposal was presented and software tools were developed by McCluskey (2002).
+
+However, by that time KE problems were dissociated from AI planning life cycle, specifically in what concerns the previous earlier phase of requirements modeling analysis.
+
+A totally integrated proposal was presented by Vaquero (2011).
+
+PARAGRAPH
+
+O-Plan was a precursor tool in the acquisition and modeling of knowledge for AI planning using a task-driven approach.
+
+It was based on a previous planner called NONLIN which was a hierarchical planning system.
+
+Even if the idea was to provide a planner, it was the first time that a “service” was provided that address the phase before effective search for the plan (Tate and Dalton, 2003).
+
+PARAGRAPH
+
+Before that, SIPE (System for Interactive Planning and Execution) presented a formal representation of a task network (Myers and Wilkins, 1997) that could be applied to any action-based technology to model interactive processes.
+
+In fact, it was a version of the SRI International Act formalism that treats interaction as a dynamic sequence of actions, which is adherent to the concept of planning.
+
+The novelty was that the interaction model included external events that could influence the planning, opening an interesting discussion on the convenience of considering the relationship between the planning domain – concerning definition of actions, operations, constraints, and so on – and the interaction with the surrounding environment that influences the planning process.
+
+We will call the modeling of these surroundings work environment.
+
+Such concepts did not appear in subsequent works in AI planning, even if they are really important to treat real problems, where surrounding environment is an important issue.
+
+We will see later that this issue has a very important hole in the old and embedded version of itSIMPLE.
+
+PARAGRAPH
+
+Both, O-Plan and SIPE planners open the way for GIPO, which is one of most complete KE systems for planning registered in the literature.
+
+In the beginning of 2000’ GIPO introduced a mechanisms for acquiring and modeling knowledge from domain independent applications (Simpson et al., 2001), following a consensual approach in Computer Science community.
+
+On the other hand, GIPO also addressed the need to include syntactic and semantic verification of models, even if – by that time – these verifications were not associated with requirements validation.
+
+GIPO software tool could also import and export domain definitions in PDDL format, turning the KE process independent of the plan generation, made by another software tool.
+
+Validation was an attempt to introduce integration between planning algorithms and its execution and simulation and improve planner’s usability.
+
+Graphic representation of dynamic objects were introduced through state machines starting on version III (Simpson, 2005, 2007).
+
+PARAGRAPH
+
+In the past decade (Vaquero et al., 2005b, 2007) introduced itSIMPLE and the concept of life cycle for AI planning projects, approximating KE to planning design and requirement analysis – in the earlier phase – and to planning quality and performance analysis after planning generation (Vaquero et al., 2013a).
+
+Planning design started with requirements elicitation and modeling using a classic object-oriented approach: UML.
+
+itSIMPLE uses UML diagrams such as use case, class and state machines since its first version and timeline and objects in a more recent version.
+
+PARAGRAPH
+
+After capturing requirements, the important process is to determine consistence and completeness: the process called here Requirement Analysis.
+
+Concerning automated systems, this process also involves dynamic analysis, which is normally done using classic Petri Nets.
+
+Thus, a translation algorithm is used to convert UML diagrams to Baresi and Pezze (2001), which can be analyzed to check workflow, the presence of deadlocks and properties like place and transition invariants (Salmon et al., 2014).
+
+Once a satisfactory model is obtained, it is possible to use XML (or XPDDL) to convert the model to PDDL (Vaquero et al., 2009).
+
+PARAGRAPH
+
+PDDL is used in several KE tools as a transfer language to communicate planning domains to AI planners, after the KE cycle of modeling and analysis.
+
+Table 1 shows the choice of transfer languages used by some of well used KE tools.
+
+PDDL was the choice for half of them.
+
+PARAGRAPH
+
+Besides PDDL, PLEXIL (Plan Execution Interchange Language) is another emergent language originally developed from a collaborative effort between NASA and Carnegie Mellon University, to represent plans for real or simulated systems.
+
+This representation is used in robotics, home automation (Silva et al., 2018), and other systems involving intelligent software agents (Biatek et al., 2014).
+
+PARAGRAPH
+
+Comparing all KE tools for AI planning, itSIMPLE was the first to introduce requirement engineering analysis (Vaquero et al., 2009).
+
+In fact, requirements are a relevant knowledge, emerged from different viewpoints, and related to different classes of agents (humans or machines) (OMG, 2005).
+
+The system was used to solve a problem (normally problems used in international competitions for KE tools) using requirements analysis and without this feature and in all cases the first approach delivered a better plan.
+
+That is not a definitive result but reinforce the search for a formal description of requirements modeling and analysis (see Figs. 1–3).
+
+SECTION
+
+Requirement analysis: Semi-formal and formal methods
+
+PARAGRAPH
+
+Certainly, the success of any project depends on the achievement of a correct and complete set of requirements leading to a model that supports test and validation of a planning domain specification.
+
+Therefore, an inadequate elicitation or modeling of requirements stands for a major cause of failures in design, including planning design.
+
+PARAGRAPH
+
+Before going further, it is important to clarify that what is called in this paper Requirements Analysis is sometimes confuse with the more general term Requirements Engineering.
+
+In this paper we follow the classic definition proposed by Somerville (2009) depicted in Fig. 4 where requirements analysis is an specific phase of Requirements Engineering.
+
+PARAGRAPH
+
+The difference between this classic definition and the approach proposed in this article is that Requirements analysis is normally done on informal requirements model while we proposed to have a formal modeling phase, which implies in a transference from semi-formal diagramatic representation (such as UML) to a formal schemata such as Petri Nets.
+
+In Petri Nets it is possible to validate requirements and transfer it later to PDDL, to feed AI planners.
+
+PARAGRAPH
+
+Informal techniques showed in the literature can be used in requirements analysis and specification, but none of them guarantees a complete and consistent representation of these requirements.
+
+There are three fundamental problems in the analysis of requirements that encourage the attempt to anticipate formalization:
+
+PARAGRAPH
+
+In addition to this challenge we can also add the requirements volatility problem: some requirements in elicitation and analysis phase may lose its importance, may disappear or be merged with other requirements.
+
+The early detection of emerging requirements during the analysis phase is a hard task.
+
+Another important challenge is to make sure there is a sound mapping between requirements and attributes of the system improving traceability and maintenance (Vaquero et al., 2005b).
+
+PARAGRAPH
+
+Many researchers propose to convert semi-formal requirements into a formal representation (Baresi and Pezze, 2001) specially when dynamic analysis is a key issue.
+
+Petri net is widely used in the representation and verification of requirements using either classic or extended approach.
+
+A feasible design discipline starts with UML to represent captured semi-formal requirements and the translate it into a hierarchical Petri net.
+
+Analysis and validation would follow from formal reachability to property analysis.
+
+Possible inconsistencies can be detected even during the translation to Petri Nets – either classic or hierarchical – or analyzing invariants (Salmon et al., 2014) and other desired properties of the target system (as consistence analysis, deadlock freedom, etc.).
+
+PARAGRAPH
+
+There are several approaches that combine UML, Petri nets and their extensions.
+
+Zhao et al. (2004) discussed some technical transformation of graphs, which can be used to convert UML diagrams into Petri nets.
+
+There are other proposals which offer methods to build Petri nets to represent functional behavior of systems from sequence diagrams, activity diagrams, state, or use case diagrams (Guerra and Lara, 2003; Denaro and Pezze, 2004).
+
+PARAGRAPH
+
+UML Diagrams are interrelated, and their relationships may reflect the semantics of the diagrams.
+
+Therefore, to transform UML models in Petri net both static and dynamic structures must be considered, as well as all relations between them.
+
+Zhao et al. (2004) claim that these relations were classified in three levels: the relationship between the same UML diagram in different contexts; the relationships between various diagrams of the same viewpoint; and the relationships between various diagrams with different viewpoints.
+
+This third level describes the relationship between diagrams with static viewpoints and with dynamic viewpoints.
+
+That will be clarified later in the proposition of a design discipline for automated planning.
+
+SECTION
+
+itSIMPLE: Integrated Tools and Software Interface for Modeling Planning Environment
+
+PARAGRAPH
+
+The interest in solving real world problems using AI Planning techniques has been growing significantly in the last few years (Orlandini et al., 2013).
+
+In general, planning community has focused in achieving planners efficiency, but neglecting, or giving few attention to KE analysis (Zimmerman and Kambhampati, 2003; Upal, 2005) which is important to deal with complex real problems.
+
+PARAGRAPH
+
+To conduct KE analysis of an AI planning problem it is necessary to determine all features of the system in which it is embedded (the work domain).
+
+It should be considered, for instance, external sub-systems involved, all external variables eventually changed, correlations with other systems and external constraints – which were already included in itSIMPLE old version).
+
+PARAGRAPH
+
+In this paper we propose an evolution of this assumption, and present a division of the requirements set in two blocks: (1) the work domain requirements, which concentrates all characteristics of the world around the system; and (2) the planning domain, composed of properties directly related to the system, such as the initial state, the goal state, the set of objects (resources) and agents that comprises the problem instance, and the set of admissible activities controlled by the system as shown in Fig. 5.
+
+PARAGRAPH
+
+In an object-oriented approach we call Problem a general class, where Planning Problem is the main class characterized by a name, an initial stage, and a goal stage.
+
+A sub-class Dynamic Problem inherits all this parameters and add a set of internal admissible actions.
+
+Constraints, operations and external actions are features of other component class, called Work Domain.
+
+PARAGRAPH
+
+The key mission of the planner is to solve the Planning Problem, that is, to find a sequence of actions that lead from the initial state to a goal state, under Work Domain constraints and external actions.
+
+Based on this hypothesis we propose the following object relation to the design process.
+
+PARAGRAPH
+
+itSIMPLE – in the proposed new version – deal with requirements modeling and can explore the same Planing Problem with different dynamics, which is a good extension for the restriction of deterministic actions.
+
+It can also be tested and validated the requirements model with and without external constraints.
+
+PARAGRAPH
+
+In itSIMPLE, a project starts with an initial problem statement which is characterized by the basic information knowledge: the initial and goal state, and pure set of admissible actions (without internal constraints).
+
+PARAGRAPH
+
+The UML diagram used to describe the problem in its phase is the Object diagram or Snapshots (D’Souza and Wills, 1999).
+
+Fig. 6 will present the itSIMPLE classic design process.
+
+SECTION
+
+Automation and dynamic analysis
+
+PARAGRAPH
+
+Classic itSIMPLE has been revised to enhance its capability to model real problems in automation, which addresses machine intelligence.
+
+That implies in improving KE discipline and enhance scale by introducing a hierarchical approach and dynamic analysis using Hierarchical Petri Nets.
+
+A minimum set of UML diagrams is identified to turn elicitation and its representation a regular process and bring some light in the supposed redundancy of information among UML diagrams.
+
+PARAGRAPH
+
+Originally, itSIMPLE used UML classes, objects and state diagrams to do the initial modeling, and includes sometimes use-case diagrams.
+
+That results in a good performance using the original KE discipline available in itSIMPLE 3.0, which won the ICKEPS competition in 2009.2
+
+However, the strong functional treatment of this proposal motivated the search for different solutions.
+
+PARAGRAPH
+
+One of the drawbacks of the original approach – inasmuch its success in practice – is the dependence on the skill of the designer who should not neglect non-functional requirements.
+
+Usually, these non-functional requirements were inserted as internal constraints, which made the process confuse for a not skilled designer.
+
+PARAGRAPH
+
+Also, the reliability on intuitive use-cases was criticized by academics (Wittle, 2000) and practitioners (Dobing et al., 2010) concerning the generic use of UML, and the discussion about the existence of a minimum set of diagrams to cover planning problems became crucial.
+
+PARAGRAPH
+
+In 2012 itSIMPLE started to be applied to real problems, taking as first challenge the logistic of ships in offshore petroleum exploration, where platforms were located more than 100 Km from the shore (Vaquero et al., 2012).
+
+Practical cases also confirmed the need for a new discipline to face real problems, addressing scaling, requirements traceability and the need for a sound dynamic analysis process to deal with larger problems.
+
+PARAGRAPH
+
+Besides, we upgraded itSIMPLE to a new UML version – from UML 1.4 to UML 2.4 – and revised conceptually the information process to clarify the concept of work domain and planning domain.
+
+A minimum set of UML diagrams were defined and finally hierarchy was introduced in the process of dynamic analysis.
+
+PARAGRAPH
+
+The minimal UML diagrams set is composed by four diagrams: Package diagram, Class diagram and the Object diagram — from the set of structural diagrams.
+
+Package diagram shows composed and hierarchical components and their relationships.
+
+Class diagram is a static structure at the level of its classifiers (classes, interfaces, etc.).
+
+This diagram represents some of the system classifiers, subsystems and components, different relationships between them, attributes, operations and external constraints (in OCL).
+
+From the set of behavioral diagrams only the Behavioral State Machine diagram were included.
+
+State diagrams are used to model discrete system behavior, based on finite state transition systems.
+
+As proposed by Vaquero et al. (2005b), the planning domain is characterized by a statement where only two states are known: the initial and goal state, both represented by Object Diagram or Snapshots (D’Souza and Wills, 1999).
+
+Consistently, those states should also be referred in the State Machine diagram.
+
+PARAGRAPH
+
+The method comprises the following steps:
+
+PARAGRAPH
+
+A Hierarchical Petri net can be derived from UML diagrams using algorithms already developed in other work of some of the authors (Salmon et al., 2014).
+
+In this work we will not go further in property analysis and verification using Petri Nets.
+
+Instead, the design method would go for finding abstract (hierarchical) sequences of actions that will be transferred to AI planners.
+
+Once validated his abstract plans will be instantiated in a lower level plan.
+
+PARAGRAPH
+
+Conflicts in Petri nets should be signaling that in some context more than one action could be applied to the same state.
+
+In that case we could have a situation where any action could be indistinctly selected – which is an important information to the planner – or that a heuristic or human selection should be applied.
+
+That is even more important since it could result in the interruption of planning search.
+
+PARAGRAPH
+
+The use of hierarchy in the current context enhance the verification process since it allows the analysis in several abstraction levels.
+
+Therefore, behind the proposed approach it is the assumption that some behavioral properties (such as closeness, token conservation, etc.) could be preserved during the refinement process.
+
+The formal implication is that refining the model implies in finding conservative extensions of the general plan.
+
+PARAGRAPH
+
+To check conservative properties, we use GHENeSys (General Hierarchical Enhanced Net System) (Salmon et al., 2014) to represent hierarchical nets.
+
+In this system very special kind of hierarchy is built where all abstract elements are proper sub-nets.
+
+PARAGRAPH
+
+Def] A proper sub-net is homogeneous, that is, all border elements are either place or transition.
+
+Besides, an element has only one input and one output, and there is at least one free path (alive path) from the input to the output.
+
+PARAGRAPH
+
+In this kind of element, behavioral properties are preserved, and even hybrid properties as invariants are preserved.
+
+Therefore, HPN analysis based on proper elements allow behavioral properties to be analyzed in any abstraction level and not only in the ground level.
+
+On the other hand would need to enhance the dynamic analysis to include invariants (González-Ferrer et al., 2009).
+
+PARAGRAPH
+
+Once analyzed, the planning requirements model can be translated into a specification language that planners can interpret.
+
+Since the focus here is the use of hierarchical methods it makes sense to recover the use of a planner that can support this feature.
+
+Originally, itSIMPLE used PDDL (and PDDL-driven planners), which is not capable to process hierarchical models (McCluskey, 2003).
+
+To deal with hierarchical planning we recovered the treatment proposed by Dana Nau and partners (Nau et al., 2013) based in Hierarchical Task Nets and the Shop2 planner, that processes hierarchical plans.
+
+PARAGRAPH
+
+Dynamic Analysis is performed in Petri Nets and the acquired knowledge is then transferred to Hierarchical Task Network (HTN) representation, which is finally processed by JShop2 Ilghami (2006).
+
+HTN planning is a generalization of the classical planning, with the difference that each state of the problem is represented by a set of atoms, and actions corresponding to a deterministic state transition net.
+
+In an HTN planner as JShop2, the goal is not to achieve a set of states but instead to perform some set of tasks.
+
+Planning is concerned with the decomposition of non-primitive tasks, recursively, into smaller and smaller subtasks, until primitive tasks are reached (Ghallab et al., 2004).
+
+PARAGRAPH
+
+This new approach can be applied to larger and more complex systems.
+
+A case study (ROADEF 2005) is used to show that the proposed approach is more scalable and therefore applicable to real problems with a larger number of states.
+
+PARAGRAPH
+
+Fig. 7 shows the design method we propose.
+
+SECTION
+
+PARAGRAPH
+
+Translation algorithm from UML to Petri nets
+
+PARAGRAPH
+
+Our proposal includes the use of UML 2.4, especially the use of Behavioral Statechart diagram for modeling the whole system in a hierarchical way.
+
+The hierarchical approach over the initial model leads to use an hierarchical approach translated directly to High level Petri nets to perform the requirement analysis as suggested by Dana Nau and partners (Nau et al., 2013).
+
+However, it became clear that the modeling process could fit better a direct abstract process based on hierarchical extension of Place/Transition or High Level nets.
+
+PARAGRAPH
+
+We choose classic Hierarchical Petri nets (HPN, based on Place/Transition nets) as a validation tool for two reasons: first, because property analysis would rely on direct algorithms – based on proper elements – which could be directly transformed in computer programs while that could not be done to property analysis based on High Level nets; second, we want to introduce invariant analysis in the near future, which is also clearly implemented in classic Place/Transition nets.
+
+PARAGRAPH
+
+The original translation algorithm based on Baresi’s algorithm (Baresi and Pezze, 2001) had to be enhanced in order to consider Behavioral Statechart diagram and OCL internal and external constraints.
+
+These constraints are essential to ensure a more faithful analysis process.
+
+The proposed algorithm is showed in Algorithm 1.
+
+PARAGRAPH
+
+The number of states in State Chart diagram will be the same in Petri Net and each constraints of the State Chart will be converted in a general constraint in Petri Net (Line 1–3).
+
+Afterwards, there is a definition of pseudo-box, relations, transitions, composite states and macro elements of Petri Nets (Line 4–8).
+
+According to (Line 11–13), for each state associated with constraints, is defined a pseudo-box of the petri net
+
+PARAGRAPH
+
+A pseudo-box is an extended Petri element, very interesting to control and represent observable events that are not controlled by the system being modeled (Silva et al., 2009).
+
+PARAGRAPH
+
+Finally, a similar rule is followed to relations and composite element.
+
+Relations of State Chart become transitions in Petri Net, and composite or super states in the diagram will be modeled as (hierarchical) macro-elements.
+
+PARAGRAPH
+
+Analysis and validation are made using a Petri Net environment called GHENeSys3  which follow the new standard ISO/IEC 15.909.
+
+PARAGRAPH
+
+Next section shows a case study (The Car Sequence Domain), taken from ROADEF, which generated the hierarchical net shown in Fig. 13.
+
+This result should be compared with similar analysis made by the original itSiMPLE, which has the advantage of using the proposed hierarchical discipline.
+
+Generalizing this result is a difficult task because we will be comparing plans generated automatically from different AI planners which use different algorithms.
+
+Also, there is the limitation of PDDL and classic planners to process hierarchical models (McCluskey, 2003).
+
+Some authors tried to develop extensions to make PDDL to support hierarchical models (Botea et al., 2003), but, for complex problems, the use of a language that can deal naturally with hierarchy seems more efficient.
+
+That is why we propose HTN instead of PDDL to feed planners (Nau et al., 2013).
+
+PARAGRAPH
+
+What could be concluded is that using hierarchy and the proposed approach facilitates the KE modeling and analysis.
+
+A classic and realist application is presented in the next section.
+
+SECTION
+
+CaSe study: ROADEF 2005 - Car sequencing domain
+
+PARAGRAPH
+
+Requirements for the Car Sequencing problem were extracted from a set of challenges called ROADEF 20054  provided by companies to the academy.
+
+For Car Sequencing problem customer orders are sent to car factories in real-time and the factory must assign the production to ordered cars according to delivery dates, constraints and production line capabilities.
+
+A car sequence must be established daily and its accuracy has a direct effect on the amount and quality of manufactured cars.
+
+A detailed description of this challenge can be found in Solnon et al. (2008).
+
+PARAGRAPH
+
+Indeed, this challenge is a realistic manufacturing planning problem that encompasses interesting features such as planning with resources, sequencing, optimization and flexibility which make this problem a good example of a complex real problem.
+
+It is also a good example about the use of AI planning techniques in production, an area where it is not common to use AI Planning.
+
+Thus, we have an AI planning driven manufacturing process which requirements focus basically on paint shop, assembly line and body shop.
+
+PARAGRAPH
+
+The next figures will show the Class diagram and Behavioral State Chart diagram (in this example we use super-states to model hierarchy, as suggested in UML 2.4 specification OMG, 2011).
+
+That was one of the improvements to original itSIMPLE version.
+
+PARAGRAPH
+
+Using these two diagrams (See Figs. 8 and 9), it is possible to construct the work domain and the planning domain for the Car Sequence challenger.
+
+However, to complete the planning application model it is necessary to design other two diagrams representing the problem instance: an Object diagram to show the initial state and another one to represent the goal state (See Figs. 10 and 11).
+
+These diagrams model the information to compose planning domain.
+
+Notice that it is intuitive to design the whole problem in one State-chart diagram and translate it to Petri nets.
+
+In fact, that fits the classic approach used in manufacturing.
+
+PARAGRAPH
+
+For the current example the capacity of the assembly line is limited to three cars.
+
+Cars are programmed in a particular order, according to the constraints of the assembly line.
+
+PARAGRAPH
+
+Following, Class Diagram and Behavioral State Diagram are used to generate the Petri net of Fig. 12, which represent the dynamic structure with pre-conditions.
+
+The presence of cars would be provided consulting the object diagram and considering the cardinality of objects in the system.
+
+Using the same UML diagrams can also produce the hierarchical Petri net shown in Fig. 13.
+
+It is clear that independently of the performance of AI planners the traditional method would miss some operational details, which could make the result less accurate — even if could sometimes run faster.
+
+That could be inferred just observing the difference between Petri nets from Figs. 12 and 13.
+
+PARAGRAPH
+
+Fig. 12 is a mix of the abstract plan shown on the top of Fig. 13 and some of the hierarchical sub-nets as the Assembly Line embedded by Painting as a sequence model.
+
+The same abstract information is present in both nets, however distribution of assembling with robot sharing is only on the hierarchical net.
+
+There are two main reasons for that: (i) the design discipline is more accurate in the hierarchical approach because a richer set of diagrams have been used; (ii) diving into details after modeling the abstract plan forces the designer to go into more details of the process.
+
+Also, it is possible to use timed Petri Nets (the environment GHENeSys has this feature) and get a more realistic approach of the synchronization of activities and distributed tasks.
+
+PARAGRAPH
+
+Richer dynamic analysis would give more information to planners and improve convergence to a solution.
+
+For this example planners connected to the non-hierarchic version of itSIMPLE converged as well as Shop2 — connected to the hierarchic version.
+
+However, the hierarchic plans have a better quality, even for a well-behavior example like the car painting/assembling problem.
+
+PARAGRAPH
+
+The design process in this new proposal is also more flexible, in the since that we could vary the set of actions (keeping each one deterministic) and try different solutions just changing the dynamic problem class.
+
+The same could be done with the work domain.
+
+Therefore, the hierarchical approach leads to better and structured documentation for the design process and reinforce design reusability.
+
+SECTION
+
+Improving the knowledge engineering process by using goal oriented requirements
+
+PARAGRAPH
+
+In the original itSIMPLE environment requirements were specified using basically state and object diagrams — sometimes also using activity diagrams.
+
+There was not direct relation between activity diagrams and actions, what was inserted in the current proposal.
+
+PARAGRAPH
+
+UML was initially maintained as the representation for requirements because the expectation was that upgrading from version 1.0 to 2.1 would cover the lacks in the knowledge engineering approach observed using itSIMPLE.
+
+Other expectations were the possibility to treat bigger and more complex planning problems.
+
+To face that we fixed requirements modeling in a set of four diagrams: state, object, activity and sequence.
+
+PARAGRAPH
+
+In this new set activity diagrams were directly mapped to activities and sequence diagrams to the interaction between hierarchical modules.
+
+Therefore, requirements modeling became more clear as well as the algorithm developed to translate UML requirements to Petri Nets.
+
+PARAGRAPH
+
+However, a drawback still persist in the modeling of large problems: the need to balance functional and non-functional requirements.5
+
+itSIMPLE use OCL (Object Constraint Language) (Zhao et al., 2004) to do both restriction requirements and interaction constraints.
+
+However that make the design process a double journey, first with functional requirements and second with restrictions and non-functional aspects.
+
+PARAGRAPH
+
+Further development in the knowledge modeling for planning lead us to consider the use of Goal Oriented Requirements Engineering (GORE) were the process is oriented to objectives, which already match functional and related non-functional requirements in the same goal.
+
+A short description of the basic goal diagram is presented in the next sub-section followed by the same example used as case-study now using objective diagram.
+
+PARAGRAPH
+
+There are four diagrams in the GORE method: objective diagrams, object diagram, operational diagram and responsibility diagram.
+
+Goal and object diagrams cover all that can be modeled in the four UML diagrams used in the current proposal.
+
+Operational can be used can improve the method by improving the description of hierarchical models and its interaction with the remaining elements, and responsibility can link requirements with users and agents that demand the related requirements — inserting traceability in the process.
+
+PARAGRAPH
+
+The authors are now working in an algorithm – similar to the one in Section 6 to transfer goal diagrams – and later the other diagrams — to Petri Nets.
+
+We will than have a new version of the knowledge engineering approach for planning using GORE.
+
+SECTION
+
+The KAOS method
+
+PARAGRAPH
+
+KAOS is a Goal-Oriented Requirement Engineering (GORE) method based in the use of goals to elicit, elaborate, structure, specify, analyze, negotiate, document, and modify requirements (Van Lamsweerde, 2000).
+
+The mission of GORE methods is to justify the “why”, “what” and “who” dimensions, and to ensure that requirements meet the system objectives — including those of safety and security (Lamsweerde, 2009a).
+
+PARAGRAPH
+
+KAOS provides mechanisms with basis on formal logic, LTL (Linear Temporal Logic), while includes graphical modeling representations for requirements in terms of goals that express stakeholders needs and viewpoints.
+
+PARAGRAPH
+
+Graphically, goals are represented in KAOS diagram by parallelograms, while requirement borders are drawn in bold line and agents are represented by hexagons.
+
+Here, leaves (the most internal nodes or end-nodes) are defined as requirements, expectations or domain properties.
+
+Fig. 14 shows graphically the main elements in KAOS.
+
+PARAGRAPH
+
+Leaves are assigned to the software-to-be or to an environment and are defined as Requirements or Expectation respectively.
+
+Descriptive statements on environment, like physical laws, organizational policies and other typically non-functional aspects connected to the domain environment (and not with the plan execution) are modeled as Domain Properties.
+
+Fig. 15 shows the goal diagram for Roadef challenge in KAOS.
+
+PARAGRAPH
+
+A goal “A request is ready for delivery when an order was received” is defined as he primary goal.
+
+From there, and applying successive refinements, specifically Milestone-Drive (Darimont and Lamsweerde, 1996; Lamsweerde, 2004), new sub-goals are generated describing the stages of the car production line: transporting, painting and assembling hierarchical processes.
+
+Three main agents are defined: Operator which is responsible for a group cars before painting and assembling process are called.
+
+A Transporter agent is responsible for the transportation in the production line while a Painter agent is related with the paint process.
+
+Finally the Assembler hierarchical agent which is responsible for the assembling.
+
+PARAGRAPH
+
+Planning actions can be directly related to expectations (in yellow), while the hierarchy are its relations are mixed clearly in the diagram, as well as it relation with human and machine agents.
+
+A direct comparison with the similar requirement diagram to the same problem in UML is appealing.
+
+The possibility to add objects – important to the definition of elements of the planning environment and explicit showed in UML – can improve even more the process.
+
+PARAGRAPH
+
+Formal dynamic analysis using Petri Nets depend on an algorithm to translate from GORE diagrams to Petri Nets.
+
+The authors are now working on that.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Knowledge Engineering for AI applications gain more attention in the academia due the possibility of contributing with new methods and approaches to face real applications, as for instance, games (Millington and Funge, 2016) or traffic problems (Hobbs, 2016).
+
+There is also a demand to apply AI planning methods to manufacturing (Tonaco-Basbaum et al., 2016; Parkinson et al., 2016; Simpson et al., 2014; OMG, 2013) which seems to be very promising to industrial automation, specially if implies the inclusion of sound methods and useful tools.
+
+PARAGRAPH
+
+The use of UML and Petri nets to capture and analyze requirements in challenging real problems related to planning is still a good option to KE applied to AI planning because of the possibility of introducing dynamic analysis, a key issue for automated systems.
+
+However, much combination could be used successfully in the design of real problems, but this approach turns prohibitive to be applied to large problems.
+
+Thus, it makes a good option to use abstraction and hierarchy both in UML and Petri nets.
+
+That means more an enhancement in formal representation and a significant change in the design discipline.
+
+PARAGRAPH
+
+We improved an existing version of itSIMPLE that considers just State Machine, object and class diagrams to introduce the discussion of the proper set of diagrams that should be used.
+
+This new set were based on state, object (and class), sequence and activity diagrams, which were used in a new algorithm that translate the requirements to Petri Nets, were a dynamic analysis were performed.
+
+PARAGRAPH
+
+The use of hierarchy provided a more adherent approach to real problems even with the introduction of domain-dependent knowledge, which is quite unavoidable to real problems.
+
+PARAGRAPH
+
+The novelty in the current proposal for using Hierarchical Petri nets in automated planning is the introduction of proper hierarchical elements with homogeneous boundaries composed by a unique input and output and a live path between them.
+
+That makes the process much more disciplined, besides conserving property analysis.
+
+Extensions from GHENeSys – the Petri Net environment used – also open the possibility to represent observable non-controllable elements directly and without losing soundness.
+
+PARAGRAPH
+
+Current results encourage the authors to apply this method to a large logistic problem associated the supply of offshore petroleum exploration platforms.
+
+The general problem to be solved is based on the transportation and delivery of resources – from a list of requests – to different locations, taking in account a number of constraints imposed by Petrobras — the Brazilian Petroleum Company.
+
+PARAGRAPH
+
+However, it is important to point out that, even in the hierarchical approach, good results are still depending of designer ability, and his∕her capacity to deal with non-functional requirements.
+
+The better structure of abstract planning and sub-plans improve the balance between functional and non-functional requirements but do not eliminate all difficulties.
+
+Therefore, the results of this research point to new methods to treat requirements with goal-oriented methods (Lamsweerde, 2009b).
+
+This is the basis for a new itSIMPLE version which is currently being developed.

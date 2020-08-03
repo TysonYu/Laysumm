@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.08.011
+
+ABSTRACT
+
+TITLE
+
+Dynamic path planning for reconfigurable rovers using a multi-layered grid
+
+PARAGRAPH
+
+Autonomy on rovers is desirable in order to extend the traversed distance, and therefore, maximize the number of places visited during the mission.
+
+It depends heavily on the information that is available for the traversed surface on other planet.
+
+This information may come from the vehicle’s sensors as well as from orbital images.
+
+Besides, future exploration missions may consider the use of reconfigurable rovers, which are able to execute multiple locomotion modes to better adapt to different terrains.
+
+With these considerations, a path planning algorithm based on the Fast Marching Method is proposed.
+
+Environment information coming from different sources is used on a grid formed by two layers.
+
+First, the Global Layer with a low resolution, but high extension is used to compute the overall path connecting the rover and the desired goal, using a cost function that takes advantage of the rover locomotion modes.
+
+Second, the Local Layer with higher resolution but limited distance is used where the path is dynamically repaired because of obstacle presence.
+
+Finally, we show simulation and field test results based on several reconfigurable and non-reconfigurable rover prototypes and a experimental terrain.

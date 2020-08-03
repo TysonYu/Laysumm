@@ -1,0 +1,19 @@
+10.1016/j.engappai.2019.08.008
+
+LAYSUMM
+
+TITLE
+
+Divide-and-conquer framework for image restoration and enhancement
+
+PARAGRAPH
+
+We develop a new divide-and-conquer framework for improving visual quality of degraded images, and make use of different image contents and their characteristics for image restoration and enhancement.
+
+Our framework is efficiently implemented, and is simply extended to other algorithms for promoting performances.
+
+1) Dividing: we decompose an image into different components by considering their visual importance and exploiting their differences.
+
+2) Processing: we establish different models for image subspace restoration and enhancement, and use existing methods to tackle them respectively.
+
+3) Integrating: we employ an effective fusion scheme to integrate post-processed subspaces for final image.

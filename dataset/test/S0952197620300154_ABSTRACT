@@ -1,0 +1,31 @@
+10.1016/j.engappai.2020.103500
+
+ABSTRACT
+
+TITLE
+
+Combined weighted multi-objective optimizer for instance reduction in two-class imbalanced data problem
+
+PARAGRAPH
+
+Instance reduction from class-balanced data has been investigated in much research.
+
+However, there is a lack of studies on class-imbalanced data.
+
+Learning from imbalanced data lately has attracted a lot of attention due to the practical applications.
+
+In the case of two-class imbalanced data, the instances from one class, majority class, are more numerous than the instances from the other class, which is a minority class.
+
+The present paper aims to introduce a new instance reduction method that preserves between-class distributions in the balanced data and handles minority class instance reduction in two-class imbalanced data, efficiently.
+
+The proposed method solves the instance reduction issue from an unconstrained multi-objective optimization problem aspect.
+
+Accordingly, a new combined weighted optimizer is designed.
+
+By employing the chaotic krill herd evolutionary algorithm, both the minority and majority class spaces with the accelerated convergence are explored.
+
+Through this method, the original data set is purged of those instances that decrease accuracy, and Gmean.
+
+The performance has been evaluated on both imbalanced and balanced data sets collected from the UCI repository by the 10-fold cross-validation method.
+
+Evaluations show that the proposed method outperforms state-of-the-art methods in terms of classification accuracy, Gmean, reduction rates, and computational time.

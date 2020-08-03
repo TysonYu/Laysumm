@@ -1,0 +1,853 @@
+10.1016/j.engappai.2019.103404
+
+FULLTEXT
+
+TITLE
+
+Multi-phase trajectory optimization for an aerial-aquatic vehicle considering the influence of navigation error
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Trajectory optimization for aerial vehicle has been a research focus for many years because it is important to improve the autonomous flight capability.
+
+Among so many types of aircraft and tasks, trajectory optimization for unmanned aerial vehicle (UAV) and hypersonic vehicle are paid special attentions.
+
+For example, when UAVs are equipped in military, they can execute attack and reconnaissance tasks (Ropero et al., 2019).
+
+In civil use, UAVs are often assigned to search and rescue tasks (Juan et al., 2018).
+
+As for the hypersonic vehicles, they can make precise strike towards target instantly (Sushnigdha and Joshi, 2018).
+
+In each of the above situations, an optimal trajectory is expected to realize a safe and efficient flight.
+
+It is well known that a complete flight is composed of several phases, i.e., take-off, climb, cruise, descent and landing, and existing literatures mainly concentrate on generating the trajectory for one single flight phase (especially the cruise phase).
+
+The trajectory in other phases is often fixed in advance, which is far from satisfaction in a real world scenario.
+
+PARAGRAPH
+
+In existing studies on multi-phase trajectory optimization for aerial vehicle, task-induced problems are mainly reported, and they are the issues on commercial transportation, lunar landing and space mission.
+
+In the commercial transportation, the goal is always minimizing the total fuel consumption (Hartjes et al., 2018).
+
+The whole flight is divided into three phases, i.e., climb, cruise, and descent considering standard airline procedures and air traffic control regulations (Franco and Rivas, 2015; Rivas et al., 2013).
+
+In each phase, trajectory optimization is formulated into an optimal control problem, and the switch between two consecutive phases is autonomous when certain conditions on continuous states and time are satisfied (Soler et al., 2011).
+
+Besides, the influence of actual take-off weight is analyzed, as well as the effects of wind and non-standard temperatures.
+
+In a lunar landing task, there are three phases, i.e., the braking with rough navigation (from the altitude of 18 km to 7 km), attitude hold (holding the attitude for 35 s) and braking with precise navigation (from the end of phase 2 to 100 m altitude over the landing site) (Mathavaraj et al., 2016, 2017).
+
+Different constraints are set according to the characteristic of each phase, and the trajectory segments are all obtained by the Legendre Pseudospectral method.
+
+As for the space mission, the idea is to integrate multiple phases into a single-phase trajectory optimization problem (Saranathan and Grant, 2018).
+
+To be specific, the original trajectory optimization problem is relaxed by using saturation functions to approximate the piecewise dynamics and cost functional as continuous equations (Rexius et al., 2013).
+
+The new equations can describe the motion of vehicle for all flight phases, and the intermediate boundary conditions and corresponding change in flight dynamics during the phase switching are inherently satisfied.
+
+Besides, the new continuous cost functional is also valid for all flight phases.
+
+Then the hybrid optimal control method is developed to solve the single-phase trajectory optimization problem, and the problem is divided into an outer and inner loop (Ogawa et al., 2014; Chilan and Conway, 2013).
+
+In the outer loop, the discrete states are optimized using evolutionary algorithms, and the inner loop performed optimization on the continuous dynamics using nonlinear programming.
+
+In summary of the above studies, the differences among each phase lie in dynamic equations, constraints and optimization goals, and the strategies of automatic phase switch and hierarchical planning are applied according to the characteristic of specific task.
+
+However, in some studies (Mathavaraj et al., 2016; Rexius et al., 2013; Ogawa et al., 2014), the same method is used to generate each trajectory segment (Wang et al., 2014), which fail to abstract the key elements of each flight phase and make no difference with the single-phase trajectory optimization.
+
+PARAGRAPH
+
+During the flight, not only the flight phases are related to specific task, but also the environment plays a role.
+
+The environment-induced multi-phase trajectory optimization problems are rarely concerned and the relevant literatures are limited.
+
+The flight across blackout zone (the space from the altitude of 80 km to 45 km from the surface of the earth) and underwater navigation are typical cases.
+
+When considering the reentry trajectory optimization problem for hypersonic vehicle, the position information is provided by Global Positioning System (GPS)/Inertial Navigation System (INS), which has high precision (Li et al., 2016b).
+
+However, GPS is invalid in the blackout zone because the received radio signal is shielded, and only the INS works in the navigation system (Makarov et al., 2005), which makes the navigation error accumulated.
+
+An adaptive reentry guidance method is proposed in Wu et al. (2018), and the whole reentry guidance task is divided into two phases, i.e., the trajectory updating phase and the trajectory planning phase.
+
+In the first phase, the receding optimization procedure ensures the optimal trajectory in the next few seconds.
+
+In the trajectory planning phase, after the vehicle has flown out of the blackout zone, the optimal reentry trajectory is obtained by online planning to adapt to the navigation information.
+
+As for the seaplane, an unmanned aerial system is established to decompose a cyclic mission into the following segments: drift, acceleration, take-off, climb, cruise, descent, landing, drift (Eubank et al., 2009).
+
+In each phase, a desired trajectory can be defined along with switching strategy between phases.
+
+This system enables fully-autonomous operations, and the phase-switching logic relies on geometric and temporal rules to select the appropriate flight mode.
+
+Actually, the motion of an aerial-aquatic vehicle is also a multi-phase task, and the underwater navigation error occurs as GPS is forbidden for communication from air to underwater (and from underwater to air) because the GPS signal is easy to be detected, which makes underwater navigation unsafe (Murphy et al., 2008).
+
+PARAGRAPH
+
+As for trajectory optimization algorithms, meta-heuristic algorithms have been paid more and more attentions in recent years due to their advantages in making a balance between the solution quality and computing speed (Karagöz and Yıldız, 2017; Yıldız and Yıldız, 2018), and they have a wide range of application in control system (Ontiveros-Robles et al., 2018; Sanchez et al., 2015), milling operations (Yildiz, 2013b) and so on.
+
+Particle swarm optimization (PSO) algorithm, genetic algorithm (GA) and ant colony optimization (ACO) algorithm are the most popular ones.
+
+Besides, there are many new algorithms emerging in the last few years, such as the chicken swarm optimization (CSO) algorithm (Li et al., 2017), farmland fertility optimization algorithm (Shayanfar and Gharehchopogh, 2018), falcon optimization algorithm (de Vasconcelos Segundo et al., 2019), sailfish optimizer (Shadravan et al., 2019) and interactive search algorithm (Mortazavi et al., 2018).
+
+The frames of the above algorithms are similar, and the differences among them lie in the principles of updating solutions.
+
+There are random numbers in those algorithms to make the solutions diversity, and some algorithm parameters must be determined to result in best performance.
+
+Current studies on meta-heuristic algorithms are conducted mainly from three aspects, i.e., application of standard algorithms (Hu et al., 2019), improvements of one specific algorithm (Yildiz, 2013a) and combination of several algorithms (Wang and Li, 2017).
+
+PARAGRAPH
+
+In this paper, the multi-phase trajectory optimization problem in different media is studied considering the influence of navigation error.
+
+This topic is interesting and significant, and as far as the authors know, there is no public literature concerning this issue.
+
+A coaxial eight-rotor vehicle is selected to execute the task (Drews et al., 2014; Peng et al., 2015) because compared to the fixed wing aircraft, there is no need for the coaxial eight-rotor vehicle to change the configuration when dividing into water (Wu et al., 2019; Wu, 2019).
+
+Seamless transition between air and underwater can be realized by adjusting the angular velocity of each rotor (Maia et al., 2015).
+
+The aim is to realize a safe and efficient navigation both in air and underwater especially when GPS is forbidden underwater.
+
+New trajectory optimization model and algorithm are developed to avoid collision between the vehicle and obstacle and achieve an optimal trajectory to the destination.
+
+PARAGRAPH
+
+In an underwater target tracking task, the vehicle must dive into water and then navigate to the destination.
+
+Firstly, the nonlinear dynamical model of vehicle is established, and the vehicle is ordered to dive vertically to reduce the impact of water.
+
+The constraints on angular velocity of rotor in different media are proposed to realize a smooth diving.
+
+In the underwater navigation, only the INS combined with terrain matching is used to provide the navigation information.
+
+However, INS will cause accumulated navigation error due to senor drift, and the error can be corrected by terrain matching (Jekeli and Christopher, 2001).
+
+With inaccurate state information, there may be erroneous judgments for relative position between the vehicle and underwater obstacles or between the vehicle and the destination, which will lead to collision or large derivation, thus reducing the safety level and quality of trajectory.
+
+In view of the above mentioned problems, the models of inaccurate navigation information and terrain matching are established, and current states of vehicle are denoted by an expectation and a standard deviation.
+
+Correspondingly, the representations of states lead to the new strategy of collision detection and the change in the form of cost function.
+
+Both of them are described by a new way to improve the safety level and accuracy of trajectory.
+
+To obtain the trajectory in each phase, teach & learn-based optimization (TLBO) algorithm (Rao et al., 2012) is applied, and a modified version is developed to improve its performance.
+
+TLBO is a population-based heuristic stochastic optimization algorithm, and its structure is similar to other swarm intelligence algorithms.
+
+The difference is that there are some user-defined parameters in many algorithms except for common parameters such as population size, solution dimension and maximum iterations.
+
+For example, PSO uses the inertia weight and acceleration factor, and ACO uses evaporation rate of pheromone and effectiveness factors.
+
+Those user-defined parameters need to be well set and adjusted according to the characteristic of specific problem to result in best performance, which have a great influence on the searching ability of algorithms.
+
+In TLBO algorithm, the above problems do not arise as there is no additional parameter setting artificially (Qu et al., 2017).
+
+This mechanism makes the algorithm’s performance unaffected by the inappropriate parameter setting.
+
+Due to the advantages such as simple concept, without algorithm-specific parameters and effectiveness, TLBO has been widely applied in civil engineering, control engineering and so on (Zou et al., 2019).
+
+However, the deficiency of slow convergence rate and trapping into the local optimum easily weaken its performance (Niu et al., 2018).
+
+The operator influencing its solution quality is modified to improve the performance in this study.
+
+The main contributions of this paper are summarized as follows:
+
+PARAGRAPH
+
+1.
+
+A multi-phase trajectory optimization model is developed.
+
+The underwater target tracking task is described and is divided into two phases.
+
+The nonlinear dynamical model of vehicle is established, and based on which, the control variables in different phases are defined to reduce the number of inputs.
+
+The constraints on the control variables in air and water are formulated to reflect different requirements.
+
+PARAGRAPH
+
+2.
+
+The models caused by inaccurate navigation information are established, and those models are introduced to the trajectory optimization problem.
+
+The navigation information is denoted by random variables with an expectation and a standard deviation.
+
+The result of collision detection is indicated by collision probability, which is obtained by integrating the probability density function of navigation position in the obstacle space.
+
+The cost of trajectory is calculated by applying Monte Carlo Simulation, which gets the average value from certain number of samples.
+
+PARAGRAPH
+
+3.
+
+An improved TLBO algorithm is proposed to enhance the performance of original version.
+
+Referring to the idea in PSO algorithm, the formula of updating academic records in the teaching procedures is modified, which increases the impact of individual historical optimal solution.
+
+The convergence rate and the solution quality are improved by the ITLBO algorithm.
+
+SECTION
+
+Description of the trajectory optimization problem and the model of aerial-aquatic vehicle
+
+PARAGRAPH
+
+The underwater target tracking problem considered in this study is defined as follows.
+
+The aerial-aquatic vehicle is initially hovering in the air, and it will vertically dive into water when receiving the task instruction.
+
+After the vehicle has reached certain depth, it will navigate towards the destination.
+
+The coaxial eight-rotor vehicle used in this paper is shown in Fig. 1.
+
+PARAGRAPH
+
+For convenience, the upper and lower branches of rotors are defined as team A and team B respectively.
+
+When the vehicle is diving into water, the angular velocities of rotors are changed to realize smooth transmedia navigation.
+
+To be specific, the angular velocities of team B will be reduced to decrease the interference when they are approaching the water surface.
+
+After they have entered the water and are becoming far from the water surface, the angular velocities can be increased to ensure a normal navigation.
+
+The same variation of angular velocities is for team A.
+
+It is important for the rotor reducing or gaining angular velocity when approaching or being away from the water surface to avoid the instability of system caused by sudden increase of drag during the complicated diving process.
+
+A complete dynamic model of this vehicle is presented in Appendix A, and next the whole task is divided into two phases.
+
+The constraints on control variables in each phase will be depicted.
+
+PARAGRAPH
+
+1.
+
+Diving into water
+
+PARAGRAPH
+
+The aerial-aquatic vehicle will fly straightly downward to the water surface to reduce the flying distance, thus diving into water as soon as possible and avoiding being detected.
+
+When the vehicle has reached the preset depth, this phase ends.
+
+As there is no attitude change, the motion of vehicle can be expressed by Eq. (1). ẇ=(k1∑i=18ρiωi2)∕m−gż=wρ3ω32+ρ4ω42−ρ7ω72−ρ8ω82=0ρ1ω12+ρ2ω22−ρ5ω52−ρ6ω62=0∑s=1,4,5,8ρsωs2−∑t=2,3,6,7ρtωt2=0
+
+where w is the velocity along the axis ob zb, ρi is the medium density, ωi is the angular velocity of rotor i, and k1 is the scale factor.
+
+PARAGRAPH
+
+To meet the constraints listed in the last three formulas of Eq. (1), a feasible solution of angular velocities is provided to simplify the calculation and reduce the number of unknowns, i.e., ρ1ω12=ρ5ω52, ρ2ω22=ρ6ω62, ρ3ω32=ρ7ω72, ρ4ω42=ρ8ω82 and ρ1ω12−ρ2ω22−ρ3ω32+ρ4ω42=0.
+
+According to this operation, there are only three control variables, i.e., ω1, ω2 and ω3 in the diving phase.
+
+The vehicle navigates both in the air and underwater, and the maximum angular velocity of rotor in the air should be greater than that underwater because the water provides more drag.
+
+On the other hand, when the vehicle is near the water, the angular velocities should be smaller to reduce the counterforce from water, which is adverse to the stability of motion, as shown in Fig. 2.
+
+PARAGRAPH
+
+In Fig. 2, axis zg is the distance between the rotor and water surface and ω is the angular velocity of rotor. ωmaxair
+
+and ωmaxwater denote the maximum angular velocity of rotor in air and underwater respectively, and happ is the critical distance.
+
+When the distance between the rotor and water surface is less than happ, the maximum angular velocity of rotor is reduced to 20% of that in the corresponding medium to alleviate the disturbance.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The vehicle conducts six degrees of freedom motion in this phase, and the angular velocity of each rotor is the control variables.
+
+As there are eight rotors, the number of control variables is great which makes the solution space of trajectory optimization large and adds the difficulty of getting the satisfactory solution.
+
+Considering that the vehicle is fully immersed into water and the media density in dynamic equations (ρi (i=1, 2,…, 8)) is a constant, new control variables are defined to reduce the number of control variables and improve the efficiency of searching satisfactory trajectory, as shown in Eq. (2).
+
+U1=∑i=18ρwaterωi2U2=ρwater(ω32+ω42−ω72−ω82)U3=ρwater(ω12+ω22−ω52−ω62)U4=ρwater(∑s=1,4,5,8ωs2−∑t=2,3,6,7ωt2)
+
+PARAGRAPH
+
+After the values of U1, U2, U3 and U4 are determined, ωi can be calculated by Eq. (2).
+
+The constraints of U1, U2, U3 and U4 are listed in Eq. (3). 0≤U1≤U1maxU2≤U2maxU3≤U3maxU4≤U4max
+
+SECTION
+
+Trajectory optimization model based on navigation error
+
+PARAGRAPH
+
+In the underwater navigation phase, the navigation information provided by INS is inaccurate.
+
+Firstly, the model of navigation information is developed, and the standard deviation of navigation information is derived.
+
+Then the technology of terrain matching is introduced to correct the accumulated navigation errors.
+
+As the navigation error is considered in trajectory optimization, the positional relation between the vehicle and the obstacles becomes uncertain, and the collision probability is introduced to evaluate the safety level of navigation information.
+
+Besides, cost functions in both phases are formulated, and especially, the navigation error is taken into account in the underwater navigation phase.
+
+SECTION
+
+Model of the navigation information
+
+PARAGRAPH
+
+According to the motion model of coaxial eight-rotor vehicle, the state of vehicle at the sampling moment k + 1 can be obtained by function xk+1=F(xk,uk), where xk is the state vector and uk is the control vector in the underwater navigation phase.
+
+To evaluate the standard deviation of navigation information at the sampling moment k + 1 (using σk+1 to denote the set of standard deviation of each state), the function xk+1=F(xk,uk) is expanded using Taylor series at the neighborhood of xk+1, and the first order expansion is presented in Eq. (4) to get the linear formula approximately. xk+1≈Fxˆk,uˆk+∂F(xk,uk)∂xkxk−xˆk+∂F(xk,uk)∂ukuk−uˆk
+
+PARAGRAPH
+
+xˆk+1=Fxˆk,uˆk is the expected state at the sampling moment k + 1.
+
+To calculate σk+1, the covariance matrix of state error (denoted by ∑xk+1) is needed and can be calculated by Eq. (5). ∑xk+1=Exk+1−xˆk+1xk+1−xˆk+1T=∂F(xk,uk)∂xk∑xk∂FT(xk,uk)∂xk+∂F(xk,uk)∂uk∑uk∂FT(xk,uk)∂uk
+
+where ∂FT(xk,uk)∂xk and ∂FT(xk,uk)∂uk are the Jacobian matrices. ∑xk
+
+and ∑uk are the covariance matrix of state and control variables.
+
+The detailed information on ∂FT(xk,uk)∂xk, ∂FT(xk,uk)∂uk, ∑xk and ∑uk are presented in Appendix B. σk+1 can be obtained by selecting the diag of matrix ∑xk+1, i.e., σk+1=([∑xk+1]ii) (i=1, 2,…, 12)
+
+PARAGRAPH
+
+In summary, the navigation information at each sampling moment k contains two elements: expected state xk provided by INS and the standard deviation σk. xk
+
+is determined by the trajectory optimization algorithm, and σk can be derived from Eqs. (4) and (5).
+
+SECTION
+
+Correction of the navigation error
+
+PARAGRAPH
+
+With only the INS-provided navigation information, the navigation error will accumulate over time if there is no strategy dealing with this problem.
+
+One idea is to make the vehicle rise to the water surface periodically and correct its navigation information by receiving the GPS signal.
+
+However, it goes against the requirement of concealment, and the optimal trajectory cannot be ensured by heading for the water surface.
+
+In recent years, the technology of terrain matching has been paid more attention in navigation (de Vasconcelos Segundo et al., 2019).
+
+In terrain matching, the positioning is conducted by matching the survey terrain and the stored topographic data.
+
+Note that, each time of positioning is independent, so there is no accumulated navigation error.
+
+The topographic data of matching space is stored in vehicle ahead of time, and when the vehicle is in the matching space, the real time position is obtained by matching the survey terrain and the stored topographic data.
+
+PARAGRAPH
+
+Here the matching space (denoted as C) is simplified as a spherical region with the radius Rm.
+
+Assume that the accuracy of terrain matching is high, the standard deviation of position information can be corrected as small values. σxk=σxmatσyk=σymatσzk=σzmat,(xk,yk,zk)∈C
+
+PARAGRAPH
+
+Note that only the position information is corrected in the terrain matching space, and the other nine items in σk are remained unchanged.
+
+The diagram of terrain matching for underwater navigation is presented in Fig. 3.
+
+PARAGRAPH
+
+In Fig. 3, the navigation error is accumulated before the vehicle enters the terrain matching space.
+
+In the terrain matching space, the standard deviation of position remain small values, and the standard deviation is divergent again after leaving the terrain matching space.
+
+SECTION
+
+Collision detection considering the navigation error
+
+PARAGRAPH
+
+When the navigation information is accurate, the relative position between the vehicle and obstacle is definite: the vehicle is in or out of the obstacle space.
+
+However, as the navigation error cannot be neglected in underwater navigation, the relative position becomes indefinite.
+
+Here the collision probability is introduced to evaluate the probability that the vehicle falls into the obstacle space.
+
+The collision probability is obtained by integrating the probability density function of navigation position in the obstacle space, as presented in Eq. (7).
+
+Pk=12πσxkσykσzk∭Ωe−[(x−xk)2σxk−2+(y−yk)2σyk−2+(z−zk)2σzk−2]2dxdydzwhere Ω is the envelope of obstacle.
+
+Here spherical obstacles are used, and the triple integral can be simplified by calculating it in the spherical coordinates.
+
+If Pk is larger than the maximum allowed collision probability (denoted as Pmax), the collision is thought to be happened, and the corresponding trajectory point must be abandoned to ensure the safety.
+
+SECTION
+
+Cost functions in each phase
+
+PARAGRAPH
+
+The goal of each phase is the same: to reach the specific location with the minimum terminal position error.
+
+However, as the navigation error is considered in the underwater navigation phase, the forms of cost function in each phase are different, as expressed in Eqs. (8) and (9) respectively.
+
+J1=|ztf1−zdeep|J2=∑i=1P(xitf2−xtar)2+(yitf2−ytar)2+(zitf2−ztar)2∕P
+
+PARAGRAPH
+
+Eq. (8) is the cost function for the diving phase, and zdeep is the assigned terminal depth. tf1
+
+is the ending moment of diving into water.
+
+In the underwater navigation phase, as the navigation information is not so accurate, the distance between the terminal position of vehicle and the destination becomes uncertain and is related to the probability distribution of navigation information.
+
+In Eq. (9), Monte Carlo Simulation is applied to calculate the cost.
+
+P random positions, i.e., (xi (tf2), yi (tf2), zi (tf2)), are selected from all the possible navigation positions, and the uncertain distance between the vehicle and the destination is converted into exact value by taking the average distance.
+
+SECTION
+
+Trajectory optimization based on the improved TLBO algorithm
+
+PARAGRAPH
+
+TLBO-based algorithm is introduced to generate the trajectory in each phase as it has demonstrated its effectiveness in many optimization problems (Ansari et al., 2016).
+
+However, it still suffers from slow convergence rate and trapping into local optima easily.
+
+To further improve the performance of TLBO algorithm, the idea in PSO algorithm is adopted, and the operator which may compromise the solution quality is modified.
+
+Then, some operations on the control variables are conducted to make the improved TLBO (ITLBO) algorithm suitable for solving this trajectory optimization problem.
+
+The algorithm procedures are also provided to make a better understanding of how to deal with this problem.
+
+SECTION
+
+Improvement of TLBO algorithm
+
+PARAGRAPH
+
+TLBO algorithm imitates the teaching and learning process between the teacher and the students, and the goal is to improve the students’ scores through the teaching of teacher and the interactive learning among students.
+
+In TLBO algorithm, the class is taken as a group composed by a teacher and a certain number of students.
+
+Each individual, i.e., the teacher or a student, is regarded as a solution (a possible trajectory in this problem), and the number of courses equals to the dimensions of solution (the number of points in each trajectory in this problem, denoted as D).
+
+The scale of class, i.e., the number of initial solutions (denoted as N), is decided by the number of teacher and students together.
+
+The teacher corresponds to the individual with the best fitness value, and the students represent the other solutions.
+
+PARAGRAPH
+
+There are two procedures updating individuals’ scores, i.e., teaching process and interactive learning among students.
+
+The formulas are expressed in Eqs. (10) and (11). si,newj=sij+rand⋅(steacherj−round(1+rand)⋅∑i=1Nsij∕N)si,newj=sij+rand⋅ssj−stj,ssislessthanstsij+rand⋅stj−ssj,stislessthanss
+
+where rand is a random number in the interval [0, 1] and round is a function that rounding a decimal whether up or down to the nearest integer. ss
+
+is less than st means the cost value corresponding to ss is less than that of st.
+
+In the teaching process, the students learn from the difference between the teacher and the mean score of students.
+
+After that, all the students update their scores by comparing the scores before and after the teaching process.
+
+In the interactive learning process, each student randomly selects another one to learn from, and the adjustment is made based on the difference between the other student and its own.
+
+Also, the score is updated after comparison between old and new.
+
+PARAGRAPH
+
+It can be seen from Eq. (10) that the process of updating the individuals’ scores is similar to that in PSO algorithm, i.e., the current global optimal solution is utilized to update individual’s information.
+
+It is different from PSO algorithm that the average overall score of individuals and interactive learning among students are concerned, which can keep the diversity of individual and is less likely to trap into the local optima.
+
+However, the use of average overall score will lead the students’ scores not always draw close to the teacher’s, which may have an influence on the solution quality.
+
+PARAGRAPH
+
+In view of the above problem, the teaching process in TLBO algorithm is modified by borrowing the idea in PSO algorithm (Kennedy and Eberhart, 2002).
+
+To be specific, in Eq. (10), the individual historical optimal solution is introduced to replace the average overall score, and Eq. (10) is modified as follows. si,newj=sij+rand(steacherj−round(1+rand)si,bestj)
+
+where si,bestj is the historical best score of course j for individual i. Thus, the information of global optimal solution, individual historical optimal solution and communication among individuals are all included to update the solutions, which enables the algorithm to improve the solution quality and avoid trapping into the local optima.
+
+Besides, in Eq. (10), to obtain the average overall score of individuals (∑i=1Nsij∕N), the computing times are N in every iterations.
+
+The same computing times is needed for the corresponding item in Eq. (12) to get the historical best score for individuals in every iterations.
+
+Therefore, ITLBO algorithm will not increase the complexity of original algorithm and is expected to perform better.
+
+SECTION
+
+Operations on the control variables
+
+PARAGRAPH
+
+According to the above description, ITLBO algorithm is proposed to optimize the values of control variables in each phase of the underwater target tracking task.
+
+Note that if the value of control variable at every sampling moment is optimized, the computation load will be heavy.
+
+Besides, large number of control variables will degrade the efficiency of algorithm.
+
+Therefore, the collocation points are set in each phase, and they are the points where the values of control variables are optimized.
+
+The values of control variables at other points can be obtained by interpolation.
+
+Now, the strategy of determining the locations of collocation points in each phase of task is discussed in detail.
+
+PARAGRAPH
+
+1.
+
+Distribution of collocation points in the diving phase
+
+PARAGRAPH
+
+Firstly, the line segment between the initial height of vehicle and the desired depth is discretized as a certain number of Chebyshev points.
+
+Only the values of control variables at Chebyshev points need to be optimized, and the values of control variables at other heights are calculated by interpolation.
+
+The locations of Chebyshev points are distributed according to Eq. (13). zm=cosn−m⋅πn,m=0,1,2,…,n
+
+where the number of collocation points is n + 1 (the two endpoints are also included, and the number of collocation points equals to the dimensions of solution D), and zm is the height of the mth collocation point.
+
+The Chebyshev points are dense at both ends and sparse in the middle.
+
+This feature is just fit for optimizing the cost function in Eq. (8) that there should be more collocation points at the end of trajectory to reduce the terminal position error.
+
+Note that zm∈[−1,1], and it must be converted into the height interval [zini, zdeep] by the formula in Eq. (14): hm=zdeep−zini2⋅zm+zdeep+zini2where hm (m=0, 1,…, n) are the collocation points in the diving phase, and the values of control variables at other heights can be obtained by linear interpolation.
+
+PARAGRAPH
+
+Note that specific heights rather than specific moments are chosen to generate the collocation points because the maximum angular velocity of rotor, the medium density and the gravitational acceleration are all changed with height in this phase.
+
+If the collocation points are distributed according to specific moments, the value of above parameters cannot be got directly, and the height at the moment only can be calculated according to the motion equations of vehicle, which increases the computation load and the complexity of solution process.
+
+PARAGRAPH
+
+2.
+
+Distribution of collocation points in the underwater navigation phase
+
+PARAGRAPH
+
+In this phase, the vehicle has been fully immersed into water, and the maximum angular velocity of rotor, the medium density and the gravitational acceleration keep unchanged during underwater navigation.
+
+As the cost function is also to minimize the terminal position error, Chebyshev points are regarded as the collocation points again to satisfy the demand.
+
+The collocation points are distributed according specific moments, which make it convenient to know the states of vehicle at any moment.
+
+The expressions of generating the collocation points and calculating the values of control variables are the same with those in the diving phase, and those contents are not explained here.
+
+SECTION
+
+Procedures of solving the multi-phase trajectory optimization problem
+
+PARAGRAPH
+
+Each module of the multi-phase trajectory optimization problem has been depicted.
+
+As the iterative process of ITLBO algorithm has been explained, next the procedures in each single time of iteration and the relationship among different modules will be concentrated on, as shown in Fig. 4.
+
+PARAGRAPH
+
+In Fig. 4, the solid lines with arrows denote that the steps in two connecting boxes are continuous, and the dotted lines with arrows mean one module is called by another.
+
+For example, when the cost function is being calculated, the module of motion equations is called to provide the terminal states of vehicle.
+
+The blue boxes are the modules added in the underwater navigation phase to take the inaccurate navigation information and the underwater obstacles into account, which reflects the differences in the two phases.
+
+To sum up, the iterative process of ITLBO algorithm is the mainline in both the two phases, and other modules provide various support data to ensure an effective running of the trajectory optimization algorithm.
+
+Compared to the diving phase, two more modules, i.e., navigation information and collision detection, are added, which makes the procedures more complicated and the contents of some other modules change correspondingly.
+
+SECTION
+
+Simulation studies
+
+PARAGRAPH
+
+To investigate the validity of the established multi-phase trajectory optimization model and the superiority of the proposed ITLBO algorithm, simulations under different situations and using different algorithms are conducted.
+
+Firstly, the results in the diving phase are presented, and the influence of distribution of collocation points on the results is discussed.
+
+Then the scenarios without considering the navigation error or terrain matching are taken into account in the underwater navigation phase.
+
+Besides, comparisons among several algorithms are made, and the superiority of the ITLBO algorithm in optimizing the trajectory is explained.
+
+In all the above simulations, the results are obtained by running the programs on a desktop with Intel Core i7-3370 3.40 GHz.
+
+When running the algorithms, their common parameters are set to the same values to make a fair comparison.
+
+The scale of the swarm, the number of dimensions and the maximum iteration are all set to 40, 32 and 40 respectively.
+
+Although a big scale of swarm will improve the performance, it also increases the computational load.
+
+Besides, when the number of individuals reaches a certain value, the improvement of performance will not be so obvious.
+
+Based on the above considerations, the scale of the swarm is determined after trial and error.
+
+As for the number of dimensions, smaller or larger values will impair the solution quality under the fixed scale of swarm, so it is also tuned by many times of attempts.
+
+The value of maximum iteration is defined according to the rule that the solutions convergence within the maximum iteration.
+
+Parameters and constraints regarding the coaxial eight-rotor vehicle are referred to Ref. Maia et al. (2015).
+
+The detailed information on the above settings can be consulted in Appendix C.
+
+SECTION
+
+Results in the diving phase and discussion on different distributions of collocation points
+
+PARAGRAPH
+
+As the time scales of motion and the control variables in the two phases are different, the results in each phase are presented respectively.
+
+Firstly, the results in the diving phase are shown from Figs. 5 to 7.
+
+PARAGRAPH
+
+It can be seen from Fig. 5 that the fitness value converges within ten times of iterations, and the final value is close to 0 which means that the vehicle can reach the specific depth accurately.
+
+According to the information provided in Fig. 7, rotor 2 and 4 have the same angular velocities, and rotor 1 and 3 have smaller angular velocities in the diving phase.
+
+Besides, when t=0.5 s (approximately the moment that the vehicle begins diving into water), the angular velocities of rotors begin to reduce, which meet the constraints shown in Fig. 2.
+
+In Fig. 6, only the values of z and Vz are shown as the other states keep to 0 in the vertical diving motion.
+
+PARAGRAPH
+
+To further explore the influence of different distribution of collocation points on the results, another two distribution forms of collocation points with the same number of points are applied, i.e., mean collocation points and the Legendre–Gauss collocation points.
+
+The mean collocation points are distributed evenly in the height interval, and the Legendre–Gausscollocation points are distributed according to the root of K-order Legendre polynomial PK(τ¯), as presented in Eq. (15).
+
+PK(τ¯)=12K⋅K!⋅dKdτ¯K⋅[(τ¯2−1)K],K=0,1,2…
+
+PARAGRAPH
+
+Transformation using Eq. (14) is also needed to make τ¯ϵ[−1,1] into hϵ[zini, zdeep].
+
+The distributions of collocation points are shown in Fig. 8.
+
+PARAGRAPH
+
+Note that the heights corresponding to -happ and happ in Fig. 2 are added in the collocation points to satisfy the constraints more easily.
+
+Therefore, the collocation points in Fig. 8 are not bilateral symmetry.
+
+The results with the above distributions of collocation points are listed in Table 1.
+
+PARAGRAPH
+
+In Table 1, the results obtained by Chebyshev and Legendre–Gauss collocation points are very close to the destination, and Chebyshev collocation points perform slightly better than Legendre–Gauss collocation points.
+
+The mean collocation points show the worst performance because they cannot deal with the terminal constraints well.
+
+PARAGRAPH
+
+To sum up, the above results demonstrate that in the diving phase, the vehicle can reach the specific depth accurately with an appropriate velocity satisfying the constraints of angular velocity of rotor in different media with the proposed method, thus reducing the disturbance and ensuring the stability of motion.
+
+SECTION
+
+Results in the underwater navigation phase and comparison among different navigation information models
+
+PARAGRAPH
+
+To explain the rationality of the established navigation information model, three simulations are given.
+
+In the first case, the proposed model is used, and in the other two cases, the navigation error or the terrain matching is ignored (named as case 2 and case 3 for convenience).
+
+When the navigation information is always thought to be accurate, the cost function in Eq. (9) is changed to Eq. (16).
+
+J2=(xtf2−xtar)2+(ytf2−ytar)2+(ztf2−ztar)2
+
+PARAGRAPH
+
+The underwater trajectories in the three cases are shown in one graph to make it easier for comparison, as shown in Fig. 9.
+
+PARAGRAPH
+
+In Fig. 9, with different trajectories, the vehicle can avoid the obstacles and head for the target.
+
+The results show a big difference when the navigation error is considered or not, and the vehicle has the smallest terminal position error in case 2.
+
+The terminal positions of vehicle corresponding to three trajectories are given in Table 2.
+
+PARAGRAPH
+
+It is obvious that when the terrain matching is ignored, the vehicle deviates from the desired destination most.
+
+Although the vehicle reaches the desired destination with the minimum deviation in case 2, in real situation, great navigation error will result in an unsafe trajectory or big deviation from the ideal position.
+
+The details regarding the standard derivation of position and the collision probability are provided in Figs. 10 and 11 respectively.
+
+PARAGRAPH
+
+Note that the standard derivation and collision probability in case 2 are calculated by the established models of navigation information and collision detection respectively after the trajectory is determined by ITLBO algorithm.
+
+As Eq. (16) is the cost function in case 2, the inaccurate navigation information will not have an effect on the results, and here the standard deviation and collision probability are just used to make an analysis.
+
+PARAGRAPH
+
+In Fig. 10, the standard derivation is always increasing as no terrain matching space is set in case 3.
+
+In case 1 and 2, the standard derivations are back to the small value when the vehicle is in the terrain matching space.
+
+The final standard derivation in case 2 is much larger than that in case 1 because the vehicle spends more time in the terrain matching space.
+
+Besides, different forms of cost functions are used in case 1 and 2, which make the trajectories distinct and the standard derivations varied.
+
+As for the collision probability, the trajectory becomes unsafe in case 2, i.e., the maximum collision probability of each obstacle all exceeds Pmax=0.1 (the maximum value is about 0.8).
+
+The ignorance of inaccurate navigation information will cause underwater accident and must be avoided by adding the navigation information model to evaluate the navigation error.
+
+PARAGRAPH
+
+Compare to the results in case 2 and 3, the established trajectory optimization model based on the navigation error is more reasonable.
+
+The standard derivation of position and collision probability are reduced, thus the safety level and the accuracy of trajectory are improved.
+
+More results regarding the underwater trajectory obtained by the proposed method are presented below to provide more details.
+
+PARAGRAPH
+
+In Figs. 12 and 13, the attitude of vehicle and the control variables change smoothly within their permitted ranges, which guarantee the validity of generated trajectory.
+
+SECTION
+
+Comparison among several algorithms
+
+PARAGRAPH
+
+To verify the superiority of the proposed ITLBO algorithm in solving this trajectory optimization problem, several algorithms are used to solve the same problem.
+
+They are PSO algorithm, original TLBO algorithm, sequential quadratic programming (SQP), interior point method (IPM), Jingqiao’s adaptive differential evolution (JADE) algorithm, covariance matrix adaptation evolution strategy (CMAES) and coyote optimization algorithm (COA).
+
+The user-defined parameters in PSO, SQP, IPM, JADE, CMAES and COA are set according to the recommended values in Ref. Shi and Eberhart (1998), Menezes et al. (1997), Torres and Quintana (1998), Zhang and Sanderson (2009), Iruthayarajan and Baskar (2010) and Pierezan and Coelho (2018) respectively.
+
+As the duration of diving phase is short and the results of algorithms are close, comparison in the underwater navigation phase is focused on.
+
+Note that, in those algorithms, there are initial random solutions or random numbers, which may make the results different when the algorithm is run many times.
+
+To make a fair comparison, each algorithm is run 100 times independently, and the statistical analysis and significance tests are conducted to give a comprehensive comparison.
+
+Tables 3–5 present the statistical results regarding the cost function value, and convergence speed and computing time respectively.
+
+PARAGRAPH
+
+Before the discussion is begun, eight algorithms can be categorized into two groups.
+
+PSO, TLBO, ITLBO, JADE, CMAES and COA are swarm-based algorithms, in which there are a certain number of initial solutions.
+
+In another group, SQP and IPM are started with only one initial solution.
+
+In Table 3, the best results obtained by ITLBO, SQP, IPM are very close, but the worst results and the standard deviations obtained by SQP and IPM are much greater than other algorithms.
+
+This is because in the established navigation information model, there is terrain matching space, which can effectively reduce the terminal position error.
+
+For SQP and IPM, a single initial solution may fail to go through the matching space, which leads to larger values of cost function.
+
+However, it is unlikely to happen in swarm-based algorithms as there are many initial solutions, and as long as one initial solution goes through the matching space, the algorithm will converge to better solutions after iterations.
+
+On the other hand, there are user-defined parameters in PSO, SQP, IPM, JADE, CMAES and COA, which will have an influence on the performance of algorithms, and those combinations of user-defined parameters may not be the best matches to solve this problem, which reduces the solution quality.
+
+PARAGRAPH
+
+Compared to TLBO algorithm, the individual historical optimal solution is used when updating solutions in ITLBO algorithm, which improves the average quality of all solutions and avoids being trapping into local optima.
+
+Each time after the solutions are updated by formula, comparisons of fitness values are conducted between the solutions before and after update, and the better one is regarded as the new solution.
+
+The above operation of comparisons is not included in PSO algorithm, which may miss better solutions and decelerate the convergence rate.
+
+ITLBO algorithm shows better or at least competitive optimization performance in terms of the convergence rate, compared to other algorithms mentioned in this paper.
+
+PARAGRAPH
+
+As for the computing time of algorithms, they all spend similar period of time to get the results, and the elapsed time is relative long due to the complexity of the established models but not the inefficiency of algorithms.
+
+The effectiveness of those algorithms has been verified in many other problems.
+
+Here the dynamic model of vehicle is with strong nonlinearity, and the navigation information and the result of collision detection are obtained after many times of differentiation and integration, all of which cost much time of computing in each step.
+
+PARAGRAPH
+
+The above results give an overall evaluation of algorithms, and a statistical test is needed to verify that the results are statistically significant.
+
+Wilcoxon rank-sum test is conducted in this study.
+
+It is a nonparametric test in statics which can be used to explain if two sets of solutions are statistically significant or not (Derrac et al., 2011).
+
+This statistical test returns a parameter called p value.
+
+A p value determines the significance level of two algorithms.
+
+An algorithm is statistically significant only if it results in a p value less than 0.05.
+
+The test results are shown in Table 6.
+
+PARAGRAPH
+
+The p values in Table 6 also show that the solution obtained by ITLBO algorithm is statistically significant compared to other seven algorithms because its p value is much less than 0.05.
+
+PARAGRAPH
+
+In summary of all the results, ITLBO algorithm has demonstrated its superiority in solving this trajectory optimization problem.
+
+The performance of ITLBO algorithm is improved due to its characteristic of swarm-based algorithm, no user-defined parameters and operator modification.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+The multi-phase trajectory optimization problem for an aerial-aquatic coaxial eight-rotor vehicle considering the influence of navigation error is studied in this paper.
+
+Literature investigation shows that the environment-induced multi-phase trajectory optimization problem is not paid enough attention, and the underwater navigation error has an influence on the quality of trajectory.
+
+Therefore, a new multi-phase trajectory optimization model based on navigation error is established, and an ITLBO algorithm is also proposed to generate the trajectory for the underwater target tracking task.
+
+PARAGRAPH
+
+First of all, the task is divided into two phases.
+
+The dynamical model of a coaxial eight-rotor vehicle is established, and the constraints on the angular velocity of rotor in each phase of task are also presented.
+
+Considering the influence of underwater navigation error, a trajectory optimization model including the models of navigation information, terrain matching, collision detection and cost function are established, which reflects the characteristic of multi-phase task and navigation error.
+
+To solve this multi-phase trajectory optimization problem, an ITLBO algorithm is proposed to improve the solution quality by introducing the individual historical optimal solution to the solution updating formula.
+
+Besides, collocation points are set in each phase of the trajectory optimization to determine the locations of control variables and reduce the computation load.
+
+PARAGRAPH
+
+In simulation studies, the rationality of the established multi-phase trajectory optimization model and the superiority of the proposed ITLBO algorithm are verified.
+
+Complete results of multi-phase trajectory optimization using the ITLBO-based method are shown firstly.
+
+Then the rationality of using Chebyshev collocation points are verified by comparing with other distribution forms of collocation points.
+
+To explain the advantages of the established navigation information models, two more cases, i.e., ignoring the navigation error or terrain matching, are supplemented, and the safety level of trajectory and the solution quality are reduced after the navigation information models are removed.
+
+In the third group of simulations, compared to other six efficient algorithms, ITLBO algorithm can obtain better results due to its own characteristic and effective modification on formulas.
+
+PARAGRAPH
+
+The trajectory obtained in this paper can be served as the reference trajectory for underwater vehicles.
+
+In the future, some simple models are expected to be established to realize a faster generation of trajectory when the adjustment of reference trajectory is needed.
+
+Moreover, a control law in the inner loop of motion control system is also required to be designed to track the generated trajectory online.
+
+Note that with the proposed ITLBO algorithm, the optimal trajectory cannot be ensured and the satisfactory trajectory can be provided according to the actual demand.
+
+Besides, ITLBO algorithm only shows its advantages over some common algorithms in this paper, so other efficient search algorithms are still to be developed to further improve the solution quality.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Yu Wu: Conceptualization, Methodology, Software, Investigation, Writing - original draft, Writing - review & editing, Visualization, Project administration, Funding acquisition.
+
+LeiLei Li: Conceptualization, Validation, Formal analysis, Investigation, Writing - review & editing, Supervision, Funding acquisition.
+
+Xichao Su: Formal analysis, Resources, Data curation, Writing - review & editing.
+
+Jiapeng Cui: Validation, Writing - original draft, Writing - review & editing.

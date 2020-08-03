@@ -1,0 +1,927 @@
+10.1016/j.engappai.2020.103517
+
+FULLTEXT
+
+TITLE
+
+Ensemble framework by using nature inspired algorithms for the early-stage forest fire rescue — A case study of dynamic optimization problems
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Destructive disasters lead to heavy casualties and economic losses, such as earthquakes, tsunamis, hurricanes, floods, mud-rock flows, and fires.
+
+Emergency responses are critical to the disaster-rescue success (Sheu, 2007).
+
+However, rescue resource allocation usually belongs to NP-hard problems (Simpson and Hancock, 2009; Wex et al., 2014).
+
+In addition, disaster rescues need to satisfy the special challenges for each kind of disasters, because of the different features of disasters.
+
+The special challenge of forest fire rescue is the dynamic features of forest fire spread and the quick response requirements.
+
+PARAGRAPH
+
+Critical problems are found out in the early forest-fire-rescue studies (Martell, 1982) and the important conclusions are put forward (Parlar and Vickson, 1982; Parlar, 1983; Hobeika et al., 1988; Brown and Vassiliou, 1993; Alonso-Betanzos et al., 2003; Chi et al., 2003; Rachaniotis and Pappis, 2006; Daugherty and Fried, 2007).
+
+Comparing with the early technical platforms, unmanned platforms have been widely used in many industries, such as pilotless bus (Sohu, 2019A), driverless car (Sohu, 2019B), unmanned rescue (Wiki, 2019), and so on.
+
+In the latest decade, many new equipments have emerged, such as large firefighting aircraft (People, 2019; Weixin, 2019), firefighting helicopter with bucket (Wangyi, 2019; Sohu, 2019C), firefighting unmanned aerial vehicle (UAV) (Baidu, 2019), new unmanned monitoring systems (Eastday, 2019), and so on.
+
+Meanwhile, there are new aircraft researches of forest fire rescue (Snyder et al., 2012; Marchi et al., 2014; Karma et al., 2015) and new monitoring systems are able to provide forest fire situations in real time (Eastday, 2019; Sohu, 2019D; Ollero et al., 2006; Yuan et al., 2015).
+
+For example, AG600 is able to load 12 tons of water as large-scale firefighting aircraft (People, 2019; Weixin, 2019) and the bucket of new firefighting helicopter is able to load 1.6 tons of water (Wangyi, 2019).
+
+These new aircraft are changing our emergency response procedure (Sohu, 2019D) and method (Ollero et al., 2006; Yuan et al., 2015) for forest fire rescue.
+
+Generally, these provide an opportunity to realize aircraft task allocation in the early-stage forest fire rescue, especially for dealing with the dynamic feature of forest fire spread.
+
+How to solve aircraft task allocation for forest fire rescue is an important problem.
+
+PARAGRAPH
+
+We focus on new aircraft task allocation in the early-stage forest fire rescue, as shown in Fig. 1.
+
+There are three layers in Fig. 1.
+
+In the perceptual layer, remote sensing satellites and UAVs are able to provide the specific data of forest fire.
+
+In the rescue layer, firefighting helicopters or UAVs are used to put out forest fire.
+
+In the cell layer, we obtain the map and vegetation information of forest fire and then construct 2-D grid map with cells.
+
+Besides, rescue ensemble realizes exchanging data between rescue simulator and rescue algorithm in Fig. 1.
+
+The early-stage forest fire rescue is important to control forest fire spread and put out forest fire as soon as possible.
+
+We only consider the early-stage forest fire rescue in this paper and some assumptions are as follows.
+
+(i) There are only aircraft and no other firefighting vehicles (or devices) that participate in the early-stage forest fire rescue.
+
+The reason is that aircraft have rapid speed and first arrive.
+
+Besides, the aircraft firefighting equipment is the bucket to load water and spray water.
+
+(ii) We ignore the flight-altitude change of rescue aircraft and compute the flight distance of aircraft in 2-D grid map.
+
+The reason is that the total region of forest fire spread in the early stage is usually small (like 1.5 km × 1.5 km in our test maps or even smaller) and then the flight-altitude change of rescue aircraft is usually small.
+
+Meanwhile, we only consider forest fire rescue in 1.5 km × 1.5 km fire-site region and do not consider other regions (like exceeding 1.5 km × 1.5 km fire-site region).
+
+(iii) Surface fire is a common kind of forest fire.
+
+We assume that there is only surface fire in the early-stage forest fire and do not consider other kinds of forest fire, such as spotting fire.
+
+PARAGRAPH
+
+There are some difficulties to solve this problem as follows.
+
+Difficulty I. Aircraft task allocation for forest fire rescue belongs to dynamic optimization problems (DOPs) because forest fire spread is dynamic with uncertainty.
+
+There are many kinds of forest fire spread models in Section 2.1.
+
+However, there is little research about rescue simulators in the forest fire field, as we know.
+
+Difficulty II.
+
+There is little research about the framework of integrating forest fire spread with forest fire rescue in Section 2.2 and this framework is able to simulate the dynamic rescue process between forest fire spread (like offensive forces) and forest fire rescue (like defensive forces), as we know.
+
+PARAGRAPH
+
+To overcome these difficulties, we propose the framework of our rescue ensemble.
+
+Our contributions are as follows.
+
+(i) We formulate aircraft task allocation in the early-stage forest fire rescue as a DOP and this DOP is characterized by considering the dynamic features of forest fire spread and rescue.
+
+Based on 2-D grid map, our model includes aircraft tasks, aircraft mobility, aircraft firefighting load, and aircraft firefighting-load supplement.
+
+(ii) To overcome Difficulty I, we introduce rescue simulator based on modifying the cellular automaton (CA) model of forest fire spread.
+
+To overcome Difficulty II, rescue ensemble provides the framework to coordinate the work between rescue simulator and rescue algorithm.
+
+Besides, nature inspired algorithms are widely used because of their good performances, such as particle swarm optimization (PSO) (Kennedy and Eberhart, 1995), modified PSO (Shi and Eberhart, 1998), augmented Lagrangian PSO (Shahri et al., 2019), imperialist competitive algorithm (Atashpaz-Gargari and Lucas, 2007), enhanced shuffled frog-leaping algorithm (Liu et al., 2015), gases Brownian motion optimization (Abdechiri et al., 2013), bacterial foraging optimization (Pang et al., 2019), fractional-order firefly algorithm (Mousavi and Alfi, 2018), and so on.
+
+Therefore, we propose firefighting PSO (FPSO) as rescue algorithm, while simultaneously introducing the coding method to realize the control of forest fire edge.
+
+(iii) To test rescue simulator, rescue ensemble, and FPSO, our benchmarks used real forest maps.
+
+Comparing with four compared rescue algorithms, the FPSO results about forest-fire-rescue time (FT), rescued edge ratio (RER), and burned value ratio (BVR) were satisfactory.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+In Section 2, we review related work.
+
+In Section 3, we formulate our problem.
+
+In Sections 4, 5, and 6, we introduce our rescue ensemble, rescue simulator, and FPSO rescue algorithm, respectively.
+
+In Section 7, we give experimental results and discussions.
+
+In Section 8, we present our findings and future work.
+
+SECTION
+
+Related work
+
+SECTION
+
+Forest fire spread models
+
+PARAGRAPH
+
+There is little research about forest fire rescue models, as we know.
+
+In the forest fire field, most of the researches are forest fire spread models (Sullivan, 2009; Brun et al., 2014; Thomas et al., 2017).
+
+Therefore, we only summarize the features of forest fire spread models in Table 1.
+
+SECTION
+
+Forest fire rescue and management
+
+PARAGRAPH
+
+The kernel objective of forest fire rescue and management is to realize fire suppression as soon as possible.
+
+PARAGRAPH
+
+Firstly, from a deteriorating job perspective, Parlar (1983) focuses on optimal forest fire control with limited reinforcements and proposes a generalized forest firefighting model that is solved by the maximum principle.
+
+Rachaniotis and Pappis (2006) consider scheduling a single firefighting resource and tackle this problem by using the concept of deteriorating jobs.
+
+Kali (2016) concerns the optimal deployment of a single forest suppression processor and uses stochastic approach to capture the uncertainty of forest fire.
+
+PARAGRAPH
+
+Secondly, there are some important researches about decision support systems as follows.
+
+Brown and Vassiliou (1993) propose a real-time decision support system that involves optimization method, simulation, and decision-maker judgment.
+
+Alonso-Betanzos et al. (2003) present a comprehensive management system that is able to predict forest fire risk, back up the forest fire monitoring & extinction phase, and assist in planning the recuperation of the burned areas.
+
+Chi et al. (2003) develop an efficient decision support system whose framework is introduced in detail.
+
+PARAGRAPH
+
+Lastly, there are two kinds of objective-oriented rescue researches as follows.
+
+(i) Single objective fire management.
+
+Daugherty and Fried (2007) present a joint-optimization approach that simultaneously selects acres to be treated by fuel treatment prescription and assigns bioenergy production facility locations and capacities.
+
+Rytwinski and Crowe (2010) use a fuel break approach to restrict the spread of wildfire and design a stochastic simulation model of fire spread to compute the fire risk of each region.
+
+Ren and Tian (2016) consider minimizing the total travel distance of firefighting teams and formulate the emergency scheduling model.
+
+(ii) Multi-objective scheduling rescue algorithms.
+
+Ren et al. (2015) formulate multi-objective scheduling model to minimize the total rescue time and the amount of fire rescue resource, simultaneously.
+
+Tian et al. (2016) propose a novel multi-objective scheduling model and introduce a fire-spread speed model to describe practical forestry fire.
+
+Wu et al. (2018) use precise dynamic programming algorithms in small-scale fires and use multi-objective integer programming to achieve multi-depot fire engine scheduling.
+
+PARAGRAPH
+
+In summary, the strategic decision objective is to extinguish forest fire as soon as possible, especially in the early-stage forest fire.
+
+Extinguishing forest fire immediately means the minimal cost loss (like the burnt-forest-cost loss) and the maximal social efficiency (like the safety of firemen).
+
+On the other hand, the tactical decision objective is to control the spread edge of forest fire.
+
+Controlling the spread edge of forest fire effectively means that extinguishing forest fire is possible.
+
+Otherwise, it is impossible.
+
+PARAGRAPH
+
+In essence, forest fire spread and rescue are dynamic time-varying and this problem belongs to DOPs.
+
+Moreover, considering forest fire spread and rescue as a DOP is suitable for real forest-fire-rescue requirements.
+
+However, there is little research about forest fire spread and rescue as a DOP, as we know.
+
+Thus, we do some exploratory researches to address forest fire spread and rescue as a dynamic task allocation problem in this paper.
+
+SECTION
+
+Problem statement and formulation
+
+SECTION
+
+Statement
+
+PARAGRAPH
+
+We formulate the dynamic process of forest fire rescue as aircraft task allocation problem to minimize the flight time and the newly-increased burnt forest cost, simultaneously.
+
+Besides, our model is also able to provide FT, RER, and BVR.
+
+PARAGRAPH
+
+Definition
+
+PARAGRAPH
+
+SECTION
+
+Formulation
+
+PARAGRAPH
+
+We formulate our model (1) to minimize the longest flight time of aircraft group II and the newly-increased burnt forest cost in one period, simultaneously.
+
+a ∈ [0, 1], TMAX is the flight time of the diagonal line in a grid map, CMAX is approximately equal to the forest cost in the outer edge cells of a grid map, LCM() returns the least common multiple, LCM(CMAX, TMAX) is used to unify the flight time and the newly-increased burnt forest cost, and max() returns the maximal value.
+
+CMAX is used as a normalized parameter, because we assume the worst situation of the newly-increased burnt forest cost in one Trs is that the outer edge cells of a grid map are burning (cell state =S3).
+
+Meanwhile, Eq. (1) is also the fitness function of rescue algorithms, and α adjusts the proportion between the flight time and the burnt forest cost. α=0.5
+
+in this paper (see Table 3).
+
+FXt=αCMAXLCMCMAX,TMAX⋅MaxTimeXt,XPt+1−αTMAXLCMCMAX,TMAX⋅BurntCostXt,XPtTMAX=LR2+C2∕VCMAX=∑j=1C∑i=1RValue(i,j)R×C×(2R+2C−4)MaxTimeXt,XPt=max({‖x1t−xp1tv‖,‖x2t−xp2tv‖,…,‖xkt−xpktv‖,…,‖xN1t−xpN1tv‖})BurntCostXt,XPt=∑cell∈NewBurntSetTValue(i,j)
+
+PARAGRAPH
+
+The features of our model are as follows.
+
+(i) Our aircraft task allocation problem belongs to DOPs.
+
+The reason is that forest fire spread is dynamic time-varying and explanations are as follows.
+
+In real forest fire, the shape of forest fire is dynamic time-varying.
+
+Similarly, forest fire spread corresponds to the shape of forest fire and has uncertainty in our rescue simulator.
+
+As shown in the rule R4, rescue simulator simulates this kind of uncertainty (i.e., that pburn is greater than or less than a random number λ).
+
+This leads to the uncertainty of cell states and results in the time-varying shape of forest fire.
+
+Therefore, the shape of forest fire in rescue simulator is also dynamic time-varying.
+
+Thus, MaxTime(Xt, XPt) and BurntCost(Xt, XPt) are time-varying.
+
+(ii) Xt is not only the firefighting destination cells of aircraft group II, but also the individual coding in rescue algorithms.
+
+Meanwhile, N1 is the individual coding length that also changes with time increasing.
+
+PARAGRAPH
+
+The limits of our model are as follows.
+
+(i) Aircraft is homogeneous in our model.
+
+This means that each aircraft has the same FEL, FEC, and V.
+
+If aircraft is heterogeneous, these scalars should be replaced with the new vector definitions.
+
+(ii) In each Tra, the task allocation solution of rescue algorithm should be transmitted to each aircraft at once.
+
+Thus, our model requires that the communication links between base stations and aircraft must always be maintained.
+
+SECTION
+
+Rescue ensemble
+
+PARAGRAPH
+
+Rescue ensemble consists of rescue simulator and rescue algorithm, which is able to support the initialization and running processes of rescue simulator and rescue algorithm.
+
+SECTION
+
+Framework
+
+PARAGRAPH
+
+The framework of rescue ensemble is given in Algorithm 1 and Fig. 2.
+
+Algorithm 1 mainly describes updating aircraft groups’ members and exchanging data.
+
+PARAGRAPH
+
+The termination conditions of rescue ensemble in Algorithm 1 are different from the stop condition of rescue algorithm in Algorithm 5.
+
+(i) Termination condition I is that there are no burning cells in a grid map.
+
+This corresponds to two situations.
+
+One is that aircraft put out all fires.
+
+The other is that all cells have been burnt down.
+
+(ii) Termination condition II is that RunNum is greater than or equal to 200.
+
+As shown in Step 4, the simulation time of running rescue algorithm 200 times is equal to the simulation time of updating SM 100 times in this paper.
+
+Thus, Termination condition II means that our limited aircraft (i.e., NT =10 in this paper) is not able to realize fire suppression, because the 100 times of forest fire spread (i.e., the 100 times of updating SM) result in so many burning cells in forest fire edge.
+
+PARAGRAPH
+
+Our simulation does not synchronize with the real forest fire.
+
+That is to say, the simulation time t is not synchronized with the actual clock time in our lives.
+
+Thus, our simulation belongs to offline simulation and our ensemble framework is not able to support online simulation.
+
+To support online simulation, some modifications are as follows.
+
+Rescue ensemble should replace rescue simulator with the real system of forest fire situation that may be obtained by remote sensing satellites or UAVs.
+
+Besides, Tra and the period of updating forest fire situation all change over time.
+
+Therefore, the time points of exchanging data between rescue algorithm and the real system of forest fire situation should support this requirement.
+
+Generally, we believe that the online system of forest fire rescue is an emerging and interesting research in the future.
+
+SECTION
+
+PARAGRAPH
+
+Update aircraft groups’ members
+
+PARAGRAPH
+
+The process of updating aircraft groups’ members is explained in Fig. 3 and Algorithm 2.
+
+Generally, each aircraft changes from aircraft group I to aircraft group III, from aircraft group III to aircraft group II, and from aircraft group II to aircraft group I, repeatedly.
+
+Besides, this process also explains the rescue simulation principle of rescue ensemble by using aircraft as a clue.
+
+PARAGRAPH
+
+SECTION
+
+Exchange data
+
+PARAGRAPH
+
+Fig. 4 is the example of exchanging data between rescue simulator and rescue algorithm to demonstrate our paper’s settings.
+
+Explanations are as follows.
+
+(i) The time points of exchanging data are the least common multiple of Trs and Tra.
+
+Therefore, rescue ensemble is able to support various values of Trs and Tra.
+
+(ii) The kinds of the exchanged data are as follows.
+
+In the beginning of each Trs, rescue ensemble updates aircraft groups’ members and rescue simulator updates SM.
+
+In the beginning of each Tra, rescue ensemble updates aircraft groups’ members and rescue algorithm provides its aircraft task allocation solution.
+
+SECTION
+
+PARAGRAPH
+
+Rescue simulator
+
+PARAGRAPH
+
+Rescue simulator is able to simulate forest fire spread and rescue, simultaneously.
+
+This is different from forest fire spread models in Section 2.1.
+
+SECTION
+
+Overview
+
+PARAGRAPH
+
+Rescue simulator is the same with forest fire spread simulator in Alexandridis et al. (2008), except for minor modifications as follows.
+
+(i) We do not consider spotting effect (corresponds to spotting fire) to simplify forest-fire-spread simulation, as we assumed in Section 1.
+
+(ii) We add state S5 and S5 means that the cells’ fire has been put out.
+
+Meanwhile, we only modify R2 and R6 rules, because of using aircraft.
+
+(iii) Aircraft group I uses the firefighting greedy strategy.
+
+SECTION
+
+Cell automaton
+
+PARAGRAPH
+
+In rescue simulator, vegetation type, vegetation density, wind speed, wind direction, and altitude not only affect the shape of forest fire, but also affect the spread speed of forest fire.
+
+SECTION
+
+PARAGRAPH
+
+Rule
+
+PARAGRAPH
+
+In Alexandridis et al. (2008), the probability pburn of R4 is given by pburn=ph1+pveg1+pdenpwpswhere ph is the constant probability that a cell adjacent to a burning cell containing a given type of vegetation and density will catch fire at the next time step under no wind and flat terrain.
+
+In this paper, ph=0.58. pveg, pden, pw,
+
+and ps are the fire propagation probabilities that depend on the type of vegetation, the density of vegetation, the wind speed, and the slope, respectively.
+
+Details are as follows.
+
+(i) Effect of vegetation type and density.
+
+The influence of vegetation type and density is expressed by probability pveg and pden, respectively.
+
+The vegetation types are divided into agricultural areas, shrubs forest, and pine forest.
+
+Meanwhile, the corresponding pveg values are −0.3, 0, and 0.4 respectively.
+
+In this paper, pveg=0.
+
+The density of vegetation can be divided into sparse, normal, and dense vegetation densities.
+
+Meanwhile, the corresponding pden values are −0.4, 0, and 0.3, respectively.
+
+(ii) Effect of wind speed and direction.
+
+The wind’s influence on the fire spread includes the empirical wind–effect relationship between wind speed and wind direction, which is given by pw=expc1WVftft=exp(WVc2(cosθ−1)) where c1=0.045 and c2=0.131. θ
+
+is the angle between the fire propagation direction and the wind direction, which is from 0°to 360°.
+
+WV is wind speed.
+
+Note that, in our benchmarks, there are various wind-speed levels, which correspond to different wind speeds WV.
+
+(iii) Effect of altitude.
+
+The altitude’s effect on the fire propagation speed ps is equal to exp(aθs), a is a setting parameter (a=0.078 in this paper), and θs is the slope angle.
+
+When a cell is an adjacent cell, θs is equal to tan−1((E1−E2)/l).
+
+E1 and E2 are the altitudes of the two cells, and l is the length of the square cell.
+
+When a cell is a diagonal cell, the slope angle is equal to tan−1((E1−E2)/1.414l).
+
+SECTION
+
+State transition
+
+PARAGRAPH
+
+An example to demonstrate the visual process of a state transition is provided in Fig. 5.
+
+In our map, each cell provides eight possible directions of fire propagation.
+
+Explanations are as follows.
+
+(i) R1: See (1, 1) cell.
+
+(ii) R2: If aircraft are not arranged at cells in state S3, then these cells’ states will be converted to S4 (see (2, 4) cell).
+
+Otherwise, if aircraft are arranged at some cells in state S3 at t, then the state of these cells will be converted to state S5 (see (2, 3) cell).
+
+(iii) R3: See (5, 3) cell.
+
+(iv) R4 and R5: In respect of the cells in state S2 and surrounding cells that have ignition ability, we compute the probability pburn and generate a random number λ∈[0,1].
+
+If λ<pburn, then converts these cells’ states from state S2 to state S3 (see (1, 4) cell).
+
+Otherwise, these cells’ states remain unchanged (see (1, 3) cell).
+
+(v) R6: See (4, 1) cell.
+
+(vi) R7: See (5, 1) cell.
+
+SECTION
+
+Procedure
+
+PARAGRAPH
+
+Rescue simulator is given in Algorithm 3.
+
+PARAGRAPH
+
+Algorithm 4 introduces the firefighting greedy strategy of aircraft group I. Besides, all aircraft use the buckets to load water in this paper.
+
+PARAGRAPH
+
+Thus, we assume that each aircraft accomplishes spraying water only in one Trs.
+
+Note that, there is a situation that more than one aircraft simultaneously reach the same firefighting destination cell.
+
+In this kind of situation, the firefighting strategy of these aircraft is the same with Algorithm 4, except that these aircraft are not allowed to repeat firefighting for the same burning cell.
+
+PARAGRAPH
+
+We explain the validity and reasonability of the aircraft firefighting strategy as follows.
+
+(i) On validity.
+
+The size of cells (L) is able to be artificially adjusted.
+
+Reducing L gradually is effective to simulate the firefighting reality of aircraft.
+
+The smaller L, the higher validity.
+
+(ii) On reasonability.
+
+The key factor to put out the fire in one cell is the sprayed water load per unit area (like 60 kg/m2).
+
+If there is enough water in one burning cell, it is certain that the aircraft is able to put out the fire in this cell.
+
+Note that, FEC is decided by FEL and L in this paper.
+
+We explain real data (Wangyi, 2019; Sohu, 2019C; People, 2019; Weixin, 2019) of FEC and FEL in Section 7.1.1.
+
+SECTION
+
+FPSO rescue algorithm
+
+PARAGRAPH
+
+In this section, we use FPSO as an example to demonstrate the function and realization scheme of rescue algorithms.
+
+SECTION
+
+Motivation
+
+PARAGRAPH
+
+The motivation of FPSO is to realize the task allocation of aircraft group II for forest fire rescue in an effective and efficient way.
+
+SECTION
+
+Framework
+
+PARAGRAPH
+
+The framework of FPSO is given in Algorithm 5.
+
+FPSO is characterized by firefighting weighted selection and uses the variable length coding method in Step 7.
+
+SECTION
+
+PARAGRAPH
+
+PARAGRAPH
+
+Variable length coding method of aircraft group II
+
+PARAGRAPH
+
+Fig. 6 explains the variable length coding method of aircraft group II.
+
+Firstly, the internal fire points only affect the unburned cells inside the fire area.
+
+However, the fire edge points may ignite more flammable areas.
+
+Therefore, obtain the key rescue cells as a rescue-cell group by using Algorithm 6.
+
+Secondly, obtain aircraft group II and N1 by using Algorithm 7.
+
+Lastly, according to the corresponding AID, CID, and N1, we use random number ∈ [0, SRG] to initialize individual coding.
+
+One coding corresponds to one individual and also corresponds to the firefighting destination cell of one aircraft.
+
+For example, the value of the first gene location in Fig. 6 is 2.1 that is generated by using random number ∈ [0, SRG].
+
+This gene corresponds to the cell with CID= 11 and this cell corresponds to the aircraft with AID= 1.
+
+To simplify the coding complexity of 2-D coordinates (i.e., horizontal & vertical coordinates), we do not use vertical coordinate and only use the horizontal-center-axis of the xkt cell as coding.
+
+That is to say, we let the vertical coordinate of xkt be always equal to the vertical coordinate of the half height of the xkt cell.
+
+SECTION
+
+PARAGRAPH
+
+The greedy strategy of aircraft group III to load water
+
+PARAGRAPH
+
+Aircraft group III uses greedy strategy to load water in Algorithm 7.
+
+That is to say, each aircraft in aircraft group III is flying to its nearest firefighting base.
+
+We assume that these nearest firefighting bases may be lakes or rivulets.
+
+Aircraft are able to load water from these bases at any time, because forest fire has no effect on the use of lakes or rivulets.
+
+SECTION
+
+Firefighting weighted selection and discussions
+
+PARAGRAPH
+
+Forest firefighting requires the specialist knowledge and background.
+
+Therefore, we use firefighting weighted selection to obtain the global best individual gBEST in Algorithm 8 and use gBEST to guide the population search in Algorithm 5.
+
+PARAGRAPH
+
+By using firefighting weighted selection, we intensify the firefighting forces for the head of forest fire and the continuous-burning-edge regions.
+
+From a firefighting perspective, the individual gBEST usually includes more genes that aircraft is able to reach its firefighting destination cell or/and includes more genes that aircraft is flying to the head of forest fire & the continuous-burning-edge regions.
+
+Explanations are as follows.
+
+(i) Eq. (13) uses the greedy strategy to realize controlling forest fire spread immediately.
+
+If one individual has more aircraft that are able to reach its firefighting destination cell xkt in one period, then it has a higher score.
+
+This also means immediately minimizing the newly-increased burnt-forest-cost loss.
+
+(ii) From a forest-fire-spread perspective, Eq. (14) emphasizes that aircraft should be allocated to the head of forest fire.
+
+The head of forest fire is the most active and fastest-spreading region, because of wind function.
+
+When the direction from the initial ignition point to the firefighting destination cell of aircraft is the same with wind direction, this means that the aircraft is flying to the head of forest fire.
+
+If there are more aircraft that are flying to the head of forest fire, this means that forest fire spread is more likely to be controlled.
+
+(iii) From a burning continuity perspective, Eq. (15) emphasizes that aircraft should be allocated to the important burning regions.
+
+For example, if there are more burning cells in one neighbor, this means there are usually more burning cells in the future.
+
+Therefore, if more aircraft are allocated to fly to these 3 × 3 neighbors with more burning cells, then this means that these important burning regions are more likely to be controlled at present or in the future.
+
+PARAGRAPH
+
+On the other hand, Eqs. (13), (14), and (15) use the specialist knowledge of forest fire rescue, which improve the performance of FPSO.
+
+However, these knowledge also limits the application scope of FPSO, such as other dynamic programming problems.
+
+SECTION
+
+Experiments and discussions
+
+SECTION
+
+Experimental design
+
+PARAGRAPH
+
+We wrote all programs in Matlab R2012a that could be downloaded from https://github.com/1654402787/RescueEnsemble and executed these programs on a virtual machine with Windows 7, 2 sub-CPUs of Intel(R) Xeon(R) CPU X5670 @ 2.93 GHz, and 2 GB RAM.
+
+SECTION
+
+Setting
+
+PARAGRAPH
+
+Our benchmarks were based on forest, basin, island, and mountain maps, which could be downloaded from https://github.com/1654402787/BenchmarksRescueEnsemble.
+
+Details were as follows.
+
+(i) Vegetation distribution maps were from Google Map.
+
+(ii) The angle of wind direction was the angle between north direction and wind.
+
+To compare all algorithms objectively, we assumed that wind direction and speed were fixed.
+
+(iii) We could not obtain the altitude data for each cell in maps.
+
+Therefore, we assumed that E1= E2 and obtained ps=1 (see Section 5.2.1).
+
+(iv) Our simulation was offline.
+
+To compare all algorithms objectively, we assumed that Trs and Tra were fixed.
+
+(v) Aircraft speed V.
+
+According to real helicopter speeds, V=50 m/s.
+
+(vi) FEC was decided by FEL and the cell’s area.
+
+The aircraft loads were about from the 1.6 tons of water to the 12 tons of water (see Wangyi, 2019; Sohu, 2019C; People, 2019; Weixin, 2019).
+
+L=5 m and cell’s area = 25 m2.
+
+According to these data, we assumed FEC=8 that corresponded to 8 cells’ area (i.e., 200 m2).
+
+If FEL was 12 tons of water, then the load of spray water in 1 m2 was 60 kg (i.e., 12 tons/200 m2 = 60 kg/m2) (see Table 4).
+
+PARAGRAPH
+
+We selected four algorithms as compared rescue algorithms: CMA evolution strategy (CMA-ES) (Varelas et al., 2018; Hansen, 2006), league championship algorithm (LCA) (Kashan, 2014), spider monkey optimization (SMO) (Sharma et al., 2017; Bansal et al., 2014), and a self-adaptive artificial bee colony algorithm (SABC) (Xue et al., 2018).
+
+Due to our new benchmarks, there were few compared rescue algorithms for forest fire rescue, as we know.
+
+We used these algorithms as compared rescue algorithms because they were the new nature inspired algorithms.
+
+Besides, these algorithms used the same methods of the variable length coding of aircraft group II and the greedy strategy of aircraft group III to load water.
+
+These were only to adapt to our forest fire rescue problem, which did not change the design details of compared rescue algorithms.
+
+On the other hand, we explained the parameter setting of compared rescue algorithms and FPSO as follows.
+
+(i) To compare rescue algorithms with FPSO objectively, all algorithms use the same population size and stop condition.
+
+(ii) CMA-ES, LCA, SMO, and SABC used the same parameter setting in its own paper (Hansen, 2006; Kashan, 2014; Bansal et al., 2014; Xue et al., 2018), respectively.
+
+(iii) FPSO used the common setting of c1, c2, and w. Besides, Vlim was an important parameter to determine the performance of FPSO.
+
+Therefore, we provided the sensitivity analysis to explain the Vlim setting in Fig. 7.
+
+Meanwhile, to express the sensitivity analysis results concisely, we used F1, F3, F5, F7, and F9 as the representatives of our test problems.
+
+In Fig. 7, these curves’ trend indicates that when Vlim is 4, 6, and 8, FPSO is able to obtain better performance.
+
+Thus, we set Vlim as 8 in this paper (see Table 5).
+
+PARAGRAPH
+
+SECTION
+
+Objectives
+
+PARAGRAPH
+
+In Section 7.2, dynamic search experiments used the offline error rate μ as the evaluation criterion.
+
+The smaller μ means that rescue algorithm has better performance to obtain the best solution in the dynamic fitness landscape, continuously.
+
+The offline error rate μ  (Yang and Li, 2010) was defined by μ=1K∑k=1K|hk−fk|where K was the number of dynamic fitness landscape changes, fk was the optimal solution obtained by the algorithm from the 1st fitness landscape to the kth fitness landscape, and hk was the optimal value of the algorithm in the kth fitness landscape.
+
+PARAGRAPH
+
+In Section 7.3, forest-fire-rescue experiments used evaluation criteria as follows.
+
+(i) FT was equal to the number of performing rescue algorithm ×Tra.
+
+The smaller FT, the better performance.
+
+(ii) RER was equal to the number of the total cells that have been put out in the edge after fire (PutOutNumberInEdge) / the number of the total burnt cells after fire (BurntCellNumber) in our map.
+
+Note that, the greater RER corresponds to the greater PutOutNumberInEdge and the smaller BurntCellNumber.
+
+Therefore, the greater RER, the better performance.
+
+(iii) BVR was equal to the cost of the total burned cells after fire/the total cost of cells in our map.
+
+The smaller BVR, the better performance.
+
+SECTION
+
+Dynamic search results
+
+PARAGRAPH
+
+To demonstrate the dynamic search performance of FPSO, Fig. 8 provided the mean value of μ for 30 runs.
+
+Except for F5, F6, F8, and F10, FPSO had the best results.
+
+This indicates that FPSO is able to track the best solution, even in the dynamic forest-fire-spread environments.
+
+There were 300 tests of F1–F10 and these 300-test results explained that the dynamic search capability of FPSO was suitable for minimizing the longest flight time and the forest cost loss of the newly-increased burnt cells, such as adapting to the time-varying shape of forest fire, the various kinds of maps (like various vegetation distributions).
+
+Generally, this indicates that the dynamic convergence of FPSO is stable in most cases.
+
+PARAGRAPH
+
+To further demonstrate the dynamic search capability of FPSO, we used Wilcoxon test at 0.05 level of significance for the 30-run μ data sets of two algorithms, as shown in Table 6.
+
+Wilcoxon test was widely used to compare/analyze the difference between two evolutionary algorithms.
+
+From a dynamic convergence perspective, the symbols of (+), (≈), and (−) mean that FPSO is better than, approximately equal to, and worse than the compared rescue algorithm, respectively.
+
+RSum(+) and RSum(−) return the numbers of plus sign (+) and minus sign (−) in a row, respectively.
+
+RSum(+) was always greater than RSum(−).
+
+This indicates that FPSO is better than CMA-ES, LCA, SMO, and SABC.
+
+In addition, CSum(+) and CSum(−) return the numbers of plus sign (+) and minus sign (−) in a column, respectively.
+
+Except for F6 and F8, CSum(+) was greater than CSum(−).
+
+This means that the search capability of FPSO is satisfactory when applying to dynamic forest-fire-spread environments.
+
+SECTION
+
+Forest-fire-rescue results
+
+PARAGRAPH
+
+In real forest-fire-rescue environments, command staff pay more attention to the specific effects of fire rescue, such as rescue time, fire edge suppression, and burned cost.
+
+In destructive forest fire disasters, these mean decreasing casualties and losses.
+
+To compare with the key rescue effects, we provided FT, RER and BVR results as follows.
+
+SECTION
+
+Forest-fire-rescue time
+
+PARAGRAPH
+
+FT is one of the most important rescue indexes from a real rescue perspective, and the reason is as follows.
+
+FT not only is directly proportional to the capability of controlling forest fire spread but also corresponds to reducing the risk that large-scale forest fire happens.
+
+Fig. 9 provided the mean value of FTs for 30 runs.
+
+Except for F5 and F10, FPSO had the best results.
+
+PARAGRAPH
+
+To further demonstrate the FPSO performance in respect of putting out forest fire as soon as possible, we used Wilcoxon test at 0.05 level of significance, and the results were given in Table 7.
+
+Wilcoxon results of FPSO were the best.
+
+Comparing with Table 6, the performance of FPSO in Table 7 for F6 and F8 was contrary to Table 6.
+
+The reason is that the results in Table 6 are to simultaneously minimize the longest flight time and the forest cost loss of the newly-increased burnt cells.
+
+This was different from the objective of putting out forest fire as soon as possible in Table 7.
+
+These FT results of FPSO were due to firefighting weighted selection, which considered the aircraft reachability, wind direction, and burning continuity.
+
+Meanwhile, these FT results indicate that considering the aircraft reachability, wind direction, and burning continuity is suitable for improving the forest-fire-rescue effects.
+
+SECTION
+
+PARAGRAPH
+
+Rescued edge ratio
+
+PARAGRAPH
+
+Although the area of forest fire edge is far less than the internal region of forest fire, reducing the spread speed of forest fire edge is the most effective firefighting method in real forest fires.
+
+Moreover, spraying water in the internal region of forest fire is useless to put out forest fires.
+
+PARAGRAPH
+
+Fig. 10 provided the mean value and standard deviation of RERs for 30 runs.
+
+Expect for F5, F6, and F10, RER results of FPSO were the best from a mean-value perspective.
+
+In F5 and F6, FPSO was the second.
+
+In FPSO, we improved and strengthened the strategy of putting out the fire in the head of forest fire by using Eq. (14).
+
+The head of forest fire was the fastest-spreading region in forest fire edge, which was also the most harmful part to endanger personal safety.
+
+In most cases, the task that ground firemen implement firefighting in the head of forest fire was forbidden (Xiao et al., 2006), especially when wind speed was high.
+
+However, aircraft was flying in the sky, which was not constrained by the previous forest-fire-rescue standard for ground firemen (Xiao et al., 2006).
+
+These RER results indicate that the strategy of using aircraft to extinguish the head of forest fire continuously is effective.
+
+SECTION
+
+Burned value ratio
+
+PARAGRAPH
+
+The cost value of burned forest not only reflects the effects of controlling the spread speed of forest fire edge but also is related with the density of forest vegetation of burned cells.
+
+Fig. 11 gave BVR results to illustrate the cost value of the burned forest.
+
+We computed the mean value of BVRs for 30 runs.
+
+Except for F5 and F10, FPSO had the best results.
+
+In F5 and F10, FPSO was the second.
+
+Besides, the BVR distributions of FPSO were closer to smaller values (i.e., the bottom of the boxes) in most cases.
+
+This indicates that the FPSO’s capability of controlling the burned-forest cost is satisfactory.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions
+
+PARAGRAPH
+
+Experiments demonstrate that rescue ensemble is a feasible framework to realize the dynamic rescue process simulation between forest fire spread and forest fire rescue.
+
+Meanwhile, experimental results demonstrate that the dynamic search performance of FPSO is suitable for realizing aircraft task allocation and the adaptability of FPSO is mainly from using the firefighting specialist knowledge, such as considering the aircraft reachability, controlling the spread speed of the head of forest fire, enhancing the rescue effort on the burning-continuity-edge region.
+
+Besides, these results indicate that various rescue algorithms lead to different rescue effects.
+
+However, when we have the same limited rescue aircraft in the early-stage forest fire, the unsatisfactory effect of one rescue algorithm means that much more time and effort are required to control the continuously growing forest fire in the following stage.
+
+PARAGRAPH
+
+Our research is limited to the early-stage forest fire rescue by using firefighting aircraft in this paper.
+
+With the new unmanned platforms increasing, forest-fire-rescue problems with ground and air firefighting equipments are interesting researches in the forest firefighting field.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+HongGuang Zhang: Conceptualization, Methodology, Writing - original draft, Writing - review & editing.
+
+ZiHan Liang: Software, Data curation, Visualization, Investigation, Validation.
+
+HuaJian Liu: Software, Data curation, Visualization, Investigation, Validation.
+
+Rui Wang: Software, Data curation, Visualization, Investigation, Validation.
+
+YuanAn Liu: Software, Data curation, Visualization, Investigation, Validation.

@@ -1,0 +1,1033 @@
+10.1016/j.engappai.2019.103447
+
+FULLTEXT
+
+TITLE
+
+Emotional neural networks with universal approximation property for stable direct adaptive nonlinear control systems
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In the design of controllers for nonlinear and complex systems, we often like to begin with a computational framework that has good approximation properties, continuity, and differentiability.
+
+The realms of neural networks and fuzzy logic, for instance, have made great strides by this way of solving problems.
+
+For emotion-based computational models, however, this has not been the case.
+
+The current emotional models are motivated by the way the emotional stimuli are evaluated in the relevant parts of the human brain that are responsible for emotional processing.
+
+They have been employed in various decision making and control engineering problems and have shown desirable numerical properties such as fast response, simple structure, learning ability, and robustness to uncertainties.
+
+And yet, most of them are problem specific; and in the realm of control engineering, few works have investigated important mathematical results such as stability.
+
+However, the stable emotional controllers often assume that the emotional model has the approximation property of the ordinary neural networks without necessarily offering any proof.
+
+Accordingly, we would like to propose a general emotion-based computational model that is consistent with the basic laws of the emotional brain and yet is amenable to mathematical rigor and analysis.
+
+Such an emotional framework should illustrate mathematical properties such as function approximation property, continuity, differentiability, and above all, stability, along with the established capabilities of the emotional models.
+
+PARAGRAPH
+
+Most of the current emotion-based architectures are based on a simple computational model originally introduced by Moren and Balkenius (2000).
+
+Moren’s model of brain emotional learning (BEL) (Moren and Balkenius, 2000) consists of the Amygdala, which is known to be the main part where emotional learning occurs, the Orbitofrontal Cortex (OFC), the sensory cortex, and the Thalamus.
+
+The input data first enters the Thalamus, which is considered a simple identity function.
+
+The sensory cortex then receives the output of the Thalamus and distributes it to the Amygdala and the OFC parts.
+
+The overall output of the model is computed as the subtraction of the OFC’s output from the Amygdala’s output.
+
+The weights of the Amygdala nodes can only increase, but the weights of the OFC nodes can either decrease or increase, which inhibit the inappropriate responses of the Amygdala.
+
+The Amygdala also receives an input from the Thalamus.
+
+This input connects the Thalamus directly to the Amygdala, resulting in a fast response and fault tolerance (Moren, 2002).
+
+In the first version of the model (Moren and Balkenius, 2000), this input is the maximum over all the inputs.
+
+While, in the second version (Moren, 2002), Moren argues that this type of connection is too coarse to model the exact functionality of this input.
+
+Accordingly, due to the harsh results in the simulation and interferences with normal learning, this input is omitted in his further investigations (Moren, 2002).
+
+PARAGRAPH
+
+Here, we begin with designing a new continuous radial-basis emotional neural network (CRBENN).
+
+The CRBENN has basis functions in the nodes of Thalamus, but there is no direct connection from the Thalamus to the Amygdala.
+
+In this way, the CRBENN with simple manipulations is shown to be equivalent to the RBF networks, but with the added properties of the emotional models because of the Amygdala component and its non-decreasing weights.
+
+Consequently, its universal approximation property is simply proved based on the similar property of the RBF networks.
+
+CRBENN thus benefits from the features of the RBF networks such as universal approximation, continuity, and differentiability with respect to weights.
+
+It is also shown that the proof of the universal approximation property for the CRBENN is general and any symmetric radial basis kernel function can be considered as the nodes of the Thalamus.
+
+CRBENN is then employed in a direct adaptive control structure to approximate the control input directly.
+
+The important aspect of the proposed controller is that we determine the overall stability of an emotional-based controller based on the Lyapunov stability theory.
+
+Such theoretical result has been reported in few emotion-based papers that are generally with specific considerations and simplifications.
+
+Another point is that the update laws are consistent with basic models of the emotional mind, i.e., they meet the requirement of the non-decreasing Amygdala weights.
+
+PARAGRAPH
+
+In short, the proposed method in comparison with previous approaches has the following novel aspects.
+
+First, CRBENN offers a simpler and continuous mapping with universal approximation property.
+
+Hence, as a general computational framework, it can be applied to various control engineering problems.
+
+This is in comparison with our earlier work WTAENN in Lotfi and Akbarzadeh-T (2016) that requires m BEL modules to prove the universal approximation property and leads to a discontinuous output with a higher computational burden.
+
+In addition, this is in comparison with the previously published emotional controllers that generally assume that the emotional model has approximation property of the neural networks without mathematical proof.
+
+We should mention that the universal approximation property is an important and basic mathematical property that puts the proposed computational framework in the same class of approaches as polynomials and Fourier series.
+
+For a similar level of contribution, one may refer to the seminal works of Hornik and his colleagues in 1989 on neural networks (Hornik, 1989) and Castro in 1995 on fuzzy systems (Castro, 1995).
+
+Second, CRBENN is employed in a direct adaptive control framework for a class of uncertain affine nonlinear systems, and the stability of the overall structure is proved using the Lyapunov stability theory without deviating from the basic laws of the emotional brain.
+
+PARAGRAPH
+
+To validate its capabilities, the proposed control method is applied to an inverted pendulum system and the Duffing–Holmes chaotic system under different operational case studies, i.e., without disturbance, with external disturbance, and with measurement noise.
+
+The results are compared with several other competing RBFNN, fuzzy, and emotional controllers, which lead to the superiority of the proposed method in better tracking performance, lower computational time, and less control effort.
+
+Finally, the real-world applicability of the proposed controller is experimentally confirmed by implementing it on a 3-PSP parallel robot in our robotics laboratory at the Ferdowsi University of Mashhad, compared with our previous work in Baghbani et al. (2018) that was based on simulation results.
+
+We should emphasize that, even though we have applied the proposed approach to adaptive control systems here, the theoretical results are general from a modeling perspective and present a general emotion-based computational framework.
+
+PARAGRAPH
+
+The rest of this paper is organized as follows.
+
+In Section 2, the emotion-based models are reviewed.
+
+In Section 3, the proposed CRBENN is described, and its universal approximation property is proved.
+
+Then, problem formulation for a direct adaptive control structure is presented in Section 4.
+
+The proposed adaptive BEL-based control methodology is explained in Section 5.
+
+Next, the simulation results of the proposed controller are presented in Section 6.
+
+Finally, conclusions are drawn in Section 7.
+
+For better readability, we provide some of the theoretical preliminaries on the universal approximation property of the RBF networks in Appendix.
+
+SECTION
+
+Literature review on emotional models
+
+PARAGRAPH
+
+There are a number of recent works that have gainfully used Moren’s original BEL model (Moren and Balkenius, 2000).
+
+Some of them are with decision-making and some with control backgrounds.
+
+PARAGRAPH
+
+From the decision-making perspective, a limbic-based artificial emotional neural network (LiAENN) is designed in Lotfi and Akbarzadeh-T (2014) based on Moren’s original model, and is applied it to facial detection and emotion recognition.
+
+Bias and activation function are added to the Amygdala and the OFC to program the LiAENN based on the artificial perceptron model.
+
+Later in Lotfi and Akbarzadeh-T (2016), a brain-inspired winner-take-all emotional neural network (WTAENN) structure is presented with proved universal approximation property.
+
+The WTAENN has m sensory cortex modules.
+
+Each of these modules alone is a BEL structure to prove the approximation property according to multi-layered artificial neural networks (MLANN).
+
+In each time step, according to a competitive learning mechanism, only one sensory cortex module wins and produces the final output, which leads to a discontinuous output.
+
+The WTAENN is then used in several decision-making problems such as time series prediction, curve fitting, pattern recognition, and classification.
+
+In a recent paper, Parsapoor (2019) comprehensively reviews the brain emotional learning-inspired models (BELiMs) in historical, theoretical, structural, and functional aspects.
+
+She then validates the BELiMs in time-series prediction problems.
+
+PARAGRAPH
+
+Moren’s model of emotion was also a source of inspiration in the design of control systems.
+
+The brain emotional learning-based intelligent controller (BELBIC) by Lucas and his colleagues in 2004 (Lucas et al., 2004) was a pioneering work in this regard.
+
+BELBIC was employed as the only control block of the system, and the sensory and reward functions were designed in such a way to reach the control goal.
+
+The controller showed excellent control action and robustness to disturbances and system parameter variations for some single-input single-output (SISO) and multi-input multi-output (MIMO) linear and nonlinear systems.
+
+BELBIC has since been applied to a number of real-world and simulation control problems (Daryabeigi et al., 2019, 2014; Dehkordi et al., 2011; El-Garhy and El-Shimy, 2015; El-saify et al., 2017; Garmsiri and Sepehri, 2014; Gunapriya and Sabrigiriraj, 2017; Khalghani et al., 2016; Khalghani and Khooban, 2014; Khooban and Javidan, 2016; Markadeh et al., 2011; Mehrabian and Lucas, 2008; Nahian et al., 2014; Rouhani et al., 2007; Senthilkumar and Vijayan, 2014; Sharbafi et al., 2010; Soreshjani et al., 2015).
+
+It has indicated remarkable results such as fast response, learning capability, simple structure, good tracking performance, and robustness to uncertainties such as noise, disturbance, and parameter variation.
+
+However, the above control algorithms are application-specific, and theoretical stability analysis remains to be investigated.
+
+Moreover, BELBIC is often used as the only control block of the system that lacks other robust or adaptive control concepts.
+
+PARAGRAPH
+
+Few of the works that involve the stability of BELBIC center on linear systems or system identification.
+
+For instance, the stability of a known linear control system is derived by a numerical technique called “cell to cell” in Shahmirzadi and Langari (2005), where BELBIC has specific reward and sensory input.
+
+In Jafarzadeh et al. (2008), the stability of first- and second-order linear BELBIC-based control systems is studied for regulating problems.
+
+Specific reward and sensory functions are considered, but the update rules of the Amygdala do not have the ‘max’ operator for a straightforward mathematical proof of stability.
+
+More recently, a generalized BELBIC is presented by Lotfi (2018) in which a competitive BEL model is applied for identification of the system under control.
+
+Using some restrictions on the learning weights of the Amygdala and the OFC, the convergence of the weights of the BEL-based model is verified.
+
+In Jafari and Xu (2019) the BELBIC controller is applied to the flocking control of the multi-agent systems with linear double integrator dynamics, and the overall stability of the system is proved.
+
+PARAGRAPH
+
+The stability of nonlinear control systems by emotion-based frameworks is addressed in few studies and generally center on the Lyapunov stability theory.
+
+In this regard, the pioneering works of Lin and Chung in Lin and Chung (2015) and Chung and Lin (2015) investigate the stability of adaptive fuzzy BEL-based controllers for nonlinear systems.
+
+However, their approach operates based on the assumption that the direct adaptive fuzzy brain emotional controller approximates the ideal controller.
+
+The update laws of the Amygdala and the OFC are not investigated in the proof of stability.
+
+The third study in Hsu and Lee (2017) shows that the parameter learning of the OFC component in the BEL model is equivalent to the update laws derived from a gradient descent algorithm.
+
+The authors then conclude the stability of the proposed control structure, assuming the gradient descent update laws follow those of the Amygdala.
+
+The fourth study is a radial basis emotional neural network (RBENN), which was earlier proposed by the authors in Baghbani et al. (2018).
+
+RBENN has radial basis functions in the nodes of the Thalamus, which makes it a more transparent and general model in comparison with previous application-specific emotional models.
+
+In this first work by the authors on the stability of closed-loop emotional control systems, RBENN is employed in an indirect adaptive control structure.
+
+Suitable adaptive laws consistent with the basic update rules of the basic model in Moren and Balkenius (2000) are designed for the RBENN.
+
+The stability of the overall control structure is also derived according to the Lyapunov stability analysis.
+
+However, the approximation property of the RBENN is based on the WTAENN, which needs m sensory cortex modules to prove the approximation property.
+
+PARAGRAPH
+
+There are other recent studies that are also based on stable emotional models.
+
+In Le et al. (2018) self-evolving interval type-2 fuzzy brain emotional learning control is designed for chaotic systems.
+
+The update rules of the weights of the Amygdala and the OFC are attained based on the gradient descent method, and the overall stability of the closed-loop system is assured using the Lyapunov stability theory.
+
+In Wu et al. (2018), self-organizing brain emotional learning controller is designed for the control of mobile robots.
+
+The update rules of the Amygdala are attained using the Lyapunov stability theory rather than the original non-decreasing rules of the BEL model to obtain more robust performance.
+
+In Zhao et al. (2019) wavelet fuzzy brain emotional controller is proposed for a class of MIMO nonlinear systems.
+
+The update laws of the emotional model are not assessed in the proof of the stability, similar to their previous works in Lin and Chung (2015) and Chung and Lin (2015).
+
+In Fang et al. (2019) an improved fuzzy BEL model (iFBEL) neural network is introduced and applied for the stable direct adaptive control of MIMO nonlinear systems.
+
+In Akhormeh et al. (2019) normalized brain emotional learning model (NBELM) is presented, and the convergence of the weights of the model is proved.
+
+The NBEL is then used to estimate the parameters of nonlinear systems.
+
+In Khorashadizadeh et al. (2019), BELBIC is used to approximate the unknown dynamics of a class of affine nonlinear SISO systems.
+
+However, the minimum approximation error and upper bound of the ideal weights of the Amygdala and the OFC are needed for the stability analysis.
+
+PARAGRAPH
+
+The main point about the above control approaches is that they either are inconsistent with the non-decreasing update rule of the Amygdala as explained in the seminal work of Moren and Balkenius (2000) or lack a proof for the approximation property of their emotion-based models.
+
+Only two control frameworks, the G-BELBIC in Lotfi (2018) and the ARBENC in Baghbani et al. (2018), are based on modeling paradigms that have the universal approximation property of the WTAENN in Lotfi and Akbarzadeh-T (2016).
+
+Furthermore, the papers with non-decreasing update rules of the Amygdala usually consider update laws as a function of parameters such as the output of the emotional model and input to the model, see for example the works of Lin and coauthors (Chung and Lin, 2015; Fang et al., 2019; Lin and Chung, 2015; Zhao et al., 2019).
+
+PARAGRAPH
+
+In this paper, we first confirm the approximation property of the proposed emotional neural network.
+
+Then, for evaluating the capabilities of the proposed emotional neural network, we proceed to use it in a stable adaptive control structure, while staying true to the non-decreasing adaptive laws of the Amygdala, similar to the basic model by Moren in Moren and Balkenius (2000).
+
+In the next section, the proposed emotional neural network is introduced.
+
+Then in Sections 4–5, it is employed in a direct adaptive control structure.
+
+SECTION
+
+The proposed CRBENN and its universal approximation property
+
+PARAGRAPH
+
+In this section, the structure of the proposed CRBENN is presented, and its universal approximation property is derived using the universal approximation property of RBF networks.
+
+SECTION
+
+The structure of CRBENN
+
+PARAGRAPH
+
+The configuration of the proposed CRBENN is depicted in Fig. 1.
+
+As this figure shows, the overall structure is similar to the previous BEL-based models such as BELBIC (Lucas et al., 2004).
+
+But, CRBENN has three main characteristics.
+
+Firstly, there is no direct connection from the Thalamus to the Amygdala in CRBENN.
+
+This is in following Moren’s work in Moren (2002) that expressed that the direct connection from the Thalamus to the Amygdala interferes with normal learning and produces harsh results in the simulation.
+
+Once this direct connection is omitted, the output of the CRBENN becomes smooth and continuous.
+
+Secondly, each node in the Thalamus is a radial basis function.
+
+This is similar to our previous work in Baghbani et al. (2018), but different from those of Moren and Balkenius (2000) and BELBIC (Lucas et al., 2004), where the Thalamus is a simple identity function.
+
+A combined effect of these two characteristics leads to the third, and arguably the most important, property of CRBENN, that is its universal approximation property.
+
+PARAGRAPH
+
+Note that the proof of the universal approximation property for the CRBENN is general and therefore, any symmetric radial basis kernel function can be considered at the nodes of the Thalamus, as is discussed in the next section.
+
+But here Gaussian functions are considered as a popular example of RBFs.
+
+PARAGRAPH
+
+The input first enters the Thalamus, and the radial basis functions are constructed as follows, φj=exp−z−μjTz−μjσj2,j=1,…,mwhere z=z1,…,znT∈Rn is the sensory input vector in general, μj∈Rn and σj>0 are the corresponding mean and smoothing factor, respectively, and m∈N is the total number of nodes.
+
+As is discussed in Section 3.2, the CRBENN has the universal approximation property and could approximate any nonlinear function with sufficiently large m.
+
+PARAGRAPH
+
+The output of the Thalamus is, therefore, the radial basis function vector of the sensory input.
+
+This vector then enters the Amygdala and the OFC through the sensory cortex path to calculate their outputs as (2) and (3), respectively, Ea=∑j=1mVjφj=VTφ,Eo=∑j=1mWjφj=WTφ, where Vj and Wj  (j=1,…,m) are the corresponding weights of the Amygdala and the OFC nodes, respectively.
+
+The weight vectors are V=V1,V2,⋯VmT∈Rmand W=W1,W2,⋯WmT∈Rm, and φ=φ1,φ2,…,φmT∈Rmis the vector of radial basis functions.
+
+As can be seen from (2)–(3), the number of nodes in the Thalamus is equal to the number of nodes in the Amygdala and the OFC.
+
+PARAGRAPH
+
+As Fig. 1 shows, the output of the model is computed as the subtraction of the OFC output from the Amygdala output, E=Ea−Eo.
+
+PARAGRAPH
+
+By substituting (2) and (3) into (4), the overall output of the CRBENN is computed and simplified as follows, E=∑j=1mVjφj−∑j=1mWjφj=∑j=1m(Vj−Wj)φj=V−WTφ.
+
+PARAGRAPH
+
+In this section, the overall structure of the CRBENN is introduced, and in Section 3.2 the proof of its universal approximation property is provided.
+
+In the adaptive control structure of Section 5, appropriate update laws are designed for the weights of the corresponding nodes in the Amygdala and the OFC that are consistent with the Moren model (Moren and Balkenius, 2000).
+
+Furthermore, in the control structure of Section 5, the parameters of the RBFs in the Thalamus, i.e. μj and σj, are fixed for simplicity and to reduce the number of adaptive parameters.
+
+In related simulations, the RBF centers are equally spaced in the range of the input to the network, and the smoothing factor is the same for all of the nodes.
+
+SECTION
+
+The proof of universal approximation property for CRBENN
+
+PARAGRAPH
+
+Here, the universal approximation property is confirmed for CRBENN based on the universal approximation property of the RBF networks.
+
+PARAGRAPH
+
+First, we restate the output of the CRBENN (5) in the general form of radial basis emotional (RBE) network (6) with φj as any symmetric radial basis kernel.
+
+Consider the family E of RBE networks as follows, Ez=∑j=1m(Vj−Wj)φjz−μjσj,where m∈N is the number of the kernel nodes, z∈Rn is an input vector, φj is a radially symmetric kernel function, which the Gaussian type in (1) is an example of it, σj>0 is the smoothing factor, and μj∈Rn is the centroid.
+
+PARAGRAPH
+
+In the following theorem, it is proved that Eφ is dense in Lp(Rn):
+
+PARAGRAPH
+
+PARAGRAPH
+
+Consider φj:Rn→R in (6), which is an integrable function such that ∫Rnφj(x)dx≠0 and ∫Rn|φj(x)|pdx<∞, withp∈1,∞, thenE, defined by (6), is dense in Lp(Rn).
+
+PARAGRAPH
+
+PARAGRAPH
+
+By defining Wtotalj=Vj−Wj, (6) can be presented as (7), Ez=∑j=1mWtotaljφjz−μjσj,where Wtotalj∈R is the weight corresponding to the jth node.
+
+The definition of the RBF networks and the related theorems of Park and Sandberg (1993, 1991) are provided in Appendix.
+
+Comparing the output of the CRBE network in (7), with the output of the RBF network in (A.2), both are the weighted linear summation of the radial basis functions of the input variables.
+
+The weight vector in the CRBE network is defined by Wtotalj=Vj−Wj, and in RBF network by wj.
+
+Therefore, it can be concluded that the CRBE network is equivalent to the RBF network.
+
+Hence, the properties of Theorems A.1 and A.2 in Appendix are valid for the CRBENN, which means that E, defined by (6), is dense in Lp(Rn).
+
+■
+
+PARAGRAPH
+
+PARAGRAPH
+
+The proposed CRBENN has universal approximation property.
+
+That is for any smooth functionfx:Rn→R on a compact set Ω∈Rn, and a givenεCRBE>0, and for a sufficiently large number m, there exist the ideal weight vectors W∗∈Rm and V∗∈Rm such that, fx=V∗−W∗Tφ+εCRBE,
+
+PARAGRAPH
+
+PARAGRAPH
+
+This property is a straightforward conclusion of E defined by (7) to be dense in Lp(Rp).
+
+■
+
+PARAGRAPH
+
+Note that, the proof of universal approximation property of the RBF network in Girosi and Poggio (1990) and Hartman et al. (1990) could also be extended to prove the universal approximation property for the proposed CRBENN.
+
+PARAGRAPH
+
+As is discussed in Section 4, we present new update laws fairly similar to the basic adaptive laws of the basic BEL model and prepare the stability proof based on Lyapunov stability theory.
+
+SECTION
+
+Problem formulation
+
+PARAGRAPH
+
+To verify the capabilities of the proposed CRBENN such as universal approximation property, simple structure, and learning ability, we employ it in a direct adaptive control problem for a class of uncertain nth-order nonlinear system as follows, xn=fx̲+gx̲u+dx̲,t,where x̲=[x,ẋ,…,xn−1]T∈Rn is the state vector, u is the control input, dx̲,t denotes external disturbance that has the upper bound as ‖dx̲,t‖≤εd, fx̲ is an unknown smooth function that satisfies ‖fx̲‖≤f1<∞ for all x̲ in the controllable region U⊂Rn, in which f1 is unknown positive constant, and gx̲ is considered a known smooth function that satisfies 0<gx̲≤g1<∞, with g1>0 as its upper bound.
+
+Note that the main focus of this paper is to examine the capabilities of the proposed CRBENN, therefore, gx̲ is assumed to be known for better illustrating the main concern of the paper.
+
+Some studies have designed direct adaptive controllers with unknown gx̲.
+
+For example, see Hsueh et al. (2010), Hsueh and Su (2012) and Pan et al. (2014).
+
+PARAGRAPH
+
+The tracking error is defined as, e=xd−x,where xd is the desired trajectory.
+
+It is assumed that xd and its derivatives up to derivative of nth order are bounded.
+
+The function of error s is defined as follows, s=e(n−1)+Λn−1e(n−2)+⋯+Λ1e,where Λk  k=1,…,n−1 is a positive constant.
+
+By differentiating (11) with respect to time, the following is attained, ṡ=−fx̲−gx̲u+qa−dx̲,t,where qa=xdn+Λn−1e(n−1)+⋯+Λ1ė.
+
+PARAGRAPH
+
+The goal of this section is to design a direct adaptive control structure while the tracking error converges to zero, and all the signals remain bounded, and while the effect of approximation error and external disturbances are kept below the desired attenuation level.
+
+PARAGRAPH
+
+If fx̲ and gx̲ are known and dx̲,t=0, using the feedback linearization method (Slotine and Li, 1991), the following ideal controller is attained, u∗=g−1x̲−fx̲+qa+Ks,where K>0 is a real constant.
+
+The assumptions on fx̲, gx̲, and xd below (9) ensure the boundedness of u∗.
+
+Substituting (13) into (12) and after simple manipulations ṡ+Ks=0 is attained, which is a Hurwitz equation and makes the error function converge to zero.
+
+However, practically speaking, the dynamics of the system are not always available, and external disturbances deteriorate the system performance.
+
+Subsequently, the ideal controller (13) is not applicable.
+
+The actual intelligent controller based on CRBENN is introduced in the next section that considers the effect of dx̲,t and uncertainties.
+
+Furthermore, a robust control term is added to the control design to reduce the effect of the external disturbance, dx̲,t, and the approximation error.
+
+SECTION
+
+The proposed control structure
+
+PARAGRAPH
+
+Here, the proposed CRBENN is employed in a direct adaptive control structure to approximate the ideal control law u∗ in (13) as uˆ.
+
+The overall direct adaptive radial basis emotional neuro controller (DARENC) is designed as follows, u=uˆ−urgx̲,where ur is a robust compensator term and is defined as, ur=−1rPs,where r is a positive constant, and P=PT is a semi-positive definite matrix that is the unique solution of the following Riccati-like equation for any given Q=QT>0, −2KP+Q+P1ρ2−2rP=0,where 2ρ2≥r.
+
+PARAGRAPH
+
+The emotional-based control law uˆ is designed as follows, uˆ=∑j=1mVjφj−∑j=1mWjφj=V−WTφ,
+
+PARAGRAPH
+
+It is assumed that x̲ and the adaptive parameters V and W belong to the following compact sets, respectively: Ωx=x̲‖x̲‖≤Mx,Ωfv=V|‖V‖≤Mv,Ωfw=W|‖W‖≤Mw; where Mx, Mv, and Mw are positive constants.
+
+PARAGRAPH
+
+We define the ideal parameters V∗ and W∗ as follows, V∗W∗=argminV∈Ωv&W∈Ωwsup‖uˆx̲|[VW]−u∗‖.
+
+PARAGRAPH
+
+By substituting (14) in (12) and after some manipulations, the below equation is obtained for derivative of s, ṡ=−gx̲uˆ−u∗−Ks+ur−d=−gx̲uˆ−uˆx̲|[V∗W∗]+uˆx̲|[V∗W∗]−u∗−Ks+ur−d,
+
+PARAGRAPH
+
+As the ideal parameters V∗ and W∗ are unknown, the minimum approximation error is defined as, ωc=−gx̲uˆx̲|[V∗W∗]−u∗,where ωc∈L∞.
+
+PARAGRAPH
+
+According to (18) and (20), (19) can be written as, ṡ=gx̲ṼTφ−gx̲W̃Tφ−Ks+ur+ωc−d,where W̃=W∗−W, and Ṽ=V∗−V.
+
+PARAGRAPH
+
+As is described in Moren and Balkenius (2000), the weights of the Amygdala can only increase.
+
+Therefore, the following update laws are considered for the weights of the Amygdala and the OFC, V̇=αPφg(x̲)maxs,0,Ẇ=−βPφg(x̲)s, where α>0 and β>0 are learning rates for weights of the Amygdala and the OFC, respectively.
+
+The max operator in (22) makes the update law of the Amygdala consistent with the basic non-decreasing learning rules.
+
+PARAGRAPH
+
+The following theorem shows the main contribution of this section.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Consider the nonlinear system (9) with the control law (14), whereuˆ is attained from(15), and P is the solution of Riccati-like equation (16).
+
+Also, the weights of the CRBENN are updated by the adaptive laws (22)–(23).
+
+Then, the following H∞ tracking performance criterion is fulfilled for a pre-given attenuation levelρ, all the variables remain bounded, and the error asymptotically converges to zero. ∫0TsTQsdt≤sT0PsT0+1αṼT0Ṽ0+1βW̃T0W̃0+ρ2∫0TωTωdt.
+
+where ω is the worst-case uncertainty that is defined below in (31).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Consider the following Lyapunov function, VL=12sTPs+12αṼTṼ+12βW̃TW̃.
+
+PARAGRAPH
+
+The derivative of (25) with respect to time is computed as below, V̇L=Psṡ−1αV̇TṼ−1βẆTW̃.By substituting ṡ from (21) in (26) and after simple manipulations the following is obtained, V̇L=Psgx̲ṼTφ−gx̲W̃Tφ−Ks+ur+ω′−d−1αV̇TṼ−1βẆTW̃=−PKs2+Psωc−d+Psur+ṼTPsgx̲φ−1αV̇−W̃TPsgx̲φ+1βẆ. Using (16) and substituting (15) in (27) gives (28), V̇L=−12Q+Pρ2Ps2+(ωc−d)Ps+ṼTPsgx̲φ−1αV̇−W̃TPsgx̲φ+1βẆ. By substituting the adaptive laws (22)–(23) in (28), the following is then achieved.
+
+V̇L=−12Q+Pρ2Ps2+(ωc−d)Ps+ṼTs−max(s,0)Pφgx̲.Using s−maxs,0≤s, the following is obtained: V̇L≤−12Q+Pρ2Ps2+(ωc−d)Ps+Δs−max(s,0)P.where Δ=g1supV∈ΩvṼTφ.
+
+The new worst-case perturbation is introduced as below, ω=ωc−d+Δsignωc−d.where signωc−d=1ωc−d≥0−1ωc−d<0.
+
+The new perturbation ω is bounded because ωc and d are bounded.
+
+Note that this sign function is only for theoretical stability analysis, and it does not appear in the structure of the controller.
+
+Then (30) turns to, V̇L≤−12Q+Pρ2Ps2+ωPs.By adding and subtracting 12ρ2ω2 in (32), one can conclude the following, V̇L≤−12Qs2−121ρPs−ρω2+12ρ2ω2≤−12Qs2+12ρ2ω2.
+
+PARAGRAPH
+
+By integrating (33) from t=0 to t=T, H∞ tracking performance criterion (24) is achieved, which means that the effects of uncertainties are kept below the desired level ρ.
+
+As ω∈L2, by the aid of Barbalat’s Lemma in Khalil (1996), it could be proved that error function s asymptotically converges to zero.
+
+■
+
+PARAGRAPH
+
+The overall scheme of the proposed direct adaptive controller is shown in Fig. 2.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The focus of the current work is on the design of stable adaptive controllers based on the CRBENN.
+
+Accordingly, the weights of the Amygdala and the OFC are adapted by the Lyapunov derived laws of adaptation, while the RBF parameters (mean and smoothing factor) are fixed for simplicity and to reduce the number of adaptive parameters.
+
+Fewer parameters in turn speed up the adaptation process.
+
+In simulation results, the RBF centers are equally spaced in the range of the input to the network, and the smoothing factor for all of the Gaussian nodes are chosen the same.
+
+This consideration (fixed parameters and partitioning the centers in the range of the input to the network) is common in fuzzy or NN-based adaptive controllers for the reasons mentioned above.
+
+See for example Lin et al. (2009) and Pan et al. (2017, 2014).
+
+PARAGRAPH
+
+PARAGRAPH
+
+The specific adaptive control-based approach of this work is an example of employing the CRBENN in the design of a controller.
+
+The CRBENN could be employed in other control or decision-making problems such as system identification, prediction, and classification
+
+PARAGRAPH
+
+PARAGRAPH
+
+To assure the boundedness of the adaptive parameters, the update laws (22)–(23) are modified based on the projection algorithm in Wang (1997) as follows, V̇=αPφg(x̲)maxs,0if‖V‖<Mvor‖V‖=MvandαPVTφmaxs,0≤0αPφg(x̲)maxs,0−αPVTφg(x̲)maxs,0‖V‖2Vif‖V‖=MvandαPVTφmaxs,0>0,Ẇ=−βPφg(x̲)sif‖W‖<Mwor‖W‖=MwandβPWTφg(x̲)s≥0−βPφg(x̲)s+βPWTφsg(x̲)‖W‖2Wif‖W‖=MwandβPWTφg(x̲)s<0.
+
+PARAGRAPH
+
+The above update laws force the adaptive parameters to remain bounded.
+
+If the adaptive parameters are less than their maximum bounds (i.e. Mv and Mw for V and W, respectively), or if they are at their maximum but are moving toward smaller values, (34)–(35) turn to the ordinary update laws (22)–(23).
+
+Hence, the second lines of (34)–(35) are true only if the adaptive parameters are at their maximum bounds and move toward larger values.
+
+With the above adaptive laws, the proof of Theorem 1 is still satisfied.
+
+If the second line of (34) is true, then the added term to (29) is ṼTαPVTφg(x̲)maxs,0‖V‖2V.
+
+As ‖V‖=Mv, then ṼTV≤0, and since αPVTφmaxs,0>0, then ṼTαPVTφg(x̲)maxs,0‖V‖2V≤0.
+
+Therefore, the added negative term does not conflict with the proof of the theorem.
+
+In a similar analysis, if the second line of (35) is true, then the added term to (29) is −W̃TPWTφs‖W‖2W≤0, which does not affect the proof of Theorem 1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The computational complexity of the CRBENN is of the order O(m×n), where m is the number of the basis functions in the Thalamus, and n is the number of inputs to the network.
+
+The computational complexity of the CRBENN is similar to that of RBFNN.
+
+As the computational complexities of the adaptive laws and the control input are of the order O(m), the computational complexity of the proposed controller is of the order O(m×n×Tt), where Tt=1dt×T, T is the total run time, and dt is the time step.
+
+SECTION
+
+Simulation and experimental results
+
+PARAGRAPH
+
+This section presents simulation studies on an inverted pendulum system (Case I–IV), the Duffing–Holmes chaotic system (Case V–VI), and the real-world experimental results on a three spherical–prismatic–spherical (3-PSP) robot.
+
+SECTION
+
+Simulation results on the inverted pendulum system
+
+PARAGRAPH
+
+Here, the proposed controller (DARENC) is applied to an inverted pendulum system.
+
+The dynamics of this system is presented as follows, ẋ1=x2,ẋ2=fx+gxu+d=gpsinx1−amplx22sin2x124l3−amplcos2(x1)+acosx14l3−amplcos2(x1)u+d,a=1mp+M,y=x1+v, where d is the disturbance, v is the measurement noise, x1 and x2 are the states of the system, x1 is the angle of the pendulum from the vertical axis, and x2 is the angular velocity.
+
+Also, mp=0.1kg is the mass of the pendulum, M=1kg is the mass of card, gp=9.8ms2 is the gravity constant, and 2l=0.5 m is the length of the pendulum.
+
+The initial value of the states are [x1(0),x2(0)]=[0.52,0].
+
+The goal is to design a controller such that the system states follow the desired reference trajectory x1d=sin(t).
+
+The control parameters are determined by trial and error to achieve reasonable tracking error and control energy consumption and are set at Q=12, α=0.5, β=30,r=0.08, Λ1=3, and ρ=0.02; also from Riccati equation (16) P=6 is obtained.
+
+The initial values for the weights of the Amygdala are in the interval [0.1,1] and the weights of the OFC nodes are set at zero.
+
+Also m=40, σj=0.5j=1,…,40, and μ∈[−2,2]T.
+
+The input to the basis function φj, defined by (1), is defined to be the function of error s in (11).
+
+PARAGRAPH
+
+The system performance is evaluated under various test conditions, i.e., no disturbance, sinusoidal disturbance, pulse disturbance, and noise with SNR = 35 dB.
+
+The MATLAB software is used for the simulation on a computer powered by Intel Core i5-3337U, 1.6 GHz.
+
+The sampling time is 0.01 s, and the total time of simulation is 30 s.
+
+PARAGRAPH
+
+The measurement criterion for consumed control energy is considered as follows, J=1T∑i=1T|ui|.where T is the total simulation time.
+
+The maximum absolute value of the control input (max|u|) is also measured and presented in Table 2.
+
+PARAGRAPH
+
+For comparative purposes and showing the benefits of the CRBENN structure, the proposed method is compared with other methods.
+
+The comparative controllers are an RBFNN-based controller designed with the same structure and parameters as the proposed DARENC, a seminal work in direct adaptive fuzzy control in Chen et al. (1996), and a direct fuzzy controller based on decomposed fuzzy system (DFS) in Hsueh et al. (2014).
+
+The fuzzy controllers are chosen because of similar structures and assumptions.
+
+PARAGRAPH
+
+The RBFNN-based controller is designed with the same procedure of the proposed DARENC as (14), except that uˆ in (14) is replaced by, uˆRBFx̲=WRuTϕRu,where WRu=WRu1,…,WRumT is the weight vector of the RBFNN, m is the total number of nodes.
+
+Also, ϕRu=[ϕRu1,ϕRu2,…,ϕRum]T is the RBF vector, ϕRuj(j=1,…,m) is defined as the commonly Gaussian functions, ϕRuj=exp−x̲−μRjTx̲−μRjσRj2,j=1,…,m,where x̲∈Rn, μRj∈Rn and σRj>0.
+
+PARAGRAPH
+
+With a similar procedure, the adaptive law for the weights of the RBFNN-based controller is attained as follows, ẆRu=γRuϕRuPs,where γRu>0, and s is defined similar to the error dynamics (21), but with appropriate substitution of the RBFNN output instead of the CRBENN output.
+
+Comparing the RBFNN output (38) with the CRBENN output (17); and the adaptive law (40) with the adaptive law (23); it can be seen that the structure of the RBFNN is the same as having the structure of CRBENN with only the OFC part and with a negative sign.
+
+PARAGRAPH
+
+The parameters of the RBFNN-based controller are the same as the proposed controller.
+
+Also, the parameters in (39)–(40) are set at μRj∈[−2,2]T, σRj=1j=1,…,40, and γRu=30.
+
+The parameters of the DFS are provided in Hsueh et al. (2014), and the parameters of the fuzzy-based controller are provided in Chen et al. (1996), but with learning rate 30 for fuzzy rules.
+
+PARAGRAPH
+
+The following subsections present simulation case studies of the final control system.
+
+As was mentioned before, BEL-based models have shown fast response with low computational time.
+
+Hence, it is worthwhile to compare the computational time of the proposed model with other methods.
+
+In this way, we examine the computational time of the proposed controller with the RBFNN-based controller, the direct adaptive type-1 fuzzy controller (T1F) in Chen et al. (1996), and the DFS in Hsueh et al. (2014).
+
+Table 1 shows the average, maximum, and minimum computational time required per sampling time for all of the controllers in Case II: simulations with sinusoidal disturbance.
+
+All of the simulations are repeated 20 times and under the same conditions.
+
+As this table shows, the DFS controller has the maximum computational time, as is reported in Hsueh et al. (2014).
+
+The authors of Hsueh et al. (2014) also designed a simplified decomposed fuzzy system (SDFS) that with a small rise in error, the computational time is reduced.
+
+PARAGRAPH
+
+Furthermore, Table 1 shows that the RBFNN-based controller has the smallest computational time.
+
+The computational time of the proposed controller is 42% higher than the computational time of the RBF-based controller and 19% lower than the computational time of the Type-1 fuzzy controller (1996).
+
+The higher computational time in comparison with the RBFNN-based controller is because of two sets of adaptive parameters, the Amygdala and the OFC weights.
+
+SECTION
+
+PARAGRAPH
+
+Case I : Simulation results on the inverted pendulum system with no disturbances
+
+PARAGRAPH
+
+In thiscase, the external disturbance and the measurement noise are zero (d=0, v=0).
+
+Fig. 3 shows the trajectories of the states of the system (x1 and x2).
+
+As is shown, all of the controllers have satisfactory performance.
+
+Fig. 4 shows the error and the control input trajectory.
+
+According to this figure, the proposed method (DARENC) reaches the smallest tracking error, and the fuzzy controller (1996) depicts the largest error.
+
+The evolution of some weights of the Amygdala and OFC are illustrated in Fig. 5 with respect to time.
+
+This figure shows that the Amygdala weights are non-decreasing, but the OFC weights can both decrease and increase.
+
+Also, Table 2 shows the average control energy consumption (J), the maximum absolute value of the control input (max|u|), and the mean square error (MSE) for all of the controllers.
+
+According to the data in Table 2, the DARENC has the smallest MSE with slightly lower J, while the fuzzy controller (1996) attains the largest J and MSE, but lowest max|u| among all.
+
+The DARENC has reached 7% higher max|u| in comparison with the fuzzy controller (1996).
+
+Furthermore, in comparison with the RBFNN-based controller, the proposed controller has reached a lower MSE (by 18%), max|u| (by 10%), and J(by 2%).
+
+Having two subsystems, the Amygdala and the OFC, and interaction among them has resulted in better performance of CRBENN in comparison with the RBFNN-based controller that is constructed in the same way.
+
+SECTION
+
+Case II: Simulation results on the inverted pendulum system with disturbance d(t)=4sin(3πt)
+
+PARAGRAPH
+
+In this case, the system is exposed to the external sinusoidal disturbance d(t)=4sin(3πt), but the measurement noise is zero (v=0).
+
+Fig. 6 shows the trajectories of x1 and x2.
+
+According to this figure, all of the controllers have satisfactory performance in the presence of the external disturbance.
+
+Also, Fig. 7 shows the error and the control input.
+
+According to this figure, the proposed approach reaches the smallest error, and the fuzzy controller (1996) attains the largest error, but the smallest max|u|.
+
+In addition, according to Table 2, the proposed approach (DARENC) has reached the smallest MSE with slightly lower consumed control energyJ.
+
+Again, the fuzzy controller (1996) shows the largest MSE and J.
+
+In comparison with the RBFNN-based controller with the same structure, the proposed method again has shown lower MSE (by 18%), max|u| (10%) and J (by 2%).
+
+SECTION
+
+Case III: Simulation results on the inverted pendulum system with pulse disturbance
+
+PARAGRAPH
+
+In this case, the measurement noise is zero, but the system is exposed to the pulse disturbance dt=5ut−15−5u(t−17).
+
+Fig. 8 shows the trajectories of the states of the system.
+
+As the zoomed view shows, the proposed method has the quickest response in reducing the effect of the sudden disturbance.
+
+This is consistent with the fast response properties of the emotional models.
+
+Also, Fig. 9 presents the error and the control input for all of the controllers.
+
+As this figure shows, the proposed method has reached the lowest error in comparison with the other three controllers.
+
+The controllers have used similar control inputs (Fig. 9 (below)).
+
+According to the control input in Fig. 9 and the value of J in Table 2, the proposed controller has used slightly lower control energy in comparison with the other three controllers.
+
+The fuzzy controller (1996) has reached the smallest max|u|, while the DFS (2014) has the highest value.
+
+In comparison with RBFNN-based controller, the proposed method has reached a lower MSE (by 19%) by consuming 2% lower control energy (J), and 10% lower max|u|.
+
+SECTION
+
+Case IV: Simulation results on the inverted pendulum system with measurement noise
+
+PARAGRAPH
+
+Here, Gaussian white noise with SNR = 35 is added to the output (x1) and the simulations are repeated 20 times for reliable results due to the random nature of noise.
+
+The results of MSE, J, and max|u| are averaged and gathered in Table 2.
+
+As the data in Table 2 shows, the proposed method reaches the smallest MSE, consumed control energy (J), and max|u| in comparison with three other controllers.
+
+The fuzzy controller (1996) has used the largest control energy to reduce the tracking error, but it also shows the largest MSE among all of the controllers.
+
+The RBFNN-based controller reaches lower, but comparable, MSE and J in comparison with DFS (2014).
+
+In comparison with the RBFNN-based controller, the DARENC has reached a lower MSE (by 19%), lower J (by 2%), and higher max|u| (by 4%).
+
+PARAGRAPH
+
+SECTION
+
+Simulation results on Duffing–Holmes chaotic system
+
+PARAGRAPH
+
+Here, the proposed method is applied to the Duffing–Holmes chaotic system in Lin and Chung (2015) with the following dynamics, ẍ=−0.25ẋ+x−x3+0.1x2+ẋ2sint+0.3cost+ut+dt,y=x+υ. where d(t)=0.1sin(t) is the external disturbance.
+
+The total simulation time is 20 s with step time 0.01 s.
+
+The desired trajectory is xdt=sin1.1t, and the initial values for the states of the system are set at x(0)=[0.25,0.25]T.
+
+The proposed method is compared with two other emotional controllers named FBELC (Lin and Chung, 2015) and iFBEL (Fang et al., 2019).
+
+The parameters of FBELC and iFBEL are the same and provided in Lin and Chung (2015) and Zhao et al. (2019).
+
+Similarly, the parameters of the proposed method are set at Q=4, K=2, Λ1=2, α=0.01,β=60,r=0.1, ρ=0.005; also from Riccati equation (16) P=1 is obtained.
+
+The parameters of radial basis function in (1) are considered as: z=s, m=31, μj∈[−0.5,0.5] and σj=0.25,(j=1,…,m).
+
+The simulation results are compared in two cases: Case V: with disturbance, and Case VI: with measurement noise.
+
+SECTION
+
+Case V: Simulation results on the chaotic system with sinusoidal disturbance
+
+PARAGRAPH
+
+In this case, v=0, but the system is exposed to the external sinusoidal disturbance.
+
+Fig. 10 shows the states of the system, and, Fig. 11 shows the control input and the error for the three controllers.
+
+As can be seen, all of the controllers track the desired trajectory.
+
+But according to Fig. 11, the proposed controller has reached a lower tracking error.
+
+Also, the evolution of some weights of the Amygdala and the OFC with respect to time are depicted in Fig. 12.
+
+The figure shows that the weights of the Amygdala can only increase, but the weights of the OFC can increase and decrease.
+
+As Table 3 shows the proposed controller has reached 26% lower MSE in comparison with iFBEL (2019) and 30% lower MSE in comparison with FBELC (2015).
+
+The total control energy (J) for all three controllers is approximately the same (but it is slightly lower for the proposed method).
+
+According to Table 3, the maximum absolute value of the control input (max|u|) is considerably lower for the proposed method in comparison with the other two controllers.
+
+SECTION
+
+Case VI: Simulation results on the chaotic system with measurement noise
+
+PARAGRAPH
+
+In this case, the external disturbance d(t)=0, but the Gaussian white noise with SNR=35 is considered as the measurement noise.
+
+Due to the random nature of noise and for reliable results, the simulations are repeated 20 times.
+
+The results of J and MSE are averaged and presented in Table 3.
+
+As Table 3 shows, the proposed method has reached the lowest MSE in comparison with iFBEL (2019) (by 23%) and FBELC (2015) (by 42%).
+
+Additionally, comparing the values of J in Table 3, the proposed method has used lower control energy in comparison with the other two controllers (13% lower than iFBEL and
+
+PARAGRAPH
+
+10% lower than FBELC).
+
+Finally, the max|u| in Table 3 is considerably lower for the proposed method (by 70%).
+
+SECTION
+
+PARAGRAPH
+
+Experimental results on the 3-PSP robot
+
+PARAGRAPH
+
+Because of the simple structure and low computations, the proposed controller is suitable for real-world implementation.
+
+In this way, the proposed controller is applied to a 3-PSP (Prismatic–Spherical–Prismatic) parallel robot at the robotic laboratory of Ferdowsi University of Mashhad.
+
+The robot has complexities and uncertainties such as complicated structure, kinematics, and dynamics, nonlinearities of the actuators, noise from sensor measurements, and friction.
+
+Also, the full control cycle should not exceed 1 ms, from which a considerable portion is spent on sensing and actuating.
+
+Thus, it is challenging for a controller to meet low computational cost and fast update cycle.
+
+Fortunately, the proposed approach offers such a low computational burden and simple structure.
+
+PARAGRAPH
+
+This experimental benchmark is presented in Fig. 13.
+
+As the figure shows, the 3-PSP robot is fully symmetric.
+
+It has two fixed bases and one star-shaped platform.
+
+The angle between three branches of the star-shaped platform is 120°.
+
+Three PSP legs connect the moving star to the fixed bases.
+
+Each leg has a linear actuated prismatic joint, a passive spherical joint, and a passive prismatic joint.
+
+Each leg is actuated by a motor, a gearbox, and a ball screw assembly.
+
+There are three active joints and twelve passive joints, where only the three active joints are controlled.
+
+The control systems should appropriately control the motors’ torques so that the end-effector tracks the desired trajectory (Rezaei et al., 2013).
+
+PARAGRAPH
+
+The dynamics of the robot is presented as follows, τ=MrΘΘ̈+VrΘ,Θ̈+GrΘΘ,where Θ=[θ0θ1θ2] is the vector of angles of three motors in Radians.
+
+The motors are numbered from 0 to 2 as M0, M1, and M2.
+
+Also, τ is the torque vector, MrΘ is the mass matrix, VrΘ,Θ̈ contains centrifugal and Coriolis terms, and Gr(Θ) is the gravity vector.
+
+The detailed description of the robot and its parameters can be found in Rezaei et al. (2013).
+
+PARAGRAPH
+
+The overall control structure is depicted in Fig. 14.
+
+The error between the desired angle of motors Θdesired and the actual angle Θactual is calculated as e=Θdesired−Θactual and fed to the controller.
+
+Then the control input (τ) is fed to the manipulator block.
+
+The manipulator output is the vector of linear coordinators q=[q1q2q3] related to the ball screws in meters.
+
+The angle of the jth motor and the linear coordinates are related by θj=100πqj(j=1,2,3).
+
+Here, the helix trajectory is considered as the desired trajectory for the end-effector of the robot.
+
+Using the inverse Kinematics of the robot, the desired trajectory is converted to the desired angles of the motors.
+
+The overall computation per cycle has to be below 0.001 s.
+
+This is confirmed by computing the simulation computational time of the 3-PSP robot in the MATLAB software.
+
+All of the codes for the real robot are written in C++ software, which has a faster language environment than the MATLAB software, on a computer with a 3.0 GHz Pentium 4 processor.
+
+In addition, the maximum voltage limit that the drivers fed to the motors is ±10 V (Volts).
+
+As the experimental results show (voltage of motor in Fig. 16), the voltages of the motors are below ±1 V, which is well below the ±10 V.
+
+PARAGRAPH
+
+The function of the error s is the input to the CRBENN.
+
+The control parameters are determined by trial and error to achieve reasonable tracking error and control energy consumption and are set at P=0.001, α=5, β=50,r=0.5, Λ1=7, and ρ=0.5.
+
+The initial values for the weights of the Amygdala and the OFC nodes are set at real values between [−2,2].
+
+Also m=5, σj=1j=1,…,5, and μ=[−3,−1.55,0,1.5,3]T.
+
+PARAGRAPH
+
+The average control energy Jj(j=1,2,3) and MSE (mean square error) are considered as measurement criteria.
+
+Jj is defined as, Jj=1T∫0T|ujt|dt,jmotorindex=1,2,3,where uj the voltage of jth motor.
+
+PARAGRAPH
+
+Fig. 15 shows the desired and actual trajectories of motors angles for the proposed controller (DARENC).
+
+This figure and the zoomed view of the dotted area confirm that the controller makes the angles of motors to follow the desired angle trajectory.
+
+The voltage of motors is depicted in Fig. 16 and Jj(j=1,2,3) is computed and presented in Table 4.
+
+As Fig. 16 shows, almost over all the time length of the experiment, the voltages of the motors remain below ±1V.
+
+Also, the error between the desired angle of the motors and the actual ones is shown in Fig. 17, and MSE is provided in Table 4.
+
+The error has its largest value, which is still reasonably small, at times with sudden changes of the desired trajectory.
+
+The MSE for the three motors is well below 0.01.
+
+PARAGRAPH
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this section, the proposed method is applied to an inverted pendulum system and the Duffing–Holmes chaotic system, and its performance is compared with other fuzzy, neuro, and emotional approaches.
+
+Simulation studies on the inverted pendulum system confirm that the proposed method consistently reaches better tracking performance and lower control energy consumption while achieving lower computational time in comparison with type-1 and type-2 fuzzy controllers.
+
+DARENC has more degrees of freedom in comparison with an RBF-based controller due to its two sets of adaptive parameters (the Amygdala and the OFC weights), which could lead to a slightly higher computational time.
+
+The simulation results on Duffing–Holmes chaotic system also confirm the superiority of the proposed controller in lower tracking error and control energy consumption in comparison with two other emotional controllers.
+
+PARAGRAPH
+
+We have also experimentally applied the DARENC to an actual 3PSP robotic benchmark.
+
+The results show the successful performance of the proposed controller in making the robot to track the helix trajectory, as the desired trajectory of the robot end-effector, with a low control energy consumption.
+
+Additionally, DARENC is suitable to be applied in real-world experiments because of its simple structure and lower computations compared with fuzzy-based controllers and comparable computational time with RBFNN as was discussed in Section 6.1 according to Table 1.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+The proposed CRBENN benefits from the radial basis structure in the nodes of the Thalamus, which makes it a transparent and general structure.
+
+It also avoids a direct connection from the Thalamus to the Amygdala, which leads to its continuous output mapping.
+
+From these two basic properties, the CRBENN becomes mathematically equivalent to the RBFNN, and therefore its universal approximation property is straightforwardly proved based on the universal approximation property of the RBF networks.
+
+This is while the CRBENN remains consistent with the basic laws of the emotional brain, i.e., the increasing update laws of the Amygdala and the dual critical analysis by the OFC and the Amygdala.
+
+Accordingly, CRBENN is a modeling paradigm that has universal approximation property, simple structure, continuous and differentiable output with respect to the weights, and the established capabilities of the emotional structures.
+
+PARAGRAPH
+
+As shown in this work, CRBENN is also amenable to theoretical analysis.
+
+To illustrate, it is employed to approximate the control law directly in a direct adaptive control structure DARENC; the stability of the closed-loop system with DARENC is proved using the Lyapunov stability theory, and suitable update laws that are consistent with the basic BEL model are designed for the Amygdala and the OFC weights.
+
+PARAGRAPH
+
+In the future, we hope to present new controllers, where the parameters of the radial basis functions, i.e., the mean, smoothing factor, and the number of nodes, could also be adaptively updated.
+
+In addition, we aim to investigate further the emotion-based control structures that employ emotional neural networks in different nonlinear control structures such as predictive or optimal control, also combined with other robust terms such as sliding mode or supervisory control.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+F. Baghbani: Conceptualization, Methodology, Software.
+
+M.-R.
+
+Akbarzadeh-T: Supervision, Conceptualization, Methodology.
+
+M.-B.
+
+Naghibi-Sistani: Supervision.
+
+Alireza Akbarzadeh: Investigation, Validation, Resources.

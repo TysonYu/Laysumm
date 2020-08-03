@@ -1,0 +1,501 @@
+10.1016/j.jhep.2020.01.014
+
+FULLTEXT
+
+TITLE
+
+FXR-dependent Rubicon induction impairs autophagy in models of human cholestasis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Autophagy is a highly evolutionarily conserved process that is crucial for cell development, differentiation, homeostasis, and survival.1
+
+Autophagy is a lysosomal degradation pathway in which the cell self-digests its own components to provide nutrients in harsh environmental conditions or to rid the cell of superfluous and damaged organelles, misfolded proteins or invaded microorganisms.
+
+It occurs at low basal levels in all cells to perform basic homeostatic functions, but can rapidly be upregulated when required.1
+
+The classical master regulator of autophagy induction is the molecular target of rapamycin (mTOR) pathway, which inhibits autophagy in nutrient rich conditions.2
+
+Other regulators of autophagy induction include a broad set of sensors for low energy or cellular stress.2
+
+This array of sensors makes the autophagic pathway highly responsive to nutrient status, as well as cellular and organelle stress, and allows cellular adaptation to overcome unfavorable conditions.
+
+PARAGRAPH
+
+Cholestasis is unfavorable for the hepatocyte and the organism.
+
+In cholestasis, bile secretion and bile flow are impaired, which leads to an accumulation of potentially toxic bile acids in the liver and systemic circulation.3
+
+The mechanisms by which cholestasis and, in particular, accumulated toxic bile acids lead to liver damage are not completely understood but include organelle stress, such as endoplasmic reticulum stress, mitochondrial dysfunction resulting in oxidative stress, inflammasome activation, apoptosis and necrosis, eventually leading to liver fibrosis and organ failure.4
+
+These cellular hits, which occur during cholestasis, are predicted to activate the autophagic signaling cascade and to result in an adaptive response.
+
+However, at least in mice, it appears that autophagy is inhibited in cholestasis.5,6
+
+The exact mechanism is not clear.
+
+In mice, bile acids can physiologically inhibit autophagy induction via the farnesoid X receptor (FXR) during starving conditions as part of the feeding-fasting cycle.7,8
+
+However, bile acids may also inhibit autophagy independently of FXR in mice.9
+
+If and how autophagy is affected in human cholestatic conditions is not known.
+
+PARAGRAPH
+
+Herein, we provide evidence that proper in vivo execution of autophagy is likely to be impaired in human cholestatic conditions.
+
+Mechanistically, we demonstrate that bile acids, which accumulate during cholestasis, induce Rubicon in an FXR-dependent fashion in vitro.
+
+Rubicon induction inhibits autophagosome-lysosome fusion and prevents proper autophagolytic breakdown.
+
+This molecular effect also occurs after treatment with the pharmacological FXR agonist obeticholic acid (OCA) but is opposed by the action of ursodeoxycholic acid (UDCA), a bile acid with FXR antagonistic properties.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Patient material
+
+PARAGRAPH
+
+Liver tissue from patients with cholestasis and patients without histologic liver injury (“normal”), which was acquired from diagnostic biopsy, surgical specimens or explanted livers, was studied retrospectively.
+
+All patients had given informed consent that specimens may be used for later scientific work-up.
+
+The study protocol has been approved by the local ethics committee of the Medical University of Graz, #25-266 ex 12/13 to M.W. None of the patients with cholestasis had been on UDCA treatment.
+
+For biopsy or for surgical interventions patients were in the fasted state.
+
+Liver tissue from UDCA-treated or control patients had been used in one of our studies before.10
+
+Liver tissue from patients treated with OCA or placebo is from the clinical trial registered at ClinicalTrials.gov NCT01625026 to H-U.M. For UDCA and OCA studies, all patients have given written informed consent before participating in these studies and the study protocols have been approved by the local ethic committees in Sweden to H-U.M. All tissue samples were de-identified before work-up so that molecular data cannot be tracked back to individual study participants.
+
+Table S1 gives a detailed sample description.
+
+SECTION
+
+In vitro treatments
+
+PARAGRAPH
+
+Chenodeoxycholic acid (CDCA; #C8261), glycochenodeoxycholic acid (GCDCA; #G0759), taurochenodeoxycholic acid (TCDCA; #T6260) and tauro-UDCA (#T0266) were purchased from Sigma-Aldrich and OCA from Abcam (#144246).
+
+Bile acids were dissolved in ethanol/PBS.
+
+Primary human hepatocytes (Invitrogen [#HMCPMS]) and HepG2 cells were treated with the indicated concentrations (CDCA and tauro-UDCA 100 μM, OCA 100 nM) for 24 h unless otherwise stated.
+
+Starvation took place for 30 min in HBSS (Gibco #14170112).
+
+Chloroquine was used at a concentration of 0.5 μM overnight or 50 μM for 30 min to 1 h.
+
+SECTION
+
+ChIP-seq and ChIP-qPCR
+
+PARAGRAPH
+
+FXR chromatin-immunoprecipitation (ChIP) from human cholestatic and normal liver tissue was performed as described in detail for human liver tissue.11
+
+Briefly, the high sensitivity kit (Active Motif #53040) was used with an FXR ChIP grade antibody (Santa Cruz, #sc-25309).
+
+ChIP-qPCR was performed according to protocol with the ChIP-PCR kit (Active Motif #53029).
+
+For library preparation we used the NEB Ultra II library prep kit (#E7645S).
+
+Size selection was performed with Pippin prep (2% agarose gels, dye free, 100 bp–600 bp).
+
+ChIP sequencing was performed at GATC Biotech, Konstanz, Germany on a High Seq instrument from Illumina with a SE-50 bp run.
+
+The detailed bioinformatical ChIP-seq analysis is reported in the supplementary materials and methods and Table S4.
+
+SECTION
+
+Luciferase assay and transfections
+
+PARAGRAPH
+
+Cloning of the FXR binding site for Rubicon was performed as previously described11 from human genomic DNA.
+
+It included the sequence from chr.3:197736385 to 197737368 around the first intron of the Rubicon gene (NM014687).
+
+Cloning primers are listed in Table S5.
+
+The luciferase assay was performed following the Promega luciferase assay protocol (cat# E4030) using reporter lysis buffer.
+
+Briefly, HepG2 cells were transfected with the cloned Rubicon FXR binding site, a β-Gal plasmid and increasing concentrations of FXR/RXR plasmids (0 ng, 50 ng, 150 ng, 300 ng) or increasing concentrations of bile acids (0 μg, 50 μg, 100 μg, 200 μg CDCA or ng OCA) in the presence of 100 ng FXR/RXR plasmid.
+
+For each condition triplicate wells were prepared.
+
+SECTION
+
+Statistics
+
+PARAGRAPH
+
+The numbers of patients are indicated in the figures or figure legends.
+
+Cell culture experiments were performed in technical triplicates and repeated at least 3 times as independent biological replicates.
+
+For in vitro Western blot data, a representative blot is shown, which includes the densitometric analysis of all 3 independent biological replicates.
+
+For statistical analysis of immunohistochemistry data 40× images have been quantitated with the freely online available immunohistochemistry image plug-in of Image J. For statistical analysis, Student's t test or ANOVA with Bonferroni post-testing was used when comparing more than 2 conditions (SigmaStat statistic program; Jandel Scientific, San Rafael, CA).
+
+A p value of less than 0.05 was considered statistically significant.
+
+PARAGRAPH
+
+Detailed material and methods are provided in the supplemental material and methods section.
+
+SECTION
+
+Results
+
+SECTION
+
+Autophagic flux is impaired in human cholestasis and by FXR-agonistic bile acids
+
+PARAGRAPH
+
+Autophagy appears to be impaired in mouse models of cholestasis.
+
+To test if autophagy is affected in human cholestatic liver diseases, we first performed an immunohistochemical screen for the “common” autophagy marker LC3 and the autophagic breakdown substrate P62 in liver samples acquired during diagnostic work-up for a wide range of cholestatic conditions (Table S1 reflects patient characteristics).
+
+Of note, the investigated patient samples do not comprise just a single entity of a cholestatic liver disease but a spectrum of various cholestatic conditions.
+
+Importantly, none of the patients had been treated with UDCA.
+
+Immunohistochemically, cholestatic patient samples showed pronounced LC3- and P62 hepatocellular stainings (Fig. 1A and Fig. S1A).
+
+On Western blot LC3-II was also significantly increased.
+
+In line with immunohistochemistry, the autophagy substrate P62 persisted despite elevated LC3-II generation (Fig. 1B).
+
+Persistence of the sequestosome marker P62 in the presence of increased LC3-II is an indicator of blocked autophagy at later stages of autophagic processing, such as docking, fusion or breakdown.12
+
+PARAGRAPH
+
+The main bile acid species retained in human cholestasis is CDCA, which is also the most potent natural FXR ligand.13
+
+Therefore, we next treated primary human hepatocytes with a supraphysiological concentration of CDCA, modeling cholestasis with increased intracellular bile acid levels.
+
+The effects of CDCA were compared to OCA, which is a semi-synthetic, even more potent FXR ligand.14
+
+Both, CDCA and OCA significantly increased LC3-II and P62 (Fig. 1C), which is in line with the results in human tissue samples.
+
+In vivo, in liver biopsies of patients treated with OCA, LC3-II tended to be induced in 5 out of 7 patients (p = 0.17) and P62 showed a trend for induction (1.5-fold; p = 0.07) (Fig. 1D).
+
+PARAGRAPH
+
+To further prove that autophagic processing is impaired by bile acids, we performed pharmacological flux assays using chloroquine and genetic flux assays using a GFP-RFP-LC3 construct in the HepG2 liver cell line as outlined.12
+
+CDCA and OCA did not further increase LC3-II protein in the presence of chloroquine (Fig. 1E) and both bile acids also prevented autophagic degradation of the GFP-RFP-LC3 construct (Fig. 1F).
+
+These results are indicative of blocked autophagic flux.
+
+The inhibiting effects of bile acids in vitro were not immediate effects (i.e. not observed after 2 h and 4 h of bile acid treatment) and occurred in time course experiments starting at 6 h (Fig. S1B), suggesting transcriptional effects.
+
+Similar effects were also seen with bile acid concentrations, starting at 25 μM, and with the conjugated forms of CDCA, i.e. GCDCA and TCDCA (Fig. S1C).
+
+Of note, mTOR signaling (assessed by P-4EBP or P-RPS6) was not inversely correlated (i.e. reduced) to LC3-II and therefore does not appear to be responsible for LC3-II induction and autophagosome initiation (Fig. 1B-E).
+
+Rather, P-4EBP and in particular P-RPS6 showed a trend for higher expression in the cholestatic samples and after FXR-agonistic bile acid treatment, respectively.
+
+The mechanistic details and consequences of this finding are currently not clear.
+
+PARAGRAPH
+
+We conclude that in vivo autophagy is likely to be impaired in cholestatic liver diseases in human patients, although only indirect evidence without mechanistic details is available from the human in vivo data.
+
+In in vitro models of cholestasis, the apparent impairment of autophagic flux can be recapitulated by both, bile acids retained in cholestasis and an FXR agonist, thus confirming and expanding the indirect human evidence.
+
+SECTION
+
+Inhibition of autophagy by bile acids depends on FXR
+
+PARAGRAPH
+
+Since the observed effects of bile acids (i.e. the natural FXR agonist CDCA and the semi-synthetic FXR agonist OCA) on autophagic flux inhibition suggest FXR dependency, we next generated stable FXR knockdown cell lines (shFXR) in the HepG2 background.
+
+Fig. S2 shows effective functional FXR knockdown.
+
+CDCA and OCA treatment resulted in LC3-II accumulation in non-template control cells (NT).
+
+In line with findings in mice lacking FXR,7 in vitro FXR knockdown resulted in higher baseline LC3-II levels, but no further increase of LC3-II was observed in bile acid-treated shFXR cells (Fig. 2A).
+
+These results indicate that the inhibition of autophagy by bile acids in cholestatic conditions depends on FXR.
+
+SECTION
+
+Bile acids inhibit autophagosome to lysosome fusion
+
+PARAGRAPH
+
+A critical step after autophagosome assembly is the fusion of the autophagosome with the lysosome.
+
+Lysosomes provide the acidic pH and various hydrolases for breakdown of the autophagosomal content.15
+
+To exclude that changes in lysosomal pH after bile acid treatment are responsible for impaired autophagic processing we tracked lysosomes in HepG2 cells with a pH sensitive dye (LysoSensor) and did not observe any pH differences (Fig. S3).
+
+To explore proper autophago-lysosomal fusion we specifically stained lysosomes with LAMP1 and visualized autophagosomes with GFP-tagged LC3.
+
+Starvation, used as a positive control for functional autophagic processing, resulted in augmentation of lysosomal diameter and the expected fusion of both autophagosomes and lysosome with the formation of fusion vesicles (Fig. 2B).
+
+In contrast, when cells were starved in the presence of CDCA or OCA, lysosomes and autophagosomes did not fuse, were clearly separated and small in vesicle size (Fig. 2B).
+
+Electron-microscopic images confirmed immunofluorescence findings: starved cells displayed typically large autophago-lysosomal fusion structures, whereas bile acid treatment resulted in separation of smaller isolated single lysosomes and autophagosomes (Fig. 2C).
+
+These experiments demonstrate that bile acids block the fusion of lysosomes and autophagosomes and thereby impair autophagic flux.
+
+SECTION
+
+Rubicon, a regulator of autophago-lysosomal fusion, is a direct FXR target
+
+PARAGRAPH
+
+To identify an FXR-dependent gene that impairs the autophago-lysosomal fusion process we established FXR ChIP-seq analyses as a screening approach in a representative cholestatic and a normal patient sample (Fig. S4A).
+
+Fig. S4B-D and Table S2 summarize various ChIP-seq quality criteria and basic ChIP-seq results.
+
+The canonical IR1-FXR binding motif was recovered in approx. 50% of the top peaks and the established FXR binding site of organic solute transporter-β (OSTβ) was confirmed by ChIP-qPCR as a positive control (Fig. 3A and 3B).
+
+Overall, FXR binding sites and proximity-associated genes were increased in the cholestatic sample (Fig. S4E).
+
+We detected 16.168 peaks in the cholestatic and 6.601 peaks in the normal liver, which corresponded to 8.555 and 4.804 associated genes, respectively.
+
+Gene-associated pathways between the normal and the cholestatic livers were strikingly different (zoom-in Fig. S5).
+
+Since we expected differences in the regulation of macroautophagy and in particular autophagosome to lysosome fusion, we performed Reactome pathway enrichment analysis and inspected the associated pathways in detail.
+
+FXR binding was prevalent in proximity to genes involved in macroautophagy in normal and cholestatic livers (Table 1 and Fig. S6A).
+
+However, pathways involved in vesicle transport (including autophagosome to lysosome fusion) were exclusively overrepresented in the cholestatic sample (Table 1 and Fig. S6B).
+
+Among a list of 253 candidate genes involved in autophagy and particularly in the autophagosome-lysosome fusion process15–17 we found a significant FXR ChIP binding peak in the first intron of Rubicon (Fig. 3A, Table S3).
+
+Rubicon is a critical inhibitor of the autophagosome to lysosome fusion and maturation process.18–20
+
+FXR ChIP-qPCR in the normal and cholestatic liver confirmed the sequencing results, showing significantly increased FXR binding in the first intron of Rubicon in the cholestatic liver (Fig. 3B).
+
+Interim results of an ongoing large scale FXR genomics approach (NCT01625026 at clinicaltrials.gov) showed that FXR ChIP-seq in liver tissue from normal patients with and without OCA treatment results in significantly enhanced binding of FXR to the first intron of Rubicon upon OCA treatment (Fig. 3A), supporting the FXR ChIP-seq results in patients.
+
+PARAGRAPH
+
+To test if the intronic FXR binding site is transcriptionally active, we performed luciferase assays for this binding site.
+
+Increasing concentrations of FXR/RXR (Fig. 3C) or bile acids (Fig. 3D) increased the transcriptional activity and consequently the luciferase signal.
+
+These data establish that Rubicon is a functional FXR target gene in human liver and is inducible by bile acids.
+
+SECTION
+
+Rubicon is increased in cholestasis
+
+PARAGRAPH
+
+We next determined whether Rubicon expression was increased in cholestasis in general and more specifically by bile acids in vivo and in vitro.
+
+Rubicon protein was overexpressed in 7 out of 8 cholestatic samples in immunohistochemistry and 2 out of 4 cholestatic samples on Western blot (Fig. 4A and Fig. S1).
+
+Rubicon mRNA was significantly overexpressed in cholestasis (p = 0.003) (Fig. 4A).
+
+OCA treatment in healthy volunteers also significantly induced Rubicon mRNA (p = 0.024) and protein (Fig. 4B).
+
+Similar results on mRNA and protein levels were obtained in vitro in primary human hepatocytes (Fig. 4C) and HepG2 cells (Fig. 4D).
+
+Knockdown of FXR resulted in significantly decreased Rubicon mRNA and protein levels confirming FXR dependency (Fig. 4D).
+
+SECTION
+
+Inhibition of Rubicon releases bile acid-mediated autophagy inhibition
+
+PARAGRAPH
+
+To specifically test whether Rubicon is required for the bile acid-mediated inhibition of autophagic flux, we silenced Rubicon and treated HepG2 cells with the FXR agonists CDCA and OCA.
+
+Silencing Rubicon abolished the bile acid-induced inhibition of autophagy and resulted in degradation of accumulated P62 (Fig. 4E).
+
+This suggests that Rubicon is a central mediator of the inhibitory effects of the tested bile acids on autophagic flux.
+
+SECTION
+
+UDCA induces autophagy
+
+PARAGRAPH
+
+For comparative studies we investigated whether the hydrophilic and non-toxic bile acid UDCA, which acts as an FXR antagonist,21,22 affects autophagy in human liver samples.
+
+In liver tissue samples from UDCA-treated normal non-cholestatic patients as well as in primary human hepatocytes treated with tauro-UDCA (the conjugated form of UDCA) LC3-II is increased along with reduction of Rubicon (Fig. 5A).
+
+To test for true induction of autophagic flux by UDCA we performed immunofluorescence staining of liver tissue slides for the autophagosomal marker LC3 and the lysosomal marker Cathepsin D and found significant fusion of the lysosome and the autophagosome indicative of increased autophagy flux (Fig. 5B).
+
+These results were further confirmed using chloroquine and GFP-RFP-LC3 in autophagic flux assays in HepG2 cells (Fig. 5C and 5D).
+
+Tauro-UDCA further increased LC3-II in the presence of chloroquine, which was independent of FXR.
+
+Furthermore, tauro-UDCA leads to the formation of red dots in the LC3-GFP-RFP assay, indicating enhanced autophagic flux.
+
+In addition, increased fusion was also observed in LC3 and LAMP1 co-staining experiments (Fig. 5E) and on electron microscopy (Fig. 5F).
+
+PARAGRAPH
+
+Together, these results show that UDCA treatment in human patients in vivo as well as in vitro induces autophagic flux and therefore appears to be able to counteract the negative effects of cholestasis on autophagy.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Autophagy is a basic physiological response that enables cells to quickly react to stimuli threatening cellular homeostasis.2
+
+This fast response is mediated by a variety of signaling kinases, such as the mTOR pathway, but can additionally be fueled on a secondary level by the action of transcription factors.
+
+We and others have previously discovered that the autophagic response to nutrient availability in the liver is fortified by nutrient-sensing nuclear receptors and transcription factors.7,8
+
+In the fasting state fatty acids and their cognate nuclear receptor PPARα induce autophagy, while in the fed state bile acids and the bile acid receptor FXR limit autophagic flux.7,8
+
+These alternating effects on autophagy are important to maintain a physiological balance between feeding and fasting states but pose a risk for unbalanced continuous stimulation or suppression when ligands are overrepresented, either due to disease-dependent pathological or pharmacological conditions.
+
+PARAGRAPH
+
+Elevated hydrophobic bile acids, a hallmark of cholestatic liver diseases, lead to organelle stress and damage.4
+
+From a teleological point of view increasing autophagy would be an appropriate response to rebalance cell homeostasis in cholestatic conditions.
+
+However, findings in cholestatic mice are conflicting and overall point towards impaired autophagic responses.
+
+One study in bile duct-ligated PIZZ mice reported that after a prolonged duration of cholestasis, LC3-II is increased and accumulated misfolded alpha-1-antitrypsin is reduced, suggestive of induced autophagy.23
+
+In contrast, several others found increased accumulation of ubiquitinated proteins and p62 in bile duct-ligated mice and concluded that autophagy and protein degradation was actually impaired in cholestasis.5,6,24
+
+In addition, mice with defective autophagy (i.e. Atg7 and Atg5 knockout mice or chloroquine inhibition of autophagy) have increased cholestatic liver injury.25,26
+
+In addition to these conflicting results in mice, there are significant species differences regarding bile acid composition between cholestatic mice and men.
+
+In cholestatic mice, muricholic acids, which are FXR antagonistic,27 dominate the rodent bile acid pool.28
+
+In contrast, in human cholestasis CDCA dominates the human bile acid pool, but is a strong FXR agonist.3
+
+Thus, the marked differences in bile acid pools in mice and men and their impact on FXR signaling may imply different outcomes.
+
+Thus, a strength of this study is that all in vivo and in vitro experiments have been performed on a human background and thus avoid conflicting results due to pronounced species differences in cholestasis.
+
+PARAGRAPH
+
+Here we report that in human cholestasis, a spectrum of mostly chronic liver diseases that cause elevated bile acids, autophagy is likely to be pathophysiologically impaired.
+
+In vitro data suggest that impairment of autophagy is due to FXR-dependent induction of Rubicon, an inhibitor of autophago-lysosomal maturation (Fig. 6).
+
+In line with our in vivo findings in cholestatic liver samples, cholestatic concentrations of CDCA, which is a natural FXR agonist ligand and the major retained bile acid during chronic cholestasis, as well as pharmacological concentrations of the selective FXR ligand OCA, impair autophagy in vitro.
+
+We did not observe effects on the mTOR kinase pathway and our autophagy flux experiments suggested blockage of autophagy downstream of the vesicle initiation and elongation process.
+
+LC3/LAMP1 co-staining experiments pointed to defective autophago-lysosomal fusion at the end of the autophagic road.15,20
+
+PARAGRAPH
+
+We initially speculated that Rab7 might be involved in inhibition of autophago-lysosomal fusion, since bile acids, autophago-lysosomal fusion defects and Rab7 have been linked before.9
+
+However, we did not detect any differences in human Rab7 at the protein or mRNA levels (not shown).
+
+Instead, we found a clear FXR-dependent role for Rubicon in mediating the inhibiting effects of bile acids on autophagic flux.
+
+Rubicon is localized to lysosomes as well as to both autophagosomes, and endosomes and suppresses autophagy as well as endocytic trafficking by interacting with the UVRAG-Beclin1-PI3KC3 complex.18,19
+
+It should be noted that autophagosomes not only directly fuse with lysosomes to build autophagolysosomes but may also first fuse with endosomes to form amphisomes which later eventually fuse with lysosomes.29
+
+We therefore cannot exclude that beside autophagosome to lysosome fusion, broader aspects of vesicle fusion or even secretory autophagy30 could also be impaired by bile acids.
+
+This notion is supported by the apparent differences between the normal and the cholestatic sample in ChIP-seq FXR binding events in pathways involving vesicle-mediated transport.
+
+PARAGRAPH
+
+Rubicon is also significantly overexpressed in patients with non-alcoholic fatty liver disease.31
+
+There, Rubicon overexpression not only impaired autophagic flux but was also associated with the detrimental effects of lipotoxicity.
+
+However, in that particular study post-translational events triggered by certain fatty acids were suggested as the basis for increased Rubicon expression.31
+
+Most recently, Rubicon was linked to aging and shown to increase with age in worms, flies and mice.
+
+Knockout of Rubicon increased longevity and ameliorated age-associated phenotypes in mice.32
+
+Our experiments show that Rubicon knockout releases bile acid-induced impairment of autophagy processing and unleashes a massive counteractive autophagic (“adaptive”) response resulting in almost complete loss of accumulated P62 and LC3.
+
+Overall, we think that Rubicon is a relevant player in chronic metabolic liver diseases, including cholestasis, through its ability to tune autophagic responses; thus, it represents an interesting therapeutic target.
+
+PARAGRAPH
+
+Treatment options for cholestatic liver diseases are limited.
+
+UDCA is the baseline treatment for many cholestatic diseases and is effective in halting disease progression in up to 65% of patients with primary biliary cholangitis.
+
+The exact mode of action of UDCA is not known but potential contributions include choleretic effects, modulation of bile acid pool composition and anti-apoptotic properties.33
+
+Here, we add another potential mechanism of UDCA as an enhancer of autophagic flux.
+
+Since autophagy is impaired in cholestatic liver diseases, UDCA treatment to rebalance autophagic responses may contribute to its beneficial anti-cholestatic properties.
+
+Most importantly, since UDCA has only mild side-effects, its use as an autophagy enhancer for other liver diseases, where induction of autophagy is clinically appropriate (e.g. alpha-1-antitrypsin deficiency), may be therapeutically very relevant.34
+
+Currently, we do not understand how exactly UDCA stimulates autophagy.
+
+UDCA is regarded to act as an FXR antagonist,21 which would be consistent with our observation that UDCA decreases Rubicon.
+
+PARAGRAPH
+
+OCA is a second-line option for patients with primary biliary cholangitis, who do not respond or tolerate UDCA.35
+
+OCA is a potent semi-synthetic FXR agonist with several anti-cholestatic qualities such as repression of endogenous bile acid synthesis and modulation of hepatocellular bile acid transporter systems.36
+
+We found that OCA impairs autophagic flux in vitro and also shows a similar trend in vivo.
+
+In context with the rodent data, which show that cholestasis progresses when autophagy is blocked,25,26 our findings would argue against OCA in the treatment of cholestasis.
+
+However, the multiple anti-cholestatic properties of OCA on bile acid production are apparently potent enough and overcome the potential negative effects of reduced autophagy.35
+
+PARAGRAPH
+
+In summary, we provide evidence that impaired autophagic processing is a common feature in models of human cholestasis and therefore may represent a common novel drug target in cholestatic liver diseases.
+
+In fact, stimulation of autophagy with the mTOR inhibitor rapamycin reduces injury in bile duct-ligated mice.26
+
+Mechanistically, we show that bile acids prevent proper fusion of autophagosomes with lysosomes in an FXR-dependent manner via induction of Rubicon.
+
+Since Rubicon is also generally involved in endosomal transport, we cannot exclude additional broader effects on vesicle trafficking.
+
+Conceptually, this study also suggests that Rubicon could be a potential new molecular target in the treatment of cholestatic liver diseases.
+
+UDCA, which has been established in the treatment of various liver diseases for more than forty years, has significant pro-autophagic effects along with reduction of Rubicon, which may add to the beneficial anti-cholestatic effects of this drug.
+
+However, more specific and more potent small molecule inhibitors of Rubicon, which are not yet available, could be an interesting future approach in cholestasis.
+
+SECTION
+
+Abbreviations
+
+PARAGRAPH
+
+CDCA, chenodeoxycholic acid; ChIP, chromatin-immunoprecipitation; ChIP-qPCR, ChIP-quantitative PCR; ChIP-Seq, ChIP-sequencing; FXR/NR1H4, farnesoid X receptor; GCDCA, glycochenodeoxycholic acid; mTOR, molecular target of rapamycin; NT, non-targeting control; OCA, obeticholic acid; OSTβ/SLC51B, organic solute transporter-β; RT-qPCR, quantitative reverse-transcription PCR; shFXR, FXR shRNA knockdown cells; TCDCA, taurochenodeoxycholic acid; TUDCA, tauro-UDCA; UDCA, ursodeoxycholic acid.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The current work was supported by the Anniversary Fund of the Österreichische Nationalbank (OeNB) #15457 to MW, the Austrian Science Fund (FWF) #P30482 to MW and the Austrian Ministry of Science, Research and Economy (HSRSM grant Omics Center Graz) to GGT.
+
+SECTION
+
+Authors' contributions
+
+PARAGRAPH
+
+KP, EK, MP, DKL performed experiments; EJ and GGT performed bioinformatic analysis; KP, JML, RX, MT, PF, HUM, DDM, MW discussed and revised experiments and wrote manuscript.

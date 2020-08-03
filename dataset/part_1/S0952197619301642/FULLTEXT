@@ -1,0 +1,653 @@
+10.1016/j.engappai.2019.06.025
+
+FULLTEXT
+
+TITLE
+
+Identification of nonlinear systems using adaptive variable-order fractional neural networks (Case study: A wind turbine with practical results)
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Fractional calculus, formulated 300 years ago, is basically a generalization of the well-known traditional calculus that deals with non-integer order derivatives.
+
+Although studies of the fractional calculus topic were initiated in the 17th century, it was not until the last few years when it was used for modeling of many physical phenomena with engineering applications.
+
+Fractional order derivative operator in fractional calculus acts as an effective tool for describing memory and hereditary properties of the system.
+
+In fact, fractional order-based models, in comparison with the integer order-based models, have the potential to model the behavior of complicated systems more accurately.
+
+This property is mainly due to more degrees of freedom and infinite memory which is intrinsic in fractional order calculus.
+
+Because of the mentioned properties, the fractional order models are highly successful in describing many phenomena in the various branches of science such as, health monitoring system (Leyden and Goodwine, 2018), aging material (Beltempo et al., 2018), a hydro-turbine system (Xu et al., 2017), biological tissues (Magin, 2010), diffusion phenomena (Pintelon et al., 2005), Viscoelasticity (Soczkiewicz, 2002) and numerous of other examples in various fields.
+
+PARAGRAPH
+
+Due to universal approximation capability, neural network-based method turns out to be a powerful instrument to identify a broad diversity of complex nonlinear systems by training, where we have no important a priori knowledge about their structures and parameters.
+
+Neural networks are usually classified into two types, namely, static neural networks and dynamic neural networks.
+
+In cases, where there is a high dependency between the data value at the present time and its past values (either input or output past values), a larger static neural structure must be used in order to map the input data to the output data, which is a drawback from the computational point of view and risk of getting trapped into the local minima.
+
+In these cases, dynamic neural networks can successfully overcome many problems associated with the static neural network due to using feedback in its structure (Yazdizadeh and Khorasani, 2002).
+
+Moreover, representation capability is essential in every application especially while dealing with dynamic systems.
+
+Neural networks may possess a dynamic input–output representation in three main categories.
+
+The first category uses a tapped delay line along with a static neural network to create dynamics in the structure (Narendra and Parthasarathy, 1990).
+
+The second category is recurrent neural networks.
+
+In this category, a dynamic input–output representation is obtained using a recurrent structure (Nejadmorad Moghanloo et al., 2015).
+
+The third category of the networks benefits from using Dynamic Neurons Units (DNUs) (Yazdizadeh et al., 2000).
+
+The DNUs not only receive external inputs but also receive state feedback signals from themselves and other neurons as well.
+
+The famous Hopfield neural network introduced in 1984 may be considered both as a neural network with DNU (Gupta et al., 2004) and as a recurrent dynamic neural network due to its single-layer structure (Narendra and Parthasarathy, 1990).
+
+Some dynamic neural networks have no hidden layer and this can lead to a limitation in approximation capabilities of such networks (Haykin, 1994).
+
+In (Albertini and Sontag, 1994; Deng, 2013; Lu and Cao, 2007; Poznyak et al., 2001; Rovithakis and Christodoulou, 1994; Yu et al., 2007) an Integer Order Neural Network (IONN) with both single layer and multilayer has been proposed to identify and control various systems.
+
+PARAGRAPH
+
+By employing the fractional calculus in a dynamic neural network, the Fractional Order Neural Network (FONN) is created that gives us a prominent ground for studying complicated systems both from the theoretical and practical point of views.
+
+Thus, the FONN has just attracted increasing interest of many researchers.
+
+Among FONNs, we may refer to the fractional order Hopfield dynamic neural network that can be interpreted by replacing the common capacitor with reactance (Boroomand and Menhaj, 2009a).
+
+The formulation and the numerical simulations of the FONN have been carried out by many authors (Arena et al., 2000; Boroomand and Menhaj, 2009a; Matsuzaki and Nakagawa, 2003; Petras, 2006).
+
+The study of dynamic behaviors of the FONN such as bifurcation (Huang et al., 2017, 2018), stability (Liu et al., 2017), stabilization (Wu and Zeng, 2017), synchronization (Zhang et al., 2018), etc., are important topics which have been under study in the recent years in many papers and the references cited therein.
+
+PARAGRAPH
+
+Few researchers have focused on identifying the various plants with inherent fractional order behavior as the fractional order model (Aslipour and Yazdizadeh, 2018).
+
+They have employed two different neural network structures namely the static neural network (Benoit-Marand et al., 2006; Rahmani and Farrokhi, 2017, 2018; Sierociuk et al., 2011), and the FONN (Aslipour and Yazdizadeh, 2018; Boroomand and Menhaj, 2009b, c).
+
+In Benoit-Marand et al. (2006), the authors identified a fractional order nonlinear system via a static neural network.
+
+The static physical part of the systems is modeled by using a static neural network and its dynamic part is identified by employing a fractional order integral block.
+
+In (Rahmani and Farrokhi, 2017, 2018), identification of a nonlinear dynamic system using neuro-fractional Hammerstein model are presented.
+
+The authors of this paper have considered a model that consists of a static neural network as the nonlinear subsystem and the fractional order system as the linear subsystem.
+
+We may also refer to Sierociuk et al. (2011) in which a neural network has been introduced for modeling and identification of a fractional order nonlinear system.
+
+This identifier is a combination of a static neural network and a linear fractional state-space model.
+
+Levenberg Marquardt and Backpropagation algorithm have been used by the authors to train the proposed neural network.
+
+Boroomand and Menhaj (2009b, c) attempted to solve the parameter identification problem via the FONN with the known fractional order.
+
+The authors in Aslipour and Yazdizadeh (2018) identified a nonlinear system by using the FONN where its fractional order is also updated via a Particle Swarm Optimization (PSO) algorithm.
+
+PARAGRAPH
+
+Motivated by the above literature, this paper presents an identification method based on the FONN to model the behavior of the complicated systems that are inherently nonlinear, dynamic and fractional order systems.
+
+Different from the above-studied structures, the new proposed FONN is a general case of the FONN that leads to more precise identification of a big enough class of nonlinear dynamic systems.
+
+Similar to many other published papers in the field, it is assumed that all system states are measurable and the number of the states of the FONN is selected to be equal to the dimension of the system (Poznyak et al., 2001).
+
+We propose two structures, namely, the Variable-Order Fractional Single-layer Neural Network (VOFSNN) and the Variable-Order Fractional Multi-layer Neural Network (VOFMNN).
+
+All the associated parameters including the weights and the fractional order are updated based on the newly derived learning rules.
+
+To derive the learning rules and in order to analyze the error stability conditions, we use the fractional Lyapunov-like approach and some useful lemmas.
+
+Although in Aslipour and Yazdizadeh (2018), as the only published paper in this field to the best of our knowledge, the fractional order is adjusted via PSO, it is worth mentioning that the proposed method in Aslipour and Yazdizadeh (2018) is not a Lyapunov-like method and in this regard the proposed structure and theory in this paper is unique.
+
+PARAGRAPH
+
+In order to show the merit of the proposed method, after applying to many numerical examples, it was applied to the practical data which was gathered from a wind farm.
+
+The capability of the proposed method for solving identification problems in real physical complicated plants due to their changing characteristics which are coming from the profile of the wind speed and many other complexities including flexibility of the structure of the tower and the blades is shown.
+
+PARAGRAPH
+
+The main advantages and contributions of this paper may be summarized as follows:
+
+PARAGRAPH
+
+The rest of this paper is structured as follows: Section 2 reviews mathematical preliminaries of the fractional calculus, some useful lemmas required in this paper and problem formulation.
+
+Section 3 establishes the theoretical findings of the proposed identification methods in detail.
+
+Section 4 verifies the capability of the proposed method by providing two different tests, a Van der Pol oscillator and the KAHAK wind turbine.
+
+Section 5 summarizes the paper.
+
+SECTION
+
+Mathematical background and model description
+
+PARAGRAPH
+
+In this section, we first recall some definitions on fractional calculus and useful lemmas as the preliminary discussion for our proposed methods.
+
+Then, the proposed identifiers, namely, the VOFSNN and the VOFMNN are formulated.
+
+SECTION
+
+Fractional calculus
+
+PARAGRAPH
+
+PARAGRAPH
+
+The Gamma function defined by Diethelm (2010): Γz=∫0∞e−ttz−1dt.There are mainly three kinds of fractional order derivative definitions, among which the so-called Caputo derivative is more understandable in the sense of physical expressions due to inclusion of the initial conditions.
+
+Therefore, the Caputo fractional derivative is often more relevant in engineering applications and as a result, the Caputo definition is used in this paper.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The Caputo variable-order fractional derivative operator is defined as (Lorenzo and Hartley, 2002): 0CDtqtf(t)=1Γ1−qt∫0tf′τ(t−τ)qtdτ,where qt∈0,1 and Γ(.)
+
+are the fractional order and Gamma function, respectively.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The Riemann–Liouville variable-order fractional integral operator is defined as (Lorenzo and Hartley, 2002): Itqtft=1Γqt∫0t(t−τ)qt−1fτdτ,where, qt∈0,1 and Γ (.)
+
+are the fractional order and Gamma function, respectively.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Linear property of the variable-order fractional derivative is stated as follows Lorenzo and Hartley (2002) : Dqtλft+μgt=λDqtft+μDqtgt.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose xt=(x1t,x2t,…,xnt)∈Rn is a vector, as xit for i=1,2,…,n are continuous and differentiable functions and P∈Rn×n is a positive definite matrix, then, for a general quadratic form function xTtPx(t) , the following inequality is true (Wu et al., 2016 ): 12DqxTtPxt≤xTtPDqxt,0<q<1.
+
+PARAGRAPH
+
+In order to prove the stability, we need to refer to new lemmas, namely, Lemmas 2 and 3 in the context of fractional order calculus as below:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume that Wt∈Rn×n is a matrix, so that wijt are continuous and differentiable functions for all i=1,2,…,n and qt∈0,1 , and K∈Rn×n is a positive definite matrix, then we have: 12Dqttrace(WTtKW(t))≤traceWTtKDqtWt.
+
+PARAGRAPH
+
+PARAGRAPH
+
+In order to ensure the completeness of the proof process, we recall some steps in the proof in Wu et al. (2016).
+
+It is assumed that qt∈0,1 varying with t.
+
+PARAGRAPH
+
+First, we considered the following inequality: 12Dqt(WT(t)KW(t))≤WT(t)KDqtW(t).By some algebraic operations, it can be shown that inequality (2) is equivalent to: WT(t)KDqtW(t)−12Dqt(WT(t)KW(t))≥0.According to Definition 3, we have: DqtW(t)=1Γ(1−qt)∫0tW′τ(t−τ)qtdτ,12Dqt(WT(t)KW(t))=12Γ1−qt∫0t(WTτKW(τ))′t−τqtdτ=1Γ1−qt∫0tWTτKW′τ(t−τ)qtdτ. Substituting (4) and (5) into (3), we have: 1Γ1−qt∫0t(WT(t)−WTτ)KW′τ(t−τ)qtdτ≥0.
+
+PARAGRAPH
+
+For convenience, we introduce the auxiliary matrix Yτ=W(t)−Wτ.
+
+Next, based on the variable transformation, we obtain: 1Γ1−qt∫0tYTτKY′τ(t−τ)qtdτ≤0.By applying integration by parts to (7), it follows that: −YTτKYτ2Γ1−qtt−τqtτ=t+YT0KY02Γ1−qttqt+qt2Γ1−qt×∫0tYTτKYτt−τqt+1dτ≥0. The first term of (8) is singular at τ=t, so we consider the corresponding limit: limτ→tYTτKYτ2Γ1−qtt−τqt=limτ→t(WT(t)−WTτ)K(W(t)−Wτ)2Γ1−qtt−τqt=limτ→tWT(t)KW(t)−2WT(t)KWτ+WTτKWτ2Γ1−qtt−τqt. It is easy to see that (9) is satisfied by L’Hôpital’s rule.
+
+By applying L’Hôpital’s rule, it follows that: limτ→t−2WT(t)KW′τ+2WTτKW′τ−2qtΓ1−qtt−τqt−1=limτ→t[(WTt−WTτ)KW′τ]t−τ1−qtqtΓ1−qt=0. Thus, (8) is compacted as: YT0KY02Γ1−qttqt+qt2Γ1−qt∫0tYTτKYτ(t−τ)qt+1dτ≥0.It is evidently true for (11).
+
+Therefore, Eq. (2) holds and since trace function is a monotone operator, we have: trace(12Dqt(WTtKW(t)))≤trace(WTtKDqtWt).Therefore, Eq. (1) holds.
+
+This completes the proof.
+
+PARAGRAPH
+
+PARAGRAPH
+
+If Dqtxt is bounded for all 0<t<T and qt∈0,1 , then xt is a bounded function.
+
+PARAGRAPH
+
+PARAGRAPH
+
+We can write: |x(t)|=|1Γqt∫0tDqtx(τ)(t−τ)1−qtdτ|≤MΓqt+1tqt,where, M is the upper bound of Dqtxt.
+
+Therefore, xt has a specific upper bound in the interval 0<t<T.
+
+PARAGRAPH
+
+PARAGRAPH
+
+If xt≤∫0taτxτdτ+b(t) where a(t) and b(t) are known real functions, then Slotine and Li (1991) : xt≤∫0taτbτexp∫τtardrdτ+bt. If b(t) is differentiable, then: xt≤b0exp∫0taτdτ+∫0tḃτexp∫τtardrdτ. In particular, if b(t) is constant it follows that: xt≤b0exp∫0taτdτ. This Lemma is Gronwall–Bellman integral inequality.
+
+PARAGRAPH
+
+PARAGRAPH
+
+For any X,Y∈Rn×m and the positive definite matrix Λ we have (Poznyak et al., 2001 ): XTY+(XTY)T≤XTΛ−1X+YTΛY.
+
+PARAGRAPH
+
+PARAGRAPH
+
+For any differentiable vector function x∈gx:Rn→Rm that has Lipschitz condition in global, the following presentation takes place: gx+Δx−gx=∇TgxΔx+vg, where, ∇ denotes the gradient.
+
+The vector vg can be estimated as follows: ‖vg‖≤2Lg‖Δx‖, where, Lg is a positive constant.
+
+PARAGRAPH
+
+To simplify, we assume through this paper Dq denotes the Caputo variable-order fractional derivative.
+
+SECTION
+
+Model formulation
+
+PARAGRAPH
+
+Inspired by the IONN structure that is proved its effectiveness for modeling and identification problems (Poznyak et al., 2001), in this paper we design a FONN structure that belongs to a wide enough class of nonlinear dynamic systems.
+
+The governing equation of the proposed VOFMNN is given in (14).
+
+This new structure of the FONN identifier (14) is different from other discussed structures in the literature.
+
+The proposed structure (VOFMNN) is shown in Fig. 1.
+
+Dqxˆt=Axˆt+W1tσV1txˆt+W2t∅V2txˆtγut,where, Dq is the Caputo variable-order fractional derivative operator with q∈(0,1), xˆt∈Rn corresponds to the state vector at time t; ut∈Rm is external input and γut=[γu1t…γumt]∈Rm.
+
+The matrix A∈Rn×n is a Hurwitz matrix.
+
+W1t∈Rn×m and W2t∈Rn×m are the output weight matrices of the proposed VOFMNN identifier.
+
+V1t∈Rm×n and V2t∈Rm×n are the weights describing hidden layer connection.
+
+The vector function σ(.)∈Rm contains the elements that increase monotonically and the matrix function ∅(.)∈Rm×m is diagonal which is presented in Eq. (15).
+
+To solve the proposed VOFMNN equation (14), a Predictor–Corrector (PC) scheme is used Diethelm et al. (2002).
+
+This technique is an extension of the Adams–Bashforth–Moulton algorithm for integer order differential equations. ∅xˆt=diag∅V2txˆ1t,…,∅V2txˆnt.
+
+The proposed VOFSNN (without any hidden layer) corresponds to the case where m=n,V1t=V2t=I. Therefore, the proposed VOFSNN identifier can be stated as follows: Dqxˆt=Axˆt+W1tσxˆt+W2t∅xˆtγut.Following, we derive the learning rules for updating the fractional order along with the weights of both proposed identifiers, namely, the VOFSNN and the VOFMNN.
+
+SECTION
+
+Main results
+
+PARAGRAPH
+
+In this paper, we consider a fractional order nonlinear system as follows: Dq∗xt=fxt,ut,t,xt∈Rn,ut∈Rm,where, q∗∈(0,1) is the desired fractional order.
+
+In the sequel, we introduce the proposed VOFSNN and VOFMNN.
+
+SECTION
+
+The VOFSNN identifier
+
+PARAGRAPH
+
+Generally, the nonlinear system (18) may be written as: Dq∗xt=Axt+W1∗σxt+W2∗∅xtγut−f̃t,where, f̃t is the modeling error and W1∗ and W2∗ are finite unknown matrices for which upper limits are known in such a way that: W1∗Λ1−1W1∗T≤W¯1,W2∗Λ2−1W2∗T≤W¯2, where, W¯1 and W¯2 are known matrices and Λ1 and Λ2 are positive definite matrices.
+
+PARAGRAPH
+
+Let us consider the proposed VOFSNN (17) to identify the nonlinear system (18).
+
+The identification error is defined as (21): x˜t=xˆt−xt.
+
+PARAGRAPH
+
+It is clear that xˆt is the proposed VOFSNN identifier state and xt is the state of the real system.
+
+PARAGRAPH
+
+Define q̃t, W˜1t, W˜2t, σ˜ and ∅˜ as below: q̃t=qt−q∗,W˜1t=W1t−W1∗,W˜2t=W2t−W2∗,σ˜=σxˆt−σxt,∅˜=∅xˆt−∅xt. Then, by some algebraic manipulation, the fractional order derivative of the identification error is obtained as: Dqx˜t=Dqxˆt−Dqxt=Dqxˆt−Dq∗xt+Dq∗xt−Dqxt=Axˆt+W1tσxˆt+W2t∅xˆtγut−Axt−W1∗σxt−W2∗∅xtγut+f̃t+Dq∗xt−Dqxt=Ax˜t+W1∗σ˜+W2∗∅˜γut+W˜1tσxˆt+W˜2t∅xˆtγut+f̃t−∂Dqxt∂qq̃t. Consider the following assumptions:
+
+PARAGRAPH
+
+PARAGRAPH
+
+The nonlinear function γ (.)
+
+and its derivative are bounded (‖γ(ut)‖2≤u¯).
+
+PARAGRAPH
+
+PARAGRAPH
+
+The activation functions σ and ∅ satisfy Lipschitz conditions: σ˜TΛ1σ˜≤x˜tTΛσx˜t,∅˜TΛ2∅˜≤x˜tTΛ∅x˜t, Λσ and Λ∅ are known positive constant matrices.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The modeling error is bounded: ‖f̃t‖Λf2=f̃tTΛff̃t≤ηf,where, ηf is known positive matrix and Λf is a positive definite matrix.
+
+PARAGRAPH
+
+PARAGRAPH
+
+There exists a definite and stable positive matrix F0 such that Eq. (26) has a positive solution P=PT>0.
+
+PA+12PRP+12F=0.where, R and F matrices as follows: R=W¯1+W¯2+Λf−1,F=Λσ+Λ∅u¯+2F0.
+
+PARAGRAPH
+
+PARAGRAPH
+
+∂Dqxt∂q is bounded for 0<t<T .
+
+PARAGRAPH
+
+PARAGRAPH
+
+Based on Definition 2, we have: Dqxt=1Γ1−qt∫0tx′τt−τqtdτ.Then we differentiate from both sides of Eq. (28) with respect to the variable q  by using product rule: ∂Dqxt∂q=Γ′1−qtΓ21−qt∫0tx′τ(t−τ)qtdτ−1Γ1−qt∫0tlnt−τx′τt−τqtdτ.It is assumed that C is an upper bound of x′t, therefore Eq. (29) is as follows: ∂Dqxt∂q≤Γ′1−qtΓ21−qt∫0tCt−τqtdτ−1Γ1−qt∫0tlnt−τCt−τqtdτ.The first term on the right of the inequality (30) is equal to: Γ′1−qtΓ21−qt∫0tCt−τqtdτ=−CΓ′1−qtΓ21−qt(1−qt)t−τ1−qtτ=0τ=t=CΓ′1−qtΓ21−qt1−qtt1−qt. And the second term on the right of the inequality (30) is equal to: −1Γ1−qt∫0tlnt−τCt−τqtdτ=−−CΓ1−qtlnt−τqt−1+1qt−12t−τqt−1τ=0τ=t=−CΓ1−qtlimτ→tlnt−τqt−1+1qt−12t−τqt−1−lntqt−1+1qt−12tqt−1, where by applying L’Hôpital’s rule, it follows that: limτ→tlnt−τqt−1+1qt−12t−τqt−1=limτ→t−1t−τqt−13t−τqt−2=−limτ→t1qt−13t−τqt−1=−limτ→tt−τ1−qtqt−13=0. Substituting (33) into (32), we have: −1Γ1−qt∫0tlnt−τCt−τqtdτ=CΓ1−qtlntqt−1+1qt−12tqt−1.Substituting (31) and (34) into (30), we have: ∂Dqxt∂q≤Ct1−qtΓ1−qt1−qtΓ′1−qtΓ1−qt+lntqt−1+11−qt,Therefore for 0<t<T, ∂Dqxt∂q is bounded.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Subject to the above-mentioned assumptions analysis and by considering the unknown nonlinear fractional order system as (18) and the proposed VOFSNN identifier (17) , the parameters including the fractional order and the weights are updated as follows:
+
+PARAGRAPH
+
+If ‖x˜t‖2>ηfλminF0 , then the updating law given as follows; Dqqt=k1x˜tTP∂Dqxt∂q.DqW1t=−K1Px˜tσTxˆt,DqW2t=−K2Px˜t(∅xˆtγut)T, where, P>0 is the solution of  Eq. (26) .
+
+Ki(i=1,2) are positive definite matrices and k1 is a positive constant.
+
+PARAGRAPH
+
+If ‖x˜t‖2≤ηfλminF0, we stop the learning procedure and maintain all weights constant.
+
+PARAGRAPH
+
+Then, it is guaranteed that the parameters of the proposed VOFSNN and the identification error for any t=T>0 are bounded. x˜t∈L∞,qt∈L∞,W1t∈L∞,W2t∈L∞.
+
+PARAGRAPH
+
+PARAGRAPH
+
+We consider the following Lyapunov function Vt=12(x˜tTPx˜t+trW˜1tTK1−1W˜1t+trW˜2tTK2−1W˜2t+k1−1q̃t2), where, tr(W) denotes the trace of W. Then, by using Property 1, Lemmas 1 and 2, the variable-order fractional derivative of the Lyapunov function (38) can be calculated as: DqVt≤(x˜tTPDqx˜t+trW˜1tTK1−1DqW˜1t+trW˜2tTK2−1DqW˜2t+k1−1q̃tDqq̃t)=x˜tTP(Ax˜t+W1∗σ˜+W2∗∅˜γut+W˜1tσxˆt+W˜2t∅xˆtγut+f̃t−∂Dqxt∂qq̃t)+trW˜1tTK1−1DqW˜1t+trW˜2tTK2−1DqW˜2t+k1−1q̃tDqq̃t. By selecting the learning rules (36), we have: DqVt≤x˜tTPAx˜t+x˜tTPW1tσ˜+x˜tTPW2t∅˜γut+x˜tTPf̃t. Using Lemma 5 and Assumptions 1–3, we have: x˜tTPW1∗σ˜≤12x˜tTPW1∗Λ1−1W1∗TPx˜t+12σ˜TΛ2σ˜≤12x˜tT(PW¯1P+Λσ)x˜t,x˜tTPW2∗∅˜γut≤12x˜tTPW2∗Λ2−1W2∗TPx˜t+12γTut∅˜TΛ2∅˜γut≤12x˜tTPW¯2P+Λ∅u¯x˜t.x˜tTPf̃t≤12x˜tTPΛf−1Px˜t+12f˜tTΛff̃t≤12(x˜tTPΛf−1Px˜t+ηf). Then we get: DqVt≤x˜tTPA+12PW¯1+W¯2+Λf−1P+12Λσ+Λ∅u¯x˜t+ηf2≤x˜tTPA+12PRP+12F−2F0x˜t+ηf2. Using Eq. (26), we have: DqVt≤−x˜tTF0x˜t+ηf2.By Volterra integral (Tabatabaei et al., 2017), we obtain: Vt≤V0−1Γqt∫0tt−τqt−1x˜τTF0x˜τ−ηf2dτ.Additionally, Vt>12x˜tTPx˜t, gives: 12x˜tTPx˜t<Vt≤V0−1Γqt∫0tt−τqt−1x˜τTF0x˜τdτ+tqtΓqt+1ηf2. Note that: λminP2x˜tTx˜t<12x˜tTPx˜t<λmaxP2x˜tTx˜t,λminF0x˜tTx˜t<x˜tTF0x˜t<λmaxF0x˜tTx˜t. Hence: 12x˜tTPx˜t>λminP2x˜tTx˜t>λminP2λmaxF0x˜tTF0x˜t.Define λminP2λmaxF0=λ0, then equation (45) is equivalent to: λ0x˜tTF0x˜t<Vt≤V0−1Γqt∫0tt−τqt−1x˜τTF0x˜τdτ+tqtΓqt+1ηf2. Using Lemma 4, we get: ‖x˜t‖F02<Vtλ0≤V0λ0exp−1λ0Γqt∫0tt−τqt−1dτ+∫0tτqt−12λ0Γqtηfexp−1λ0Γqt∫τtt−rqt−1drdτ=V0λ0exp−tqtλ0Γqt+1+∫0tτqt−12λ0Γqtηfexpt−τqtλ0Γqt+1dτ=V0λ0exp−tqtλ0Γqt+1+ηf2λ0ΓqIqt×(exptqtλ0Γqt+1).
+
+PARAGRAPH
+
+So, for 0<t<T and qt∈0,1, the identification error has an upper bound.
+
+In addition, since ut, σxˆt, ∅xˆt and P are bounded, by using Lemma 3 and Theorem 1, the weights and the fractional order are bounded, i.e. (37) holds.
+
+The proof of Theorem 2 is now completed.
+
+SECTION
+
+The VOFMNN identifier
+
+PARAGRAPH
+
+Similar to the proposed VOFSNN identifier, the nonlinear system (18) can be described as: Dq∗xt=Axt+W1∗σV1∗xt+W2∗∅V2∗xtγut−f̃t,where, V1∗ and V2∗ are any known constant matrices.
+
+Other parameters are defined in the same way as before.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The variable-order fractional derivative of the identification error is expressed as: Dqx˜t=Dqxˆt−Dqxt=Dqxˆt−Dq∗xt+Dq∗xt−Dqxt=Axˆt+W1tσV1txˆt+W2t∅V2txˆtγut−Axt−W1∗σV1∗xt−W2∗∅V2∗xtγut+f̃t+Dq∗xt−Dqxt=Ax˜t+W1∗σ˜+W2∗∅˜γut+W˜1tσV1txˆt+W˜2t∅V2txˆtγut+W1∗σ˜′+W2∗∅˜′γut+f̃t−∂Dqxt∂qq̃t.
+
+PARAGRAPH
+
+From the previous subsection related to the proposed VOFSNN, Assumptions 1–4 are fulfilled and the following additional assumption is considered:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Using Lemma 6, the activation functions σ and ∅ satisfy below conditions: σ′˜TΛ1σ′˜≤V˜1txˆtTΛv1V˜1txˆt=DσV˜1txˆt+υσ, ∅′˜TΛ2∅′˜≤V˜2txˆtTΛv2V˜2txˆt=D∅V˜2txˆt+υ∅,where Dσ=∂σ(Z)∂ZZ=V1txˆt, D∅=∂∅(Z)∂ZZ=V2txˆt υσTΛ1υσ≤l1V˜1txˆtTΛ1V˜1txˆt,l1>0 υ∅TΛ2υ∅≤l2V˜2txˆtTΛ2V˜2txˆt,l2>0
+
+PARAGRAPH
+
+And Λv1 and Λv2 are known as positive constant matrices.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Under  Assumptions 1–5 , the parameters of the proposed VOFMNN (14) including the fractional order, the hidden layer weights, and output layer weights are updated as follows:
+
+PARAGRAPH
+
+If ‖x˜t‖2>ηfλminF0 , then the updating law given as follows; Dqqt=k1x˜tTP∂Dqxt∂q.DqV1t=−K3DσTW1tTPx˜txˆtT−l12K3Λ1V˜1txˆtxˆtT,DqV2t=−K4D∅γutW2tTPx˜txˆtT−l2u¯2K4Λ2V˜2txˆtxˆtT,DqW1t=−K1Px˜tσT(V1txˆt)+K1Px˜txˆtTV˜1tTDσ,DqW2t=−K2Px˜t(∅V2txˆtγut)T+K2Px˜txˆtTV˜2tTD∅γut, where, P>0 is the solution of  Eq. (26) .
+
+Ki(i=1,…,4) are positive definite matrices and k1 is a positive constant.
+
+PARAGRAPH
+
+If ‖x˜t‖2≤ηfλminF0, we stop the learning procedure and maintain all weights constant.
+
+PARAGRAPH
+
+Then, it is guaranteed that the parameters of the proposed VOFMNN and the identification error for any 0<t<T are bounded. x˜t∈L∞,qt∈L∞,V1t∈L∞,V2t∈L∞,W1t∈L∞,W2t∈L∞.
+
+PARAGRAPH
+
+PARAGRAPH
+
+We consider the following Lyapunov function: Vt=12(x˜tTPx˜t+trW˜1tTK1−1W˜1t+trW˜2tTK2−1W˜2t+trV˜1tTK3−1V˜1t+trV˜2tTK4−1V˜2t+k1−1q̃t2),
+
+PARAGRAPH
+
+With the same form of the proposed VOFSNN, the variable-order fractional derivative of the Lyapunov function (56) is calculated as: DqVt≤(x˜tTPDqx˜t+trW˜1tTK1−1DqW˜1t+trW˜2tTK2−1DqW˜2t+trV˜1tTK3−1DqV˜1t+trV˜2tTK4−1DqV˜2t+k1−1q̃tDqq̃t)=x˜tTP(Ax˜t+W1∗σ˜+W2∗∅˜γut+W˜1tσV1txˆt+W˜2t∅V2txˆtγut+W1∗σ˜′+W2∗∅˜′γut+f̃t−∂Dqxt∂qq̃t)+trW˜1tTK1−1DqW˜1t+trW˜2tTK2−1DqW˜2t+trV˜1tTK3−1DqV˜1t+trV˜2tTK4−1DqV˜2t+k1−1q̃tDqq̃t. With considering (53), we have: x˜tTPW1∗σ˜′=x˜tTPW1tDσV˜1txˆt−x˜tTPW˜1tDσV˜1txˆt+x˜tTPW1∗υσx˜tTPW2∗∅˜′γut=x˜tTPW2tD∅γutV˜2txˆt−x˜tTPW˜2tD∅γutV˜2txˆt+x˜tTPW2∗υ∅γut. The terms x˜tTPW1∗υσ and x˜tTPW2∗υ∅γut in (58) by Lemma 5 and (20) may be formulated as: x˜tTPW1∗υσ≤12x˜tTPW¯1Px˜t+l12‖V˜1txˆt‖Λ22,x˜tTPW2∗υ∅γut≤12x˜tTPW¯12Px˜t+l22‖V˜2txˆt‖Λ22. Therefore, by using (41), (58) and (59), we get: DqVt≤x˜tTLx˜t+Lq+LW1+LW2+LV1+LV2−x˜tTF0x˜t+ηf2,where, L=PA+12PRP+12F, Lq=k1−1q̃tDqq̃t−x˜tTP∂Dqxt∂qq̃t, LW1=trW˜1tTK1−1DqW˜1t+x˜tTPW˜1tσV1txˆt−x˜tTPW˜1tDσV˜1txˆt, LW2=trW˜2tTK2−1DqW˜2t+x˜tTPW˜2t∅V2txˆtγut−x˜tTPW˜2tD∅γutV˜2txˆt, LV1=trV˜1tTK3−1DqV˜1t+x˜tTPW1tDσV˜1txˆt+l12‖V˜1txˆt‖Λ22,LV2=trV˜2tTK4−1DqV˜2t+x˜tTPW2tD∅γutV˜2txˆt+l22‖V˜2txˆt‖Λ22. If we select the updating laws as (54), we have: DqVt≤−x˜tTF0x˜t+ηf.The rest of the proof is similar to Theorem 2.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The considered assumptions for proving the theorems are not very restrictive, as they are valid in many cases.
+
+Therefore, the proposed method allows for the implementation of many applications.
+
+It is worth noting that if the states of the nonlinear system are not completely available and only the input–output are measurable, we may use another VOFSNN observer and VOFMNN observer that obviously have different structures from the identifier structure proposed in this paper.
+
+PARAGRAPH
+
+PARAGRAPH
+
+One may see that the common structure used in the literature for the FONN with the known fractional order is a special case of the proposed structure in this paper by selecting ∅. in (15) as the sum of a Lipschitz function and a constant.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Since KiP(i=1,…,4) is considered as an updating gain and Ki can be any positive matrix, the learning procedure of the proposed VOFSNN (17) and the proposed VOFMNN (14) do not depend on the solution P of Eq. (26).
+
+In addition, for Eq. (26) we can select A, R and F such that P is a positive matrix, so it is almost always possible that Assumption 4 holds.
+
+PARAGRAPH
+
+PARAGRAPH
+
+As proved in Theorem 3, the selection of V1∗ and V2∗ do not influence the stability property meaning that for arbitrary V1∗ and V2∗, the identification error dynamic is stable.
+
+PARAGRAPH
+
+PARAGRAPH
+
+If there is no unmodeleddynamic (f̃t=0), then we will have ηf=0.
+
+In this case, the derived learning rules for the proposed VOFSNN and the proposed VOFMNN identifiers can make the identification error asymptotic stable, i.e. limt→∞x˜t→0,
+
+PARAGRAPH
+
+PARAGRAPH
+
+If unmodeled dynamic f̃t is bounded, the derived learning rules for the proposed VOFSNN and the proposed VOFMNN identifiers can make the identification error stable.
+
+SECTION
+
+Verification of the proposed method
+
+PARAGRAPH
+
+In this section, a theoretical numerical example and a practical system, namely, a 2500 kW wind turbine are provided in order to evaluate and illustrate the performance of the proposed identification algorithms.
+
+The wind turbine is chosen as an industrial plant because of the complexity which is involved in its behavior.
+
+The identification process in this paper has no complexity and it has been performed using Matlab/Simulink by direct programming that can be summarized as follows.
+
+PARAGRAPH
+
+Step 1: to construct the VOFSNN and VOFMNN identifiers as in (17) and (14) respectively, σ. and ∅(.) are chosen as sigmoid functions and the matrix A is selected as a Hurwitz matrix.
+
+Also the initial conditions for the neural networks states xˆ0, the fractional order and the weights W10, W20, V10 and V20 are given.
+
+PARAGRAPH
+
+Step 2: using the system state xt from the plant and the neural networks state xˆt from (17) or (14), the identification error x˜t (21) is obtained.
+
+The learning laws parameters k1 and KiP(i=1,…,4) are given such that the mentioned assumptions in Section 3 are fulfilled.
+
+PARAGRAPH
+
+Step 3: by using the learning laws (36) and (54), the fractional order and the weights of identifiers are updated.
+
+PARAGRAPH
+
+To compare the performance of the proposed algorithms with the other methods in the literature, we use the well-known index Mean Square Error (MSE) which is defined as: MSE=1N∑i=1Nxˆi−xi2,where, xi and xˆi are the real and estimated values at each moment, respectively; N is the number of data used for the identification.
+
+PARAGRAPH
+
+In this section, toward comparison between different methods, same values have been considered for similar parameters used in the models.
+
+PARAGRAPH
+
+Test 1: Van der Pol oscillator (Theoretical Example)
+
+PARAGRAPH
+
+The Van der Pol equation is a model of electrical circuits describing a mass–spring–damper system.
+
+It has been used to model many processes such as biological phenomena.
+
+In this section, we use the fractional order model of Van der Pol oscillator which has been introduced in Barbosa et al. (2007): Dqx1=x2,ẋ2=−x1−ax12−1x2,where, a indicates the degree of nonlinearity of the system.
+
+Note that this system has no control input.
+
+Therefore the VOFSNN and VOFMNN identifiers can be selected in a simple manner with W2t=0 and V2t=0.
+
+PARAGRAPH
+
+Assuming the availability of system state variables, in order to update the proposed VOFSNN and the proposed VOFMNN parameters including the fractional order, W1t and V1t, we use the finding of Theorems 2 and 3, respectively.
+
+To demonstrate the capability of the proposed algorithms in this paper, we also identify the Van der Pol oscillator via the popular methods in the literature.
+
+The corresponding results are shown in Fig. 2.
+
+It can be seen that the proposed VOFSNN and VOFMNN identifiers follow the states of the Van der Pol system very well.
+
+Also, Table 1 shows that the proposed identifiers can perform better in terms of the MSE.
+
+PARAGRAPH
+
+Fig. 3 shows the time evolution of qt and W1t for the proposed VOFSNN (17).
+
+The time evolution of qt, V1t and W1t for the proposed VOFMNN (14) is illustrated in Fig. 4.
+
+According to Theorems 2 and 3, the fractional order, the hidden layer weights and the output layer weights in both identifiers are bounded.
+
+PARAGRAPH
+
+Test 2: Wind Turbine (Practical Example)
+
+PARAGRAPH
+
+Today, wind energy as a pollution-free renewable source has attracted a lot of attentions.
+
+The nonlinear behavior of the turbine and changing condition of the wind are great challenges for identification task.
+
+On the other hand, by considering some simplifying assumptions in the mathematical modeling of a wind turbine, the derived model has many uncertainties which are impossible to be ignored.
+
+Achieving an accurate model for a wind turbine is essential for prediction of the power which is generated by the turbine and injected into the grid.
+
+An accurate model is helpful in system planning, economic scheduling, and storage capacity optimization in the smart grids.
+
+The neural networks as a flexible and powerful tool allow us to model complicated system without a prior knowledge of the system.
+
+A review of the published papers about neural networks applications in wind energy is given in Ata (2015).
+
+PARAGRAPH
+
+To prove the effectiveness of the proposed method, the practical data of a typical running test of a wind turbine is used.
+
+The wind turbine is installed in KAHAK, Qazvin Province, Iran.
+
+It is a 2.5 MW large-scale wind turbine which has been under operation since more than a year ago.
+
+The system is equipped with a data acquisition system (DAS) that records all the important data.
+
+A doubly-fed induction generator (DFIG) is used in order to maximize the generated electricity which is fed to the grid.
+
+The turbine schematic is shown in Fig. 5.
+
+Different dynamics including wind, aerodynamic, tower, generator, converter, gearbox, pitch actuator, and converters are involved in the whole dynamic of a wind turbine (Asgari and Yazdizadeh, 2018).
+
+PARAGRAPH
+
+The KAHAK wind turbine identification using the proposed structure is tested by using practical data given to the author by the operating company.
+
+The wind speed and pitch angle are used as input data of the proposed identifiers.
+
+The generator speed and wind turbine power are used as the target for the online identification.
+
+PARAGRAPH
+
+In the identification process, it is assumed that the states of the system are available, which is the case in the wind turbine.
+
+A part of the acquired data is used for training phase and the rest is used for the test and validation.
+
+To show the capabilities and performance of the proposed method, we also identify the wind turbine by the popular methods in the literature.
+
+In Fig. 6, the performance of the identified models based on the other methods have been illustrated with the values of experimental output.
+
+The parameters time evolution of the proposed identifiers is shown in Figs. 7 and 8.
+
+PARAGRAPH
+
+The value of MSE is calculated for other methods in the literature and the proposed identifiers.
+
+The results are given in Table 2.
+
+Based on the results, it can be concluded that the proposed models can identify the KAHAK wind turbine more accurately.
+
+As shown in the respective results, among two methods introduced in this paper, the proposed VOFMNN has better performance for identifying the complex systems due to its hidden layer.
+
+PARAGRAPH
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This paper proposes two neuro-identifiers, namely, the VOFSNN and the VOFMNN, to identify a big enough class of fractional order nonlinear dynamic systems dealing with complex phenomena.
+
+Compared with the FONN structure used in the literature, the proposed identifier models various systems more accurate due to its rich structure.
+
+In addition, the fractional order is also updated based on a new proposed adaptation law.
+
+To prove the stability of the proposed algorithm, first, we give two Lyapunov functions.
+
+Then, by using fractional order differential equation analysis, Gronwall–Bellman inequality and some useful Lemmas, the stability conditions are determined.
+
+The new derived learning rules guarantee that the identification error and the parameters of identifiers remain bounded.
+
+To make a comparison between two proposed identifiers with IONN, the introduced algorithms are employed to identify a wind turbine using experimental data.
+
+The effectiveness of the proposed algorithms is verified based on the defined performance index.
+
+The results demonstrate the quality performance of the proposed methods.

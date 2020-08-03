@@ -1,0 +1,557 @@
+10.1016/j.engappai.2019.07.001
+
+FULLTEXT
+
+TITLE
+
+Adaptive Range Genetic Algorithm: A hybrid optimization approach and its application in the design and economic optimization of Shell-and-Tube Heat Exchanger
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Metaheuristics are high-level problem independent frameworks that can be used for solution of multiple categories of problems without taking into account the specific mathematical structuring of the problem.
+
+In the field of Artificial Intelligence (AI), metaheuristic algorithms are a critical part of modern global optimization algorithms.
+
+In the recent past, a large number of AI based optimization metaheuristics were developed and tested for applicability in complex real-life engineering problems.
+
+One class of algorithms is Nature inspired Algorithms (NIAs) such as Ant Colony Optimization (ACO) (Dorigo, 1992), Particle Swarm Optimization (PSO) (Eberhart and Kennedy, 1995), Artificial Bee Colony Algorithm (ABC) (Karaboga, 2005), and Firefly Algorithm (FFA) (Yang 2009).
+
+The Physics-based methods include Simulated Annealing (Kirkpatrick and Vecchi, 1983), and Gravitational Search Algorithm (Rashedi et al., 2009).
+
+Other optimization algorithms include Random Optimization Algorithm (Matyas, 1965), Random Search Algorithm (Rastrigin, 1963), and Backtracking Search Algorithm (Patterson et al., 1990).
+
+Genetic Algorithms (GA) (Goldberg and Holland, 1988) and Memetic Algorithms (Moscato, 1989) are two examples of very well established Evolutionary (EA) methods.
+
+GA is an optimization algorithm whose basis is the Darwin’s principle of evolution (Goldberg and Holland, 1988).
+
+The artificial chromosomes form the population in GA and each chromosome constitutes a possible way out to a problem.
+
+The fitness function governs the quality of a solution.
+
+The randomly generated population of chromosomes, fitness-based selection followed by recombination is used to populate a next generation of solutions.
+
+In this way, GA evolves a near optimal solution even to those problems which were considered computationally hard nuts to crack.
+
+One of the characteristics and drawbacks of GA is that there is always a chance that there is a better chromosome in the search space.
+
+GA possesses good convergence characteristics; however, global optimum is not guaranteed.
+
+PARAGRAPH
+
+Another class of algorithms referred to as Socio inspired algorithms or Cultural Algorithms (Reynolds and Sverdlik, 1994) are based on concept that individuals evolve much faster through cultural evolution than through biological evolution alone.
+
+Humans learn from the peers and achieve their goals using teamwork.
+
+Several algorithms were formulated based on this tendency of collective intelligence.
+
+The Imperialist Competitive algorithm (ICA) (Atashpaz-Gargari and Lucas, 2007) mimics the socio-political competition seen across imperialist nations to conquer the weaker colonies or empires.
+
+League Championship algorithm (LCA) (Kashan, 2014) simulates the competition observed in league matches.
+
+The Election Campaign Optimization algorithm (Lv et al., 2010) (ECO) algorithm is based on the natural tendency of voters to vote for a candidate with better reputation.
+
+Teaching–learning-based optimization (TLBO) simulates the influence of an instructor on the learning outcome of students.
+
+Socio Evolution & Learning Optimization Algorithm (SELO) (Kumar et al., 2018) mimics the learning behaviour of humans in families as a societal setup.
+
+PARAGRAPH
+
+Cohort Intelligence (CI) is a socio-inspired metaheuristic proposed by Kulkarni et al. (2013, 2017) and is inspired from the self-supervised learning behaviour of the candidates in a cohort.
+
+Every candidate iteratively tries to adapt the behaviour of peers and improve its behaviour by following a certain candidate’s behaviour.
+
+The algorithm suffers from premature convergence due to tendency of following each other only during exploration phase (Krishnasamy et al., 2014).
+
+Patankar and Kulkarni (2018) proposed several variations of this algorithm which were tested on seven multimodal and three uni-modal unconstrained test functions.
+
+Sapre et al. (2018, 2019) have applied CI and variations of CI for hexahedral mesh smoothing of cubical and prismatic geometries respectively.
+
+CI was also proved to be applicable to binary optimization problems (Aladeemy et al., 2017).
+
+Kulkarni and Shabir (2016) applied CI for solution of combinatorial problems such as 0–1 Knapsack problem and the classic Travelling Salesman Problem (TSP).
+
+Kulkarni et al. (2016) applied CI for solution of combinatorial healthcare problem to prepare a cyclic surgery schedule for minimization of congestion in the recovery unit.
+
+It was also applied to cross border transportation problems.
+
+Shastri et al. (2015) discussed solutions to constrained test problems using CI Algorithm.
+
+Sarmah and Kulkarni (2017) discussed two steganography techniques using CI with cognitive computing (CC) and Modified Multi-Random Start Local Search (MMRSLS) which use Joint Photographic Expert Group (JPEG) compression on greyscale image to hide secret text.
+
+Sarmah and Kulkarni (2018) developed JPEG compression techniques using modified MMRSL and modified CI with CC.
+
+Sarmah and Kulkarni (2019) also developed Improved CI algorithm and applied it to JPEG image compression to develop a novel steganography method.
+
+Shah et al. (2017) explained the design process of Proportional Integral Derivative (PID) controller using fractional calculus and CI algorithm.
+
+Multi CI algorithm developed by Shastri and Kulkarni (2018) focusses on intra-group and inter-group learning mechanisms amongst different cohorts.
+
+PARAGRAPH
+
+The sampling interval in CI algorithm shrinks in every learning attempt.
+
+This mechanism used in CI was applied to the mutation operator in GA to develop a new variant of GA, referred to as Adaptive Mutation Range Genetic Algorithm (ARGA).
+
+Population initialization, evaluation of fitness values of the chromosomes and cross-over processes in ARGA were identical to those in GA.
+
+In ARGA, the sampling interval for mutation shrunk in each iteration/generation.
+
+ARGA was good at exploring the solution like the parent GA; however, its interval shrinking characteristic helped in better exploitation of the solution.
+
+Mutation rate was not adjusted, however the interval from which the genes were chosen was updated for each generation.
+
+The updated value of gene to be mutated was taken from the new sampling interval.
+
+PARAGRAPH
+
+The structure of this research paper is as follows: Section 2 introduces the proposed algorithm which is an hybrid of socio-inspired algorithm CI and evolutionary GA.
+
+Section 3 provides a complete investigation of the results obtained by testing the proposed algorithm against standard benchmark functions and comparing the same with other peer algorithms; Section 4 presents the entire mathematical formulation used for the design and economic optimization of Shell and Tube Heat Exchangers (STHE); Section 5 presents solutions obtained by the ARGA algorithm for the three cases of the STHE, and a comparison of the same with other algorithms’ performance.
+
+In Section 6, a conclusion and summary of the paper is presented.
+
+SECTION
+
+Adaptive Range Genetic Algorithm
+
+PARAGRAPH
+
+The main structure of the proposed hybrid algorithm is presented in Fig. 1.
+
+The mathematical description of ARGA is explained considering a general unconstrained optimization problem (in minimization sense) as follows:  Minimize fX=fx1,…,xi,…,xN Subject to ψilower≤xi≤ψiupper,i=1,…,N
+
+PARAGRAPH
+
+Step 1.
+
+Initialization of population and parameters
+
+PARAGRAPH
+
+The number of chromosomes in population was defined, and then random value of each gene making up the chromosomex1,…,xi,…,xN was generated for these chromosomes.
+
+The parameters: cross-over rate Cr and mutation rate Mr were defined in percentage.
+
+The parameters: reduction factor = r and range =ψiupper−ψilower were also defined.
+
+PARAGRAPH
+
+Step 2.
+
+Fitness evaluation
+
+PARAGRAPH
+
+Then the objective function fX was computed for each chromosome produced in initialization step.
+
+The fitness function was computed as follows: FitX=11+fX
+
+PARAGRAPH
+
+Step 3.
+
+Probability evaluation and selection
+
+PARAGRAPH
+
+Chromosomes for the new population of the next generation were then selected using the roulette wheel selection process.
+
+The fitness probabilities associated with each chromosome were calculated as follows: pX=FitX∑c=1NFitXThe fittest chromosomes have higher probability to be selected for the next generation.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The number of chromosomes participating in mating is controlled by Cr.
+
+The required number of chromosomes to form mating pairs (M) to create the next generation of chromosomes were selected at random from the population of chromosomes.
+
+A random number Ri∈(0,N−1), is generated where N is the chromosome length, i=1,…,N−1.
+
+Let fXi=fxi1,..xij…xiN, where i=1,…,M.
+
+PARAGRAPH
+
+The crossover point in the parent chromosome was selected randomly.
+
+The first parent chromosome was cut at this randomly generated point and genes exchanged here with the other selected mate.
+
+If fX1=f(x11,..x1N) and fX2=f(x21,..x2N) represent the parent chromosomes then the offspring chromosome for a crossover point ri, can be given as: fX1∗=f(x11,…,x1ri,x2(ri+1)…x2N).
+
+PARAGRAPH
+
+PARAGRAPH
+
+The number of genes in the new population that must undergo mutation in each generation (ng) were defined by Mr.
+
+Let lgdenote total length of the genes, then ng=lg×MrThe required number of genes was selected at random and their sampling intervals shrunk/expanded to their local neighbourhood.
+
+The chosen genes were replaced by random values within their respective newly defined sampling intervals.
+
+Let fXi=fxi1,..xij…xiN, where i=1,…,Nc.
+
+A random number Ri∈1,lg, is generated where i=1,…,ng.
+
+For the gene Ri to be mutated, the updated sampling interval (ψig) Is determined as ψig∈[xig−Rn2,xig+Rn2]where,Rn=R×r.The updated value of gene to be mutated is taken from the new sampling interval ψig.
+
+The end of the mutation process marked the end of one iteration of the ARGA Algorithm.
+
+PARAGRAPH
+
+Step 6.
+
+Saturation Criteria:
+
+PARAGRAPH
+
+Upon achieving convergence the following conditions are evaluated:
+
+SECTION
+
+Testing against benchmark functions
+
+PARAGRAPH
+
+A test was conducted to evaluate the relative effectiveness of the ARGA against AI based optimization algorithms and similar to Civicioglum (2013), results of current algorithm were compared with Self-adaptive Differential Evolution Algorithms (SADE and JDE), Covariance Matrix Adaptation Evolution Strategy (CMAES), ABC, BSA, Comprehensive Learning PSO (CLPSO), rotationally invariant PSO (PSO-2011), and with the basic GA and CI.
+
+The null hypothesis was defined as H0: The medians of the solutions obtained by algorithm A and the median of the solutions obtained by algorithm B do not differ for the same set of test problems.
+
+Shastri and Kulkarni (2018).
+
+Also, to validate the hypothesis, Wilcoxon Signed-Rank test was applied.
+
+The benchmark problems (Civicioglum, 2013) were solved 30 times.
+
+The number of chromosomes Nc and sampling interval reduction factor r were chosen to be 200 and 0.96 respectively.
+
+The convergence criteria used for the tests conducted in this paper was taken as 10e–16, true and compliant with the need of most applications.
+
+The best minimum mean and worst values for each test were noted.
+
+All the statistical tests were conducted using MATLAB R2016a.
+
+The simulations were run on a Windows platform using Intel(R) Core (TM) i5-6200U CPU@ 2.30 GHz processor speed with 8.00 GB RAM.
+
+SECTION
+
+PARAGRAPH
+
+Statistical results of the tests
+
+PARAGRAPH
+
+Table 1 shows the simple statistical values for the results obtained in the Test conducted.
+
+Table 2 shows the comparative results obtained by performing the Wilcoxon T Test against 9 mainstream AI based optimization techniques.
+
+In Table 2, ‘+’ indicates cases in which the null hypothesis was rejected and ARGA displayed a statistically superior performance in the 50 statistical comparison test functions at the 95% significance level.
+
+The ‘−’ indicates situations in which the null hypothesis was rejected and ARGA showed an inferior result.
+
+The ‘=’ indicates cases in which difference between the solution of two algorithms’ was statistically insignificant.
+
+The last rows of Table 3 show the pairwise comparison of the summations in the (+∕−∕=) format.
+
+When the (+∕−∕=) values are examined, it can be observed that ARGA is more successful than most of the algorithms being compared against, winning 7 out of 9 comparisons with popular mainstream optimization algorithms.
+
+The self-adaptive technique of SADE and the memory-based search direction determination used in BSA allow them to be statistically even more accurate than ARGA, which obtained statistically better solutions than PSO2011, CMAES, GA, CI, ABC, JDE and CLPSO.
+
+SECTION
+
+Mathematical model of Shell-and-Tube Heat Exchanger (STHE)
+
+PARAGRAPH
+
+Heat exchangers are devices which transfer heat across two fliuds or between a solid and a fluid.
+
+The solid boundary prevents the mixing of fluids by direct contact.
+
+STHE are the most commonly used type of heat exchangers.
+
+They have a wide range of applications and can operate in a variety of operating conditions.
+
+A typical STHE schematic is shown in Fig. 2 (Hewitt, 1998; Shah and Bell, 2000).
+
+STHE designing involves the incorporation of many constraints, and the use of several geometric and operating variables as a part of the exchanger geometry.
+
+The simulated annealing (Chaudhari et al., 1997), numerical resolution of stationary point equations of a non-linear objective function (Jegede and Polley, 1992; Reppish and Zagermann, 1995) systemic screening of the tube count table (Ravagnani et al., 2003; Kara and Güraras, 2004), mixed integer non-linear programming (Mizutani et al., 2003) and graphical analysis of the search space (Poddar and Polley, 1996; Muralikrishna and Shenoy, 2000) were a few techniques used for design optimization of STHE.
+
+Selbas et al. (2006) used Genetic Algorithm (GA) utilizing a constraint on pressure drop to optimize the design.
+
+Ponce-Ortega et al. (2009) used GA for optimizing the design of STHEs.
+
+Caputo et al. (2008) used GA to minimize the discounted annual energy cost and capital investment to minimize the total equipment cost involved in pumping.
+
+Costa and Queiroz (2008) suggested an STHE optimization technique utilizing discrete decision variables to minimize the thermal surface area.
+
+The Bell–Delaware method was also used by Wildi-Tremblay and Gosselin (2007) for the evaluation of the heat exchangers’ performances while using GA alongside for STHE cost minimization.
+
+Babu and Munawar (2007) used Differential Evolution (DE) to optimize the STHE designs.
+
+GA was used by Hilbery et al. (2006) for the optimizing the STHE design, the motive being to obtain maximum heat exchange while keeping the corresponding pressure drop minimal.
+
+Patel and Rao (2010) applied Particle Swarm Optimization (PSO) technique for minimizing the total cost of STHEs by altering its design.
+
+Mariani et al. (2012) used a chaotic quantum behaved PSO technique for optimization of the design of STHEs.
+
+Sahin et al. (2011) used artificial bee colony (ABC) algorithm to tackle the STHE optimization problem.
+
+Quantum PSO (QPSO) approach was combined with Zaslavskii’s (1978) Chaotic Maps Sequences for the economic optimization of the STHE design.
+
+Hadidi and Nazari (2013a, b) made use of Biogeography-based optimization (BBO) and got better solutions and more options for the optimization of the design of STHEs than traditional techniques.
+
+Turgut et al. (2014) employed Intelligent Tuned Harmony Search (ITHS) algorithm and Improved-ITHS (I-ITHS) to achieve the same goal.
+
+A small decrease in the total cost, the sum of capital investment and the discounted operating cost associated with the heat exchanger surface area and the pumping power respectively, was observed.
+
+Dhavle et al. (2016) used CI algorithm to try to achieve similar goals.
+
+These mathematical techniques were much more successful at tackling the problem than the traditionaltechniques.
+
+PARAGRAPH
+
+The three cases (Kern, 1950; Sinnot, 2005) utilize fluids which are different at both the shell-side and tube-side with different inlet and outlet temperatures at the shell-side and tube-side.
+
+In Case 1, methanol and sea water in shell and tube side, respectively are considered; in Case 2, kerosene and crude oil in shell and tube side, respectively; and in Case 3, distilled water and raw water in shell and tube side, respectively.
+
+The input parameters and the physical properties for these three cases are mentioned in Table 8 (Caputo et al., 2008).
+
+PARAGRAPH
+
+PARAGRAPH
+
+The objective was to minimize the total cost (Ctotal) by optimizing the design parameters of STHE from an economic standpoint, thus showcasing the effectiveness of ARGA algorithm for the said application.
+
+The mathematical model of the STHE design was implemented in the ARGA algorithm.
+
+The mathematical model used for optimization of STHE was the same as used in the following mentioned literature: Kern (1950), Caputo et al. (2008), Patel and Rao (2010), Sahin et al. (2011), Hadidi and Nazari (2013a, b), Turgut et al. (2014) and Mohanty (2016).
+
+Rao and Saroj (2017) used the model by Sinnot (2005) to attempt the same optimization problems.
+
+It followed a different mathematical formulation and a different procedure to determine the shell-side heat transfer coefficient.
+
+SECTION
+
+Methodology and objective function definition
+
+PARAGRAPH
+
+The design of the STHE on the mentioned costs was considered: the capital investment (Cinv), annual operating cost (Cannual), energy cost (CE) and total discounted operating cost (Ctotal_disc) (Caputo et al., 2008).
+
+The objective function was the total cost, Ctotal and was calculated as: Ctotal=Cinv+Ctotal_discAs suggested by Taal et al. (2003), the Hall’s correlation was adopted and the capital investment (Cinv) was calculated as a function of the heat exchanger surface as shown below: Cinv=a1+a2Sa3where a1=8000, a2=259.2 and a3=0.91 are numerical constants for shells and tubes made of stainless steel (Taal et al., 2003).
+
+The net discounted operating cost (Ctotal_disc) was related to the pumping power to overcome frictional losses and was calculated as shown: Ctotal_disc=∑k=1nyCannual(I+1)kCannual=G.CE.A where CE=0.00012,A=7000andG=1ηmtρtΔPt+msρsΔPswhereη=80%
+
+SECTION
+
+Heat exchanger design formulation
+
+PARAGRAPH
+
+The heat exchanger surface area (S) was calculated as shown below (Kern, 1950; Sinnot, 2005): S=QUΔTLMFwhere Q denotes rate of heat transfer, ΔTLM is the logarithmic mean temperature difference for counter flow arrangement, U was the overall heat transfer coefficient, and F was the correction factor.
+
+The heat transfer rate Q was calculated as, Q=msCpsTis−Tos=mtCptTot−Tit
+
+PARAGRAPH
+
+The overall heat transfer coefficient ‘U’ depends on fouling resistances and heat transfer coefficients on the shell side and the tube side (Caputo et al., 2008).
+
+It was calculated as shown: U=11hs+Rls+dodi(Rlt+1ht) wheredi=0.8doThe heat transfer coefficient for shell side hs was calculated based on formulation for segmental baffle shell-and-tube heat exchanger suggested in Kern (1950): hs=0.36ksDeRes0.55Prs13μsμw0.14where De was the shell hydraulic diameter and it was calculated as shown (Kern, 1950; Sinnot, 2005): De=4(Pt2−(πdo2∕4))πdo De=4(0.43Pt2−(0.5πdo2∕4))0.5πdoThe Prandtl number (Prs) and the Reynolds number (Res) for shell side were calculated as shown: Prs=μsCpsksRes=ρsϑsDeμs where ϑs the kinematic viscosity for the shell side and this was calculated as shown (Kern, 1950; Sinnot, 2005): ϑs=msasρswhere as was the cross-section area normal to flow direction and was given by (Kern, 1950; Sinnot, 2005) as=Ds.b.C1ρsHere C1 was the shell side clearance which was determined as shown: C1=Pt−doThe tube side heat transfer coefficient (ht) was computed from the following correlation (Kern, 1950; Serth, 2007) ht=ktdi3.657+0.0677RetPrtdiL1.331+0.1PrRetdiL0.3(Ret<2300)ht=ktdift8Ret−1000Prt1+12.7ft8Prt23−11+diL0.67×(2300<Ret<10000)ht=0.027ktDtRet0.8Prt13μtμw0.14(Ret>10000) where ft was the Darcy friction factor given by (Hewitt, 1998), ft=1∕(1.82log10Ret−1.64)2
+
+PARAGRAPH
+
+The tube side Prandtl number Prt and Reynolds number Ret were given by, Prt=μtCptktRet=ρtϑtdtμt Kinematic viscosity for tube side ϑt was found by (Kern, 1950), ϑt=mtπdt24ρs.ntNtwhere n denoted the number of tube passes and Nt was the number of tubes given by (Kern, 1950; Rosenhow and Polley, 1973; Sinnot, 2005), Nt=K1Dsdon1where K1 and n1 were coefficients (refer to Table 7) whose values can be chosen based on the flow arrangement and the number of passes.
+
+For different flow arrangements refer to Fig. 2.
+
+Based on total heat exchanger surface area S, the necessary tube length L was determined as shown: L=SπdoNt
+
+PARAGRAPH
+
+Considering the cross-flow between adjacent baffle, the logarithmic mean temperature difference ΔTLM in Eq. (4.5) was determined as shown: ΔTLM=Tis−Tot−(Tos−Tit)lnTis−TotTos−Tit
+
+PARAGRAPH
+
+The correction factor F for the flow configuration (Eq. (4.5)) was a function of dimensionless temperature ratio for most flow configuration of interest (Fraas, 1989; Ohadi, 2000).
+
+It was calculated as, F=R2−1R−1.ln1−G1−GRln2−GR+1−R2−12−GR+1+R2−1where R was taken as the correction coefficient, given by, R=Tis−TosTot−Tit η was the pumping power, given by, η=Tot−TitTis−Tit
+
+SECTION
+
+Pressure drop
+
+PARAGRAPH
+
+To determine the tube side pressure drop (Hadidi and Nazari, 2013a, b) the distributed pressure drop along the tube length and concentrated pressure losses in elbows and in the inlet and outlet nozzles (Kern, 1950) as shown: ΔPt=ΔPtubelength+ΔPtubeelbow=ρtϑt22.Ldtft+p.nThe value of the constant p could be chosen as either 4 (Kern, 1950) or 2.5 (Sinnot, 2005).
+
+The shell side pressure drop was given by (Kern, 1950; Caputo et al., 2008) ΔPs=fs.ρsϑs22.LB.DsDewhere the friction factor (fs) was given by, fs=2boRes−0.15And bo=0.72 (Peters and Timmerhaus, 1991) valid for Res< 40,000.
+
+SECTION
+
+Results of STHE design and economic optimization
+
+PARAGRAPH
+
+The ARGA algorithm, was coded in MATLAB R2017a and the simulations were run on a Windows platform using Intel(R) Core(TM) i5-6200U CPU@ 2.30 GHz processor speed with 8.00 GB RAM.
+
+Each case was solved 30 times.
+
+The number of chromosomes C and sampling interval reduction factor r were chosen to be 200 and 0.96 respectively.
+
+Three cases considered for the Economic Design and Optimization of STHE are as listed below:
+
+PARAGRAPH
+
+Two triangular pitched tube side passages and one shell side passage are considered for each case.
+
+In Case 1 (Kern, 1950), the heat exchanger works between the operating fluids methanol and brackish water, with an operating heat load of 4.34 MW.
+
+In Case 2 (Kern, 1950), the heat exchanger operates between kerosene and crude oil with an operating heat load of 1.44 MW.
+
+In Case 3 (Sinnot, 2005), the heat exchanger operates between distilled water and raw water with an operating heat load of 0.46 MW.
+
+For all fore-mentioned cases, the original design specifications were taken from Caputo et al. (2008), Table 1.
+
+The design variables considered to be minimized for optimization are tube outside diameter do with a value between 0.010mand0.051m, shell inside diameter Ds, between 0.1mand1.5m, baffle spacing b ranging from 0.050mto0.5m and number of tube passes n ranging from 1to8.
+
+The values of discounted operating costs were calculated as ny=10years, annual discounted rate I=10%, energy cost CE=0.12€∕kWh and annual amount or working hours A=7000h∕year (Kern, 1950; Caputo et al., 2008; Patel and Rao, 2010; Sahin et al., 2011; Hadidi and Nazari, 2013a, b; Turgut et al., 2014).
+
+SECTION
+
+PARAGRAPH
+
+ARGA solution to Case 1
+
+PARAGRAPH
+
+The results obtained by the ARGA algorithm for Case 1 and a comparison with the solutions available in the literature from other algorithms for capital investment (Cinv), operated discounted cost(Ctotal_disc), the total cost (Ctotal) and some other design variables is presented in Table 3.
+
+The ARGA solutions fare better than the solutions obtained by the other algorithms.
+
+The results in Table 3 show that the ARGA algorithm was able to identify a design method of achieving a much lower total cost (Ctotal) than other existing algorithms.
+
+It was observed that the heat exchanger area (S) was reduced by a great extent as compared to other algorithms.
+
+As the heat exchanger area (S) decreased, the length L of exchanger also decreased, due to which there was a decrease in the tube diameter (do).
+
+The capital investment (Cinv)) decreased when compared to the original design (Kern, 1950 30), GA (Caputo et al., 2008), PSO (Patel and Rao, 2010), ABC (Sahin et al., 2011), BBO (Hadidi and Nazari, 2013a, b), ITHS (Turgut et al., 2014), I-ITHS (Turgut et al., 2014) and CI (Dhavle et al., 2016) and FFA (Mohanty, 2016) by 31.08%, 27.9%, 23.58%, 20.33%, 20.29%, 19.87%, 19.79%, 19.56% and 9.75% respectively.
+
+The annual pumping cost (Cannual) was decreased by 95.05% when compared to the original study and increased 10.23%, 0.51%, 2.90%,6.09%, 8.27%, 8.45%, 9.21% and 0.38% against GA, PSO, ABC, BBO, ITHS and I-ITHS, CI and FFA.
+
+Due to the reduction in capital investment (Cinv) and discounted operation cost (Ctotal_disc), the total cost (Ctotal), when compared to the original study, GA, PSO, ABC, BBO, ITHS and I-ITHS, CI and FFA improved against them in that order by 34.99%, 23.9%, 21.26%, 17.48%, 17.14%, 16.55%, 16.46%,16.18% and 8.44%.
+
+PARAGRAPH
+
+Fig. 3 shows a graph of capital investments (Cinv) plotted against total discounted operating costs (Ctotal_disc) as obtained by the ARGA algorithm, against other algorithms’ results for Case 1.
+
+A significant decrease of 31.08% in the capital investment (Cinv), 50.55% in total discounted operating cost (Ctotal_disc) and 35% in total cost (Ctotal) were noted when ARGA solution were compared to the original study (Kern, 1950).
+
+Fig. 4 shows the convergence plot with all the chromosomes minimizing the total cost (Ctotal).
+
+PARAGRAPH
+
+SECTION
+
+ARGA solution to Case 2
+
+PARAGRAPH
+
+The results obtained by the ARGA algorithm for Case 2 and a comparison with the solutions available in the literature from other algorithms for capital investment (Cinv), operated discounted cost(Ctotal_disc), the total cost (Ctotal) and some other design variables is presented in Table 4.
+
+Solutions obtained by the ARGA algorithm fared better than the ones obtained by the other algorithms considered in this paper.
+
+The results in Table 4 show that the ARGA algorithm was able to identify a design with much lower total cost (Ctotal) than other existing algorithms.
+
+It could be seen that the length L of the exchanger tube was decreased greatly compared to other algorithms.
+
+As a result, pressure drop on the shell side (ΔPs) and hence pumping power (G) also was reduced compared to all other algorithms.
+
+This reduction in pumping power (G) caused the annual operating cost (Cannual) to drop significantly when compared to all other algorithms, and therefore led to decrease in the total discounted operating cost (Ctotal_disc).
+
+The decrease in (Ctotal_disc) were found to be 88.06%, 64.62%, 70.25%, 21%, 5.29%, 42.87%, 46.82%, 55.7% and 22.27% when compared with original study (Kern, 1950), GA (Caputo et al., 2008), PSO (Patel and Rao, 2010), ABC (Sahin et al., 2011), BBO (Hadidi and Nazari, 2013a, b), ITHS (Turgut et al., 2014), I-ITHS (Turgut et al., 2014), CI (Dhavle et al., 2016) and FFA (Mohanty et al. 2016) respectively.
+
+The capital investment (Cinv) too dropped by 4.03% when compared with the original study (Kern, 1950).
+
+From Table 6, it may be concluded that the overall reduction of the total cost (Ctotal) when compared with the original study (Kern, 1950 30), GA, PSO, ABC, BBO, ITHS, I-ITHS, CI and FFA were 28.9%, 5.44%, 3.63%, 5.07%, 3.08%, 5.01%, 4.87%, 0.516% and 1.2%, respectively.
+
+Fig. 5 shows a graph of capital investments (Cinv) plotted against total discounted operating costs (Ctotal_disc) as obtained by the ARGA algorithm, against other algorithms’ results for Case 2.
+
+There was a decrease of 4.03% in the capital investment (Cinv), a significant decrease of 88.06% in total discounted operating cost (Ctotal_disc) and improvement of 28.95% in total cost (Ctotal) when ARGA solution were compared to the original study (Kern, 1950).
+
+Fig. 6 shows the convergence plot obtained in the simulation to minimize the total cost (Ctotal).
+
+PARAGRAPH
+
+SECTION
+
+ARGA solution to Case 3
+
+PARAGRAPH
+
+The results obtained by the ARGA algorithm for Case 3 and a comparison with the solutions available in the literature from other algorithms for capital investment (Cinv), operated discounted cost(Ctotal_disc), the total cost (Ctotal) and other design variables are presented in Table 5.
+
+Heat exchanger area, S, was found to be higher by 27.66% and increase in the capital investment (Cinv) of STHE by 12.85% was observed and there was an increase in shell diameter (Ds) by 18.92% which in turn lead to a reduction in the design length of the tube (L) by 83.7% when compared to original study (Kern, 1950).
+
+A drastic decrease in the operating cost (Cannual), down by 92.25%, was observed when compared with original study.
+
+The overall heat transfer coefficient H, saw a reduction of 11.84% and a significant reduction in the total cost, by 52.7% as compared to the original study (Kern, 1950), was observed.
+
+But from Table 5, it can also be seen that ARGA fared poorer in reduction of the total cost (Ctotal) as compared to PSO (Patel and Rao, 2010), ABC (Sahin et al., 2011), BBO (Hadidi and Nazari, 2013a, b), ITHS (Turgut et al., 2014) and I-ITHS (Turgut et al., 2014) by 2.42%, 6.79%, 7.73%, 5.63% and 5.73% respectively.
+
+The ARGA solution was however, found to be better as compared to the ones obtained by GA (Caputo et al., 2008)) and CI (Dhavle et al., 2016) by 0.15% and 0.008% respectively.
+
+PARAGRAPH
+
+A graph of the capital investment (Cinv) and total discounted operating cost (Ctotal_disc) for the ARGA algorithm compared with other algorithms solving Case 3 is shown in Fig. 7.
+
+There was an increase of 12.85% in the capital investment (Cinv), a significant decrease of 92.26% in total discounted operating cost (Ctotal_disc) and an improvement of 95.27% in total cost (Ctotal) when ARGA solution were compared to the original study (Kern, 1950).
+
+Fig. 8 shows the convergence plot obtained in the simulation for minimizing the total cost (Ctotal).
+
+PARAGRAPH
+
+Table 6 shows the performance of the ARGA technique for the three cases considered here, presenting the best, mean and the worst solutions for each case, over 30 independent ARGA runs.
+
+The values of the standard deviation were found out to be 0.0264, 0.1253 and.0.
+
+for Case 1, 2 and 3 respectively; consistently low values demonstrating the robustness of the proposed algorithm.
+
+Note that in Table 7, ↑ denotes improvement over other algorithms and ↓ denotes worse results than other algorithms.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions and future directions
+
+PARAGRAPH
+
+This paper proposed a new hybrid variant of GA called ARGA.
+
+The proposed algorithm was run against 50 benchmark functions and the results obtained over 30 independent runs were analysed for their best mean and worst solution values and a tabular comparison of the same with the existing algorithms in scientific literature was presented.
+
+Also, a Wilcoxon-T-test was performed for the 50 benchmark functions, pitting the known algorithms in mainstream scientific literature against the proposed ARGA algorithm.
+
+The ARGA algorithm won against 7 of the 9 mainstream optimization algorithms considered for comparison in this paper.
+
+PARAGRAPH
+
+The work also successfully established the applicability of the ARGA for the optimal design of STHE.
+
+In the study all the three test cases associated with the design of the STHE were solved and the results were compared with existing methodologies.
+
+A reduction in the total discounted operating cost, the capital investment by 50.55%, 31.08% and 88.06%, 4.02% for Case 1 and Case 2 respectively was observed.
+
+In Case 3, an increase of 12.85% in the capital investment and a decrease of 92.26% in total discounted operating cost with reference to original study (Kern, 1950) was seen.
+
+A reduction in the total cost by 34.99%, 28.95% and 52.71% for Case 1, Case 2 and Case 3, respectively compared to the original study (Kern, 1950) was observed.
+
+It may be mentioned here that for Case 1 and Case 2, the total cost of the STHE achieved using ARGA proposed design was significantly lower than as proposed by other methods in available in the current scientific literature.
+
+For Case 3 however, the solution was found to be marginally worse than some of the methods existing in scientific literature.
+
+Further the adeptness of the ARGA methodology for other optimization applications could be explored in the future.

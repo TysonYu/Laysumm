@@ -1,0 +1,23 @@
+10.1016/j.engappai.2019.103239
+
+ABSTRACT
+
+TITLE
+
+Multiobjective great deluge algorithm with two-stage archive support
+
+PARAGRAPH
+
+A multiobjective great deluge algorithm with a two-stage external memory support and associated search operators exploiting the experience accumulated in memory are introduced.
+
+The level based acceptance criterion of the great deluge algorithm is implemented based on the dominance of a new solution against its parent and archive elements.
+
+The novel two-stage memory architecture and the use of dominance-based level approach make it possible to exploit promising solutions that both lie on better Pareto fronts in objective space and that are diversely separated in variable space.
+
+In this respect, the first stage of the external memory is managed as a short-term archive that is updated frequently when a solution that dominates its parent or some individuals over the current Pareto front is extracted whereas the second stage is organized as a long-term memory that is updated only after a number of first stage insertions.
+
+The use of memory-based search supported by effective move operators and dominance-based implementation of level mechanism within the great deluge algorithm resulted in a powerful multiobjective optimization method.
+
+The success of the presented approach is illustrated using unconstrained (bound constrained) multiobjective test instances used in the CEC’09 contest of multiobjective optimization algorithms.
+
+Using the evaluation framework described in CEC’09 contest and in comparison to published results of well-known modern algorithms, it is observed that the presented approach performs better than majority of its competitors and is a powerful alternative for multiobjective optimization.

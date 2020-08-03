@@ -1,0 +1,617 @@
+10.1016/j.jasrep.2018.08.044
+
+FULLTEXT
+
+TITLE
+
+The spatiotemporal distribution of Late Viking Age Swedish runestones: A reflection of the Christianisation process and its speed
+
+SECTION
+
+Introduction
+
+SECTION
+
+Background
+
+PARAGRAPH
+
+Runestones are among the visually most prominent remnants from the Scandinavian Viking Age (c. 790–1100 CE) (Jesch, 1994, 2001; Sawyer, 2000; Imer, 2007; Klos, 2009; Bianchi, 2010; Zilmer, 2010; Stern, 2013).
+
+Often decorated with crosses and/or prayers, they are also indicative of the Christianisation process (Lager, 2002, 2003; Zilmer, 2011; Williams, 2016).
+
+The majority – over 2800 – of the known Viking Age runic stone inscriptions are within medieval Sweden's borders, and concentrated in the eastern province of Uppland.
+
+In comparison, only c. 250 runestones and fewer than 100 are known within the borders of medieval Denmark and Norway, respectively (Table 1; Fig. 1a).
+
+They are mainly a Late Viking Age phenomenon – from the late tenth century to the early twelfth century – though about 70 are dated prior to c. 950 CE.
+
+The runestones functioned as memorial stones for deceased relatives (Jansson, 1987; Zachrisson, 1998; Sawyer, 2000) and likely served social or political purposes (Randsborg, 1980) and in particular may have attested statements or claims of inheritance rights (Sawyer, 1989, 2000), functioned as boundary markers (Larsson, 1990; Palm, 1992; Wilson, 1994; Johansen, 1997; Stille, 2014) and as a way to express Christianity (Lindqvist, 1915; Gardell, 1937; Palme, 1959; Segelberg, 1983; Gräslund, 1987; Herschend, 1994; Williams, 1999, 2016; Lager, 2002, 2003; Zilmer, 2011, 2012, 2013).
+
+PARAGRAPH
+
+The Late Viking Age runestones have generally been considered a form of Christian monument ever since the publication of Liljegren (1832).
+
+Subsequently, von Friesen (1913, 1933) attempted to divide the runestones into age classes, arguing, together with Ljungberg (1938), that their spatiotemporal distribution represented the geographical patterns of the gradual spread of Christianity across Scandinavia.
+
+Since then, the consensus has been that the runestone tradition originated in Denmark, spread northward to Norway and north-eastward through Sweden (Section 1.2).
+
+PARAGRAPH
+
+Segelberg (1983), Hultgård (1992), Williams (1996, 2016) and many others have emphasised the importance of the runestone material as a source of the Christianisation process.
+
+Still, scholars have interpreted differently how the runestones reflect early Christianity.
+
+It has been noted that the end of the erection of runestones in a region approximately coincides with the construction of the first churches (Zachrisson, 1998) and that the custom ceased soon after Christianisation had advanced into an ecclesiastical organisation phase (Lager, 2002, 2003).
+
+Since von Friesen (1933) and Ljungberg (1938), it has been commonly held that the Late Viking Age runestones, especially the Swedish ones, reflect the spatiotemporal patterns of Christianisation.
+
+In areas with older runestones, Christianity was supposedly established earlier than in those with younger runestones.
+
+So far, however, this observation has not been quantitatively verified against different indicators of Christianisation.
+
+PARAGRAPH
+
+It has been noted that the runestones' temporal (e.g. Zachrisson, 1998) and spatial (e.g. Herschend, 1994) dimensions are of equal importance, and to optimise their use as a source of societal change (including Christianisation), the runestone material should be studied as a whole (e.g. Sawyer, 1991, 2000).
+
+Following these recommendations, we present the first systematic, large-scale, quantitative, spatiotemporal study of the whole dated Swedish runestone material.
+
+We do so using geostatistical techniques within a Geographic Information System (GIS) framework and descriptive statistics to explore age distribution patterns, and we evaluate how they correspond to the pace and pattern of the Christianisation process.
+
+The study addresses two interlinked questions: (1) which statistically significant spatiotemporal patterns exist regarding the number, age and age spread of the dated runestones?
+
+(2) How is the runestone age spatiotemporally related to other indicators of Christianisation?
+
+Examining these questions allows us to identify the timing and duration of the erection of runestones in different regions and explore to what extent the observed patterns reflect the timing of the Christianisation process and its speed.
+
+SECTION
+
+Previous research on the spatiotemporal distribution of runestones
+
+PARAGRAPH
+
+Though many runestone studies have contained runestone distribution maps, none have served as a tool for quantitative spatial analysis.
+
+Geographical assessments of regional variations in specific aspects of the whole or a large part of the runestone material have been conducted by Palm (1992), Herschend (1994), Sawyer (2000) and Lager (2002, 2003).
+
+They have clearly demonstrated that simple analyses of spatial aspects of the Scandinavian runestone material yield useful results.
+
+Palm (1992) assessed the geographical distribution of types of runic inscription as well as the presence of particular vocabulary, revealing evidence of regional cultural differences between different parts of Scandinavia.
+
+Herschend (1994), in the only large-scale study so far using geostatistical methods per se, noted larger regional variations in Christian prayers on the runestones for the area around Lake Mälaren than previously recognised.
+
+Sawyer (2000) identified regional differences in Viking Age inheritance rules and gender differences in sponsors of runestones in Scandinavia.
+
+Lager (2002, 2003) analysed the runestone crosses throughout Scandinavia, considering both geographical and chronological variations, and found the English influence stronger than the German in most regions.
+
+Moreover, Lager (2002, 2003) quantified the runestone production for each province over time and demonstrated a gradual shift from the south-west towards the north-east.
+
+PARAGRAPH
+
+However, such large-scale spatial analyses of the runestone material are comparatively rare, but scholars have in recent years conducted a number of local-to-sub-regional-scale analyses of the geographical aspects of runestones.
+
+Norburg (2014) showed that runestones in Skåne (former eastern Denmark) were generally erected in grave fields, along rivers, roads and regional boundaries.
+
+Stille (2014) investigated the location of runestones in the Tiohärad district of Småland in southern Sweden.
+
+His work confirmed Norburg's conclusions and especially emphasised the role of runestones as boundary markers.
+
+Kitzler Åhfeldt (2014) assessed geographical differences in runic inscriptions, showing distinct regional variances in how specific terminology was combined with various ornamental styles.
+
+Herschend (2017) conducted a microgeographic study of the 26 runic inscriptions on Selaön Island in Lake Mälaren revealed surprisingly high local diversity in design, text and ornamentation that increased over time.
+
+PARAGRAPH
+
+Based on the location of the runestones in the landscape, their design and ornamentation, their sponsors, the presence of crosses and carver signatures, Sawyer (2000) identified three regionally distinct runestone traditions: a southern and western region comprising Denmark and Norway, a “transition” zone made up of Västergötland, Östergötland and Småland as well as Närke, Gästrikland, Västmanland and Gotland, and an eastern region comprising Uppland, Södermanland and Öland.
+
+Considering the runestone production over time, Lager (2002, 2003) also found a distinct gradual shift in Scandinavia, from the south-west towards the north-east.
+
+In southern and western Scandinavia, runestone production reached its zenith c. 1000 CE and ceased almost entirely already by c. 1020 CE in Denmark, Norway and the Swedish provinces of Västergötland, Småland and south-western Östergötland (Lager, 2002).
+
+In north-eastern Östergötland and southern Södermanland, the large-scale runestone production continued until the mid-eleventh century, with some runestones raised as late as c. 1100 CE.
+
+The runestone production in northern Södermanland, Uppland and Västmanland did not start in earnest until well into the eleventh century, reaching its peak between 1075 and 1100 CE, while runestones in Uppland continued to be erected in the early twelfth century (Herschend, 1994; Sawyer, 2000; Lager, 2002).
+
+The majority of the runestones from Gästrikland, Hälsingland and Medelpad seem to be from c. 1020–1060 CE and on Gotland from c. 1030–1100 CE (Sawyer, 2000; Lager, 2002).
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Dating of the Late Viking Age runestones
+
+PARAGRAPH
+
+Absolute dating using inscriptions about known events, e.g. the year of a king's death (for examples, see Palm, 1992), has only been possible for few runestones, i.e. <2%.
+
+A relative chronology can be established for a higher proportion of runestones using inscriptions with genealogical relations linking them to other runestones or carver signatures (Williams, 1990).
+
+Attempts to date the runestones have otherwise been based on linguistic and runographic characteristics or ornamental features, including the text band, starting with Hildebrand (1878, 1879), von Friesen (1913, 1933), Plutzar (1924) and Brate (1925–1926).
+
+Linguistic and runographic variations have been found less useful as dating tools (Palm, 1988, 1990; Lagman, 1990; Williams, 1990), compared to the ornamentation and the text band.
+
+Based on text bands, Plutzar (1924) separated Swedish runestones into three age groups: c. 900–1030 CE, 1030–1050 CE and 1050–1100 CE.
+
+Gardell (1937) studied the text bands in combination with the ornamentation and presented three revised age groups: c. 950–1020 CE, 1020–1060 CE and 1060–1130 CE.
+
+He concluded that runestones with advanced zoomorphic features were the youngest and those without zoomorphication the oldest.
+
+Christiansson (1959) took the opposite view: the ornamentation was an expression of regional styles rather than related to age; Thompson (1975) and Crocker (1982) also voiced doubts about ornamental dating.
+
+PARAGRAPH
+
+The research on Viking Age art (e.g. Wilson and Klindt-Jensen, 1966; Fuglesang, 1981; Karlsson, 1983) and the study of datable archaeological artefacts containing ornamentation proved to be of profound importance for establishing a more reliable runestone chronology.
+
+With this knowledge, Gräslund (1991, 1992) presented a more robust and detailed runestone chronology based on the ornamentation style.
+
+This chronology was subsequently improved and verified and is generally accepted today (e.g. Larsson, 1996; Stroh-Wollin, 1997; Zachrisson, 1998; Stille, 2014; Sawyer, 2000; Lager, 2002, 2003; Källström, 2007; Kitzler Åhfeldt, 2014).
+
+The chronology is primarily based on the presence/absence of zoomorphic rune bands (Pr, profile 1–5), and for runestones with a rune animal on (a) the shape of its head, (b) its feet, (c) its tail, (d) the overall shape of the serpent/s, (e) the design of the ornamentation and (f) the overall impression.
+
+PARAGRAPH
+
+Allowing for the blending of styles, chronological overlaps and later imitations of older styles, Gräslund (1991, 1992, 2006, 2014) established the following age classes: Unornamented stones (UO, c. 970–1020 CE), Bird's-eye view (B-e-v, c. 1010–1050 CE), Pr1 (c. 1010–1040 CE), Pr2 (c. 1020–1050 CE), Pr3 (c. 1045–1075 CE), Pr4 (c. 1070–1100 CE) and Pr5 (c. 1100–1130 CE) (Fig. 2).
+
+A small number of ‘cross-band stones’ likely fall into the age class of c. 970–1050 CE, but this is uncertain and they may cover a wider time span (Gräslund, 2006).
+
+The chronology was developed using the runestone material from Uppland (Gräslund, 1991, 1992) but has been shown to be applicable to other Swedish provinces too, such as Småland (Gräslund, 2002), Västergötland (Gräslund, 2014), Östergötland (Ljung, 2016), as well as to the islands of Gotland and Öland (Lager, 2002).
+
+SECTION
+
+Collection and preparation of the dated runestone material
+
+PARAGRAPH
+
+The runestone material is available from the georeferenced Scandinavian Runic-text Database (Samnordisk rundatabas; http://www.nordiska.uu.se/forskn/samnord.htm) and follows Gräslund's classification.
+
+Classified Viking Age runic inscriptions on stone or rock slabs, from within the borders of medieval Sweden, were extracted and manually quality-checked.
+
+Some regions included in the study, e.g. Gotland, were not yet part of the Swedish Realm proper in the eleventh century, but their runestones are customarily considered Swedish.
+
+The selected data were first divided into provinces (following present-day boundaries) and subdivided according to the historical administrative district unit hundreds (härader; härad-districts used hereafter).
+
+All runestones with no stylistic dating (Table 1) or with an uncertain one and ‘cross-band stones’ were excluded due to their uncertain dating and small number (c. 35).
+
+The style groups of the runestones cover a considerable time span and are of different lengths.
+
+Therefore, we used the mean year of each age class (i.e. each style group).
+
+An average age was calculated for runestones with more than one style.
+
+This approach makes the calculations easier, and little information is actually lost considering that the true age spread of the runestones within each style group is unknown.
+
+PARAGRAPH
+
+In addition to the regional-to-sub-provincial scale, we study the runestones at an aggregated Götaland and Svealand region level (Fig. 1).
+
+The provinces of Gotland, Småland, Värmland, Västergötland, Öland and Östergötland are here considered parts of the early medieval Swedish Realm's Götaland region, while the provinces of Gästrikland, Närke, Södermanland, Uppland and Västmanland around Lake Mälaren are viewed as parts of the Svealand region.
+
+The provinces of Hälsingland and Medelpad are not included in either region.
+
+SECTION
+
+Independent indicators of the Christianisation process
+
+PARAGRAPH
+
+We assume in line with the general view today (e.g. Sawyer, 2000; Lager, 2002, 2003) that runestones lacking explicit Christian characteristics can be considered as representing a Christian practice.
+
+Besides the runestones, there is little direct and well-dated evidence of the Christianisation process and, spatially speaking, it is not well distributed.
+
+Here we consider the presence of (a) early bishoprics, (b) early church sites and (c) late pagan graves (Fig. 1b–c).
+
+In addition, we looked at indicators of royal presence, i.e. royal estates (husabyar), since a central hypothesis about the Christianisation of northern Europe has been the indispensable role of the kings in this process (e.g. Berend, 2007) (Fig. 1b).
+
+SECTION
+
+Early bishoprics
+
+PARAGRAPH
+
+The sites of early bishoprics may serve as a proxy for ecclesiastical power, though no permanent diocesan organisation existed in Sweden prior to the twelfth century.
+
+The Florence list (c. 1120 CE) contains six bishoprics for the Swedish Realm (Tunberg, 1913): Scara (Skara), Liunga Kaupinga (Linköping), Tuna (Eskilstuna), Strigin (Strängnäs), Sigituna (Sigtuna) and Arosa (presumably Västerås).
+
+Only the eleventh-century existence of the bishoprics of Skara and Sigtuna is certain (Blomkvist et al., 2007); however, we assume that the other four also represented locations where Christianity was established comparatively early.
+
+SECTION
+
+Early church sites
+
+PARAGRAPH
+
+For Uppland, we compiled early church sites from two sources: Romanesque baptismal fonts from parish churches and sandstone runestones.
+
+The presence/absence of preserved Romanesque baptismal stone fonts may be indicative of the relative age of an organised Christian community's establishment (Bonnier, 1996).
+
+Across Uppland 57 churches with Romanesque baptismal stone fonts are spread over 16 härad-districts.
+
+We also considered 23 sandstone runestones, spread across 14 härad-districts, as they are mainly found in a church setting (Hagenfeldt and Palm, 1996) from c. 1100 CE (Zachrisson, 1998).
+
+They are included in the total number of runestones; however, their low number hardly influences the results.
+
+Unfortunately, the two indicators of early church sites are only applicable to Uppland: Romanesque baptismal fonts are so abundant outside of Uppland that their presence or absence is not indicative of the timing of an organised Christian community, while sandstone runestones in Södermanland and further south are too few for an analysis to be possible.
+
+SECTION
+
+Late pagan graves
+
+PARAGRAPH
+
+Based on the typology of combs found in the graves, Ljungkvist (2015) identified 16 very late pagan grave sites distributed across eleven härad-districts in Uppland and one in Södermanland close to the border of Uppland.
+
+The list in Ljungkvist (2015) is carefully and rather conservatively compiled, leaving out uncertain evidence.
+
+We use this list to test the hypothesis that areas with late runestones in Uppland show a strong spatial relationship to the presence of late pagan graves.
+
+SECTION
+
+Royal estates
+
+PARAGRAPH
+
+The most frequently found, and spatially distributed, indicator of royal power from Late Viking Age Sweden is the presence of royal estates (husabyar; used hereafter) (e.g. Pettersson, 2000).
+
+Albeit mainly known from place-name evidence, most husabyar, if not all, likely existed by the late eleventh century (Brink, 2000) and were linked to royal power (Hedenstierna-Jonson, 2016).
+
+It is important to note that husabyar represented one particular form of royal site, most probably connected to the collection and storage of royal revenues (Iversen, 2016).
+
+They are not, however, representative of the strength of royal power in general.
+
+Here we use the husaby sites published in Iversen (2011), including 57 husaby sites spread across 44 härad-districts in Sweden.
+
+Almost all husabyar are in Svealand (n = 43) or in the province of Östergötland (n = 7); thus, we could only analyse the spatial relationship between husabyar and the ages of the runestones for these regions.
+
+SECTION
+
+Geostatistical analyses
+
+PARAGRAPH
+
+The spatiotemporal distribution of the runestones and their ages were examined regionally (the whole of medieval Sweden) and locally using the historical härad-district units as recommended by Palm (1992).
+
+For our quantitative spatial and geostatistical analyses, we entered all the aforementioned 1302 ornamentally dated runestones into ArcMap 10.6 (programme package of ArcGIS; ESRI, 2017) and performed an age-based grouping.
+
+This was done using the grouping analyses from the spatial statistics toolset of ArcMap 10.6.
+
+We conducted two runs and for each produced seven groups: one where the individual runestones are not spatially constrained and one where each runestone has a neighbour with a minimum of eight runestones (k-nearest neighbours algorithm [Cover and Hart, 1967]; k = 8).
+
+The spatial constraint of k = 8 resulted in adequate spatially proximal groups and regional distinct age patterns.
+
+The analysis was limited to seven groups, corresponding to the number of runestone age classes.
+
+PARAGRAPH
+
+Our second approach applied a search radius of 10 km around each runestone, excluding areas with fewer than three dated runestones within the search radius.
+
+For the remaining 1223 runestones, we applied point statistics from the ArcMap 10.6 spatial analyst toolset and calculated: (a) the total number of runestones, (b) the median age, (c) the mean age, (d) the standard deviation and (e) the total age range.
+
+A smoothing (low-pass) filter was used to ease the readability of the results.
+
+We performed similar analyses for each härad-district with at least three dated runestones assessing: (a) the total number of runestones, (b) the median age, (c) the mean age, (d) the significant clustering of runestones dated either prior to or after 1050 CE using a sign test (following Dixon and Mood, 1946), (e) the standard deviation and (f) the interquartile age range.
+
+The analysis and mapping of (d) and (f) required a minimum of six and four runestones, respectively.
+
+PARAGRAPH
+
+To assess the relationship between runestone age and Christianisation indicators, we selected runestones within different search radii, ranging from 5 to 20 km around the location of early bishoprics, early church sites, late pagan graves and royal husabyar sites.
+
+These were compared to the ages of the runestones outside the search radii.
+
+For härad-district-level analyses, we compared runestone age between härad-districts with and without the different Christianisation indicators.
+
+For early bishoprics, both the härad-district with a bishopric and the directly adjacent härad-districts were compared to runestone ages from all other härad-districts.
+
+PARAGRAPH
+
+To examine statistical spatial relationships between runestone age and indicators of Christianisation and royal presence, we applied the unpaired t-test, the Mann–Whitney U test (two-sided with continuity correction) and the χ2 test (chi-square test) with cut-offs at the year 1050 and 1075 CE, respectively.
+
+The t-test determines whether two time-series (e.g. runestone age in regions with/without a certain Christianisation/royal-presence indicator) are statistically significantly different.
+
+The Mann–Whitney U test does the same but considers that the data are not normally distributed, making this test preferable.
+
+We thus mainly limit our discussion to the results from the latter.
+
+Using the χ2 test, we explored whether there exists a significant difference in the number of runestones that are older/younger than a certain cut-off year – here 1050 and 1075 CE – between areas with/without indicators of Christianisation or royal presence.
+
+SECTION
+
+Spatial patterns of runestone age
+
+SECTION
+
+Regional age groups
+
+PARAGRAPH
+
+The results of the grouping analyses of the runestones' age-based spatial distribution are shown in Fig. 3.
+
+Using no spatial constraints on the age (Fig. 3a), the location of group 1's runestones (mean age of 995 CE; Table 2) largely corresponds to sites of the UO runestone style group (Fig. 2), whereas the runestones in group 2 (mean age of 1029 CE) mostly represent runestones of the B-e-v style group.
+
+Runestones in groups 3, 4 and 5 (mean age of 1035, 1048 and 1063 CE, respectively) are a combination of the locations of runestones with the ornamented styles Pr1, Pr2 and Pr3 (Fig. 2).
+
+The groups 6 and 7, with a mean age of 1085 and 1115 CE, respectively, show similar spatial patterns as style groups Pr4 and Pr5.
+
+However, the total number of runestones is much lower (53 runestones in group 6 and 35 in group 7).
+
+Generally, the differences between the individual group minima and maxima are small, resulting in a low standard deviation for each group (Fig. 3a; Table 2).
+
+PARAGRAPH
+
+Applying spatial constraints produced more-distinct regional clusters (Fig. 3b).
+
+Here group 1 includes runestones in Småland, Värmland, Västergötland and Östergötland (mean age of 1008 CE).
+
+Group 2's only nine runestones (mean age of 1021 CE) are all in the far north in Hälsingland and Medelpad.
+
+Runestones mainly in Södermanland, eastern Västmanland, western and northern Uppland and Gästrikland make up group 3 (mean age of 1033 CE).
+
+Group 4's runestones are locally confined to the islands of Öland (mean age of 1051 CE) and group 6's to the island of Gotland (mean age of 1072 CE).
+
+Runestones in group 5 are clustered in central and southern Uppland, around and north of Lake Mälaren, with a mean age of 1062 CE, whereas group 7's (mean age of 1077 CE) are mainly in western and north-central Uppland (Fig. 3b).
+
+The full age range of each group's spatially constrained runestones varies from a minimum of 60 years (group 6, Gotland) to a maximum of 120 years (groups 3, 5 and 7) (Table 2).
+
+SECTION
+
+Spatial patterns of runestone age at regional and local scales
+
+PARAGRAPH
+
+At a regional scale, a maximum of up to 123 runestones within a 10 km search radius are found in south-eastern Uppland, the northern area of present-day greater Stockholm (Fig. 4a).
+
+The median age distribution is highest with an age of up to 1115 CE in central Närke, most of Uppland and central Gotland, whereas the lowest median age of 995 CE is in Småland, Västergötland and western and central Östergötland (Fig. 4b).
+
+Similar spatial patterns are obtained for the mean ages; however, the values are generally lower (Fig. 4c).
+
+As a rule, the oldest runestones are in Västergötland, Småland and Östergötland and the youngest in Uppland and, to a lesser extent, on Gotland.
+
+Södermanland constitutes a transition zone with regard to age, whereas on Öland a high age diversity is seen.
+
+The smallest standard deviation in age is in Småland and Västergötland, whereas the largest is observed in Uppland, particularly in the south-east (Fig. 4d).
+
+The total age range yields a similar geographical pattern as the standard deviation; the large age range in Uppland, and in a small part of Södermanland, is even more pronounced (Fig. 4e).
+
+PARAGRAPH
+
+In general, the spatiotemporal local-level (i.e. härad-district) patterns are similar to those for the regional scale.
+
+A high density of dated runestones (>30) is found in 15 härad-districts in south-central Uppland and some parts of Södermanland (Fig. 5a).
+
+The oldest runestones are in the south-west (<1025 CE) and become increasingly younger towards the north-east, especially in central Uppland and on Gotland and Öland (c. 1050–1100 CE) (Fig. 5a–c).
+
+Using the sign test, we find a significant cluster of runestones older than c. 1050 CE in 22 härad-districts, all south-southwest of Lake Mälaren, and a significant cluster of runestones younger than c. 1050 CE in 14 härad-districts in north-central Uppland (Fig. 5d).
+
+Öland constitutes an exception with its significant clusters of both older and younger runestones (Fig. 5d).
+
+The highest standard deviation in runestone age (>30 years) is found in nine härad-districts (central Småland, western Gästrikland, southern Uppland and north-eastern Södermanland).
+
+The age spread is larger in regions with generally younger runestones (Fig. 5e–f) but differs greatly between areas, even within provinces with either mainly relatively old or young runestones.
+
+PARAGRAPH
+
+For the whole of Sweden, a weak but positive relationship is found between the number of runestones and their mean and median age: areas with more runestones generally have younger runestones than areas with fewer ones (Table 3; Fig. 6).
+
+However, regional differences are noted: whereas the relationship between median/mean age and age range is positive (significant only for the mean) for Svealand's runestones, a non-significant negative relationship is observed in Götaland.
+
+This is attributed to Svealand, especially Uppland, having the highest number and the youngest runestones (Table 1).
+
+Notwithstanding that the two measures of variability, the standard deviation and the interquartile range, are highly positively correlated (Table 3), the interquartile range shows a greater age spread (Fig. 6).
+
+SECTION
+
+Runestone age and the Christianisation process
+
+PARAGRAPH
+
+When investigating the spatial relationship between runestone age and the sites of early bishoprics for the whole of Sweden, only the 10 km search radius yielded significant results: runestones are significantly older (with the χ2 test even at α = 0.01) close to the bishoprics (Table 4).
+
+For Svealand, older runestones are found close to bishoprics at the härad-district-level of analysis and within a 10 km search radius, whereas for Uppland, significant results are obtained for all geographical analytical levels (except with the t-test).
+
+PARAGRAPH
+
+For early church sites in Uppland, regardless if indicated by Romanesque baptismal fonts or sandstone runestones, the strongest relationship with runestone age is found for the 5 km search radius and the härad-district-level.
+
+Again, older runestones are located close to early church sites, as confirmed by the χ2 test with a cut-off year of 1075 CE, where there are significant (α = 0.05) results for runestones within a 10 km search radius.
+
+This search radius only yielded significant results when using the χ2 test with a cut-off year of 1075 CE.
+
+A very strong positive spatial relationship is found in Uppland between late runestones and late pagan graves.
+
+This relationship is highly significant among all applied geographical analysis levels, a 5, 10 and 20 km search radius or the härad-district-level, and is relatively insensitive to the choice of statistical test (Table 4).
+
+PARAGRAPH
+
+At the härad-district-level of analysis, runestones are significantly (α = 0.05) or highly significantly (α = 0.01) older close to one or several royal husabyar.
+
+This relationship persists when considering Svealand and Östergötland combined, only Svealand as well as only Uppland.
+
+On the other hand, there is no significant relationship between the runestone age and the presence/absence of royal husabyar when using the 5 km search radius.
+
+Runestones within a 10 km radius of the husabyar were either insignificant or, unexpectedly (in contrast to the härad-district-level results), significantly negatively correlated, i.e. runestones are younger in the vicinity of husaby sites (Table 4).
+
+SECTION
+
+Discussion
+
+SECTION
+
+Possible biases from dating uncertainties of runestones
+
+PARAGRAPH
+
+Although this article presents exact numerical runestone age values, they should be considered little more than best estimates.
+
+The ornamentally based runestone chronology contains uncertainties – and the dating of runestones may be wrong in individual cases; thus, the runestone style groups provide approximate, and not exact, age classes.
+
+We lacked the means to quantify these errors, but they are most likely not large or numerous enough to affect the overall results of this study.
+
+Even if the calculated median/mean age of the runestones in, for instance, Uppland was 25 years too young and the runestones in, for example, Västergötland and Östergötland 25 years too old, there would still be a significant age difference between the areas.
+
+Nor would the main results regarding age spread be affected by chronological errors of up to a few decades in the style groups.
+
+PARAGRAPH
+
+Some biases may arise when using each style group's mean age as the number (unknown to us) of runestones over time within each style group likely is unequally distributed (Lager, 2002).
+
+The median and mean runestone age in various regions would presumably look slightly different, with an increase/decrease in age of up to a few decades, if the true age distribution of the runestones within each style group were known.
+
+Moreover, using each style group's mean age can be expected to produce a too-constrained age range but will not affect the range's geographical patterns.
+
+The calculated age ranges should thus be considered conservative estimates.
+
+Another possible source of error is that some runestones have been moved from their (sometimes unknown) original locations.
+
+However, this presumably has an overall minor impact as runestones seldom have been moved great distances (see, for example, Palm, 1992).
+
+SECTION
+
+Spatiotemporal patterns of runestone age
+
+PARAGRAPH
+
+The obtained spatiotemporal patterns of the ornamentally dated Late Viking Age runestones are broadly consistent with the results from previous works (Section 1.2; von Friesen, 1913, 1933; Gardell, 1937; Ljungberg, 1938; Herschend, 1994; Sawyer, 2000; Lager, 2002, 2003).
+
+The erection of runestones generally reached its peak c. 1000 CE in Västergötland, Småland and Östergötland, c. 1025–1050 CE in Södermanland, c. 1075 CE on Gotland and Öland and in Uppland as late as, depending on the area, c. 1050–1100.
+
+The tradition lasted longer in Uppland and to a lesser extent in Södermanland and on Öland than in other parts of Sweden.
+
+Our results provide, for the first time, a high level of detail and a quantification of spatiotemporal patterns through identifying seven distinct runestone regions along with regional-to-local descriptive statistics.
+
+In doing so, we detected fine spatial age distribution patterns and statistically significant age differences between regions and sub-regions.
+
+PARAGRAPH
+
+Uppland, with its high number of runestones and their generally young age, is unique.
+
+This fact, as well as the contrast between older runestones in southern Uppland and younger ones in northern Uppland, has been observed previously (Zachrisson, 1998; Herschend, 1994; Sawyer, 2000).
+
+However, our regional-to-local spatiotemporal analyses and regional grouping experiments provide additional information.
+
+For example, whereas both north-central and south-eastern Uppland have, on average, the youngest runestones, the age spread is very different between the two areas.
+
+South-eastern Uppland has the largest age spread of all Swedish regions, while north-central Uppland's age spread is small due to having almost exclusively young runestones.
+
+PARAGRAPH
+
+Considering topography and settlement or population density, though for the latter no reliable estimates for medieval Sweden are available, we note both when applying no spatial constraints and spatial constraints, the appearance of similar groups between regions separated by thinly populated forest areas (e.g. Småland and Västergötland) as well as distinctly different groups within continuously populated areas like the Lake Mälaren region of Svealand.
+
+Topography or settlement density thus seems to have little, if no, influence on the identification of the regional age groups.
+
+When we performed the grouping analysis without spatial constraints, it aligned as expected rather closely to the pre-assigned age groups, whereas a different and geographically distinct age group pattern emerged when we applied spatial constraints.
+
+SECTION
+
+Runestone age and Christianisation
+
+PARAGRAPH
+
+Although we cannot prove causality, our geostatistical analyses have, for the first time, quantitatively confirmed and verified the long-proposed relationship between runestone age and the advance of Christianity (e.g. Liljegren, 1832; von Friesen, 1913, 1933; Ljungberg, 1938; Gräslund, 1987; Herschend, 1994; Zachrisson, 1998; Sawyer, 2000; Lager, 2002).
+
+The distribution of early runestones throughout medieval Sweden (Fig. 3a) indicates that the Christianisation process in south-western Sweden (i.e. Västergötland) was already largely over by c. 1030 CE.
+
+Judging from the age spread of the runestones, the most rapid conversion to Christianity was in Småland and Västergötland and the longest was on Öland and in southern Uppland (Figs. 3b, 4d–e, 5e).
+
+North-central Uppland seems to have experienced a rapid, although very late, Christianisation.
+
+The obtained spatiotemporal patterns of runestone age, together with the strong spatial relationship found between runestone age and independent indicators of Christianisation, especially late pagan graves, reinforce earlier conclusions (e.g. Gräslund, 1987) that the numerous, and mainly young, runestones in central Uppland reflect a comparatively late Christianisation.
+
+In addition, the large age range of the runestones in parts of Uppland indicates that Christianisation not only was a late but also a rather lengthy process in the province.
+
+PARAGRAPH
+
+The spatiotemporal distribution of runestones is broadly consistent with the Christianisation pattern described in the few available contemporary written sources on this process (two papal letters, Gesta Hammaburgensis Ecclesiae Pontificum and Vita et Passio S. Canuti).
+
+They remark on pockets of paganism existing longer in Sweden, particularly in Svealand/Uppland, than in the other Scandinavian countries (see references in Ljungqvist, 2018).
+
+Indeed, pagan revolts in Svealand were reported as late as the end of the eleventh century in these and other sources (Sävborg, 2017; Ljungqvist, 2018).
+
+The German chronicle Gesta Hammaburgensis Ecclesiae Pontificum from c. 1070 CE describes Svealand/Uppland as still largely pagan, except for the newly converted Sigtuna area (north-west of Stockholm), and Uppsala further north as a pagan stronghold.
+
+This information is very much consistent with the patterns of runestone age in Uppland: the area around Sigtuna has the oldest runestones and the Uppsala region the youngest (Fig. 7).
+
+PARAGRAPH
+
+Despite the strong relationship between runestone age and independent indicators of early Christianity, the generated maps of runestone age and age spread should not be interpreted as direct cartographical presentations of the timing of the advance of Christianity.
+
+Still, they can arguably help us to understand the spatiotemporal aspects of the Christianisation process and take a polemical stance against certain assumptions in the literature.
+
+Some researchers (e.g. Janson, 1998; Gräslund, 2013) have seen the mere presence of numerous, obviously Christian, runestones in Uppland as contradicting other lines of evidence suggesting a late (post-Viking Age) Christianisation of most of this province.
+
+Such arguments, however, neglect the age differences in runestone distribution demonstrated in this study.
+
+Though numerous, the runestones in central Uppland are the youngest of all and thus, if anything, lend support to the view that this region was among the last to be Christianised.
+
+PARAGRAPH
+
+We found no clear spatial relationship between the presence of royal power (indicated by husabyar) and runestone age, and thus Christianisation.
+
+This does not in itself disprove the theory of the kings' important role in this process in northern Europe (e.g. Berend, 2007).
+
+The relationship may well have been more complex than often presumed.
+
+Another reason for the lack of an obvious connection between runestone age and royal power could be that husabyar represent a particular type of royal site.
+
+Their main purpose was likely to serve as collection and storage centres for royal revenues (e.g. taxes and fines) (Iversen, 2011, 2016).
+
+It would thus have been preferable for the analysis also to have included some other type of royal site.
+
+Unfortunately, this was not possible as Late Viking Age Sweden is not known to have another indicator of royal power that is numerous enough and spatially well distributed.
+
+PARAGRAPH
+
+The late Christianisation, as indicated by runestone age, of the population on Gotland and Öland, where royal power during the period was weak (Blomkvist, 2005; Line, 2007; Ljungqvist, 2016), may still fit the paradigm of the role of kings in Christianisation.
+
+However, more importantly, the hypothesis does not hold for Uppland, a centre of royal presence and power, which is known independently of the numerous husabyar, and yet it is the province with the youngest runestones and a late Christianisation.
+
+Still, it is obvious from existing documentary sources that eleventh-century royal power was not strong enough there to impose Christianity by force (Ljungqvist, 2018), yet other Swedish regions with weaker royal power already had accepted Christianity.
+
+PARAGRAPH
+
+With few exceptions (Table 4), the results obtained from the different statistical tests used to explore the spatial relationship between runestone age and Christianisation are consistent.
+
+However, we identified that our results largely depend on the size of the analytical level (e.g. 5 km search radius versus härad-district level) rather than the choice of statistical test.
+
+Despite these limitations, our results demonstrate how the application of geostatistical and spatial methods can help to address historical-research questions.
+
+We expect that applying similar methodologies to other Viking Age and medieval archaeological or documentary sources will yield interesting new findings in research fields where studies so far have been of a mainly qualitative and non-spatial nature.
+
+PARAGRAPH
+
+Besides the runestones there are no other suitable sources, which have a dense geographical coverage, for assessing the spatiotemporal dimension of the Christianisation process in Sweden.
+
+For instance, early medieval wooden churches have not been persevered (Dahlberg and Franzén, 2008).
+
+On the other hand, Sweden has an exceptionally large number of about 1000 well-preserved second-generation medieval stone parish churches (Bonnier, 2008).
+
+However, so far only a small number have been systematically inventoried (e.g. Linscott, 2007; Linscott and Thelin, 2008, and references therein) and/or dendrochronologically dated (Bråthen, 1995; Gullbrandsson, 2013, 2016, 2017; Seim et al., 2015), thus precluding a spatiotemporal assessment of their construction history.
+
+SECTION
+
+Summary and conclusions
+
+PARAGRAPH
+
+Applying geostatistical methods, we quantitatively assessed, for the first time, the number, the age distribution and the age spread of 1302 ornamentally dated Swedish runestones at regional-to-local scales.
+
+The runestones' age groups were calculated representing, firstly, the locations of dated runestone styles (no spatial constraints) and, secondly, geographically distinct runestone regions within medieval Sweden (with spatial constraints).
+
+The latter's results were confirmed using different descriptive statistics, including number, age and age range for the whole of medieval Sweden and for the local härad-district level.
+
+Here the unique concentration of young runestones in central Uppland shows a distinct pattern and indicates a later and slower Christianisation process than in other regions.
+
+PARAGRAPH
+
+We further investigated and quantified the spatial relationship between runestone age and the presence/absence of independent indicators of Christianisation and royal presence.
+
+Our results quantitatively verified earlier proposed, but untested, relationships between runestone age and the timing of Christianisation.
+
+A highly significant relationship between early runestones and the presence of indicators of Christianisation (early bishoprics and early church sites) was found.
+
+In areas lacking early indicators of Christianisation or with late pagan graves, the proportion of late runestones is significantly higher.
+
+This supports the view that the runestone age indeed can be considered a spatiotemporal reflection of the timing of the Christianisation process, although correlation does not equate to causality.
+
+Since no other source of information with a dense spatial coverage is available, runestones are highly valuable evidence of the Christianisation process.

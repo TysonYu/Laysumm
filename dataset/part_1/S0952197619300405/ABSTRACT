@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.02.016
+
+ABSTRACT
+
+TITLE
+
+Collision risk prediction for visually impaired people using high level information fusion
+
+PARAGRAPH
+
+The technologies developed so far to help visually impaired people (VIP) navigate meet only some of their everyday needs.
+
+This project allows the visually impaired to improve the comprehension of their context by generating a risk map following an analysis of the position, distance, size and motion of the objects present in their environment.
+
+This comprehension is refined by data fusion steps applied to the High Level Information Fusion (HLIF) to predict possible impacts in the near future.
+
+A risk map is made up of probabilities generated after executing a set of inferences.
+
+These inferences allow the evaluation of future collision risks in different directions by detecting static objects, detecting free passage and analyzing paths followed by dynamic objects in a 3D plane.
+
+Different datasets were modeled and a comparative analysis was performed to check the percentage of correct answers and the accuracy of the inferences made using different classifiers.
+
+Thus, in order to demonstrate the advantages of the HLIF implementation in a dedicated VIP navigation system, the proposed architecture was tested against three other navigation systems that use different approaches.
+
+The generation of specific results made it possible to validate and compare these navigation systems.
+
+For this comparative analysis, different environments were used with the goal of indicating a direction for the VIP to move in with fewer collision risks.
+
+In addition to providing a risk map giving possible collisions, this project system provided greater reliability for navigation, especially when obstacles were very close and moving objects were detected and tracked.

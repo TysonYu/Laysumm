@@ -1,0 +1,613 @@
+10.1016/j.engappai.2019.103263
+
+FULLTEXT
+
+TITLE
+
+Super-resolved thermal imagery for high-accuracy facial areas detection and analysis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+High resolution (HR) image restoration from corresponding low resolution (LR) data is known as image super resolution (SR).
+
+Specifically, if a single image is used for the enhancement, the approach is called single image super resolution (SISR).
+
+Inherently, this problem is ill-posed since it is possible to recover various HR outputs for a single LR input.
+
+Such inverse problem is usually solved by utilizing the prior knowledge.
+
+The prior knowledge can be learned by predicting a pixel value with interpolation methods, e.g. bicubic interpolation (Keys, 1981), edge-guided interpolation (Zhang and Wu, 2006), or adaptive non local sparsity-based modeling (Romano et al., 2014).
+
+Another ways to acquire the knowledge is to exploit the internal structure of pixels within the same LR image (Glasner et al., 2009; Freedman and Fattal, 2011; Cui et al., 2014), or learn it from corresponding pairs of LR and HR examples, i.e. example-based algorithms (Chang et al., 2004; Kim and Kwon, 2010; Bevilacqua et al., 2012; Jia et al., 2013; Dong et al., 2016; Kim et al., 2016a, b; Tai et al., 2017; Liu et al., 2017).
+
+The first group, known as interpolation-based SISR (Li and Orchard, 2001), often intend to mitigate a down-sampling process only.
+
+Also, the interpolation techniques are based on generic smoothness priors and therefore are indiscriminate, as they smooth both edges and object parts, what leads to the blurring effect (Chang et al., 2004).
+
+PARAGRAPH
+
+Hence, due to limited applicability of interpolation approaches, the learning-based methods are becoming more popular and are being further investigated, e.g. by combining learning based gradient regularization with reconstruction approach that aims at preserving consistency between HR and LR images, while satisfying the prior knowledge (Chen et al., 2017).
+
+In particular, deep learning based SR algorithms, which allow to establish the mapping between LR and HR patches of the image using a stack of convolutional operations have recently become state-of-the-art solutions.
+
+Majority of the conducted work considered visible light images only.
+
+The pioneer research of applying deep learning to SISR problem for RGB data, conducted by Jain and Seung (2009), aimed at image denoising.
+
+In later studies, stacked collaborative local auto-encoders were proved to be successful for a low resolution RGB images up-scaling (Cui et al., 2014).
+
+At each stacked layer, high frequency components are enhanced using similarity search applied to the input LR image, that are then fed to auto-encoders in order to suppress the noise and take into account the correspondence of the overlapping reconstructed patches.
+
+To overcome the disadvantage of independent optimization of the similarity search and the auto-encoder for each layer, as well as the absence of steps other than the learning part in the framework pipeline, Dong et al. proposed to formulate both mapping and feature extraction as convolutional operations (Dong et al., 2016).
+
+As a result, proposed SR pipeline, called SR Convolutional Neural Network (SRCNN), can be fully obtained through end to end mapping.
+
+Additional modifications introduced to the SRCNN allowed to further improve the Peak Signal-to-Noise Ratio (PSNR) index, a metric usually used for quantitative evaluation of super-resolution algorithms.
+
+Kim et al. at first introduced Very Deep Super Resolution (VDSR) model with residual connections that correlate LR input with HR output, outperforming SRCNN by 0.87 dB PSNR (Kim et al., 2016a) on RGB dataset called Set5 (Bevilacqua et al., 2012) downscaled by a factor of 2.
+
+Later same authors proposed Deeply Recursive Convolutional Network (DRCN) (Kim et al., 2016b), which incorporates recursive supervision to (1) increase the depth while keeping number of parameters constant; (2) eliminate the vanishing gradient problem.
+
+Afterwards, Tai et al. (2017) further enhanced the efficiency with Deep Recursive Residual Network (DRRN) that adopts weight-shared residual connections both in global and local manner to increase the network depth, achieving PSNR 1.08 dB higher than SRCNN on RGB data.
+
+Generative Adversarial Network (GAN) based solutions have been also already applied to visible light image enhancement, allowing for successful restoration of high frequency details (e.g. SRGAN Ledig et al., 2017 or EnhanceNet Sajjadi et al., 2017).
+
+PARAGRAPH
+
+HR data is especially desired for medical applications in order to make proper diagnosis, as super-resolved image can usually offer more diagnostically important details  (Park et al., 2003; Villanueva et al., 2010).
+
+Health care sectors that use imaging techniques can utilize resolution enhancement, e.g. for computer-aided diagnosis (CAD) of breast tumors to improve accuracy of malignancy classification (Abdel-Nasser et al., 2017) or reconstruct computed tomography images to provide clinicians with important details to make correct decisions (Gao et al., 2017).
+
+Undoubtedly, providing more detailed HR samples can ease the analysis of medical imaging.
+
+The interesting research question is whether it can also help with improving accuracy of remote medical diagnostics.
+
+Due to global aging, the medicine is expected to deliver novel solutions that allow for performing basic diagnostic and monitoring tests at home (Kwaśniewska et al., 2017).
+
+Some studies have already proved that basic vital signs can be estimated from a single camera stream in a non-contact way, e.g. heart rate from visible light sequences (Lewandowska et al., 2011) or a breathing rate from thermal data (Ruminski and Kwasniewska, 2017).
+
+The starting point of image processing-based vital signs estimation is accurate detection of proper facial regions.
+
+Despite the majority of object detection research focuses on visible light spectrum, some attempts to localize facial features from low resolution thermal imagery have been done (Hanmandlu et al., 2014; Kwaśniewska and Rumiński, 2016), recently also using Deep Learning (DL) techniques (Kwaśniewska et al., 2018).
+
+The achieved results, though, were not satisfactory, giving accuracy of 0.53 ± 0.15 for eyes area and 0.60 ± 0.18 for nostrils, expressed as Intersection over Union (IoU) metric.
+
+Localizing a proper region is crucial for the robustness of signal processing algorithms aimed at estimating vital signs (Ruminski and Kwasniewska, 2017).
+
+It has already been shown that motion magnification can improve performance of heart rate estimation at distances above 6 meters (Szankin et al., 2018b).
+
+However, to the best of our knowledge, it has not been evaluated yet whether image enhancement with DL-based SR has a positive effect on the accuracy of object detectors, especially in thermal imaging.
+
+Simultaneously, analysis of other than visible light image domains is crucial, as representation of features may differ across them, e.g. thermal images are characterized by blurring and lower contrast between adjacent regions due to the heat flow, hence networks designed for extracting high frequency components (e.g. edges, lines) from visible light spectrum images may not be sufficient in the thermal domain.
+
+PARAGRAPH
+
+The contribution of our work is threefold: (1) First, we collect and publish a dataset of raw thermal sequences of a face in the original full 14-bit precision.
+
+(2) Second, we applied deep learning based super resolution algorithms to thermal image sequences.
+
+We experimentally compared the state of the art algorithms and our algorithm analyzing selected spatiotemporal properties of thermal sequences including temporal frames averaging and the influence of various bit depths.
+
+(3) Finally, we evaluate the effect of enhancing image resolution (and related PSNR/SSIM measures) on the robustness of areas detection in the auditing thermal domain.
+
+PARAGRAPH
+
+Since in our research we focus on facial features detection, we analyze PSNR changes for both extracted facial areas and images as a whole.
+
+In this way, we aim at determining whether PSNR is sensitive to the change of pixel values caused be the presence of breathing patterns in the extracted areas (e.g. nostrils).
+
+In addition, we evaluate how PSNR changes by (a) using averaging operation of subsequent frames in a sequence, what allows for reducing random noise; (b) utilizing 16-bit resolution data in order to preserve important image components that may be invisible after conversion to lower bit resolution (e.g. 8-bit).
+
+To the best of our knowledge, the majority of existing publicly available face thermal datasets contain images that were converted to lower precision image format with loss of some of the information available in the higher precision.
+
+PARAGRAPH
+
+Thus, the data collected by us possesses advantages over them, as it is shared in the raw format that contains unprocessed pixels, what is potentially useful for extracting intensity changes, caused e.g. by breathing.
+
+Collected dataset1  and supplementary materials2  are publicly available.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows: Section 2 introduces the problem statement, including acquired thermal data characteristics.
+
+In Section 3 we describe the experimental methodology used to evaluate the influence of super-resolution methods on facial features detection accuracy.
+
+Section 4 overviews achieved preliminary results, further discussed in Section 5.
+
+Finally, we conclude our work in Section 6.
+
+SECTION
+
+Problem statement and preliminaries
+
+SECTION
+
+Data characteristics, collection and processing
+
+PARAGRAPH
+
+In this study, we are focusing on evaluating face hallucination algorithms on images acquired in thermal spectrum, i.e. intensities of electromagnetic radiation in the range of 8–12 μm (LWIR, Long-Wave Infrared).
+
+The intensity is represented as a sequence of arrays.
+
+Each array contains digital values of a bit resolution higher than 8, typically 14 bits.
+
+Radiation values may be converted to temperature data in order to form a final thermal image using data pre-processing algorithms (e.g., radiation to temperature mapping, data range selection) and a Color Look Up Table (CLUT) to assign colors or shades of gray to the digital values.
+
+PARAGRAPH
+
+When 8-bit color models are used for intensities with higher bit resolution, the conversion from electromagnetic radiation to color palette values is lossy, so the contrast between regions may be reduced, eliminating some important details.
+
+Another important factor represented in thermal images is related to the heat transfer in objects of different temperature.
+
+When heat is transferred from one object to another, the temperatures equalize, resulting in lower gradient and smoother color change between pixels within adjacent areas (see Fig. 1).
+
+For the thermal image we can observe smoother color change between pixels within adjacent area.
+
+These characteristics of thermal data should be carefully considered while applying image processing algorithms.
+
+Typically, CNNs are based on high frequency features (e.g. edges, corners, lines), and trained on visible light images to extract them.
+
+In visible spectrum edges between different areas are clearly distinguishable, therefore filters based on high frequency patterns lead to very good recognition results (Goodfellow et al., 2016).
+
+Smooth representation of areas in thermography lead to worse detection accuracy while using high frequency components (Kwaśniewska et al., 2018).
+
+This problem can be partially mitigated by using higher resolution thermal cameras but then the cost of the solution rapidly grows, what makes it unsuitable for home based health care devices.
+
+That is why, in most cases low resolution data is more common.
+
+Although the cost of thermal imaging hardware is still significantly higher than the price of comparable visual light cameras, the price of thermal cameras is continuously decreasing (Gade and Moeslund, 2014).
+
+Recently, thermal cameras have become more affordable and thus commercially available (e.g. FLIR Lepton camera modules <$175 (FLIR lepton camera modules, 0000)), what enabled various practical applications in different industries, e.g. in remote medical diagnostics (non-contact vital signs estimation (Rumiński, 2016)), or in studies on autonomous vehicles (detection of people on roads Qi et al., 2016 and classification of challenging road conditions Szankin et al., 2018a).
+
+We believe that utilization of hallucinated images can further improve the performance of proposed solutions by improving distinguishability of the object parts, especially in the case of thermal images with small spatial resolution (e.g. 80 × 60, 160 × 120) and smaller temperature resolutions.
+
+PARAGRAPH
+
+Experiments were carried out on a thermal face dataset collected by us from 40 users (19 male, 21 female, age: 34.11±12).
+
+The thermal camera FLIR SC3000, used for data acquisition, (320 × 240 spatial resolution, 30 frames per second (FPS), temperature measurement range from −20 °C to + 80 °C, 20° lens, measurements using noise reduction mode) was placed on a tripod, 112 centimeters from the ground and 120 centimeters from the volunteer’s head.
+
+During data collection, volunteers were asked to perform 5 tasks:
+
+PARAGRAPH
+
+Additionally, in scenario 1 and 2, participants were asked to point their finger upward during inhaling and down during exhaling, so that we were able to calculate the reference breathing per minute (BPM) value, by counting the number of finger movements.
+
+At the same time, we also collected the ambient temperature inside the laboratory room, where experiments were conducted.
+
+As a result, we created a relatively big thermal face dataset (240 min of thermal sequences, 78.14 GB), that can be used for training deep neural networks, since the amount of data that we feed to models is crucial for them to succeed in producing accurate predictions on new samples (Kwaśniewska et al., 2017).
+
+It is very important to note that the created dataset consists of original raw 14-bit image sequences.
+
+We have not found any other dataset that contains images saved in original resolution before lossy conversion to other image formats.
+
+The entire set consists of 40 2-min sequences and 160 1-min sequences.
+
+All sequences were recorded with 30 FPS frequency rate, so after extracting all frames from them, we got 7200 images in PNG file format with 16-bit depth per channel and 7200 images in PNG file format with 8-bit depth per channel.
+
+Each image is 320 pixels wide and 240 pixels high.
+
+PARAGRAPH
+
+In this study, we utilize data that allow for calculating reference BPM (scenario 1 and 2), as we focus on improving facial feature detection, used for remote estimation of breathing rate.
+
+From all these sequences, we extracted every 300th data frame to ensure proper variability of facial data in the compact training dataset.
+
+Radiation data acquired by us in this study is represented as a sequence of arrays, containing digital values of a 14-bit resolution.
+
+In order to feed data to convolutional-based deep learning model, it is necessary to convert collected raw data to image formats.
+
+Therefore, the minimum and maximum values (other than 0) were identified in the selected data frames.
+
+These values were used in linear scaling of original, 14-bit radiometric data to 8 and 16-bit grayscale images in the PNG file format.
+
+Facial regions detection is typically based on features of a single frame.
+
+Since collected dataset contains thermal sequences instead of single images, utilization of temporal information can be potentially beneficial to improve desired detection results.
+
+For example, temporal average can potentially remove random noise (e.g. related to image sensor noise, influence of local environment, etc.) keeping image features important for better detection of facial regions.
+
+On the other hand, it is important to note that averaging operation is possibly favorable on the assumption that the subject stands still in front of the camera.
+
+In case of the movement occurrence, the edges of object areas will become blurred after applying the averaging operation.
+
+Our data collection process assumes that the volunteer stands still, yet some small movements may still be present.
+
+Thus, in our research we evaluate how averaging operator influence image quality enhancement (PSNR) and the object detection accuracy (IoU).
+
+For this, the average of W subsequent frames is calculated, where W denotes the size of a window, expressed as a number of neighboring frames (−W∕2;W∕2), used for calculating the average frame.
+
+We chose window sizes as 7 (relatively small window insensitive to body movements and respiratory events), 30 (1 image for every 1-second intervals), 90 (1 image for every respiratory event, assuming the respiration rate for an adult is ∼12 while resting, every 2–3 s we can observe the inhalation/exhalation event).
+
+The used set consisted of 1296 single 8-bit frames, 1296 single 16-bit frames, and 1296 images for each of the window sizes: W= 7, W = 30, W = 90 both in 8 and 16-bit resolution, named single-{8/16}, avg{7/30/90}-{8/16} respectively.
+
+In total, 10 368 thermal images are utilized.
+
+For all SR networks applied in this study, we used LR images generated by downscaling and upscaling original HR images with a scale of 2.
+
+LR images were used to train and evaluate SR topologies by comparing enhanced results against original HR data.
+
+Examples of thermal images and differences between calculated average frame and the middle frame in each window for two different volunteers breathing through nose are presented in Fig. 2.
+
+Odd rows present images generated using various window sizes for average operation, even rows difference between calculated average frame and the middle frame in the window (from the left: 1, 7, 30, 90 window size).
+
+SECTION
+
+Formulation of the research statement
+
+PARAGRAPH
+
+The goal of SISR is to estimate the HR output Ŷ from the corresponding LR image X, created by downscaling the ground truth (GT) sample Y with a scale s.
+
+SR network S defined by parameters θ has to find the HR output Ŷ as close to Y, as possible: min(Lθ(Y,Ŷ)),whereŶ=Sθ(X)
+
+PARAGRAPH
+
+Lθ is the cost function used to optimize the model.
+
+PARAGRAPH
+
+In general, network Sθ realizes 3 tasks: feature extraction Ffe, non-linear mapping Fnlm and reconstruction Frec.
+
+All operation can be formed by convolution operations (∗), and defined as: Ŷ=Frec(Fnlm(Ffe(X)))=Wrec∗(σ(Wnlm∗(σ(Wfe∗X+Bfe))+Bnlm))+Brec where {Wrec,Wnlm,Wfe,Bfe,Bnlm,Brec=θ} are weights (W) are biases (B) matrices, respectively for each of the network task: fe,nlm,rec and σ is the activation function.
+
+The goal is to optimize network parameters θ, so that end-to-end mapping Sθ accurately predicts Ŷ=Sθ(X).
+
+In the supervised setting, that we utilize in this study, the relation between reconstructed HR image Ŷ and the ground truth image Y formulates the cost function, that is used for parameters optimization.
+
+In SISR, the commonly used cost function is Mean Squared Error (MSE), averaged across N training samples: L(θ)=1N∑i=1N‖Yi−Sθ(Xi)‖2Although lower MSE favors higher Peak Signal to Noise Ratio (PSNR), it has been observed that satisfactory performance can be also obtained by using other evaluation metrics, e.g. Structural Similarity Index (SSIM) (Dong et al., 2016).
+
+PARAGRAPH
+
+Please note, that Eq. (2) is the general form of CNN-based SISR, that contains only one convolutional layer at each network step, i.e. Wfe,Wnlm,Wrec correspond to n(fe∕nlm∕rec) filters of a size w(fe∕nlm∕rec)×h(fe∕nlm∕rec)×c(fe∕nlm∕rec) (w-width, h-height, c-input channels ).
+
+Yet, as previous studies showed, the deeper the network, the better performance can be achieved  (Kim et al., 2016b; Tai et al., 2017).
+
+Thus, in this work, we utilize the novel version of CNN based SR network, designed specifically for thermal data.
+
+The network architecture is explained in details in Section 3.
+
+SECTION
+
+Methods
+
+SECTION
+
+Object detection
+
+PARAGRAPH
+
+Previous attempts to facial features detection from low resolution thermal images using Artificial Neural Networks (ANNs) have shown that achieved accuracy is limited (0.32 ± 0.38, 0.55 ± 0.42 for eyes and nostril areas respectively, expressed as Intersection over Union (IoU)) (Kwaśniewska et al., 2018).
+
+Thus, in our study, we evaluate the effect of applying SR algorithms on object detection accuracy using a relatively large dataset of thermal images.
+
+Specifically, the proposed SR network and other state-of-the-art SR models are used to generate hallucinated images of a face, that are then used for facial features detection training.
+
+Accuracy is measured using IoU metric and compared across various SR algorithms, as well as original HR data, and LR samples generated via bicubic interpolation.
+
+PARAGRAPH
+
+To evaluate the influence of applying SR on the detection task, we utilize Inception based Single Shot Detector (SSD) model (Liu et al., 2016), the same network as in (Kwaśniewska et al., 2018).
+
+SSD is a simple relative to other deep neural networks, as it does not require generation of object proposals during the run-time.
+
+Instead, it creates a set of default boxes over different aspect ratios and scales during training.
+
+Then, predictions are performed by assigning scores for the presence of each object category in default boxes.
+
+This makes SSD a real time solution that can be easily trained for a new task.
+
+PARAGRAPH
+
+Although SSD has more lightweight feature extractor than faster R-CNN, the fast processing time is not indispensable in our case, as the person is supposed to sit still for 10–15 s in order to evaluate vital signs at the distance (Szankin et al., 2018b).
+
+SECTION
+
+Super resolution
+
+SECTION
+
+Proposed network architecture
+
+PARAGRAPH
+
+The wider receptive field in the feature extraction step is potentially beneficial for mitigating the problem of lower contrast of adjacent regions in thermal imagery.
+
+As presented in Fig. 3, we can observe that after applying a set of convolutions filters learnt by a network represent more complex features that filters in a single convolution, what is crucial for reconstructing details in the SR task.
+
+The drawback of deeper networks, though, is increased number of parameters, what leads to huge models sizes and more difficult optimization process (Tai et al., 2017).
+
+Therefore, we propose to apply residual mappings (He et al., 2016) constructed from following operations: conv1fe∕nlm, batchnorm, activation function σ (in our case Rectified Linear Unit (ReLU) (Nair and Hinton, 2010)), conv2fe∕nlm, batch norm to both feature extraction and non-linear mapping steps.
+
+Weights of conv1fe∕nlm and conv2fe∕nlm are shared across all residual blocks within each network step, i.e. fe and nlm respectively, to avoid the increased number of parameters.
+
+After each residual block, the addition operation ⊕ sums up the shortcutconnection conv0fe∕nlm (i.e. input of the residual block that is skipping the convolutional and batch norm layers) with the output from this block.
+
+Operation ⊕ is followed by activation σ.
+
+Output from the feature extraction sub-network Ffe after eth residual block can be defined as: Ffe(e)=gfe(Ife,Wfe)+Ife,e=1gfe(Ffe(e−1),Wfe)+Ife,e∈1,Ewhere gfe represents residual mapping gfe(x,Wfe)=Wconv2feσ(Wconv1fe∗x) to be learnt, and Ife=W0fe∗X is the LR input convoluted with the first weights matrix W0fe.
+
+E is the total number of residual blocks used for feature extraction.
+
+To simplify the mathematical formulation biases were skipped.
+
+PARAGRAPH
+
+Following Kim et al. (2016b), we also introduce recursive supervision to the non-linear mapping sub-network in order to eliminate vanishing gradient problem.
+
+Let us define an input to the recursive block d, as Irec(d): Irec(d)=W0nlm(d)∗Ffe(e=E),d=1W0nlm(d)∗Fnlm(d−1),d∈1,Dwhere D denotes total number of recursions, W0nlm(d) is the weight matrix of the first convolution in the dth recursive block, and Fnlm(d−1) is the output of the previous (i.e. d-1) recursive block in the non-linear mapping sub-network.
+
+Since residual blocks are also introduced to recursive blocks, we can define them as: Fnlm(d)=Bres(U)=gnlm(Irec(d),Wnlm)+Irec(d),u=1gnlm(Bres(u−1),Wnlm)+Irec(d),u∈1,Uwhere U is the number of residual blocks in the recursion d, and gnlm represents residual mapping gnlm(x,Wnlm)=Wconv2nlmσ(Wconv1nlm∗x) to be learnt.
+
+The output Fnlm(d) from dth recursion is simultaneously the output from the last (Uth) residual block Bres(U) within this recursion.
+
+All D outputs from the nlm sub-network are weighted in the reconstruction sub-network Frec to produce the final output.
+
+Also, additional identity mapping is added in order to correlate LR input (X) with restored HR data and, in this way, preserve detailed image components.
+
+Frec=∑d=1Dw(d)(Fnlm(d)+X)Then, taking into account Eq. (3), similarly to Kim et al. (2016b), the cost function can be defined as: L(θ)=1N1D∑i=1N∑d=1D‖Yi−∑d=1Dw(d)(Fnlm(d)+X)‖2
+
+SECTION
+
+Reference SR solutions
+
+PARAGRAPH
+
+In this subsection, we specify the differences between the proposed network architecture and state of the art algorithms.
+
+The pioneer research of applying CNN to SR task (model knows as SRCNN) was conducted by Dong et al. (2016).
+
+Yet, it had been soon confirmed that deeper representation can lead to better results, e.g. in DRCN (Kim et al., 2016b) and DRRN (Tai et al., 2017) models.
+
+Motivated by these findings, we base our idea on these solutions, but introduce some additional steps to better fit thermal data.
+
+Similarly to DRCN, we use recursive supervision to reduce the risk of overfitting, while increasing the depth of the network.
+
+Besides this operation, we propose to further deepen the model and, in this way, gain more accuracy by applying residual blocks, proved to ease the optimization process (He et al., 2016).
+
+This approach has been previously utilized by DRRN, yet, there are some important differences to be noted.
+
+First of all, best DRRN results were achieved for the configuration B1U25, where B denotes number of recursions and U number of residual blocks within each recursion.
+
+It can be easily observed, that in fact recursions were not applied in this setup, as B=1.
+
+In our network we utilize recursive approach.
+
+Secondly, we propose to widen the receptive field in the feature extraction sub-network to mitigate the problem of blurring and bigger distances between interesting components in thermography.
+
+Specifically, we utilize residual blocks in both feature extraction and non linear mapping steps, contrary to DRRN, which uses them only in the mapping part.
+
+In this way, we design the model that fits other image domain, apart from visible light, which most of the networks are designed and tested for.
+
+Last but not least, we use shared weights at each network step, i.e. for feature extraction we use only two weights matrices Wconv2fe,Wconv1fe shared across all E residual blocks, similarly, for the non linear mapping, we use Wconv2nlm,Wconv1nlm shared across all U residual and all D recursive blocks, opposed to DRRN, where weights are shared across residual blocks but are unique across recursions.
+
+Thus, comparing to DRRN, the number of parameters is reduced by 2D times in the non-linear sub-network.
+
+Since we utilize residual blocks in both feature extraction (embedding) and non-linear mapping sub-networks, our model is called DRESNet — Deep Residual Embedding and Supervised-recursion.
+
+The proposed model architecture and recent state-of-the-art models are presented in Fig. 4.
+
+Weights used in each convolution or a block are labeled with a capital letter W. Weights that are shared across operations/blocks are marked with the same background color.
+
+Thus, we may easily note that weights in recursions in DRRN are not shared, while in DRESNet they are, except one convolutional block applied before all following residual blocks.
+
+SECTION
+
+PARAGRAPH
+
+Training
+
+PARAGRAPH
+
+Training is carried on all created sets separately (i.e. single-{8/16}, window{7/30/90}-{8/16}).
+
+At first each of image sets is divided into training, test and validation parts using a 70:15:15 split.
+
+Training and validation sets are used to optimize SR models.
+
+PARAGRAPH
+
+Next, test sub-sets are fed into the trained SR models in order to generate hallucinated face images.
+
+After this step, we have 24 HR sub-sets, 8 for each of the SR models.
+
+Within each model 4 for each of the bit resolution (8/16 bits): avg{7/30/90} and single.
+
+Generated subsets are then again split into training, test and validation parts in a 70:15:15 proportion.
+
+Object detection network (SSD) is trained using each of these subsets.
+
+In addition, we also use bicubic data and original HR data to train the models and compare achieved results with results computed for super-resolved object detectors.
+
+As a result, 40 object detection models are created.
+
+The nomenclature is as follows: {object detection}-{data source}-{data pre-processing}-{resolution}: {SSD}-{bicubic/orig/DRCN/DRRN/DRESNet}-{avg{7/30/90}/single}-{8/16}.
+
+PARAGRAPH
+
+In order to find the most optimal DRESNet architecture, various configurations of the proposed model are tested.
+
+Number of residual blocks in feature extraction sub-network (E), number of recursions (D), and number of residual blocks within each recursion (U) are randomly chosen from the range (1–10).
+
+For each configuration, training is performed using the same set of hyperparameters.
+
+Each convolutional layer contains of 96 3 × 3 filters with weights initialized using He algorithm (He et al., 2015).
+
+Following Kim et al. (2016a), training data is cropped to 41 × 41 patches with a stride of 21.
+
+The model is optimized using back-propagation with the cost function defined by Eq. (8), minimized using Adam optimizer (Kingma and Ba, 2014), momentum 0.9, and weight decay 0.0001.
+
+Initial learning rate is set to 10−2 and then we reduce it by an order of magnitude after each 5 subsequent epochs, for which the decrease of the validation error is not observed.
+
+After evaluating all configurations, we found that the best performing network in terms of PSNR had 3 residual blocks in the feature extraction sub-network (E=3) and 9 recursions (D=9) in the non-linear mapping sub-network.
+
+Both residual and recursive blocks are described in details in Section 3.2.1.
+
+Contrary to DRRN, it turned out that residual blocks in recursions do not produce better results.
+
+Instead it is better to place them before recursions.
+
+The final architecture of the introduced SR CNN is presented in Fig. 5.
+
+Selected model has 3 residual blocks with shared weights in the feature extraction part and 9 recursions in the non-linear mapping part.
+
+The final output is constructed as the weighted sum of all recursions.
+
+This configuration is used in all further experiments and we thereafter refer to it as DRESNet.
+
+PARAGRAPH
+
+DRCN and DRRN are trained with hyperparameters suggested by their authors (Kim et al., 2016b; Tai et al., 2017) using TensorFlow implementation (TensorFlow implementation of SR models, 0000) mentioned as the alternative code in the original DRRN repository (DRRN repository, 0000).
+
+This implementation was DRRN configuration uses 9 residual blocks and 1 recursion, while for DRCN 16 recursions are applied.
+
+For a fair comparison with DRESNet, number of filters in both models was set to 96.
+
+Our motivation is based on results achieved by SRCNN (Dong et al., 2016), which proved that better performance is achieved by increasing the number of filters in convolutional layers.
+
+Taking it into account, using different number of filters may affect results, leading to false conclusions about the architecture itself, i.e. placement of recursions, residuals etc.
+
+To avoid results being biased by different number of filters, we decided to use the same filter width for all SR networks.
+
+PARAGRAPH
+
+Since the number of super-resolved data used for training object detection model is limited, we utilize transfer learning technique (Torrey and Shavlik, 2010) to tune publicly available checkpoint (TensorFlow detection model zoo, 0000) on our thermal dataset.
+
+The random search approach (Bergstra and Bengio, 2012) was used to find the best training configuration.
+
+After that, the same hyperparameters were applied to SSD object detection, i.e. training steps 40 000, batch size 32, initial learning rate 0.004, learning rate decay steps 5000, decay factor 0.95.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+Calculated Peak Signal-to-Noise Ratio and Structural Similarity Index (for each marked region and the frame as a whole) for 8 and 16-bit images are collected in Tables 1 and 2, respectively.
+
+We compare results achieved for images enhanced with various SR algorithms and resized with bicubic interpolation both for extracted single images and images calculated as the average of 7, 30, and 90 subsequent frames.
+
+Table 3 presents Intersection over Union between regions marked manually (ground-truth) and regions detected by object detection models (SSD) trained on images with improved and decreased resolution and evaluated on test sets corresponding to the applied enhancement/degradation algorithm, i.e. model trained on bicubic data was evaluated on bicubic data, etc.
+
+Relation between IoU metric (average for all detected regions) and PSNR (average for all marked facial areas) is presented in Fig. 6.
+
+Qualitive results of applying tested SR models on low resolution images are presented in Fig. Fig. 7.
+
+A chosen region of each volunteer’s face was enlarged to visualize the effect of facial features restoration.
+
+PARAGRAPH
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The extensive benchmark evaluation performed for the collected thermal images showed that PSNR can be significantly improved if residual blocks are used in the Feature Extraction part of the network.
+
+As shown in Table 1, the presented SR CNN model called DRESNet outperformed other state-of-the-art solutions in terms of PSNR by a large margin (in the best case 21.13 dB comparing the to bicubic interpolation, 17.21 dB comparing to DRCN and 4.4 dB comparing to DRRN).
+
+Analysis of the SSIM index also proves the robustness of the DRESNet model, but DRRN achieves similar results.
+
+This may be cause by the fact that PSNR is more sensitive to the additive noise (Hore and Ziou, 2010), that even if very small in low resolution sequences may become exceedingly prevalent.
+
+The results confirm that the widened receptive field helps with mitigating the problem of smooth representation of thermal features by analyzing more distant dependencies between interesting components.
+
+PARAGRAPH
+
+In addition, we also proved that utilization of the average of subsequent frames instead of single images help to further increase performance.
+
+For all tested SR solutions, the best results were achieved for images calculated as the average of the window covering 90 adjacent frames.
+
+Taking it into account, we believe that analysis of differential images is potentially a very interesting research area that can lead to new conclusions.
+
+Since it is very hard to avoid uncontrolled movements of volunteers during data collection, differential images may contain some important information about the object of interest (e.g. person) while the rest of the image (e.g background) is removed.
+
+Thus, in the future study we would like to explore whether facial features can be detected from the image calculated as a difference between a given frame and the average of subsequent frames similarly to images presented in even rows in Fig. 2.
+
+PARAGRAPH
+
+Also, the significant finding of this study is that accuracy can be greatly improved by preserving the original bit resolution of images.
+
+The dataset collected by us contained raw images with 14-bit resolution what allowed for generating 8 and 16-bit images (16-bit format, but up to 14-bit useful information) that were then used in our experiments.
+
+The performed analysis showed that 16-bit resolution produces PSNR of values higher by at least 10% comparing to results achieved for 8-bit images for the presented DRESNet model.
+
+In the best case (single frame, eye area) the difference was even higher −25%.
+
+For other SR models utilization of higher resolution data was also helpful.
+
+Results achieved by DRCN were improved by ∼66%, reducing the PSNR difference between DRCN and DRESNet from ∼15.36 dB to ∼2.97 dB for frames creates using 90 subsequent images.
+
+For DRRN, the improvement of PSNR was around 10% if 16-bit images were used.
+
+This confirms the need of creating thermal face databases in raw formats that contain unprocessed data.
+
+We believe that the database published by us may become a very useful reference for further studies on thermal image analysis and processing for e.g. non-contact vital signs estimation (Ruminski and Kwasniewska, 2017) from automatically detected facial areas (Kwaśniewska et al., 2018).
+
+PARAGRAPH
+
+Another important aim of this research was to evaluate whether increased image quality metrics (PSNR, SSIM) lead to the better accuracy of facial features detection.
+
+As presented in Fig. 6, we observe that to a certain level of PSNR (∼30 dB), the higher PSNR, the better IoU.
+
+Yet, once PSNR exceeds this level, the detection model is able to learn correct predictions regardless of PSNR values.
+
+Also, it saturates and cannot further outperform its state-of-the-art accuracy (for SSD model ∼0.85 Liu et al., 2016).
+
+PARAGRAPH
+
+Theoretically, the universal deep learning model should be able to learn a single function D(x) (where D denotes the detection network applied to the image x) equally well as two functions S(D(x)) (S denotes the SR model).
+
+Thermal images though are characterized by smoothed representation of features.
+
+Downscaling leads to even more blurred version of the image, where edges of facial features are not clear and their shapes may be distorted (see Fig. 8).
+
+Application of CNN-based models, that frequently utilize high frequency component may be not sufficient, as it is hard for the detector to correctly adjust bounding boxes.
+
+Thus, the IoU value decrease.
+
+Our experiments confirmed this assumption.
+
+The use of low resolution data (images downscaled with bicubic interpolation) for facial features detection lead to very poor results (IoU values around 0.5).
+
+This proves the need of enhancing images before feeding them to object detection models in order to create an accurate solutions that use thermal image processing.
+
+PARAGRAPH
+
+To further improve the accuracy of facial areas detection, we plan to train our SR network with the augmented data to create solution that is able to better generalize to various databases.
+
+Also, we will use gradient clipping that helps to mitigate the problem of exploding gradients (Tai et al., 2017).
+
+PARAGRAPH
+
+Finally, we believe it would be useful to evaluate other image quality metrics as well (e.g. Information Fidelity Criterion IFC, Noise Quality Measure NQM, Signal to Noise Ratio SNR, Universal Quality Index UQI, Visual Information Fidelity VIF, Visual Signal to Noise Ratio VSNR, etc.).
+
+We would like to perform in-depth comparison of these metrics in future work and determine which one would be the best for thermal images.
+
+This evaluation is very important because thermal data have different characteristic than RGB images, so maybe different metrics would reflect thermal image enhancement better.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+The aim of this study was to evaluate various image enhancement methods in low resolution thermal imagery of original bit-resolution and after lossy compression.
+
+For this, we collected and published a database of raw facial images.
+
+Extensive benchmark evaluation proved that Peak-Signal-to-Noise Ratio can be improved by 60% (in the best case) if 16-bit resolution data is used instead of 8 bits.
+
+Additionally, we presented how DL-based SR model should be designed to address the issue of contextual information being spread over larger image regions due to the heat flow that is visible in thermography.
+
+The DRESNEt model presented by us outperformed other SR networks on low resolution thermal images by a margin of ∼15 dB and ∼3 dB comparing to DRCN and DRRN, respectively.
+
+Also, we showed that it is important to enhance images to improve facial features detection, as LR inputs produce IoU of 0.5 at most for 8-bit images.
+
+In the future work we will focus on the detection of facial features from other images that are included in the collected dataset, specifically how the proposed model deals with sequences, where volunteers perform small head movements.

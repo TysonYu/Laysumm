@@ -1,0 +1,387 @@
+10.1016/j.jhep.2019.05.020
+
+FULLTEXT
+
+TITLE
+
+Natural history of histologically proven alcohol-related liver disease: A systematic review
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Alcohol-related liver disease (ALD) is common throughout the world.1
+
+ALD is a leading cause of liver-related morbidity and mortality,2 and a frequent cause of death amongst people of working age.3
+
+Hazardous drinking – consumption of alcohol at levels that are likely to cause harm – is prevalent globally.4
+
+This is a prerequisite for the development of ALD, which covers a spectrum of disease from steatosis, steatohepatitis to cirrhosis.
+
+Earlier stages of disease are considered reversible with abstinence from alcohol.5
+
+Liver-specific morbidity and mortality is only considered relevant in patients with more advanced disease.
+
+PARAGRAPH
+
+Good quality natural history studies exist for most liver diseases but only relatively few describe the prevalence or progression of histologically defined ALD.
+
+Population-based studies such as the Dionysius study in northern Italy6 are useful but have necessarily relied largely on ultrasonography to define liver disease.
+
+Mixed results have been observed on the association between histological parameters and progression of ALD.
+
+Hepatic steatosis, considered the earliest stage of ALD can progress to cirrhosis7,8 and other studies have confirmed the high risk of death in alcohol-related cirrhosis.9
+
+The relationship between alcohol intake and prevalence, progression and death is not straightforward in these studies, where other aetiological factors may play a significant role.10
+
+However, several prospective population studies have shown that self-reported alcohol intake is a good predictor of the future risk of alcohol-induced diseases.11
+
+PARAGRAPH
+
+An accurate understanding of the natural history of ALD is necessary for prognostication and communication with patients.
+
+This is not well defined at present.
+
+Using the PICOS tool (participants, interventions, comparisons, outcomes and study design), this study sought to use published observational data to describe prevalence, progression and mortality in people with biopsy-proven ALD.
+
+SECTION
+
+Materials and methods
+
+PARAGRAPH
+
+A systematic review was undertaken by searching PubMed (1948 – present) and MedLine (1946 – present) using the MeSH terms ‘alcoholic liver disease’, ‘prevalence’, ‘natural history’ and ‘epidemiology’.
+
+The search strategy is described in full in the supplementary information.
+
+This review was registered with the PROSPERO database.
+
+Searches were performed on the 31st May 2018 and limited to English language and human studies.
+
+Full papers and abstracts were included.
+
+The risk of bias in the studies included was based on the Newcastle-Ottawa tool.12
+
+SECTION
+
+Data analysis
+
+PARAGRAPH
+
+Data were analysed for 3 principle outcomes: (i) prevalence of histological subtypes of liver disease, (ii) progression of pre-cirrhotic liver disease to cirrhosis and (iii) mortality (overall, liver-specific mortality and non-liver mortality).
+
+Pre-specified sub-analyses were planned for abstinent/non-abstinent patients.
+
+For the purposes of analysis 4 histological stages of ALD were considered: steatosis, steatohepatitis, fibrosis not amounting to cirrhosis and cirrhosis.
+
+Linear progression through these stages was assumed.
+
+Progression or mortality rates were calculated by dividing the total number of events by the median follow-up duration in years to get the annual number of events.
+
+Overall prevalence, progression rates and annualised mortality rates were calculated with single-proportion meta-analysis, using ‘meta’ in R.13 Random effects meta-analysis was used to generate an overall proportion with 95% CIs.
+
+Sensitivity analyses were performed to distinguish between the histological diagnosis of steatohepatitis and the acute clinical syndrome of alcoholic hepatitis.
+
+To attempt to distinguish between these entities in the studies included we examined data regarding the prevalence of jaundice, the average serum bilirubin concentration and the proportion of patients who had been admitted to hospital acutely at the time of liver biopsy.
+
+Of these variables, only the proportion of patients who were admitted to hospital was reported frequently enough to be used in sensitivity analysis.
+
+The sub-categories of non-liver-related and liver-related mortality were not analysed in the sensitivity analysis as too few data were available.
+
+This systematic review is reported according to the MOOSE statement.14
+
+PARAGRAPH
+
+For further details regarding the methods used, please refer to the supplementary information.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+The literature searches yielded a total of 46,043 results, of which 49 were reviewed in more detail, yielding 25 studies suitable for inclusion.
+
+Searching reference lists and citing literature yielded a further 12 studies (Fig. 1).
+
+In total, 37 studies including 7,528 participants were included.
+
+The characteristics of patients in each study are shown in Table 1.
+
+The assessed risk of bias was fairly uniform across the studies (Table S1).
+
+Only a few studies explicitly included consecutive patients, raising the risk of selection bias, and few reported independent assessment of biopsies by pathologists blinded to the clinical scenario.
+
+Some studies relied on registry data without access to original patient records.
+
+SECTION
+
+Prevalence of ALD amongst hazardous drinkers
+
+PARAGRAPH
+
+Fifteen studies, including a total of 3,474 patients, reported on histological liver disease in hazardous drinkers15–18,19,20–26,27–29 (Table 2).
+
+The prevalence of each histological subtype of ALD was 15% (95% CI 7–18%) for normal histological appearances, 27% (21–38%) for steatosis, 24% (12–28%) for steatohepatitis, 27% (19–46%) for fibrosis not amounting to cirrhosis and 26% (19–36%) for cirrhosis (Table 2).
+
+When studies that included consecutive patients were compared to those that did not, more normal histology was found (19% vs. 9%), and fewer cases of steatohepatitis (15% vs. 26%) or steatohepatitis with cirrhosis (10% vs. 13%) were found.
+
+PARAGRAPH
+
+The indication for liver biopsy varied significantly between studies, no study included consecutive hazardous drinkers without additional caveats, for example presentation to hospital, or raised aspartate aminotransferase.
+
+Only 1 study included patients from primary care settings,28 all others were based on hospitalised patients.
+
+There was variation with regard to the histological scoring system used to grade fibrosis, with some using the METAVIR system,30 while other more recent papers used the system proposed by Kleiner et al. for grading of non-alcoholic fatty liver disease.31
+
+Most studies reported histological features individually, such that overlapping disease was not recognized, however the study from Chedid et al. reported ‘pure’ findings from sicker patients, which may account for the outlying values from this study.
+
+The variation in reporting may account for the wide interquartile ranges.
+
+There were insufficient data reported in the studies included to consider alcohol intake for each histological category.
+
+SECTION
+
+Progression of disease
+
+PARAGRAPH
+
+Nine studies including 918 participants described histological progression of disease using paired liver biopsies.5,7,8,32–37
+
+None of these studies used protocol biopsies at planned intervals.
+
+Instead biopsies taken in the course of clinical care, or autopsy results, were used to describe histological progression.
+
+The median time between biopsies was 7 years.
+
+The overall annual progression from pre-cirrhotic disease to cirrhosis was 4% (95% CI 2–11%).
+
+The rate of progression to cirrhosis varied between histological subtypes: annualised progression rates to cirrhosis were 1% (95% CI 0–8%) for patients with normal histological appearance on biopsy at baseline, 3% (95% CI 2–4%) for steatosis, 10% (95% CI 6–17%) for steatohepatitis and 8% (95% CI 3–19%) for any grade of pre-cirrhotic fibrosis (Fig. 2, Table S2).
+
+The single report of progression from normal histological appearance to cirrhosis renders this finding highly inaccurate.
+
+PARAGRAPH
+
+There were insufficient data regarding alcohol use in the studies included to analyse the effect of abstinence or alcohol on rates of progression.
+
+Only 1 study included information about progression rates in abstinent versus non-abstinent patients, where progression from steatohepatitis to cirrhosis was 18% in abstinent patients over 1.7 years, compared to 23% in non-abstinent patients.5
+
+Very few of the included studies reported on regression of liver disease; those that did observed low rates of regression of steatohepatitis to ‘minimal histological changes’ (12% per year),5 but normalisation of liver histology was not seen32,37 (Table S3).
+
+SECTION
+
+Mortality in ALD
+
+PARAGRAPH
+
+Three subtypes of mortality were considered: overall mortality, non-liver-related mortality and liver-specific mortality.
+
+Twenty-three studies described mortality outcomes.7,9,15,17,18,22,25,33,35,38–49
+
+In the 8 studies (including 1,091 participants) that reported mortality in alcohol-related steatosis7,9,18,25,43,45,46,49 overall annual mortality was 6.0% (95% CI 4.0–7.0%), annual non-liver mortality was 4.0% (95% CI 3.0–6.0%) and annual liver-related mortality was 1.0% (95% CI 1.0–2.0%) (Fig. 3, Table S4).
+
+PARAGRAPH
+
+In the 7 studies (including 732 participants) that reported mortality in alcohol-related steatohepatitis,9,18,25,35,42,44,45 overall annual mortality was 11% (95% CI 6.0–19.0%), annual non-liver mortality was 4.0% (95% CI 2.0–9.0%) and annual liver-related mortality was 7.0% (95% CI 3.0–14.0%) (Fig. 4, Table S4).
+
+PARAGRAPH
+
+In the 7 studies (including 930 participants) that reported mortality in alcohol-related cirrhosis,9,18,22,25,38,41,48 overall annual mortality was 8.0% (95% CI 5–13%), annual non-liver mortality was 2.0% (95% CI 1.0–4.0%) and annual liver-related mortality was 6.0% (95% CI 3.0–10.0%) (Fig. 5, Table S4).
+
+PARAGRAPH
+
+Information regarding mortality in abstinent or non-abstinent patients was only available for 3 studies, each regarding alcohol-related cirrhosis.
+
+These studies reported on a total of 519 participants with information about alcohol intake (of whom 187 were abstinent during follow-up and 332 continued to consume alcohol).
+
+Median annual mortality was 4.7% (IQR 4–7%) in abstinent patients, and 8.0% (IQR 6.2–11.2%) in non-abstinent patients.
+
+This difference was not statistically significant (Mann-Whitney U test p = 0.229).
+
+SECTION
+
+Sensitivity analyses
+
+PARAGRAPH
+
+A series of sensitivity analyses were performed to attempt to distinguish between the acute clinical syndrome of alcoholic hepatitis and the histological diagnosis of steatohepatitis by comparing studies that reported on cohorts of patients who had been admitted to hospital, to those studies that included both inpatients and outpatients.
+
+In studies that only included hospitalised patients, the incidence of steatohepatitis was greater (20% [12–33%] vs. 16% [8–29%]), progression from steatohepatitis to cirrhosis was more common (14% of individuals each year [7–26%] vs. 8% [3–19%]) and overall mortality was greater (15% per year [8–26%] vs. 5% per year [2–10%]), compared to studies that described cohorts of both inpatients and outpatients (Fig. S1–4).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This is the first systematic review that summarises existing knowledge on the natural history of ALD.
+
+The data show that histological evidence of ALD is common amongst hazardous drinkers, who are usually pre-cirrhotic; although approximately one-quarter of individuals with ALD will have cirrhosis.
+
+Our results confirm that steatohepatitis is a distinct phenotype within the spectrum of ALD, characterised by higher rates of progression to cirrhosis and worse mortality.
+
+However, this is only the case amongst hospitalised patients with steatohepatitis – mixed cohorts of inpatients and outpatients with steatohepatitis showed a similar mortality to patients with steatosis alone.
+
+Mortality in hospitalised patients with steatohepatitis is higher than that associated with cirrhosis, highlighting the influence of marked inflammatory response in these patients and its serious consequences.
+
+The causes of mortality differed across the spectrum of ALD: In alcohol-related hepatic steatosis mortality was mainly driven by extrahepatic causes, whilst mortality was predominantly liver-related in steatohepatitis and cirrhosis.
+
+PARAGRAPH
+
+In addition, these data uphold previous observations that alcohol-related hepatic steatosis is not a benign condition with annual mortality rates of approximately 6% each year.
+
+This is driven predominantly by non-liver-related causes, as liver-related deaths were only noted to occur at a rate of 1% each year.
+
+It cannot be proven from these data, but it is likely that deaths in this group are largely a consequence of the known extrahepatic risks of hazardous alcohol use, including malignancies and cardiovascular disease.
+
+The relevance of the presence of hepatic steatosis on these events is not clear, although recent data suggest an independent effect of hepatic steatosis on cardiovascular dysfunction.50
+
+PARAGRAPH
+
+The annual mortality rate for patients with steatohepatitis reported here (14.8%) is notable for being lower than in studies of patients with a clinical diagnosis of alcoholic hepatitis where the average 6-month mortality rate is approximately 38%.51
+
+The contrast is probably due to differences in patient characteristics between epidemiological studies of relatively well patients, as reported here, and acutely unwell patients admitted to hospital with severe alcoholic hepatitis.
+
+It is notable that the paper by Chedid et al.,18 which included many patients with acute alcoholic hepatitis, is an outlier amongst the other studies included in this review, with higher mortality rates.
+
+Histological steatohepatitis may be present without the clinical syndrome of alcoholic hepatitis52 and this distinction is important as the short-term outlook in acute disease is poor.
+
+The sensitivity analyses performed here confirm this with greater progression to cirrhosis and greater overall mortality in the cohort of patients who were admitted to hospital at the time of the index biopsy.
+
+It is a difficulty with the source data used in this study that this issue cannot be more precisely addressed.
+
+PARAGRAPH
+
+This study has limitations, principally related to the limitations of the data we were analysing.
+
+There were too few studies to allow for robust meta-regression53 and consequently the calculation of annual progression and mortality rates relied on average values.
+
+This relies on the assumption of uniform distribution of mortality over the course of follow-up, which may not be accurate.
+
+However sufficient data to allow for more accurate time-dependent mortality risk were not available.
+
+The data used for meta-analysis were very heterogenous and this is reflected in the large I2 values (for example, 75% in assessment of progression to cirrhosis from fibrotic disease and 83% for assessment of mortality in steatohepatitis).
+
+This is probably a consequence of multiple factors: the assorted methods of assessment and reporting of histological disease among studies, the drinking behaviour of different cohorts after baseline liver biopsy, and the type of cohort recruited in the first instance.
+
+This heterogeneity is a limitation of this study, and measures to allow this to be addressed should be considered in future studies.
+
+PARAGRAPH
+
+Studies without histology were not included as we wanted to focus on biopsy-proven disease.
+
+This will necessarily have excluded studies where patients are not biopsied and introduced a bias.
+
+That said, histological outcomes can be calibrated with clinical diagnoses, for example in the study by Dam-Larsen et al.43 22% of patients with pure alcohol-related steatosis were diagnosed with cirrhosis on clinical grounds over the 13 years of follow-up, a rate of 1.7%/year, similar to the 2%/year derived from studies based on histology.
+
+In addition, differences in the indication for biopsy varied between studies – some were part of routine practice, but others were for research purposes.
+
+Most commonly, studies reported biopsies that had been performed during routine clinical practice where indications will have varied among clinicians, and among centres.
+
+Very few of the included studies reported in protocol-driven biopsies in consecutive patients.
+
+PARAGRAPH
+
+Relying on histology is not without its drawbacks.
+
+One potential source of bias is regression to the mean.
+
+There is probably some variation in histological severity purely due to sampling variation.
+
+Patients who already have cirrhosis are much less likely to have a repeat biopsy.
+
+Therefore, those who are followed up and have a repeat biopsy are selected by having pre-cirrhotic liver disease.
+
+Due to sampling variation, some of these will have cirrhosis on repeat biopsy purely as a result of regressing to the mean rather than true progressive disease.
+
+There is of course a similar issue with patients who appear to have regression in fibrosis.
+
+This is a problem in clinical practice as well as research cohorts.
+
+Unfortunately, there is no way to reliably estimate the effect that this might have on the results.
+
+PARAGRAPH
+
+Our search strategy did not explicitly exclude patients admitted to hospital with acute alcoholic hepatitis, but the inclusion criteria of at least 1 year of follow-up meant that several large series of patients with alcoholic hepatitis were excluded.
+
+There was not enough information to separate patients with the acute clinical syndrome of alcoholic hepatitis, from those with the histological entity of steatohepatitis.
+
+This is an important distinction and should be explored in much greater detail in future studies.
+
+PARAGRAPH
+
+Past, present and future alcohol use is critical to understanding prognosis in ALD.38,47
+
+However, this was not reported in sufficient detail in most of the included studies to be included in analyses.
+
+Other missing data were common in the included studies, for example biochemical values and anthropometric data were commonly not reported, precluding meta-regression analysis.
+
+A lack of baseline data meant that prediction of progression or death in terms of baseline characteristics could not be evaluated.
+
+PARAGRAPH
+
+Another issue is the lack of a single accepted histological scoring system for ALD.
+
+Scoring systems specific to ALD been proposed, for example from an international group in 198154 and more recently a system for grading alcoholic steatohepatitis,55 and in some of the included studies scoring systems developed for other liver diseases were co-opted for use in ALD, for example the METAVIR score or the Kleiner-Brunt classification.
+
+More commonly, authors used a process that was specific to their study.
+
+The lack of a single scoring system may not significantly impact on gross findings such as cirrhosis, but more subtle signs such as early fibrosis may not be comparable between studies.
+
+This is a major limitation not just of this systematic review but of the field in general – steps to encourage the widespread adoption of a clinically relevant scoring system for the whole spectrum of ALD would be of great value.
+
+PARAGRAPH
+
+This systematic review used robust literature searching to summarise existing information on the natural history of ALD.
+
+This allowed us to address fundamental aspects of ALD such as prevalence, progression and prognosis.
+
+However, important questions remain that could not be addressed due to the limitations of existing data.
+
+Cause of death had to be addressed in broad terms ‘non-liver related’ and ‘liver related’, whereas more specific causes of death would be informative.
+
+Similarly, progression to cirrhosis was based on histology but biopsy is rarely used in clinical practice.
+
+Clinically relevant events such as the development of ascites, variceal bleeding or hepatocellular carcinoma would be of more value to clinicians and patients.
+
+PARAGRAPH
+
+Predictive and prognostic factors for progression in ALD need to be addressed in large systematic prospective populations.
+
+Understanding the progression of disease and likelihood of death is important for effective communication with our patients, for public health purposes and for the design of research studies.
+
+This systematic review gives useful information, but the major value of this project may be to highlight current shortcomings in the field that can be addressed in future studies.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The authors received no financial support to produce this manuscript.
+
+SECTION
+
+Conflicts of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Concept and design of study: RP, IAR.
+
+Literature search, data extraction and analysis: RP, IAR.
+
+Review of data, drafting and review of manuscript: RP, GPA, UB, DG, SM, IAR.

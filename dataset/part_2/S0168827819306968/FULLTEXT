@@ -1,0 +1,457 @@
+10.1016/j.jhep.2019.11.009
+
+FULLTEXT
+
+TITLE
+
+Blood metabolomics uncovers inflammation-associated mitochondrial dysfunction as a potential mechanism underlying ACLF
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The results of the CANONIC study were used to redefine acute-on-chronic liver failure (ACLF) as a syndrome which develops in patients with cirrhosis and acute decompensation (AD) and is characterized by an intense systemic inflammation1,2-4 associated with different combinations of organ failures among the six major organ systems (liver, kidney, brain, coagulation, circulation, and respiration), giving rise to different clinical phenotypes1.
+
+ACLF is very frequent, affecting 30%-40% of hospitalized patients, and is associated with high short-term mortality rate (30% at 28 days)1.
+
+In most cases of ACLF, the activation of innate immune cells by pathogen-associated molecular patterns (PAMPs) are thought to play a major role in the induction of systemic inflammation.5
+
+However, the intrinsic mechanisms of ACLF at the tissue and cellular levels that contribute to the development and maintenance of organ failures are unknown.
+
+Understanding these mechanisms should not only result in progresses in the knowledge on pathophysiology of ACLF, but also could provide clues to the development of new biomarkers of organ dysfunction/failure and identification of targets for new therapies of organ failures which are urgently needed.
+
+PARAGRAPH
+
+PAMP-elicited systemic inflammation stimulates the hypothalamic-pituitary adrenal axis to produce cortisol, glucagon, and adrenaline, which, in turn, induce rapid and widespread catabolism including glycogenolysis (liver), proteolysis (mainly muscles) and lipolysis (adipose tissue).6-8
+
+This exuberant catabolic process results in the release of nutrients (glucose, amino acids and fatty acids [FAs], respectively) to fuel the energetically expensive immune responses (which include the production of a battery of inflammatory mediators, immune cell proliferation, adhesion and migration, respiratory burst, and production of acute-phase proteins).6,9
+
+For example, during sepsis (which is a paradigm of acute systemic inflammation), glucose is reallocated to activated innate immune cells where it is used to rapidly generate ATP through glycolysis, while mitochondrial oxidative phosphorylation (OxPhos) is suppressed6,7,9 (See glucose metabolism in naïve and activated innate immune cells, in Fig. S1A and S1B, respectively).
+
+Sepsis also induces metabolic changes in peripheral organs where it inhibits mitochondrial β-oxidation of FAs, resulting in decreased energy production and blood accumulation of FAs attached to molecules of carnitine8,10 (See FA metabolism under healthy conditions and during sepsis, in Fig. S2A and S2B, respectively).
+
+Therefore, in ACLF, systemic inflammation should lead to profound changes in most metabolic pathways.
+
+PARAGRAPH
+
+Metabolomics, which identifies and quantifies small-molecule metabolites (the metabolome), is the omics closest to clinical phenotypes.11
+
+Interestingly, metabolites not only reflect the metabolic activity of tissues but, because many metabolites have powerful biological activity on critical pathophysiological processes, they can also influence the clinical phenotype.11
+
+The best approach to characterize the metabolic changes of such complex syndromes as ACLF, is to perform high throughput untargeted (agnostic) studies in large series of patients.
+
+This approach, which has been applied to sepsis,10 has so far not been applied in the investigation of ACLF.
+
+PARAGRAPH
+
+Here, we report the results of an untargeted metabolomic investigation in biobanked sera from 831 patients with AD cirrhosis with and without ACLF, who were prospectively enrolled in the CANONIC study.
+
+The aims of the study were to characterize the metabolic profile associated with ACLF, to assess if there was a blood metabolite fingerprint specific for ACLF of any grade, each of the three ACLF grades of severity, and each of the three main organ failures (liver, brain, and kidney).
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Patients
+
+PARAGRAPH
+
+The study used biobanked serum samples from patients with acutely decompensated cirrhosis (650 with AD (without ACLF); 181 with ACLF) prospectively enrolled in the CANONIC study1, along with 43 patients with compensated cirrhosis, and 29 healthy subjects.
+
+All these individuals or their legal representatives and the ethics committee of each hospital involved in the study gave informed consent for omics investigations in the biobanked material.
+
+Values for physiological variables and markers of inflammation given in the manuscript were among those previously reported in other studies.1,2,4,12
+
+PARAGRAPH
+
+Definitions and diagnostic criteria of AD, organ failures (OFs) and organ dysfunctions (ODs), ACLF and its grades (-1, -2, and -3), are summarized in Table 1 and Fig. S3A.1,13
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+Untargeted metabolomics by liquid chromatography coupled to high-resolution mass spectrometry (LC-HRMS)
+
+PARAGRAPH
+
+Metabolic extracts were obtained from serum samples following methanol-assisted protein precipitation, and were then analyzed by liquid chromatography coupled to Exactive/Q-Exactive high-resolution mass spectrometers (Thermo Fisher Scientific, Courtaboeuf, France).
+
+A combination of two complementary chromatographic methods was used to profile metabolites.14
+
+Data acquisition was performed in 5 independent batches while data normalization/standardization was achieved thanks to quality control samples injected at regular intervals.
+
+Data processing was achieved using the Workflow4Metabolomics platform.15
+
+Annotation of metabolite features was performed using an internal spectral database14,16 and corresponding chromatographic peak integration was conducted using the Trace Finder software (Thermo Fisher Scientific) (See Supplementary Methods).
+
+SECTION
+
+Statistical analysis and data analysis
+
+PARAGRAPH
+
+We performed multivariate models, including age and gender, and computed the area under the receiver-operating-characteristic curve (AUC) to estimate the value of each metabolite to discriminate patients patients with AD vs those with ACLF.
+
+Then, AUCs values were used for hierarchical cluster analysis (See Table 1 and Supplementary Methods).
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+Patients With AD and ACLF exhibit different clinical phenotypes and features of systemic inflammation
+
+PARAGRAPH
+
+Fig. S3B shows the remarkable heterogeneity of patients with ACLF, there being 35 different groups according to the number, types and combinations of OFs.
+
+Similarly, the 650 patients with AD without ACLF were highly heterogeneous, with only 288 of these presenting AD without any organ failure/dysfunction (data not shown).
+
+Fig. S3C shows the number of subjects with single-liver, -brain or -kidney failure/dysfunction (the 3 commonest affected organs in cirrhosis).
+
+Intense systemic inflammation was present in patients with AD and was even more marked in those with ACLF (Table 2).
+
+SECTION
+
+ACLF associates with a set of increased blood metabolites
+
+PARAGRAPH
+
+The different steps of the analysis of the metabolome are shown in Fig. S4.
+
+We identified and robustly monitored 137 annotated serum small-molecule metabolites (Table S1).
+
+Of note, some isomeric metabolites could not be resolved using the presently used LC-HRMS approach.
+
+Thus, some chromatographic peaks could correspond to more than one metabolite (e.g., pentose phosphates) (Table S2).
+
+PARAGRAPH
+
+PCA obtained from the entire cohort of study subjects (healthy subjects [HS], patients with compensated cirrhosis [CC], patients with AD and those with ACLF) showed clear distinction among the groups, with the first principal component accounting for 22.4% of the variance of the annotated metabolites (Fig. 1A).
+
+This indicates that the progression from CC to ACLF was a major contributor for the variation in the blood metabolome relative to being healthy.
+
+PARAGRAPH
+
+To explore the relationship between the study groups and the underlying patterns of blood metabolite levels, we performed a supervised two-way, hierarchical cluster analysis (Fig. 1B).
+
+This figure brought two major observations.
+
+The first is that the concentration of most metabolites were higher in ACLF, and discriminated these patients from those with AD and CC.
+
+The second, and most important, is that there were no decreases in metabolite levels that would differentiate ACLF form the other groups.
+
+Together these results indicate that the variation in the blood metabolome associated with ACLF is primarily characterized by increases in the levels of blood metabolites.
+
+PARAGRAPH
+
+This feature is also illustrated in Fig. 1C, in which fold changes for each metabolite were compared in a pairwise fashion between ACLF, AD and CC patients to HS (hereafter referred to as ACLF/HS, AD/HS, and CC/HS, respectively).
+
+There was an increase in the number of upregulated metabolites (i.e., whose blood levels increased; right upper quadrant), from CC to AD and ACLF.
+
+Moreover, the number of metabolites upregulated by more than 4-fold was higher in ACLF than in AD.
+
+In contrast, there were no differences in the number of downregulated metabolites across the three pairwise comparisons.
+
+Together, these findings confirm the increases in several blood metabolite levels as a prominent change in the metabolome associated with ACLF.
+
+PARAGRAPH
+
+Using the results obtained in the ACLF/HS comparison as a reference, we ranked metabolites from the highest fold change value to the lowest value and drew a Cleveland plot showing fold changes of each metabolite across the three pairwise comparisons (Fig. 1D, right; Fig. S5).
+
+Zooming on the 50 top metabolites (Fig. 1D, left), it appeared that, for each metabolite, the increase in ACLF was greater than the increase in the two other patients’ groups.
+
+With few exceptions, the increase obtained in AD was intermediate between the increase in ACLF and that in CC.
+
+For example, the metabolite peak called “pentose phosphates” was increased by ∼362-fold in ACLF/HS (which was the highest change in this comparison), ∼64-fold in AD/HS, and 16-fold in CC/HS (Fig. 1D, left).
+
+Together these findings identify a set of blood metabolites whose blood levels dramatically increased in AD and culminated in ACLF.
+
+Fig. S6 gives the fold changes in the entire set of 137 annotated metabolites.
+
+SECTION
+
+Blood metabolites compose a fingerprint for ACLF of any grade
+
+PARAGRAPH
+
+We wondered whether any combination(s) of blood metabolites could reduce the dimension of the data set and serve as a fingerprint of ACLF of any grade.
+
+To address this question, for each of the 137 metabolites, we computed, an AUC assessing the discriminating accuracy of the metabolite in differentiating ACLF of any grade from AD (Table S3).
+
+The resulting AUCs and associated P values were used for a hierarchical cluster analysis, which identified two clusters (Fig. 2A; Fig. S6).
+
+The first cluster, was the largest, and included 99 metabolites poorly associated with ACLF; the second cluster included 38 metabolites with a highly significant association with ACLF (AUC for ACLF ranging from 0.73 to 0.87, and significant p values [Fig. 2A(i); Table S3]).
+
+Thirty-six of the 38 metabolites, were significantly increased in ACLF/HS (Table S4).
+
+Finally, we computed an eigenmetabolite (i.e., a value which is representative of the 38-metabolite cluster) and correlated the eigenmetabolite with the stage of progression of the disease, from healthy status to ACLF via CC and AD.
+
+The eigenmetabolite progressively increased across the different stages of the disease and reached a maximum in ACLF (Fig. 2B).
+
+Collectively, these findings indicate that the 38-metabolite cluster can be seen as a fingerprint of blood metabolites which characteristically accumulated in ACLF, differentiating this syndrome from AD.
+
+SECTION
+
+The blood metabolite fingerprint of ACLF discriminates each ACLF grade from AD
+
+PARAGRAPH
+
+We next investigated the correlation of blood metabolome and ACLF grades.
+
+For each of the 137 metabolites, and for each ACLF grade, we calculated an AUC to assess the discriminating accuracy of the metabolite in differentiating the ACLF grade (1, 2 or 3) from AD (Table S3).
+
+Then, we created a three-column heatmap according to increasing severity [Fig. 2A(ii)] in which each row (one per metabolite) was sorted according to the hierarchical clustering of AUC for ACLF of any grade [Fig. 2A(i)].
+
+Regarding the 38-metabolite cluster defining the ACLF fingerprint, the high AUC values observed in ACLF of any grade were maintained when patients were distributed across the ACLF grades (-1, -2, and -3) [Fig. 2A(ii)], indicating similarities of metabolome changes across ACLF grades.
+
+Of note, the blood metabolite fingerprint was already present in ACLF-1 indicating that this group is clearly different from the AD group, therefore giving biological basis to the clinical diagnostic criteria proposed by the CANONIC study.
+
+Another important finding was that the AUCs for ACLF-1 or ACLF-2 had very close values which were lower than the corresponding AUC for ACLF-3.
+
+Consistent with these findings, the eigenmetabolite of the 38-metabolite cluster increased from AD to ACLF-1, plateaued between ACLF-1 and -2, and further increased in ACLF-3 (Fig. 2C).
+
+PARAGRAPH
+
+A complete ACLF-associated blood metabolite fingerprint is seen in the absence of kidney failure/dysfunction
+
+PARAGRAPH
+
+The presence of kidney failure or dysfunction is important to define ACLF.1
+
+The deterioration of kidney function can result in blood metabolite accumulation, due to both reductions in renal metabolite excretion and increases in metabolite production by the kidney.8
+
+In our study, as expected,1 the prevalence of kidney failure or dysfunction was high among patients with ACLF (Fig. S1B, S3C).
+
+Because of this high prevalence, the blood metabolite fingerprint identified in the whole group of patients with ACLF may, in fact, reflect changes in metabolome related to deteriorated kidney function.
+
+To address this question, we compared the eigenmetabolite of the 38-metabolite cluster across 3 groups: 318 patients with AD without any organ failure/dysfunction, 105 patients with single kidney failure/dysfunction and 68 patients with ACLF-2 or -3, without kidney failure/dysfunction.
+
+The eigenmetabolite was significantly higher in the single kidney-failure/dysfunction group than in the group with AD without any organ failure/dysfunction (Fig. 2D), confirming that deterioration in kidney function is associated with an intense blood metabolite fingerprint.
+
+However, the eigenmetabolite was similar in the “nonrenal”-ACLF group and the single kidney-failure/dysfunction group.
+
+Therefore, alterations in cell metabolism in nonrenal organs may contribute to the fingerprint associated with ACLF.
+
+PARAGRAPH
+
+The blood metabolite fingerprint is qualitatively similar in patients with single organ dysfunction/failure independently of the affected organ
+
+PARAGRAPH
+
+To assess if there was a specific blood metabolite fingerprint for each category of organ failure (OF)/organ dysfunction (OD), we compared patients with single liver-, brain- and kidney-failure/dysfunction with patients with AD without any organ failure/dysfunction, using metabolite AUCs [Fig. 2A(iii)].
+
+The clinical phenotype and number of patients included in this analysis is depicted in Fig. S3C.
+
+The main finding of this analysis was that the fingerprint defining ACLF of any grade was also identified in the three categories of single OF/OD, suggesting a common metabolic derangement across different organs.
+
+SECTION
+
+The blood metabolite fingerprint is similar in infection-related and infection-unrelated ACLF
+
+PARAGRAPH
+
+In the general population, sepsis is known to alter blood metabolome.14
+
+We wondered if among patients with ACLF, blood metabolome differed between those with bacterial infection (n=62) and those without infection (n=117).
+
+Using metabolite AUCs for ACLF versus AD, we found that the blood metabolite fingerprint was remarkably similar in the two groups of patients (Fig. 3), suggesting similarities in metabolic alterations underlying ACLF, whichever infection was present or not.
+
+Of note, a group of 31 metabolites, which were not members of the fingerpint, had higher AUCs for sepsis-related ACLF than for sepsis-unrelated ACLF (Fig. 3).
+
+SECTION
+
+The blood metabolite fingerprint correlates with systemic inflammation
+
+PARAGRAPH
+
+As expected,2-4 the plasma levels of many inflammatory mediators and biomarkers were increased in our patients with ACLF relative to AD (Table 1).
+
+On the other hand, acute systemic inflammation plays a major role in multiorgan metabolic reprogramming.6,8
+
+Here, we found that the eigenmetabolite of the 38-metabolite cluster was positively and significantly correlated with several markers of inflammation, in particular soluble CD206, soluble CD163, and tumor necrosis factor α (TNF-α) (Fig. S7), suggesting that the intensity of systemic inflammation was associated with the “intensity” of the ACLF-associated metabolic alterations witnessed in the blood metabolite fingerprint.
+
+SECTION
+
+Members of the ACLF blood metabolite fingerprint have potential pathophysiological significance
+
+SECTION
+
+ACLF associates with increased proteolysis and lipolysis
+
+PARAGRAPH
+
+As expected in the context of acute systemic inflammation,6,8 several members of the ACLF-associated 38-metabolite cluster were amino acids or amino acid metabolites indicating increased proteolysis (e.g., saccharopine, an intermediate in the degradation of lysine, and N6,N6,N6-trimethyl-L-lysine, a product of protein-bound lysine degradation) (Fig. 2A) (Supplementary results).
+
+SECTION
+
+ACLF associates with changes in intracellular glucose metabolism
+
+PARAGRAPH
+
+Consistent with previous findings in acute systemic inflammation,9 ACLF was associated with features of increased activity of the pentose phosphate pathway (Fig. 2A; Fig. 4).
+
+The 38-metabolite cluster also included metabolites indicating increase in the glucuronate pathway (Fig. 2A; Fig. 4).
+
+ACLF also exhibited increased blood levels of the glucose metabolite lactic acid (Fig. S8).
+
+Finally, the 38-metabolite cluster included 4-hydroxy-3-methoxyphenylglycol sulfate (Fig. 2A), indicating increased sympathetic nervous activity, a stimulus for glycolysis.
+
+Together, these data indicate that ACLF was associated with intracellular glucose rerouting through different extramitochondrial pathways (Fig. 4; Table S5).
+
+SECTION
+
+ACLF is associated with reduced mitochondrial β-oxidation
+
+PARAGRAPH
+
+Fatty acylcarnitines (i.e., FAs attached to carnitine) of different lengths (two being in the 38-metabolite cluster [Fig. 2A]) had increased blood levels in ACLF/HS comparison (Fig. 5A).
+
+Blood accumulation of fatty acylcarnitines is a marker of decreased mitochondrial β-oxidation and subsequent reduction in OxPhos (Fig. 5B),8,10 in particular in the context of acute systemic inflammation.8,10
+
+Of note, N6,N6,N6-trimethyl-L-lysine, which is a known precursor of carnitine (Fig. 5B) was also a member of the 38-metabolite cluster.
+
+Interestingly, an associated lipidomic analysis of a partly overlapping patient cohort has been conducted (data not yet published) suggesting that ACLF may lead to increased levels of the monounsaturated FAs palmitoleic and oleic acids, which in the context of ACLF reflects both lipolysis in adipose tissue and decrease oxidation in peripheral tissues.8
+
+SECTION
+
+Accentuation of metabolism alterations in sepsis-related ACLF
+
+PARAGRAPH
+
+The analysis of the group of 31 fingerprint-independent metabolites that have higher AUC for sepsis-related ACLF than for ACLF unrelated to sepsis (Fig. 3) revealed that several of these metabolites were related to glycolysis (pyruvate, lactic acid), extraction of intermediates of the Krebs’ cycle (citric acid/isocitric acid, oxaloacetic acid), and fatty acylcarnitines (butyrylcarnitine, decanoylcarnitine).
+
+Together these findings suggest that sepsis-related ACLF was associated with more intense glycolysis (see Fig. S1) and more marked inhibition of β-oxidation.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This article reports the first study using high-throughput untargeted metabolomics in blood samples from a large series of patients with AD of cirrhosis, with or without ACLF, patients with compensated cirrhosis and healthy subjects.
+
+We found that ACLF occurs in the setting of marked and widespread alterations in cellular metabolism leading up to a specific metabolome profile (fingerprint) made of 38 blood metabolites which have increased levels in ACLF.
+
+Of note, the ACLF fingerprint was independent of the type of organ failure (phenotype).
+
+We found a direct correlation between the plasma levels of markers for systemic inflammation (a hallmark of ACLF)1-4 and the eigenmetabolite (which is representative of the fingerprint), suggesting a close link between systemic inflammation and the alterations in cell metabolism captured by the blood metabolite fingerprint.
+
+PARAGRAPH
+
+Our study also showed that, among patients with ACLF, the blood metabolite fingerprint was similar among those who had bacterial infection (i.e., sepsis) at enrollment and those who did not have this complication.
+
+ACLF mainly occurs in two apparently different contexts; in the first one, ACLF develops in the context of bacterial sepsis (even if the cause of hospital admission was severe alcoholic hepatitis or gastrointestinal hemorrhage), while in the second one, ACLF develops without a clinically identifiable trigger (infection, trauma, burns, pancreatitis, or hypovolemic shock),1,5,17-19 a condition we called ACLF of unknown origin.
+
+It has been proposed that the inducers of systemic inflammation in sepsis-related ACLF are bacterial molecules (the paradigm of these being PAMPs) produced by infecting bacteria, while, in ACLF of unknown origin, the inducers of systemic inflammation are PAMPs which have translocated from the gut to the systemic circulation, and are unrelated to any ongoing infection.5,17,19
+
+Both forms of ACLF (sepsis-related versus unknown origin), therefore, would have mechanistic similarities, i.e., primarily an exaggerated response of the innate immune system to bacterial PAMPs.
+
+Shared mechanisms would explain an identical 38-metabolite blood fingerprint in patients with sepsis-related ACLF and in those with ACLF of unknown origin.
+
+The fact that the systemic inflammatory response is more intense among patients with sepsis-related ACLF than among those with ACLF of unknown origin,2 may explain that some alterations in fingerprint-independent metabolites were more marked in the former patients than in the latter (Fig.3).
+
+PARAGRAPH
+
+PAMP-induced acute systemic inflammation is known to stimulate the hypothalamic-pituitary-adrenal axis and sympathetic nervous system to activate glycogenolysis, proteolysis and lipolysis.6-8
+
+Intense catabolism also occurred in ACLF, reflected here by blood accumulation of FAs and 24 metabolites derived from amino acids.
+
+In addition our patients with ACLF had features of extreme activation of the sympathetic nervous activity, indicated by the accumulation of the catecholamine metabolite 4-hydroxy 3-methoxyphenylglycol sulfate.
+
+The purpose of this coordinated neurohumoral response is to provide nutrients to the energetically expensive inflammatory responses; the overall cost having been estimated to reach up 10,000 calories/day for a septic patient.7
+
+PARAGRAPH
+
+In our patients with ACLF, glucose metabolism occurred primarily in the cytosol, and not in the mitochondria.
+
+Indeed, we found evidence of enhanced glycolysis because of accumulation of pentose phosphates (fingerprint; Fig. 4) and lactic acid (Fig. S8).
+
+Moreover, the fingerprint included glucuronique acid, another cytosolic metabolite of glucose, which can give rise to pentose phosphates (Fig. 4).
+
+This rerouting in the intracellular glucose metabolism also occurs in other stress conditions.6-10
+
+In the context of PAMP-induced systemic inflammation, glucose is prioritized to activated innate immune cells to rapidly produce ATP through an activation of glycolysis (caused by the induction of the key enzymes of this pathway) giving rise to lactate, while, at the same time mitochondrial OxPhos is suppressed (for several reasons, including the inhibition of the electron transport chain by overproduced nitric oxide [NO])6,7,9 (Fig. S1B).
+
+In activated innate immune cells, glucose also enters the pentose phosphate pathway, a branch of glycolysis which provides riboses (essential for the synthesis of nucleotides to support production of inflammatory molecules) and NADPH (a crucial cofactor of lipid synthesis and for NADPH oxidase activity which produces microbicidal reactive oxygen species [ROS)]9 (Fig. S1B).
+
+Therefore, in PAMP-induced systemic inflammation, glucose is reallocated to innate immune cells to support the vigorous anabolic, defense response produced by these cells.
+
+Together these findings suggest that the ACLF metabolite fingerprint primarily captured changes in glucose metabolism that occurred in activated innate immune cells, although the contribution of other tissues cannot be excluded.
+
+PARAGRAPH
+
+An important finding of our study was the blood accumulation, in ACLF, of fatty acylcarnitines (fingerprint; Fig. 5A).
+
+In peripheral (non-immune) organs, in the context of PAMP-induced systemic inflammation, there is a reduction of FA catabolism through mitochondrial β-oxidation.7,8
+
+Systemic inflammation downregulates in these organs, the peroxisome proliferator-activated receptor (PPAR)-α target-genes involved in mitochondrial β-oxidation and downregulates the enzyme responsible for translocating fatty acylcarnitines into the mitochondrial matrix8 (Fig. S2B).
+
+Blood accumulation of fatty acylcarnitines witnesses the systemic inflammation-induced inhibition of β-oxidation.7,8,10
+
+Therefore, our finding of increased blood levels of fatty acylcarnitines in patients with ACLF indicates that these patients have marked reduction in mitochondrial β-oxidation in peripheral organs (Fig. 5B).
+
+The Krebs’ cycle produces much more ATP through complete oxidation of FAs (Fig. S2A) than through glucose oxidation (Fig. S1A).
+
+Therefore, in ACLF, the suppression of mitochondrial β-oxidation likely results in a dramatic decrease in FA-derived energy supply in peripheral organs.
+
+Moreover, like in sepsis,7 the accumulation of “non-oxidized” FAs and the stimulation of mitochondrial ROS production by inflammation may also occur in ACLF and cause mitochondrial damage.
+
+Together, these findings strongly suggest that, in ACLF, a marked mitochondrial dysfunction occurs in peripheral organs, contributing to the development of organ failures.
+
+PARAGRAPH
+
+Most steps of the amino acid metabolism occur outside the mitochondria and this may explain why they are not highly affected by mitochondrial dysfunction.
+
+Accordingly, there was increased generation and accumulation of many blood amino acid metabolites associated with ACLF, which is not only related to the increased proteolytic release of amino acids secondary to systemic inflammation and the acute stress response, but also to the activating effect of PAMPs and/or cytokines on several enzymatic reactions involved in amino acid metabolism.
+
+These reactions give rise to derivatives with substantial biological effects including inflammation, immunomodulation, generation of ROS, NO, CO, and H2S, vasodilation, neurotoxicity and endothelial dysfunction, among others (Table 2; Supplementary Results section).
+
+These changes may contribute to the pathophysiology of many complications associated with ACLF.
+
+PARAGRAPH
+
+Together, these observations suggest that sepsis and ACLF share pathophysiological mechanisms leading to organ failures; cytokine-induced changes in stress hormone response and in the generation of ROS, NO, CO, and H2S would be the initial effectors, impairment in mitochondrial activity and metabolic suppression the intermediate step, and organ failure the final consequence.
+
+The mitochondrial dysfunction and subsequent metabolic and energetic cellular crisis associated with severe systemic inflammation have been traditionally attributed to damage of the mitochondrial membranes due to oxidative stress, which is the site where ATP is generated.
+
+However, there are preliminary evidences that transient mitochondrial dysfunction and metabolic suppression could also represent an adaptive and functional response like hibernation, that prevents a dramatic decrease of ATP below levels compatible with life and progression of cell dysfunction to cell death.8
+
+Decline in organ function(s) would therefore be the cost paid to cope with organismal energetic demand.
+
+This hypothesis, which is being intensively investigated by the basic, translational and clinical investigators in the fields of infectious diseases, intensive care and nephrology from past decades, has never been proposed for cirrhosis.
+
+Our metabolomic data strongly support this hypothesis.
+
+PARAGRAPH
+
+The fact that our study was associative and did not include mechanistic investigations should be taken into account and our results be interpreted with caution.
+
+There are multiple objectives for future research on ACLF, and some examples are discussed now.
+
+Future research, using animal models of ACLF, should use high-throughput metabolomics and transcriptomics to investigate the metabolic state in each of the major target organs, i.e., the liver, kidney, brain, heart, and skeletal muscles.
+
+The interest of such integrated approaches is highlighted by a recent study which revealed the existence of hepatic reprogramming of FA oxidation (i.e., major downregulation of PPAR-α target genes) in non-cirrhotic mice challenged with the PAMP lipopolysaccharide.8
+
+Future research should also elucidate the molecular mechanisms by which systemic inflammation results in downregulation of PPAR-α target genes.
+
+This will identify targets for novel therapeutic approaches that would be able to upregulate PPAR-α-target genes and therefore stimulate β-oxidation of FA and restore energy production in peripheral organs.
+
+Future research should also address the question of whether the use of some blood metabolite levels on the top of currently used prognostic markers would refine the prediction of outcome among patients with acutely decompensated cirrhosis, with and without ACLF.
+
+Of note, in the context of severe sepsis in the general population, higher blood levels of fatty acylcarnitines have been found to be associated with a higher risk of death.10
+
+PARAGRAPH
+
+In conclusion, in ACLF, intense systemic inflammation is associated with blood metabolite accumulation indicating marked alterations in major metabolic pathways, in particular mitochondrial dysfunction which may be involved in the existence of organ failures.
+
+This study can serve as a resource for future studies of metabolism alterations in decompensated cirrhosis.
+
+PARAGRAPH

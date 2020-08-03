@@ -1,0 +1,453 @@
+10.1016/j.jhep.2017.11.030
+
+FULLTEXT
+
+TITLE
+
+A model including sarcopenia surpasses the MELD score in predicting waiting list mortality in cirrhotic liver transplant candidates: A competing risk analysis in a national cohort
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Model for end-stage liver disease (MELD) score is the most frequently used method to prioritise patients with end-stage liver disease for liver transplantation and it is calculated using serum levels of bilirubin, creatinine and the international normalized ratio (INR).1
+
+Despite its strong predictive value, the MELD score underestimates disease severity in about 15–20% of patients with cirrhosis, resulting in an inaccurate prediction of survival.2
+
+Amongst others, conditions such as hyponatremia and hypoalbuminemia have been identified as additional risk factors for impaired waiting list survival.
+
+This knowledge resulted in modifications of the original MELD score; i.e. the MELDNa and five-variable MELD score, respectively.3–5
+
+Moreover, a frequently reported drawback of the MELD score is the lack of an objective parameter reflecting patients’ physical and nutritional status, as was albumin in the old Child-Turcotte-Pugh score.
+
+Consequently, patients with a biochemically low MELD score, but with malnutrition or low skeletal muscle mass (sarcopenia), may be under prioritised in the current system.6
+
+Indeed, sarcopenia, a hallmark of frailty and functional decline,7,8 has recently been found to predict waiting list mortality.9,10
+
+Montano-Loza et al. found a significantly shorter waiting list survival in patients with sarcopenia, and therefore included sarcopenia in the MELD score (MELD-Sarcopenia score).
+
+This score showed a higher predictive accuracy for waiting list mortality than the MELD score alone.10
+
+PARAGRAPH
+
+This particular MELD-Sarcopenia score is of great interest for the, generally catabolic, cirrhotic population.
+
+However, the MELD-Sarcopenia score has not been externally validated.
+
+Additionally, most studies investigating the association between sarcopenia and waiting list mortality were performed in North-American populations,9–15 which differ from Western-European populations (e.g., regarding body mass index (BMI), race, and healthcare accessibility).
+
+Furthermore, they were hampered by limited sample size and methodology, while not taking into account competing risks on the waiting list.11–14,16
+
+Particularly in transplant patients, competing risk analyses may be preferred.17,18
+
+Therefore, our aims were i) to investigate the association between sarcopenia and waiting list mortality in a West-European cohort using competing risk analysis, ii) to validate the MELD-Sarcopenia score, and iii) to identify the best performing predictive model in patients with cirrhosis listed for liver transplantation.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Patients and data acquisition
+
+PARAGRAPH
+
+We identified all consecutive adult (≥18 years) patients with cirrhosis who have been placed on the waiting list for liver transplantation in one of the liver transplantation centres in the Netherlands (Erasmus MC University Medical Centre, Rotterdam; Leiden University Medical Centre, Leiden; and Groningen University Medical Centre, Groningen) between 2007–2014, using the prospective Eurotransplant registry.19
+
+Patients listed for retransplantation, multivisceral transplantation, candidates on the high urgency list, or patients below 18 years old were excluded.
+
+All registry data was collected prospectively, except for the occurrence of liver-related complications before listing (i.e. ascites, hepatic encephalopathy, spontaneous bacterial peritonitis, oesophageal variceal bleeding), which was collected retrospectively.
+
+Patients with hepatocellular carcinoma (HCC) were transplanted only if they fulfilled the Milan criteria.20
+
+The MELD score and recipient age were calculated at the time of listing.
+
+The study protocol conforms to the ethical guidelines of the 1975 Declaration of Helsinki and was approved by the Institutional Review Boards of all involved centres.
+
+A waiver for informed consent was granted.
+
+SECTION
+
+Skeletal muscle mass measurements
+
+PARAGRAPH
+
+Computed tomography (CT) scanning is the gold standard to measure skeletal muscle mass, particularly in patients with end-stage liver disease (as these measurements are not influenced by the presence of ascites or oedema).16
+
+For the purpose of this study we used CT examinations that were performed routinely as part of the liver transplant evaluation.
+
+Since liver transplant candidates are prone to skeletal muscle wasting over time, we included only those CT examinations that were performed within 90 days of waiting list placement.
+
+We calculated the cross-sectional skeletal muscle area (CSMA) (Fig. 1) and the skeletal muscle index (SMI), as previously described in more detail.21
+
+In short, the CSMA was calculated using the transversal slice at the level of the third lumbar vertebra (L3 in cm2) and divided by patients’ squared height, resulting in the SMI (cm2/m2).
+
+We chose L3 as it has been shown that the SMI at the level of L3-L4 gives an accurate estimation of total body skeletal muscle mass.22
+
+A previously validated non-commercial software tool developed at the Erasmus MC University Medical Centre was used for the calculation of the CSMA.23
+
+SECTION
+
+The MELD-Sarcopenia score
+
+PARAGRAPH
+
+The MELD-Sarcopenia score, established by Montano-Loza et al.10, is based on pre-established cut-off values of Martin et al. for the SMI (i.e. males with BMI <25: <43 cm2/m2, males with BMI ≥25: <53 cm2/m2, females: <41 cm2/m2).24
+
+We classified patients as having sarcopenia using the same cut-off values.
+
+The MELD-Sarcopenia score was calculated as follows: MELD + (10.35∗Sarcopenia),10 this corresponds with a 10.35-point increase in the MELD score in patients with sarcopenia.
+
+In addition, to test the robustness of our data, patients were also classified as having sarcopenia using other recently developed cut-off values in a cohort of end-stage liver disease patients by Carey et al.; <50 cm2/m2 for men and <39 cm2/m2 for women.25
+
+SECTION
+
+Statistical analyses
+
+PARAGRAPH
+
+Categorical data are reported as counts with percentages.
+
+Continuous data are reported as the median with interquartile range (IQR).
+
+The Chi-square test was used to compare categorical data.
+
+Depending on the normality of the distribution (non)parametrical tests were used to compare continuous data.
+
+Multiple imputations were performed, using five imputed datasets to correct for bias due to missing values (i.e. serum albumin [n = 73, 12.5%] and sodium levels [n = 74, 12.6%] as they had not been routinely performed in one centre).
+
+We used MICE package for R version 3.3.3 for this multiple imputation.
+
+Because these parameters were not associated with waiting list mortality after backward stepwise selection, we performed a complete-case analysis.
+
+PARAGRAPH
+
+The primary endpoint of this study was waiting list mortality.
+
+To account for immortal time bias, waiting list time (i.e. survival) was defined from the date of CT onwards until transplantation, removal from the waiting list, or death.
+
+Patients who were removed from the waiting list because of clinical deterioration or progression of HCC outside of the Milan criteria were considered deceased at time of removal if they indeed died within three months after waiting list removal.
+
+We censored patients who were removed for reasons other than the aforementioned, as well as patients who were still on the waiting list on 31 December 2016.
+
+Survival status was checked using the municipal record database.
+
+PARAGRAPH
+
+We regarded the chance of occurrence of our primary endpoint and the chance of transplantation as competing risks.
+
+Therefore, we plotted the cumulative incidence functions for patients with and without sarcopenia according to the definition of Martin et al. (SarcopeniaM)24 and Carey et al. (SarcopeniaC)25 with transplantation as a competing risk.
+
+Secondly, we modelled the MELD and MELDNa scores with or without adjustment for SarcopeniaM and SarcopeniaC, and the MELD-Sarcopenia score in the presence of competing risks, using a subdistribution hazards approach as proposed by Fine and Gray,17,28 and we assessed model performance by calculating the concordance index (c-index) using Wolbers’ method.
+
+The subdistribution hazard ratio (sHR) is the instantaneous risk of dying from a particular cause κ given that the subject has not died from cause κ, with those who have failed from other causes considered among those still event-free with respect to cause κ.
+
+The method by Wolbers et al. is an adaptation of Harrell’s concordance index for competing risk analyses.26,27
+
+The c-indices were calculated for three-month waiting list survival, as the MELD score was designed to predict three-month mortality,2 and internal validation was performed using bootstrapping with 100 samples.
+
+Finally, a multivariable competing risk analysis was performed to identify risk factors for waiting list mortality.
+
+Factors were selected for the final model, using a backward stepwise selection based on the Akaike information criterion (AIC).
+
+The highest performing base model (based on the c-index), age, serum albumin level, serum sodium level, and complications before listing were included in the full model before selection.
+
+As patients with a low MELD score and low skeletal muscle mass may benefit from a higher priority on the waiting list, a subgroup analysis was performed in patients with an MELD score ≤15.
+
+Each independent parameter associated with impaired survival was assigned a specific weighted score using the regression coefficient from the multivariable analysis.29
+
+Calibration of the model was assessed by plotting observed and predicted outcomes.
+
+Subsequently, these parameters were used to create a nomogram of the best model, which was reported according to the TRIPOD statement.30
+
+PARAGRAPH
+
+In order to put our findings in perspective with previous studies that did not use competing risk analysis, we also performed a multivariable Cox proportional hazards analysis.
+
+PARAGRAPH
+
+Two-sided p values <0.05 were considered statistically significant.
+
+A c-statistic of <0.50 was considered equal to chance, whereas a c-statistic of >0.70 was considered a useful model.
+
+Analyses were performed using SPSS for Windows version 22 (IBM Corp., Armonk, NY, USA) and the RMS package in R version 3.3.3 (http://www.r-project.org).
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table.
+
+SECTION
+
+Results
+
+SECTION
+
+Patients
+
+PARAGRAPH
+
+In total, 841 adult patients with cirrhosis were listed during the study period.
+
+A CT examination within 90 days of the listing date was available for 585 of the 841 patients (69.6%); all others were excluded.
+
+Hence, the study cohort comprised 585 patients.
+
+The majority was male (n = 404, 69.1%) and the median MELD score was 14 (IQR 9–19).
+
+A malignancy (i.e., HCC or perihilar cholangiocarcinoma (PHC)) was diagnosed in 193 (33.0%) patients.
+
+All baseline characteristics are shown (Table 1).
+
+Baseline characteristics did not significantly differ between the included and excluded patients, except for median serum sodium (138 mmol/L vs. 140 mmol/L; p = 0.001), median age (56 [IQR 48–62] vs. 54 [IQR 47–60] years; p = 0.049), and the distribution of aetiology (p = 0.024), which was caused by a higher proportion of HCC/PHC in the patients included (33.0% vs. 20.9%; p = 0.001).
+
+In total, 425 patients (72.6%) underwent liver transplantation, 15 (2.6%) were still on the waiting list at the end of the study period, and 145 (24.8%) were removed for reasons indicated (Table 2).
+
+Of the latter group, 90 (15.4%) died on the waiting list or were removed and consequently died within three months from removal.
+
+The median time between waiting list placement and CT was 31 days (IQR 15–51).
+
+After a median follow-up of 54 months, median overall survival in transplanted patients was 117 months (95% CI 73–160 months).
+
+The three-month, one-year, three-year, and five-year post-transplant overall survival rates were: 95.7%, 90.3%, 83.0%, 79.7%, respectively.
+
+PARAGRAPH
+
+SarcopeniaM was observed in 254 patients (43.4%) (Table 1).
+
+Patients with SarcopeniaM had a significantly lower BMI (p = 0.001), a higher MELD score (p <0.001), and a higher MELDNa score (p = 0.001).
+
+Furthermore, patients with SarcopeniaM experienced more liver-related complications before waiting list placement than patients without sarcopenia (73.2% vs. 62.8%; p = 0.008).
+
+SarcopeniaC was observed in 266 patients (45.5%).
+
+The median MELD-Sarcopenia score was 18 (IQR 12–26).
+
+SECTION
+
+The association between sarcopenia and waiting list mortality
+
+PARAGRAPH
+
+The median time on the waiting list was seven months (IQR 3–12) and this was significantly shorter in patients with SarcopeniaM than patients without SarcopeniaM (six [IQR 2–10] vs. eight [IQR 4–14] months; p <0.001).
+
+The proportion of patients who underwent liver transplantation did not differ between patients with and without SarcopeniaM (71.7% vs. 73.4%; p = 0.636), whereas the proportion of patients who were removed from the waiting list or died was significantly higher in patients with sarcopenia (20.5% vs. 11.5%; p = 0.003).
+
+PARAGRAPH
+
+A significant difference in waiting list survival was found between patients with and without SarcopeniaM (p = 0.003 [Table 3, Fig. 2]), but not between patients with and without SarcopeniaC (p = 0.350; Fig. 3).
+
+PARAGRAPH
+
+Mortality was significantly higher in patients with SarcopeniaM than in patients without SarcopeniaM after one month (35.0% vs. 20.8%; p <0.001), three months (48.4% vs. 32.3%; p <0.001), one year (84.3% vs. 75.5%; p = 0.010), and three years (96.9% vs. 93.7%; p = 0.078), whereas no differences were observed for patients with and without SarcopeniaC.
+
+SECTION
+
+Performance of the various scores
+
+PARAGRAPH
+
+The performance of the various scores, with the corresponding c-indices for three-month waiting list mortality is shown (Table 3).
+
+SarcopeniaM adjusted for the MELD score showed an excellent discriminative performance for predicting three-month mortality (c-index 0.834).
+
+However, it did not exceed the discriminative performance of the MELD score alone (c-index 0.839).
+
+The discriminative performance of SarcopeniaC was poor (c-index 0.515), but increased to 0.835 when adjusted for MELD score.
+
+The c-index for the MELD-Sarcopenia score was 0.820.
+
+Comparable data based on Cox regression analysis are provided (Table S1).
+
+An overestimation of the discriminative value was observed compared with competing risk analysis.
+
+SECTION
+
+A multivariable competing risk analysis and the development of a nomogram
+
+PARAGRAPH
+
+The model with the highest discriminative performance for predicting waiting list mortality, included MELD score (sHR 1.09; 95% CI 1.06–1.12; p <0.001), hepatic encephalopathy before listing (sHR 1.80; 95% CI 1.12–2.87; p = 0.014), age (sHR 1.02; 95% CI 0.99–1.05; p = 0.085) and SarcopeniaM (sHR 1.51; 95% CI 0.97–2.34; p = 0.067), with a c-index of 0.851 (Table 4).
+
+The nomogram of this model is depicted (Fig. 4).
+
+PARAGRAPH
+
+We performed stratified analyses based on low and high MELD scores (cut-off MELD score 15).
+
+The independent additive effect of sarcopenia was strongly present in the group with low MELD scores (n = 342; sHR 2.10; 95% CI 1.05–4.2; p = 0.035) but not in the group with high MELD scores (n = 243; sHR 1.30; 95% CI 0.75–2.26; p = 0.349).
+
+PARAGRAPH
+
+The calibration of the nomogram was assessed and showed fair calibration, indeed particularly in patients at low risk of waiting list mortality (Fig. 5).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this study we found that sarcopenia was a risk factor for waiting list mortality in a cohort of West-European liver transplant candidates with cirrhosis.
+
+The MELD-Sarcopenia score had a discriminative performance (c-index 0.82 for three-month mortality), which was comparable with the discriminative performance in the training cohort of the original study (c-index 0.85),10 but lower than the original MELD score (c-index 0.84) in our cohort.
+
+A final competing risk model included SarcopeniaM, MELD score, age, and presence of hepatic encephalopathy before listing as predictors for waiting list mortality.
+
+The reason this MELD-Sarcopenia score does not have a better performance than the MELD score alone may be attributed to the fact that prioritisation and allocation of donor organs and transplant candidates, as well as waiting list mortality, are all strongly related to the MELD score, resulting in a self-fulfilling prophecy.
+
+PARAGRAPH
+
+The association between sarcopenia and mortality in patients evaluated or listed for liver transplantation has been described.6,11–15,25
+
+However, most studies have been performed in predominantly (and partly overlapping) North-American populations.11–15,25
+
+Furthermore, most studies included a relatively small number of patients varying from n = 59 to n = 213.11–14,16
+
+Moreover, none of the studies took competing risks on the waiting list into account.
+
+Which is important as we show that the prognostic value of the results obtained by ‘normal’ Cox proportional hazard analyses as opposed to competing risk analyses, overestimated rather than underestimated survival.
+
+The current study is the first multicentre West-European study with a large number of patients.
+
+In our cohort, the median waiting list period was seven (IQR 3–12) months, after which 72.6% of patients underwent transplantation and 15.4% were removed from or died on the waiting list or within three months after removal.
+
+In the cohort of Carey et al. (which included 396 listed patients) only 50% underwent transplantation and 28% were delisted or died.25
+
+Similarly, in the cohort of Montano-Loza et al. (which included cirrhotic patients with a comparable MELD score) only 34% underwent transplantation and 39% died with a median follow-up of 11 months.10
+
+The difference in outcomes compared to our study can be explained by the fact that the cohort of Montano-Loza consists of cirrhotic patients who were evaluated for liver transplantation, but not necessarily listed.
+
+The greater homogeneity of our cohort may also explain some of the differences, amongst others the lower discriminative performance of the MELD-Sarcopenia score using both Cox regression and competing risk analysis.
+
+PARAGRAPH
+
+Apart from the MELD-Sarcopenia score, others proposed a score for waiting list mortality with muscle mass included in the MELD score: the MELD-psoas score.
+
+In this score, only the psoas muscle area was measured rather than the cross-sectional muscle area.6
+
+The cross-sectional measurements have previously been validated, whereas results regarding accuracy of psoas muscle measurements are conflicting.
+
+Recent studies suggested that psoas muscle measurements are inferior to total skeletal muscle measurements.31,32
+
+However, in contrast, the psoas muscle has successfully been used in liver transplantation patients according to a French study.33
+
+In addition, a Japanese study also included measures of skeletal muscle in the MELD score (Muscle-MELD score) to predict mortality after living-donor liver transplantation (LDLT).34
+
+However, today, it remains unknown which of the two measurements most accurately reflects total body skeletal muscle mass, and subsequently predicts mortality best.
+
+PARAGRAPH
+
+To date, there are no generally accepted cut-off values to classify patients with sarcopenia.
+
+The most frequently used definition is that of Martin et al. (SarcopeniaM24), who created cut-off values for sarcopenia to predict survival in cancer patients.
+
+These are based on sex and BMI (for men).
+
+Validity of the use of BMI is controversial; as a high proportion of liver transplant candidates suffer from ascites (59.9% in our cohort), subsequently BMI will be overestimated and hence sarcopenia could be overestimated in male patients.
+
+Nevertheless, the discriminative performance of these cut-off values was excellent in our cohort, whereas no survival differences were found with the cut-off values of Carey et al. (SarcopeniaC25).
+
+This is of interest, as the cut-off values in the latter study were defined to predict waiting list mortality, particularly in liver transplant candidates.
+
+After adjusting sarcopeniaC25 for the MELD score, the discriminative performance drastically increased, which underlines the strong predictive power of the MELD score.
+
+PARAGRAPH
+
+As reflected by a higher proportion of liver-related complications, sarcopenia is strongly correlated with the severity of liver disease.
+
+Therefore, it may contribute to better prioritising of liver transplant candidates, as these patients are at risk of dying or deteriorating prematurely, which is not currently reflected in their MELD score.
+
+In line with previous results,6 we found that sarcopenia is a stronger prognostic factor in patients with a low MELD score than in those with a high MELD score (based on a cut-off for MELD score of 15).
+
+Therefore, patients with sarcopenia and a low MELD score may be under prioritised in the current allocation system.
+
+PARAGRAPH
+
+Possible explanations as to why liver disease leads to skeletal muscle depletion and sarcopenia, are altered food intake, hypermetabolism from chronic disease, altered amino acid profiles, endotoxemia, accelerated starvation, and decreased mobility.35
+
+Moreover, hyperammonia was recently described as an additional mediator in the liver-muscle axis.35
+
+Skeletal muscle mass serves as a store for ammonia and depletion of muscle mass could therefore explain the increased rate of hepatic encephalopathy in patients with sarcopenia.
+
+PARAGRAPH
+
+Both functional impairment at the moment of listing8 and a significant functional decline over time during the waiting period (both measured with the short physical performance battery) have previously been associated with an increased risk of death, independent of the severity of liver disease.7
+
+Therefore, the waiting list period, or even the liver transplant evaluation period, offer a window of opportunity to improve functional status.
+
+Suggested regimens may consist of the use of proteins with low ammoniagenic potential, leucine enriched amino acid supplementation, long-term ammonia lowering strategies and a combination of resistance and endurance exercise to increase muscle mass and function.35
+
+PARAGRAPH
+
+This study has some limitations we would like to address.
+
+Although we used the prospective Eurotransplant registry data with all consecutive patients who have been listed for liver transplantation, some data was collected retrospectively (e.g. serum albumin and sodium levels) which led to missing data in a few cases.
+
+However, we tried to overcome bias due to missing data using multiple imputations for these laboratory values.
+
+Moreover, CT examinations performed within 90 days from listing were not available in all patients, as the time interval between screening and the eventual listing data greatly varied.
+
+Although we internally validated our findings in a prospective, national cohort, external validation may be warranted.
+
+After all, the nomogram only estimates the probability of an event under the Dutch system for organ allocation (which yields the competing risk), and may not be applicable in other settings with a different organ allocation policy.
+
+Another method to censor the follow-up at transplant is to use inverse probability of censoring to correct for informative censoring (the risk of dying in absence of transplantation, which is also related to waiting list mortality), according to Robin and Finkelstein.36
+
+Finally, we only have data on CT examinations at the point of listing, instead of follow-up data on skeletal muscle wasting during the waiting list period.
+
+One of the major advantages of the MELD score is that it can be easily calculated at bedside.
+
+Nevertheless, evaluation of skeletal muscle mass will only take a couple of extra minutes per patient, but could be of additional value for patients’ quality of life and survival.37
+
+For this purpose, automated software is currently under development.37,38
+
+PARAGRAPH
+
+In conclusion, sarcopenia is strongly associated with waiting list survival in liver transplant candidates with cirrhosis.
+
+Our model may be used to identify patients at risk of waiting list mortality, particularly those with otherwise lower MELD scores.
+
+These patients may benefit from more intensive follow-up, monitoring, and training programmes or prioritising on the waiting list.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The authors received no financial support to produce this manuscript.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Study concept and design: JLAvV, LJMA, HJM, JNMIJ.
+
+Collection of clinical data: JLAvV, LJMA, MPG, DB, APvdB.
+
+Collection of CT images: SF, PMAvO.
+
+Data analysis: JLAvV, SB.
+
+Interpretation of data: All authors.
+
+Drafting final manuscript: JLAvV.
+
+Critical revision of the manuscript: All authors.
+
+Study supervision: JNMIJ, HJM.

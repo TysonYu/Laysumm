@@ -1,0 +1,19 @@
+10.1016/j.engappai.2019.06.002
+
+ABSTRACT
+
+TITLE
+
+UAV trajectory optimization for Minimum Time Search with communication constraints and collision avoidance
+
+PARAGRAPH
+
+Minimum Time Search (MTS) algorithms help in search missions proposing search trajectories that minimize the target detection time considering the available information about the search scenario.
+
+This work proposes a MTS planner based on ant colony optimization that includes communication and collision avoidance constraints.
+
+This ensures that the Unmanned Aerial Vehicles (UAVs) are able to complete the optimized search trajectories without risk of collision or loss of communication with the ground control station.
+
+This approach is a great advantage nowadays, where UAVs flight regulation is quite strict, often requiring to monitor the state of the UAVs during the whole mission, impeding UAV deployments without continuous communication to the ground control station.
+
+The proposed algorithm is tested with several search scenarios and compared against two state of the art techniques based on Cross Entropy Optimization and Genetic Algorithms, which have been adapted to make them consider collision and communication constraints as well.

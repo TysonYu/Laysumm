@@ -1,0 +1,419 @@
+10.1016/j.jhep.2019.12.006
+
+FULLTEXT
+
+TITLE
+
+BAP1 mutations define a homogeneous subgroup of hepatocellular carcinoma with fibrolamellar-like features and activated PKA
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Fibrolamellar carcinoma (FLC) is a rare subtype of hepatocellular carcinoma (HCC) mostly diagnosed in adolescents and young adults.
+
+It was originally defined by specific histological features of both the tumor cells and their stroma, with the presence of abundant fibrosis arranged in a lamellar fashion around deeply eosinophilic large neoplastic hepatocytes, frequent central scar and calcifications1,2.
+
+FLC defines a specific subgroup of HCC since they have peculiar clinical features compared to classical HCC, such as a young age at onset between 10 to 35 years old, a balanced sex ratio, an absence of underlying liver disease or risk factors and a better prognosis with 80% of survival at 5-years after resection3,4.
+
+Biologically, FLCs show a high number of mitochondria and progenitor features, suggesting that the tumor cells are blocked at a specific stage of differentiation with hepatocellular (HEPAR1), biliary (CK7) and CD68 co-expressed markers1,5.
+
+In 2014, Honeyman and colleagues discovered a specific 400 kb chromosome deletion at chromosome 19 in FLC leading to recurrent chimeric DNAJB1-PRKACA gene fusion6.
+
+DNAJB1 encodes HSP40, a member of the heat shock protein family, while PRKACA codes for the cAMP-dependent protein kinase (PKA) catalytic subunit alpha; the chimeric gene results in PRKACA catalytic domain overexpression and subsequent PKA activation.
+
+In addition, rare FLC without DNAJB1-PRKACA fusion were identified in patients with Carney disease due to PRKAR1A germline mutations leading also to PKA activation and similar phenotype7.
+
+In contrast, PKA activation is only rarely identified in HCC (<1% GNAS mutations) or in cholangiocarcinoma (around 6% of GNAS mutations and rare fusions of PRKACA, PRKACAB and PRKAR1B)8,9.
+
+PARAGRAPH
+
+Frequently, FLC diagnosis can be difficult and tumors with histological features of both HCC and FLC have been described as mixed-FLC/HCC10–12.
+
+In comparison with FLC, mixed-FLC/HCC patients were older, all above 35 years, and with a poor prognosis.
+
+Moreover, transcriptomic analyses showed a different profile of expression in the mixed-FLC and a lack of DNAJB1-PRKACA fusion13,14.
+
+Therefore, mixed-FLC/HCC should be better defined in the phenotypic/molecular diversity of the liver tumors, in particular to identify similarities and differences with FLC of the young and other HCC subtypes12.
+
+PARAGRAPH
+
+In this study, to identify specific molecular driver(s) of the mixed-FLC subgroup of tumors, we performed an integrated genomic analysis using RNA sequencing and whole-genome- or whole-exome-sequencing of 151 liver tumors classified in HCC, FLC and mixed-FLC/HCC by pathological reviewing.
+
+SECTION
+
+Material and methods
+
+SECTION
+
+Patients and tumors
+
+PARAGRAPH
+
+We assembled a series of 151 patients (LICA-FR cohort) enriched with 15 FLC, 10 mixed FLC/HCC cases and including 126 HCC for controls8,15, with genomic data (WGS or WES and RNAseq) and pathological reviewing (see below).
+
+The study was approved by the local Ethics Committee (CCPPRB Paris Saint-Louis IRB00003835), and informed consent was obtained in accordance with French legislation for all patients.
+
+Tumor and corresponding non-tumor samples were frozen at -80°C after tumor resection and all tumor samples were primary tumors except 8 samples collected at relapse; clinical features are summarized in Table 1.
+
+For validation, we used 345 tumors (339 HCC, 4 FLC, 2 mixed-FLC/HCC) from the TCGA (The Cancer Genome Atlas) cohort16, whose clinical features are also described in Table 1.
+
+SECTION
+
+Pathological reviewing
+
+PARAGRAPH
+
+Multiple slides of the same tumor were reviewed by at least two liver pathologists for several histological criteria previously described11,17,18 including: tumor differentiation (WHO grade and Edmonson grade), vascular invasion (microscopic), tumor architecture (macrotrabecular, microtrabecular, pseudoglandular), abundant fibrous stroma (>20%), steatosis, histological patterns (scirrhous, macrotrabecular massive), lymphocytic inflammation (>20%), tumor invasion (biliary tract, perineural) and clear cell presence.
+
+HCC containing at least one area with FLC features were annotated as mixed-FLC/HCC as previously described11 (Supplementary Figure 1).
+
+For the TCGA cohort, histological features were reviewed by at least two liver pathologists from the virtual slides available online via cBioPortal (http://www.cbioportal.org/).
+
+Tertiary lymphoid structures were annotated on hematein-eosin-safran slides as in19,20 for a subset of the LICA-FR cohort (55 tumors) and all tumors from the TCGA cohort.
+
+SECTION
+
+Genomic sequencing
+
+PARAGRAPH
+
+151 tumors and their corresponding non-tumor tissues were sequenced by whole exome sequencing (WES, n=115 including 43 new cases) or whole genome sequencing (WGS, n=36 including 3 new cases) as previously described8,21,22.
+
+For samples without WGS, targeted analysis of TERT promoter was performed with sanger (n=100) and/or miSeq (n=38) sequencing as previously described8, while BAP1 was re-sequenced with miSeq technology in 24 samples (the list of primer sequences is provided in Supplementary Table 1).
+
+Copy number analysis was performed as previously described22 and manually corrected with the help of the GAP tool23.
+
+SECTION
+
+RNAseq and transcriptomic analyses
+
+PARAGRAPH
+
+mRNAs were extracted from 151 tumor (including 64 new cases) and 3 non-tumor tissues and sequenced using Illumina TruSeq or Illumina TruSeq Stranded mRNA kit, libraries were sequenced by IntegraGen (Evry, France) on an Illumina HiSeq 2000 or 4000 paired-end 75 bp or 100 bp reads as previously described24.
+
+Fastq files were aligned to the reference human genome GRCh38 using TopHat225.
+
+Reads mapping to multiple locations were removed and we used HTSeq26 to obtain the number of reads associated to each gene in the Gencode v27 database, restricting to protein-coding genes, pseudogenes, antisense and lincRNAs (n=58288).
+
+We used the Bioconductor DESeq2 package27 to import raw HTSeq counts for each sample into R statistical software and applied variance stabilizing transformation to the raw count matrix to obtain an expression matrix without variance-mean dependence (vst matrix).
+
+FPKM scores (number of fragments per kilobase of exon model and millions of mapped reads) were calculated by normalizing the count matrix for the library size and the coding length of each gene.
+
+We used the area under the ROC curve (AUC) to identify and remove 2404 genes with a significant batch effect (AUC > 0.95 between one sequencing project and others).
+
+Unsupervised hierarchical clustering was done using Cosine distance and Ward method on most 5000 differentially expressed genes from the vst matrix as previously described24.
+
+PARAGRAPH
+
+Tumors were classified in the G1-G6 classification as previously described for the LICA-FR cohort28 and the TCGA cohort29.
+
+We used the Bioconductor limma package30 to test for differential gene expression between two groups of RNAseq samples of interest.
+
+All genes expressed in at least 5 samples (FPKM>0) were considered for the differential expression analysis.
+
+We applied a q-value threshold of ≤0.05 to define differentially expressed genes.
+
+We used an in-house adaptation of the GSEA method31 to identify gene sets from the MSigDB (v. 6.0) database overrepresented among up- and down-regulated genes.
+
+Single sample GSEA scores were calculated as Gene Set Variation Analysis (GSVA) enrichment scores, using the GSVA package32.
+
+PARAGRAPH
+
+Relative abundance of immune and stromal cells infiltration within tumors was assessed through MCP scores computed with the Microenvironment Cell Populations-counter method33 adapted to RNAseq data (exp matrix) after filtering out genes expressed in hepatocytes (the detailed list of genes used for each population is available in Supplementary Figure 2).
+
+SECTION
+
+Immunoblotting
+
+PARAGRAPH
+
+Protein were extracted from frozen tissues samples using modified Laemmli lysis buffer (50mM Tris pH=6.8, 2% SDS, 5% glycerol, 2mM DTT, 2.5mM EDTA/EGTA) supplemented with 2X phosphatase and protease inhibitor cocktail (#78444, Thermo Fisher Scientific, Waltham, MA, USA), 2mM Na3VO4 (#P0758S, BioLabs, Ipswich, MA, USA) and 10mM NaF (#674141, Sigma Aldrich, St. Louis, MO, USA), homogenized by Qiagen TissueLyser II and boiled for 10 minutes.
+
+Protein concentration was measured with the BCA assay kit (Pierce Biotechnology, Rockford, IL, USA).
+
+Equal amounts of protein were deposed on poly-acrylamide gel (Bio-Rad, Hercules, CA, USA), separated by electrophoresis, transferred on 0.2 μm nitrocellulose membrane (Bio-Rad) and incubated at 4°C with the following primary antibodies: anti-BAP1 (sc-28383 c4, Santa Cruz Biotechnologies, Dallas, TX, USA), anti-PKA-Cα (ab76238, Abcam, Cambridge, UK) and anti-PKA-R2 (ab32514, Abcam, Cambridge, UK) at 1:10000 dilution.
+
+Anti-mouse (#7076, Cell Signaling) or anti-rabbit (#7074, Cell Signaling) IgG horseradish peroxidase (HRP) linked secondary antibodies were used at 1:2000 dilution.
+
+Proteins were detected using SuperSignal West Pico Plus kit (#34580, Thermo Fisher Scientific) and signal was captured by ChemiDoc XRS system.
+
+Quantification was done by measuring the intensity of each band using Image Lab software (Bio-Rad) and normalised by the Ponceau whole lane charge evaluated with ImageJ software (National Institute of Health, Bethesda, MD, USA).
+
+SECTION
+
+Immunohistochemistry
+
+PARAGRAPH
+
+Immunohistochemistry was performed on formalin-fixed paraffin-embedded tumor tissues with the Leica Bond automated stainer.
+
+The percentage of EpCAM positive tumor cells was assessed in 52 tumors from the LICA-FR series stained with an EpCAM monoclonal antibody (Ber-Ep4).
+
+Quantitative scores of infiltration by T cells and B cells were assessed in 41 tumors with antibodies against CD3 (Dako, Santa Clara, California, Clone F7.2.38, dilution 1/50) and CD20 (Dako, Clone L26, Dilution 1/500) respectively, with a separate estimation of positive cells within the tumor stroma and within the tumor parenchyma.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+For statistical analysis of gene expression data, R version 3.3.2 (R Development Core Team, R: A language and environment for statistical computing.
+
+R Foundation for Statistical Computing, Vienna, http://www.R-project.org) and Bioconductor version 3.4 were used.
+
+Wilcoxon, Fisher or χ2 statistical tests were applied with respect to the type of variable.
+
+Survival analysis was performed in patients treated by R0 liver resection (n=112) as previously described8 including 5 FLC patients without good quality RNAseq data available.
+
+We assessed overall survival defined by the interval between surgery and death whatever the cause and survival curves were represented using the Kaplan-Meier method compared with the Log Rank test.
+
+Univariate analysis was performed using the Cox model.
+
+A p value < 0.05 was considered as significant.
+
+SECTION
+
+Data availability
+
+PARAGRAPH
+
+The sequencing data of the LICA-FR cohort reported in this paper have been deposited to the EGA (European Genome-phenome Archive) database (RNA-seq accession [EGAS00001002879], [EGAS00001001284] and [EGAS00001003837]; WES accessions [EGAS00001000217], [EGAS00001001002], [EGAS00001003063], [EGAS00001000679] and [EGAS00001003837]; WGS accessions [EGAS00001002408], [EGAS00001000706], [EGAS00001002888] and [EGAS00001003837]), through the ICGC (International Cancer Genome Consortium) data access committee.
+
+The sequencing data from the TCGA cohort were retrieved from http://www.cbioportal.org/.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+FLC and mixed-FLC/HCC cluster into two distinct transcriptomic subgroups of tumors.
+
+PARAGRAPH
+
+We performed RNA sequencing of 151 liver tumor samples which included 126 HCC, 15 FLC and 10 mixed-FLC/HCC, defined by pathological reviewing (Supplementary Figure 1) and with clinical features described in Table 1.
+
+All FLC but two clustered in a robust subgroup of 15 tumors together with two mixed-FLC/HCC (Figure 1).
+
+Interestingly, all 15 patients of this cluster were young (age min=17 years; max=36 years, mean=26 years) and all the tumors harbored the DNAJB1-PRKACA fusion (Figure 1).
+
+Six out of the 8 remaining mixed-FLC/HCC clustered in a second group of tumors also including 2 FLC and 9 HCC (Figure 1).
+
+This cluster of 17 tumors highly enriched in mixed-FLC/HCC was located in proximity to the FLC cluster, but patients were older (age min=27 years; max=73 years, mean=51 years) including the 2 FLC that developed at 51 years and 65 years.
+
+Interestingly all the 17 tumors lacked the DNAJB1-PRKACA fusion but showed alterations in the BAP1 gene.
+
+Only one HCC mutated for BAP1 (#794T), without FLC features, was outside this FLC/HCC cluster.
+
+Finally, only 2 mixed-FLC/HCC, not mutated for BAP1 nor harboring DNAJB1-PRKACA fusion, were distributed outside the two clusters (Figure 1).
+
+PARAGRAPH
+
+In agreement with the tumor suppressor function of BAP1 in various tumor types16,34–37, BAP1 alterations were predicted to inactivate the gene either by somatic mutations (9 frameshift, 2 nonsense, 1 splice site, 2 missense and 1 nonstop), by gene fusion in two cases (DAG1-BAP1 in #3919T and a complex event leading to both BAP1-LINCO1460 and RAB3GAP1-BAP1 fusions in #4211T, see Supplementary Figure 3), or by homozygous deletion in 2 tumors (Table 2).
+
+In all tumors, BAP1 alterations were biallelic with two mutations in one case (#2211T) or a deletion of the second allele of BAP1 (Table 2).
+
+PARAGRAPH
+
+Since no FLC carrying the DNAJB1-PRKACA fusion showed BAP1 alteration, we define 3 distinct groups of tumors: altered for BAP1 (BAP1 tumors), with DNAJB1-PRKACA fusion (fusPRKACA tumors) or without either alterations (non-BAP1/fusPRKACA tumors), as represented in Figure 1 (Molecular group annotation).
+
+SECTION
+
+BAP1 altered hepatocellular carcinomas show distinct clinical and histological features
+
+PARAGRAPH
+
+In our cohort LICA-FR, patients with BAP1 tumors (n=18) were younger (median 51 years) than non-BAP1/fusPRKACA patients (n=118, median 64 years, p=0.006) but older than fusPRKACA patients (n=15, median 26 years, p=3.3e-6, Figure 2A).
+
+Compared to non-BAP1/fusPRKACA patients, BAP1 patients were enriched in females (67% vs 19%, p=9.7e-5), in non-fibrotic liver (F0-F1), without known etiologies of HCC (50% vs 12%, p=0.0008, Figure 2C-E and Table 1).
+
+Patients with BAP1 tumors showed similar overall survival compared to non-BAP1/fusPRKACA HCC whereas fusPRKACA patients showed a better prognosis (p=0.02 in log-rank test, Figure 2B).
+
+All of these clinical relations, except younger age, were also found in the TCGA cohort that included 16 BAP1 tumors and 6 fusPRKACA tumors out of 345 HCC (Figure 2A-E and Table 1).
+
+Of note, a 67-years old female patient in TCGA harbored both DNAJB1-PRKACA fusion and BAP1 mutation in the tumor, this case was excluded from the statistical analysis.
+
+PARAGRAPH
+
+BAP1 tumors were enriched in mixed-FLC/HCC (6 out of 18), characterized by an abundant fibrous stroma (72%), intratumor steatosis (67%), biliary tract invasion (31%), perineural invasion (13%), and a high lymphocytic infiltration (73%) (Figure 1 & 2F-J, Table 1).
+
+Tertiary lymphoid structures were frequently identified in BAP1 tumors (70%) ranging from simple aggregate up to secondary follicles harboring a clear germinal center as previously described in HCC20 (Figure 2K).
+
+The Microenvironment Cell Populations-counter method33 applied to RNAseq data showed a high component of the microenvironment in BAP1 tumors, enriched in T and B lymphocytes, endothelial cells and myeloid dendritic cells when compared with non-BAP1/fusPRKACA tumors (Figure 2L, Supplementary Figure 2).
+
+In accordance with these results, CD3 immunohistochemistry revealed a higher infiltration of T cells in the stroma of BAP1 tumors compared to non-BAP1/fusPRKACA (Figure 2M, N).
+
+Infiltrated CD20+ B cells were also observed within BAP1 tumors but in levels comparable to non-BAP1/fusPRKACA HCC (Figure 2O and Supplementary Figure 2).
+
+In the TCGA cohort, we confirmed that BAP1 tumors were highly fibrous, steatotic, enriched in perineural invasion and with frequent lymphocytic infiltration organized in tertiary lymphoid structures (Figure 2F-K and Table 1).
+
+SECTION
+
+BAP1 tumors demonstrate a specific genomic profile with frequent PRKACA gain and PRKAR2A deletion
+
+PARAGRAPH
+
+Analysis of the profile of gene mutations and chromosome alterations in BAP1 tumors showed a significant exclusion from alterations in the 3 most frequent drivers of HCC, namely TERT promoter, CTNNB1 and TP5322 (Figure 1 and Table 1).
+
+This exclusion was confirmed in the TCGA cohort and also observed in DNAJB1-PRKACA fusion tumors (Figure 1 and Table 1).
+
+In contrast, BAP1 tumors were slightly enriched in RB1, KMT2D, ATM and ALB mutations (n=3 for each gene, Figure 1) but these associations did not reach significance.
+
+PARAGRAPH
+
+In order to find alternative driver events associated to BAP1 alterations in HCC, we compared the frequency of copy-number alterations between the 3 molecular groups of tumors.
+
+In 15 out of the 18 BAP1 tumors (83%) we identified a specific recurrent chromosome gain at the 19p13 locus centered on the PRKACA gene found in only 6% of the non-BAP1/fusPRKACA tumors (p=3e-12) and in none of the fusPRKACA tumors (Figure 3A-B).
+
+In addition, deletions at chromosome 3p21 identified in the BAP1 tumors encompassed both BAP1 and PRKAR2A (coding for PKA-R2α, a negative regulatory subunit of the cAMP-dependent protein kinase PKA) genes distant by 3.5 Mb (94% vs 4% in non-BAP1/fusPRKACA tumors, p=2e-16, Figure 3A-B and Supplementary Figure 4).
+
+In agreement with these findings, RNAseq data showed a significant lower PRKAR2A and higher PRKACA gene expression in BAP1 tumors compared to non-BAP1/fusPRKACA tumors and these results were confirmed at the protein level (Figure 3B,D-F).
+
+A significant increased ratio of PRKACA to PKA-R2 proteins, reflecting PKA activity, was monitored in both BAP1 and fusPRKACA groups of tumors compared to non-BAP1/fusPRKACA HCC (Figure 3H).
+
+Accordingly, PKA activity assessed by single sample Gene Set Enrichment Analysis (ssGSEA) was increased in both BAP1 and fusPRKACA tumors (Figure 3C).
+
+PARAGRAPH
+
+These results suggest that similarly to FLC with DNAJB1-PRKACA fusion, the PKA pathway is activated in BAP1 tumors but with an alternative mechanism associating PRKACA chromosome gains and PRKAR2A deletions (Supplementary Figure 4).
+
+PARAGRAPH
+
+BAP1 and DNAJB1-PRKACA tumors share common proliferation and differentiation programs, distinct from other hepatocellular tumors
+
+PARAGRAPH
+
+At the transcriptomic level, 78% of the BAP1 tumors were classified in the G1 sub-group of HCC, known to be associated with progenitor features17,28, compared to only 11% of the non-BAP1/fusPRKACA tumors (p=9.5e-9) and 20% of the fusPRKACA FLC and these results were confirmed in TCGA (63% vs 14%, p=7.0e-5, Table 1).
+
+Single sample GSEA (ssGSEA) revealed that BAP1 and fusPRKACA tumors were highly enriched in stem cell and neuronal features, vasculature development, extracellular matrix and epithelial-mesenchymal transition compared to the non-BAP1/fusPRKACA HCCs (Figure 4A).
+
+FusPRKACA tumors appeared to be less proliferative than non-BAP1/fusPRKACA tumors, as illustrated by lower levels of cell cycle genes such as CCNB1, PCNA or BIRC5, while the tendency toward a low proliferation in BAP1 tumors did not reach significance (Figure 4B).
+
+PARAGRAPH
+
+Interestingly, expression of the 3 TGF-β ligands was increased in both BAP1 and fusPRKACA tumors (Figure 4B) together with an enrichment in the signature of TGF-β signaling in fibroblasts (Plasari TGFb1 Targets 10hr Up, Figure 4A).
+
+In contrast, signature of TGF-β activation in hepatocytes defined by Coulouarn et al38 was not retrieved neither in BAP1 nor in fusPRKACA tumors, suggesting that an activation of the TGF-β pathway in fibroblasts but not in tumor hepatocellular cells could be at the root of the fibrotic phenotype in both groups of tumors.
+
+PARAGRAPH
+
+In accordance with the enrichment in stem cell features detected by GSEA, BAP1 and fusPRKACA tumors shared high expression of hepatic stem cell genes such as EPCAM, VIM or THY1 (CD90) (Figure 4B).
+
+Immunohistochemistry performed on a subset of tumors confirmed the higher percentage of EpCAM positive progenitor cells within both BAP1 tumors and fusPRKACA tumors while this staining was absent in a vast majority of non-BAP1/fusPRKACA tumors (Figure 4C, D).
+
+Furthermore, we also monitored high expressions of markers of the common hepato-pancreatic progenitor39,40 such as PDX1 or SOX17 (Figure 4B), 2 markers which have previously been detected by immunohistochemistry in a majority of FLC samples5 .
+
+Among the differentiation markers, we observed a significant decrease of hepatocyte specific genes ALB, PROX or HNF4A and a significant increase of cholangiocyte specific gene KRT7 in fusPRKACA compared to BAP1 or non-BAP1/fusPRKACA tumors (Supplementary Figure 5).
+
+Also, several markers of pancreatic lineage were overexpressed in BAP1 and/or fusPRKACA tumors, but at various levels in the 2 groups of tumors.
+
+For instance, among the pancreatic markers, a high expression of PDX1, PAX6, PAK3, and MNX1 was identified in BAP1 and fusPRKACA tumors while NEUROG3 (NGN3), INSM1 (IA-1), PTF1A, TRIM50, GP2 and TGIF2 overexpression was restricted to BAP1 tumors and only fusPRKACA tumors overexpressed the pancreatic/neuroendocrine gene PCSK1 (Figure 4B and Supplementary Figure 5).
+
+Other neuroendocrine genes such as CALCA, NTS, DNER or SSTR5 were overexpressed with different patterns in the two groups of tumors (Supplementary Figure 5).
+
+Moreover, we observed a high expression of genes coding for proteins involved in neural infiltration and guidance, such as neuron guide molecules (NGF, NTF3, BDNF) and their binding receptors expressed on neurons (TrkA-C (NTRK1-3) and p75NTR (NFGR), Supplementary Figure 5), possibly accounting for the enrichment in perineural invasion in both BAP1 and fusPRKACA tumors (Figure 2I).
+
+In line with a possible neural infiltration, other neuron expressed receptors such as UNC5A-D were found significantly overexpressed in BAP1 or fusPRKACA tumors (Supplementary Figure 5).
+
+PARAGRAPH
+
+Lastly, the higher expression of the hepato-pancreatic progenitor marker PDX1 and the lack of expression of pancreatic committed progenitor markers such as IA-1 or PTF1A in fusPRKACA compared to BAP1 tumors, suggest a hepato-pancreatic progenitor-like program in fusPRKACA tumors and a more pancreatic engaged program in BAP1 tumors (Figure 4B and Figure 5).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this study, we showed that BAP1 alterations delineate a specific subgroup of HCC with common clinical, histological and molecular features (Figure 5A).
+
+BAP1 is a deubiquitinating enzyme active in both the cytosol, where it controls the stability of different proteins, and in the nucleus, where it targets H2A histones as part of the Polycomb group repressive deubiquitinase complex, which is involved in development and stem cell pluripotency41,42.
+
+BAP1 is described as a tumor suppressor since it is lost in different tumors including cholangiocarcinoma (around 25%) and HCC (around 5%)16,34–37.
+
+However BAP1 was recently shown to also have an anti-apoptotic role in the liver42, which could explain our observation of an increased expression of BAP1 in HCC compared to normal liver (Figure 3B,D-E).
+
+Here, we found that the BAP1 tumors include most of the mixed FLC-HCC tumors and show several clinical and histological similarities with the classical FLC together with a common PKA pathway activation.
+
+PARAGRAPH
+
+Fibrolamellar features in liver tumors are already known to be related to PKA activation through 3 different mechanisms: (i) the DNAJB1-PRKACA fusion in FLC 6, (ii) inactivating mutations in PRKAR1A in rare FLC developed in Carney complex patients7 and (iii) activating mutations in GNAS (leading to production of cAMP and subsequent activation of PKA) identified in rare hepatocellular adenomas characterized by fibrolamellar-like patterns43.
+
+Here, we discovered a fourth mechanism of PKA activation in BAP1 tumors resulting from recurrent gains of PRKACA and deletions of PRKAR2A, encoding respectively a catalytic subunit and an inhibitory regulatory subunit of PKA, with consequences at the mRNA and protein levels (Figure 3 and Supplementary Figure 4).
+
+PARAGRAPH
+
+An important characteristic of the DNAJB1-PRKACA and BAP1 tumors is their age distribution starting with FLC in the second and third decade, then BAP1 HCC occurring before non-BAP1/fusPRKACA HCC (Figure 5A).
+
+This gradient could be related to the cell of origin of the malignant transformation since FLC has been proposed to originate from the biliary tree stem cell5, a recently discovered hepato-pancreatic progenitor39,40, in agreement with the hepato-pancreatic progenitor phenotype we identified in both fusPRKACA and BAP1 tumors (Figure 5B).
+
+BAP1 loss may promote a dedifferentiation towards a progenitor phenotype since BAP1 silencing in Huh7 HCC cell line induces an increase in stemness markers expression such as EPCAM or PROM144.
+
+Similarly, CRISPR-based loss of BAP1 in human liver organoids increases the expression of progenitor markers while reducing markers of liver function and ultimately epithelial homeostasis, possibly via a direct regulation of transcription by BAP1 through its known role in the Polycomb deubiquitinase complex42.
+
+In the TCGA cohort, the unique patient with HCC harboring both DNAJB1-PRKACA fusion and BAP1 inactivation was old (67y) suggesting that the progenitor phenotype induced by BAP1 loss could be required for the oncogenic effect of PKA activation in an old liver.
+
+This is in line with our observation of a co-occurrence of BAP1 inactivation and PKA activation through copy number alterations.
+
+Remarkably, 2 independent teams recently reported the presence of DNAJB1-PRKACA fusions in rare pancreatic and biliary neoplasms, thus reinforcing the link between the oncogenic activation of PKA and the hepato-pancreatic progenitor lineage, while challenging the exclusivity between FLC and the DNAJB1-PRKACA fusion45,46.
+
+PARAGRAPH
+
+Of note, HCC usually lacks lymph node involvement or perineural invasion, commonly found in other epithelial tumors such as pancreatic adenocarcinomas47,48 or cholangiocarcinoma49,50.
+
+Conversely, there is a high rate of lymph node metastasis in FLC (up to 70%)51 and here we identified an enrichment of perineural invasion in BAP1 and fusPRKACA tumors across the 2 series (Table 1).
+
+This enrichment could be a consequence of the overexpression of genes encoding neuron guide molecules (NGF, NTF3, BDNF) that allow the recruitment and growth of neurons expressing axonal guidance receptors (TrkA-C, p75NTR, UNC5A-D, see Supplementary Figure 5).
+
+PARAGRAPH
+
+Strikingly, BAP1 tumors are never mutated in the TERT promoter (in both LICA-FR and TCGA cohort) while this alteration is found in 30-60% of HCC16,52.
+
+This could also be a consequence of the progenitor state of the tumor cells associated with BAP1 loss, since in vitro experiments suggest that BAP1 overexpression can repress TERT transcription53 and progenitors cells are supposed to maintain their telomeres throughout replication without requiring mutations.
+
+This would also explain the exclusion between DNAJB1-PRKACA fusion and TERT alteration, following the hypothesis that the cell of origin of FLC is a progenitor5.
+
+PARAGRAPH
+
+While it has been suggested that endocrine/pancreatic features were specific of FLC and not found in mixed-FLC/HCC13, here we show that both fusPRKACA and BAP1 tumors express high levels of neuroendocrine and pancreatic markers but with different patterns (Supplementary Figure 5).
+
+These different profiles of expression could reflect different stages of differentiation along the hepato-pancreatic lineage in the 2 groups of tumors as a consequence of their different cell of origin, as discussed above (Figure 5B).
+
+Moreover, an association between neuroendocrine features and abundant fibrous stroma has already been described54.
+
+PARAGRAPH
+
+Interestingly, BAP1 mutations are recurrently identified in several tumor types including uveal or cutaneous melanoma, mesothelioma, renal cell carcinoma, mesothelioma and lung cancers55.
+
+In 2013, a pan-cancer study has defined a typical morphology of BAP1-mutated cells as "rounded or polygonal cell shape with abundant amphophilic or eosinophilic cytoplasm"56.
+
+Interestingly, these features are also retrieved in FLC1,4 as well as in BAP1 liver tumors (in both FLC and HCC components).
+
+This, along with the abundant fibrous stroma, hinders the distinction between BAP1 and fusPRKACA tumors based solely on histology in our cohort of tumors and in other reports13,57.
+
+These observations argue for the use of molecular characterization to distinguish BAP1 tumors not only from the fusPRKACA FLC but also from scirrhous HCC, another type of highly fibrous liver tumors usually not mutated in BAP1 (Figure 1 and Table 1).
+
+However, it is worth noting that the detection of BAP1 mutations is challenging due to the high level of stromal contamination: in our series, 3 out of the 15 BAP1 mutations were not found at first in the analysis of whole exome data, but were later detected in target sequencing of BAP1 with a higher depth.
+
+PARAGRAPH
+
+In a clinical perspective, our observations of similarities between fusPRKACA and BAP1 tumors may be in favor of developing common therapeutic strategies.
+
+Indeed, the over-activation of PKA in both groups of tumors argues that potential future treatments targeting PKA, if successful in FLC, could be repositioned to also combat BAP1 tumors.
+
+In a therapeutic perspective, the 2 groups of tumors could benefit from anti-angiogenic drugs such as sorafenib58 due to their common enrichment in markers of angiogenesis and endothelial cells (Figure 4A and Supplementary Figure 2).
+
+Of note, a link between BAP1 alterations and angiogenesis was also recently described in uveal melanoma59.
+
+Finally, as BAP1 HCC are highly infiltrated by lymphocytes (Figure 2J), a feature also described in BAP1 mutated peritoneal mesothelioma60, they can be considered as good candidates for immunotherapy.
+
+Of note, despite this higher lymphocytic infiltration, we did not monitor a difference in the tumor mutational burden of BAP1 tumors compared to non-BAP1/fusPRKACA tumors, while both groups of tumors had more mutations than fusPRKACA tumors (Supplementary Figure 2B).
+
+PARAGRAPH
+
+In conclusion, we characterized a new molecular subgroup of HCC, driven by BAP1 loss of function and PKA activation in a context of a hepato-pancreatic progenitor de-differentiation, associated to specific pathological subtype of tumors including abundant fibrous stroma, steatosis, lymphocyte infiltration, perineural and biliary track invasion developed mainly in female patients without cirrhosis and chronic liver disease.
+
+PARAGRAPH

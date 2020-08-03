@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.103271
+
+ABSTRACT
+
+TITLE
+
+Semantic versus instance segmentation in microscopic algae detection
+
+PARAGRAPH
+
+Microscopic algae segmentation, specifically of diatoms, is an essential procedure for water quality assessment.
+
+The segmentation of these microalgae is still a challenge for computer vision.
+
+This paper addresses for the first time this problem using deep learning approaches to predict exactly those pixels that belong to each class, i.e., diatom and non diatom.
+
+A comparison between semantic segmentation and instance segmentation is carried out, and the performance of these methods is evaluated in the presence of different types of noise.
+
+The trained models are then evaluated with the same raw images used for manual diatom identification.
+
+A total of 126 images of the entire field of view at 60x magnification, with a size of 2592x1944 pixels, are analyzed.
+
+The images contain 10 different taxa plus debris and fragments.
+
+The best results were obtained with instance segmentation achieving an average precision of 85% with 86% sensitivity and 91% specificity (up to 92% precision with 98%, both sensitivity and specificity for some taxa).
+
+Semantic segmentation was able to improve the average sensitivity up to 95% but decreasing the specificity down to 60% and precision to 57%.
+
+Instance segmentation was also able to properly separate diatoms when overlap occurs, which helps estimate the number of diatoms, a key requirement for water quality grading.

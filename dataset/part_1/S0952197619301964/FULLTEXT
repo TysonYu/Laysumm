@@ -1,0 +1,761 @@
+10.1016/j.engappai.2019.08.011
+
+FULLTEXT
+
+TITLE
+
+Dynamic path planning for reconfigurable rovers using a multi-layered grid
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Autonomy is an essential capability for rovers to explore the surface of other planets.
+
+The distances from Earth entail big latencies in communications between the rover and the terrestrial ground station.
+
+As an example, there is a radio transmission delay of several minutes between Earth and Mars (Lester and Thronson, 2011; Lester et al., 2017).
+
+Therefore, direct teleoperation arises as a difficult task to be carried out remotely from Earth.
+
+Besides, communications with rovers at the red planet generally occur only a few times per Martian sol (solar day) due to the availability of Deep Space Network antennas, conforming a limited time-slot for providing commands and retrieving data from the rover (Bajracharya et al., 2008).
+
+These facts are contrary to the necessity of increasing the number of scientifically interesting places visited by rovers.
+
+Providing higher autonomy would allow them to traverse longer distances.
+
+However, new issues arise since rovers tackle a high uncertainty when they are traveling, i.e., they may encounter unexpected situations, mostly due to terrain shape and/or composition, as well as the existence of stones.
+
+These issues affect the traversability for the vehicle.
+
+The improper evaluation of the terrain could lead to a fatal situation of the vehicle, compromising the mission as a result.
+
+This was the case of the Spirit rover, which got stuck in loose sand, making it impossible to continue driving (Ono et al., 2015) and thus bringing the mission to an end.
+
+By using traversability information, autonomy can be improved thanks to the use of path planning algorithms, which allow the vehicle to compute onboard a safe path from one location to another.
+
+PARAGRAPH
+
+Path planning has been used in Mars exploration missions along with rovers Spirit, Opportunity and Curiosity.
+
+A path planning approach, based on two levels (global and local), was deployed on these rovers (Maimone et al., 2007).
+
+The main reason behind it is to use data relative to rover surroundings while also considering information relative to the location of elements, such as obstacles, in other areas.
+
+As global planning algorithm, the Field-D* was used, initially introduced by Ferguson and Stentz (2006b).
+
+With this algorithm, a potential field is computed on a regular grid starting from the goal position to the rover location.
+
+Main particularity of this method is the use of an interpolation technique that assigns the values of this potential field to each node, based on the values of its already visited neighbors.
+
+By considering that edges connecting nodes are crossable by the path, it results to be smoother than previous methods like D*, where paths are strictly restricted to go through node locations.
+
+This algorithm has also re-planning capability, meaning the path can be updated during rover traverse in case the cost of any node is modified.
+
+This can happen any time the rover detects an obstacle on its way using its onboard sensors.
+
+Besides, this algorithm has been adapted to the use of multi-resolution grids (Ferguson and Stentz, 2006a) to minimize computational resources, saving computation in areas where the level of detail can be simplified.
+
+However, it is not clear neither the computational cost of this algorithm nor the steps to extract a path from it, leaving this operation to another algorithm that only focuses on the local planning.
+
+In the case of Mars rovers, the GESTALT local planner has been used (Carsten et al., 2007).
+
+It basically generates a series of arcs starting from the vehicle position, which are later evaluated according to the potential field created by the global planner.
+
+As result, the arc with the best evaluation is chosen to be followed by the rover.
+
+PARAGRAPH
+
+An alternative path planning solution to Field-D* is the Fast Marching Method (FMM), originally introduced by Sethian (1999).
+
+It is a numerical method that solves the so-called eikonal equation, which is an expression defining the behavior of a wave that propagates over a continuous 2D scalar function — also extendable to 3D.
+
+Unlike Field-D*, only a quadratic expression can be used along each node of the grid to compute a continuous potential field.
+
+Such a potential field represents the arrival time of the wave at each location of the grid.
+
+Besides, in contrast to Field-D*, the computational cost of FMM is clearly stated, this being O(ζlogζ), where ζ is the number of nodes the grid is composed of.
+
+After computing the potential field, the path is extracted by just making use of a gradient descent method on it (Kimmel and Sethian, 2001; Liu and Bucknall, 2015).
+
+However, this path planning solution is not originally meant to include a re-planning capability.
+
+Previous research (Philippsen et al., 2008) has focused on the modification of FMM to make it dynamic, obtaining as result an algorithm called E*.
+
+Nevertheless, it does not consider the use of maps with multiple resolutions.
+
+An example of FMM using a multi-resolution map, but not dynamic re-planning, can be seen in the work of Petres et al. (2005), where an already-known environment is modeled with different levels of detail, obtaining as result sub-optimal but fast-computed paths.
+
+PARAGRAPH
+
+In most cases, path planning algorithms consider traversability data to decide whether a path should go through a certain area or not.
+
+It heavily depends on the underlying physics of the terrain–vehicle interaction, i.e. terramechanics.
+
+Shape and composition of terrains determine the dynamic behavior of any body in contact with it (e.g. friction and slipping effects).
+
+The kinematic configuration of the vehicle, together with the distribution of its masses and inertias, affects the forces exerted on the surface, influencing on traction, as well as on the energy required to move the vehicle.
+
+While the terrain features cannot be changed, the rover kinematic configuration could be adapted to it.
+
+This is the case for vehicles categorized as reconfigurable, which are able to perform several locomotion modes, each one adapted to a particular terrain.
+
+A notable example of this feature is the ExoMars rover, which is being conceived to search for signs of life on Mars in the future ExoMars 2020 mission, lead by the European Space Agency (Vago et al., 2015, 2017).
+
+The particularity, with respect to other rovers, is the use of additional joints on top of its legs.
+
+Such joints are initially meant to deploy the wheels once the rover has landed on Mars, but later, they can be further used to improve traction on loose soil by the use of a locomotion mode called wheel-walking (Woods et al., 2009; Patel et al., 2010).
+
+In this sense, Azkarate et al. (2015) performed some experiments using an ExoMars rover prototype that demonstrated this statement.
+
+Other authors analyzed the performance of a similar locomotion mode, called push–pull (Creager et al., 2015), on loose soil as well, getting to the same conclusions.
+
+These modes of locomotion may be helpful in situations where otherwise, being only capable of executing the standard roving or normal driving locomotion mode, would result in the rover raising its power consumption or even getting entrapped.
+
+Having a good knowledge of the locomotion-terrain relation for a particular rover, a path planning algorithm could take advantage of this information, finding even more optimal paths.
+
+However, the design of an algorithm that takes into consideration different locomotion modes is still being investigated.
+
+In previous works, path planning algorithms have been developed aimed at the reconfiguration of the vehicle chassis.
+
+For example, Brunner et al. (2012, 2014) proposed algorithms to find optimal paths adapting the chassis to overcome obstacles in the form of stairs, while Miró et al. (2010) carried out a research focused on maintaining the stability of the vehicle using FMM.
+
+However, none of these works takes into consideration a reconfigurable rover for long-range operations, such as those found in planetary exploration missions.
+
+PARAGRAPH
+
+This paper proposes a path planning algorithm based on FMM that works with a multiple resolution grid made up of two layers.
+
+The role of these layers is fully explained in Section 2.
+
+The first one is used to compute the overall path using a cost function based on the locomotion performance according to the terrain features.
+
+The objective is to find the path that minimizes the power consumption, taking advantage of the use of multiple locomotion modes.
+
+The second layer is used to perform a novel repairing process that dynamically modifies the path, with the aim of avoiding any obstacle detected by the rover on the spot.
+
+Later on, simulation results are provided in Section 3 followed by results from a field test.
+
+They serve as a way to analyze the main particularities of the proposed algorithm within several planetary exploration situations.
+
+From these results, in Section 4 are extracted a series of conclusions and some ideas for future work.
+
+SECTION
+
+Path planning
+
+PARAGRAPH
+
+The proposed path planning algorithm is described in this section.
+
+Fig. 1 shows a schematic containing its different parts.
+
+PARAGRAPH
+
+The first one is the Multi-layered Grid, which contains two layers, each of them with different resolution and range.
+
+First, the Global Layer uses information provided by satellites to determine the distribution of the different types of terrain present in the mission area.
+
+Orbital images, such as the Digital Elevation Maps (DEMs) from HiRISE (McEwen et al., 2007) or the thermal images from Mars Reconnaissance Orbiter THEMIS (Fergason et al., 2006), provide useful data relative to morphology and physical properties of the surface.
+
+From DEMs, slopes can be easily computed as well as the location of non-traversable areas, while composition of terrain is not trivial to estimate at first.
+
+However, the research carried out by Cunningham et al. (2019) shed light on the problematic of estimating terramechanic parameters in advance using thermal images.
+
+This may prove useful to estimate as well the performance of certain locomotion modes by using models previously defined, such as those created in a previous work (Pérez-del Pulgar et al., 2017).
+
+PARAGRAPH
+
+Secondly, the Local Layer employs information relative to the obstacles detected by the rover during its traverse.
+
+As will be seen later, the Local Layer is created by subdividing the nodes of the Global Layer and updated with data provided by the onboard sensors.
+
+These layers are used by two processes, Global Path Planning and Local Path Repairing respectively.
+
+The first process has the aim of finding a path connecting two points: the rover position and the location of the desired destination.
+
+The criteria to determine the shape of this path is based on the available locomotion modes on the vehicle and their performance on the different identified terrains.
+
+The Local Path Repairing has the function of updating such path whenever necessary in order to avoid those obstacles the rover finds in its way.
+
+This path is then used by the rover navigation systems, such as the Path Following proposed by Filip et al. (2013), which are out of the scope of this paper.
+
+SECTION
+
+Multi-layered grid
+
+PARAGRAPH
+
+Resolution of maps affects both the computational power needed to work with them and the required size of memory storage.
+
+For the same storage, a lower resolution allows to make use of maps with higher range.
+
+This is useful to cover a larger area for the mission.
+
+However, the drawback of this is that elements like stones that are too small for that resolution cannot be represented, and still these need to be taken into account during the rover traverse.
+
+That is why it is essential to make use of local maps with higher detail, which entails an increment in the memory size proportional to the area covered.
+
+This paper proposes a way to use information describing the environment using multiple sizes and resolutions.
+
+This is thanks to a grid that contains two layers as can be seen in Fig. 2.
+
+These two layers are named Global Layer and Local Layer, being the first one meant to be used with low resolution but large areas (e.g. orbital maps) and the second one with high resolution maps covering just certain areas visited by the vehicle (e.g. maps of the surroundings of the rover obtained from its sensors).
+
+Each of these layers are formed by nodes, which are basically square areas with a center point and distributed uniformly over the grid.
+
+Global Nodes and Local Nodes are contained in the Global Layer and the Local Layer respectively.
+
+Although the Local Layer overlaps the Global Layer, its extension is only defined by the number of Global Nodes that are subdivided into Local Nodes.
+
+In other words, the area covered by the Local Layer is less or equal to the area covered by the Global Layer.
+
+In Fig. 2, for example, only four Global Nodes are subdivided, covering Local Layer lesser area than Global Layer.
+
+Distance between two neighboring Global Nodes is represented by the constant Λ, which is, also, the side length of the Global Node square area.
+
+Analogously, λ is the constant defining the gap between Local Node neighbors.
+
+PARAGRAPH
+
+Global Nodes are meant to be used along terrain information deduced from orbital images.
+
+For any Global Node Nij, where i,j refers to the horizontal and vertical coordinates in the Global Layer, τij indicates the type of terrain located inside the area of such node.
+
+This type is classified within a finite set according to its associated features, in a similar way some terrain classifiers work (Brooks and Iagnemma, 2012; Rothrock et al., 2016).
+
+In this way, by just knowing τij, terramechanic parameters affecting locomotion performance, such as friction and/or slippage, can be directly associated to it.
+
+PARAGRAPH
+
+Unlike Global Nodes, Local Nodes do not contain information relative to the type of terrain, but information about their state with respect to nearby obstacles.
+
+For this purpose the parameter rab, also referred here as risk, is contained in any Local Node nab, being a and b the horizontal and vertical coordinates relative to the Global Node Nij from which is obtained.
+
+This parameter uses values going from two limits, 0 and 1.
+
+Lower limit or 0 means the node is located on the safe area, while a value of 1 is equivalent to an obstacle.
+
+Intermediate values correspond to nodes located on the surroundings of the obstacles and they are computed via an operation called Risk expansion, which is later detailed.
+
+SECTION
+
+Global path planning
+
+PARAGRAPH
+
+Initial phase of the proposed path planner is the use of FMM on the Global Layer.
+
+The main idea behind the Global Path Planning is to obtain a matrix T that forms a potential field.
+
+Each value Tij of this matrix is associated to a Global Node Nij and indicates the value of the Total Cost required to go from its location to the final destination.
+
+In other words, Tij is the minimum amount of Cost integrated along the curve connecting both locations, i.e., the optimal path.
+
+In this case the Cost Cij consists of a scalar value that represents the difficulty for the vehicle to traverse the area of a Global Node Nij.
+
+It can be deduced that the value of the Total Cost at the Global Node corresponding to the destination, Ndest, is zero (Tdest=0), since from there it is not required for the rover to move to another position until the goal location is changed.
+
+From Ndest the values of Total Cost of the neighboring Global Nodes are iteratively computed by using the eikonal equation (1).
+
+This equation basically defines how the values of the Total Cost are increased as the FMM visits further Global Nodes from Ndest.
+
+In other words, functioning of FMM can be seen as the numerical viscous solution of a wave propagation, expanding from the Global Node where Tij=0 (initial condition/desired destination) at a rate determined by the Cost values of each node, Cij. ‖∇Tij‖=Cij
+
+PARAGRAPH
+
+From the resulting potential field, the optimal path can be later extracted, connecting the location of the rover and the goal position.
+
+Since it is intended to minimize the energy required by the vehicle to perform its traverse and reach the desired destination, this parameter is the one considered here as the Total Cost.
+
+Thus, the Cost is also defined here in energetic terms and is shown in Eq. (2).
+
+Since it is the spatial derivative of the Total Cost, and energy is the integration of power over time, Cost is here equivalent to the ratio between the power P and the velocity v of the rover, which in this case is considered to be a constant value.
+
+In this way, if the Cost (power/speed) is integrated over the length of any path obtained using FMM, the value of the Total Cost (energy) is obtained as result.
+
+The Power function P in Eq. (2) considers the use of rovers with reconfiguration capability, providing the value of the instantaneous power depending on the locomotion mode l, the type of terrain τij and the value v of speed used.
+
+It can be built upon models and/or experimentation such as in the work of Pérez-del Pulgar et al. (2017).
+
+Locomotion mode chosen to traverse the Global Node Nij, lij, is the one that makes Cij take the minimum value and is contained in the set L of all the available modes in the rover.
+
+Cij=minl∈LP(l,τij,v)v⇒l=lij
+
+PARAGRAPH
+
+Following the work of Sethian (1999), the eikonal equation (1) is discretized by means of finite differences, having as result Eq. (3).
+
+Txij and Tyij are the values of the Total Cost of the horizontal and vertical neighbors of the Global Node Nij respectively.
+
+The criteria to choose which neighbor is used with respect to each axis is shown in Eqs. (4) and (5).
+
+Tij−TxijΛ2+Tij−TyijΛ2=Cij2Txij=minTi−1j,Ti+1jTyij=minTij−1,Tij+1
+
+PARAGRAPH
+
+The quadratic equation (Eq. (3)) may however provide more than one solution for Tij.
+
+It is important to ensure that the upwind condition in Eq. (6) is always true while propagating the Fast Marching wave, so as to ensure no local minimums are created in the process. (Tij>Txij)∨(Tij>Tyij)
+
+PARAGRAPH
+
+The final implementation of the propagation equation, complying with the upwind condition (6), is shown in Eq. (7).
+
+As can be deduced, in those cases where the discretized eikonal does not ensure the condition in (6), an alternate way to compute Tij is used, corresponding basically to the Dijkstra method.
+
+Tij=Txij+Tyij+2(ΛCij)2−(Txij−Tyij)22,|Txij−Tyij|≤ΛCijminTxij,Tyij+ΛCij,otherwise
+
+PARAGRAPH
+
+Next, it is given here an explanation about how FMM visits each Global Node to execute Eq. (7), as well as the respective pseudo-code used, which can be found in Algorithm 1.
+
+Initially the state of all Global Nodes, Nij.s, is labeled as Far, meaning the algorithm has not yet reached them.
+
+One of these Global Nodes, Ndest, has its state labeled as Accepted and its value of Total Cost, Tdest, is set to zero.
+
+The state Accepted means its value of Total Cost is already computed and definitive.
+
+Then, a list called FWlist is initialized, empty at first, and is meant to contain Global Nodes with the state labeled as Considered.
+
+These Considered Global Nodes form the front wave of the propagation process, acting as frontier between Far and Accepted Global Nodes.
+
+The next step is to label all von Neumann neighbors of Ndest, Ndest.nb, as Considered (except those containing obstacles, which can be distinguished by its corresponding value of cost Cij being equal to ∞) and introduce them into FWlist, computing for them preemptive values of Total Cost using Eq. (7).
+
+From this point, a loop is continuously executed until either FWlist gets empty or the Global Node containing rover location, Nrover, is labeled as Accepted.
+
+This loop consists of a series of steps as follows: first, the Global Node from FWlist with the lowest value of Total Cost, Nnext, is extracted, then it is labeled as Accepted and finally, for each of its von Neumann neighbors, Nnext.nb, the value of Total Cost is re-computed in case it is yet preemptive and, also, they are introduced into FWlist if their state is Far, updating them as Considered in the process.
+
+PARAGRAPH
+
+Once the potential field of T values is computed, the next step is the extraction of the path that minimizes the Total Cost.
+
+To do this, a gradient descent method is applied over the field using Eq. (8), starting from a waypoint placed at the location of the rover.
+
+In order to better distinguish between waypoints computed using Global Layer from those using Local Layer, the first ones are referred to as Global Waypoints and the second ones as Local Waypoints.
+
+Γk is the k Global Waypoint of the trajectory.
+
+The number of Global Waypoints will depend on both the length of the resulting path and the chosen step size ρ (which is a value lower than 1).
+
+The last Global Waypoint is placed further than a certain distance (1.5 Λ in our case) of the goal position since the gradient at that location degenerates because of the discretization method used.
+
+Γk=Γk−1−ρ∇Tk−1∀k=1,2,…
+
+PARAGRAPH
+
+Finally, the computation of ∇Tk−1 is done using linear interpolation with the values of T of the nearby 4 Global Nodes, which are also computed using finite differences.
+
+SECTION
+
+Local path repairing
+
+PARAGRAPH
+
+Although the Global Path Planning stage can initially provide a path, the information it is based on can be too imprecise to ensure the rover advances safely.
+
+This is mainly due to the possibility of encountering elements such as rocks that were not visible due to the low resolution of the global map.
+
+Therefore, the rover must have a means to update the path shape whenever its sensors detect an obstacle.
+
+However, the resolution of the Global Layer, usually in the order of the size of the rover, can be too big to represent it with the proper level of detail.
+
+Thus, this paper proposes a new stage, called Local Path Repairing, which basically consists of the application of a heuristic version of FMM, called FM*, on the Local Layer, using a small area of the map but with higher resolution.
+
+As a result, a section of path is computed, which serves to avoid obstacles as well as to guide the rover to a safe Global Waypoint from which it can continue its traverse.
+
+Depending on the criteria chosen to determine such Global Waypoint, we can distinguish between two possible approaches for the Local Path Repairing: the Sweeping approach, which results on computing an all-new path, or the Conservative approach, which tries to continue the previous planned path as soon as possible.
+
+PARAGRAPH
+
+Fig. 3 shows a series of operations that are carried out during the Local Path Repairing stage.
+
+The first step consists of determining whether the path must be repaired or not each time a new obstacle is detected.
+
+As can be seen in Fig. 3(a), the area occupied by obstacles is dilated by a certain amount depending on the dimensions of the rover, ensuring that the vehicle will not collide with them while following the resulting path.
+
+Then, the criterion used to trigger the rest of the steps is whether any of the Local Nodes containing an obstacle or part of it is located under a distance threshold d to any Global Waypoint.
+
+In that case, the current path is considered to be too close to obstacles, so the rest of steps are executed.
+
+The distance threshold d is chosen complying with Eq. (9), so as to minimize the error committed by not checking intermediate points between consecutive Global Waypoints.
+
+The Global Waypoint Γtriggerer is marked as the first one (following the order in which the rover arrives at each of them) that is considered to be close to an obstacle so as to trigger the repairing process.
+
+Then, from that Global Waypoint another prior to it is searched for, called Γstart.
+
+It can be either a Global Waypoint placed further than distance d from Γtriggerer, or even the vehicle position, in case it is closer to Γtriggerer.
+
+Γstart acts as the reference position from which the rest of the path is re-computed, meaning all waypoints prior to it are not modified in the repairing process.
+
+Another Global Waypoint, Γreference, is also considered later, and is basically the first waypoint that is placed further than distance d after the path has gone close to the obstacle.
+
+Fig. 3(a) depicts three possible areas each Local Node can be part of: Obstacle area, Risky area and Safe area.
+
+Obstacle area refers to those Local Nodes containing obstacles, while Risky area are those located under distance d to the previous area.
+
+On the other hand, Safe area is formed by those Local Nodes located further than distance d from obstacles. ρ≤d∕Λ
+
+Before computing the FM* propagation on the Local Layer to retrieve the new path, it is necessary to define the values of rab for each Local Node nab.
+
+This is done by executing a process called Risk Expansion, in which a gradient is created around obstacles to serve as a repulsive potential field and make the resulting path get further from them.
+
+The main idea behind this has been applied in other research (Petres et al., 2005; Valero-Gomez et al., 2013).
+
+The pseudo-code of this process can be found in Algorithm 2.
+
+While the Local Nodes contained in the Obstacle area are labeled as Accepted and have their value of risk set to 1, this parameter is initialized to 0 for the rest, whose state is set to Far.
+
+Then, all those Local Nodes that are within the Obstacle Area but have neighbors with r=0 are introduced into the list FWlist.
+
+From these nodes is expanded a wave that will set values of r going from 1 to 0, stopping at those Local Nodes whose value of r is already higher than the one the wave intends to set.
+
+The eikonal equation used for Risk expansion is provided in (10), as well as its discretized version in (11).
+
+In Fig. 3(b) can be checked how values of r between 0 and 1 are set forming the repulsive potential fields, contained inside the Risky areas. ‖∇rab‖=−1d rab=rxab+ryab−2(λ∕d)2−(rxab−ryab)22,|rxab−ryab|≤λ∕dmaxrxab,ryab−λ∕d,otherwise
+
+PARAGRAPH
+
+After the Risk Expansion, the values of r are used to build Local Cost cab as seen in (12) for any Local Node nab.
+
+This cost parameter is used in the eikonal equation (13), whose discretized version is shown in (14).
+
+This equation is used for the propagation of the FM* wave starting from the Local Node closest to Γstart, as seen in Fig. 3(b).
+
+As result, a potential field is obtained, from which is intended to later extract a series of Local Waypoints to rebuild the path.
+
+This potential field is formed by values of parameter tab for each Local Node nab, which is analogous to the Total Cost in the Global Layer. cab=1+rab ‖∇tab‖=cab tab=txab+tyab+2(λcab)2−(txab−tyab)22,|txab−tyab|≤λcabmintxab,tyab+λcab,otherwise
+
+PARAGRAPH
+
+In Algorithm 3 is contained the pseudo-code of the FM* propagation using the Local Layer.
+
+It works similarly to the propagation in Global Path Planning, but with the main difference of working in this case with Local Nodes instead of Global Nodes.
+
+Another difference is the requirement to fulfill in order to stop the propagation loop.
+
+In the case of Local Path Repairing it consists of reaching a safe Local Node nnext that satisfies a certain stop condition.
+
+Such condition depends on whether it is desired to strictly keep the rover close to the initially computed path or not.
+
+Therefore, we can find up to two different approaches that also affect the heuristic function to use during the computation of the propagation wave: Sweeping and Conservative approaches (pink and green colored lines respectively in Fig. 3(b)).
+
+SECTION
+
+Sweeping approach
+
+PARAGRAPH
+
+In this case it is prioritized to reach a Local Node from which the rest of Global Waypoints are computed again.
+
+In other words, from the location of such Local Node the gradient descent method introduced in (8) can be applied on the Global Layer again using the values of Total Cost.
+
+The main idea behind this approach is that the Local Node where the local propagation stops satisfies the condition (15).
+
+Tnext≤Tovertakewhere Tnext is the value of Total Cost corresponding to the Local Node nnext obtained by interpolating with the values of Total Cost of the surrounding Global Nodes.
+
+Tovertake, on the other hand, is the value of Total Cost corresponding to the Global Waypoint Γreference.
+
+Therefore, by using this approach it is searched for a position beyond the obstacle to be avoided keeping track of the Total Cost values computed in the Global Path Planning process.
+
+Due to the fact that the gradient descent method always makes the path go towards lower values of Total Cost, the new Global Waypoints will be placed further from the obstacle.
+
+Then, since in this case it is more important to search through nodes with values of Total Cost lower than Tovertake, the heuristic function (16) is used. χ
+
+is the distance traversed in the path from Tstart to Tovertake.
+
+It is worth mentioning that this function contemplates the possibility of encountering nodes that, although they meet condition (15), may not be safe, meaning the FM* on the Local Layer should continue propagating. hab=tab+max0,Tab−TovertakeTstart−Tovertakeχ
+
+SECTION
+
+Conservative approach
+
+PARAGRAPH
+
+Unlike the previous approach, this one consists of making the local path rejoin with one of the existing Global Waypoints placed beyond the obstacle and risky areas.
+
+This approach is more restrictive since the local propagation can only stop at the Local Node nreference, which is the closest to the location of Γreference, as denoted in (17). nnext=nreference
+
+PARAGRAPH
+
+As can be checked in the example case introduced in Fig. 3(b), this rejoining tends to be less smooth than the one done under the sweeping approach since the local propagation does not follow the descending direction of the Total Cost values.
+
+It can be deduced that this strategy is not focused on searching for the optimal solution in terms of distance and/or power consumption, but instead for ensuring that the rover will stick to the original planned path.
+
+This can be useful whenever during a planetary exploration mission it is prioritized that the rover follows the original path as closely as possible.
+
+Besides, there are some advantages in terms of computation with respect to the previous approach: it demands less data storage, since the rover is no longer dependent on the information provided by the Global Layer.
+
+Also, it is not required to interpolate the values of Total Cost of each Local Node, so this computation process is also avoided.
+
+Finally, as has been stated, the computation of the Local Path Repairing under this approach searches for the shortest path to rejoin to the previous path while avoiding surrounding obstacles.
+
+Therefore, the corresponding heuristic function considers the distance to the position of nreference, as can be checked in Eq. (18).
+
+In this way, the Local Path Repairing prioritizes the expansion of the propagation wave towards those nodes closer to nreference.p. hab=tab+|nab.p−nreference.p|
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+Once the proposed path planning algorithm has been detailed, it is validated by means of simulations carried out using MATLAB software and a field test.
+
+The code used for the simulations and the real experiment can be found on GitHub repositories.1 ,2
+
+The purpose of the first simulation test is to analyze the validity of the Global Path Planning on long-range navigation.
+
+In particular, data related to the locomotion performance of the reconfigurable rover shown in Fig. 4(a) is used.
+
+This rover, called ExoTeR, (Azkarate et al., 2015) is capable of executing two locomotion modes: Normal driving and Wheel-walking.
+
+The first mode is the usual locomotion used by rovers: by rolling the wheels the vehicle advances.
+
+On the other hand, Wheel-walking consists of deploying and retrieving the legs so as to improve traction, as already stated in the Section 1.
+
+The last simulation serves to validate the use of the Local Path Repairing process under the sweeping approach on one of the paths computed before.
+
+Later on, results from a field test carried out with a single-locomotion rover, shown in Fig. 4(b), are also introduced, showing the performance of Local Path Repairing under the conservative approach.
+
+This mobile platform has similar dimensions as the ExoMars rover and is also equipped with a rocker-bogie locomotion system.
+
+Its purpose is to replicate the sensor architecture that will be located onboard the rover to be sent to Mars (Hewitt et al., 2018).
+
+PARAGRAPH
+
+All of these tests were done using the Martian-looking environment shown in Fig. 5(a).
+
+It consists of a real experimental terrain3  that is located close to the European Research and Technology Centre (ESA-ESTEC) in Noordwijk, The Netherlands.
+
+A Digital Elevation Map obtained from it was used for the simulations, and it is also the scenario where the field test took place.
+
+SECTION
+
+PARAGRAPH
+
+Long-range navigation
+
+PARAGRAPH
+
+The first experiment consists of executing the Global Path Planning stage to obtain the optimal path to reach a certain destination.
+
+It is executed several times, starting from various positions over the map.
+
+To do this, the Global Layer is built using Λ=1m, storing values of elevation from a DEM (see Fig. 5(b)).
+
+Then, since the terrain contains craters and big rocks, the value of slope is computed at each Global Node, considering it an obstacle if it is too pronounced.
+
+Besides, as can be seen in Fig. 6(a), there are two traversable areas, each one corresponding to one kind of terrain: Rough and Soft.
+
+Moreover, a third type of terrain is introduced here, named Near Obstacle.
+
+This type serves to smooth cost transition between obstacles and traversable area, since cost of the first one is considered as infinite.
+
+In this way, resulting paths go further from obstacles, which is desirable as well to avoid the use of gradient descent method near them.
+
+Then, the FMM propagation is executed.
+
+To do this, the values of Cij for each Global Node Nij are chosen according to the Table 1, depending on the type of terrain and the chosen locomotion mode.
+
+These values come from previous work (Pérez-del Pulgar et al., 2017), in which simulation models were used to analyze the power consumption of each locomotion mode.
+
+Two terrain parameters were considered for this purpose: μ and s.
+
+First of them depends on the normal force applied by the rover on the surface, being the rolling resistance for Normal driving and the friction resistance for Wheel-walking.
+
+The second parameter, s, is the slip ratio experienced by the rover while it advances i.e., odometry vs ground velocity.
+
+Two cases are considered to better clarify the importance of taking more than one locomotion mode into account when planning paths: in one case, only Normal driving is available and in the other case Wheel-walking is also used.
+
+In this way, a typical rover with just one locomotion mode is compared to a reconfigurable rover.
+
+Fig. 6(b) shows a plot where it is indicated for each Global Node the percentage of Total Cost that is reduced by considering the Wheel-walking mode.
+
+Since this is the best locomotion mode to use in Soft terrain, it is obvious that Total Cost is reduced within the area containing this type of terrain.
+
+Nevertheless, it can be checked how in some parts of the area containing Rough terrain the Total Cost is also reduced.
+
+This is mainly due to the positioning of the different terrains and the obstacles with respect to the destination location.
+
+The resulting paths starting from certain positions in both cases are shown in Figs. 6(c) and 6(d).
+
+In the second case, these paths are more likely to go through the Soft terrain thanks to having Wheel-walking available.
+
+Moreover, in both figures the computed matrix of Total Cost is provided, along with annotations about the numerical values corresponding to each path in both cases.
+
+As can be deduced, the Total Cost associated to some of those paths is lower in the case of using two locomotion modes than in the first case.
+
+Therefore, the results from this experiment justify the use of a cost function based on locomotion–terrain interaction along with the FMM for long-range navigation, specially for those vehicles that are capable to adapt to certain types of terrain with different locomotion modes.
+
+PARAGRAPH
+
+SECTION
+
+Obstacle avoidance
+
+PARAGRAPH
+
+The second experiment is focused on analyzing the performance of the Local Path Repairing process under the sweeping approach.
+
+In order to do this, the path starting from the bottom right corner of the map in both cases is considered as the path to be repaired.
+
+Then, it is introduced a series of small obstacles as can be checked in Fig. 7(a), corresponding to different situations the rover may encounter with during a mission.
+
+The area that is supposed to be occupied by these obstacles consists of circles with diverse radii.
+
+Since the dimensions of ExoTeR are 70×70×40cm (Azkarate et al., 2015) and the value of Λ is 1 m, the obstacle areas are set to have a radius between 25 and 50 cm.
+
+The chosen value of distance d is 50 cm, which complies with Eq. (9) since the value of ρ used to compute the paths in the previous experiment was 0.4.
+
+Then, three cases are considered in this experiment, each of them corresponding to the use of a different value of λ: 5, 10, and 20 cm.
+
+In this way the influence of this parameter with respect to the Global size Λ on the behavior of the Local Path Planning is analyzed.
+
+Fig. 7(a) illustrates the differences in the shape of the original path and the ones resulting after the execution of the repairing process for the three cases.
+
+By using a Local Layer with a higher resolution, i.e., a lower value of λ, the repaired path is smoother.
+
+Besides, as can be seen in the fourth repairing, the resulting path can also go through smaller gaps.
+
+Nevertheless, a lower value of λ implies a heavier computation.
+
+This is demonstrated in Figs. 7(d), 7(b) and 7(c) for the three cases.
+
+In Fig. 7(b) it is measured the number of Local Nodes visited for each repairing as well as the average per obstacle during the Risk Expansion process.
+
+The total number of times the eikonal equation has been called is also provided in Fig. 7(c), being Eq. (14) for the repairings and Eq. (11) for the Risk Expansion.
+
+In Fig. 7(d) the execution time can be checked for the three cases.
+
+Besides, this data can be contrasted with the one related to the execution of the Global Path Planning process in the previous experiment: the total number of Global Nodes visited was 10522, the eikonal equation (7) is used a total of 19929 times and the required time for the execution is 0.2 s. Comparing these values with the results from the second experiment, it can be observed how the order of magnitude of computing on Global Layer is around 10 times longer than on Local Layer.
+
+It is worth mentioning that Global Path Planning in the first experiment is used on a relatively small area with a few hundreds of square meters, while in other cases it could be extended to much larger surfaces, in terms of square kilometers, increasing the computational power needed.
+
+However, being the overall area larger does not change the computational power required by Local Path Repairing, since it just depends on the relation between Λ and λ and also on the location of the obstacles with respect to the path.
+
+This last statement is supported by the results of the second experiment: in the first repairing the path initially goes through the middle of the obstacle, while in the second repairing is not the case, being the computation cheaper.
+
+The third repairing is more expensive than the previous ones because of the amount of area occupied by obstacles, which are also placed too close to each other forming a wall.
+
+The increase of computation of the fourth repairing with respect to the third one is also justified by the increase in obstacle area as well as risky area.
+
+Finally, as can be noticed in all cases, the resulting path continues following the descending gradient of the potential field of Total Cost values computed on the Global Layer as much as possible, as expected from using the sweeping approach.
+
+This validates the Local Path Repairing as a method to repair the path while keeping track of the global computation done using lower computational resources.
+
+SECTION
+
+Field test
+
+PARAGRAPH
+
+While Local Path Repairing under the sweeping approach has been tested in the previous simulation, it still remains the conservative approach to be validated.
+
+Thus, a field test is carried out in which this approach is chosen.
+
+The main purpose of this test is to replicate a planetary exploration case where a rover has to reach a certain position traversing an area filled with obstacles that were not previously considered.
+
+A rover prototype named HDPR (see Fig. 4(b)) is used.
+
+Although this platform can make use of just one locomotion mode, Normal Driving, only the Local Path Repairing process is under the scope of this test.
+
+PARAGRAPH
+
+Fig. 8 depicts the setup prepared for this field test.
+
+During it, the rover must move from the initial position to the desired destination.
+
+On its way, the rover faces several obstacles that are not considered during the Global Path Planning process, as seen in Fig. 9.
+
+These obstacles were placed randomly between both starting and goal positions.
+
+This is done to emulate how in the real exploration case the only information available prior to the traverse comes from orbital images.
+
+As consequence, minor elements such as rocks are not detected due to the resolution of these images.
+
+Therefore, the same DEM with the global resolution of 1 meter that was used for the simulations is also employed for this test.
+
+However, since no information related to the power consumption of the rover is taken into account, cost values proportional to the slope are used.
+
+The magnitude of these cost values on the Global Layer can be checked on Fig. 10.
+
+The inverse of the speed of the rover, being in this case constant with a magnitude of (10 cm/s), is applied to those nodes placed on flat terrain, while the cost of Global Nodes placed on more pronounced slopes is penalized.
+
+Later on, the Global Path Planning process computes the optimal and continuous path to the goal according to this cost information.
+
+PARAGRAPH
+
+Once the path is produced, it is time for the rover to start following it.
+
+During the traverse, the rover makes use of an on-board navigation system for the detection of obstacles based on a frontal camera.
+
+The functioning of this system is out of the scope of this paper, but thanks to it the rover is capable to map the obstacle on the Local Layer.
+
+The resolution λ chosen in this case is 10 centimeters.
+
+Then, the obstacle area is dilated and the values of risk are assigned to the respective Local Nodes via the Risk Expansion process.
+
+Later on, the Local Path Repairing process computes the Local Waypoints needed to reconnect to the original path while avoiding the obstacles.
+
+As stated before, the approach chosen in this case is the conservative approach.
+
+In Fig. 10 are represented the resulting paths that were produced each time the rover found an obstacle on its way.
+
+A total of 13 reparations were computed in real time during this traverse.
+
+A video showing HDPR performing the test can be found in YouTube.4
+
+It can be concluded how this repairing process finds the path to avoid any obstacle, having to deviate further from the original path when the obstacles form a wall.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions
+
+PARAGRAPH
+
+In this paper a novel path planning has been presented.
+
+It works at two scales, global and local, using the so called Multi-layered Grid.
+
+The grid is composed of two layers, each of them for different planning purposes.
+
+The path connecting the rover initial and goal locations is computed on the Global Layer, according to the information related to the terrain and the rover locomotion modes.
+
+Then, the generated global path plan is dynamically repaired using the Local Layer whenever an obstacle is detected by the rover during its traverse.
+
+PARAGRAPH
+
+As regards the global path planner, it has been demonstrated, in a simulation environment, that the use of FMM provides an optimal, continuous and smooth path.
+
+Besides, the global path planner has been modified to take into consideration the use of a reconfigurable rover, with more than one locomotion mode.
+
+This improvement allows to find new optimal paths by the combination of these locomotion modes, reducing the total cost of performing the traverse from one location to another.
+
+PARAGRAPH
+
+When new obstacles are detected in the rover planned path, it is repaired by means of two methods that have been tested in a simulation and a real environment.
+
+The first one, called sweeping approach, has demonstrated it generates the optimal repairing, avoiding sharp turning angles once the obstacle has been overcome.
+
+However, this method requires the computation of new Global Waypoints towards the goal.
+
+On the other hand, the conservative approach, which has been validated in a field test, repairs the path by only computing the Local Waypoints, trying to reconnect to the global path as soon as possible.
+
+This limitation causes the repaired path to be longer and less smooth during the connection to the global path.
+
+As an advantage, this approach avoids the use of the Global Layer each time the path is repaired.
+
+Therefore, the rover does not need to store and process the global layer, i.e. it only uses the initial global path.
+
+PARAGRAPH
+
+As a future work, it is considered to extend this works by including the detection of different kind of terrains in the local path repairing stage.
+
+On the other hand, it is also intended to extend the capabilities of the Global Path Planning to take into consideration the direction of slopes in order to design an anisotropic path planning algorithm.
+
+These issues are proposed as future works.

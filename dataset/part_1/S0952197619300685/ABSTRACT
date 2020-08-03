@@ -1,0 +1,23 @@
+10.1016/j.engappai.2019.03.018
+
+ABSTRACT
+
+TITLE
+
+Feedback controller design over the internet of things
+
+PARAGRAPH
+
+Suppose you have an inexpensive plant (process) that you have many copies of, and where each requires feedback control to achieve good closed-loop performance.
+
+There is then a feedback controller design challenge for each plant.
+
+The traditional approach to such a design is to use linear or nonlinear methods for one copy of the plant and implement the designed controller on each copy of the plant.
+
+The hope is that the original design is robust so it performs well on all copies.
+
+Here, we assume that the plants can be connected on the internet of things and introduce a novel strategy to design, in a distributed fashion, controllers for each plant where the design of the controller for each plant is informed by the success of the designs of all other controllers.
+
+We show that a type of robust controller can be designed over the internet of things.
+
+Our methods hold promise in practical commercial applications.

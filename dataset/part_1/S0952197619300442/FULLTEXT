@@ -1,0 +1,1973 @@
+10.1016/j.engappai.2019.03.001
+
+FULLTEXT
+
+TITLE
+
+Affective analytics of demonstration sites
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Both scholars and practitioners have been attempting over the past century to evaluate the emotions of residents quantitatively.
+
+Such data was meant for practical applications when executing important events and exhibitions and when planning public spaces and cities.
+
+For example, Saroff and Levitan (1969) use opinion surveys and sampling methods in the urban planning process.
+
+They have analyzed various quantitative and qualitative data, while paying special attention to human emotions.
+
+The techniques, technologies and systems for planners during these times were mostly limited to questionnaires, interviews and the like, but there were no tools for analyzing emotions in an urban setting and public spaces (Zeile et al., 2015, 2016).
+
+Throughout the development of the Fourth Industrial Revolution, technologies emerged for applying remote biometrics and physiological measures of emotions at events, exhibitions and public spaces in real time.
+
+Nonetheless, to date, the use of remote biometrics and physiological systems is rare.
+
+These emerged biometrics technologies could support studies on the human emotions and people’s physiological states found in the public spaces along with human circadian rhythm, weather conditions, pollution in a combined way.
+
+Then applications of such data along with information and mining outcomes could serve as additional knowledge for the planning objectives of events, exhibitions and public spaces.
+
+Such is the purpose of this research involved in developing the Affective Analytics of Demonstration Sites (ANDES).
+
+PARAGRAPH
+
+According to Kountouriotis et al. (2014), crowd behavior models are divided into agent-based, flow-based and particle-based depending on whether the behavior appears as simulating all persons separately, is programmatically defined a priori applying a fluid dynamics models, or using a particle system subject to physical laws.
+
+Zhou et al. (2010) stated that current crowd models and simulation systems can be incompletely characterized by applying a two-dimensional taxonomy determined by crowd scope and time dimensions.
+
+PARAGRAPH
+
+Particle systems are also used in a number of artificial intelligent based crowd simulation methods: personality-based models (Guy et al., 2011); the stress-based model (Kim et al., 2012); guiding crowd simulations applying navigation fields (Patil et al., 2011); scalable simulations (Vigueras et al., 2008); modeling individual behaviors (Braun et al., 2003); and leader behavior during evacuation simulations (Pelechano and Badler, 2006).
+
+PARAGRAPH
+
+Various theories dealing with crowd psychology (Gustave Le Bon, Freudian, Deindividuation, Convergence, Emergent norm, Social identity) analyze, in one form or another, the emotions of the crowd.
+
+Numerous crowd modeling methods have been used taking into account the crowd’s emotions and arousal.
+
+Videos and videogames in this field have been created for smart cities (Hossain et al., 2018), architecture and urban planning (Drettakis et al., 2007; Aschwanden et al., 2011), a crowd’s expressive emotional states and their connection with behavioral tendencies (Li et al., 2014), evacuation simulation (Vasudevan and Son, 2011; Shiwakoti and Sarvi, 2013; Wang et al., 2015; Tancogne-Dejean and Laclémence, 2016), productivity (Vasudevan and Son, 2011), crowd management prediction and intervention (Martella et al., 2017), sports crowd violence (Spaaij, 2014), negative and positive experiences in crowds (Filingeri et al., 2017).
+
+For example, Li et al. (2014) established a set of 13 crowd emotional feelings and examined their connection with 11 behavioral trends in both event and non-event crowd circumstances.
+
+With the innovations and increasing popularity of smart cities, video analytics (e.g., from social media, entertainment, surveillance, smart health monitoring, and crowd management) are used in a range of applications to provide safety, security, and well-being for residents.
+
+As these video analytics are shared through highly interconnected devices, sensors, and other smart city stakeholders, security and integrity is a concern for secure video content (Hossain et al., 2018).
+
+PARAGRAPH
+
+The analytics of crowd management endeavor to assist in implementing the main objectives of crowd use of public spaces as well as to assure public security by targeting detection, analysis and explanation of significant patterns in crowd activities data.
+
+Stakeholders can use crowd management analytics to define, predict and improve management of expected and unexpected crowd activities.
+
+PARAGRAPH
+
+Crowd management modeling is an instrument for virtually examining the behavior of a crowd under analysis and obtaining a mathematical model that allows forecasting the behavior of a crowd by virtue of a system of parameters and constraints.
+
+Such modeling seeks to assist implementations of the main objectives of crowd use of public spaces that are more effective as well as assuring public security.
+
+Interested parties can apply crowd management modeling in order to develop typical scenarios for crowd models and to select the best.
+
+Additionally, by varying variables in the modeling, expected and unexpected crowd management alternatives can be forecast.
+
+PARAGRAPH
+
+Spaaij (2014) observed how themes and subjects coming from diverse disciplines may be brought together to produce a completer, multi-level (individual, interpersonal, situational, social environmental) investigation that incorporates distal and proximate causes of sports crowd violence.
+
+Aschwanden et al. (2011) recommended a system to simulate, investigate and visualize the behavior of inhabitants and artificial agents (i.e., pedestrians, cars, and public transport vehicles) in city surroundings by joining parametric modeling and agent-based simulation.
+
+Filingeri et al. (2017) analyzed factors influencing negative and positive experiences in crowds.
+
+In the current study, the effects on participant involvement in crowds are identified in focus groups and explanations are discussed: physical plan of crowd area and amenities, crowd displacement, communication and information, comfort and well-being.
+
+PARAGRAPH
+
+Zhou et al. (2010) categorized the dynamics of a crowd, which are governed by a number of behavioral aspects, such as physical (location, moving speed, appearance, gestures of individuals), social (culture, social standards, household links and leadership) and psychological (affective states play a significant part in human decision making).
+
+According to Cristani et al. (2013), human behavior investigation in video surveillance is difficult, due to the variety of individual appearances, the number of persons measured, the changing contextual circumstances, and the types of sensors engaged.
+
+Lately, Social Signal Processing focuses mainly on nonverbal cues, like face expressions and gazing, body posture and gestures, vocal features, comparative distances in the space and others (Cristani et al., 2013).
+
+PARAGRAPH
+
+The H2020 ROCK (Regeneration and Optimization of Cultural heritage in creative and Knowledge cities) project aims to develop an innovative, collaborative and circular systemic approach for the regeneration and adaptive reuse of historic city centers.
+
+The ROCK project plans innovative re-use of historic buildings and public spaces with high cultural potential.
+
+The ROCK project aims at developing ICT infrastructure to promote synergies, strengthen places of interest, transform the historic area into a knowledge, culture and technology-driven hub, contribute to a creative innovative re-use of historic buildings, cultural equipment, and unused spaces with high cultural potential, improve knowledge sharing, and create new and innovative ways of using cultural heritage.
+
+Within the framework of the ROCK project, Affective Analytics of Demonstration Sites were developed.
+
+PARAGRAPH
+
+One of the main objectives of this research was multiple criteria analysis of cultural heritage demonstration sites (public spaces) (buildings, public spaces, events, streets) with the help of integrated behavioral operations research, emotions in decision-making, crowd simulation and biometric methods to gain further insight into the processes happening within crowds.
+
+The above mentioned and other studies suggest that a more thorough analysis of cultural heritage (CH) demonstration sites (buildings, public spaces, events, streets) requires the use of a neuro decision matrix (criteria, their values and weights) with a detailed description of the object in question and the emotions, valence, arousal and physiological parameters of people present at the site.
+
+Based on this neuro decision matrix, real-time mapping of the emotional (emotions, valence, arousal) and physiological (average crowd facial temperature, crowd composition by sex and age group, etc.) parameters of people present at CH demonstration sites (public spaces) should be conducted and the maps then used as a reference to offer stakeholder groups personalized tips on ways to make the demonstration sites more efficient.
+
+The neuro decision matrix and affective and physiological maps could also serve as input in determining the value of a public space value of a public space.
+
+The achievement of these goals would help forward innovative creative re-use of historic buildings and public spaces with high cultural potential, strengthen places of interest, transform historic areas into knowledge, culture and technology-driven hubs, and improve knowledge sharing.
+
+Within the framework of the ROCK project, Affective Analytics of Demonstration Sites were developed.
+
+PARAGRAPH
+
+This manuscript is organized as follows.
+
+This introduction is followed by Section 2 with a presentation of the Affective Analytics of Demonstration Sites Method.
+
+Section 3 introduces the Affective Analytics of Demonstration Sites.
+
+Sections 4 and 5 present Case Study 1 “Facial emotion analysis of exhibition visitors at SUPERNAMAI 2017” and Case Study 2 “Multiple criteria neuroanalysis of apartments and calculation of an emotional investment value”.
+
+The manuscript ends with conclusions and notes on future work in Section 6.
+
+SECTION
+
+Affective analytics of demonstration sites method
+
+PARAGRAPH
+
+Development of the Method of an Affective Analytics of Demonstration Sites (ANDES) involves five iterative stages: requirements evaluation, design of a computational model, drafting ANDES requirements specification, ANDES development and evaluation.
+
+The descriptions of these phases follow in brief.
+
+PARAGRAPH
+
+Requirements evaluation stage includes identifications and evaluations of all stakeholder needs for projecting ANDES.
+
+Such stakeholders include public spaces experts, operations engineering, exhibition organizers, companies displaying their equipment and devices, professionals who are mostly present at conferences and discussions, and ordinary visitors who spend time sightseeing at exhibitions with others for relaxation, visitors who purchase minor products and others.
+
+The evaluations made regard architectural, functional, non-functional and constraint requests while taking into account any feasibly contradictory requirements from the relevant stakeholders.
+
+Moreover a study is conducted of the best practices with systems for analyzing emotions in public spaces internationally (Nold, 2009; Zeile et al., 2009, 2015, 2016; Sagl et al., 2012; Resch et al., 2015; Birenboim et al., 2015; Birenboim, 2016).
+
+PARAGRAPH
+
+Design of an ANDES computational model stage includes projecting the ANDES computational model based on the needs established during the requirements evaluation for designing ANDES.
+
+The design of this model involves questioning public spaces professionals, the Think-aloud protocol and integrated methods.
+
+Think-aloud protocols comprise public space professionals thinking aloud about systems for analyzing emotions in public space problems and challenges.
+
+Design of the ANDES computational model involved the synchronization of three remote (5 meters and more) biometrical measurement methods (automatic facial affect detection, facial temperatures and voice).
+
+Biometric methods served as the basis for detecting public spaces user affects.
+
+Biometric methods constituted the basis for the measurements of the physiological and emotional signals of public space users.
+
+The global research conducted by Harley et al. (2015) shows that facial expressions might be the best, single method for accurately identifying emotional states.
+
+Using additional methods to classify an emotional state accurately typically results in only modest additive gains to accuracy ratings.
+
+The long-term experiences of these authors substantiate such a claim.
+
+Thereby the automatic affect detection software FaceReader 7.1 was employed to establish the emotions of public space users (happy, sad, angry, surprised, scared, disgusted and a neutral state).
+
+Other physiological signals (facial temperatures and voice) were employed to assure the accuracy of the levels of emotions gained from FaceReader 7.1.
+
+PARAGRAPH
+
+The basis for drafting the ANDES requirements specification is the computational model designed in the second phase.
+
+This specification includes an introduction, overall description (the Subsystem’s perspective and functions, characteristics of public spaces users, constraints, assumptions and dependencies) and specific requirements for the Sensor Network, Intelligent Database (Database of Demonstration Sites and their Components, Remote Sensor Network Database, Contact Sensor Network Database, User Group Database, Correlation Database, Historical Statistics Database and Intelligent Database Engine) and its Management Subsystem, Model-base (Analytics Model, Model for Affective Mapping of Demonstration Sites, Multiple Criteria Neuro-Analytics Model for Demonstration Sites and their Components, Modeling Model, Recommender Model, Correlations Model, Text Analytics and Public Space and Real Estate Values Calculation Model) and its Management Subsystem and User Interface.
+
+The graphical user interface permits users to interact with the Sensor Network, Intelligent Database and its Management Subsystem and Model-base and its Management Subsystem via a keyboard and mouse.
+
+Graphical user interface includes structural elements (window, menu, icons, controls and tabs) and interaction elements (cursor, selection and adjustment handle).
+
+PARAGRAPH
+
+ANDES development follows the ANDES requirements specification from the third phase.
+
+The aim for this stage is development and integration of components (the Sensor Network and Intelligent Database including its neuro decision matrix) along with its Management Subsystem, Model-base and the Management Subsystem and User Interface for the ANDES.
+
+World-wide researches advise that, for a more systematic analysis of demonstration sites (exhibitions, buildings, public spaces, events and streets), there needs to be an application of a neuro decision matrix (criteria, their values and weights) with a detailed description of the object in question and the emotions, valence, arousal and physiological parameters of people present at the site.
+
+This neuro decision matrix serves to accomplish real-time mapping of people present at Demonstration sites on their emotional parameters (emotions, valence and arousal) and physiological parameters (average crowd facial temperature, crowd composition by sex and age group and the like).
+
+The main markers showing why the neuro decision matrix is innovative at the global scale and reflecting the ambitious character of the research goals are the following.
+
+The neuro analysis results are more relevant and precise, since some 90% of the extra new data are obtained with the help of the integrated ANDES Method and the neuro decision matrix developed by these authors here.
+
+The research produces unique, integrated data about demonstration sites and users (physiological, biometric, affective, demographic and other parameters).
+
+ANDES uses biometric and physiological maps of demonstration sites as sources for its neuro decision matrices.
+
+Development of neuro decision matrices is an innovation on a global scale.
+
+One theory named the neuro-matrix theory relates to neuro-matrices in the world, but only by name, not by meaning.
+
+Melzack (1990) developed the neuro-matrix theory.
+
+According to Chapman (1989), the neuro-matrix theory of pain states that the perception of painful stimuli does not result from the brain’s passive registration of tissue trauma but from its active generation of subjective experiences through a network of neurons known as the neuro-matrix.
+
+Melzack (1990) used the terms “neural network” and “neuro-matrix” as synonyms.
+
+Various publications have reported on pain and the neuro-matrix in the area of the brain (Moseley, 2003; Trout, 2004; Khalsa, 2004; Wada et al., 2017).
+
+The name of the neuro-matrix theory alone relates to the offered neuro decision matrix (Kaklauskas et al., 2018), since there is no relationship in terms of meaning.
+
+The developed ANDES forms conditions for analyzing the situation of either the existing or the forecast exhibition.
+
+An indicator system must evaluate them in order to select the most rational ANDES alternative.
+
+PARAGRAPH
+
+Evaluation consists of two Case Studies written to assess the efficiency and usability for the progress of the ANDES prior to introducing it into different public spaces.
+
+The Affective Analytics of Demonstration Sites (ANDES) underwent an experiment to validate that the required, quality assurance “threshold” standard is met during Supernamai 2017, the fifth exhibition on construction and interiors (see Case Studies 1 and 2).
+
+Verification and validation of the Sensor Network data and their outcomes were performed during the Supernamai 2017 exhibition including validation procedures for databases and models.
+
+There were 14 reviewers who checked to assure that the expectations of groups with interest in the exhibition (operations engineering, exhibition organizers, companies that display their equipment and devices and other professionals) have been met.
+
+Each review appears in a report with assessments regarding the meeting the interest group expectations.
+
+Reviews included recommendations for improvements, citations from practiced good systems for analyzing emotions in public spaces and the affirmations of actions to improve ANDES taken by its developers since the last review (see Subsection “Verification and validation issues”, Section 4).
+
+Additionally 18 ordinary visitors completed surveys and therein indicated their overall experiences regarding their approval of ANDES.
+
+The results of this experiment show that use of the developed ANDES for analyzing emotions in public spaces can deliver more efficient public space opportunities for different stakeholders.
+
+PARAGRAPH
+
+When analyzing exhibition participants by the remote, depersonalized means, their emotional responses did not change compared to those outside of the experimental environment, because they had no idea they were being studied by an anonymous means.
+
+For the study “Multiple criteria neuroanalysis of apartments and calculation of an emotional investment value” (see Case Study 2), ten potential apartment buyers agreed to having their facial temperatures measured during the experiment.
+
+It is possible that the emotional responses of several exhibition participants undergoing test could have changed in comparison with the non-experimental environment.
+
+This is because they were aware that they are participating in an experiment.
+
+Nevertheless, this is a typical, universally accepted practice for biometric experiments.
+
+PARAGRAPH
+
+Various interested groups could use the ANDES for their practical activities.
+
+Such groups would involve those pertinent to the exhibitions (operations engineering, exhibition organizers, companies that display their equipment and devices) and to the organizations of such events as well as to city planning (urban planners, etc.) and similar involvements.
+
+PARAGRAPH
+
+The Agent-based Method analyzes independent, interacting persons who respond to an ever-changing environment based on a system of decision principles.
+
+The Agent-based Method is a good match for circumstances involving considerable, anticipated realism and personalization.
+
+The concepts of the ANDES and the Agent-based Methods are similar when analyzing a specific person.
+
+They can provide assistance in analyzing individual persons by focusing special attention on their personalization.
+
+PARAGRAPH
+
+The emphasis of the Flow-based Method is on the crowd as an entity, rather than on its constituents.
+
+Its application is mostly for evaluating the flow of a large crowd (for transient time aims) in a surrounding under analysis.
+
+The philosophies pertinent to the ANDES and Flow-based Methods are similar when deliberating a crowd as a whole, rather than its different parts.
+
+PARAGRAPH
+
+The Particle Systems Method considers that a noise system is a dynamic assembly of an amount of separate elements, where every particle can perform separately over time.
+
+The actions of the elements occur per the laws of physics: the amount of all the forces (social forces, velocity, friction and collision with another element) affecting an element governs its behavior.
+
+The concepts of the ANDES and Particle Systems Methods are similar when deliberating a crowd of different people who constantly interact with each other.
+
+PARAGRAPH
+
+However, the ANDES Method is most like crowd simulation methods that take into account emotions and arousal (Spaaij, 2014; Wang et al., 2015; Tancogne-Dejean and Laclémence, 2016; Filingeri et al., 2017; Hossain et al., 2018; Martella et al., 2017) and biometrics (Birenboim et al., 2015; Birenboim, 2016; Zeile et al., 2009, 2015, 2016; Nold, 2009; Sagl et al., 2012; Resch et al., 2015) .
+
+SECTION
+
+The affective analytics of demonstration sites
+
+SECTION
+
+Overview
+
+PARAGRAPH
+
+An efficient crowd-management life cycle (event brief, preparation, execution, real-time support and post-event stages) requires sensor networks, analytics, modeling, and decision-making, intelligent and recommender systems.
+
+PARAGRAPH
+
+Andersson et al. (2009), Ramesh et al. (2014), Saleh et al. (2015), Kok et al. (2016), Yogameena and Nagananthini (2017) all investigated sensor networks.
+
+Denman et al. (2015), Fradi and Dugelay (2015), Wang et al. (2017), Arkian et al. (2017) examined crowd-management analytics.
+
+Kara et al. (2015), Abdelghany et al. (2016), Wang and Xu (2016), Bellomo and Gibelli (2016), Lu et al. (2017), Zhou et al. (2016), Feng et al. (2017), Han et al. (2017), Murino et al. (2017) analyzed crowd-management modeling.
+
+Haghani and Sarvi (2016) examined decision-making processes.
+
+Seok et al. (2012), Wagner and Agrawal (2014), Denman et al. (2015), Filip et al. (2016a, b), Yogameena and Nagananthini (2017), Li et al. (2017) and analyzed intelligent and recommender systems.
+
+The above sensor networks, analytics, modeling, and decision making, intelligent and recommender systems can be used either alone or combined in different ways.
+
+Lee and Hughes (2007), Johansson et al. (2008), Moore et al. (2008), Andersson et al. (2009), Drews et al. (2010), Roggen et al. (2011) integrated sensing, mining and decision-making models.
+
+Yogameena and Nagananthini (2017) reported that among numerous crowd behavior models, very few have been used practically in supporting crowd management.
+
+Crowd management requires integrating a variety of circumstances that require capabilities of observing, sense-making, anticipating and acting (Yogameena and Nagananthini, 2017).
+
+The presentation of the application of sensor networks, analytics, modeling and decision-making, intelligent and recommender systems for efficient crowd-management life cycle appears in Table 1.
+
+PARAGRAPH
+
+Based on the studies listed above and the experience of the authors of this article, Affective Analytics of Demonstration Sites were created.
+
+The following Subsystems are included in the Affective Analytics of Demonstration Sites (ANDES): Sensor Network, Intelligent Database and its Management Subsystem, Model-base and its Management Subsystem and User Interface.
+
+PARAGRAPH
+
+For the study Affective Analytics of Demonstration Sites (ANDES), it is understood as an intelligent decision support system for analyzing demonstration sites (public spaces) and the people within them.
+
+ANDES stores data from the Sensor Network and, together with data from the Intelligent Database, it processes them, extracts data patterns, performs a multi-criteria analysis of alternatives, establishes the public space and real estate values and provides recommendations.
+
+ANDES uses the model base and its models to perform data examination and transform the results of the analysis into a comprehensible framework for applications hereafter.
+
+Furthermore ANDES supplies users with analysis results that are necessary for developing, analyzing and assessing possible decision-making alternatives and for making decisions; it also extracts the received results and saves them.
+
+The main purposes of ANDES is discovering patterns in large data sets of emotions, moods, feelings and attitudes and performing an analysis of the surrounding demonstration site.
+
+SECTION
+
+The sensor network, intelligent database and its management subsystem
+
+PARAGRAPH
+
+PARAGRAPH
+
+The term “remote sensor” usually associates with “remote sensing” in research studies.
+
+Different authors may describe the term “remote sensing” in the broad or the narrow sense.
+
+Lillesand et al. (2015) describe remote sensing as, “The science and art of obtaining information about an object, area or phenomenon through the analysis of data acquired by a device that is not in contact with the object, area or phenomenon under investigation”.
+
+Elachi and van Zyl (2006) define remote sensing as, “The acquisition of information about an object without being in physical contact with it”.
+
+The RADAR and SAR Glossary defines remote sensing as, “A group of techniques for collecting images or other forms of data about an object from measurements made at a distance from the object, and the processing and analysis of the data”.
+
+A great many authors also analyze remote sensing in the narrow sense.
+
+For example, the Collins English Dictionary defines remote sensing as, “The gathering of information about something by observing it from space or from the air”.
+
+According to the GIS Dictionary, for example, remote sensing involves “collecting and interpreting information about the environment and the surface of the earth from a distance, primarily by sensing radiation that is naturally emitted or reflected by the earth’s surface or from the atmosphere, or by sensing signals transmitted from a device and reflected back to it.
+
+Examples of remote-sensing methods include aerial photography, radar and satellite imaging”.
+
+The research presented here uses the term “remote sensing” in the broad sense.
+
+PARAGRAPH
+
+The Sensor Network senses the emotional state of a large group of people.
+
+This Sensor Network contains of a full set of equipment that ANDES can use to analyze both the crowd’s and a viewer’s nonverbal information and assess the neurobiological response to the event.
+
+The Sensor Network assists in acquiring a great deal of multimodal data.
+
+These data are stored in the database and used henceforth for the calculations in the base model.
+
+The study involved capturing a range of raw biometric and affective crowd data recorded by the Sensor Network in various formats.
+
+The Sensor Network comprises remote (face emotions (FaceReader 7.1 Subsystem), temperature (infrared camera FLIR A35SC Subsystem), voice emotions (QA5 SDK Subsystem), people flow counter (H.264 Indoor Mini Dome IP Camera Subsystem), eye pupil (Mirametrix S2 Eye-Tracker Subsystem)) and contact (brain signals (Enobio Helmet Subsystem), heart rate and pressure (iHealth Wireless Blood Pressure Monitor Subsystem)) biometric analysis devices.
+
+The Sensor Network is distributed above autonomous sensors to monitor physiological and emotional states of a crowd or person, such as emotions, valence, arousal, voice, people flow, temperature, heart rate, systolic and diastolic pressure among others, and then passes this numerical data through the network to ANDES.
+
+PARAGRAPH
+
+The FaceReader 7.1 Subsystem is designated for facial analysis.
+
+It can detect emotional facial expressions.
+
+The FaceReader 7.1 Subsystem identifies six basic emotions (happy, sad, angry, surprised, scared, disgusted) and a neutral state in exhibition participants who are passing by.
+
+The averages of these emotions were calculated every 10, 20, 30 and 60 min for performing the statistical analysis.
+
+PARAGRAPH
+
+The part of Sensor Network (for measuring eye pupils (Mirametrix S2 Eye-Tracker), brain signals (Enobio Helmet) and heart rates and pressures (iHealth Wireless Blood Pressure Monitor)) at the VGTU Research Institute of Smart Building Technologies stand at the Supernamai 2017 exhibition were employed for introductory, scholarly and experimental purposes.
+
+The most curious visitors could try first-hand some of the features the technologies offered (observe their pupils dilating or contracting and their blinking patterns, measure neural oscillations); all this was available in the stand of VGTU Research Institute of Smart Building Technologies.
+
+There were 27 exhibition participants (primarily of school age) who became acquainted with these devices (the Mirametrix S2 Eye-Tracker for pupil analysis, the Enobio Helmet for brain signals and the iHealth Wireless Blood Pressure Monitor for heart rate and pressure) at the Supernamai 2017 exhibition.
+
+PARAGRAPH
+
+Performance of the study “Facial emotion analysis of impersonal exhibition visitors at SUPERNAMAI 2017” (see Section 4 “Case Study 1”) did not involve use of wearable sensors by members of the crowd.
+
+Special cameras were mounted at the entrance, exit and interior of the exhibition.
+
+Voice emotions were analyzed in the conference hall.
+
+Thereby three biometric technologies (thermal face imaging, facial and voice emotions) were employed by remote means.
+
+PARAGRAPH
+
+The study “Multiple criteria neuroanalysis of apartments and calculation of an emotional investment value” (see Section 5 “Case Study 2”) employed the FLIR A35SC, Mirametrix S2 Eye-Tracker and FaceReader 7.1 Subsystems, which provided assistance in establishing the facial temperatures, emotions, pupil size and blinking of ten potential apartment buyers.
+
+These ten potential apartment buyers had expressed the desire to participate in this experiment on their own.
+
+During the research, they sat approximately 50–70 cm away from the FLIR A35SC, Mirametrix S2 Eye-Tracker equipment and computer monitors, which measured facial temperature, pupil size and blinking in real time.
+
+The FLIR A35SC, Mirametrix S2 Eye-Tracker and FaceReader 7.1 Subsystems were used to compile a neuro decision matrix.
+
+The participants in the experiment were shown each alternative from the first (a1) to the fifth (a5) one, while, at the same time, temperatures were taken at four facial points of each viewer (at the nose, the left and right check and the forehead).
+
+From this, an average change in temperature was derived.
+
+PARAGRAPH
+
+There were 17 voice parameters measured at two sites during the time of this exhibition.
+
+The first measurement site was designated to satisfy the hunger for knowledge on innovations of exhibition visitors.
+
+It was located at the VGTU Research Institute of Smart Building Technologies stand.
+
+A potentially high level of ambient background noise along with the hubbub of the crowd surrounded this stand.
+
+The second site for measuring 17 voice parameters was in a quiet conference hall, where only sounds heard were the speech of the presenter and the questions from the audience.
+
+The conference program was arranged in advance.
+
+A voice emotions analysis of speakers delivering reports was performed, with the agreement of the participants, by employing the QA5 SDK Subsystem.
+
+An example of a similar voice emotions analysis appears in the research by Kaklauskas et al. (2018).
+
+PARAGRAPH
+
+The intelligent database and its management subsystem
+
+PARAGRAPH
+
+ANDES comprise the following databases:
+
+PARAGRAPH
+
+A brief overview of the databases is presented below.
+
+PARAGRAPH
+
+The Database of Demonstration Sites and their Components stores data about buildings, public spaces, events, and streets.
+
+The database can contain conceptual details (text descriptions, videos, augmented reality, photos, charts, diagrams) and quantitative and qualitative data (criteria, their values and weights) about the CH objects in question.
+
+It also contains information on data and information on the interconnection of the elements, their compatibility and possible combinations as well as data on an integrated multivariant design of an event.
+
+PARAGRAPH
+
+The data obtained by analyzing the crowd’s/visitor’s/event-goer’s emotions, valence, arousal and physiological parameters (averagecrowd facial temperature, 17 voice parameters, people flow, crowd composition by gender and age group) captured by the Remote Sensor Network are stored in the Remote Sensor Network Database.
+
+PARAGRAPH
+
+The data obtained by analyzing a user’s/resident’s emotions, valence, arousal and physiological parameters (pupil size and blinking, brain signals, heart rate, systolic and diastolic pressure) captured by the Contact Sensor Network are stored in the Contact and Remote Sensor Network Databases.
+
+PARAGRAPH
+
+The User Group Database stores data on crowd, users, residents, visitors, and event-goers.
+
+PARAGRAPH
+
+The Correlation Database contains established correlations that link the crowd’s emotions, valence, arousal and physiological parameters with the efficiency of public spaces aj (Priority Pj; Utility Degree Nj).
+
+It may store, for instance, the statistical relationships between emotions experienced by arriving and leaving event-goers.
+
+The Correlation Database also contains (see Case Study 1):
+
+PARAGRAPH
+
+The Historical Statistics Database stores historical data from the Remote and Contact Sensor Networks, a list of analyzed demonstration sites, and their correlation data.
+
+PARAGRAPH
+
+The Intelligent Database Engine consists of two main parts: (1) Text Analytics and (2) determination of the correlation between the crowd’s/user’s emotions, valence, arousal and physiological parameters and the efficiency of demonstration sites.
+
+PARAGRAPH
+
+All data in the Affective Analytics of Demonstration Sites database are stored in tables and organized as a relational database.
+
+They are then used in a typical, relational Intelligent Database Management Subsystem.
+
+The most important functions of the Intelligent Database Management Subsystem are designing the database structure; loading, populating and editing a database; reviewing, searching, sorting and otherwise arranging the data; creating applications and compiling reports, and applying the Intelligent Database Engine.
+
+SECTION
+
+The model base and its management subsystem
+
+PARAGRAPH
+
+The following models comprise the Model Base:
+
+PARAGRAPH
+
+The models are described below.
+
+PARAGRAPH
+
+The Analytics Model is designed for decoding the initial data that registers the emotional state of a crowd in order to receive logical evidence about what is happening in the crowd.
+
+We use LOGIT, KNN and MBP techniques for crowd mining, in parallel with explanations delivered by specialists.
+
+The results produced by the Analytics Model were submitted to specialists (operations engineering) and stakeholders (exhibition organizers, companies that display their equipment and devices) in graphical form to assist them with the interpretation of raw data.
+
+PARAGRAPH
+
+Using the results produced by the Analytics Model, the Remote Sensor Network, the Contact Sensor Network, the User Group Database, the Correlation Database and the Historical Statistics Database as input, the Model for Affective Mapping of Demonstration Sites maps emotions for demonstration sites and their components in question.
+
+PARAGRAPH
+
+The Multiple Criteria NeuroAnalytics Model for Demonstration Sites (buildings, public spaces, events, streets) and their components:
+
+PARAGRAPH
+
+With ANDES’s Remote Sensor Network (FaceReader 7.1, infrared camera FLIR A35SC, QA5 SDK and H.264 Indoor Mini Dome IP Camera), emotional (emotions, valence, arousal) and physiological (average crowd facial temperature, crowd composition by gender and age group, etc.) parameters of people present at demonstration sites can be mapped by the Model for Affective Mapping of Demonstration Sites, and stakeholder groups can get personalized tips with an aim to make the demonstration sites more efficient.
+
+PARAGRAPH
+
+PARAGRAPH
+
+According to Lundberg (1996), psychological and toxic impacts of air pollution can contribute to psychiatric symptoms, including anxiety and variations in mood, cognition and behavior.
+
+Apart from well-being over a lifetime, air pollution exerts also oppose impacts on different aspects of people’s everyday lives as well, such as their outdoor travel rate, social collaboration intentions and emotions (Wu et al., 2018).
+
+Air quality, as one of the indices for weather conditions, would affect the emotions and feelings of people to some degree.
+
+Air quality would additionally even influence deals in the stock market.
+
+According to Evans et al. (1987), air pollution would affect people’s sentiments, and sentiments could have an impact on decision-making.
+
+People are likely to feel angrier, more depressed and more helpless when exposed to severe air pollution.
+
+Intense air pollution could provoke negative emotions on investors, affecting their will and causing a deal to become frailer, thereby influencing a stock yield (Wu et al., 2018; Evans et al., 1987).
+
+Li et al. (2018) state that early researches propose that high concentrations of air pollutants may influence the emotional states of people who are exposed to them.
+
+Accordingly air pollution can remain a stressor (Campbell, 1983) and its effect including emotional, behavioral and physical variations can be mediated by cognitive assessment (Cohen et al., 1986).
+
+In the opinion of Ng et al. (2016), the impacts of air pollution may also influence suicide due to people suffering from a poorer mood.
+
+Current research from Canada has pointed out that the negative influence of air pollution on depression may be greater among younger people (Szyszkowicz and Rowe, 2014).
+
+According to Yin et al. (2018), air pollution from influences of PM2.5 in many cities of the world provokes both health effects and mood depression.
+
+Dr. Marshall Mandell reports that direct cause-and-effect associations between air pollutants and many neurological and psychological disorders are typically discussed as emotional in nature (The Effects Of Air Pollution to Emotions, 2018).
+
+Halperin (2014) claims that people who scuffle with nightly environmental noise often also be in distress the next day from day drowsiness and tiredness, annoyance and mood changes, which reduce welfare and cognitive performance.
+
+In the opinion of Khaiwal et al. (2016), less than one-third of respondents reported loss of sleep due to noise.
+
+PARAGRAPH
+
+Attendance rates at the demonstration sites (public spaces) depend on the levels of pollution and noise.
+
+This exhibition took place in indoor facilities as well as in the yard area behind the boundaries of Siemens Arena.
+
+There was a 4-lane street alongside of the outdoor exhibition with sufficiently intense traffic.
+
+Thus, the outdoor exhibition was quite polluted and noisy.
+
+In this case, the Recommender Model served as an introductory and educational system for people about the possibilities of reducing pollution and noise.
+
+PARAGRAPH
+
+The Recommender Model by applying collaborative filtering (Kaklauskas and Zavadskas, 2007; Urbanavičiene et al., 2009), for instance, offers tips on environmental quality (on pollution and noise), the enhancement of healthy and safe homes, and the development of sustainable demonstration sites (public spaces).
+
+The Recommender Model, for example, offers information on air (SO2, KD10, CO, NO2) and noise (see http://iti3.vgtu.lt/ilearning/zemelapis.aspx) pollution in the vicinity of Vilnius city at preferred locations (see Fig. 1).
+
+PARAGRAPH
+
+A click on the button “Get advice” shows the questions (see Fig. 2a) that have to be answered before tips can be provided (see Fig. 2b).
+
+PARAGRAPH
+
+The Recommender Model can also offer practical tips to marketers and exhibitors.
+
+Positive emotional places are greatly attractive for exhibition marketing plans, because these are the places where visitors look at displayed products and services through rose-tinted glasses.
+
+Numerous exhibitors are highly concerned to have a stand for their products and services on position where visitors have high valence.
+
+Such spots usually bring in fatter rents.
+
+The INVAR method (Kaklauskas, 2016) can be used to measure the emotion-driven rent value of such spots.
+
+Affective and physiological maps of exhibition spaces can promote better performance of the exhibition planning process and lead to a more rational arrangement of exhibition stands.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The Modeling Model is designed for simulating the emotional state of a crowd.
+
+Specialists also deliver important input for simulations of emotional states of a crowd.
+
+PARAGRAPH
+
+The designation of the Modeling Model is to compile a traditional decision matrix or a neuro decision matrix with the purpose of forming various scenarios and performing a multivariant design and multiple criteria analysis of alternatives under deliberation.
+
+Data from the Sensor Network and Intelligent Database are used for this process.
+
+The Modeling Model can help reduce exhibition expenses, enhance the value of exhibition or accumulate the best experience.
+
+Predictions are possible about the rational exhibition life cycle process by varying variables in the exhibition and by multiple criteria simulation of its composite parts.
+
+The exhibition life cycle process involves the aim, concept and budget before the exhibition; the program, human resources, marketing, safety and regulations and such functions during the preparation and planning phase; the stand size and layout, event and art of attraction during the exhibition and the assessment, debriefing and display appreciation during the follow up phase.
+
+Experts can virtually simulate, analyze and predict the emotional state of a crowd with the Modeling Model based on a criteria system of criteria weights and significances that comprehensively describe alternatives.
+
+PARAGRAPH
+
+Different scholars have modeled exhibitions, shows, expositions, trade fairs, expos, shopping centers and malls.
+
+Crowding and emotional modeling are provided next as an example.
+
+Das and Varshneya (2017) modeled the emotions of customers in a shopping mall by analyzing several determinants (perceived human and spatial mall crowding, promotional events and co-visitors) and outcomes (repatronage and positive word-of-mouth) of arousal and pleasure.
+
+The outcomes of the modeling by Das and Varshneya (2017) indicate positive connections between determinants and outcomes of pleasure and arousal.
+
+Spatial and perceived crowding in a retail store location stimulate unpleasant emotions, whereas, in a mall location, it has a positive influence on arousal and pleasure that inspire positive shopping reactions (Das and Varshneya, 2017).
+
+Das and Varshneya (2017) recommend mall managers to inspire client affective states such as arousal and pleasure.
+
+These positive affective states impact repatronage intents by customers and positive word-of-mouth.
+
+Consequently mall management should emphasize each minor feature that attracts not only customers but also retail outlets to open their shops in the mall (Das and Varshneya, 2017).
+
+Various scholars (Schmidt and Keating, 1979; Gramann, 1982; Baum and Paulus, 1987) hold the opinion that daily microstressor (hassle) levels are augmented, when visitors fail to achieve their planned objectives for recreation, socializing and relaxation due to different circumstances such as people crowding.
+
+Continuing these and similar studies, Zehrer and Raich (2016) performed modeling of perceived crowding on client satisfaction.
+
+When perceived crowding is great, clients feel constrained in a private space and feel more negative emotions and less positive emotions (Hui and Bateson, 1991; Machleit et al., 2000).
+
+Emotions subsequent to perceptions of crowding may negatively impact the shopping environment and shopping pleasure (Eroglu and Machleit, 1990; Machleit et al., 2000; Eroglu et al., 2005).
+
+PARAGRAPH
+
+It is essential to model an exhibition for it to be successful and attractive, i.e., to compile an entire line of possible alternatives, perform a multi-criteria analysis of them and select the most effective one.
+
+The ANDES Modeling Model is employed for such a purpose.
+
+The environment (color, surface, lighting, odor and sound) and the stands (stand size and layout — the shell scheme or open space) of an exhibition affect its participants.
+
+For example, in the opinion of Pablo Picasso, “colors, like features, follow the changes of emotions”.
+
+Meanwhile John Sterling said that “Colors answer feeling in man; shapes answer thought; and motion answers will” (http://strangewondrous.net/).
+
+Thus, when changing and modeling the environment of an exhibition and self-defining stands in terms of light, text, information and graphics), the emotions and moods of target visitors change as well along with their trust in the demonstrated products and services.
+
+An endeavor to attract more visitors to the stands of an exhibition can involve modeling visitors in various ways by first analyzing different possible alternatives.
+
+For example, the mobile stands at the Lithuanian Sea Museum containing wooden steering wheels of ships permit visitors to try out their own skills at handling a ship.
+
+They can turn the steering wheel trying to bring it into a port that is visible on a screen.
+
+Flows of visitors can be modeled similarly.
+
+Sculptures or multiple screen projections, as examples, can attract additional flows of visitors.
+
+Thus such zones at the exhibition become more memorable and attract more potential viewers.
+
+PARAGRAPH
+
+Analogically it is also possible to compile alternatives for a staff of an exhibition, model them and select the most effective one.
+
+Organization of an exhibition entails analyzing what kind of specialists and how many are needed for manning the stands.
+
+Decisions are needed on how these people should behave and what their areas of responsibility should be (associating with potential visitors, analysis of competitors and suppliers at the exhibition, attracting the attention of visitors, real-time interactive communication and such).
+
+For example, it must be determined what sort of body language (e.g., retaining eye contact with possible customers, while, at the same time, speaking to current clients) the employees of organizations participating and displaying their products at the exhibition should employ.
+
+Moreover, other alternatives can involve different advertising materials for the advertised product or service (printed or electronic, traditional advertising or applications of new technologies such as social media and the like).
+
+Should such advertising appear only once?
+
+Should there be a follow-up?
+
+Alternatively, should it be sent constantly?
+
+PARAGRAPH
+
+Various demonstration sites can also be analogically arranged (urban design of public spaces like parks, squares, streets and such and urban renewal of the infrastructure, public spaces, parks, roads and the like).
+
+The same holds true for cultural heritage protection of buildings and places.
+
+These entail compiling alternative decision matrices or neuro decision matrices and performing their multiple criteria analyses.
+
+Experts can model, analyze and predict the emotional state of a crowd by virtue of a criteria system that comprehensively describes the alternative demonstration sites.
+
+PARAGRAPH
+
+In the opinion of Miller (2000), exhibitors must continuously analyze the body language of visitors arriving to their display stand.
+
+Miller (2000) recommends understanding whether or not some trade show visitor wants to talk.
+
+A visitor would probably like to receive more information about the displayed goods or services when that person slows his/her step and shifts his/her body by your stand.
+
+Exhibitors should show encouraging and welcoming signals and smile all the times in parallel to analyzing the body language of potential clients.
+
+This way an exhibitor tells attendees that it is worthwhile stopping by this stand to learn a great deal of valuable information (Miller, 2000).
+
+Lyons (2010) suggests analyzing the body language of exhibition visitors (any visual cues to take advantage of all the benefits a face-to-face interaction proposes) and, that way, getting additional information about client needs.
+
+Stacey (2012) accents the power of body language during an exhibition and the value of using eye contact, gestures and facial expressions to connect with visitors, speakers, potential partners and associates to enhance one’s message.
+
+All this, Stacey (2012) believes, form conditions for an exhibitor not only to appear more confident in the eyes of a visitor but to make an exhibitor feel more confident as well.
+
+Kaklauskas et al. (2018) developed a similar Neuro-advertising property video recommendation system, which is a composite part of the ANDES Modeling Model.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The Correlations Model determines the statistical relationships between the crowd’s emotions, valence, arousal and physiological parameters and the efficiency of public spaces aj (Priority Pj; Utility Degree Nj).
+
+The above correlations are valuable since they can show a prognostic relationship that can be used to make public spaces more efficient.
+
+It may be determined, for instance, which CH sites are preferred by women and men by age, or an analysis carried out to determine which sites are preferred by ten-year old boys or seventy-year old women.
+
+This data then can be used for superior event tailoring for specific groups.
+
+Specific public spaces could, likewise, be better tailored to serve people from characteristic clusters.
+
+The Correlations Model searches the Database of Demonstration Sites and their Components, the Remote Sensor Network Database, the Contact Sensor Network Database and the User Group Database for various dependencies and trends.
+
+Any identified trends are included in correlation tables that show links.
+
+PARAGRAPH
+
+Table 2 shows correlations between the emotions of happiness and negative emotions experienced by arriving and leaving visitors and the temperature of their faces.
+
+Let us look, for instance, at the correlations linking the mean facial temperature of arriving and leaving visitors to their emotions of happiness and negative emotions on 22 April 2017.
+
+The inverse correlation recorded means that when negative emotions are subsiding, the facial temperature of arriving and leaving visitors is increasing.
+
+An analysis of the emotions of happiness experienced by arriving and leaving visitors revealed a direct correlation with their facial temperature variations.
+
+The direct correlation means that when the emotions of happiness are increasing, the facial temperature of arriving and leaving visitors is increasing as well.
+
+PARAGRAPH
+
+The methods applied for a selection of the most interesting CH texts are COPRAS and MAMVA (Kanapeckiene et al., 2011; Kaklauskas, 2015, 2016).
+
+The Text Analytics module establishes the most effective, personalized text for a specific user by employing the compilation of possible most interesting CH alternatives, the system of keywords and their weights and the aforementioned methods.
+
+There is a selection of the desired number of pages of material with the help of Text Analytics according to the system of keywords and their weights.
+
+Additionally, a selection can be made of material for the user according to the time the user is able to devote for reading the material of interest.
+
+The development of Text Analytics involved the system of Internet text analysis using the Microsoft Visual Studio 2010 software program, C# programming language and the MS SQL Server 2012 database platform.
+
+PARAGRAPH
+
+The public space and real estate values calculation model
+
+PARAGRAPH
+
+The Public Space and Real Estate Values Calculation Model uses the INVAR method (Kaklauskas, 2016) and can calculate the public space value and emotional investment value of various objects.
+
+Case Study 2 offers an example of such calculations.
+
+PARAGRAPH
+
+Quirk (2004) holds the opinion that the value of a public space contains elements that may never be straight forwardly valuated due to the difficulties of controlling interfering variables, for example, in estimating the value of a public space to mental health or to economic well-being.
+
+According to Quirk (2004), valuation methods used in this situation, for example hedonic pricing, can be time consuming and may only capture specific dimensions of value.
+
+ANDES can determine a public space value by applying the INVAR method (Kaklauskas, 2016).
+
+PARAGRAPH
+
+Establishment of this value requires development of a criteria system at the very beginning.
+
+Next, the calculations of criteria values and weights are necessary.
+
+The bases for the development of the criteria system were the suggestions made by Lipton (2003), Shaw (2012) and Bailey et al. (2001).
+
+Lipton (2003) recommended ways to establish the value of a public space.
+
+Valuations must involve consideration of the economic value of a public space, its impact on physical and mental health, the benefits for children and young people, reduction of crime and the fear of crime, the social dimension of the public space, movement in and between spaces and the value it gains from biodiversity and nature.
+
+Next, there is a presentation of the economic values of public space criteria to serve as an example.
+
+In the opinion of Lipton (2003), nicely designed and effectively managed public spaces attract businesses.
+
+Such sites, in turn, attract clients, staffs and services.
+
+Enjoyable and rationally maintained public spaces increase the number of persons visiting retail zones, otherwise known as “footfall”.
+
+Attractive public spaces also propose direct benefits to the local economy in terms of augmented real estate values; meanwhile real estate purchasers are keen to pay to be close to a green space (Lipton, 2003).
+
+PARAGRAPH
+
+In recent years, various emotional values, including Net Emotional value, Service Encounter Emotional value, emotional value and others, have been analyzed and attempts have been made to put them into practice.
+
+For example, Net Emotional value (NEV) is an overall number (positive emotions less negative emotions) that characterizes how clients feel towards a product or a service; NEV = Average of the Positive Emotions (Happy, Pleased, Trusting, Valued, Cared for, Safe, Focused, Indulgent, Stimulated, Exploratory, Interested, Energetic) – Average of the Negative Emotions (Dissatisfied, Frustrated, Disappointed, Irritated, Stressed, Unhappy, Neglected, Hurried) (Shaw, 2012).
+
+Bailey et al. (2001) proposed service encounter emotional value (SEEVal) defined as the net emotional value the client experiences added to the net emotional value the product or service provider employee experiences.
+
+PARAGRAPH
+
+Determination of the public space value and emotional investment value were employed the COPRAS and INVAR methods, which these authors here developed.
+
+These methods had been validated and verified for calculating market and investment values of different buildings and their complexes.
+
+For example, the COPRAS method was employed to calculate the market values of buildings (Kaklauskas et al., 2018; Zavadskas et al., 2008) and building complexes (Kanapeckiene et al., 2011; Zavadskas et al., 2017).
+
+Meanwhile the INVAR method was employed for calculating of investment values of building complexes (Kaklauskas, 2016).
+
+The COPRAS and INVAR methods are composite parts of the Public Space and Real Estate Values Calculation Model.
+
+SECTION
+
+Case study 1: Facial emotion analysis of exhibition visitors at SUPERNAMAI 2017
+
+PARAGRAPH
+
+Public places prove more effective the more their demonstrationsites and their components satisfy the needs of the people within them for recreation, entertainment, enjoying their coexistence and representing their collectivity and common interests without drowning or disaggregating their diversity.
+
+Furthermore they are more effective when there is adherence to restrictions and social norms curtailing behaviors such as, for example, indecent exposure, alcohol and drug consumption and such.
+
+The demonstration site is a public space for trying out different tools during the course of the ROCK project.
+
+Such tools include the proof of technologies with the main goal of demonstrating promising, innovative, practical applications.
+
+The applications of these ten tools can be as demos for proving the practicability of the selected technology to different stakeholders and for attaining wide-ranging transformation scenarios at the demonstration sites in the Replicator Cities.
+
+Ten tools with TRL ranging from 4 to 8 are applied and modified for heritage-led, regeneration public spaces; they will aid the improvements to the demonstration sites during the ROCK project.
+
+PARAGRAPH
+
+On 20–23 April 2017, Siemens Arena hosted Supernamai 2017, a fifth annual construction and interiors exhibition.
+
+The event, held for the fifth time, attracted over 200 firms that displayed technologies for smart homes in large outdoor and indoor stands.
+
+Visitors could see smart home systems in action and discover the most efficient solutions for home environments.
+
+Participants with (business, professionals, students) and without (general public) knowledge of exposition attending the exhibition.
+
+Wearable sensors were not used by members of the crowd while performing the Facial emotion analysis of exhibition visitors at Supernamai 2017.
+
+This way, the three biometric technologies (thermal face imaging and facial and voice emotions) were employed by remote (5 meters and more) means.
+
+PARAGRAPH
+
+Data volumes and formats
+
+PARAGRAPH
+
+The research employed three remote (5 meters and more) FaceReader 7.1 Subsystem cameras, one infrared FLIR A35SC Subsystem camera and one People Flow Counter (H.264 Indoor Mini Dome IP Camera) Subsystem camera.
+
+One FaceReader 7.1 Subsystem camera collected data on the emotions of arriving people, the second camera — on exiting people and the third — on people passing through the central corridor.
+
+The entrance and exit doors of the exhibition are some 2 meters wide; each minute 7–29 people on average would walk through them.
+
+The central corridor of the exhibition’s interior has a width of some 4 meters; each minute, on average, 9–32 exhibition participants would walk past it.
+
+The FaceReader 7.1 Subsystem transforms the visual it is recording into a data CSV format, which, following real time, is imported into the database.
+
+The current capacity of the FaceReader database, the Remote Sensor Network Database, is 200 MB and contains 8,145,327 rows and 22 columns.
+
+PARAGRAPH
+
+The FLIR A35SC Subsystem infrared camera records radiometric *.
+
+seq files on the temperatures of people passing through the central corridor in the interior of the exhibition.
+
+Later ResearchIR, the software for research of radiometric sequences, obtained the temperature data of exhibition visitors from the human temperature *.
+
+seq data from the received data.
+
+First, a segmentation filter was used for filtering data, whereby the infrared camera FLIR A35SC would filter out unneeded temperatures by selecting only the 32 °C – 38 °C range of body temperature from a person of interest.
+
+The main parameters assigned to the A35SC system for measuring temperatures accurately included such as the distance of the observation and the human skin emission, which is 0.98.
+
+The dominant polygon was defined in the ResearchIR software assistance system to assure that no extraneous heat sources would fall into the 32 °C – 38 °C range of the temperature measurements under filtration such as, for example, lamps or the radiators standing nearby in exhibitor’s stands.
+
+A selection of the “Temporal Plot” function for analyzing the polygon resulted in the provision of changes in significant average human facial temperatures in the assigned polygon over time.
+
+The FLIR A35SC Subsystem transforms the thermal data at the time of recording it into the data CSV format, which, following real-time, is imported into the database.
+
+PARAGRAPH
+
+The People Flow Counter (H.264 Indoor Mini Dome IP Camera) Subsystem records the movements of a visitor during filming and counts the number of visitors that crossed the virtual line and the direction in which they were moving.
+
+The data gained from the People Flow Counter Subsystem are transformed into the CSV data format, which, following real time, are imported into the database.
+
+The current capacity of the People Flow Counter database (Remote Sensor Network Database) is 50 MB.
+
+The other databases – the Remote Sensor Network (voice emotions [QA5 SDK]) and Contact Sensor Network incorporating databases for eye pupils (Mirametrix S2 Eye-Tracker), brain signals (Enobio Helmet) and heart rate and pressure (iHealth Wireless Blood Pressure Monitor) – are not large, because these devices are mostly aimed at the purposes of beginners, scholars and experiments.
+
+PARAGRAPH
+
+The FaceReader 7.1 Subsystem detects six basic emotions (happy, sad, angry, surprised, scared, disgusted) and a neutral state among exhibition participants that are passing by.
+
+The neutral state was not included when analyzing the sums of positive and negative emotions.
+
+PARAGRAPH
+
+The exhibition visitors were subjects in our biometric tests of emotions.
+
+Three biometric technologies (thermal face imaging, facial and voice emotions), data and Text Analytics methods were used.
+
+They capture data and information in different formats that need processing, integration and analysis.
+
+Our aim was to analyze the prevailing emotional climate in the exhibition.
+
+An anonymized analysis of faces (only affective states, temperatures and other data were recorded, faces were not stored) was carried out of people arriving at the exhibition, during the exhibition and upon leaving the exhibition; their emotions and temperatures were tracked.
+
+Special cameras were mounted at the entrance, exit and in the exhibition.
+
+Voice emotions were analyzed in the conference hall.
+
+Another characteristic analyzed at the exhibition was facial temperature.
+
+Thereby biometric technologies (thermal face imaging, facial and voice emotions), data and Text Analytics methods were employed, and the prevailing emotional climate determined at the exhibition on Thursday, Friday, Saturday and Sunday.
+
+On its first day the exhibition attracted 4308 visitors, then 6696 on the second, 9922 on the third, and 7435 on the fourth.
+
+Total number of visitors was 28,361.
+
+This constitutes the maximum possible amount of data.
+
+Measurements were taken on a smaller number of visitors.
+
+Testing on 12% of the visitors was at the exit, 14% at the entrance and 30% inside the exhibition.
+
+The happiness emotion and the negative emotions of sadness, anger, scared and disgust were captured for arriving and leaving visitors, and facial temperatures for visitors walking around inside the exhibition.
+
+The detailed information on the tested visitors appears in Table 3.
+
+PARAGRAPH
+
+Privacy and ethics issues
+
+PARAGRAPH
+
+Anonymous (depersonalized) data received from the remote Sensor Network are stored in the Remote Sensor Network Database.
+
+In this case, the data on face emotions, temperature, voice emotions and the people flow counter did not include any personalized data (face visuals and other kinds of personalized data were not saved).
+
+The valid laws both of the EU and of Lithuania do not require agreements from persons under investigation in this case.
+
+PARAGRAPH
+
+There are nine main pieces of legislation and official documents on data protection at the levels of Lithuanian and the EU.
+
+These are Law on Legal Protection of Personal Data of the Republic of Lithuania, Recommendation on the processing of personal data carrying out historical scientific research, H2020 Programme Guidance “How to complete your ethics self-assessment”, Handbook on European Data Protection Laws, Law on the Provision of Information to the Public of the Republic of Lithuania, Civil Code of the Republic of Lithuania, Law on Electronic Communications of the Republic of Lithuania, official texts of the Regulation and the Directive on Data Protection published on 4 May 2016 in the EU Official Journal and the European Union’s 22-month Privacy Impact Assessment Framework.
+
+PARAGRAPH
+
+Anonymization, according to Datatilsynet (2015), is about removing any possibility of identifying individuals in a data set.
+
+Privacy legislation does not apply to anonymous data.
+
+Data is anonymous, if it is no longer possible to identify individuals in a data set with the tools that can reasonably be expected to be used (Datatilsynet, 2015).
+
+For example, the Law on Legal Protection of Personal Data of the Republic of Lithuania accents that personal data, even when used for scientific research purposes, must be altered immediately in a manner making it impossible to identify the data subject.
+
+In cases, where the conducted researches do not require data identifying a person, the data controller shall provide to the data recipient personal data from which identification of a person is impossible.
+
+Special categories of personal data shall be collected for statistical purposes solely in a form that does not permit direct or indirect identification of the data subject, except in the cases laid down by laws.
+
+The document “Recommendation on the processing of personal data carrying out historical scientific research” (Sinkuniene, 2005) indicates the situations where this is possible.
+
+Research needs to be performed with the use of anonymous data.
+
+According to the Handbook on European data protection law (2014), data collected legitimately for any purpose may be further used for statistical purposes provided that national law prescribes adequate safeguards, which users must meet.
+
+For this purpose, particularly anonymization or pseudonymization must be envisaged before transmission to third parties.
+
+Data for so-named secondary statistics would have to be anonymized or pseudonymized depending on the context before transmitting them to a third party for statistical purposes (Data Protection Directive).
+
+Data are anonymized, if all identifying elements have been eliminated from a set of personal data.
+
+No element may remain in the information, which could, by exercising reasonable effort, serve to re-identify the person(s) concerned.
+
+Data that has been successfully anonymized are no longer considered personal data Handbook on European data protection law (2014).
+
+PARAGRAPH
+
+Shoval et al. (2014) accent that the demands for privacy have important consequences for scientific practice along with geographical approach and beyond.
+
+The use of smart phone data is highly sensitive in terms of privacy (Birenboim and Shoval, 2016), because, in this case, the data are not depersonalized.
+
+The same can be said about the issue on geoprivacy raised by Birenboim and Shoval (2016), the violation of data confidentiality and the protection of human subjects when private and, particularly, when location data are collected or applied.
+
+The data in this case are not anonymous either.
+
+The opinion expressed by Birenboim and Shoval (2016) is that privacy can be protected, to a large part, when scientists sign an informed consent form and take responsibility to enact the valid privacy and ethical procedures for their organizations.
+
+Generally an informed consent is signed for similar studies, when the data are not depersonalized, but strict adherence to policies of privacy and ethics are sought.
+
+Shoval et al. (2018) provide such an example.
+
+There were 173 tourists visiting Jerusalem who were employed for an urban emotional analysis.
+
+They signed an informed consent form, which the ethics committee of these scholars’ university had approved (Shoval et al., 2018).
+
+PARAGRAPH
+
+In the opinion of Neubauer and Heurix (2011), the protection of participants’ privacy can be achieved with two different techniques, which are anonymity and encryption.
+
+Researchers (Streich, 2011; Zeile et al., 2015) emphasized that, even though the introduction of contact “human sensors” into the planning processes of cities and public spaces is highly perspective, they face privacy and ethical problems.
+
+These constitute a tremendous challenge to their studies.
+
+The participant always experiences stress, which is caused by the desire to participate in the experiment while, at the same time, the worries about privacy and how these data will be used in the future (Caesar, 2012).
+
+Those same privacy and ethical problems come up when employing the Internet, the Internet of things, smart phones and other smart items.
+
+Quite often, the desire on the part of potential experiment participants to experience new impressions and to get to know oneself better outweighs potential privacy and ethical problems.
+
+Shilton (2009) suggests using fewer technical protection mechanisms to resolve these issues and more research transparency, openness and awareness.
+
+Shilton (2009) believes that campaigns, public debates and blogs are more suitable for realizing this non-technical purpose, because they would help in assuring social and societal acceptance.
+
+The opinion of Zeile et al. (2015) is that the planning process should comprehensively assess the advantages and disadvantages of “human sensors” in order to conduct an acceptable participation process.
+
+PARAGRAPH
+
+Lately biometric and similar ethics issues for experimenting, such as those employed for this research, are acquiring an ever-greater meaning.
+
+These are further analyzed in brief.
+
+PARAGRAPH
+
+The H2020 Programme Guidance (2016) analysis regarding the issue of how to complete your ethics self-assessment indicates that individuals are not considered “identifiable” if identifying them requires excessive effort and if completely anonymized data does not fall under the data privacy rules (from the moment it has been completely anonymized).
+
+In this case, the research here does not involve personal data collection and/or processing.
+
+PARAGRAPH
+
+Neither the ethics requirements (in terms of data protection and privacy issues) nor legal acts of the Lithuanian State nor of the EU contain any limitations for establishing average, depersonalized (anonymized) emotions or biometric and physiological parameters for groups of people.
+
+Such regulatory institutions include the NMSBA Code of Ethics for the Application of Neuroscience in Business, Society for Neuroscience Ethics Policy, Code of Ethics & Standards of Conduct of the Association of Information Technology Professionals, Biometric Identification Technology Ethics and Ethical Practice in the Use of Biometric Identifiers within the EU.
+
+The basis for the activities regarding this research included the above-named codes of ethics for all the aforementioned data and systems pertinent to the ANDES.
+
+For example, different basic principles relate to ethical issues, such as privacy — shared private information could continue to remain confidential.
+
+Meanwhile data and systems require transparency — these can compromise identity and privacy when it comes to emotional, biometrical and physiological data and such.
+
+Special attention focuses on ethics requirements regarding issues relevant to the safeguarding of data and privacy.
+
+Adherence conforms to the internationally recognized Code of Ethics & Standards of Conduct.
+
+The performance of the research is not involve any analyses performed on emotions, biometric and physiological traits, sex, age, other sensory data, opinions, feelings or the like of specific people or specific crowds.
+
+The research during the course of the project is depersonalized (anonymized), while average groups or crowds of people cover emotions, biometric and physiological traits, sex, age, other sensory data, opinions, feelings and the like.
+
+PARAGRAPH
+
+The legal acts neither of the Lithuanian State nor of the EU contain any limitations on establishing average depersonalized (anonymized) emotions or biometric and physiological parameters for groups of people.
+
+The ANDES does not store filmed materials or material on the emotions and/or biometric and physiological parameters of individual people; therefore the rights of people to a private life are upheld.
+
+PARAGRAPH
+
+Ethical matters arise at the time the results from this research shall subsequently appear in reports and media.
+
+There must not be any misrepresentations of the realistic features of demonstration sites.
+
+Submitted information that is not fully accurate about some specific, arranged event or about the reliability of sites for specific user groups could mislead potential visitors to the demonstration sites.
+
+Furthermore using data as bases on average, impersonal emotions (emotions, valence, arousal) and biometrics and physiology (average crowd facial temperature, heart rate, human electric field, crowd composition by gender and age groups and the like), which do not fully reflect the demonstration site under deliberation, can result in the provision of partly inaccurate recommendations to interested groups.
+
+It is clear, in and of itself, that this would not be in conformance with principles of ethics.
+
+Thus such research is definitely rejected.
+
+PARAGRAPH
+
+Additionally other major risks in terms of ethics regard the application of the tool/technology belonging to this research team.
+
+This covers the average, impersonal security of crowd data (emotions, biometrics and physiological characteristics, gender, age, other sensory data, opinions, sentiments and such); retention and disposal of the data; confidentiality of the data and assurance that the data are published on an anonymous basis.
+
+PARAGRAPH
+
+The basis for the performance of the study “Facial emotion analysis of exhibition visitors at SUPERNAMAI 2017” (see Case Study 1) consisted of anonymous data (i.e., there are no possibilities of establishing the persons under research based on the acquired data).
+
+Therefore, no questions arise regarding individual privacy in respect to the data collection (surveillance) and its purposes.
+
+PARAGRAPH
+
+For conducting the study “Multiple criteria neuro analysis of apartments and calculation of an emotional investment value” (see Section 5 “Case Study 2”), ten potential buyers agreed having their facial temperatures, emotions, pupil size and blinking measured during the experiment.
+
+PARAGRAPH
+
+Verification and validation issues
+
+PARAGRAPH
+
+The databases contain data gathered from the Sensor Network remote (face emotions [FaceReader 7.1]), temperatures (infrared camera FLIR A35SC), analysis of voice emotions (QA5 SDK), people flow counter (H.264 Indoor Mini Dome IP Camera), eye pupil [Mirametrix S2 Eye-Tracker]), and biometric analysis devices measuring contact (brain signal (Enobio Helmet) and heart rate and pressure (iHealth Wireless Blood Pressure Monitor).
+
+Since only the measurements of facial emotions (FaceReader 7.1) and temperatures (infrared camera FLIR A35SC) were used, the deliberations on data verification and validation only regard the emotions and facial temperatures of the exhibit participants.
+
+The other devices were used on those exhibition participants who, in the opinion of Ivkov et al. (2015), would just like to devote a day exploring the exhibition with friends and family as a part of their leisure, cultural and educational activities.
+
+Additionally data from the Bailey’s (2016) theoretical human productivity (energy, focus, motivation), as determined by the circadian rhythm, were used over the course of the research.
+
+PARAGRAPH
+
+The data derived from the research were checked during two stages, during validation and during data verification.
+
+PARAGRAPH
+
+Loijens and Krips (2013) have indicated that the FaceReader is an efficient tool for analyzing emotions with an accuracy rate of 90%.
+
+Significant similarities were found between the data obtained by FaceReader and the participants’ self-reports together with the researchers’ observations (Zaman and Shrimpton-Smith, 2006).
+
+Substantial connections were set up between the data gained by FaceReader and the reports made by contributors on themselves together with the explanations offered by scientists (Zaman and Shrimpton-Smith, 2006).
+
+Lewinski et al. (2014) validated FaceReader on two publicly available and objective datasets of human expressions of basic emotions and presented the accuracy for recognition of facial expressions.
+
+In 2005, matching scores of 89% were reported for FaceReader.
+
+Lewinski et al. (2014) tested the 6.0 version.
+
+FaceReader recognized 88% of the target emotional labels in the Warsaw Set of Emotional Facial Expression Pictures (WSEFEP) and Amsterdam Dynamic Facial Expression Set (ADFES).
+
+The software reached a FACS index of agreement of 0.69 on average for both datasets.
+
+Therefore the human emotions recognition for the two datasets was 85%.
+
+Lewinski et al. (2014) computed the accuracy of basic emotions recognition by humans for the two datasets.
+
+For ADFES, it is 87% and, for WSEFEP, it is 82%.
+
+In general, Lewinski et al. (2014) believe that FaceReader has proven to be a reliable indicator of facial expressions of basic emotions during the past decade and that it has the potential to become similarly robust with FACS coding.
+
+For version 6.0 of FaceReader, researchers report a general 88% accuracy score on basic emotions and use values 1 for specific emotions.
+
+For FACS accuracy, the FaceReader index of agreement is 0.69 (Lewinski et al., 2014).
+
+Other researchers also came up with very similar results regarding FaceReader validity and accuracy (Gudi and Ivan, 2015; Loijens and Krips, 2013) as well as regarding the manufacturer of the equipment, Noldus Information Technology.
+
+PARAGRAPH
+
+The accuracy of Infrared Camera FLIR A35SC is ±2% while reading (FLIR).
+
+The thermal sensitivity of thermographic camera FLIR A35SC is <0.05 °C.
+
+A 0.98 emission coefficient was established for accurate measurements, which correspond with the human skin emission coefficient.
+
+The thermographic camera has been calibrated/verified, and the calibration certificate issued by the manufacturer verifies is measurement results.
+
+Thermographic cameras undergo metrological verifications every 12 months to assure that their error rates correspond with the parameters established by the manufacturer.
+
+PARAGRAPH
+
+During the data validation procedure, thermal data had performed data cleaning to guarantee data quality (accuracy, update status, completeness, consistency across data sources, relevance, reliability, appropriate presentation, meaningfulness, accessibility) and checked for data correctness and fitness in the exhibition context, which are transferred to the Affective Analytics of Demonstration Sites (ANDES).
+
+During the data cleaning, inaccurate data were detected and then corrected; otherwise the inaccurate, incomplete, rounded, heaped, censored and missing data were removed.
+
+Thermal image segmentation was used in a selected range while analyzing the average temperature of a human face.
+
+A range of 32 °C – 38 °C was taken for performing the analysis indoors of the facilities.
+
+This way only the average face temperature was measured of people in a crowd thereby eliminating unnecessary temperature values that may distort the final results of the study.
+
+Later, during the data processing stage, the average temperatures of the backgrounds were eliminated, when people were not entering into the observation zone.
+
+PARAGRAPH
+
+Verification and validation of the model base and its models were performed with the aim of developing a valid and accurate model base and its models.
+
+The verification and validation of models were launched employing the Analytics Model, Model for Affective Mapping of Demonstration Sites, Multiple Criteria NeuroAnalytics Model for Demonstration Sites and their Components, Modeling Model, Recommender Model, Correlations Model, Text Analytics and Public Space and Real Estate Values Calculation Model.
+
+Subsequently the functional specifications were developed and the preliminary model base development was completed.
+
+The Iterative Method was applied while verifying and validating the model bases and the life cycles of their models.
+
+It was verified during the verification process that the model base and its models fully corresponded to the compiled specifications and to the ANDES concept.
+
+This was accomplished by applying the expert method and by compiling logic flow diagrams that each contains reasonably potential possibilities of modular use.
+
+The subjective reviews method was applied to validate the model base and its models.
+
+Additionally different authors (Mulliner et al., 2013, 2016; Rakesh, 2017; Zarbakhshnia et al., 2018) have validated and verified the COPRAS Method (Model).
+
+PARAGRAPH
+
+Apparently the equipment used for a remote analysis of a crowd is notable for its high rates of accuracy.
+
+Furthermore the average dependencies gained were also quite strong (see Table 2).
+
+These together with the high rates of accuracy of the equipment used confirm that the data received conforms to the requirements for verification and validation.
+
+Also Fig. 4 shows aggregate happiness experienced by visitors when arriving (52.35% on average) and when leaving (67.41% on average) as compared with the Positive Experience Index.
+
+Evidently the average emotions of happiness noted for arriving visitors (52.35%) are close to those recorded in Gallup’s (2015) Positive Experience Index (Lithuania’s score is 55 out of 100).
+
+PARAGRAPH
+
+Specialists also deliver important input for simulations of the emotional states of a crowd.
+
+PARAGRAPH
+
+Specialist opinions were also compiled as part of the validation and verification process.
+
+Seven operations engineering specialists and seven stakeholders (exhibition organizers, companies that display their equipment and devices) made biometrical and body language validations (suitability of aims and biometrical and body language analysis presented to the exhibition organizers and participants).
+
+The biometrical and body language validation of the ANDES was performed.
+
+The biometrical and body language validation questionnaire consisted of nineteen questions: seventeen were linked to the biometric and body language analysis (to name a few — Are aggregate comparisons of the emotions of happiness expressed by arriving and leaving visitors correct?
+
+Has the ANDES correctly identified the emotions of exhibition participants?
+
+Are correlations between average facial emotions and temperatures of people arriving on the third day of the exhibition correct?)
+
+; two questions regarded aims — Are ANDES aims consistent with business-oriented visitors, professionally-oriented visitors and the broad community?
+
+Are ANDES outcomes interesting to specialists and stakeholders?
+
+For every question, the specialist/stakeholder selects a choice in response while bearing in mind the next typical four-level Likert item — strongly disagree (1), disagree (2), agree (3) or strongly agree (4).
+
+The answers were investigated applying the SPSS Statistics.
+
+Data frequencies and standard deviations were computed by applying SPSS Statistics.
+
+The seventeen questions linked to the biometrical and body language analysis and two linked to aims scored between 3–4 points.
+
+The average of the biometric and body language analysis and the aims as validated by specialists in operations engineering and stakeholders were found to be between 3–4 points.
+
+Following this, the developments recommended by the specialists (operations engineering) and stakeholders (exhibition organizers, companies that display their equipment and devices) and the validations of the biometric and body language in an indoor environmental allowed the application of ANDES in an outdoor environment.
+
+PARAGRAPH
+
+The design of the Analytics Model is for decoding the initial data that registers the emotional state of a crowd in order to receive logical evidence about what is happening in the crowd.
+
+Use of the LOGIT, KNN and MBP techniques for crowd mining here are in parallel with specialist explanations.
+
+The results produced by the Analytics Model submitted to specialists (operations engineering) and stakeholders (exhibition organizers, companies that display their equipment and devices) were in graphic form to assist with the interpretation of data.
+
+PARAGRAPH
+
+The COPRAS and INVAR methods, which these authors (Kaklauskas, 1999, 2016) developed, were applied to establish the value of a public space.
+
+These methods were validated and verified when calculating market and investment values of different buildings and their complexes.
+
+There were calculations by the COPRAS method regarding buildings (Banaitiene et al., 2008; Zavadskas et al., 2008) and the market values of building complexes (Kanapeckiene et al., 2011; Zavadskas et al., 2017).
+
+Meanwhile calculations of the investment values of building complexes were accomplished by applying the INVAR method (Kaklauskas, 2016).
+
+The COPRAS and INVAR methods are composite parts of the Public Space and Real Estate Values Calculation Model.
+
+PARAGRAPH
+
+The COPRAS and INVAR methods, which these authors developed, were applied to establish the public space value and emotional investment value.
+
+These methods were validated and verified when calculating market and investment values of different buildings and their complexes.
+
+There were calculations by the COPRAS method regarding buildings (Kaklauskas et al., 2018; Zavadskas et al., 2008) and the market values of building complexes (Kanapeckiene et al., 2011; Zavadskas et al., 2017).
+
+Meanwhile calculations of the investment values of building complexes were accomplished by applying the INVAR method (Kaklauskas, 2016).
+
+The COPRAS and INVAR methods are composite parts of the Public Space and Real Estate Values Calculation Model.
+
+PARAGRAPH
+
+Transforming from the laboratory to real life conditions
+
+PARAGRAPH
+
+Numerous foreign scholars have analyzed the impacts of laboratory conditions and real conditions on research results (Morales et al., 2009; Lenc and Kral, 2013; Fabregas and Faundez-Zanuy, 2008; Sigari et al., 2014; Sachs, 1982).
+
+Morales et al. (2009) analyzed an autonomous biometric device that is able to capture speech, hand-geometry, online signature and a face.
+
+The results obtained using the laboratory setup in a “Real World” system shows that they are far from the best setup options.
+
+Using setup information obtained from laboratory conditions when experimenting in the “Real World” system is not advisable (Morales et al., 2009).
+
+Lenc and Kral (2013) arrived at a similar conclusion while investigating automatic face recognition.
+
+These scientists employed the ORL database (laboratory conditions) and CTK database (real-world corpus) and applied AFR methods (the adapted Kepenekci method and the SIFT-based Kepenekci approach).
+
+It was established that 100% accuracy is achieved on the ORL database (laboratory conditions), whereas a mere 72.7% is the best score for the CTK database (real-world corpus).
+
+The scientists also established that the recognition rate in real conditions decreases significantly with larger databases.
+
+For example, when the size of a database is 88, the recognition rate is 56.70%, whereas, when the size of the database is 595, the recognition rate is 33.51% (Lenc and Kral, 2013).
+
+Fabregas and Faundez-Zanuy (2008) have also studied biometric face recognition in laboratory and in real conditions.
+
+They claim that the classical EER (Equal Error Rate) measure corresponds to laboratory conditions, which is more optimistic than in real conditions.
+
+Sigari et al. (2014) analyzed driver face monitoring systems related to face and eye detection by applying feature-based and learning-based methods.
+
+They established that these methods can achieve a detection rate about 80%–90% or higher under laboratory conditions, but both methods usually fail under real conditions, especially in a night light and under sudden light changes.
+
+Sachs (1982) also claims that it is difficult, if not impossible, to maintain exact laboratory conditions in a factory; real conditions always deviate more or less from the ideal ones.
+
+PARAGRAPH
+
+Facial emotion analysis of exhibition visitors
+
+PARAGRAPH
+
+At the exhibition, two cameras captured the emotion of happiness and negative emotions (sadness, anger, scared, disgust) of arriving and leaving visitors.
+
+All emotion happiness and negative emotions in this research always add up to 100% for any period considered.
+
+Happiness is a positive emotion, a range of emotions, a feeling or a state that manifests itself through various feelings such as pleasure, calmness, balance of mind, glee, and intense joy full of feeling.
+
+It is a subjective feeling of a fulfilling life that stems from the satisfaction of spiritual needs such as seeking knowledge, communication, aesthetics and physiological demands; it is a sense that the actual matches the ideal—truly or in imagination.
+
+Happiness is related to the questions of the purpose of life and the meaning of life.
+
+An analysis of the overall happiness experienced at the exhibition reveals that leaving visitors were happier than arriving visitors (Fig. 3)—on the second day (Friday) and the fourth day (Sunday) in particular.
+
+The red line in Fig. 3 indicates the average level of happiness experienced by those leaving (%); the blue line indicates the same emotions of those arriving.
+
+The striped area between the lines shows that, on average, 15.06% of visitors became happier during the exhibition.
+
+The striped area shows that the exhibition satisfied the needs and expectations of its visitors.
+
+PARAGRAPH
+
+A Gallup (2012, 2015) survey shows that Singaporeans (36 score), just like Lithuanians (37 score), are the least emotional.
+
+Kazakhstan (38 score), Nepal (38 score) and Kyrgyzstan (38 score) are at the emotional end of this spectrum.
+
+Frequently discussions on societal issues tend to focus attention on social and gender inequalities, social stratification and disorganization, poverty, economic and environmental problems, occupations in the population, life style, age and health and other topics.
+
+For example, the Library of Congress of the United States (78 score) has developed an index of social problems, such as obesity, crime, gangs, hacking, suicide, urban sprawl, alcohol and other drugs and other problems (Ciment, 2006).
+
+The resolution of social issues in India (67 score) involves greater attention on poverty, corruption and terrorism, whereas, in Germany (74 score) – on the birth rate, anti-Semitism and extremism, deprived neighborhoods and the like.
+
+PARAGRAPH
+
+Various theories can serve as the basis for an interpretation of happiness.
+
+For example, according to Zhu and Fan (2018), the broaden-and-build theory of positive emotions has recommended that positive emotions – the experience of happiness – can broaden one’s alertness and inspire original and investigative thoughts and activities.
+
+Conzo et al. (2017) deliver a framework for how culture influences happiness.
+
+The Affect Infusion Model (AIM) (Forgas, 1995) suggests that positive moods stimulate comparatively risk-seeking performance.
+
+PARAGRAPH
+
+People were interviewed in 150 countries, over the telephone and face-to-face.
+
+Residents of the countries were asked whether they had experienced any of the five negative emotions (anger, stress, sadness, physical pain and worry) or five positive emotions (feeling well-rested, smiling and laughing a lot, being treated with respect, enjoyment, and learning or doing something interesting) the previous day (Gallup, 2012, 2015 livescience.com).
+
+Gallup (2012, 2015) researchers averaged together positive answers to the questions in each country.
+
+Only 36% of Singaporeans experienced the said emotions on a daily basis.
+
+Among the most emotionless societies, Singapore was followed by Georgia, Lithuania, Russia, Madagascar and Ukraine.
+
+Gallup (2012) also compiled the Positive Experience Index.
+
+The index measures the emotional state of people, i.e., whether the person enjoys life, is treated with respect, smiles and laughs a lot.
+
+In 2014, Lithuania scored 55 out of 100 in the Positive Experience Index (Gallup, 2015).
+
+Fig. 4 shows aggregate happiness experienced by arriving (52.35% on average) and leaving (67.41% on average) visitors compared with the Positive Experience Index.
+
+Evidently, the average emotions of happiness of the arriving visitors (52.35%) are close to those recorded in Gallup’s (2012) Positive Experience Index.
+
+The average happiness of visitors upon leaving the exhibition, however, was considerably above the index, and 15.06% higher than those of arriving visitors.
+
+PARAGRAPH
+
+Our analysis of negative emotions expressed in the face (sadness, anger, scared, disgust) also shows that negative emotions of leaving visitors were below those of arriving visitors (Fig. 5).
+
+The red line in Fig. 5 indicates the aggregate negative emotions of visitors leaving on different days; the blue line shows those of arriving visitors.
+
+The striped area between the lines shows the average share of visitors whose negative emotions subsided on different days.
+
+Evidently, negative emotions upon leaving the exhibition particularly subsided on the second day (Friday) and the fourth day (Sunday) of the exhibition.
+
+It appears that the exhibition satisfied the needs of its visitors in this respect too.
+
+PARAGRAPH
+
+Happiness and negative emotions experienced by exhibition visitors compared with their facial temperature
+
+PARAGRAPH
+
+An analysis of the happiness and negative emotions experienced by exhibition visitors was also done.
+
+Happiness and negative emotions were compared with facial temperatures.
+
+PARAGRAPH
+
+Studies conducted worldwide show how changes in the skin temperature of an individual under investigation reflect his/her emotions and whether they are strengthening or weakening.
+
+Changes are especially noticeable in the area of the nose (Salazar-López et al., 2015).
+
+According to De Oliveira et al. (2007), an increase in facial temperature indicates the strengthening of positive emotions in a person.
+
+The results of an experiment performed by Tanaka and Ide (1998) showed that the skin temperature around the nose drops during stress; thus, nose skin temperature is considered an important sign for assessing stress.
+
+Genno et al. (1997) established that, during stress, nose temperature dropped, even though there was no change in the temperature around the forehead.
+
+PARAGRAPH
+
+Scientists noticed a decrease in temperature when experiencing stress or negative emotions (Genno et al., 1997; Kataoka et al., 1998; Tanaka and Ide, 1998; Pavlidis et al., 2000; Levine et al., 2001; Merla and Romani, 2007; Ioannou et al., 2013; Salazar-López et al., 2015), found an increasing temperature (Genno et al., 1997; Kataoka et al., 1998; Tanaka and Ide, 1998; Pavlidis et al., 2000; Levine et al., 2001; Pavlidis and Levine, 2002; Puri et al., 2005; Ioannou et al., 2013).
+
+The scientists agreed that nose temperature drops when stress or negative emotions are experienced, the temperature in the periorbital region rises (Pavlidis et al., 2000; Levine et al., 2001; Pavlidis and Levine, 2002).
+
+Meanwhile, under these conditions, the temperature in cheeks also drops (Pavlidis et al., 2000; Levine et al., 2001).
+
+Positive emotions cause facial temperature to rise (De Oliveira et al., 2007) as well as the temperature at the nose (Ioannou et al., 2013; Salazar-López et al., 2015).
+
+A conclusion is that the use of thermographic tests permits establishing changes in human emotions and watching how a person reacts to some situation and how this affects that person (see Table 4).
+
+The results of these researches corresponded with the results from studies performed by other researchers (see Table 4).
+
+PARAGRAPH
+
+Let us compare the average emotions of happiness and negative emotions and facial temperatures of people arriving (Fig. 6) and leaving (Fig. 7) on the third day of the exhibition (Saturday) as an example.
+
+The analysis of the emotions of happiness (Figs. 6 and 7) experienced at the exhibition matches other studies worldwide (Table 4) and suggests that a rise in average happiness leads to an increase of the average facial temperature of visitors.
+
+Table 4 shows the prevailing opinion in studies worldwide is that when negative emotions rise the temperature of the face and parts of the face drops, and when negative emotions subside the temperature increases.
+
+Our research results show similar results for negative emotions (see Figs. 6 and 7): a drop in average negative emotions corresponds to an increase in the average facial temperature of the visitors.
+
+The same 20 °C average temperature and ambient temperature were constantly maintained in the facilities during the exhibition.
+
+Therefore these unchanging temperatures did not affect the changes in skin temperatures among the 4-day exhibition participants.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Happiness and negative emotions experienced by exhibition visitors were compared with their facial temperatures.
+
+The data set for the correlation analysis is derived from the primary data set by dividing the time of exhibition into fixed periods of time and calculating average data on people whose data are recorded during this period.
+
+The correlation matrix of facial emotions and facial temperatures of people arriving and leaving on the third day of the exhibition appear in Table 5.
+
+The time period in this case is 30 min.
+
+The results allow the conclusion that happiness at the entrance is very as correlated with negative emotions both at the entrance and at the exit (−0.7763 and −0.7245, respectively).
+
+No correlation (0.0392) appears between happiness at the exit and negative emotions at the entrance.
+
+Facial temperature (−0.4771) negatively relates with the negative emotions at the entrance.
+
+Negative emotions at the entrance and exit correlate positively (0.5588).
+
+PARAGRAPH
+
+Correlation analysis of biometric tests and emotions indicated good results.
+
+This direction is perspective for seeking comprehensive conclusions on dependencies among biometric features.
+
+Special methods (Dzemyda, 2001; Dzemyda et al., 2013) combining neural networks and multidimensional scaling may be applied for the visual analysis of correlations.
+
+PARAGRAPH
+
+To test the hypothesis of whether the happiness emotion changes upon leaving the exhibition, the following artificial variable X was introduced as follows (1): Xi=Ga,i−Gb,i
+
+PARAGRAPH
+
+where Gb are recorded emotions of happiness of arriving visitors, Ga are records of happiness of leaving visitors and i is the index denoting intervals of 30 min or 20 min within which measurement values of emotions and of temperatures were integrated.
+
+Both cases of 30 and 20-min intervals were tested to increase the reliability of the results.
+
+PARAGRAPH
+
+Denote the mean of X as X¯20 for the case of 20-min intervals, and X¯30 for the 30-min intervals.
+
+The effort is to learn if the mean of X is considerably different from zero, which would reveal that the emotion of happiness has changed.
+
+A lax probability of error was taken for the case of non-laboratory conditions rather than the usual use in statistics for more thorough experiments, α=0.1%.
+
+PARAGRAPH
+
+The means for the samples of Xi,20 and Xi,30 were found to be X¯20=6.88 and X¯30=5.64.
+
+The adjusted standard deviations are σ20=19.15 and σ30=13.24; therefore, for the means X¯20 and X¯30, the standard deviations are σ20=19.15∕20=3.91 and σ30=13.24∕30=3.21.
+
+The absolute value of the 10%, 2-tail threshold of the t-distribution is tcr=1.75 for 15 degrees of freedom (since there were 17 30-min intervals in this data), while tcr=1.71 for 24 degrees of freedom (since there were 26 30-min intervals); therefore the absolute value of the 10% threshold of the 2-sided tail of the corresponding t-distribution of the mean X¯20 is tcr (μ) = 1.71 ⋅ 3.91 = 6.69, whereas, for the 30-min case, the absolute value of the 10% threshold of the 2-sided tail of the t-distribution of the mean X¯20 is tcr (μ) = 1.75 ⋅ 3.21 = 5.63.
+
+The null H0hypothesis (with the 10% probability of error) that emotions of happiness of arriving visitors are the same as emotions of leaving ones may be rejected, because the means of this sample appeared to be beyond the corresponding thresholds.
+
+In other words, the conclusion can be that the exhibition positively affected the emotions of visitors.
+
+PARAGRAPH
+
+Correlations that link the average facial temperature and valence of exhibition goers to a typical circadian rhythm
+
+PARAGRAPH
+
+Human emotions and productivity undergo cyclic fluctuations over the day (circadian rhythm) and over the week.
+
+Researchers examining the circadian rhythm have determined that the best time to work is between 8 a.m. and 12 noon.
+
+Between 1 p.m. and 3 p.m. is the period of lowest activity and from 4 p.m. on the body is once again vigorously active.
+
+Fig. 8 shows the correlations between the average facial valence and temperature of arriving visitors on 22 April 2017.
+
+An average correlation (0.643494) between the parameters was determined.
+
+PARAGRAPH
+
+Fig. 9 sums up the analysis of the average facial temperatures of people visiting on 22 April and Bailey’s (2016) theoretical human productivity (energy, focus, motivation) determined by the circadian rhythm.
+
+As seen here, the correlation between the facial temperature of visitors and human productivity (energy, focus, motivation) determined by the circadian rhythm (Bailey, 2016; Yaganova, 2016) was medium and weak.
+
+Further studies are needed to validate these correlations.
+
+Data on average labor and activity productivity were taken from studies by Bailey (2016).
+
+In the opinion of Bailey (2016), the three metrics – energy, focus and motivation – reflect average labor and activity productivity by the hour.
+
+PARAGRAPH
+
+Correlations between the average emotions of the visitors and the productivity (its components) determined by a typical circadian rhythm
+
+PARAGRAPH
+
+The study also revealed correlations between the average emotions of visitors and their productivity (its components).
+
+Fig. 10 shows the correlations between the average happiness of arriving visitors and human productivity determined by the circadian rhythm productivity on the second day of the exhibition (Friday).
+
+Fig. 11 shows a comparison of the negative emotions (sad, disgusted) experienced by leaving visitors with their productivity, energy and focus determined by a typical circadian rhythm on the third day (Saturday).
+
+PARAGRAPH
+
+The map of average facial temperatures and emotions
+
+PARAGRAPH
+
+The map of average facial temperatures and emotions of second- and third-day exhibition visitors shows the average facial temperature (brown) of the visitors and their emotions (happy (light blue), sad (red), angry (gray), surprised (yellow), scared (blue), disgusted (green)) in colors.
+
+The map shows the temperature in degrees and emotions as percentages.
+
+The map of average emotions and facial temperatures of exhibition visitors in Fig. 12 consists of two parts: the left half of the circle maps the third day of the exhibition with signals captured every hour between 10 a.m. and 7 p.m. and the right half maps the second day of the exhibition.
+
+This means that the circle is sliced into 18 sectors, each of them, in turn, sliced into eight blocks along the radius.
+
+Seven of the blocks represent the intensity of the physiological and affective state of exhibition visitors.
+
+In case of the most intense emotions, marked at 100%, all seven blocks are filled; in case of zero emotions neither of the blocks is filled.
+
+The average facial temperature of exhibition visitors is visualized likewise: higher temperature means that more of the seven blocks will be brown.
+
+Each shaded radius block, thus, represents the average value of a single emotion (or temperature) of exhibition visitors measured for one hour.
+
+The lower the value, the fewer radius blocks are shaded.
+
+Additions are marked in red.
+
+SECTION
+
+PARAGRAPH
+
+Case study 2: multiple criteria neuroanalysis of apartments and calculation of an emotional investment value
+
+PARAGRAPH
+
+Potential buyers overviewed five potential apartments withoutphysically entering them and analyzed them virtually via photographs, descriptions and the like.
+
+These studies were performed on 20–23 April 2017 in Siemens Arena, which was hosting Supernamai 2017, the annual fifth such exhibition on construction and interiors.
+
+Viewers analyzed the alternatives under conditions of the same ambient temperature (the average temperature in the interior of the facility was held at 20 °C, etc.).
+
+The performed study included ten potential buyers who were looking for the acquisition of a new home.
+
+Performance of this study employed the Sensor Network, which assisted in establishing changes in the temperature, facial emotions, pupil size and blinking of potential buyers.
+
+PARAGRAPH
+
+This case study examines five alternative apartments located in Vilnius and presented in a stand at SUPERNAMAI 2017 (see Table 6).
+
+The properties and typical criteria system were selected from the CRM database owned by Capital, an estate agents firm.
+
+The properties are briefly described below.
+
+PARAGRAPH
+
+Vilnius and its surroundings constitute the most economically developed region in Lithuania.
+
+This region generates over 40% of the total GDP for Lithuania, and its GDP per capita is almost 1.5 times higher than the average of Lithuania (Lietuvos regionų ekonomika, 2018).
+
+A site close to Vilnius is presumably the Geographical Centre of Europe.
+
+Vilnius lies 312 km (194 mi) from the Baltic Sea.
+
+The current area of Vilnius is 402 square kilometers.
+
+Buildings occupy 29.1% of the city, green spaces, 68.8% and waters, 2.1%.
+
+(Vilnius, 2018).
+
+Žirmūnai is one of the oldest residential districts in Vilnius and the largest by numbers of residents.
+
+Scenic nature distinguishes the Žirmūnai neighborhood.
+
+This residential district has settled along the River Neris, where people like to take walks or swim at such respective locales.
+
+The Žirmūnai residential district also has good access to the city center (Andrijauskas, 2017).
+
+Lazdynai is a woodsy residential district of Vilnius.
+
+Pines, hazel nut trees and other leaf-bearing trees grow all over the area.
+
+Multi-unit apartment buildings predominate in Lazdynai.
+
+These are grouped around open yards and blocked in terraces.
+
+Planted greenery, small woodlands and pedestrian walkways abound in this area.
+
+The network of streets and the layout of the buildings have been adapted to the hilly relief.
+
+This provides the region with individuality (Tiukšienė and Sisaitė, 2015; Činga, 2017).
+
+The Baltupiai — Vilnius part of the city lies on the right shore of the River Neris and the left shore of the River Baltupis, to the north of the city’s center.
+
+Baltupiai is a residential region settled in a woodsy, picturesque locale.
+
+Despite its natural surroundings, however, its multi-unit apartment buildings are comparatively recently constructed.
+
+This part of the city has considerable minuses — one is the huge traffic jams forming during peak traffic hours (Tiukšienė and Sisaitė, 2015; Mikrorajonai, 2018), Fabijoniškės constitutes the northern part of Vilnius City, by the Vilnius-Panevėžys Highway.
+
+Construction on this residential district began in 1986 at the site of the former Fabijoniškės Village.
+
+This residential district is at a considerable distance from the city’s center, and one of its greatest minuses is the tremendous traffic jams at peak traffic hours (Tiukšienė and Sisaitė, 2015; Vilnijos vartai, 2018).
+
+Old Town is the oldest part of Vilnius City, which is its historical, urbanite and cultural hearth.
+
+It is one of the most attractive and most prestigious districts of Vilnius City with an excellently developed social infrastructure.
+
+There are numerous sites to visit in the Old Town.
+
+The maintenance of its green areas is excellent, because it constitutes the heart of Vilnius City (Tiukšienė and Sisaitė, 2015; Sostinės brokerė, 2018).
+
+PARAGRAPH
+
+A system of criteria and a decision matrix were compiled in an effort to establish which apartment is the most attractive in comparison to the others (see Table 6).
+
+PARAGRAPH
+
+Ten potential buyers were interviewed to establish criteria values and weights.
+
+The interview results were processed by applying the expert weight estimation method (Zavadskas et al., 1994).
+
+PARAGRAPH
+
+There are 11 classes in North Carolina on the appraisal scale for rating a property’s condition: “excellent”, “very good”, “good to very good”, “good”, “average to good”, “average”, “fair to average”, “fair”, “poor”, “very poor” and “dilapidated”.
+
+A home in North Carolina with a physical status rating of average is a house that displays marks of standard “wear and tear”, typical upkeep and “updates” based on its age.
+
+It is the standard from which the physical status coefficient is adjusted upward or downward (Thorne, 2015).
+
+Classifications of these and other property condition ratings (Mae, 2018; Souto, 2013) serve as the bases regarding the aforementioned apartment alternatives encompassing the ratings of the conditions of apartments—“very poor”, “poor”, “average”, “good” and “very good”.
+
+PARAGRAPH
+
+Upon completion of the multiple criteria evaluation (see Table 6), the utility degree of each alternative was calculated and the priority (Q1<Q2<Q3<Q4<Q5) and utility degree (N1(87.89%) < N2(88.42%) < N3(96.39%) < N4(97.81%) < N5(100%)) orders established.
+
+The priority order shows that Object One (a1) least satisfies the demands of the potential buyers (N1=87.89%) in comparison with the other alternatives (a2–a5).
+
+The last apartment (a5) has the best evaluation (N5=100%).
+
+An evaluation scale of the apartments under deliberation was compiled: a1– very poor condition, a2– poor condition, a3– average condition, a4– good condition and a5– very good condition.
+
+PARAGRAPH
+
+Identifying the emotional state of a possible purchaser with the sensor network
+
+PARAGRAPH
+
+For the study the FLIR A35SC, Mirametrix S2 Eye-Tracker and FaceReader 7.1 Subsystems were employed.
+
+With its help, the face temperatures, emotions, pupil size and blinking of ten potential apartment buyers were established.
+
+These ten potential apartment buyers expressed a wish to participate in the experiment themselves.
+
+During the study, they sat at a distance of some 50–70 cm from the FLIR A35SC, Mirametrix S2 Eye-Tracker equipment and computer monitor, which measured facial temperatures, emotions, pupil size and blinking in real time.
+
+PARAGRAPH
+
+One of the most important stages in a multiple criteria analysis is the establishment of a system of alternatives describing the criteria and their units of measurement, values and weights.
+
+Compilation of a neuro decision matrix, based on the Database of Demonstration Sites and their Components and the establishment of alternatives of the emotional states of potential buyers during the time of the analysis, consists of data comprehensively describing the real estate alternatives available to a specific buyer.
+
+ANDES captures the X1-Xt criteria along with the information describing them (units of measurement [m1- mt] of the criteria, values [x11- xtn] and weights [q1- qt]).
+
+These criteria come from the Database of Demonstration Sites and their Components, the Xt+1- Xt+7 – from the FaceReader 7.1 Affective Database (units of criteria measurements [mt+1- mt+7], values [xt+11- xt+71] and weights [qt+1- qt+7]), Xt+8 - Xt+11 – from the Flir Thermo Cam Database (units of criteria measurements [mt+8- mt+11], values [xt+81- xt+11n] and weights [qt+8- qt+11]).
+
+These constitute the neuro decision matrix on a specific buyer (see Table 7).
+
+PARAGRAPH
+
+A neuro decision matrix is valuable for viewing a system of decision-making aspects and evaluating every aspect’s comparative importance.
+
+The neuro decision matrix characterizes multiple criteria, real estate and emotions in a decision-making analysis problem.
+
+The utility degrees and priorities of comparative variants are established by calculating criteria values and weights and applying the methods (Kaklauskas, 1999, 2016) for a multiple criteria analysis of the projects.
+
+PARAGRAPH
+
+This research involved ten participants who were interested in acquiring an apartment for the experiment.
+
+The Flir A35SC Subsystem was used to compile the neuro decision matrix.
+
+The participants in the experiment were shown each alternative photographs from the first (a1) to the fifth (a5), while, at the same time, temperatures were taken at four facial points of each viewer (at the nose, the left and right check and the forehead).
+
+From this, an average change in temperature was derived.
+
+PARAGRAPH
+
+A common starting point is necessary for establishing the average change in temperature in the faces of the viewers.
+
+The necessity of such a starting point is that a comparison must be made of all the tests with one another for the performance of the comparative analysis of changes in facial areas.
+
+The third alternative (a3) was the median, according to the results of the multiple criteria analysis, since all the participants looked it over with a neutral facial expression (as shown by the FaceReader 7.1 Subsystem).
+
+Therefore, the average facial temperatures of the potential buyers looking at this alternative (31.7 °C at the nose, 32.62 °C at the left cheek, 33.24 °C at the right cheek and 34.91 °C at the forehead) served as the foundation (see Table 8).
+
+A fragment of the facial temperatures analysis appears in Table 8.
+
+PARAGRAPH
+
+For example, the nose temperatures of 60% of the participants in the experiment dropped by 0.5 °C on average while looking at alternative a1, the apartment in very poor condition and by 0.33 °C while looking at a2, the one in poor condition, in comparison with alternative a3, which is in average condition.
+
+However, when looking over apartment a4, which is in good condition, the nose temperatures of 60% of the participants in the experiment rose by 0.6 °C on average.
+
+Meanwhile the nose temperatures of 80% of the participants in this experiment rose by 0.85 °C on average while analyzing apartment a5, which is in very good condition in comparison with alternative a3, the one in average condition.
+
+PARAGRAPH
+
+There was a similar trend when analyzing the temperature of the left cheek.
+
+Temperatures dropped in 90% and 70% of the participants when viewing, respectively, the very poor apartment a1 and poor apartment a2 by, respectively, 0.38 °C and 0.27 °C.
+
+Conversely, temperature rose in 70% of the experiment participants when viewing the good apartment a4 and the very good one a5 by, respectively, 0.44 °C and 0.6 °C.
+
+PARAGRAPH
+
+The temperatures of the right cheek dropped on average by 0.09 °C among respondents when showing the very poor condition apartment a1.
+
+The review of the poor condition apartment a2 caused an increase in temperatures by 0.08 °C on average.
+
+However, a review of the good apartment a4 and the very good one a5 caused an increase in temperature on average by, respectively, as much as 0.301 °C and 0.567 °C.
+
+PARAGRAPH
+
+The research described here shows that facial temperatures (nose, left and right cheeks and forehead) are higher when experiencing positive emotions than in a state of neutral emotions.
+
+Additionally, this research shows that, under negative emotions, facial temperatures (at the nose, left and right cheeks and forehead) are lower than they are under a neutral emotional condition, except regarding the changes in temperatures in the nose and right cheek when reviewing apartment a2, the one in poor condition.
+
+The alternatives under deliberation here are assigned an order of priority according to the facial temperatures (nose, left and right cheeks and forehead) based on the aforementioned principle and the tests on emotional temperatures (see Table 8).
+
+These priorities are evaluated by performing the neuroanalysis of the apartments under deliberation (see Table 9).
+
+PARAGRAPH
+
+Neuro decision analysis of apartments and calculation of an emotional investment value
+
+PARAGRAPH
+
+The basis of the practice of representative Capital PRO real estate analysis consists of collecting qualitative and quantitative data (see Table 6) upon determining the emotional state of a possible buyer while examining the apartments (see Table 8).
+
+This development is a neuro decision matrix (see Table 9) that systematically defines the apartments.
+
+PARAGRAPH
+
+The priority order (Q1<Q2<Q3<Q4<Q5) and utility degree (N1(78.85%) < N2(81.94%) < N3(91.52%) < N4(95.43%) <N5(100%)) are established upon completion of the multiple criteria evaluation (Table 9).
+
+The best-assessed alternative is apartment a5,the one in very good condition, and the worst assessed is apartment a1 in very poor condition.
+
+Noteworthy is that, compared to Table 6, the order of priority does not change; however, the utility degrees differ slightly.
+
+For example, the utility degree N3 of alternative a3 decreased by 4.87% (from 96.39% to 91.52%) and the utility degree N4 of alternative a4 decreased by 2.38% (from 97.81% to 95.43%).
+
+The greatest decrease in utility degree N1, by 9.07%, is for the poor condition apartment a1(from 87.89% to 78.82%).
+
+The neuro decision matrix offers a chance to evaluate the alternatives under deliberation more accurately.
+
+PARAGRAPH
+
+The Public Space and Real Estate Values Calculation Model is based on the INVAR method (Kaklauskas, 2016).
+
+The cost of the second alternative a2 was a2=950.31 euro/m2.
+
+The goal here is an approach for optimizing (in this case, lessening) the emotional investment value x52cyclee for a2 to be equally competitive in the market with other apartments under comparison (a1, a3, a4, a5).
+
+Table 10 shows that the a2 cost x52 decreased in every cycle (from x52cycle0=950.31) by an amount of 1 euro/m2 until the emotional investment value becomes nearly equal to the average utility degrees of a1, a3, a4, a5.
+
+All the calculations were repeated until inequality was satisfied in the 299th cycle (see INVAR method Kaklauskas, 2016).
+
+Table 10 shows that, after 298 approximation cycles, inequality (|-0.05| < 0.02%).)
+
+had not been suitable (x52cycle298=653, |-0.05| > 0.02%).
+
+However, after recalculating 299 approximation cycles, the emotional investment value of a2 was lessened to 652 euro/m2, and the utility degree for this alternative became nearly equal to the average utility degrees of a1, a3, a4, a5.
+
+PARAGRAPH
+
+Physiological and affective maps of potential buyers of the apartments in question
+
+PARAGRAPH
+
+With the help of ANDES’s Sensor Network and the Model for Affective Mapping of Demonstration Sites, affective and physiological maps of potential buyers of the apartments in question were created.
+
+PARAGRAPH
+
+Potential real estate buyers spent 15 min analyzing the detailed information on 5 alternative apartments with photographs that were provided for them.
+
+During the analysis, ANDES’s Sensor Network tracked affective and physiological signals of the buyers (see Table 11).
+
+This affective and physiological map of five alternative apartments defines each apartment with 12 parameters (see Table 11 and Fig. 13) that illustrate the average opinion held by potential buyers and expressed by their body language about each apartment in question.
+
+PARAGRAPH
+
+Table 11 was used to map physiological and affective averages of potential buyers of the apartments in question (Fig. 13).
+
+Table 11 in numbers and Fig. 13 in circle blocks present the same information (physiological and affective maps of potential buyers of the apartments in question) in two different forms.
+
+The circle (Fig. 13) is sliced into five sectors, each representing one of the apartments in question.
+
+These sectors are further sliced into 12 smaller sectors representing physiological and affective averages of potential homebuyers.
+
+Thus the total number of slices is 60.
+
+Each of these slices is divided into 20 blocks along the radius.
+
+The blocks represent the physiological and affective state of potential buyers.
+
+For instance, when potential homebuyers were shown Alternative a5, happiness averaged 97.62%.
+
+In Table 11 this information in represented in numbers (97.62%); in Fig. 13 it is visualized in green blocks of a circle (97.62% of the radius).
+
+Each shaded radius block reflects the average value of a specific emotion (or a physiological parameter) aroused in potential buyers of a specific apartment.
+
+The higher the values, the more radius blocks are shaded.
+
+PARAGRAPH
+
+The physiological part of the map shows the physiological averages of potential buyers 1–8: temperature (gray), pupil size (blue) and blinking (pink).
+
+The variation of facial temperature is measured in degrees, eye pupil size is measured in millimeters, and blinking is measured as a rate.
+
+The affective part of the map shows, by their relative (%) variation, affective totals of potential buyers 9–12: happy (green), sad (red), angry (light blue), surprised (yellow).
+
+Emotions add up to 100%.
+
+We can see that Alternative 5, an apartment of excellent quality, looks best in the physiological and affective map of potential buyers (happy, green) of the apartments in question.
+
+In contrast, viewings of Alternative 1, an apartment in bad condition, provoked intense negative emotions (sad, red).
+
+PARAGRAPH
+
+SECTION
+
+Conclusions and future work
+
+PARAGRAPH
+
+This article presents the ANDES Method (see Section 2) for which the developed ANDES System is submitted for illustration (see Section 3).
+
+Two case studies represent the ANDES evaluation stage.
+
+PARAGRAPH
+
+The prevailing crowd behavior models and simulation systems mainly include agent-based, flow-based and particle-based approaches (Zhou et al., 2010; Kountouriotis et al., 2014).
+
+Several theories dealing with crowd psychology (Gustave Le Bon, Freudian, Deindividuation, Convergence, Emergent norm, Social identity) investigate, in one form or another, the emotions of the crowd.
+
+Crowd simulation methods that take into account emotions and arousal (Spaaij, 2014; Wang et al., 2015; Tancogne-Dejean and Laclémence, 2016; Filingeri et al., 2017; Hossain et al., 2018; Martella et al., 2017) and particle systems (Guy et al., 2011; Patil et al., 2011; Kim et al., 2012) are also used in a range of artificial intelligent based crowd simulation methods.
+
+A recent development is the introduction of biometric and affective computing technologies in crowd behavior models (Kumar et al., 2018; Yogameena and Nagananthini, 2017).
+
+Within this context, elaborated in the Introduction, and within the framework of the H2020 ROCK project, ANDES were developed.
+
+The results of this research indicated that the initial expectations were fully satisfied.
+
+PARAGRAPH
+
+For purposes of this research, Affective Analytics of Demonstration Sites (ANDES) are understood as an intelligent decision support system relevant to demonstration sites (public spaces) and the people within them.
+
+ANDES accumulates data from the Sensor Network and processes them together with the data from the Intelligent Database.
+
+It also extracts data patterns, performs a multi-criteria analysis of alternatives, establishes the public space and real estate values and supplies recommendations.
+
+ANDES performs data analytics and transforms the results of the analysis into a comprehensible framework for later applications by employing the model bases and their models.
+
+Furthermore, ANDES provides a user with the analysis results that are necessary for developing, analyzing and assessing possible decision-making alternatives.
+
+Thereby a user can make a decision, extract the received results and save them.
+
+The main purpose of ANDES is to discover patterns in large data sets of emotions, moods, feelings and attitudes and to perform an analysis of the demonstration site.
+
+PARAGRAPH
+
+Two case studies described in this article in real conditions differ from the traditional biometric studies that are performed under laboratory conditions (see Subsection “Transforming from the laboratory to real life conditions”).
+
+For example, biometric studies performed in real conditions have a potentially greater emotional bias than the studies performed under laboratory conditions due to people seeking specific information, exhibition participants who run into old, well-known acquaintances and share some beer with them and such happenings.
+
+PARAGRAPH
+
+Based on the analysis of research similar to the previously mentioned and most advanced research worldwide, it may be stated that ANDES offer four unique advanced research contributions:
+
+PARAGRAPH
+
+These are the main integrated innovations of the developed ANDES.
+
+As seen by the research performed worldwide, which is presented in the Introduction, the existing work in different areas have achieved significant results.
+
+However, no product as integrated as the ANDES has been developed in the world to date.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The application of ANDES in practice would generate the necessary conditions for rationalizing the CH events and improving the quality of events.
+
+Three directions are intended for the practical implications of ANDES.
+
+The initial expectation is to apply ANDES widely in Lithuania’s demonstration sites (buildings, public spaces, events, streets).
+
+Additionally, the use of ANDES is expected in other demonstration sites (buildings (museums, theatres, library, city fortress, a residential area), monuments, public spaces (streets, squares, courtyards, public archaeological sites), events (music, exhibition, festivals, conferences, seminars, workshops).
+
+The implementation of the Horizon 2020 project, “Regeneration and Optimization of Cultural Heritage in Creative and Knowledge Cities” involved the use of Affective Analytics of Demonstration Sites (ANDES).
+
+PARAGRAPH
+
+PARAGRAPH
+
+ANDES, in its current version, is not ideal; it does have particular limitations.
+
+Future research related to ANDES is foreseen in three directions.
+
+PARAGRAPH
+
+As part of the ROCK project, the Database of Demonstration Sites and their components will be populated with data about buildings (museums, theatres, libraries, city fortresses, residential areas), monuments, public spaces (streets, squares, courtyards, public archaeological sites), and events (concerts, exhibitions, festivals, conferences, seminars, workshops).
+
+Another part of the project will be an analysis of students, residents, workers, creators, visitors, and event-goers of different ages and sexes.
+
+PARAGRAPH
+
+Second, new devices measuring heart rate, respiratory rate and human electric field will be added to the Remote Sensor Network as part of the H2020 ROCK project.
+
+The current version of the Remote Sensor Network with FaceReader 7.1, infrared camera FLIR A35SC, QA5 SDK and H.264 Indoor Mini Dome IP Camera can map the average facial temperature and voice emotions of people present at demonstration sites and their distribution by sex and age group; the new devices will add to that the capacity of mapping average heart rate, respiratory rate, and human electric field.
+
+Such physiological maps can make the affective maps of demonstration sites more accurate and will lead to more suitable tips on ways to make the demonstration sites more efficient.
+
+Furthermore, it would rationalize the recommending process based on the best worldwide practices and the existing states of the crowd.
+
+PARAGRAPH
+
+Correlation analysis of biometric tests and emotions indicated good results.
+
+This directions is perspective seeking for comprehensive conclusions on dependencies among biometric features.
+
+Special methods (Dzemyda, 2001; Dzemyda et al., 2013) combining neural networks and multidimensional scaling may be applied for the visual analysis of correlations.
+
+PARAGRAPH
+
+As part of the H2020 ROCK project another feature, Opinion Analytics, will be added to ANDES.
+
+Opinion Analytics will offer automatic detection of real-time views expressed in articles, reviews, surveys, comments, opinions, notices, papers, research, studies, blogs, online forums, Facebook, Twitter and other social media channels, thereby allowing visualization of opinions citizens hold towards issues of urban CH.
+
+Opinion Analytics make it possible to understand and monitor opinions, thoughts, sentiments, attitudes, emotions and preferences of urban citizens, and help city officials make better decisions.

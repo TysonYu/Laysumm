@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.103301
+
+ABSTRACT
+
+TITLE
+
+Non-convex hull based anomaly detection in CPPS
+
+PARAGRAPH
+
+Along with the constantly increasing complexity of industrial automation systems, machine learning methods have been widely applied to detecting abnormal states in such systems.
+
+Anomaly detection tasks can be treated as one-class classification problems in machine learning.
+
+Geometric methods can give an intuitive solution to such problems.
+
+In this paper, we propose a new geometric structure, oriented non-convex hulls, to represent decision boundaries used for one-class classification.
+
+Based on this geometric structure, a novel boundary based one-class classification algorithm is developed to solve the anomaly detection problem.
+
+Compared with traditional boundary-based approaches such as convex hulls based methods and one-class support vector machines, the proposed approach can better reflect the true geometry of target data and needs little effort for parameter tuning.
+
+The effectiveness of this approach is evaluated with artificial and real world data sets to solve the anomaly detection problem in Cyber–Physical-Production-Systems (CPPS).
+
+The evaluation results also show that the proposed approach has higher generality than the used baseline algorithms.

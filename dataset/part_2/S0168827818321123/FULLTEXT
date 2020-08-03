@@ -1,0 +1,427 @@
+10.1016/j.jhep.2018.05.027
+
+FULLTEXT
+
+TITLE
+
+Assessing the cost-effectiveness of hepatitis C screening strategies in France
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In Europe, recommendations for hepatitis C virus (HCV) screening still target only people at high risk of infection.1
+
+With this screening strategy, around 40% of infections are still not detected in France,2 equating to 75,000 individuals in 2014.3
+
+PARAGRAPH
+
+The current situation supports a reassessment of the screening strategy for several reasons: (i) hepatitis C is diagnosed at an advanced stage of the disease in more than one patient out of 10, corresponding to a delay in diagnosis;4,5 (ii) recent availability of highly efficacious and well tolerated treatments (i.e.; direct-acting antiviral (DAA)-based regimens);6 (iii) in addition to standard serological tests, rapid screening tests now exist for viral hepatitis C, that can help to expand the availability of screening outside health facilities, providing new options for those who have no access to interventions implemented in healthcare facilities.7
+
+Since 2012, the US and Canada have advocated one-time testing in specific birth cohorts, corresponding to those with the highest prevalence of hepatitis C.8–10 It is however not clear that these strategies are applicable to other countries with a different HCV epidemiological profile.
+
+In addition, the cost-effectiveness analyses underlying these strategies were conducted with past treatments that were much less effective than present DAA.
+
+PARAGRAPH
+
+Although France is one of the countries with the highest HCV screening level, the impact of treatment may be increased with improvement in HCV detection and therapeutic management.11
+
+Early detection can allow earlier introduction of antiviral treatment leading to a reduction in morbidity and mortality.12
+
+It can also allow a reduction in the cost of care, because an effective and early treatment may prevent progression to the costly complications, such as cirrhosis and/or hepatocellular carcinoma (HCC).13
+
+Finally, it can have a societal benefit because testing and treatment of hepatitis in particular in at-risk populations may avoid HCV transmission and help control the HCV epidemic.14
+
+Currently, in France, a group of experts, designated by the Ministry of Health to develop recommendations on HCV care and optimization of screening, recommended universal screening for hepatitis C for the purpose of elimination.15
+
+However, whether universal screening and the process of launching it will be funded by the Ministry of Health and the Haute Autorité de la Santé is not known.
+
+PARAGRAPH
+
+The objective of this study is to evaluate the effectiveness, cost and cost-effectiveness of different hepatitis C screening strategies to guide the public authorities in the reassessment of the screening policy.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Study design
+
+PARAGRAPH
+
+We designed a decision analysis model to evaluate life expectancy, life expectancy in discounted quality-adjusted life years (QALYs), direct lifetime discounted costs and incremental cost-effectiveness ratio (ICER) for five different HCV screening strategies among the general French population aged 18–80, without a diagnosis of chronic hepatitis C (CHC, HCV-RNA positive individuals): S1 = current strategy: HCV screening is only offered to high-risk individuals identified through an imperfect assessment of their risk factors; S2 = S1 and all men between 18 and 59 years; S3 = S1 and all individuals between 40 and 59 years; S4 = S1 and all individuals between 40 and 80 years; S5 = all individuals between 18 and 80 years.
+
+Once CHC was diagnosed, treatment was initiated either to patients with fibrosis stage ≥F2 or regardless of fibrosis.
+
+We also estimated the impact of each strategy, first in terms of CHC prevalence one year later among the undiagnosed general population and, second, in terms of cumulated incidence of cirrhosis (F4), decompensated cirrhosis, HCC and liver-related deaths at 10 and 20 years among the CHC population.
+
+PARAGRAPH
+
+The ICER between two strategies was defined as the additional cost of a specific strategy compared with the next least expensive strategy, divided by its additional clinical benefit.
+
+Strategies were considered inefficient and excluded from ICER calculations if they resulted in higher costs but less benefit, or had a higher ICER than a more effective strategy.16
+
+We adopted a modified societal perspective excluding indirect costs.17
+
+We used a lifetime horizon of 50 years and discounted all future costs and clinical benefits at 4% per year over the first 30 years, decreasing from 4% to 2% thereafter, based on French guidelines for cost-effectiveness analysis.17
+
+Costs were expressed in 2017 Euro (€).
+
+Given that no threshold is defined by French Health Authorities, we used the GDP per capita (€32,800 in 201518) for interpreting the ICER, following the World Health Organization's Commission on Macroeconomics and Health:19 interventions that have an ICER of less than three times GDP per capita are considered cost-effective (i.e. willingness to pay (WTP) of €98,400), and those that have an ICER of less than one times GDP per capita as very cost-effective (i.e. a WTP of €32,800).
+
+As the threshold of €98,400 can be considered too high and contestable, we interpreted our results according to both thresholds.20
+
+SECTION
+
+Model structure
+
+PARAGRAPH
+
+A testing decision tree was combined with a previously published Markov-based model to simulate the trajectory of all individuals according to each testing strategy (supplementary information).21
+
+For those screened for CHC and eligible for treatment, treatment was introduced into the natural course of the disease.
+
+SECTION
+
+Input parameter for the models
+
+SECTION
+
+Study population
+
+PARAGRAPH
+
+The study population consisted of the French general population aged 18 to 80 years, without any known diagnosis of HCV-RNA positivity.
+
+Characteristics of this population were issued from the 2004 national seroprevalence survey of the French National Public Health agency.2,3
+
+First, we obtained the estimated proportion of CHC (HCV-RNA positivity) in this study population according to the presence or absence of risk factors (Table 1).
+
+Accordingly, the estimated prevalence of CHC among the general undiagnosed French population, aged 18–80, was 0.23%.
+
+Second, in the risk-based strategy, individuals were assumed to be tested as observed in the 2004 French survey, i.e. between 4% and 18% for individuals without risk factors and between 10% and 19% for those with risk factors (Table 2).
+
+For the new screening strategies, we assumed that 50% of targeted individuals were tested.
+
+Third, because excessive alcohol abuse was recognized as a risk factor of CHC progression,22 we obtained the distribution of excessive alcohol abuse by gender and age using a previously published model,23 i.e. in males: 26% in 18–39, 18% in 40–59 and 3% in 60–80; in females: 6%, 4% and 2%, respectively.
+
+Finally, our previous modeling was also used to stratify the study population into fibrosis stage (Table S3).23
+
+More details are provided in the supplementary information.
+
+SECTION
+
+Virological response rate
+
+PARAGRAPH
+
+The probabilities of sustained virologic response (SVR) considered were: 95% in stages of fibrosis F0 to F4, 85% in decompensated cirrhosis.24
+
+Patients who achieved an SVR to treatment at different stages of fibrosis before cirrhosis (F4) no longer had fibrosis progression.
+
+In contrast, patients who showed an SVR at stage F4 remained at risk of developing complications and death, but at lower risks than obtained with past IFN-based treatment.25
+
+Because of lack of data and to remain conservative, patients who achieved an SVR in decompensated cirrhosis were considered to have the same risk of progression as untreated patients.
+
+In patients who did not achieve SVR, fibrosis progression was considered the same as that of untreated patients.
+
+SECTION
+
+Costs
+
+PARAGRAPH
+
+We included direct medical lifetime costs associated with HCV screening, and HCV disease treatment and care, as previously described26 (supplementary information and Table S4).
+
+Following the French treatment recommendations and recent negotiations of drug prices, we have considered a unique price of €28,730 for a 12-week DAA cure, with the exception of patient with decompensated cirrhosis receiving also 12 weeks of ribavirin,27,28 leading to a total cost of €29,615.
+
+In the baseline analysis, we did not consider any cost related to treatment-related adverse events.
+
+This was varied in sensitivity analysis.
+
+SECTION
+
+Health-related quality of life
+
+PARAGRAPH
+
+EuroQol-5D was used to evaluate health utility in patients with CHC, using the French Time-Trade-Off value set: 0.82 when fibrosis ≤F2 and 0.76 when fibrosis F3–4 prior treatment, 0.60 for decompensated and HCC patients, 0.55 for the first year and 0.82 for subsequent years after liver transplantation (supplementary information and Table S5).29
+
+Health utilities were increased to 0.95 and 0.85 after SVR for F0–1 and for F2–4, respectively, as observed in Adelphi study.30
+
+Health utilities were left unchanged after SVR in decompensated cirrhosis.
+
+SECTION
+
+Sensitivity analysis
+
+PARAGRAPH
+
+An extensive sensitivity analysis was conducted to evaluate the impact of assumptions or uncertainties around the data on the cost-effectiveness analysis considering only the case of treatment for all, and to determine the robustness of our overall conclusions (supplementary information).
+
+Firstly, we performed a one-way deterministic sensitivity analysis, varying values of input parameters that may change our conclusions.
+
+In order to take into account the limits of the utility data set used, we also conducted the analysis from Canadian data often cited in the literature and based on Euro-Qol-5D.31
+
+We also changed the distribution of the study population – i.e. the French general population aged 18 to 80 years, without any known diagnosis of HCV-RNA positivity – according to gender and age-group, to make the gender and age-distribution of the undiagnosed chronically-infected HCV population consistent with estimates of Brouard et al.3 We also performed an analysis considering costs related to severe anemia leading to transfusion for patients initiating ribavirin.
+
+Finally, we considered a delay of one year after diagnosis before treatment initiation.
+
+Secondly, we performed probabilistic sensitivity analysis using 1,000 second-order samples of the parameters (supplementary information and Table S6).
+
+SECTION
+
+Software
+
+PARAGRAPH
+
+The model was analyzed with TreeAge Pro 2017 suite software (Williamstown, MA, USA).
+
+PARAGRAPH
+
+For further details regarding the methods used please refer to the supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Baseline analysis
+
+PARAGRAPH
+
+When considering treatment initiation to patients with fibrosis stage ≥F2, CHC prevalence among the 18–80 undiagnosed general population decreased after a year from 0.23% to 0.17–0.21% according to the strategy, and to 0.12–0.20% when considering treatment for all, i.e. regardless of fibrosis stage (Fig. 1).
+
+PARAGRAPH
+
+The effectiveness results of the different HCV screening strategies in terms of cumulated incidence of cirrhosis F4, decompensated cirrhosis, HCC and liver-related deaths are reported among the CHC population after 10 (Fig. 2A) and 20 years (Fig. 2B).
+
+The most effective strategy is universal screening of individuals between 18 and 80 years leading to the lowest incidences of events: as an example, 2.36% for cirrhosis, 1.92% for decompensated cirrhosis, 2.34% for HCC and 5.28% for liver deaths after 20 years, compared to 3.03%, 2.29%, 2.54% and 5.76%, respectively, with the current strategy (risk-based).
+
+PARAGRAPH
+
+The results of the cost-effectiveness baseline analysis of different HCV screening strategies are reported (Table 3).
+
+Either by initiating DAA combinations to patients with fibrosis stage ≥F2 or regardless of fibrosis, the current strategy was the cheapest but also the least effective.
+
+When treatment was initiated to patients with fibrosis stage ≥F2, adding the screening of all people aged 40–59 years or of all men between 18 and 59 years was dominated.
+
+Targeting all people aged 40–80 was the only cost-effective strategy at both WTP thresholds (€26,100 per QALY gained), leading to an average saving of 0.05 LYs and 0.05 QALYs among patients with CHC compared to the current strategy.
+
+Universal screening was the most effective strategy, saving an average of 0.06 LYs and 0.07 QALYs compared to the current strategy among patients with CHC.
+
+However, this strategy was not cost-effective (€147,200 per QALY gained).
+
+When we considered treatment for all (Fig. 3A), adding all men aged 18–59 years to the current screening strategy was dominated.
+
+Targeting all people aged 40–80 was associated with the lowest ICER (€21,400/QALY) leading this strategy to be cost-effective at both WTP thresholds.
+
+Although associated with the highest costs, universal screening was even more effective than targeting all people 40–80 and remained cost-effective (€31,100/QALY) at both WTP thresholds.
+
+SECTION
+
+Sensitivity analysis
+
+PARAGRAPH
+
+During deterministic cost-effectiveness analysis, when we considered treatment for all, varying values of input parameters or assumptions did not affect our main results (Tables S7–22), with some exceptions.
+
+First, when we changed utility data, the universal screening strategy was no longer cost-effective at a WTP of one-time GDP per capita but remained cost-effective at a WTP of three times GDP per capita (ICER at €59,200/QALY compared to the strategy targeting all people 40–80) (Table 4).
+
+By contrast, when we varied the post-SVR utility gains and assumed no benefit, the universal screening strategy was no longer cost-effective (Table 4).
+
+Second, when we varied the assumption regarding the immediate initiation of treatment after diagnosis, considering a delay of one year after diagnosis before treatment initiation, universal screening is again the most effective but ceased to be cost-effective (Table 5).
+
+Adding all men aged 18–59 to current screening strategy becomes the only cost-effective strategy at both WTP (ICER at €32,800/QALY compared to the current strategy).
+
+Third, when we increased the cost of screening tests by 20%, universal screening remained cost-effective at a WTP of three times GDP per capita but ceased to be cost-effective at a WTP of one-time GDP per capita (ICER at €36,300/QALY compared to the strategy targeting all people 40–80) (Table S15).
+
+Moreover, when we combined an increase in screening uptake from 50% to 100% and increased the cost of screening tests from 0% to 20%, the average lifetime cost for universal screening increased from €84.92 to €100.24 per person and ICER increased from €31,100 to €36,700/QALY compared to the strategy targeting all 40–80 (Table S22).
+
+Again, universal screening remained cost-effective over the entire range of variation at a WTP of one-time GDP per capita or slightly above that threshold while being below the threshold of three times GDP per capita.
+
+Finally, when we changed the distribution of the study population, the universal screening strategy was no longer cost-effective at a WTP of one-time GDP per capita but remained cost-effective at a WTP of three times GDP per capita (ICER at €54,500/QALY compared to the strategy targeting all people 40–80) (Table S20).
+
+PARAGRAPH
+
+Using probabilistic sensitivity analysis, we estimated that universal screening was cost-effective with 24% probability at a WTP of one-time GDP per capita and 68% probability at a WTP of three times GDP per capita (Fig. 3B).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This study evaluated the effectiveness, cost and cost-effectiveness of different HCV screening strategies in France.
+
+First, current screening based on risk factors was associated with the lowest life expectancy and QALYs.
+
+Second, adding the screening of individuals with specific age and/or gender to the current strategy increased effectiveness but also costs.
+
+Universal screening was associated with the highest life expectancy and QALYs but was not cost-effective under the scenario of initiating treatment to individuals with fibrosis stage ≥F2; the only cost-effective strategy being the addition of all individuals aged 40–80 to the current strategy under this scenario, whether considering a WTP of three or one times GDP per capita.
+
+However, when we considered the treatment for all scenario, universal screening was associated with the highest effectiveness and became a cost-effective strategy at both thresholds, compared to the addition of all individuals aged 40–80.
+
+PARAGRAPH
+
+Our study was conducted following the first French report for recommendations on the management of patients with hepatitis C or B virus.32
+
+Given the limits reached by the current screening strategy based on risk factors, an expert panel was established in France to develop new recommendations for HCV testing.33
+
+Data of HCV-undiagnosed people from the 2004 seroprevalence survey2 showed that 55% of all of HCV-undiagnosed people in 2004 were men aged 18–59 years.3
+
+The proportion of HIV and HBV undiagnosed patients who were men was even higher.
+
+Based on these considerations, and also to facilitate implementation of the general population screening in particular among general practitioners, the expert panel recommended first targeting all men aged 18–59 years at least once in their life as a complement to current risk-based testing and considering jointly HBV, HCV and HIV.32
+
+Our cost-effectiveness analysis for HCV screening showed that this population-based screening strategy would be more effective than the current one.
+
+However, we also found that universal screening would be even more effective.
+
+Cost-effectiveness results were in part related on utility data and on whether treatment would be initiated at stage of fibrosis ≥F2 or regardless of fibrosis stage.
+
+Indeed, the cost-effectiveness of a screening strategy is strongly linked to the stage of the disease at the time of treatment initiation.
+
+Universal screening is cost-effective if treatment is started at an early stage of infection but is no longer effective if treatment is started in advanced stages of fibrosis.
+
+Also, when considering one year between diagnosis and treatment initiation, universal screening was no longer cost-effective.
+
+This can be explained by a higher loss of effectiveness especially in older individuals when compared to a strategy targeting a younger population, while the cost of the universal screening remained higher.
+
+This means that a recommendation for a universal screening strategy must be accompanied by a recommendation for rapid initiation of treatment for all.
+
+Based on these results, the most recent French recommendations call for extending HCV screening to all adults.15
+
+However, in France, it is the Haute Authorité de la Santé that directs public authorities on decisions regarding recommendations and reimbursements of medical products and services.
+
+To date, the Haute Authorité de la Santé has not changed its recommendations for hepatitis C screening but is currently considering our study in light of future recommendations.
+
+We expect a decision in favor of universal screening, in addition to the reinforcement of targeted testing, as has been done for HIV.34
+
+PARAGRAPH
+
+These discrepancies between cost-effectiveness results when we look at different treatment initiation criteria can be explained as follows.
+
+When considering targeted treatment to fibrosis stage ≥F2, adding the screening of all individuals aged 40–80 to the current strategy would be effective and the only cost-effective strategy, for at least two combined reasons.
+
+First, it reached age classes with the highest CHC prevalence; namely those over 60 years of age.3
+
+Second, adding the screening of all individuals aged 40–80 to the current strategy allowed optimized screening of those that would be eligible for therapy.
+
+Indeed, the large majority of patients aged 18–39 are in fibrosis stage F0F1 and are not eligible (Table S3).23
+
+As a result, screening of these patients if treatment is not initiated immediately is less interesting.
+
+By contrast, when considering treatment for all with IFN-free DAA-based regimens, as it is now implemented in France, universal screening also became a cost-effective strategy and was the most effective one.
+
+PARAGRAPH
+
+Outside France, HCV screening was extended to birth cohorts in 2012 in the US.
+
+Since the highest incidence of HCV was found in people born between the years 1945–1965, both the Centers for Disease Control and Prevention and the US public health task force recommended one-time testing for anti-HCV for people born within this two-decade period.8,35
+
+Indeed, this strategy was found to be cost-effective at $35,700 per QALY compared to risk-based strategy when considering treatment with interferon-based DAAs after screening.36
+
+Alternative evaluations confirmed that broader screening for HCV (1945–1965 or 1946–1970 birth cohorts, general population aged 20–69 years) was cost-effective in the US compared to risk-based,37–40 and emphasized that screening only high-risk birth cohorts may be more cost-effective than screening the general population.38
+
+One main difference with our study is that those analyses conducted in the USA considered either dual therapy with peginterferon and ribavirin or triple therapy adding a protease inhibitor whose efficacy was lower and side effects higher than current IFN-free DAAs.
+
+They also emphasized that the benefits of screening increased with increasing treatment eligibility and efficacy.
+
+More recent cost-effectiveness evaluations were conducted in the US showing that universal screening was more cost-effective than the current birth cohort recommendations.41,42
+
+In Canada, when treating with past dual or triple therapy, screening of the general population was only found to be cost-effective in targeting sub-populations with high HCV prevalence.43
+
+Even if a more recent analysis suggested that a selective one-time HCV screening program for people aged 25–64 would likely be cost-effective,44 the Canadian Task Force on Preventive Health Care recommended testing only individuals at elevated risk of HCV arguing that the HCV prevalence in the general Canadian population is low (0.8%, i.e. four times lower than in the US in 1945–1965 birth cohorts) and direct evidence examining the benefits and harms of general screening for HCV is not available.45
+
+PARAGRAPH
+
+Our work has some limitations.
+
+First, we used a mathematical model relying on input data from multiple sources.
+
+Second, our baseline analysis was based on limited data for health-related utility, in particular regarding the utility benefit from achieving SVR.
+
+Using an alternative utility data set often cited in the literature,31 universal strategy remained cost-effective at a WTP between one to three times GDP per capita.
+
+However, it was no longer considering no utility benefit from achieving SVR, which seems unlikely.46
+
+Third, once CHC was diagnosed, treatment was initiated either to patients with fibrosis stage ≥F2 or regardless of fibrosis, assuming a perfect linkage to care of diagnosed individuals.
+
+However, a varying proportion of treatment initiation between 50 and 100% did not affect our main results.
+
+Fourth, we based our model of the last French seroprevalence survey reflecting the year 2004.
+
+We took into account that this population may have changed given the evolution of HCV screening and HCV-RNA prevalence among undiagnosed individuals.
+
+However, again, we have varied our assumptions and universal strategy remained cost-effective at a WTP between one to three times GDP per capita.
+
+Fifth, as a conservative assumption, we based our analyses on listed prices of drugs.
+
+It is common that negotiated real prices are often lower, but these prices are unknown.
+
+It means that universal screening with treatment for all may be even more cost-effective.
+
+Sixth, conservatively again, we did not consider the impact of treatments on comorbidities and the possible reduction of the competitive mortality after SVR as well as the reduction of HCV transmission following HCV screening and treatment.
+
+Cousien et al. illustrated the high effectiveness and cost-effectiveness of improving both testing and linkage to care together with a universal treatment in reducing HCV transmission in people who inject drugs.47
+
+It means that universal screening should be even more cost-effective when considering its impact on HCV transmission.
+
+Finally, this work was based on French data and the French health system, but can be adapted to other countries.
+
+PARAGRAPH
+
+In conclusion, in France, when considering treatment for all, universal screening of all individuals aged 18–80 is the most effective strategy, as well as being cost-effective.
+
+From an individual and especially from a societal perspective of HCV eradication, this strategy should be implemented.
+
+However, when recommending such strategy, rapid initiation of treatment after diagnosis is required.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by the French Agence Nationale de Recherche sur le Sida et les Hépatites virales (ANRS, http://www.anrs.fr/).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+Sylvie Deuffic-Burban reports having received research grants from Janssen and MSD; consultancy honoraria from Abbvie, Bristol-Myers Squibb, Gilead, and MSD; and lecture fees from Bristol-Myers Squibb and Gilead.
+
+Françoise Roudot-Thoraval reports having received consultancy honoraria from Gilead; and lectures fees from Bristol-Myers Squibb, Gilead, MSD, Janssen and AbbVie.
+
+Valérie Canva reports having received consultancy honoraria and lecture fees from Abbvie, Bristol-Myers Squibb, Janssen, Gilead and MSD.
+
+Philippe Mathurin reports having received consultancy honoraria from Abbvie, Bayer, Bristol-Myers Squibb, Gilead, MSD, Sanofi, and Verlyx; and lecture fees from Bayer, Bristol-Myers Squibb, Gilead, and MSD.
+
+Yazdan Yazdanpanah reports having received consultancy honoraria from Abbvie, Bristol-Myers Squibb, Gilead, MSD, Pfizer, Tibotec and ViiV Healthcare.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+SDB and YY have had the conception and design of the work.
+
+SDB, AH, AV, CB, JP, YLS and SC acquired the data.
+
+SDB performed the analysis.
+
+All authors contributed to interpretation of data.
+
+All authors participated to writing and revision of the paper, and approved the final version to be published.

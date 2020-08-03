@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.05.011
+
+ABSTRACT
+
+TITLE
+
+IRESE: An intelligent rare-event detection system using unsupervised learning on the IoT edge
+
+PARAGRAPH
+
+In the recent years, a rapid growth of IoT devices has been observed, which in turn results in a huge amount of data produced from multiple sources towards the most disparate cloud platforms or the Internet in general.
+
+In a typical cloud-centric approach, the data produced by these devices is simply transmitted over the Internet, for consumption and/or storage.
+
+However, with the exponential growth in data production rates, the available network resources are becoming the actual bottleneck of this huge data flowing.
+
+Therefore, several challenges are appearing in the coming years, which are mainly related to data transmission, processing, and storage along the so-called cloud-to-thing continuum.
+
+In fact, one of the most critical requirements of several IoT applications is low latency, which often hinders raw data consumption to happen at the opposite endpoint with respect to its production.
+
+In the context of IoT data stream analytics, for instance, the detection of anomalies or rare-events is one of the most demanding tasks, as it needs prompt detection to increase its significance.
+
+In this respect, Fog and Edge Computing seem to be the correct paradigms to alleviate these stringent demands in terms of latency and bandwidth as, by leveraging on re-configurable IoT gateways and smart devices able to support the distribution of the overall computational task, they envisage to liquefy data processing along the way from the sensing device to a cloud endpoint.
+
+In this paper, we will present IRESE, that is a rare-event detection system able to apply unsupervised machine learning techniques on the incoming data, directly on affordable gateways located in the IoT edge.
+
+Notwithstanding the proposed approach enjoys the benefits of a fully unsupervised learning approach, such as the ability to learn from unlabeled data, it has been tested against various audio rare-event categories, such as gunshot, glass break, scream, and siren, achieving precision and recall measures above 90% in detecting such events.

@@ -1,0 +1,19 @@
+10.1016/j.engappai.2019.103425
+
+ABSTRACT
+
+TITLE
+
+Incremental model-based global dual heuristic programming with explicit analytical calculations applied to flight control
+
+PARAGRAPH
+
+A novel adaptive dynamic programming method, called incremental model-based global dual heuristic programming, is proposed to generate a self-learning adaptive flight controller, in the absence of sufficient prior knowledge of system dynamics.
+
+An incremental technique is employed for online local dynamics identification, instead of the artificial neural networks commonly used in global dual heuristic programming, to enable a fast and precise learning.
+
+On the basis of the identified model, two neural networks are adopted to facilitate the implementation of the self-learning controller, by approximating the cost-to-go and the control policy, respectively.
+
+The required derivatives of cost-to-go are computed by explicit analytical calculations based on differential operations.
+
+Both methods are applied to an online attitude tracking control problem of a nonlinear aerospace system and the results show that the proposed method outperforms conventional global dual heuristic programming in tracking precision, online learning speed, robustness to different initial states and adaptability for fault-tolerant control problems.

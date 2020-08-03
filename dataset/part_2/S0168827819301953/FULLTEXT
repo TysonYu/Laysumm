@@ -1,0 +1,491 @@
+10.1016/j.jhep.2019.03.024
+
+FULLTEXT
+
+TITLE
+
+Dynamics and predicted drug response of a gene network linking dedifferentiation with beta-catenin dysfunction in hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Various etiologies are associated with HCC, leading to heterogeneity in clinical outcome, histology, transcriptomic profile and mutational spectrum.1–5
+
+Such heterogeneity causes a variable response to therapeutic agents, as in mouse models with Ctnnb1-induced HCCs which show heterogeneous sensitivity to CTNNB1 inhibitors.6
+
+Thus, designing novel therapeutic strategies against HCC requires the identification of inhibitors of individual tumor-promoting genes and also the characterization of the molecular networks in which those genes exert their functions.
+
+PARAGRAPH
+
+Dedifferentiation of hepatic cells contributes to HCC progression.7–9
+
+In this context, poorly differentiated HCC develop as a result of forced induction of LIN28B, an RNA-binding protein which is repressed during normal hepatic cell differentiation.
+
+LIN28B is re-expressed in a subset of human HCCs characterized by high serum levels of α-fetoprotein,10,11 thereby associating dedifferentiation, HCC progression and LIN28B expression.12
+
+In parallel, CTNNB1 is one of the most frequently mutated genes in HCC.13
+
+Therefore, we explore the possibility that HCC progression depends on a gene regulatory network (GRN) linking LIN28B-dependent dedifferentiation with CTNNB1 dysfunction.
+
+PARAGRAPH
+
+Several approaches can be used to identify GRNs.14
+
+Here, we selected a method which captures the biological logic of gene networks.
+
+The identification of the network is literature-based.
+
+The number of interacting components in the network is limited but perfectly compatible with the characterization of the network’s dynamics by our mathematical modelling approach.15,16
+
+We identified an HCC-promoting GRN comprising several members connecting LIN28B with CTNNB1 via Let-7b (MIRLET7B), MYC, SMARCA4 (also called BRG1), TP53 and SOX9.
+
+We further investigated the system-level dynamics of the GRN using a quantitative mathematical model, which was calibrated and validated using mRNA and protein expression data from HCC cell lines, primary HCC cells, patient databanks and mouse models.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Data normalization and statistical analysis
+
+PARAGRAPH
+
+Data normalization is described in the supplementary information.
+
+Measured data are means ± SD.
+
+Significance was assessed by Student’s t test (p value).
+
+For RNA sequencing data of the HCC cohort from The Cancer Genome Atlas (TCGA), we calculated the adjusted p value using a Benjamini-Hochberg correction (p* value) on the entire transcriptome.
+
+SECTION
+
+RNA sequencing and miRNA sequencing
+
+PARAGRAPH
+
+Data were from TCGA (http://firebrowse.org/), and from LIRI-JP (RIKEN) of the International Cancer Genome Consortium (ICGC; https://dcc.icgc.org/projects/LIRI-JP).
+
+For the TCGA cohort, we converted the “scaled_estimate” in the “illuminahiseq_rnaseqv2_unc_edu_Level_3_RSEM_genes” file into TPM by multiplying by 106.
+
+SECTION
+
+Plasmids and microRNAs
+
+PARAGRAPH
+
+pCDNA3.1, pcDNA3-MYC, pCl-neo β-Catenin (CTNNB1S33Y), pBABE-BRG1 were from Thermo Fisher Scientific (Waltham, MA, USA), Wafik El-Deiry (Addgene plasmid # 16011), Bert Vogelstein (Addgene plasmid # 16519) and Robert Kingston (Addgene plasmid # 1959) respectively.
+
+The miR mimic control (MIMAT0000039: UCACAACCUCCUAGAAAGAGUAGA) and miR mimic hsa-let-7b: hsa-let-7b-5p (MIMAT0000063: UGAGGUAGUAGGUUGUGUGGUU), hsa-let-7b-3p (MIMAT0004482: CUAUACAACCUACUGCCUUCCC) were from Dharmacon (Lafayette, CO, USA).
+
+SECTION
+
+Cell culture
+
+PARAGRAPH
+
+Human Huh7, HepG2, Hep3B cell lines and primary human HCC cells HCC3117 were grown in DMEM (Lonza, Leusden, Netherlands), 10% fetal bovine serum (5% for HCC31; Merck, Darmstadt Germany), L-Glutamine (2 mM) (Thermo Fisher Scientific), Penicillin-Streptomycin (50 U/ml and 50 µg/ml) (Gibco™, Waltham, MA, USA) and Amphotericin B (Gibco™) (2.5 µg/ml).
+
+Cells were grown in 60 mm dishes and transfected with 3 µg plasmid and 120 nM miRmimic, using jetPRIME® (Polyplus-Transfection, Illkirch-Graffenstaden, France) for 48, 72 or 96 h, in at least 3 independent experiments.
+
+DNA was transfected 24 h after plating the cells.
+
+For LIN28 inhibition, Huh7 and HCC31 cells were grown in the presence of 120 µM (N-Methyl-N-[3-(3-methyl-1,2,4-triazolo[4,3-b]pyridazin-6-yl)phenyl]acetamide) for 6 days; the medium with inhibitor was changed every day.
+
+SECTION
+
+Western blotting
+
+PARAGRAPH
+
+Protocol and antibodies are described in the supplementary information.
+
+SECTION
+
+RNA extraction and analysis
+
+PARAGRAPH
+
+Total RNA was isolated from Huh7 cells using Trizol (#1029602, Invitrogen, Life technologies).
+
+cDNA synthesis was performed with MMLV reverse transcriptase (#28025-13, Invitrogen, Life technologies) according to manufacturer’s protocol.
+
+MicroRNA expression (Let-7a and Let-7b) was quantified by reverse transcription quantitative PCR (RT-qPCR) using Kapa SYBR Fast 2X Universal Master Mix (#KK4601, Sopachem, Ochten, Netherlands).
+
+Specific stem-loop primers were used for reverse transcription, and RT-qPCR was performed using a specific forward primer and a common universal reverse primer.
+
+Let-7a Fwd/Rev: ACACTCCAGCTGGGTGAGGTAGTAGGTTG/CTCAACTGGTGTCGTGGAGTCGGCAATTCAGTTGAGACTATACA; Let-7b Fwd/Rev: ACACTCCAGCTGGGTGAGGTAGTAGGTTGT/CTCAACTGGTGTCGTGGAGTCGGCAATTCAGTTGAGAACCACAC; ACTB Fwd/Rev: TCCTGAGCGCAAGTACTCTGT/CTGATCCACATCTGCTGGAAG.
+
+Each ΔCt between the measured transcripts and the housekeeping genes was normalized to their control conditions using the 2−ΔΔCt method.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Identification of a gene regulatory network driving hepatocellular carcinoma
+
+PARAGRAPH
+
+We selected an approach in which GRN members meet stringent functional criteria.
+
+First, their role in tumor promotion must be validated by animal experimentation and/or high-throughput sequencing data from patients.
+
+Second, GRN members must be connected by direct or indirect functional links characterized by protein-protein and protein-DNA interactions, or epistatic relationship identified in loss- and gain- of function analyses.
+
+By combining data from the literature, we first reconstituted a GRN comprising 7 cross-regulating components: the miRNA Let-7b, the RNA-binding protein LIN28B, the ATP-dependent helicase SMARCA4, and the transcription factors SOX9, MYC, CTNNB1 and TP53 (Fig. 1A; supplementary information, section 1).
+
+When interactions have been identified in non-hepatic cells, we verified whether they also occurred in cultured HCC cell lines (see below).
+
+PARAGRAPH
+
+Data from TCGA (Fig. 1A) showed that expression of Let-7b is reduced in HCC compared to adjacent non-tumor tissue.
+
+This is consistent with the concomitant overexpression of LIN28B, a repressor of Let-7b.
+
+All other GRN components, except MYC, were increased in HCC.
+
+Further, a principal component analysis (PCA), which considers only the expression of the 7 GRN components in 50 non-tumor controls and 368 HCCs revealed that non-tumor tissue and HCC tumors clustered separately (Fig. 1B and Fig. S1A).
+
+In addition, we clustered the HCC cohort in 2 groups of 100 samples based on the low versus high expression levels of each GRN component.
+
+This analysis showed that, except for Let-7b, high expression of a component is associated with high expression of the other GRN components.
+
+(Fig. S2; supplementary information, Section 2).
+
+PARAGRAPH
+
+PCA investigating multiple targets of the GRN components (Table S1) identified separate clusters for non-tumor tissue and HCC tumors, indicating that the components of the GRN were not only dysregulated in HCC but also that they were actively controlling their targets (Fig. 1C and Fig. S1B).
+
+Therefore, we considered that concomitant overexpression of the GRN components LIN28B, SMARCA4, SOX9, CTNNB1 and TP53, and downregulation of Let-7b is indicative of GRN activity.
+
+PARAGRAPH
+
+Out of the 368 HCCs from the TCGA cohort whose GRN component expression had been analyzed by PCA we selected the 150 samples with the highest Dimension 1 to which CTNNB1, SMARCA4, SOX9, MYC and TP53 expression contribute the most, and out of the latter we selected the 100 samples with highest Dimension 2 to which LIN28B and Let-7b contribute the most (Fig. S1A and red dots in Fig. 1B).
+
+These 100 samples were defined hereafter as displaying high GRN status and were compared with the other 268 tumors, which were defined as low GRN status, and with non-tumor liver tissue.
+
+The expression of the GRN components differed significantly between the tumors with low and high GRN status (Fig. 1D).
+
+Moreover, the samples with high GRN status displayed the highest expression of proliferation, embryonic and oncogenic markers, and the lowest levels of differentiation markers (Fig. 1D).
+
+PARAGRAPH
+
+HCCs are divided in proliferative and non-proliferative classes.13
+
+GRN status, defined as above, correlated with increased MET signaling, a pathway whose activation characterizes a subset of the proliferative HCC class.18
+
+Indeed, HCCs with low or high GRN status clustered separately from the non-tumor samples in a PCA plot when considering the expression of 110 HGF/MET target genes (Fig. 2A).
+
+In addition, the 100 tumors with highest HGF/MET target gene expression displayed increased expression of CTNNB1, SOX9, SMARCA4, MYC and TP53 compared to the other 268 tumors (Fig. 2B).
+
+PARAGRAPH
+
+Earlier transcriptomic analyses classified patients with HCC into 6 subgroups, G1 to G6.19
+
+PCA analysis using 216 randomly selected genes that are differentially expressed in G1 to G6, revealed that tumors from the TCGA cohort with high GRN status cluster the farthest from the non-tumor tissue (Fig. 2C).
+
+Among the 216 genes differentially expressed between the G1 to G6 subgroups, the 50 genes that contribute the most to the Dimension 1 in the PCA plot were all upregulated in G1, G2 and G3 and were mainly involved in cell proliferation (Table S2), supporting the idea that GRN functionality may contribute to confer a transcriptomic profile typical of the HCC proliferation class.
+
+PARAGRAPH
+
+We also investigated whether GRN status correlated with prognosis.
+
+The survival probability was lower in the 100 patients with HCC and a high GRN status than in the 268 patients with HCC and a low GRN status (Fig. 1E).
+
+When performing the same analysis with individual components of the GRN, the expression of Let-7b, MYC and TP53 did not correlate with survival, while expression of CTNNB1, SOX9, SMARCA4 and LIN28B were inversely correlated with survival (Fig. S3).
+
+Therefore, the status of the GRN is a good marker of prognosis.
+
+PARAGRAPH
+
+To determine if the characteristics of HCC with high GRN status are valid for a distinct patient cohort, we analyzed the GRN in the LIRI-JP (Riken) cohort from the ICGC.
+
+As in the TCGA cohort, the HCC with low or high GRN status clustered separately (Fig. 3A).
+
+The GRN is also functional in LIRI-JP since HCC with high GRN status overexpress the GRN target genes (Fig. 3A).
+
+HCC with high GRN status also overexpress proliferation markers and the HGF/MET target genes (Fig. 3B-C), and negatively correlate with prognosis (Fig. 3D).
+
+PARAGRAPH
+
+In conclusion, we have identified a GRN of functionally interacting partners which are misexpressed in HCC.
+
+The status of the GRN, characterized by consistent and concomitant misexpression of its components and targets, correlates with proliferation, dedifferentiation and prognosis.
+
+SECTION
+
+Mathematical model of the GRN
+
+PARAGRAPH
+
+To develop a tool that determines how variation of an individual GRN component affects the expression of all the others, we built a quantitative mathematical model, using a set of 20 kinetic equations describing the expression of each network component (mRNA and protein) as a function of time (supplementary information, sections 3–4).
+
+We quantitatively calibrated the model using the mRNA levels of all GRN components available in TCGA and in a dataset from 34 human HCC cell lines20 (Fig. S4A-C).
+
+Two sets of parameter values and initial conditions were determined for normal tissues on one hand, and for HCC tumors and cell lines on the other hand (Tables S3-7).
+
+PARAGRAPH
+
+To quantitatively calibrate the model with protein expression values we transiently overexpressed GRN components in cultured HCC cell lines.
+
+These experiments validated in HCC the cross-regulating pairs of the GRN which had originally been identified in non-hepatic tumors.
+
+Indeed, overexpression of MYC in HepG2 or Huh7 cells stimulated TP53 and LIN28B expression, thereby validating in HCC the MYC → TP53 and MYC → LIN28B interactions (Fig. 4A and Fig. S5A).
+
+Similarly, overexpression of constitutively active CTNNB1S33Y and of SMARCA4 in HepG2 or Huh7 cells validated the CTNNB1 → LIN28B and CTNNB1 → MYC and SMARCA4 → MYC interactions in HCC (Fig. 4B and Fig. S5B-C).
+
+Finally, transient transfection of Let-7b-5p mimic RNA repressed LIN28B, MYC and SOX9, confirming the regulatory links in the GRN (Fig. 4C).
+
+PARAGRAPH
+
+The duration of the transient transfections in Fig. 4 (48 h, 72 h, 96 h) reflected the minimal time-lapse required to monitor a significant change in TP53, LIN28B, MYC or SOX9 protein levels following overexpression of their respective stimulator or repressor.
+
+Therefore, both the level of protein induction and the timing required to observe a significant change in protein level were used to further calibrate the mathematical model, while maintaining the quantitative calibration of all mRNA expression levels.
+
+We then simulated the transient transfection conditions by increasing the transcription rate constants of MYC, CTNNB1 or Let-7b, starting at t = 0 h (Fig. 4A-C, right).
+
+The results showed that simulating a 10-fold increase in MYC, which mimics the observed 10-fold increase in transfected MYC protein, predicted a ∼ 2-fold increase in LIN28B and TP53 after 72 h; this predicted increase in LIN28B and TP53 matched closely the measured values (compare white and blue bars in Fig. 4A).
+
+Similarly, simulating an 8-fold increase in CTNNB1S33Y predicted a ∼ 3- and 11-fold induction of LIN28B and MYC after 48 h; these inductions again matched closely the measured 4- and 9-fold induction of LIN28B and MYC, following an 8-fold increase in transfected CTNNB1S33Y (Fig. 4B).
+
+Moreover, following a simulated 8-fold induction of Let-7b the model reproduced quantitatively the experimentally measured impact of Let-7b induction on LIN28B, MYC, and SOX9 (Fig. 4C).
+
+Finally, Let-7b induction in Huh7 cells did not affect CTNNB1 expression, which fitted with the simulation (Fig. 4C).
+
+We concluded that the mathematical model faithfully recapitulates the expression of GRN components.
+
+SECTION
+
+Validation of the mathematical model in mouse and human
+
+PARAGRAPH
+
+To validate the model, we challenged it by predicting the impact of a stabilizing CTNNB1 mutation on LIN28B and Let-7b expression and compared the prediction with values from TCGA.
+
+To this end we first partitioned the HCC samples of the TCGA database into 2 cohorts characterized by the presence or absence of a stabilizing CTNNB1 mutation, the most frequent CTNNB1 mutations being missense mutations in exon 3.
+
+This revealed that CTNNB1 mRNA levels were higher in the presence of a mutation (Fig. 5A).
+
+Therefore, to simulate CTNNB1 stabilization in the model we increased the CTNNB1 mRNA synthesis rate, increased the activation rate of the inactive (complexed) CTNNB1 form, and decreased the inactivation rate of the active (stabilized) form.
+
+Under these conditions, when CTNNB1 mRNA values from the mutated and non-mutated samples were introduced into the model (Fig. 5A, blue bars), it faithfully predicted the reduction in Let-7b observed in non-mutated HCC samples as well as the slightly larger decrease of Let-7b seen in HCC samples with CTNNB1 mutation.
+
+The model also predicted the increased LIN28B expression in HCC which was similar whether CTNNB1 was mutated or not (compare blue and white bars in Fig. 5A).
+
+PARAGRAPH
+
+A second validation was obtained by considering previous results from a mouse model of MYC-induced liver cancer.12
+
+We simulated a 4,000-fold increase in Myc mRNA, which corresponds to the experimental induction of Myc in mice.
+
+Our simulation predicted a MYC-induced 7,000-fold overexpression of Lin28b mRNA and a 0.4-fold reduction in Let-7b.
+
+This prediction fitted well with the experimentally measured induction of Lin28b and reduction of Let-7b (Fig. 5B).
+
+PARAGRAPH
+
+Third, as a proof of concept that the mathematical model can predict the impact of a pharmacological inhibitor of a GRN component, we simulated the inhibition of LIN28B in HCC: simulating 60% inhibition of LIN28B protein predicted an increase in Let-7b and a decrease in SOX9 and MYC protein; CTNNB1 remained unaffected (Fig. 6).
+
+We then evaluated the results of the simulation in a HCC cell line, Huh7 (Fig. 6A), and in HCC31 primary liver cancer cells17 (Fig. 6B), by growing these cells in the presence of LIN28 inhibitor (N-Methyl-N-[3-(3-methyl-1,2,4-triazolo[4,3-b]pyridazin-6-yl)phenyl]acetamide).21
+
+The inhibitor reduced cell proliferation (not shown), and, as expected, induced the expression of Let-7b and Let-7a.
+
+Importantly, the changes of SOX9, MYC and CTNNB1 protein levels measured by western blot matched well with the simulations (Fig. 6), thereby validating the mathematical model as a tool to predict the impact of a pharmacological inhibitor on the GRN.
+
+SECTION
+
+GRN dynamics are characterized by a bistable switch
+
+PARAGRAPH
+
+To characterize the dynamic properties of the GRN and determine whether they identify distinct HCC cell states, we modelled the steady-state levels of Let-7b, selected as a representative variable, as a function of CTNNB1 mRNA.
+
+In normal conditions, high Let-7b was associated with low CTNNB1 mRNA, and vice versa (Fig. 5C, left).
+
+The system exhibits a reversible bistable switch from high to low levels of Let-7b, at supraphysiological levels of CTNNB1 mRNA.
+
+Green circles in Fig. 5C represent measured Let-7b/CTNNB1 mRNA values in control samples from TGCA.
+
+However, simulating Let-7b as a function of CTNNB1 mRNA in HCC conditions revealed an irreversible bistable switch occurring at low CTNNB1 mRNA levels (Fig. 5D).
+
+Indeed, rising CTNNB1 mRNA from low to supraphysiological levels in HCC would induce a switch from high to low Let-7 expression, but reverting from supraphysiological CTNNB1 to low CTNNB1 levels would not allow high Let-7 levels to be restored.
+
+The red circles in Fig. 5D reflect tumor-to-tumor heterogeneity of the HCCs and are predominantly positioned around the upper branch of the bistable switch.
+
+Blue dots in Fig. 5D represent Let-7b/CTNNB1 values in 34 human HCC cell lines and reflect the cell line-to-cell line heterogeneity.
+
+These dots are predominantly positioned around the lower branch of the bistable switch, suggesting that culture conditions of cell lines promote switching of the GRN to a state distinct from the mean cell state in patient tumors.
+
+In non-tumor conditions (Fig. 5C), the expression of the GRN components is well below that of the threshold at which the bistable switch occurs.
+
+Therefore, a bistable switch is unlikely to contribute to the initiation of the disease.
+
+In contrast, in HCC, the expression level of GRN components in tumors and cell lines is around the threshold of the bistable switch, suggesting that the bistable switch can contribute to HCC progression (Fig. 5D).
+
+PARAGRAPH
+
+The distribution of measured Let-7b/CTNNB1 values in Fig. 5C-D reflects inter-sample heterogeneity.
+
+When modelling a normal heterogeneous cell population with 30% of random variations around the basal value of each parameter, the Let-7b/CTNNB1 values remained clustered in the upper stable steady state (Fig. 5C, right).
+
+Modelling an HCC cell population with the same % of parameter variation generated a distribution of Let-7b/CTNNB1 values similar to that seen in HCC patients and cell lines (Fig. 5D, right), indicating that the model accounts for the sample's heterogeneity.
+
+PARAGRAPH
+
+We analyzed the robustness of the bistable switch dynamics in normal and HCC conditions towards variation in the value of different parameters (Fig. S6-7).
+
+These results showed that GRN dynamics rest on a robust reversible bistable switch that should not occur in normal conditions.
+
+Meanwhile, in HCC conditions, GRN dynamics exhibit a sensitive irreversible bistable switch that could cause heterogeneity among tumor samples.
+
+SECTION
+
+GRN status in gastrointestinal cancers
+
+PARAGRAPH
+
+We next verified if the GRN might be activated in cancers distinct from HCC.
+
+We looked at RNA expression in TCGA cohorts of cholangiocarcinoma, stomach and esophageal carcinoma, colorectal adenocarcinoma, thyroid carcinoma, kidney renal clear cell carcinoma, breast carcinoma, bladder urothelial carcinoma, and lung adenocarcinoma (Fig. 7A and Fig. S8).
+
+Significant and consistent induction of all tumor-promoting GRN components was detected in cholangiocarcinoma, stomach and esophageal carcinoma carcinoma, and colorectal adenocarcinoma, i.e. in gastrointestinal cancers.
+
+Let-7b did not show the expected reduction in those tumors, yet depending on the tumor type, other Let-7 family members were downregulated, like in cholangiocarcinoma where Let-7c is strongly repressed.
+
+The other cancer types did not show a consistent increase in GRN components, suggesting that the GRN does not display tumor-promoting activity in these tumors.
+
+PARAGRAPH
+
+Tu and coworkers developed a mouse model of colorectal cancer with a similar gene expression pattern as in human cancer,22 which offered the opportunity to validate the mathematical model in this cancer type.
+
+The published mouse data showed that induction of Lin28b for 6 months triggered cell proliferation, downregulation of Let-7 and upregulation of Sox9, the latter being illustrated by immunostaining.22
+
+The subsequent removal of Lin28b for 2 months partially restored the expression of Let-7 and proliferation markers.
+
+As in the experiments,22 the mathematical model predicted that a 6-month induction of Lin28b causes downregulation of Let-7b and upregulation of Sox9, and that those expression levels partially revert to near normal values 2 months after LIN28 LIN28B removal (Fig. 7B), thereby validating the GRN model in colorectal cancer.
+
+The mathematical model also showed that the expression of MYC (Fig. 7B) and CTNNB1 mRNAs (not shown) is not affected by LIN28B induction, which fitted well with the observations.22
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Here we identified a GRN which combines CTNNB1, SMARCA4, SOX9, LIN28B, Let-7b, TP53 and MYC.
+
+MYC expression is not strongly affected but it plays a role in mouse models of HCC.12
+
+Also, when comparing the HCC samples with low MYC expression with those expressing high levels of MYC, we found that MYC expression positively correlates with nearly all GRN components, namely CTNNB1, SOX9, SMARCA4 and TP53 (Fig. S2).
+
+PARAGRAPH
+
+Since the mathematical model resorts to 2 sets of parameters, one for normal conditions and one for tumors and cell lines, it accounts for the GRN dynamics in each state, but not for the dynamical transition between normal and HCC states.
+
+Indeed, to properly calibrate the model on mRNA expression, the transcription rates of LIN28B, SOX9, mutant TP53, CTNNB1 and SMARCA4 had to be increased in the HCC conditions (‘tumor’ parameter in Tables S4-5).
+
+This indicates that the interactions between GRN components are not sufficient to account for the normal-to-HCC transition.
+
+The parameters implicitly integrate the impact of external regulators of the GRN.
+
+Yet, the modelling strategy cannot integrate the full spectrum of regulations, and a number of regulators might not be known.
+
+Since modelling the transition from normal to HCC requires adaptation of the transcription rates of LIN28B, SOX9, mutant TP53, CTNNB1 and SMARCA4, we suggest that the mechanisms controlling the expression of those genes warrant further investigation.
+
+PARAGRAPH
+
+Classifying HCCs identified proliferative versus non-proliferative classes, or subdivided patients with HCC into subgroups G1 to G6.19
+
+Consistently, the GRN is most activated in the G1, G2 and G3 subgroups which are associated with poor differentiation, severe prognosis, and overexpression of genes regulating cell proliferation.19
+
+The targets of CTNNB1 are heterogeneous as CTNNB1 induces progenitor-type genes in tumor cells such as cyclin-D1 or VEGF-A, but also regulates expression of antioxidant, pro-survival and pro-hepatocyte differentiation genes in normal hepatocytes.23
+
+The G5 and G6 subgroups are associated with activation of CTNNB1 targets typical of mature hepatocytes, whereas the G1, G2, and G3 subgroups show predominant activation of progenitor-type targets.
+
+Interestingly, high GRN status was associated with high expression of progenitor-type CTNNB1/TCF/LEF targets (Fig. S9 and Table S8).
+
+TERT promoter mutations are found in 60% of HCCs.13,24
+
+However, out of the 368 HCC samples of the TCGA cohort, the 100 samples with the highest TERT expression did not consistently misexpress GRN components compared to the 268 HCC samples with lower TERT expression levels (Fig. S9C).
+
+PARAGRAPH
+
+The GRN comprises positive feedback loops which are at the origin of bistable switches.
+
+To our knowledge, our work identified the first potential irreversible bistable switch involved in a specific subset of HCC tumors.
+
+The identification of irreversible states in HCC provides evidence that targeting specific GRN components using drugs might be therapeutically ineffective when cancer cells are in a locked state with regard to the function of the drug target.
+
+Also, our comparison of patient tumors and cultured HCC lines indicates that cell lines may be in a state distinct from that of tumors with regard to the function of the GRN.
+
+PARAGRAPH
+
+To facilitate the analysis of the GRN, we set up a web-platform allowing researchers to check the GRN status in new samples of HCC and gastrointestinal tumors.
+
+This platform presents a graphical user interface that integrates the expression levels of the GRN components of tumor samples, and which implements the mathematical model to test which component of the network is the best target to modulate the network dynamics (http://biomodelling.eu/apps.html).
+
+PARAGRAPH
+
+In conclusion, we anticipate that identification and dynamical modelling of a set of GRNs composed of interacting components that are often mutated and/or dysregulated in HCC, as is the case here for CTNNB1 and Let-7/LIN28,6,10,12,25 will contribute to provide a global picture of tumor-promoting gene function in HCC.
+
+Our study presents a concept and tools that could help in the design of bespoke therapies for the treatment of HCC.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The work of FPL was supported by the Interuniversity Attraction Pole Programme (Belgian Science Policy, PVII-47), the D.G. Higher Education and Scientific Research of the French Community of Belgium (ARC 15/20-065), the F.R.S.-FNRS (Belgium: Grants T.007214 and J.0058.15), and the Belgian Foundation Against Cancer (grant 2014-125).
+
+J.Z-R's group is supported by INSERM (France), the Ligue Nationale contre le Cancer (France, Equipe Labellisée), Labex OncoImmunology (France, investissement d’avenir), Coup d’Elan de la Fondation Bettencourt-Shueller (France), the SIRIC CARPEM (France) and Fondation Mérieux (France).
+
+J.U.M. is supported by grants from the German Research Foundation (MA 4443/2-2) and the Volkswagen Foundation (Germany, Lichtenberg program).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+C.G. and F.P.L. conceived and designed the study.
+
+C.G. performed transcriptomic data analysis and mathematical modelling.
+
+M.D-L., K.K. and S. Cordi performed transfection experiments and quantified RNA and proteins.
+
+L.G. created the web-based platform under supervision of E.H. A.L. did the survival analysis and helped with transcriptomic data analysis.
+
+S. Caruso, G.C. and J.Z-R.
+
+provided transcriptomic data and human cell lines and contributed to the interpretation of the modelling results.
+
+D.C. and J.U.M. provided primary human HCC cells.
+
+J.T. and S.P.M. shared and analysed data from transgenic mice.
+
+C.G., M.D-L.
+
+and F.P.L. wrote the manuscript with input from all authors.

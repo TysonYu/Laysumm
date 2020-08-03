@@ -1,0 +1,23 @@
+10.1016/j.engappai.2019.103423
+
+ABSTRACT
+
+TITLE
+
+Combinatorial search for selecting the structure of models of dynamical systems with equation discovery
+
+PARAGRAPH
+
+Automated modeling aims at the induction of mathematical models, both their structure and parameter values, from time-series measurements of observed system variables.
+
+In this paper, we address the task of model structure selection, i.e., selecting an optimal structure from a user-specified finite set of alternative model structures, using various approaches to combinatorial search.
+
+We propose a mapping of the set of candidate model structures to a fixed-length, vector representation allowing the use of an arbitrary search algorithm as a solver of the structure selection task.
+
+We perform a comparative analysis of the performance of thirteen variants of several search algorithms, ranging from ones with high intensification, i.e., focus on neighborhood of the best candidate solutions, to ones with high diversification, i.e., focus on covering the entire search space.
+
+The empirical analysis involves eight tasks of reconstructing known models of dynamical systems from synthetic and measured data.
+
+The results of the analysis show that search algorithms involving moderate diversification methods have superior performance on the structure selection task.
+
+The empirical analysis also reveals that this finding is related to specific properties of the search space of candidate model structures.

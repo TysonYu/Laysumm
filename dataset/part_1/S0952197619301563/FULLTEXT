@@ -1,0 +1,855 @@
+10.1016/j.engappai.2019.06.017
+
+FULLTEXT
+
+TITLE
+
+A hybrid optimization algorithm based on cuckoo search and differential evolution for solving constrained engineering problems
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In real life, there are many real-world engineering optimization problems that need to be solved.
+
+The actual engineering problem has some practical constraints and one or more objective functions (Dhiman and Kumar, 2018b).
+
+The purpose is to find a set of parameter values to minimize the value of the objective function, where the constraint can be either an equality constraint or an inequality constraint.
+
+Due to the large number of these problems and their practical application value, it has become one of the research hotspots in recent years.
+
+PARAGRAPH
+
+With the rapid development of modern social science and technology, the requirements of the engineering field are getting more complex, and the limitations of the problem to be solved are increasing.
+
+The characteristics of these problems are mainly large-scale and high-difficult.
+
+When the traditional optimization algorithm solves such a large-scale problem, it cannot meet the standard in terms of calculation speed, convergence speed and optimization accuracy.
+
+PARAGRAPH
+
+Recently, inspired by natural laws, engineering scholars have proposed a series of meta-heuristic optimization algorithms or search group algorithm (Noorbin and Alfi, 2018), such as Genetic Algorithm (GA) (Bianco et al., 2017), Simulated Annealing (SA) (Geng et al., 2015), Ant Colony Optimization (ACO) (Engin and Güçlü, 2018), Firefly Algorithm (FFA) (Mousavi and Alfi, 2018), Tabu Search (TS) (Abdel-Basset et al., 2018), Particle Swarm Optimization (PSO) (Shahri et al., 2019), Differential Evolution (DE) (Tey et al., 2018), Harmony Search (HS) (Talarposhti and Jamei, 2016), Artificial Bee Colony (ABC) (Karaboga et al., 2014), Artificial Fish Optimization (AFO) (Rocha et al., 2014), Gravity Search Algorithm (GSA) (Khatibinia and Khosravi, 2014), Bacterial Foraging Algorithm (BFA) (Verma and Parihar, 2017), Cuckoo Search (CS) (Mareli and Twala, 2018), Krill Herd (KH) (Gandomi and Alavi, 2012), Immune Algorithm (IA) (Hong, 2012; Hong et al., 2011), Salp Swarm Algorithm (SSA) (Mirjalili et al., 2017), Grasshopper Optimization Algorithm (GOA) (Saremi et al., 2017), Dragonfly Algorithm (DA) (Mirjalili, 2016), Electro-Search algorithm (ESA) (Tabari and Ahmad, 2017), Pathfinder Algorithm (PFA) (Yapici and Cetinkaya, 2019), Cheetah based Optimization Algorithm (CBA) (Klein et al., 2018), Meerkats-inspired Algorithm (MEA) (Klein and dos Santos Coelho, 2018), Emperor Penguin Optimizer (EPO) (Dhiman and Kumar, 2018a), Falcon Optimization Algorithm (FOA) (Segundo et al., 2019), Seeker Optimization Algorithm (SOA) (Dai et al., 2009), Particle Collision Algorithm (PCA) (Sacco and De Oliveira, 2005), Atom Search Optimization (ASO) (Zhao et al., 2019), Selfish Herd Optimizer (SHO) (Fausto et al., 2017), Mouth Brooding Fish algorithm (MBF) (Jahani and Chizari, 2018), Saplings Growing up Algorithm (SGA) (Karci and Alatas, 2006), Bee Collecting Pollen Algorithm (BCPA) (Lu and Zhou, 2008), Yellow Saddle Goatfish Algorithm (YSGA) (Zaldivar et al., 2018), Galactic Swarm Optimization (GSO) (Muthiah-Nakarajan and Noel, 2016), etc.
+
+The characteristic of this kind of algorithm is that people can change their optimization strategies based on similar algorithms, so as to improve the efficiency of the solution and quickly obtain a satisfactory optimal solution to effectively solve the complex problems in large projects.
+
+Therefore, people start to employ meta-heuristic optimization algorithms to solve constrained engineering problems (Kohli and Arora, 2018; Tam et al., 2018).
+
+PARAGRAPH
+
+However, single meta-heuristic optimization algorithm also exposes some shortcomings.
+
+The most common one is that it relies too much on some mathematical formulas, is prone to premature phenomenon, and reduces the accuracy of understanding.
+
+Based on this situation, many scholars propose to hybrid different meta-heuristic optimization algorithms (Mousavi and Alfi, 2015; Arab and Alfi, 2015).
+
+The hybrid algorithm not only avoids the original shortcomings, but also increases the individual information exchange and population diversity within the population, thus enhancing the ability to solve complex engineering models.
+
+PARAGRAPH
+
+In general, CS has strongly ability on global search and less number of parameters.
+
+Existed work has justified that CS superior to many traditional algorithms such as GA and PSO (Yang et al., 2018).
+
+In addition, the exploration and exploitation ability of CS are easy to be controlled by dynamically adjust its discovery probability pa and step size ∝ (Yang et al., 2018).
+
+It follows that CS is an effective and simple algorithm.
+
+However, sometimes CS may easy to trap into local optima and lower the density of population, thus affect its robustness (Yang et al., 2018).
+
+DE has a good performance on searching the local optima and good robustness (Mallipeddi et al., 2011; Hongfeng, 2018).
+
+Similarly, DE is also has few parameters, and easy to realize in program.
+
+The mutation and crossover of DE are polytropic, so its refresh strategies are flexible.
+
+Due to these characteristic of DE, it has already excellently applied to many engineering problems.
+
+But the convergence of DE is too slow to find satisfied result in given iterations.
+
+PARAGRAPH
+
+Based on the capability of these two algorithms, a novel effectively hybrid method based on CS and DE, called CSDE, is proposed to speed up the convergence rate and enhance the optimization performance of the hybrid algorithm, aimed for obtaining an optimizer with better performance.
+
+The original intention of CSDE is that, CS and DE must be treated as a same status; to maximum utilize the advantages of these two algorithms.
+
+At the same time, the disadvantages of CS and DE can be remedied by each other, eventually enhance the quality of solution.
+
+Compared with single optimizer, CSDE possesses reasonable construct, more ability to handle with high dimension and non-linear problems and has fewer shortcomings to trap into local optima, thus to find lower cost design in complex constrained engineering problems.
+
+PARAGRAPH
+
+Abundant experiments on 30 unconstrained benchmark functions, 10 constrained benchmark functions and 6 constrained engineering problems are carried out to demonstrate the superiority of CSDE.
+
+The experimental results show that the proposed CSDE algorithm can obtain more persuasive optima results than other 12 optimization algorithms on unconstrained/constrained benchmark functions and achieve less cost engineering design results than CS, DE and PSO on constrained engineering problems.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+Section 2 introduces the methodologies of CS, DE and the proposed CSDE algorithm.
+
+Numerical results are described in Section 3.
+
+Our proposed CSDE algorithm for engineering problems is conducted in Section 4.
+
+Conclusions are given in Section 5.
+
+SECTION
+
+Methodology
+
+SECTION
+
+CS algorithm
+
+PARAGRAPH
+
+In order to allow researchers to initially understand the behavior of cuckoos looking for nests to place eggs, the cuckoo search algorithm is described using the three-point idealization conditions described below: (1) Cuckoos lay eggs in a suitable nest; (2) After passing a large number of calculations, retain the best bird nest (optimal solution) after calculation; (3) The number of nests capable of placing cuckoo eggs is a fixed value, called the population size, and we set its value according to the needs of the algorithm.
+
+The probability that the nest bird will find the foreign bird is the probability of discovery, which is denoted as pa, and its value is between (0, 1).
+
+If the main bird of the nest discovers the cuckoo bird’s egg, the cuckoo thinks that the position of the nest is invalid, and another nest is found.
+
+PARAGRAPH
+
+In CS, the parameter pa controls the balance between global searching and local searching (for more operation details of the balance between exploration and exploitation, please refer Crepinsek et al., 2011).
+
+The usually value for pa is 0.25, means that every cuckoo uses three quarters of its searching time in finding the range of best nest and uses the remaining time to find the optima in this range.
+
+This searching mode can maximize imitate the life habit of cuckoos.
+
+The global searching can be represented as follows: xin+1=xin+α(xin−xbestn)⊕Lévy(λ)where xin represents the position of the ith bird’s nest at the nth generation, xin+1 represents the position of the ith bird’s nest at the (n+1)th generation; α is the step size control vector, ⊕ denotes element-by-element multiplication, Lévy(λ) is a Lévy distribution function, Lévy(λ)∼u=t−λ,(1<λ<3).
+
+Due to that the image of Lévy flight function is similar to the bird flight path, many researchers use Lévy flight to simulate the flying behavior of birds (Viswanathan et al., 1996).
+
+After Lévy flight, some nest will be discarded by discovery probability, pa.
+
+The location of discarded nest will be refreshed as follows (local searching): xin+1=xin+r(xjn−xen)where r is scaling factor and valued in [0,1], xjn and xen denote two randomly selected solutions at the nth generation.
+
+PARAGRAPH
+
+The specific steps of the CS algorithm are as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Randomly initialize the original population, set all parameters and compute fitness values for each individual according to the fitness function.
+
+PARAGRAPH
+
+Step 2: Lévy flight
+
+PARAGRAPH
+
+Generate all individuals according to Lévy flight formula 1.
+
+PARAGRAPH
+
+Step 3: Random walking
+
+PARAGRAPH
+
+Abandon a part of the nest according to the probability of discovery pa and random walks (according to formula 2) are employed to generate new nests.
+
+PARAGRAPH
+
+Step 4: Stop criteria
+
+PARAGRAPH
+
+Determine whether the maximum number of iterations is reached.
+
+If not, return to step 2, otherwise output global optima.
+
+PARAGRAPH
+
+The basic steps of CS can be summarized as the pseudocode shown in Fig. 1.
+
+SECTION
+
+PARAGRAPH
+
+DE algorithm
+
+PARAGRAPH
+
+Consider the D-dimensional real space S⊂RD as the search space for the optimization problem.
+
+The population Pt={Xit,…,XNPt} of DE consists of NP D-bit real parameter vectors Xit=xi1t,…,xiDt∈Si=1,…,NP, where T denotes an evolutionary algebra, and each gene of the initial population is randomly generated.
+
+The change in each gene in each chromosome is affected by the following three steps.
+
+SECTION
+
+Mutation operation
+
+PARAGRAPH
+
+From a biological point of view, mutation is a genetic mutation, that is, a gene on a chromosome suddenly changes.
+
+In DE, the algorithm creates a variant chromosome for each child in the current population.
+
+The most common variant is to randomly select several different individuals Xr1t, Xr2t and Xr3t, and then scale the factors.
+
+F is multiplied to the difference between the two of the three individuals and added to the third individual, thus obtaining the variant chromosome Vit=(vi1t,…,viDt).
+
+This process can be expressed as follows: Vit=Xr1t+F⋅(Xr2t−Xr3t)where the subscripts r1, r2, r3 are mutually different integers randomly selected from the set {1,2,…,NP}.
+
+For each different child, these three subscripts are randomly generated once and are different from the subscripts of the current child.
+
+The scaling factor F is usually taken randomly in [0.4, 1].
+
+SECTION
+
+Crossover operation
+
+PARAGRAPH
+
+In order to increase the potential diversity of the population, the original progeny chromosome crosses its mutant chromosome to generate a cross chromosome Uit=(ui1t,…,uiDt).
+
+The algorithm gives a random number between [0,1] for each gene and specifies a crossover probability.
+
+Each gene is examined and cross-operated when its corresponding random number is less than or equal to the crossover probability.
+
+This crossover strategy can be summarized as follows: ujit=vjit,ifrandj0,1≤CRorj=jrandxjit,otherwisej=1,2,…,Dwhere randj0,1 is the random number assigned to each gene, which determines whether the gene performs crossover. jrand∈[1,2,…,D]
+
+is a randomly chosen dimension index, ensuring that thecross-chromosome Uit and the original progeny chromosomes are not identical.
+
+CR is the crossover probability, which mainly reflects the amount of information exchanged between the original progeny chromosome, the cross chromosome and the parent chromosome in the cross process.
+
+The larger the value of CR, the larger the amount of information exchange.
+
+On the contrary, the diversity of the population will be rapidly reduced, which is not conducive to global optimization.
+
+SECTION
+
+Selection operation
+
+PARAGRAPH
+
+According to Darwin’s theory of evolution of the fittest, the cross-chromosome Uit will compete with the original progeny chromosome Xit to determine who is entering the next generation.
+
+Using the greedy selection strategy, select the chromosome with a small fitness value.
+
+The operation can be described as follows: Xit+1=Uit,iffUit≤fXitXit,otherwise
+
+PARAGRAPH
+
+According to the above formula, one of the original progeny chromosomes and the cross-chromosome with a small fitness value will enter the next iteration, and the other will be discarded.
+
+The selection process ensures that all individuals in the population must be getting better.
+
+PARAGRAPH
+
+The specific steps of the DE algorithm are as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Randomly initialize the original population, set all parameters and compute fitness values for each individual according to the fitness function.
+
+PARAGRAPH
+
+PARAGRAPH
+
+For each individual, obtain the mutant chromosome by formula 3.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Cross the original progeny chromosome and its mutant chromosome to generate a new cross chromosome, according to formula 4.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Select the one whose fitness value is smaller from the original progeny chromosome and its mutant chromosome, according to formula 5.
+
+PARAGRAPH
+
+Step 5: Stop criteria
+
+PARAGRAPH
+
+Determine whether the maximum number of iterations is reached.
+
+If not, return to step 2, otherwise output global optima.
+
+PARAGRAPH
+
+The basic steps of DE can be summarized as the pseudocode shown in Fig. 2.
+
+PARAGRAPH
+
+SECTION
+
+The proposed CSDE algorithm
+
+PARAGRAPH
+
+Although the simple cuckoo search and differential evolution algorithm have their own characteristics and advantages, they also have some shortcomings.
+
+CS has relatively strong local exploration capabilities, while the controllable parameters are few and easy to control, but the shortcomings are also obvious: the algorithm is prone to premature convergence and falls into local optimum, which is not conducive to global mining.
+
+The DE algorithm has a strong global mining capability, so combining them to complement each other’s advantages and complement each other will inevitably lead to the development of better performance algorithms.
+
+PARAGRAPH
+
+At present, the commonly used mixing methods mainly include series and parallel: the series refers to the optimization operation of cuckoo for all individuals in the evolution process of each generation; the parallel is the method of dividing subgroups in multiple strategies.
+
+The population is divided into multiple subgroups, and individuals in each subgroup are optimized using different algorithms (Pedroso et al., 2017).
+
+Multi-subgroup methods can increase population diversity, increase information exchange between individuals in population iterations, and retain global optimal information to enhance individual diversity and enhance global mining capacity.
+
+PARAGRAPH
+
+CS does not have a strong global mining capability.
+
+In order to overcome its shortcomings, DE and CS algorithms are mixed to form a new CSDE algorithm.
+
+In general, hybrid intelligent optimization algorithms need to combine more than one algorithm, so that the useful characteristics of the original algorithm can be fully utilized.
+
+The main purpose of CS and DE is to complement each other and use the advantages of DE to make up for the disadvantages of CS.
+
+The mixing method is as follows: First, the initial population (nest or one individual) is randomly generated, and the whole population is divided into two subgroups, PartA and PartB.
+
+After initializing the individual, the CS search process, described in Section 2.1, and the DE search process, described in Section 2.2 are performed for the PartA and PartB subgroup respectively.
+
+Then, the two subgroups form a population, and then sort according to the individual’s fitness value, and select the best individual.
+
+Subsequently, the optimization process is repeated.
+
+PARAGRAPH
+
+In the CSDE process, population updates are done by partitioning and combining.
+
+In the division process, we divide the entire population into two equal subgroups randomly, that is, the two subgroups have the same number of individuals.
+
+After all individuals complete the search process, the two subgroups obtained by CS and DE are combined into one group so that individuals can share location information across the search space.
+
+The goal of this operation is to enable each individual to find the best solution in less time and maintain its useful information.
+
+PARAGRAPH
+
+The main idea of the CSDE algorithm is based on three aspects: First, the hybrid algorithm, the advantages and disadvantages of several algorithms can complement each other.
+
+Second, by combining subgroups and forming new populations to share the best individuals, this combination can also exchange useful features from CS and DE, which prevents individuals from premature convergence.
+
+Third, when the CSDE algorithm is completed, no additional parameters are added except for the parameters in the basic CS and DE algorithms.
+
+PARAGRAPH
+
+The specific steps of the CSDE algorithm are as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Generate an initial population, randomly generate NP individuals, and set all parameters in the CS and DE algorithms.
+
+PARAGRAPH
+
+Step 2: Fitness evaluation
+
+PARAGRAPH
+
+Calculate fitness values of all individuals according to the fitness function.
+
+PARAGRAPH
+
+Step 3: Population dividing
+
+PARAGRAPH
+
+The whole population is divided into two subgroups (PartA and PartB) according to the size of the population.
+
+Individuals in each subgroup are randomly assigned by the population to prepare for the two processes of Steps 4 and 5.
+
+PARAGRAPH
+
+Step 4: CS operation
+
+PARAGRAPH
+
+For NP/2 individuals of PartA, first update their location according to the rules in the CS algorithm.
+
+The process can be described as follows:
+
+PARAGRAPH
+
+i = 1: NP/2 (all individuals in PartA)
+
+PARAGRAPH
+
+Generate all individuals according to the Levi flight formula.
+
+PARAGRAPH
+
+Discard a part of the nest according to the probability of discovery.
+
+PARAGRAPH
+
+Random walks according to preferences to generate new nests.
+
+PARAGRAPH
+
+Step 5: DE operation
+
+PARAGRAPH
+
+For NP/2 individuals of PartB, first update their positions according to the rules in the DE algorithm.
+
+The process can be described as follows:
+
+PARAGRAPH
+
+i = 1: NP/2 (all individuals in PartB)
+
+PARAGRAPH
+
+Create a mutation chromosome for each child in the current population.
+
+PARAGRAPH
+
+The original progeny chromosome crosses its mutant chromosome to generate a cross chromosome.
+
+PARAGRAPH
+
+Select the chromosome with a small fitness value between original progeny chromosome and its crossover chromosome.
+
+PARAGRAPH
+
+Step 6: New solution update
+
+PARAGRAPH
+
+After the two subgroups are updated, merge them into one population and record the global optimal value gbest.
+
+PARAGRAPH
+
+Step 7: Stop criteria
+
+PARAGRAPH
+
+Determine whether the maximum number of iterations is reached.
+
+If not, return to step 2, otherwise output gbest.
+
+By the way, regarding more accurately evaluating which solutions are treated as good enough so that exploitation or explanation phase can be claimed, please refer Črepinšek et al. (2013).
+
+PARAGRAPH
+
+The flow chart of CSDE is described in Fig. 3.
+
+SECTION
+
+PARAGRAPH
+
+Numerical example
+
+SECTION
+
+Unconstrained benchmark functions
+
+PARAGRAPH
+
+Unconstrained benchmark functions, as the most common method to test the effective of a proposed meta-heuristic algorithm, are firstly employed to experimentally verify CSDE from different aspects (Awad et al., 2016).
+
+From this point of view, we use 30 CEC2017 unconstrained benchmark functions to finish this important work.
+
+These unconstrained test functions are shown in Table 1.
+
+SECTION
+
+Sensitivity to pa value
+
+PARAGRAPH
+
+In Section 2.1, we mentioned that pa is an important parameter, as a part of CSDE, CS algorithm balance its exploration and exploitation ability by pa.
+
+In this section, we investigate the sensitivity of the parameter pa in CSDE and its optimization effectiveness to the algorithm.
+
+For this task, a comparison experiment is presented on unconstrained benchmark functions.
+
+Different values of pa, which ranged between [0,1] in step of 0.1, are valued in CSDE, separately.
+
+Results are shown in Table 2.
+
+From Table 2, it can be concluded that when pa value in 0.1–0.2, CSDE obtain 6 and 5 best performance among 30 unconstrained benchmark functions, which obviously achieve better optimize results, besides, optimize performance decrease as pa value increase.
+
+SECTION
+
+PARAGRAPH
+
+CSDE parameter settings and related algorithms
+
+PARAGRAPH
+
+As the sensitivity analysis mentioned above, the value of pa is set to 0.15.
+
+The parameters of DE are set as follows: f=0.5, CR=0.5.
+
+For each algorithm, the population size NP=150, the dimension numVar = 10, and the maximum number of iterations Maxgen = 50.
+
+Since randomness is used in the algorithm, in order to obtain representative performance of the algorithm, 100 independent operations are performed for each algorithm on each reference function.
+
+The CSDE algorithm is compared with 12 algorithms on these functions, including: ABC (Artificial Bee Colony), ACO (Ant Colony Optimization), BAT (Bat Algorithm), CKH (Chaotic Krill Herd), CS (Cuckoo Search), DE (Differential Evolution), ES (Evolutionary Strategy), GA (Genetic Algorithm), KH (Krill Herd), PBIL (Population Based Incremental Learning), BBO (Biogeography-Based Optimization) and CMA-ES (Covariance Matrix Adaptation Evolutionary Strategies).
+
+SECTION
+
+Simulation experiment and result analysis
+
+PARAGRAPH
+
+Tables 3 and 4 give the average and optimal values obtained for 100 runs.
+
+PARAGRAPH
+
+As can be seen from Table 3, in terms of the average value, CSDE can find the minimum value among 27 of the 30 reference functions except F21, F27 and F30.
+
+KH is superior to other algorithms in F21 function.
+
+BBO performs best in F23 function.
+
+CMA-ES achieve 5 best performances among 30 functions.
+
+It is worth mentioning that, some results of BBO and CMA-ES is same to the result of CSDE, which makes the summation of ‘total’ row over than 30.
+
+PARAGRAPH
+
+As can be seen from Table 4, among the 30 benchmark functions, CSDE performs best on the 26 functions except F23 and F25–F27.
+
+CKH and BBO perform best on functions F23 and F26.
+
+CS gets the best value on function F16, F21 and F25.
+
+CMA-ES is superior to other optimization methods in function F6, F9, F11 and F27.
+
+Besides, the same phenomenon as Table 3 is occur in Table 4, so the summation of ‘total’ row is also more than 30.
+
+PARAGRAPH
+
+In order to show the optimization process of CSDE more clearly, the convergence trajectories of the 13 methods on 6 functions will be explained below (see Figs. 4–9).
+
+The values in the figures are the average of the results from 100 runs.
+
+PARAGRAPH
+
+As can be clearly seen from Fig. 4, CSDE shows the best convergence speed in all algorithms on the F01 function.
+
+All methods have almost the same value at the start of the search; however, the convergence speed of CSDE is superior to other algorithms and CSDE quickly outperformed them.
+
+ABC almost finishes the optimization task on F01 function incompetently.
+
+Although the results of CSDE and CMA-ES is hard to recognize in Fig. 2, it can be concluded from Table 3 that CSDE is superior to CMA-ES in F01 function.
+
+Moreover, in the first three generations, the value of CMA-ES has a tendency of augmentation, so its optimize results in the first three generations is failed to present in Fig. 4.
+
+PARAGRAPH
+
+As can be seen from Fig. 5, the performance of CSDE on the F03 function is significantly better than the other methods, while the BBO finds the sub-optimal value.
+
+The convergence speed of CMA-ES is slower than most of the methods except ES.
+
+PARAGRAPH
+
+As can be seen from Fig. 6, CSDE performs much better than other methods in the F09 function optimization process.
+
+While in the first two generations, the convergence effect of CSDE is only inferior to BAT.
+
+Before the 3rd generation, CSDE can find out the global optima among other methods.
+
+The optimize value of CMA-ES is same to that of CSDE.
+
+PARAGRAPH
+
+As can be seen from Fig. 7, CSDE performs best in all methods on the F10 function, and has better optimal function values than the other 12 algorithms.
+
+Carefully observe the convergence curve of CSDE and BAT, it can be achieved that in the first three generations, the function value obtained by BAT is better than CSDE.
+
+PARAGRAPH
+
+As can be seen from Fig. 8, CSDE is significantly better than other methods in the F11 function.
+
+The CSDE function value is worse than ES before the second generation and always better than the other 12 algorithms after the third generation.
+
+PARAGRAPH
+
+As can be seen from Fig. 9, CSDE is the fastest algorithm for finding the best solution for the F26 function.
+
+ES and GA perform worst among all the other algorithms.
+
+SECTION
+
+Significance test results and analysis
+
+PARAGRAPH
+
+According to the final results of 100 independent experiments of each function, the t-test values of CSDE and other algorithms on each function are shown in Table 5.
+
+In two-tailed test, t value with 198 degrees of freedom, ∝=0.05, which can show the superiority of CSDE with other algorithm significantly.
+
+We use bold type to indicate that CSDE is significantly superior to other algorithms.
+
+For example, comparing CSDE with CS, the former performs better than the latter in 27 functions (F1–F17, F19–F20, F22–F27 and F29–F30).
+
+However, CSDE performs worse than CMA-ES on six functions (F02, F04, F09, F27, F28 and F30).
+
+This means that in general, CSDE performs better than CMA-ES.
+
+Although CSDE performs slightly worse on some functions, Table 5 shows that it performs better on most functions than the other 12 algorithms.
+
+SECTION
+
+Constrained benchmark functions and experiment result analysis
+
+PARAGRAPH
+
+To further illustrate the superior of CSDE, in this section, 10 CEC 2017 constrained benchmark functions are employed to examine the performance of CSDE (Wu et al., 2017).
+
+These constrained test functions are shown in Table 6.
+
+PARAGRAPH
+
+Where D is the number of decision, I is the number of inequality constraints, E is the number of equality constraints.
+
+Without loss of generality, algorithms for comparison and the parameters setting for each algorithm are same as what introduces in Section 3.3.
+
+Tables 7 and 8 give the average and optimal values obtained for 100 runs.
+
+PARAGRAPH
+
+As can be seen from Table 7, according to the average value, CSDE can find the minimum value among 6 of the 10 reference functions except F31, F34, F35 and F40.
+
+BBO performs best in F34 and F40 functions.
+
+CMA-ES is superior to other algorithms in F31 and F35 functions.
+
+Generally speaking, from Mean results come to see, CSDE obtain the best performance among 13 algorithms in 10 constrained benchmark functions.
+
+PARAGRAPH
+
+As can be seen from Table 8, among the 10 benchmark functions, CSDE performs best on the 8 functions except F31 and F34.
+
+BBO perform best on function F34.
+
+CMA-ES is superior to other optimization methods in function F31.
+
+From Tables 7 and 8, it can be concluded that CSDE performs also better than other 12 algorithms in constrained benchmark functions.
+
+SECTION
+
+Application research of CSDE in constrained engineering problems
+
+PARAGRAPH
+
+In this section, two constrained engineering problems are employed to demonstrate the performance of CSDE.
+
+These engineering problems are inspired by real world cases and exists some real constrained conditions and one objective functions (Askarzadeh, 2016; Varaee and Ghasemib, 2017).
+
+Therefore, transform them into constrained optimization problems is the general method to handle them.
+
+SECTION
+
+Mathematical model
+
+PARAGRAPH
+
+When using intelligent optimization algorithms to solve practical engineering problems, it is necessary to first model the engineering problems and transform them into constrained optimization problems.
+
+The optimization model for the constraint problem is as follows: minf(x)s.t.gix≤0,i=1,2,…,nhjx=0,j=1,2,…,plk≤xk≤uk,k=1,2,…,m where x=[x1,x2,…,xm]T represents the solution vector, n represents the number of inequality constraints, p represents the number of equality constraints, m represents the dimension of the solution variable, and f(x) is the objective function, Eq. (7) is an inequality constraint, and Eq. (8) is an equality constraint. lk
+
+and uk represent the upper and lower bounds of each dimension, respectively.
+
+The constrained optimization problem of the required solution is actually to find a set of vectors that minimize the value of the objective function f(x) when the above constraints are met.
+
+PARAGRAPH
+
+The purpose of the intelligent optimization algorithm is to solve the unconstrained optimization problem, so it must be processed when solving the constraint optimization problem.
+
+Unconstrained processing is to transform the constrained optimization problem that requires the solution into an equivalent unconstrained optimization problem.
+
+The most commonly used processing method is the penalty function method, which is simple in principle and easy to implement.
+
+The principle is to combine the objective function that requires the solution and its corresponding constraint into a penalty function, which is the function that requires the solution.
+
+The commonly used penalty function formula is as follows: φx=fx+M∑i=1nmax0,gix2where fx represents the objective function that needs to be optimized, gix represents the value of the ith constraint function and M is a penalty factor and is a large positive number.
+
+SECTION
+
+Experimental results on constrained engineering problems
+
+SECTION
+
+Pressure vessel design
+
+PARAGRAPH
+
+The goal of the pressure vessel design problem is to minimize the total cost including material cost, mold and weld.
+
+It has four design variables: shell thickness, ball thickness, cylindrical shell radius, and shell length.
+
+According to the available thickness of the rolled steel sheet, the shell thickness and the ball thickness are integer multiples of 0.0625 inches, and the cylindrical shell radius and the shell length are between 10 and 200, as shown in Fig. 10.
+
+The design can be expressed as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Table 9 gives a comparison of statistical results, and Table 10 gives the decision variables and constraint values for the best solution obtained by different methods.
+
+As can be seen from Tables 9 and 10, compared with all other methods (CS, DE and PSO), CSDE achieved better results in the pressure vessel design problem: the CSDE of the objective function value of 6059.713339601150 obtained the best solution.
+
+SECTION
+
+Three-bar truss design
+
+PARAGRAPH
+
+The three-bar truss design problem shown in Fig. 11 is intended to minimize the volume of the three-bar truss with each truss member constrained by stress r.
+
+The design can be expressed as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+The statistical results obtained by the CS, DE, PSO and CSDE algorithms are shown in Tables 11 and 12.
+
+The value is the optimum value, mean and standard deviation of the solution obtained by 20 independent runs.
+
+The four algorithms obtain almost equal solutions, of which CSDE performs best, with an objective function value of 263.
+
+148352124271.
+
+SECTION
+
+Tension/compression spring design
+
+PARAGRAPH
+
+The goal of this design problem is to minimize the weight of the spring based on the constraints of minimum deflection, oscillation frequency, and shear stress, as shown in Fig. 12.
+
+The design has 3 design variables, which can be expressed as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Table 13 shows the comparison of statistical results, and Table 14 shows the decision variables and constraint values of the best solution obtained by different methods.
+
+As can be seen from Tables 13 and 14, compared with all other methods (CS, DE and PSO), CSDE achieves better results in the design of tension/compression springs: the CSDE with the objective function value of 0.012665255009 gets the best solution.
+
+SECTION
+
+Speed reducer design
+
+PARAGRAPH
+
+The goal of the reducer design problem is to minimize the weight of the reducer.
+
+The problem has 7 design variables, the variable x3 is an integer, and all the other variables are continuous.
+
+The problem has 11 constraints, which makes it very complex, as shown in Fig. 13.
+
+The design can be expressed as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Table 15 shows the comparison of statistical results, and Table 16 shows the decision variables and constraint values of the best solution obtained by different methods.
+
+As can be seen from Tables 15 and 16, compared with all other methods (CS, DE and PSO), CSDE achieves better results in speed reducer design: the CSDE with the objective function value of 2892.860831989640 gets the best solution.
+
+SECTION
+
+Welded beam design
+
+PARAGRAPH
+
+The purpose of the welded beam design problem is to minimize the cost of the welded beam.
+
+There are four design variables and seven constraints based on the shear stress τ, the bending stress σ in the beam, the bending load on the rod PC, the end deflection δ and side limits, as shown in Fig. 14.
+
+The design is expressed as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Table 17 shows the comparison of statistical results, and Table 18 shows the decision variables and constraint values of the best solution obtained by different methods.
+
+As can be seen from Tables 17 and 18, compared with all other methods (CS, DE and PSO), CSDE achieves better results in the design of welded beam design: the CSDE with the objective function value of 1.724847825791 gets the best solution.
+
+SECTION
+
+PARAGRAPH
+
+Cantilever beam design
+
+PARAGRAPH
+
+The goal of the cantilever beam design problem shown in Fig. 15 is to minimize the weight of the cantilever beam.
+
+As shown in Fig. 15, the beam is supported at node 1, and a vertically downward force acts on the beam at node 5.
+
+The problem has five design variables and the length of the sides of the different beam elements (each beam element is square).
+
+The mathematical expression of the problem is given below:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Table 19 shows the comparison of statistical results, and Table 20 shows the decision variables and constraint values of the best solution obtained by different methods.
+
+As can be seen from Tables 19 and 20, compared with all other methods (CS, DE and PSO), CSDE achieves better results in the design of cantilever beam design: the CSDE with the objective function value of 1.339956657877 gets the best solution.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+Based on the characteristic of CS and DE, a hybrid meta-heuristic algorithm, named CSDE, is proposed in this paper.
+
+CSDE can enhance the ability of exploitation and avoid the population trapping into local optima by employing division population, grouping update and combination population to exchange the useful information between individuals.
+
+CSDE does not introduce extra operators except those operators in original CS and DE, which make it simple and efficient.
+
+PARAGRAPH
+
+Experimental results illustrate that CSDE is outperform the 12 optimization algorithms on 30 CEC2017 unconstrained benchmark functions, 10 CEC2017 constrained benchmark functions and superior to three optimization algorithms on six real-worlds constrained engineering problems.
+
+The above performance demonstrates that CSDE has more competitive ability to quest global optima than other methods, in general.

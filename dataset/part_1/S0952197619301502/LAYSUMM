@@ -1,0 +1,21 @@
+10.1016/j.engappai.2019.06.011
+
+LAYSUMM
+
+TITLE
+
+Online learning control with Echo State Networks of an oil production platform
+
+PARAGRAPH
+
+Artificial Intelligence enabled learning models purely from observed data.
+
+This work shows how to learn an optimal control policy for complex dynamic systems in an adaptive real-time fashion.
+
+Specifically, Echo State Networks (ESNs) are used to learn the inverse system model that yields the control input for the current output that drives the system toward a desired state.
+
+The ESN is a recurrent neural network with fast learning by linear methods such as (recursive) least squares.
+
+In an application to oil platforms, the ESN-based controller was shown to learn online the
+
+regulation of variables such as the riser inlet pressure.

@@ -1,0 +1,549 @@
+10.1016/j.jhep.2019.12.014
+
+FULLTEXT
+
+TITLE
+
+Heterogeneous immunogenomic features and distinct escape mechanisms in multifocal hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is the fourth leading cause of cancer-related death and ranks sixth in incidence globally, with 0.25–1 million cases annually [1].
+
+Most often, HCC occurs in the background of chronic hepatitis or liver cirrhosis.
+
+Surgery is potentially curative but only amenable for early stage patients.
+
+Recent breakthroughs in systemic and immune therapies have shown clinical benefits in HCC[2].
+
+However, improvements in patient outcomes are modest and long-term survival remains poor.
+
+One major challenge is that 41%-75% of HCC patients are initially diagnosed as multifocal tumors, which will increase the difficulty of clinical management and lead to poor prognosis [3].
+
+PARAGRAPH
+
+Multifocal HCC can occur synchronously or metachronously either from intrahepatic metastasis (IM) or multicentric occurrence (MO)[4,5].
+
+The discrimination between the two types of multifocal HCC is of great clinical importance, because each type differs significantly in biological behaviors, treatment selection and prognosis [6-8].
+
+The IM tumors have undergone metastatic spreading while MO tumors are usually detected in early stages[9,10].
+
+In recent studies, next-generation sequencing based characterization of multifocal HCC revealed distinct evolutionary trajectories and inter-tumor genetic heterogeneity between IM and MO, showing a higher discriminating accuracy than traditional clinical and molecular features[4,5].
+
+Alternatively, distinct genetic profiles of IM/MO may confer them with different immunogenicity, which may invite diverse immune responses or tolerance and in turn shape tumor evolution.
+
+However, the interaction among mutational profiles, immunogenicity, and the host immune status in HCC stays less investigated.
+
+PARAGRAPH
+
+Tumor-infiltrating T lymphocytes (TILs) are directed against tumor cells.
+
+Previous studies have shown that HCC patients infiltrated with more CD8+ T cells, less regulatory T cells (Treg) and decreased macrophages had favorable outcome[9,11,12].
+
+Data from other cancers have shown that the number of somatic mutations and neoantigens (peptides derived from somatic non-silent mutations that are presented to the immune system) significantly correlated with patient survival[13,14].
+
+Of note, tumor genetic heterogeneity has profound impact on immunotherapy, as patients with more clonal neoantigens are more prone to respond to immune checkpoint blockade [14].
+
+Meanwhile, TCR repertoires define their capacity to interact with neoepitopes presented on HLA, which may also determine the reaction to immune checkpoint blockade and patient prognosis[15,16].
+
+As such, decoding the TCR-neoantigen-HLA complex will help understand the dynamic tumor-immune interactions, bringing new insights into the pathogenesis of IM/MO.
+
+PARAGRAPH
+
+Here, we collected 47 tumor samples from 15 patients with multifocal HCC, and performed high-depth whole-exome sequencing (WES), transcriptome sequencing, immunopeptidomics, multiplex immunofluorescence, neoantigen prediction and TCR sequencing to characterize their immunogenomic profiles and infer potential underlying mechanisms of immune escape.
+
+Our results demonstrate that immunogenomic features are apparently different between IM/MO tumors and immune selection may shape HCC evolutionary dynamics.
+
+Harnessing the adaptive properties of local immune response microenvironment could be a prior strategy to overcome genetic complexity within multifocal HCC.
+
+SECTION
+
+Patients and Methods
+
+SECTION
+
+Patients and Sample Collection
+
+PARAGRAPH
+
+We enrolled 15 patients diagnosed with multifocal HCC who underwent curative resection (from June to December in 2015) in Zhongshan Hospital of Fudan University.
+
+All surgically resected tumor samples were macroscopically reviewed by two experienced pathologists.
+
+The study was approved by the Research Ethics Committee of Zhongshan Hospital, and all patients provided written informed consent.
+
+The other detailed methods, such as genome sequencing, mutation calling, neoantigen prediction, HLA allele typing and loss -of-heterozygosity (LOH), major histocompatibility complex-I (MHC-I) immunopeptidome and multiplex staining, are described in the Supplementary Materials and Methods.
+
+SECTION
+
+Results
+
+SECTION
+
+Distinct Clonal Architecture, Mutational Signatures and Genetic Susceptibility between HCC Patients with IM and MO
+
+PARAGRAPH
+
+We obtained 47 tumor samples with adjacent non-tumor liver tissues and peripheral blood from 15 multifocal HCC patients (Table S1).
+
+Each patient had 2∼3 separate tumors, and at least one region was sampled from each fresh tumor.
+
+The recurrent tumors from P4 and P12 were collected from formalin-fixed paraffin-embedded (FFPE) tissues (Figure 1A).
+
+WES achieved an average of 323x depth for tumors (Table S2), identifying 4,917 nonsynonymous and 1,785 synonymous somatic mutations (Table S3).
+
+Validation of a set of randomly selected nonsynonymous mutations via Sanger sequencing yielded a 96.0% validation rate.
+
+IM developed from intrahepatic metastasis and shared a common clonal origin with the primary tumor, whereas MO would not.
+
+As expected, the proportion of shared somatic mutations between or among multiple tumors in each patient separated them into three subgroups: IM group with a high rate of common mutations (54.11%-79.17%; P1, P5 and P8; totally 8 tumors) and shorter genomic distance (less than 12), IM/MO mix group (P3, 3 tumors), and MO group with minimal shared mutations (0–0.28%; others; totally 33 tumors and tumor sub-regions) and longer genomic distance (greater than 15) (Figure 1B and Figure S1A-B).
+
+Likewise, shared rates of CNVs in IM patients were much higher than that in MO patients (averagely 63.2% vs 23.0%, respectively), especially in the gain segments (Figure S1D).
+
+PARAGRAPH
+
+Next, we assessed the evolutionary discrimination between MO and IM with the algorithm PyClone[17] , showing that tumors from each IM patient had common clusters and displayed branched evolution (Figure 1C and Figure S1C).
+
+Interestingly, phylogenetic trees clearly showed the order of metastasis in IM, depicting a “liver map” of the emergence and spread of tumor subclones.
+
+For example, the complicated pattern of parallel polyclonal spread of subclones between metastases(T1→T2/T1→T3/T2→T3) in P1 was observed, which was previously described in prostate cancer [18] (Figure 1C).
+
+PARAGRAPH
+
+Conversely, no shared clusters of tumors were detected in each MO patient, which could be ascribed to a carcinogenic background suitable for independent hepatocarcinogenesis.
+
+The mutational signatures were then analyzed for potential environmental exposure.
+
+Signature 22, related to exposures to aristolochic acid, was identified in both MO (P2, P7, P12 and P15) and IM (P5 and P8).
+
+Signature 24, related to aflatoxin B exposure, dominated in all tumors of P1.
+
+Interestingly, the relatively unique signatures in MO were signatures 5, 15 and 16, and the latter two were mainly involved in mismatch repair (MMR) (Figure 1D).
+
+Then, presumed pathogenic germline mutations (PPGMs) were explored for genetic susceptibility.
+
+The number of PPGMs in MO was significantly higher than IM (88 vs 79, P=0.031) (Figure 1E), and many MO-specific PPGMs recurrently existed, like MSH6 and TET2, strengthening the deficiency of MMR and increased genetic susceptibility in MO patients (Figure 1F).
+
+SECTION
+
+Heterogeneity of Immune Infiltrates between IM and MO Is Associated with Mutational Profiles
+
+PARAGRAPH
+
+Hierarchical clustering and t-SNE analyses based on transcriptome showed similar expression profiles among tumors in each IM patient or within intratumor multiregions, rather than tumors in each MO patient (Figure S2A).
+
+Differentially expressed genes between tumors and adjacent liver tissues were most significantly enriched in cell cycle, immune response and metabolism, including genes involved in adaptive immunity and MHC-I antigen processing (Figure S2B-C).
+
+Furthermore, deconvolution of infiltrating leukocytes revealed that the most abundant immune infiltrates were CD8+, CD4+ T cells and macrophages in those HCC cases[19] (Figure S2D).
+
+PARAGRAPH
+
+Next, multiplex immunostaining on paraffin sections containing tumor, invasive margin and adjacent liver tissues for CD4, CD8, CD68, FOXP3, PD-1 and PD-L1 were taken to assess the spatial distribution and density.
+
+Two metrics were used to quantify the immune infiltration: density of hotspots on HE images and the Immunoscore derived from CD4+ and CD8+ T cell density in tumor center and invasive margin[13] (Figure 2A).
+
+MO tumors exhibited significantly higher levels of immune hotspots in tumor center than IM (averagely 28.8% vs 7.3%, P<0.001) (Figure S2E), implying potential TIL exhaustion and failure to engage with tumor cells in IM.
+
+Immunoscore in MO were much higher than those in IM (averagely 2.9 vs 1.9 respectively, P<0.001), accompanied by upregulation of immune effector molecules like GZMA, PRF1, and CXCL9, further reflecting an impaired immune response in IM.
+
+In addition, variations of Immunoscore among tumors in MO were greater than that in IM, consistent with the higher genomic diversities among tumors in MO (Figure S2F).
+
+CD8+ T cells had higher density in MO than IM in all three evaluated subregions, especially in tumor center (P=0.016) (Figure 2C).
+
+In contrast, infiltration of CD68+ macrophages showed the opposite in IM tumors, while FOXP3+ Treg infiltration was analogous between IM and MO.
+
+Leukocyte deconvolution[19] revealed that infiltrating macrophages in IM were predominantly M2 type that may contribute an immunosuppressive microenvironment (Figure 2D).
+
+Further correlation analysis revealed that M2 macrophages had stronger negative correlation with memory B cells and activated dendritic cells and weaker correlation with CD8+ T cells in MO, indicating that M2 macrophages might be prisoned by innate immune compartments and exert limited inhibitory effect on T cells.
+
+On the contrary, in the IM, we observed M2 macrophages had stronger negative correlation with CD8+ T cells and resting dendritic cells, and the potential switch of macrophage polarization, supporting that the inhibitory environment formed by M2 macrophages may significantly restrain the activity of CD8+ T cells under such situation (Figure S3).
+
+PARAGRAPH
+
+Then, we determined the relative distribution of tumor cells and TILs that were positive or negative for CD8, CD68, PD-1 or PD-L1 (Figure 2E).
+
+In MO, over half of CD8+ T cells expressed PD-1, and 13.3% of all tumor cells expressed PD-L1, both significantly higher than IM (Figure 2F).
+
+In IM, in addition to PD-1+CD8+ T cells, abundant CD68+ macrophages (averagely 37.9%) also expressed PD-1.
+
+Such macrophages could promote disease progression through restricting the innate and adaptive immunity [20].
+
+Overall, through less T cell and more M2 macrophage infiltration in IM and higher expression of inhibitory immune checkpoints in MO, multifocal HCC switched toward an immunosuppressive microenvironment during tumor progression.
+
+PARAGRAPH
+
+Interestingly, recurrent tumors of P4 and P12 were genetically distinct from their baseline counterparts, despite only one-year gap between them.
+
+In P4, of 140, 123 and 129 nonsynonymous mutations identified in three primary tumors, only 1, 1 and 0 were also seen in the recurrences respectively and new driver alterations appeared, such as JAK1 and RB1 (Figure 2G).
+
+The primary tumors from P4 showed preexisting abundant CD8+ TILs at both invasive margin and tumor center that colocalized with PD-L1 expression with sparse surrounding macrophages.
+
+In contrast, two recurrent tumors harbored CD8+ TILs and few macrophages only concentrated only at invasive margins (Figure 2H).
+
+Like intertumoral genetic heterogeneity, immune microenvironment also displayed spatiotemporal heterogeneity, possibly due to different immunogenic stimuli or immune escape.
+
+SECTION
+
+Negative Selection Is Largely Absent for Coding Mutations in HCC
+
+PARAGRAPH
+
+To determine whether immune selection constrained tumor evolution, dN/dS analysis was performed, a tool commonly used for decoding organismal [21].
+
+We found that most non-synonymous mutations did not undergo selection at all, and only ∼2% of mutations were under positive selection, resulting in dN/dS values minimally >1.
+
+In total, 9 genes were under positive selection, including TP53 and CTNNB1, while only TTN was under negative selection, highly consistent with the results from TCGA HCC cohort (Figure S4A-D).
+
+In TCGA HCC cohort, genes generally fall into two classes: oncogenes with stronger selection on missense mutations, such as CTNNB1, and tumor suppressor genes with stronger selection on truncating mutations, such as AXIN1 and BAP1 (Figure S4G).
+
+In addition, we analyzed the effect of clonality or driver genes on selection pressure, but no significant differences were found (Figure S4E).
+
+PARAGRAPH
+
+It was hypothesized that genes under negative selection may show a bias towards the depletion of high functional impact mutations[21].
+
+By calculating the Combined Annotation-Dependent Depletion (CADD) functional impact scores for each mutation[22], we indeed found that genes with lower dN/dS ratios displayed lower function scores, while those undergoing neutral and positive selection showed higher ones.
+
+In addition, immunosurveillance was an important source of cancer selection pressure, and neoepitopes derived from mutations might expose tumor cells to negative immune selection, depending on their immunogenicity[23].
+
+Indeed, the immunogenicity of neoantigens from TTN was much higher than that from positive selected genes (averagely 0.137 vs -0.003, P<0.001) (Figure S4C).
+
+The observation that most somatic mutations were tolerated and accumulated neutrally confirmed that mutations generating neoantigens with high immunogenicity were rare in HCC or were already immune eliminated.
+
+SECTION
+
+Neoantigen Profiles Are Highly Heterogeneous and Personalized in HCC, Especially in MO
+
+PARAGRAPH
+
+To further examine the selective strength behind MHC I-specific epitopes in multifocal HCC, a bioinformatic pipeline was applied, identifying totally 5,480 putative neoantigens derived from 44.3% of nonsynonymous mutations, with a median of 119 predicted neoantigens per tumor (range from 26 to 347) (Figure 3A, Table S4).
+
+The evolutionary trees based on predicted neoantigens were highly similar to the phylogenetic trees based on genetic alterations, and shared neoantigens among tumors from the same patients were high in IM (40.0%-92.1%) but few in MO (Figure 3A).
+
+In both our cohort and TCGA HCC cohort, neoantigen load positively correlated with mutation burden (r=0.752, P<0.001; r=0.799, P<0.001, respectively.
+
+Figure S5A), while neoantigen load rather than mutation burden negatively correlated with Immunosocre in our cohort (r=-0.429, P=0.013, Figure S5B-C).
+
+In TCGA HCC cohort, positive correlation between neoantigen load and immune infiltrate only existed in the PD-L1- CD8A- subgroup (r=-0.359, P=0.023), while the others showed a negative correlation trend (Figure S5D-E), implying that the correlation between them might be influenced by the immune regulation mechanism.
+
+PARAGRAPH
+
+Neoantigens in HCC were highly personalized and heterogeneous among multifocal tumors, due to double control of patient-specific alterations and HLA alleles[24-26].
+
+Only two DPY19L2-derived neoantigens RTFMGIMNL and IASWYRTFM were indeed found to be recurrent in P1, P6 and P15.
+
+As the most prevalent mutations in HCC, totally 8 TP53 missense mutations occurred in 6/15 patients.
+
+Only 25% (2/8) of TP53 mutations (p.R71L and p.R210S) were predicted to generate neoantigens.
+
+Certain HLA alleles were better binding partners for certain peptides.
+
+For example, MNRSPILTI derived from TP53 p.R210S had high affinity with HLA-C12:03 in P4 (IC50: 294.71nM) but much lower with all HLA alleles in P7_T3 (IC50>500nM) (Figure 3B).
+
+PARAGRAPH
+
+We further calculated the Immunoediting score for each tumor defined as the ratio of actually-presented to expected immunogenic mutations[27,28], where a lower-than-expected ratio indicated the presence of immunoediting.
+
+Immunoediting mainly occurred in MO but not IM, probably due to the low level of immune infiltration (P1 and P5) or other undefined immune escape mechanisms (averagely 0.869 vs 1.002, P=0.008).
+
+By plotting the Immunoscore (High/Low) together with Immunoediting score (Yes/No), we defined four categories of tumors (Figure 3C).
+
+Strikingly, none of the tumors were in the LowYes group (low Immunoscore and presence of immunoediting), confirming that weak adaptive immunity could not induce an immunoediting process[28].
+
+In contrast, immunoediting existed solely in tumors with high Immunoscore (HighYes, n =10) where active immune selection led to neoantigen depletion and thus less neoantigens existed, further demonstrating immune infiltration was necessary for immunoediting process.
+
+PARAGRAPH
+
+Next, to deeper understand neoepitopes presented by MHC-I, 29 tumors and 13 non-tumor liver tissues from 13 patients (3 IM and 10 MO patients) were analyzed for biochemically purified MHC I-binding peptides (Figure 3D).
+
+We identified 9,052 and 11,875 MHC-I peptides based on standard Uniport database and IEDB database with FDR < 0.05 by LC/MS immunopeptidomes, respectively, most being 9 amino acids in length (Table S5 and Figure S6A-C).
+
+Considering that all peptides presented by the same alleles among different patients would have similar binding motifs, we attempted to identify a consensus cluster among all identified 9-mer peptides of HLA-A11:01, an allele shared between P4 and P12.
+
+Actually, only 63.1% of the identified peptides were predicted in silicon to bind, implying the further improvement for netMHC [29] (Figure S6C-D).
+
+PARAGRAPH
+
+Only 5 predicted neoantigens can be detected by immunopeptidomes.
+
+Such low overlap rate, consistent with previous study [30], may be attributed to either the inferior sensitivity of LC/MS or unidentified deficiency of neoantigen presentation.
+
+Additionally, 20 CT antigens were detected, which were significantly up-regulated in HCC compared to adjacent liver tissues.
+
+For example, the peptide FVYGEPREL, which was derived from CT gene MAGEC2 (CT10) and predicted to have high immunogenicity for T cell response (Figure 3E), was detected in P10_T2.
+
+NetMHC analysis [29] revealed it could be presented by multiple HLA alleles with strong affinity, including HLA-A*02:03 (IC50: 38.81nM) and HLA-C03:04 (IC50: 5.77nM).
+
+Expression data from 11 database (n=1,968) [31] demonstrated high expression of MAGEC2 in approximately 40% of HCC, but rarely detected in normal liver or other tissues except testis (Figure 3E).
+
+SECTION
+
+Peripheral Blood CD8 + T Cells React against Discovered Neoepitopes
+
+PARAGRAPH
+
+We next evaluated whether the neoepitopes could be recognized by the patient’s own T cells using P4 (HLA-A11:01) as a model, including 20 predicted neoantigens, 4 MS-detected CT antigens and HBV (Capsid Protein) peptide pools.
+
+All the synthetic peptides were exchanged successfully to form specific MHC-peptide tetramers (Figure S7B-C), except for the predicted neoantigens KSYPEDRDFR (CXorf23 p.R204S) despite its high affinity to HLA-A11:01 (IC50: 245nM).
+
+Meanwhile, multiple neoepitopes from the the mutation C5orf42 p.I1134K and CT antigen POTEE had quite different exchange efficacy (Figure S7C).
+
+PARAGRAPH
+
+In subsequent T-cell stimulation assays (Figure 3F), only 35% (7/20) predicted neoantigens were able to evoke significant specific T cell expansion (percentage of tetramer-positive cells exceeding 1%) (Figure S8A).
+
+In addition, some mutations could generate various potential neoantigens with very limited differed amino acid residues but diverse immunological activities.
+
+For C5orf42 p.I1134K mutation, LSETFQLLK and ILSETFQLLK caused very limited T-cell expansion, while DILSETFQLLK and DADILSETFQLLK had stronger immunological activity.
+
+Therefore, diversified vaccines can be designed for a certain mutation.
+
+Of the 4 reactive CTAs derived from the POTEE Actin motif detected by immunopeptidomes (Figure S7A), the percentage of tetramer-positive cells in this patient was 26.5% for LTEAPLNPK, 26.1% for STFQQMWISK, 3.79% for ATAASSSSLEK, and only 0.11% for AASSSSLEK.
+
+This result supported that CTAs, as an important source of antigen libraries, had a very high probability of inducing anti-tumor immune responses and were potential targets for immunotherapy in HCC.
+
+PARAGRAPH
+
+We further characterized these peptide-stimulated T cells by measuring 14 immune checkpoints and 11 cytokines.
+
+During specific T cell expansion, IFN-γ production were found to be significantly increased (Figure 3G), accompanied by enhanced expression of PD-1, LAG-3, TIM-3, IDO and BTLA (Figure 3H, Figure S8B).
+
+Although these neo-epitope-specific CD8+ subpopulations were primed and activated, subsequent T cell exhaustion seems inevitable.
+
+Thus, a combination with immune checkpoint blockade should be needed for neoantigen based immunotherapy in HCC.
+
+SECTION
+
+Loss of Heterozygosity of HLA Alleles Impairs Neoantigen Presentation and Facilitates Intrahepatic Metastasis
+
+PARAGRAPH
+
+In tumors with high TIL density but no immunoediting (HighNo group), they may have escaped immune attack by disrupting antigen processing and presentation mechanism (APM).
+
+We checked APM components and found that diverse expression and genetic alterations of HLA-I were the most frequent events leading to APM deficiency (Figure S9A), similar to other cancers [32,33].
+
+PARAGRAPH
+
+The expression of all HLA class I genes differed among tumors of the same patients, specifically MO patients (Figure 4A), and they all were up-regulated compared to nontumor liver tissues, especially HLA-A allele (Figure 4B).
+
+The expression of HLA-I in tumors without immunoediting was significantly lower than those with immunoediting, facilitating immune escape in the former (Figure 4C).
+
+Although HLA mutations could interfere with neoantigen-MHC binding [32], no tumors from our cohort harbored nonsynonymous mutations in HLA or B2M.
+
+However, loss of heterozygosity (LOH) of HLA was identified in 17% (8/47) of multifocal HCC by the algorithm LOHHLA [33], and also nearly 11% (41/373) of HCC in TCGA cohort, suggesting HLA LOH as a more prevalent mechanism of APM deficiency.
+
+Interestingly, HLA LOH mainly occurred in HighNo group (62.5%, 5/8), indicating that APM defects due to HLA LOH would finally affect the recognition and elimination of neoantigens even in abundant CD8+ TILs (Figure 4C).
+
+A high proportion of neoantigens, previously presented by the lost alleles, would not be effectively presented due to HLA LOH.
+
+For example, the loss of HLA-A24:02, HLA-B15:01 and HLA-C03:03 in P1_T3 would cause the failure of 69.2% (267/386) neoantigens to present.
+
+In TCGA HCC cohort, HLA LOH would affect averagely 26% neoantigens to present, significantly reducing the neoantigens exposed to immune system (Figure 4D).
+
+Additionally, we observed a trend for HLA LOH in specific HLA alleles, finding that HLA-A33:03, HLA-B58:01 and HLA-C03:02 were the most popular in both our cohort and TCGA HCC cohort, inferring specific HLA alleles may contribute to immune escape (Figure 4E) [34].
+
+PARAGRAPH
+
+In TCGA HCC cohort, tumors with HLA LOH exhibited significant association with advanced tumor stage and increased recurrence (Figure S9B), indicating that immune escape caused by HLA LOH may accelerate HCC progression.
+
+Most of genes significantly up-regulated in tumor with HLA LOH were oncogenes, such as MYCN and SOX2, and only a few were tumor suppressor genes (TSGs), such as EMP3 and CDC20 (Figure 4F).
+
+MYCN, a member of the MYC family related to impaired immune surveillance in HCC[35], could be affected by HLA LOH (Figure S9C) and had a 4.1-fold increased expression in HLA-LOH group.
+
+Moreover, significant up-regulation of immunosuppressive ligands was also noted in tumor with HLA LOH, such as PDCD1LG2, CD274 and CD276, consistent with the notion that HLA LOH may facilitate escape in response to an active immune microenvironment [24,33].
+
+PARAGRAPH
+
+Then, analyzing the timing of LOH events in IM showed that HLA LOH could occur as branch events in P1 and P8 or trunk event in P3, indicating that HLA LOH occurred along with cancer evolution and may be under positive selection as long as immune pressure persisted (Figure 4G-H).
+
+Once HLA LOH took place, evolution trajectory would also be changed.
+
+For example, the predicted neoantigen SYGFLLGF, derived from trunk mutation TP53 p.R71L, was generated in all the three tumors in P1, but could not be presented in P1_T3 because of HLA-A24:02 loss, resulting in less immune pressure and competitive advantage over other two tumors (Figure 4H).
+
+Likewise, HLA-C03:02 loss, a clonal event in P3, could significantly reduce the overall number of neoantigens presented to T cells, accelerating immune evasion and subclonal expansions (Figure 4G).
+
+These data indicated that inability to present neoantigens due to APM deficiency could promote immune evasion and tumor progression.
+
+PARAGRAPH
+
+Neoantigen editing may also occur through copy-number alterations, affecting the expression of both HLA molecules and mutant alleles (Figure S10A).
+
+In our cohort, the loss of neoantigen alleles was observed in 85.1% (40/47) tumors, and the number of lost neoantigens attributed to allele loss in IM was higher than that in MO (averagely 21.5 vs 9.6, respectively, P=0.03) (Figure S10B-C).
+
+As such, mRNA expression of 73% genes with only mutated allele was attenuated compared to the average level (Figure S10D), supporting copy-number loss as a genetic mechanism of subclonal immunoeditng.
+
+In TCGA HCC cohort, 294 out of 379 tumors also showed evidence for at least one historical neoantigen loss owing to the corresponding segment loss.
+
+SECTION
+
+Diversity and Clonality of TCR Repertoires Imprint Genetic Variations and Contribute to Immunoediting
+
+PARAGRAPH
+
+Effective immunity requires a tumor-specific, but not infinite T cell infiltration.
+
+To deeply investigate the spatial heterogeneity of TCR repertoire, we also performed TCR-seq on 44 tumors, adjacent non-tumor liver, and preoperative peripheral blood mononuclear cells (PBMCs) from these 15 patients (Figure 1A).
+
+We obtained an average of 12,750 unique TCRβ rearrangements per sample (ranging from 1,308 to 45,217) by TCR-seq data.
+
+Averagely 38.1% of the CDR3 called by TRUST[36] from RNA-seq data (ranging 0%∼100%) were confirmed by TCR–seq, and these TCRs were usually at high frequency (Figure 5A and Table S6).
+
+In each patient, TCR repertoire overlaps between tumors and adjacent liver tissues or PBMCs were averagely 17.5% and 7.6%, respectively, consistent with previous observation (Figure 5B)[16].
+
+Across different tumors in individual cases, the vast majority of TCR clonotypes were restricted to each tumor, ranging from as few as 1.96% (P6) to at most 31% (P11) shared in all tumors (Figure 5C, Figure S11A).
+
+Morisita-Horn index (MHI), which calculated the composition and abundance of T-cell rearrangements, confirmed a lack of overlap in TCR repertoires among different patients with an MHI approaching 0.
+
+Except P1, MHI in IM patients (P5 and P8) was much higher than that in MO patients, showing a similar footprint of genome structure.
+
+In each patient, the genomic distance and MHI of different tumors were significantly and negatively correlated, indicating the smaller the genomic difference was, the more shared TCR spectrum was (Figure 5D).
+
+PARAGRAPH
+
+Comparison of the top VJ cassette combination and CDR3aa of each patient revealed that 80% (12/15) of patients carried at least one clonotype at a very high frequency in all tumors, corresponding to a certain VJ cassette combination[37].
+
+Such VJ cassette combination in tumors could also be detected in paired PBMCs at high frequency, like TRBJ2-7 -TRBV10(CDR3aa: CASSFRDSHYEQYF) in P5 and TRBJ2-3-TRBV11 (CDR3aa: CAWSVGLATDTQYF) in P7, implying that intratumor immune response in HCC could cause perturbations in peripheral T cells, which was prone for noninvasive monitoring through TCR-seq [37].
+
+The global VJ cassette combination clearly showed differences among different tumors in individual patients, with higher similarity in IM (P5 and P8) than MO, possibly owing to the differential immunogenicity caused by the inherited genetic imprint (Figure 5E).
+
+PARAGRAPH
+
+The diversity of TCR repertoires and expansion of specific T-cell clonotypes served as the readout of adaptive immune response.
+
+We used the numbers of expanded TCR clonotypes and TCR clonality to quantitatively describe the degree of expansion.
+
+Tumors in HighNo group had less expanded TCR (978.4 vs 1250.0, P=0.006) and more neoantigens (averagely 127 vs 85, P=0.045) than HighYes group (Figure S11B).
+
+The number of expanded TCRs in HighYes group, rather than HighNo group, negatively correlated with the number of neoantigens (r2=0.829, P=0.003) (Figure S11C).
+
+This could be explained by the assumption that higher negative selection pressure exerted by T cell population with more diverse TCR clonotypes led to neoantigen depletion in HighYes group, while neoepitopes in HighNo group failed to.
+
+Interestingly, clonal and subclonal neoantigens did not equally evoke effective immune response.
+
+In HighYes group, clonal rather than subclonal neoantigens significantly and negatively correlated with TCR expansion (Figure S11D), consistent with the findings in lung cancer[14].
+
+Even if T cells targeting specific subclonal neoantigens were generated, they could not sufficiently aim at all tumor cells, rendering overall tumor control inadequate.
+
+PARAGRAPH
+
+Only considering the level of immune infiltration is insufficient to access immune response.
+
+For example, high immune infiltration in P4 primary tumors does not spare him from rapid recurrence, probably due to high but unspecific T cell infiltration and APM alterations.
+
+Thus, we examined the prognostic value by integrating immunoscore, TCR clonality, immunoeditng and HLA LOH at patient level.
+
+Patients were classified into low evasion capacity group (uniformly high Immunoscore, high TCR clonality, low immunoediting score and no HLA LOH, n=4) or high group (at least one region satisfying one of the following criteria: low Immunoscore, low TCR clonality, little immunoediting or HLA LOH, n=11) (Figure 5F).
+
+Clinically, patients with low evasion capacity had a lower recurrence rate compared to those with high evasion capacity (P = 0.038) (Figure 5G).
+
+Validating the immune evasion model using TCGA HCC cohort showed that this status also significantly differed in survival (P=3.6E-04) and was identified as an independent prognosticator on multivariable analysis (hazard ratio [HR], 1.637; 95% confidence interval [CI], 1.244-2.596; P=0.002) (Table S7) (Figure 5H).
+
+Thus, it is necessary to consider the multi-facets of tumor-immune interaction within local microenvironment when predicting clinical outcomes.
+
+SECTION
+
+Characteristics of Virus-related TCR Repertoires in HCC
+
+PARAGRAPH
+
+Antigen-specific TCR repertoires were critical for recognition of virus.
+
+In our cohort, all the patients had HBV infection and one had HCV co-infection (P14).
+
+Our immunopeptidomes data showed that many HBV peptides, mainly those derived from protein P (57.5%, 291/506), were presented by MHC-I (Figure 6A).
+
+We hypothesized that specific CDR3 motifs shared among individuals may arise from common pathogen exposure and we analyzed non-tumor liver tissues to exclude the neoantigen and CT antigen interference.
+
+We indeed detected certain CDR3 related to hepatotropic virus infection such as HCV in P14_P, CMV in P8_P and EBV in P14_P (Figure 6B).
+
+After excluding these CDR3 sequences, the GLIPH algorithm[38] was used to cluster HBV-specific motifs in the rest CDR3 library of liver tissues.
+
+Most of the TCR sequences stimulated by HBV epitopes typically could be clustered into one or a few related TCR groups, mainly characterized by containing the motifs ENSP and SVL (Figure 6C).
+
+These data clearly showed that HBV exposure could undoubtedly lead to the prevalence of specific CDR3 motifs, favoring the identification of virus-related T cell antigens and HBV-specific T cells.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Intertumor heterogeneity varies considerably among HCC patients, not only at the genomic level but also within immune microenvironment.
+
+For those patients with multifocal tumors, analyzing a single tumor cannot completely characterize the immunogenomic features or even lead to misinterpretation.
+
+Herein, by comprehensive analysis of spatiotemporally distinct multifocal HCC, we revealed the clonal origin and evolutionary dynamics of each tumor, as well as its interplay with immune system, emphasizing the effect of tumor-immune interaction on immune surveillance and tumor evolution.
+
+Considering that synchronous multifocal lesions also prevail in other tumors [39-41], immunogenomic analysis in our study provides a further insight into the universal mechanism of multifocal lesions.
+
+PARAGRAPH
+
+Multifocal HCC, mainly IM and MO, displayed different genomic structures and evolutionary patterns.
+
+IM tumors exhibited strong metastatic potential and diverse patterns of metastasis, specifically linear and parallel spreading models.
+
+In contrast, the livers of MO patients were biased to carcinogenesis background through carcinogen exposure, MMR deficiency, genetic susceptibility etc.
+
+Portraying the evolutionary trajectories of multifocal HCC could help to evaluate the risk of metastasis and benefit patients’ clinical management.
+
+For example, efforts are needed to eliminate micro-metastases to prevent recurrences in IM, while ameliorating carcinogenic background could help to reduce new tumorigenesis in MO, such as antiviral treatment[3].
+
+PARAGRAPH
+
+Through analyzing the immunogenetic profile of multifocal HCC, our results advocate various strategies for immunotherapy, such as immune checkpoint blockade, neoantigen vaccination, adoptive T cell transfer and combinational immunotherapy.
+
+Considering that effectiveness of PD-1/PD-L1 pathway blockade relies on established adaptive immunity[42], tumors with sparse T cell infiltration (LowNo group, 7/47 tumors) are expected to have limited response.
+
+Alternatively, in tumors with dense TIL infiltration, such as MO, T cells activity may be inhibited by the high expression of PD-L1, which are suitable for checkpoint blockade.
+
+Likewise, in IM, infiltrated PD-1+ macrophages significantly contributed to an inhibitory microenvironment, where PD-1/PD-L1 blockade may restore anti-tumor function[43].
+
+Even under such ideal conditions, the widespread immunoediting and high prevalence of HLA LOH may still incapacitate checkpoint blockade.
+
+Consequently, TIL density and function alone are insufficient to predict effective immune response.
+
+More importantly, immune environment had imprints in tumor genome and constrained the evolutionary trajectory.
+
+IM tumors are basically exempted from immunoediting, acting as reservoirs of clonal diversity where malignant clones causing intrahepatic metastasis gradually emerge.
+
+Multiple mechanisms are supposed to be involved in this process, like PD-1+ M2 macrophages impeding T cell infiltration and HLA LOH interfering with neoantigen presentation.
+
+In contrast, some MO tumors (10/47) had indeed undergone immunoediting and had lower recurrence rates with high T cell infiltration.
+
+Therefore, the tumors that remained/progressed were either immune privileged, unedited, lower immunogenetic, or less TIL infiltrated.
+
+PARAGRAPH
+
+Combining neoantigen prediction with immunopeptidome, we have comprehensively characterized the MHC-I-presented antigen library.
+
+The efficacy of neoantigen therapy may significantly differ between IM and MO.
+
+For IM patients, neoantigen vaccines targeting trunk/clonal mutations are expected to eliminate all metastases, and even effectively prevent recurrence.
+
+In this regard, durable clinical benefits have been observed in intrahepatic cholangiocarcinoma, NSCLC, melanoma and glioblastoma using neoantigen vaccination[14,26,44].
+
+However, neoantigen effectiveness for MO may be limited by multiple factors: requirement for a bunch of clonal neoantigens for every lesion and vaccination failure for recurrences.
+
+Meanwhile, CT antigens, such as MAGEC2 and POTEE, had higher expression and these immunogenic peptides were proved to evoke epitope-specific T cell expansion in vitro, which represent more suitable targets.
+
+PARAGRAPH
+
+Moreover, such heterogeneous tumor-restricted neoantigen profiles of multifocal HCC induced heterogeneous TCR expansion which may impose immune selection.
+
+Immune elimination will not be initiated with low-quality expanded tumor-specific T-cell response, even with increased quantity of unspecific T cells[14], as is in HighNo group.
+
+This could partly explain the immune escape and higher recurrence rate in HighNo group.
+
+Considering that PBMC and corresponding tumors have a high degree of overlap in partial high frequency TCR, tracking TCR repertoires in PBMC may help understand the immunogenomics landscapes within the tumors, and serves as a potential biomarker for tumor progression and immunotherapy in HCC[37].
+
+PARAGRAPH
+
+In summary, our study comprehensively characterized the neoepitope landscape, T cell profiles and immunoediting status in multifocal HCC.
+
+Different tumors with heterogeneous immunogenomic status will be constrained under or escape immune surveillance.
+
+This study presents a novel insight into forces shaping malignant cell diversity and intrahepatic spread, and may accelerate personalized cancer immunotherapies for multifocal HCC.

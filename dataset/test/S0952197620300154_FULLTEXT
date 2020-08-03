@@ -1,0 +1,827 @@
+10.1016/j.engappai.2020.103500
+
+FULLTEXT
+
+TITLE
+
+Combined weighted multi-objective optimizer for instance reduction in two-class imbalanced data problem
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Instance reduction is one of the most important preprocessing steps in many machine learning tasks (Luan and Dong, 2018; Yang et al., 2019; Shakiba and Hooshmandasl, 2016).
+
+Because of the difficulties in handling the voluminous data, removing redundant, erroneous, or noisy instances is needed to perform before applying the data mining tasks such as instance-based learning methods, e.g., kNN and SVM.
+
+Instance reduction alleviates the high storage requirement and sensitivity to noise.
+
+Also, it decreases the complexity of computation needed to learn a high-quality classifier (Song and Chen, 2018; Yu et al., 2018).
+
+One of the most challenging areas in this field is handling between-class distributions (Wang and Mao, 2019).
+
+This means that the between-class distribution before and after data reduction should not be changed significantly.
+
+An inappropriate reduction method may eliminate more instances from one class, causing imbalanced data sets.
+
+PARAGRAPH
+
+Instance reduction from class-balanced data has been investigated in much research.
+
+However, there is a lack of studies on class-imbalanced data.
+
+Recently learning from imbalanced data has attracted a lot of attention due to the practical applications in many domains, such as computer vision, network intrusion detection, medical diagnosis, and fraud detection (Kaur et al., 2019).
+
+The two-class imbalanced data deal with data containing instances from two classes and instances from one class, majority class, outnumber instances from the other class, that is minority class.
+
+PARAGRAPH
+
+The problem of imbalanced data may cause some difficulties in learning tasks.
+
+Most of the studies employ traditional methods for learning from imbalanced data, but nevertheless, acceptable results may not be achieved because the traditional methods often give good coverage of the majority instances, but minority classes are neglected.
+
+Even if the obtained accuracy is significant, the result is not reliable because the cardinality of the minority class is very small compared to the cardinality of the majority class.
+
+Therefore, maintaining the between-class distribution is an important issue in the instance reduction problem.
+
+Although the minority class instances are typically essential in imbalanced data classification, they can be treated as outliers or noise.
+
+Accordingly, these instances should not be reduced when an instance reduction method is applied on imbalanced data sets.
+
+Hence, utilizing special methods is a necessity.
+
+PARAGRAPH
+
+Many different approaches have been proposed (Díez-Pastor et al., 2015b,a; Dong et al., 2018; Fernández et al., 2018b,a) to deal with the instance reduction for imbalanced data.
+
+Among them, one can mention data-level methods that can be categorized into two main groups: undersampling in which the size of the majority class is decreased (Prasad et al., 2019), and oversampling in which the size of the minority class is increased (Krawczyk et al., 2019), cost-sensitive (Ling et al., 2006), and ensemble-based methods (Galar et al., 2011).
+
+The evolutionary-based methods with integration of the undersampling techniques have been gained attention.
+
+Some studies suggest that evolutionary-based methods outperform the non-evolutionary models in both instance reduction (de Haro-García et al., 2018; García-Pedrajas et al., 2014; Wang et al., 2015) and imbalanced data sets analysis (García and Herrera, 2009).
+
+Krill Herd Algorithm (KHA), as one of the most potent evolutionary algorithms, has been applied widely in recent years and has been showing acceptable results (Jensi and Jiji, 2016; Adhvaryyu et al., 2017; Niu et al., 2017).
+
+This evolutionary algorithm can effectively explore/exploit the solution spaces of different landscapes and dimensionality, and finally, converge to acceptable regions within the solution space (Mozaffari et al., 2017).
+
+However, its global exploration ability is not as strong as its local exploration ability, and it cannot always converge rapidly.
+
+The modification of the KHA based on the chaotic concept has been presented for tackling this problem.
+
+PARAGRAPH
+
+In this paper, an evolutionary undersampling method for balanced and imbalanced data distributions is proposed.
+
+The proposed method generates a reduced set composed of those instances that enhance the performance of the classifiers.
+
+Also, it reduces the computational time needed to learn a classifier.
+
+The proposed method controls between-class distribution and protects minority class instances.
+
+PARAGRAPH
+
+In the proposed method, instance reduction is viewed as an unconstrained multi-objective optimization problem.
+
+By using the chaotic krill herd evolutionary algorithm, both the minority and majority class spaces are explored with the accelerated convergence.
+
+The krill individuals (instances) are evaluated by a new combined weighted fitness function regarding contradicting criteria: accuracy, Geometry mean (Gmean), and reduction rate.
+
+Note that accuracy and Gmean contradict the reduction rate.
+
+In some cases, accuracy and consequently Gmean go against the reduction rate, i.e., accuracy and Gmean are getting better while the reduction rate is getting low or vice versa.
+
+Utilizing the designed decision surface, the krill individuals that have the best fitness are found.
+
+The output of the proposed method is a set that is purged of those instances that decrease accuracy and Gmean.
+
+PARAGRAPH
+
+The rest of this paper is organized as follows.
+
+Section 2 reviews the related work.
+
+Section 3 elaborates on the proposed method, while the experimental results using benchmark data sets are presented in Section 4.
+
+A discussion on the conducted experiments is presented in Section 5.
+
+Finally, the conclusions and future work are drawn in Section 6.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+Instance reduction is a preprocessing step developed to enhance learning tasks, especially for instance-based methods that need to decide on storing instances that are preferable for generalization.
+
+Instance reduction has been rarely addressed in the context of two-class imbalanced data.
+
+Various methods have been developed to remove noisy and redundant instances from underlying balanced and imbalanced data sets.
+
+Instance Reduction Algorithm using Hyperrectangle Clustering (IRAHC) (Hamidzadeh et al., 2015) is one of the methods that removed interior instances.
+
+This method is based on a set of hyperrectangles.
+
+A kernel method proposed in Dornaika et al. (2016) deployed non-linear self-representation to find representatives in a given set of instances.
+
+One of the methods focused on data distribution was introduced in Liu et al. (2017).
+
+In this method, the centroid point would be shifting after the unevenly distributed vectors were removed off.
+
+Large Margin Instance reduction Algorithm (LMIRA) (Hamidzadeh et al., 2014) was proposed to keep border instances.
+
+In this method, the instance reduction process was formulated as a constrained binary optimization problem, and then it was solved by employing a filled function algorithm.
+
+In LMIRA, the core of instance reduction process was based on keeping the hyperplane that separates a two-class data with a large margin.
+
+Another instance reduction method based on the notion of relevant and border prototypes was proposed in Olvera-López et al. (2018).
+
+This method is applied over data sets described by nominal features.
+
+An incremental instance reduction method proposed in de Haro-García et al. (2019) uses boosting to obtain a subset of instances with a significant reduction rate.
+
+In this method, instances are incrementally added based on the weighting of them from the construction of the ensemble-based classifiers.
+
+Ensemble Margin Instance Selection (EMIS) (Saidi et al., 2018) is a method that uses an ensemble approach for instance reduction.
+
+Local Density-based Instance reduction (CDIS) (Carbonera and Abel, 2016) considers centroids or the instances of each class separately in order to keep densest instances.
+
+PARAGRAPH
+
+In class-imbalanced learning, traditional machine learning algorithms tend to maintain high reduction rate results, while degrading the classification accuracy results and vice versa.
+
+Therefore, they may achieve poor classification performance, especially for the minority class.
+
+Several strategies have been proposed to manage imbalanced class distribution.
+
+Broadly speaking, they can be categorized into two groups: data level that also referred to as resampling and cost-sensitive.
+
+Approaches at the data level modify the class distribution within the dataset to obtain an appropriate balance between classes.
+
+Data level methods can be categorized into two main groups: the undersampling and oversampling.
+
+The undersampling methods eliminate instances of the majority class, whilst the oversampling methods produce additional minority instances to increase the overall size of their class.
+
+SMOTE (Synthetic Minority Oversampling Technique) is a well-known method proposed for class imbalance problems (Han et al., 2005).
+
+This method uses k nearest neighbors to create synthetic examples of the minority class.
+
+SMOTEBoost is an oversampling method that combines SMOTE with AdaBoost (Chawla et al., 2003).
+
+RUSBoost is an undersampling method that combines SMOTE with AdaBoost (Seiffert et al., 2009).
+
+Cost-sensitive methods consider the misclassification costs to overcome the class imbalance problem.
+
+In these methods, the cost of misclassifying a minority class instance is greater than that of misclassifying a majority class instance to minimize the total misclassification cost (Sun et al., 2007).
+
+PARAGRAPH
+
+Recently, the evolutionary-based methods with integration of the undersampling techniques have been studied.
+
+EMOMFIS (Rosales-Pérez et al., 2017), as an evolutionary multi-objective method, utilizes a filter approach and the Pareto-based ensembles for instance reduction.
+
+This method is performed in five different ways: a global Pareto ensemble, error reduction, a complementary error reduction, maximized margin distance, and boosting.
+
+EPERNNID (Vluymans et al., 2016) is a hybrid method for imbalanced data.
+
+This method is an evolutionary instance reduction method that uses an ensemble method for the nearest neighbor classification of imbalanced data.
+
+Instance reduction-based under-sampling (Arnaiz-González et al., 2016) presents two approaches to adapt the family of DROP instance reduction methods for instance reduction.
+
+Adaptive Multi-Objective Swarm Crossover Optimization (AMSCO) (Li et al., 2018a) is the other method for imbalanced data set classification.
+
+This method presents two strategies: (1) optimization of majority instances method named Swarm Instance Selection (SIS(O-maj)) for majority class, and (2) optimization of minority instances method named Optimized Synthetic Minority OverSampling Technique (OSMOTE).
+
+A method presented in Acampora et al. (2018) is a Pareto-based multi-objective optimization approach that achieves an acceptable trade-off between SVM’s classification and reduction performance.
+
+In Li et al. (2018b), an information entropy-based instance reduction method for support vector data description, named IESRSVDD, was proposed.
+
+The probability of uncertainty for each instance is evaluated by using a distance metric, and the instances with higher entropy values are considered to be near the boundary of the data distribution in kernel space, and likely to become support vectors.
+
+Lin, Tsai, Hu and Jhang (Lin et al., 2017) proposed two under-sampling strategies based on the clustering method.
+
+The first strategy uses the cluster centers to represent the majority class, and the second strategy uses the nearest neighbors of the cluster centers.
+
+Monotonic Iterative Prototype Selection (MONIPS) (Cano et al., 2017) is a method for obtaining monotonic solutions specifically designed for the monotonic nearest neighbor rule.
+
+Multi-Objective Cataclysmic mutation and Heterogeneous reCombination algorithm (MOCHC) (Rathee et al., 2019) finds a Pareto-optimal set of solutions.
+
+This method utilizes a kNN algorithm for the task of classification.
+
+Extended Local Density-based Instance reduction (XLDIS) (Carbonera, 2017) adopts the notion of local density for selecting the most representative instances of each class of the data set.
+
+EFIS-MOEA (Fernández et al., 2017) is a Pareto-based ensemble method to manage the imbalanced class problem for two-class and multi-class imbalanced data sets and also to solve overlapping areas in data, simultaneously.
+
+The method proposed in Guo et al. (2018) applies instance and feature selection simultaneously to get small-scale and high-quality reduced data set.
+
+An improved random oversampling technique named RSMOTE is used to handle the degree of the imbalanced distribution.
+
+Also, an ensemble learning algorithm is utilized to combine multiple RSMOTE.
+
+A theoretical perspective on instance reduction for imbalanced data in relation to the geometric mean (GM) is proposed in Kuncheva et al. (2019).
+
+The method proposed in Tsai et al. (2019) utilizes clustering analysis and instance reduction combined to present an undersampling approach.
+
+Some other evolutionary instance reduction or data reduction methods are in Chen et al. (2015), Ardeh et al. (2017), Sadhu et al. (2016), Chen and Chen (2016) and Jamali et al. (2017).
+
+SECTION
+
+Proposed method
+
+PARAGRAPH
+
+The proposed method is designed for selecting a significant subset of instances from both two-class balanced data and two-class imbalanced data.
+
+Taking into account the high storage requirement, computational cost, and sensitivity to noise of instance-based learning methods, a new combined weighted multi-objective optimizer with the aim of obtaining the training set for a learning algorithm, e.g., kNN and SVM is introduced.
+
+PARAGRAPH
+
+In the proposed method, instance reduction is viewed as an unconstrained multi-objective optimization problem with a large solution space.
+
+There are two kinds of solutions for solving multi-objective problems: (1) multi-objective evolutionary algorithms, and (2) objective combinatorial optimization.
+
+In this paper, the second solution is applied.
+
+By using the chaotic krill herd evolutionary algorithm (CKHA), both the minority and majority class spaces are explored with the accelerated convergence.
+
+The krill individuals (instances) are evaluated by a new combined weighted fitness function.
+
+Utilizing the designed decision surface, the krill individuals that achieve the best fitness values are found.
+
+The proposed method is continued until termination conditions are not satisfied.
+
+The output of the proposed method is a set that is purged of those instances that decrease accuracy, and Geometry mean (Gmean).
+
+The proposed method controls between-class distribution and protects minority class instances.
+
+For better visualization, the block diagram of the proposed method is shown in Fig. 1.
+
+PARAGRAPH
+
+The remainder of this section is as follows: Since the proposed method utilizes the chaotic krill herd evolutionary algorithm, a brief background for this algorithm is presented in Section 3.1.
+
+The proposed decision surfaces are introduced in Section 3.2.
+
+The proposed instance selection method is described in detail in Section 3.3.
+
+SECTION
+
+Background: chaotic krill herd evolutionary algorithm
+
+PARAGRAPH
+
+Krill herd algorithm is one kind of the robust meta-heuristic method for solving the optimization problems.
+
+This algorithm includes three movements to follow the search directions (Mukherjee and Mukherjee, 2016):
+
+PARAGRAPH
+
+Eq. (1) is a Lagrangian model of these three movements. dXidt=Ni+Fi+Di
+
+where Ni, Fi, and Di are movement induced by other krill, foraging activity, and random diffusion corresponding for krill i, respectively.
+
+Also, t is considered as a generation.
+
+PARAGRAPH
+
+Motion induced by other krill: Target effect, local effect, and repulsive effect are three factors for calculating the direction of the first motion, αi.
+
+The model of this movement for ith krill is as follows: Ninew=Nmaxαi+ωnNioldαi=αilocal+αitarget where Nmax is the maximum speed, Niold is the previous motion, ωn is the inertia weight in [0, 1], αilocal and αitarget are the local effects, and target effect, respectively.
+
+PARAGRAPH
+
+Foraging activity: Two factors are applied in order to calculate this movement: the first one is the food location, and the second one is the information about the previous food location.
+
+Eq. (5) shows the velocity of the foraging for the ith.
+
+Fi=Vfβi+ωfFioldβi=βifood+βibest where Vf is the foraging speed, Fiold is the previous foraging activity, ωf is the inertia weight between 0 and 1, βifood is the food attraction, and βibest is the effect of the best fitness.
+
+PARAGRAPH
+
+Uniform random number production is vital in modeling complex phenomena.
+
+Chaos in a bounded pseudo-random certain manner that is not converged.
+
+In Chaotic Krill Herd evolutionary Algorithm (CKHA), ωn and ωf are calculated by chaotic functions.
+
+Adding this chaotic behavior helps KHA to escape from a local solution.
+
+The most important chaotic maps are shown in Table 1 (He et al., 2009).
+
+PARAGRAPH
+
+Random physical diffusion: Random physical diffusion is used in CKHA to enhance population diversity.
+
+Two factors of this movement are a maximum diffusion speed and a random vector, as shown in Eq. (6): Di=Dmaxδwhere Dmax is the diffusion speed, and δ is the random vector in [−1,1].
+
+Finally, the position of the ith krill in the time interval of t to t+Δt is shown as follows: Xi(t+Δt)=Xi(t)+ΔtdXidtwhere Δt is a key constant.
+
+SECTION
+
+Decision surfaces
+
+PARAGRAPH
+
+In the present subsection, three different decision surfaces are introduced.
+
+These decision surfaces are robust to noise and outliers.
+
+Each decision surface is fed with the population generated by CKHA.
+
+SECTION
+
+Weighted distance-based decision surface
+
+PARAGRAPH
+
+Weighted Distance-based Decision Surface (WDDS) is inspired by the linear decision surface proposed in Hamidzadeh et al. (2012).
+
+It is derived by determining the quadratic decision surface between two classes of instances, which is introduced as follows.
+
+WDDS is based on the distance between the unclassified instance x and instances of two classes.
+
+Let d1(x,xi) denotes the distance of the input instance x to the training instance xi of the first class and d2(x,xj) denotes the distance of the input instance x to the training instance xj of the second class.
+
+As a recall, the squared Euclidean distance between two vectors dx,xiwith D dimensions is defined as follows: dx,xi=∑d=1D(xd−xid)2The goal is to determine the decision surface in a way that the average distances from the two classes become equal.
+
+Hence, Eq. (9) is employed to determine the decision surface. 1n1∑i=1n1wid1(x,xi)=1n2∑j=1n2wˆjd2(x,xj)
+
+where n1 and n2 are used as the number of training instances for the first and second classes, respectively.
+
+In the above equation, w is a degree related to a number of xi’s neighbors; in other words, it is a normalized number of neighbors of an instance of a class in a neighborhood radius.
+
+This degree is accommodated for noisy data.
+
+The deficiency of using Eq. (9) is when there is a big difference between the numbers of instances of two classes.
+
+Thus, to eliminate this deficiency, the available data in both classes should be normalized.
+
+One way suggested to overcome this problem is to divide both sides of Eq. (9) by the number of training instances.
+
+Because of the squared Euclidean distance, the number of training instances of each class n1,n2 is stated in the square form.
+
+Thus, Eq. (10) yields: 1n1(1n1∑i=1n1wid1(x,xi))=1n2(1n2∑j=1n2wˆjd2(x,xj))In the proposed method, kernel methods are applied to compute the distance between instances.
+
+Hence, D(ϕ(x),ϕ(xi)) is used instead of d(x,xi) since φ maps the instances into a high dimensional feature space.
+
+Kernel methods can be employed to transform instances into a high dimensional space.
+
+In the high-dimensional space, various methods can be employed to separate instances linearly.
+
+By considering d(x,xi)=‖x−xi2‖=(x−xi)T(x−xi) as 2-norm distance, Eq. (11) is derived: D(ϕ(x),ϕ(xi))=ϕ(x)Tϕ(xi)=(ϕ(x)−ϕ(xi))T(ϕ(x)−ϕ(xi))By substituting d(.) in Eq. (10) with Eq. (11), Eq. (12) is achieved. n22×∑j=1n1wi(ϕ(x)−ϕ(xi))T(ϕ(x)−ϕ(xi))=n12×∑j=1n2wˆj(ϕ(x)−ϕ(xj))T(ϕ(x)−ϕ(xj))
+
+Considering k(x,xi) as kernel function, which is defined as k(x,xi)=(ϕ(x),ϕ(xi)).
+
+Then: (ϕ(x)−ϕ(xi))T.(ϕ(x)−ϕ(xi))=(ϕ(x).ϕ(x))−2(ϕ(x).ϕ(xi))+(ϕ(xi).ϕ(xi))=k(x,x)−2k(x,xi)+k(xi,xi)
+
+PARAGRAPH
+
+Substituting (ϕ(x)−ϕ(xi))T(ϕ(x)−ϕ(xi)) in Eq. (12) with Eq. (14) gives: n22×∑i=1n1wik(x,x)−2k(x,xi)+k(xi,xi)=n12×∑j=1n2wˆj[kx,x−2k(x,xj)+k(xj,xj)]Radial Basis Function (RBF) kernel is used, as shown in Eq. (15).
+
+K(x,y)=exp(−‖x−y‖22σ2)where σ is an adjustable parameter in the RBF kernel.
+
+It is trivial to prove that K(x, x) =1.
+
+As a result of using this kernel function, a nonlinear decision surface is obtained, as shown in Eq. (16). n22×∑i=1n1wi2−2exp(−‖x−xi‖22σ2)−n12×∑j=1n2wˆj[2−2exp(−‖x−xj‖22σ2)]=0
+
+PARAGRAPH
+
+Now, an instance will be classified based on this decision surface.
+
+SECTION
+
+Class average decision surface
+
+PARAGRAPH
+
+Another designed decision surface is Class Average (CA).
+
+In CA, first, the averages of the classes are computed using training data as follows.
+
+Ci=1ni∑j=1nixj,wherei=1,2where ni, Ci, and xj are used as the number of training instances class i, the average of class i and an instance of class i, respectively.
+
+Finally, the distance between test instances and class average decides on the label of the inputs.
+
+SECTION
+
+Class median decision surface
+
+PARAGRAPH
+
+The third designed decision surface is named Class Median (CM).
+
+In CM, as shown in Eq. (18), the median of each class is applied instead of the average of each class.
+
+Mi=median(xi),wherei=1,2where Mi and xi are used as the median of class i and an instance of class i, respectively.
+
+PARAGRAPH
+
+In this paper, regarding the three decision surfaces, three instance reduction methods are introduced: (1) Instance reduction based on CKHA using WDDS (ISCKHAD), (2) Instance reduction based on CKHA using CA (ISCKHAA), and (3) Instance reduction based on CKHA using CM (ISCKHAM).
+
+Now, the proposed method is described in detail.
+
+SECTION
+
+Proposed instance selection method
+
+PARAGRAPH
+
+In the present paper, the focus is on the instance reduction for two-class imbalanced data, in which one class forms the majority and the other forms the minority.
+
+As an efficient solution, a multi-objective problem with multiple conflicting criteria: accuracy, Gmean (it is used as an accuracy metric), and reduction rate — is designed.
+
+Gmean is one of the most important evaluation criteria for imbalanced data because it measures the accuracies of both minority and majority, simultaneously.
+
+Therefore, high Gmean value guarantees high accuracy for both minority and majority classes.
+
+Note that both higher classification accuracy/Gmean and a satisfactory data reduction rate imply better performance.
+
+However, accuracy and Gmean contradict the reduction rate.
+
+In some cases, accuracy and consequently Gmean go against the reduction rate, i.e., accuracy and Gmean are getting better while the reduction rate is getting low or vice versa.
+
+PARAGRAPH
+
+It is noticeable that high accuracy in imbalanced data often occurs due to the high accuracy of the majority class.
+
+Regarding this matter, the proposed method tends to enhance the classification accuracy and Gmean results and meanwhile increase the reduction rate for the majority class with minimum computation time.
+
+At the same time, it tends to minimize the reduction rate from the minority class.
+
+The proposed method preserves between-class distributions in a balanced data set and keeps minority class instances in the imbalanced data set.
+
+PARAGRAPH
+
+The proposed method starts with randomly selected krill individuals (instances).
+
+The binary presence–absence array is an idea for coding the solution space in instance reduction problems.
+
+Accordingly, there are many binary arrays that each of them can be considered as a candidate solution.
+
+In a binary array, all instances are scored as either present (1) or absent (0), e.g., assume that there are 20 instances in a data set.
+
+Therefore, the solutions to the problem are binary arrays in the length of 20.
+
+Fig. 2 illustrates an arbitrary array wherein 1st, 2nd, 6th, 8th, 12th, 14th, 18th, and 19th instances have remained, and the others are removed.
+
+PARAGRAPH
+
+Since the global exploration ability of the KHA algorithm is not as strong as its local exploration ability, the algorithm cannot always converge rapidly.
+
+To improve the performance of KHA, the chaotic theory is integrated into the KHA, as mentioned before, in Section 3.1.
+
+PARAGRAPH
+
+The krill individuals (instances) are evaluated by a new combined weighted fitness function.
+
+The proposed fitness function includes three criteria with different contributions: accuracy, Gmean, and reduction rate.
+
+These criteria are obtained through the designed decision surface (see Section 3.2).
+
+Accordingly, the designed decision surface is fed with krill individuals.
+
+The decision surface evaluates the krill individuals by the combined weighted fitness function (see Eq. (19)).
+
+F(x)=W1accuracy+W2Gmean+W3P1ReductionMinority_class+P2ReductionMajority_classwhere W1,W2 and W3 are the three weights of the evaluation criteria; accuracy (see Eq. (21)), Gmean (see Eq. (21)), and reduction rate (see Eq. (22)) where ∑i=13Wi=1.
+
+P1 and P2 imply the penalties of minority and majority class reduction rate, respectively, where ∑i=12Pi=1 and P1<P2.
+
+These two parameters P1,P2 are applied to protect minority class instances.
+
+Under the circumstance P1<P2, drastic removal from instances of minority class is prevented.
+
+The difference between P1 and P2 depends on the imbalanced rate in the data set.
+
+Accuracy and Gmean are calculated by Eqs. (21) and (21), respectively: accuracy=TP+TNTP+TN+FP+FNGmean=TP×TN where TP is true positive (actually target instance predicted as target instance), FP is false positive (actually non-target instance predicted as target instance), FN is false negative (actually target instance predicted as non-target instance), and TN is true negative (actually non-target instance predicted as non-target instance).
+
+Also, reduction rate is calculated by Eq. (22): Reductionrate=T−RTwhere T is an original training set, and R is a set of remaining instances.
+
+PARAGRAPH
+
+As long as the procedure converges and all generations of a population are computed, the krill individuals that have the highest fitness values encode the solutions.
+
+The solutions yield a reduced data set.
+
+It should be noted that regarding the experimental results that are mentioned in the next section, the performances of two other proposed methods (ISCKHAA and ISCKHAM) are weaker than the performance of ISCKHAD.
+
+Therefore, the pseudo-code of the ISCKHAD is just presented in Fig. 3.
+
+SECTION
+
+PARAGRAPH
+
+Experimental results
+
+PARAGRAPH
+
+In this section, the experimental results of the proposed method are compared with some state-of-the-art methods.
+
+Thorough experiments have been conducted on three scenarios: Scenario 1, expressed in Section 4.1, contains balanced data sets experiments.
+
+Scenario 2, represented in Section 4.2, contains imbalanced data sets experiments.
+
+Finally, scenario 3, elaborated on Section 4.3, contains synthetic imbalanced data set experiments.
+
+Since the focus of the proposed method is on two-class problems, two-class data sets were collected from the UCI repository (Blake, 1998).
+
+The characteristics of these data sets are presented in Tables 2–3.
+
+In these tables, #instances and #features denote the number of instances and the number of data features, respectively.
+
+Besides, class #1 and class #2 are the percentages of instances in classes 1 and 2, respectively.
+
+PARAGRAPH
+
+The experiments have been performed using Matlab R2014a on the Intel processor with 2.7 GHz and 8 GB RAM.
+
+In all experiments, reduced data sets are classified by SVM (LibSVM (Chang and Lin, 2011)), and the analyses are based on 10-fold cross-validation in which for each fold, the training data set is reduced using the proposed method.
+
+This validation technique not only removes the dependency of the instances but also proves the results are not random.
+
+The experiments are performed using the sinusoidal map as a chaotic function.
+
+The parameters’ values listed in Table 4 were determined empirically regarding our previous papers (Moghaddam and Hamidzadeh, 2016; Hamidzadeh and Namaei, 2018; Sadeghi and Hamidzadeh, 2016).
+
+PARAGRAPH
+
+To test the proposed methods (ISCKHAA, ISCKHAM, and ISCKHAD), some of the state-of-the-art methods like EMOMFIS (Rosales-Pérez et al., 2017), IESRSVDD (Li et al., 2018b), MONIPS (Cano et al., 2017), MOCHC (Rathee et al., 2019), CDIS (Carbonera and Abel, 2016), and XLDIS (Carbonera, 2017), are selected as the compared methods in scenario 1.
+
+Also, EPERNNID (Vluymans et al., 2016), clustering-based under-sampling (Lin et al., 2017), and instance reduction-based under-sampling (Arnaiz-González et al., 2016) are selected as the compared methods in scenario 2.
+
+PARAGRAPH
+
+For the simulations of the proposed method, in all experiments, the number of generations was set to 100, the number of population size was set to 100, the crossover rate was set to 0.9, the mutation rate was set to 0.1, and the RBF kernel was used.
+
+The variance σ of the RBF kernel was set to 0.5.
+
+The termination conditions are (1) when the iteration reaches an absolute number of generations, or (2) there has been less than 0.005 improvements in the objective function value.
+
+For fair comparisons between methods, in all experiments, the value of each parameter is cited from the corresponding papers.
+
+PARAGRAPH
+
+To compare the methods, they are ranked among all the methods for each data set.
+
+The ranks of each result are presented in parenthesis in which the best ranks are bold.
+
+Also, the average ranks of the methods are listed.
+
+Moreover, a statistical significance analysis is performed by considering the non-parametric Wilcoxon signed-rank (a paired, two-sided signed-rank test) test to derive fairly strong conclusions (Sheskin, 2003).
+
+Additionally, the Wilcoxon T test is calculated, and the test statistic is reported as a value of ‘T’.
+
+Wilcoxon signed-rank test determines whether the improvement in ISCKHAD, which shows stronger results than ISCKHAA and ISCKHAM, is relevant.
+
+A significance level 0.05 has been considered for the analysis.
+
+The Wilcoxon signed-rank tests comprise of the p-value of the Wilcoxon signed-rank test and hypothesis testing, which is declared in brackets.
+
+Regarding a specific criterion, the hypothesis test ‘[1]’ indicates a rejection of a null hypothesis, i.e., it represents that ISCKHAD significantly improves over the other competing methods.
+
+Whilst, the hypothesis test ‘[0]’ indicates a failure to reject the null hypothesis, which shows that there is no difference between the proposed method and the other competing methods.
+
+SECTION
+
+Scenario 1
+
+PARAGRAPH
+
+Scenario 1 is designed to evaluate the efficiency of the instance reduction methods on balanced data sets.
+
+To have a better insight into the necessity of instance reduction, the accuracy and computational time of the SVM classifier conducted on various non-reduced balanced data sets are briefed in Table 5.
+
+PARAGRAPH
+
+To improve generalization accuracy by removing redundant instances and save computational time, the instance reduction methods have been implemented, and some experiments have been performed for comparing four evaluation criteria: reduction rate, accuracy, effectiveness, and computational time.
+
+PARAGRAPH
+
+The average reduction rate of the proposed methods (ISCKHAM, ISCKHAA, and ISCKHAD) are compared with EMOMFIS (Rosales-Pérez et al., 2017), IESRSVDD (Li et al., 2018b), MONIPS (Cano et al., 2017), MOCHC (Rathee et al., 2019), CDIS (Carbonera and Abel, 2016), and XLDIS (Carbonera, 2017).
+
+As shown in Table 6, ISCKHAD achieves the best average ranks.
+
+The Wilcoxon test results in the last row denote the superiority of ISCKHAD.
+
+Also, the hypothesis test (Luan and Dong, 2018) in the last row of Table 6 indicates that there is a significant difference between ISCKHAD and all the other methods.
+
+PARAGRAPH
+
+For evaluating the accuracy of the classification of new instances, the SVM classifier is applied.
+
+As can be seen in Table 7, ISCKHAD achieves the best average rank.
+
+However, the Wilcoxon test results show there is no significant difference between ISCKHAD, MONIPS, and ISCCKHAM.
+
+PARAGRAPH
+
+Another measure that is employed for comparison is effectiveness (defined as effectiveness=accuracy×reduction).
+
+This measure implies the trade-off between both accuracy and reduction rate (Carbonera and Abel, 2015).
+
+As shown in Table 8, ISCKHAD has the lowest average rank.
+
+Also, the results of the Wilcoxon test show that ISCKHAD significantly improves classification performance in terms of effectiveness.
+
+PARAGRAPH
+
+As shown in Table 9, the computational time has been reported to assess the dynamics of the proposed method.
+
+As the average ranks indicate, ISCKHAD can significantly reduce the computational time.
+
+PARAGRAPH
+
+As mentioned before, the proposed method aims to control the between-class distribution in the balanced data.
+
+Fig. 4 shows the data distribution in each class before and after the instance reduction by using ISCKHAD.
+
+It is apparent that the proposed method tries to support between-class distributions, and there are no drastic changes in the distribution rates of data sets.
+
+SECTION
+
+PARAGRAPH
+
+Scenario 2
+
+PARAGRAPH
+
+In the second scenario, imbalanced data sets are analyzed.
+
+The proposed method is compared with methods introduced in EPRENNID (Vluymans et al., 2016), IS + Undersampling (Arnaiz-González et al., 2016), and cluster+undersampling (Lin et al., 2017).
+
+For a clearer understanding of the necessity of instance reduction, the Gmean and computational time of SVM classifier conducted on various non-reduced imbalanced data sets are briefed in Table 10.
+
+PARAGRAPH
+
+Table 11 shows the Gmean and reduction rate for the proposed method and other competing methods.
+
+For evaluating the Gmean of the classification of new instances, the SVM classifier is applied.
+
+As shown below, ISCKHAD achieves acceptable Gmean value and reduction rate in comparison with the other methods based on the average ranks.
+
+Further, ISCKHAD is better than the other methods with a significant difference in the reduction rate based on the Wilcoxon test.
+
+Although, the Wilcoxon signed-rank test shows there are no statistically significant differences between ISCKHAD with EPRENNID [61] and cluster+undersampling [40] in terms of Gmean value.
+
+PARAGRAPH
+
+Moreover, the effectiveness measure (defined as effectiveness=Gmean×reduction) is used to compare the performance of ISCKHAD and the other methods in Table 12.
+
+Overall, ISCKHAD exhibits good results in both Gmean value and instance reduction rates.
+
+As shown in Table 12, ISCKHAD outperforms the other methods in terms of effectiveness.
+
+As mentioned before, there is a significant difference between ISCKHAD with EPRENNID and cluster+undersampling in Gmean.
+
+However, the average ranks and the Wilcoxon test show the superiority of ISCKHAD.
+
+PARAGRAPH
+
+As shown in Table 13, the computational time has also been reported to assess the dynamics of the proposed method.
+
+As the average ranks indicate, ISCKHAD can significantly reduce the computational time.
+
+PARAGRAPH
+
+The proposed method aims to keep minority class instances in the imbalanced data set.
+
+Fig. 5 shows the improvement of the imbalance rate in the data set, by using ISCKHAD.
+
+In this figure, the between-class distribution rate before and after instance reduction are shown.
+
+Generally, there are some improvements in data distribution when data are reduced by ISCKHAD
+
+SECTION
+
+PARAGRAPH
+
+Scenario 3
+
+PARAGRAPH
+
+To check the applicability and efficiency of the proposed method to deal with data sets that involve a high number of features and instances, synthetic data are generated.
+
+The randomly generated synthetic data sets have a standard normal distribution (with zero mean and unit variance).
+
+The data scales of the order of thousands of instances are examined (20000, 25000, 30000, 35000, and 40000).
+
+The number of features is set to range in number from 20 to 50 (20, 30, 40, and 50).
+
+In the synthetic balanced data set, the ratio between the minority and the majority class is set as high as 30:70, 40:60, and 45:55.
+
+Also, for the imbalanced data set, this ratio is set to 1:25, 1:50, 1:70, and 1:100.
+
+Regarding these settings, the experiments are conducted on 60 synthetic balanced data sets and 80 synthetic imbalanced data sets.
+
+PARAGRAPH
+
+The results of changing the ratio between the minority and the majority class on synthetic balanced data sets are demonstrated in Fig. 6 for different dimensions.
+
+The horizontal axis (x-axis) indicates the ratio between the minority and the majority class, while the vertical axis (y-axis) represents the classification accuracy percentage for SVM.
+
+As can be seen, when the ratio between the minority and the majority class is increased, the accuracy goes up.
+
+Also, when the number of features is increased, the accuracy goes down.
+
+PARAGRAPH
+
+The results of changing the ratio between the minority and the majority class on synthetic imbalanced data sets are demonstrated in Fig. 7 for different dimensions.
+
+The horizontal axis (x-axis) indicates the ratio between the minority and the majority class, while the vertical axis (y-axis) represents the classification Gmean percentage for SVM.
+
+As can be seen, when the ratio between the minority and the majority class is decreased, the Gmean goes down.
+
+Also, when the number of features is increased, the Gmean goes down.
+
+SECTION
+
+PARAGRAPH
+
+Discussion
+
+PARAGRAPH
+
+The comparison of the results obtained from Tables 5 and 10 with Tables 7, 9, 11, and 13 proves the contributions of the instance reduction methods on increasing the accuracy and alleviating the computational time of the instance-based classifier.
+
+As the experimental results on both balanced and imbalanced data sets show, ISCKHAD achieves the highest accuracy/Gmean in most of the data sets.
+
+Besides, it provides high reduction rates due to its capability for removing redundant and noisy data.
+
+Hence, it is capable of saving border instances.
+
+ISCKHAD has the best trade-off between the reduction of the data set and the accuracy/Gmean of the classification among the instance reduction methods.
+
+The main improvement of ISCKHAD is due to keeping the border instances that are necessary for performing the learning process.
+
+Furthermore, ISCKHAD has low computational time because it does not search for the significant instances in the whole data sets; it just tries feasible solutions.
+
+Regarding the chaos embedded in KHA, the chaotic motion in a search space avoids the premature convergence to a local solution.
+
+PARAGRAPH
+
+For balanced data sets, as the ratio between minority and majority class increases, the accuracy tends to increase.
+
+In this case, if the number of features increases, the accuracy tends to decrease.
+
+PARAGRAPH
+
+For imbalanced data sets, as the ratio between minority and majority class decreases, Gmean tends to decrease.
+
+In this case, if the number of features increases, Gmean tends to decrease.
+
+As a consequence of using the distance-based metric in the decision surface (WDDS), the experiments indicate that ISCKHAD does not perform well when the number of features increases.
+
+SECTION
+
+Conclusions and future work
+
+PARAGRAPH
+
+In the present paper, an improved evolutionary algorithm is designed to remove noisy and redundant data.
+
+The proposed method, as a combined weighted multi-objective optimizer, is established such that it controls between-class distribution and protects minority class instances.
+
+In this paper, three decision surfaces, WDDS, CA, and CM are introduced and compared with other methods.
+
+The experimental results show that ISCKHAD (the proposed instance reduction method that uses WDDS as its decision surface) provides the best reduction rates and the best balance between accuracy/Gmean and reduction, with low time complexity, compared with other methods.
+
+The experimental results also show that the ISCKHAD is much more aggressive in removing redundant instances.
+
+Besides, the experimental results show ISCKHAD maintains between-class distribution for balanced data as well as improves the imbalance rate in the imbalanced data.
+
+The proposed method is powerful, but it does have its limitations.
+
+Because of using the distance-based metric in the decision surface (WDDS), ISCKHAD does not perform well when the number of features increases.
+
+ISCKHAD is an offline method and works on normal size data set.
+
+Moreover, the proposed method is based on two-class data sets and does not cover multi-class data sets.
+
+PARAGRAPH
+
+As future work, the proposed method will be applicable to huge or high dimensional data.
+
+So, the combination of instance reduction method and feature selection techniques will be studied.
+
+Also, the authors intend to study on multi-class imbalance problems.
+
+As regards the capability of the evolutionary algorithms for instance reduction and imbalanced learning, future work will be based on a multi-objective evolutionary algorithm to manage both accuracy and reduction rate properly.
+
+Besides, the other chaotic functions will be evaluated in the future work.
+
+Since in the proposed method, multiple objectives are concerned, the future work can be performed by the Pareto-based solutions to combine a set of solutions into a single ensemble.
+
+Finally, the authors have decided to improve the proposed method in a real-time manner.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Javad Hamidzadeh: Conceptualization, Methodology, Validation, Investigation.
+
+Niloufar Kashefi: Software, Writing - original draft, Resources.
+
+Mona Moradi: Software, Data curation, Writing - review & editing.

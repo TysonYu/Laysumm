@@ -1,0 +1,1137 @@
+10.1016/j.engappai.2019.103369
+
+FULLTEXT
+
+TITLE
+
+A population-based iterated greedy algorithm for no-wait job shop scheduling with total flow time criterion
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In recent years, shop scheduling has been extensively studied, and enormous progress has been made in complicated flow shop and job shop scheduling (Li et al., 2019, 2014).
+
+In the traditional job shop scheduling problem (JSP), it is assumed that when a job completes a prior operation, the posterior operation does not have to be processed promptly because the job is allowed to be stored.
+
+However, there are numerous real production environments where a job has to be processed continuously until its last operation once it is started.
+
+Hence, no waiting time is allowed between any two consecutive operations of a job.
+
+Such no-wait constraints widely exist in the steel-making industry (Pinedo, 2016; Tang et al., 2000), concrete manufacturing (Grabowski and Pempera, 2000; Deng et al., 2015), chemical and pharmaceutical industries (Rajendran, 1994), food industry (Hall and Sriskandarajah, 1996), etc.
+
+A steelmaking continuous casting process generally consists of several production stages, including the steel melting process and the steel solidifying process.
+
+The heated steel must continuously go through a sequence of operations before it is cooled.
+
+Another example of the no-wait constraints is the food industry, where the canning operation has to immediately follow the cooking to ensure freshness.
+
+The job shop problem with the no-wait constraint is called the no-wait job shop scheduling problem (NWJSP), which is considerably different from the JSP because of the former’s no-wait characteristics.
+
+PARAGRAPH
+
+The no-wait job shop scheduling problem has gained the increasing attention of researchers in previous decades.
+
+With regard to its complexity, the NWJSP is a non-deterministic polynomial time (NP)-hard problem to a considerable degree (Lenstra et al., 1977).
+
+Sahni and Cho (1979) proved that it is strongly NP-hard even for two machine cases.
+
+In an earlier research report on solving the NWJSP, Kubiak (1989) proposed a pseudo-polynomial time algorithm to minimise the makespan for the problem with two machines.
+
+Hall and Sriskandarajah (1996) later provided a remarkable review and emphasised the difficulty of the NWJSP especially for large-size cases.
+
+Mascis and Pacciarelli (2002) studied the characteristics of the problem, formulated it as an alternative graph resembling the disjunctive graph of the JSP, and proposed several heuristics and a branch-and-bound method for the problem.
+
+Woeginger (2004) investigated the approximability of the problem and showed the complexity of the problem for two and three machines.
+
+Bansal et al. (2005) also studied the problem with two machines and demonstrated the use of a polynomial time approximation algorithm. van den Broek (2009)
+
+formulated the problem as a mixed-integer programme and presented a branch-and-bound method.
+
+PARAGRAPH
+
+Metaheuristics have been commonly used by researchers as approaches to solve the NWJSP.
+
+The pioneer work conducted by Macchiaroli et al. (1999) decomposed the problem into two subproblems and presented a two-phase tabu search algorithm and showed its enhanced results as compared with dispatching rules.
+
+Schuster and Framinan (2003) tackled the problem by introducing a variable neighbourhood search (VNS) algorithm, as well as a hybrid simulated annealing/generic algorithm (GASA).
+
+A fast tabu search method and complete local search with memory (CLM), presented by Schuster (2006) and Framinan and Schuster (2006), respectively, both attained excellent performance for the problem.
+
+Zhu et al. (2009) proposed a complete local search with limited memory (CLLM) and showed its superiority over the VNS, GASA, and CLM algorithms.
+
+A modified complete local search with memory (MCLM) was later developed by Zhu and Li (2012), who showed its incomparable superiority over the CLM and CLLM methods.
+
+Most recently, in the complete local search with memory and variable neighbourhood structure (CLMMV) developed by Li et al. (2016), the CLLM was strengthened by integrating the variable neighbourhood structures.
+
+Sundar et al. (2017) proposed a hybrid artificial bee colony (HABC) algorithm for the problem and stated that the HABC is better than the CLLM and MCLM.
+
+Several other approaches, such as the hybrid genetic algorithm (Pan and Huang, 2009), hybrid tabu search (Bozejko and Makuchowski, 2009), genetic algorithm with automatic adjustment (Bozejko and Makuchowski, 2011), neuro-evolutionary variable neighbourhood search (Mokhtari, 2014), branch-and-bound method and particle swarm optimisation (Aitzai et al., 2016) have been proposed.
+
+Samarghandi et al. (2013) studied the effect of different combinations of timetabling with sequencing algorithms for the problem.
+
+Most recently, Bürgy and Gröflin (2013) proposed an effective approach based on optimal job insertion, and thereafter, extended the approach to other objectives (Bürgy and Gröflin, 2016).
+
+Deng et al. (2019) studied the total flow time criterion for the problem and proposed an effective hybrid discrete group search optimiser (HDGSO).
+
+PARAGRAPH
+
+The above research is primarily focused on the minimisation of the makespan.
+
+However, effective approaches remain limited, especially for some other criteria, such as total tardiness and total flow time.
+
+Therefore, it is significant to develop high-performing algorithms for the problem with other criteria in both theory and engineering application.
+
+To the best of our knowledge, practically all existing metaheuristics for the NWJSP are based on the concept of decomposition in which the problem is decomposed into timetabling and sequencing subproblems, as proposed by Macchiaroli et al. (1999).
+
+Similarly, to handle the problem with the total flow time criterion, it is formulated based on time difference and decomposed into two subproblems.
+
+Considering that the sequencing subproblem is the same as the permutation flow shop problem (PFSP) to a certain degree, metaheuristics used in the PFSP are totally applicable to the NWJSP.
+
+As an effective and efficient procedure, the iterated greedy (IG) algorithm originally presented by Ruiz and Stutzle (2007) has gained a host of successful applications in various scheduling environments, such as multi-objective flow shop scheduling problem (Minella et al., 2011), mixed no-idle permutation flow shop scheduling problem (Pan and Ruiz, 2014), single machine total tardiness scheduling (Deng and Gu, 2014), multi-objective unrelated parallel machine scheduling (Lin et al., 2016), blocking job shop scheduling problem (Pranzo and Pacciarelli, 2016), blocking flow shop scheduling problem (Tasgetiren et al., 2017), scheduling unrelated parallel batch machines with non-identical capacities and unequal ready times (Arroyo and Leung, 2017), distributed no-wait flow shop scheduling problem (Shao et al., 2017), job shop scheduling with job families and sequence-dependent set-ups (Kim et al., 2017), identical parallel machine scheduling to minimise total tardiness (Lee, 2018), distributed flow shop scheduling problem (Ruiz et al., 2019), and total tardiness parallel blocking flow shop scheduling problem (Ribas et al., 2019).
+
+Pan and Ruiz (2012a) developed a population-based iterated greedy algorithm (PIGA) and showed its effectiveness in solving flow shop scheduling problem with flow time minimisation.
+
+PARAGRAPH
+
+On one hand, like the traditional JSP, the NWJSP can be formulated as a mixed-integer programme and solved by branch-and-bound method.
+
+On the other hand, unlike the metaheuristics for the traditional JSP, most of the metaheuristics for the NWJSP adopt the decomposition idea in Macchiaroli et al. (1999).
+
+The differences among all those metaheuristics for the NWJSP mainly lie in the timetabling methods used for the timetabling subproblem and especially the searching paradigm of the algorithm used for the sequencing subproblem.
+
+PARAGRAPH
+
+The foregoing motivated us to adapt the IG for the sequencing subproblem with the total flow time criterion.
+
+The following key elements are introduced to the iterated greedy algorithm: a destruction and construction perturbator, an insertion-based local search, and an evolving scheme based on population.
+
+A population-based iterated greedy (PBIG) algorithm is proposed for the total flow time minimisation in the no-wait job shop.
+
+Moreover, the Nawaz–Enscore–Ham (NEH) heuristic (Nawaz et al., 1983), originally presented for the PFSP, is extended in the NWJSP for the first time.
+
+PARAGRAPH
+
+The rest of the paper is organised as follows.
+
+Section 2 explains the formulation of the NWJSP with the total flow time criterion and its decomposition into two subproblems.
+
+Section 3 discusses the extensions made on several timetabling methods to the considered total flow time criterion.
+
+The proposed PBIG algorithm is then presented as an approach for the sequencing subproblem in Section 4.
+
+Section 5 discusses the investigation made on the performances of the NEH-based heuristics, along with the performances of several timetabling methods.
+
+It also elaborates on the comparison of the proposed algorithm with some other metaheuristics.
+
+Finally, Section 6 summarises the conclusions and directions of our future work.
+
+SECTION
+
+NWJSP with total flow time criterion
+
+SECTION
+
+Problem statement
+
+PARAGRAPH
+
+In a no-wait job shop, there are a set of machines and a set of jobs which have to be processed on the machines.
+
+Each job has its set of operations, and each operation is characterised by the machine on which it is processed, as well as the processing time that the operation requires.
+
+The following assumptions hold.
+
+(1) Each job has its own operation sequence, which indicates its own processing route.
+
+(2) No operation can be interrupted once started.
+
+(3) No job can be processed on more than one machine simultaneously.
+
+(4) No machine can process more than one job simultaneously.
+
+(5) No job is allowed to re-enter previous machines.
+
+(6) No waiting time is allowed between two consecutive operations of the same job.
+
+PARAGRAPH
+
+The objective is to identify a feasible schedule that minimises the sum of all job completion times, namely, the total flow time.
+
+SECTION
+
+Problem formulation
+
+PARAGRAPH
+
+To formulate the above NWJSP, the following notations are used.
+
+PARAGRAPH
+
+m: number of machines
+
+PARAGRAPH
+
+n: number of jobs
+
+PARAGRAPH
+
+M={M1,M2,…,Mm}: set of m machines
+
+PARAGRAPH
+
+J={J1,J2,…,Jn}: set of n jobs
+
+PARAGRAPH
+
+i, j: identifier of jobs
+
+PARAGRAPH
+
+u, v: identifier of operations
+
+PARAGRAPH
+
+k: identifier of machines
+
+PARAGRAPH
+
+oi,u: uth operation of Ji
+
+PARAGRAPH
+
+Mi,u: machine on which oi,u is processed
+
+PARAGRAPH
+
+ξi,j={(u,v)|Mi,u=Mj,v}: pairs of operations processed on the same machine
+
+PARAGRAPH
+
+pi,u: processing time of oi,u
+
+PARAGRAPH
+
+Pi,u=∑v=1upi,v: cumulated processing time of Ji when oi,u is finished
+
+PARAGRAPH
+
+Li: total processing times of Ji
+
+PARAGRAPH
+
+L: total processing times of all jobs
+
+PARAGRAPH
+
+ti: start time of Ji
+
+PARAGRAPH
+
+π=(π1,…,πn): job sequence considered in timetabling
+
+PARAGRAPH
+
+t[i]: start time of πi
+
+PARAGRAPH
+
+oik: operation of Ji on Mk
+
+PARAGRAPH
+
+pik: processing time of oik
+
+PARAGRAPH
+
+Pik: cumulated processing time of Ji when oik is finished
+
+PARAGRAPH
+
+Fi,j: feasible time difference set
+
+PARAGRAPH
+
+Si,j: start time difference set
+
+PARAGRAPH
+
+tft(π): total flow time of π
+
+PARAGRAPH
+
+STπ=(t1,…,tn,tft(π)): start timetable of π
+
+PARAGRAPH
+
+For two jobs Ji and Jj, let u and v be two operations that are processed on the same machine ({u,v}∈ξij), then operation u is either anterior or posterior to operation v, as shown in Fig. 1.
+
+The completion time of operation u (v) is ti+Piu (tj+Pjv) because of the no-wait constraint.
+
+Therefore, we have tj+Pjv−pjv≥ti+Piuorti+Piu−piu≥tj+Pjv, which is equivalent to tj−ti≥Piu−Pjv+pjvorti−tj≥Pjv−Piu+piu
+
+PARAGRAPH
+
+Using the above condition (1), Zhu and Li (2012) provided a formal description for the problem with the makespan criterion.
+
+As for the total flow time criterion considered in this study, using the same condition, we can extend the description for the total flow time criterion as follows. min(L+∑i=1nti)s.t.ti≥0foralli∈{1,…,n}tj−ti≥Piu−Pjv+pjvorti−tj≥Pjv−Piu+piuforall{u,v}∈ξij,i<j,i,j∈{1,…,n}
+
+PARAGRAPH
+
+Constraint (2) means that each job commences after time zero.
+
+Constraint (3) guarantees that the no-wait requirement is satisfied for any two jobs.
+
+Note that the number of constraint (3) is reduced by using i<j instead of i≠j.
+
+PARAGRAPH
+
+For the above operation pair {u,v}∈ξij, let Mk denote the same machine of operations u and v, then Piu, Pjv, piu, pjv mean the same as Pik, Pjk, pik, pjk, respectively.
+
+Condition (1) can be rewritten as tj−ti≥Pik−Pjk+pjkorti−tj≥Pik−Pjk−pik
+
+PARAGRAPH
+
+Thus, we have tj−ti∈(−∞,Pik−Pjk−pik]∪[Pik−Pjk+pjk,+∞)
+
+PARAGRAPH
+
+For two jobs Ji and Jj, if their start time difference tj−ti satisfies condition (5), then these two jobs do not conflict on machine Mk.
+
+PARAGRAPH
+
+Obviously, the start times ti and tj are feasible if and only if jobs Ji and Jj do not conflict on all machines, which means that tj−ti satisfies condition (5) for all machines Mk(k=1,2,…,m).
+
+Therefore, constraint (3) can be described as tj−ti∈Fij, where Fij is an interval set describing the feasible value of tj−ti, obtained by Eq. (6).
+
+Fij=⋂k=1k≤m(−∞,Pik−Pjk−pik]∪[Pik−Pjk+pjk,+∞)
+
+PARAGRAPH
+
+With the above notations, the NWJSP with the total flow time criterion is further formulated as follows. min(L+∑i=1nti)s.t.ti≥0foralli∈{1,…,n}tj−ti∈Fij for all i<j,i,j∈{1,…,n}
+
+PARAGRAPH
+
+Constraint (8) guarantees that the no-wait requirement is satisfied for any two jobs.
+
+L and all Fij can be computed in advance.
+
+According to Eq. (6), all Fij can be computed in time O(n2mlogm).
+
+Fij is an interval set with at most m + 1 intervals.
+
+PARAGRAPH
+
+Suppose that the calculated feasible interval set is Fij=(−∞,fij1′]∪[fij2,fij2′]∪⋯∪[fijhij,+∞), where hij is the number of intervals in Fij, and we have fijg≤fijg′<fijg+1 for all g∈{1,…,hij−1}, if fij1 is used to denote negative infinity (−∞).
+
+Let binary variable xijg=0 if tj−ti satisfies the gth interval of Fij; otherwise xijg=1.
+
+Constraint (8) can be represented as linear inequalities, and the NWJSP with the total flow time criterion is further formulated as a mixed integer linear programming (MILP) problem as follows. min(L+∑i=1nti)s.t.ti≥0foralli∈{1,…,n}tj−ti≤fij1′+xij1Bfor all i<j,i,j∈{1,…,n}fijg−xijgB≤tj−ti≤fijg′+xijgBfor all i<j,i,j∈{1,…,n},g∈{2,…,hij−1}tj−ti≥fijhij−xijhijBfor alli<j,i,j∈{1,…,n}∑g=1hijxijg=hij−1for all i<j,i,j∈{1,…,n}xijg∈{0,1}for all i<j,i,j∈{1,…,n},g∈{1,…,hij}
+
+where B is a sufficiently large number.
+
+PARAGRAPH
+
+The number of decision variables (ti and xijg) is n+∑1≤i<j≤nhij.
+
+There are n constraints in (9), ∑1≤i<j≤n(2hij−2) constraints in (10)–(12), and (1+2+…+(n−1))=n(n−1)2 constraints in (13), which results in n(n+1)2+∑1≤i<j≤n(2hij−2) constraints in total.
+
+For a given instance, all Fij are pre-computed, and hij is a known value no more than m + 1.
+
+It can be seen that there are a multitude of decision variables and constraints even for a small-size instance.
+
+Therefore, the above MILP formulation is difficult to solve efficiently, especially for large-scale instances.
+
+SECTION
+
+Problem decomposition
+
+PARAGRAPH
+
+Ever since Macchiaroli et al. (1999) presented several effective algorithms by decomposing the NWJSP with the makespan criterion into the timetabling and sequencing subproblems, most studies (Schuster and Framinan, 2003; Schuster, 2006; Framinan and Schuster, 2006; Zhu et al., 2009; Zhu and Li, 2012; Li et al., 2016; Sundar et al., 2017; Mokhtari, 2014; Aitzai et al., 2016) have been performed on the integration of approaches solving these two subproblems.
+
+The sequencing subproblem aims at finding a processing sequence of an optimal schedule, whereas the timetabling subproblem aims at determining a feasible set of starting times for jobs to realise the minimum objective value for the processing sequence provided by the sequencing problem.
+
+PARAGRAPH
+
+The total flow time criterion differs much from the makespan criterion.
+
+Assuming that we have two solutions A and B, and A has a lower makespan than B. there is a possibility that some jobs in A start later than those in B, and A has a larger total flow time than B.
+
+In other words, the two criteria are not consistent with each other.
+
+Nevertheless, the same decomposition strategy can be developed for the considered problem by using the total flow time instead of the makespan in the objective calculation.
+
+PARAGRAPH
+
+For the sequencing subproblem, the purpose is to find a job sequence, denoted here as π∗=(π1∗,…,πn∗), that generates a schedule minimising the total flow time.
+
+Clearly, the search space of the sequencing subproblem has n! solutions.
+
+For the timetabling subproblem, the purpose is to find a timetable, STπ=(t1,…,tn,tft(π)), with a minimum tft(π) based on a given job sequence π=(π1,…,πn).
+
+To achieve these two purposes, several different timetabling methods for the timetabling subproblem are first developed as discussed in Section 3, and then the population-based iterated greedy (PBIG) algorithm as an approach for the sequencing subproblem in Section 4 is proposed.
+
+SECTION
+
+Timetabling methods
+
+PARAGRAPH
+
+Several successful methods have been proposed for timetabling in literature, such as non-delay timetabling (Schuster and Framinan, 2003), enhanced timetabling (Framinan and Schuster, 2006), shift timetabling (Zhu et al., 2009), and shift penalty-based timetabling (SPBT) (Zhu and Li, 2012).
+
+Although they are designed for the makespan criterion, these methods can be naturally transferred from the makespan criterion to the total flow time criterion.
+
+PARAGRAPH
+
+Assuming the job sequence is π=(π1,…,πn), the considered timetabling methods for a given job sequence are described as follows.
+
+PARAGRAPH
+
+(1) Non-delay timetabling: set t[1]=0, and compute the minimum t[i] successively for i=2,…,n, subjected to (a) ti≥t[i−1], and (b) πi does not conflict with πj for all j<i.
+
+PARAGRAPH
+
+This method schedules jobs one after the other as early as possible, but a posterior job is started not earlier than an anterior job.
+
+PARAGRAPH
+
+(2) Enhanced timetabling: the enhanced timetabling includes three phases.
+
+(a) The non-delay timetabling is performed on the original instance.
+
+(b) The non-delay timetabling is performed on the inverse instance for the inverse sequence.
+
+(c) Evaluate the objective values of the two schedules, and the better of the two is the final schedule.
+
+PARAGRAPH
+
+This method is based on the fact that a solution for the inverse instance is also applicable for the original instance (see more in Schuster, 2006 and Zhu et al., 2009).
+
+It is worth noting that in phase (c), the computation of the total flow time for the inverse instance is different from that of the makespan.
+
+For the case of the makespan, the makespan obtained by employing the non-delay timetabling on the inverse instance is directly used as the objective value.
+
+However, for the case of the total flow time, the total flow time obtained by employing the non-delay timetabling on the inverse instance cannot be directly used.
+
+Let Cˆmax denote the makespan and tˆi denote the start time of job Ji obtained by employing the non-delay timetabling on the inverse instance.
+
+The actual total flow time used as objective value from the inverse instance in phase (c) is computed as ∑i=1n(Cˆmax−tˆi).
+
+PARAGRAPH
+
+(3) Left timetabling: set t[1]=0, and compute the minimum t[i] successively for i=2,…,n, subjected to (a) ti≥0, and (b) πi does not conflict with πj for all j<i.
+
+PARAGRAPH
+
+This method is the same as the non-delay timetabling except that it does not necessarily require that a posterior job is started not earlier than an anterior job.
+
+Such a technique of determining the start time of a job is called left shift.
+
+PARAGRAPH
+
+(4) Enhanced left timetabling: the enhanced left timetabling also includes three phases.
+
+(a) The left timetabling is performed on the original instance.
+
+(b) The left timetabling is performed on the inverse instance for the inverse sequence.
+
+(c) Evaluate the objective values of the two schedules, and the better of the two is the final schedule.
+
+The actual total flow time used as objective value from the inverse instance in phase (c) is also computed as ∑i=1n(Cˆmax−tˆi).
+
+PARAGRAPH
+
+Unlike the above timetabling methods, the shift timetabling (Zhu et al., 2009) and SPBT (Zhu and Li, 2012) try right shift on some jobs, which cannot always find an improved solution but is time-consuming.
+
+Besides, they are complicated to the extent that our re-implementations could barely yield their expected performances.
+
+Considering the trade-off between the algorithm’s effectiveness (in terms of solution quality) and efficiency (in terms of computational time), these two methods are not employed in this study.
+
+PARAGRAPH
+
+To illustrate the timetabling methods more clearly, consider the following instance, Ft06, as an example.
+
+There are six (n=6) jobs and six (m=6) machines.
+
+The machine route and corresponding processing time matrices are shown below. [Mi,u]6×6=312465235614346125213456325614246153,[pi,u]6×6=1367368510101045489175553899354313391041
+
+PARAGRAPH
+
+Using the above timetabling methods for the timetabling of the job sequence π=(1,2,3,4,5,6), we have the Gantt charts shown as Figs. 2–5.
+
+Figs. 2 and 4 show the scheduling results obtained by non-delay timetabling and left timetabling, respectively.
+
+When the inverse problem is considered, the scheduling results obtained by non-delay timetabling and left timetabling are shown in Figs. 3 and 5, respectively.
+
+Therefore, the total flow time obtained by the non-delay, enhance, left, and enhance left timetabling methods are 376, 376 = min(376, 446), 372, and 372 = min(372, 448), respectively.
+
+It is observed that different timetabling methods may yield different results, or they may have different costs in terms of computational efforts.
+
+The effectiveness and efficiencies of these timetabling methods are discussed in Section 5.2.
+
+PARAGRAPH
+
+If an optimal solution can always be obtained by applying a timetabling method, the timetabling method is called a completed method.
+
+A completed timetabling method ensures that the searching space of an algorithm includes an optimal solution.
+
+It is difficult to prove the completeness of a timetabling method theoretically.
+
+However, the existing experimental results have shown that none of the above timetabling methods are complete for the problem with the makespan criterion.
+
+As for the problem with the total flow time criterion, our experimental results in Sections 5.2 and 5.5 illustrate that none of the aforementioned timetabling methods are complete, because none of them is able to obtain an optimal solution 8461 for the instance La17.
+
+PARAGRAPH
+
+To perform these timetabling methods, the start time difference ( set Si,j) and feasible time difference (set Fi,j) are used.
+
+Recall that all Fi,j and Si,j can be computed in advance with time O(n2mlogm) (Si,j=[0,+∞)∩Fi,j, Fi,j=⋂k=1k≤m(−∞,Pik−Pjk−pik]∪[Pik−Pjk+pjk,+∞), for all i≠j).
+
+PARAGRAPH
+
+Without the loss of generality, assume that the sequence is π=(J1,J2,…,Jn).
+
+The non-delay timetabling of π involves all Si,j(i<j).
+
+The non-delay timetabling procedure is shown as follows.
+
+PARAGRAPH
+
+Lines 7 and 8 are crucial to the computational complexity of Algorithm 1.
+
+PARAGRAPH
+
+For job Jj, with known Si,j and computed ti(i<j), the procedure to compute tj is designed as checking Si,j successively from i=j−1 to i=1.
+
+Firstly, set tj−tj−1 as the minimum value that satisfies the first interval of Sj−1,j.
+
+When the worst case happens, tj is augmented when S1,j or S2,j is checked.
+
+After that, tj is augmented when S3,j or S4,j is checked, and so on.
+
+Notice that there are at most m intervals in each Si,j, and tj is augmented at most 2m times for S1,j and S2,j.
+
+Before each augmentation corresponded to S1,j and S2,j, j−2 times of checking Si,j have been conducted.
+
+Thus, augmentations for considering both S1,j and S2,j require 2m(j−2) times, and augmentations for considering both S3,j and S4,j require 2m(j−4) times.
+
+With the above procedure, when the worst case occurs, the computation of tj requires 2m((j−2)+(j−4)+⋯+2) times, namely, time complexity O(mj2), and the computation of all tj(j=1,…,n) results in time complexity O(mn3).
+
+PARAGRAPH
+
+When the left timetabling is performed, all S1,j(j>1) and Fi,j(i>1,i<j) are involved.
+
+Because Fi,j has the same structure as Si,j but more intervals than Si,j, it can be deduced that the worst case time complexity is also O(mn3) for the left timetabling.
+
+However, it probably requires considerable computational efforts when compared with the non-delay timetabling.
+
+A similar time complexity can be attained for enhanced timetabling and enhanced left timetabling methods.
+
+PARAGRAPH
+
+It should be noted that the worst case is an extreme case, which seldom transpires in practice.
+
+Moreover, although they have the same worst-case time complexity, the computational efforts required in executing different timetabling methods practically differ.
+
+The time of the left timetabling is more than that of the non-delay timetabling because Fi,j consists of more intervals than Si,j does.
+
+The enhanced timetabling requires approximately twice as much computational time as the non-delay timetabling, and the enhanced left timetabling requires approximately twice as much computational time as left timetabling because the inverse instance is considered.
+
+PARAGRAPH
+
+It is worth mentioning that for the non-delay timetabling method, we have another way to compute tj based on the known Si,j and computed ti (i<j).
+
+Let Sx represent the set of feasible values of tj.
+
+Sx is initialised as Sx=S1,j.
+
+Using the condition tj−ti∈Si,j, we have Sx=Sx∩(t2+S2,j), and so on until Sx=Sx∩(tj−1+Sj−1,j).
+
+There are at most m + 1 intervals in Si,j, so computing each Sx needs time O(m), and computing the final Sx needs time O(mj).
+
+The minimum value in Sx is tj.
+
+Consequently, it needs time O(mn2) to find all tj.
+
+In other words, the time complexity of the non-delay timetabling method is O(mn2).
+
+Accordingly, the time complexity of the other three timetabling methods is also O(mn2).
+
+We have conducted some pilot computational experiments and found that despite its worst case time complexity O(mn3), Algorithm 1 runs more efficiently than the above procedure.
+
+SECTION
+
+Population-based iterated greedy algorithm
+
+PARAGRAPH
+
+Since it was proposed by Ruiz and Stutzle (2007), the IG has gained a host of successful applications in various scheduling environments.
+
+However, to the best of our knowledge, research work conducted on the IG for the NWJSP remains insufficient.
+
+This section first presents the two key elements of the IG: a destruction and construction perturbator and an insertion-based local search.
+
+Thereafter, the initialisation and population schemes of the population-based iterated greedy algorithm are elaborated.
+
+SECTION
+
+PARAGRAPH
+
+Key elements of iterated greedy algorithm
+
+SECTION
+
+Destruction and construction
+
+PARAGRAPH
+
+The destruction and construction (DC) operator is used as a perturbator to generate a candidate solution, which usually differs from the incumbent solution.
+
+According to Ruiz and Stutzle (2007), the DC operator consists of two phases — destruction and construction phases.
+
+Parameter d determines the destruction size.
+
+In the destruction phase, d jobs are randomly selected and removed from the incumbent sequence, π.
+
+Thereafter, in the construction phase, all deleted jobs are reinserted, one after the other, into the best position of π to construct a complete sequence.
+
+The procedure is shown in Algorithm 2, where final πF is the candidate solution found by the DC operator.
+
+Similar to the DC operator, the best insert (BI) moves (Deng and Gu, 2014) and random insert (RI) moves (Pan and Tasgetiren, 2008) are another two perturbators for generating neighbour solutions.
+
+They all randomly select several jobs, and the former inserts each job into the best in all other positions, whereas the latter inserts each job into a random position.
+
+The investigation of these two perturbators in computational experiments is also discussed in Section 5.4.
+
+SECTION
+
+PARAGRAPH
+
+Local search
+
+PARAGRAPH
+
+The local search is performed on the candidate solution found by the DC operator, and a new solution is obtained.
+
+So far, most of the competitive local search methods for the PFSP have been based on the insertion neighbourhood (Ruiz and Stutzle, 2007; Deng and Gu, 2014; Tasgetiren et al., 2017; Pan and Ruiz, 2012a; Deng and Gu, 2012).
+
+In the local search of the IG algorithm by Ruiz and Stutzle (2007), a job s is extracted from a sequence π and inserted into other n−1 possible positions.
+
+Let πbinserts denote the sequence of the best insert move, namely, the sequence resulting in the best objective value among n−1 sequences.
+
+If πbinserts is better than π, then π is replaced with πbinserts.
+
+The process is then repeated for another job and terminates when no improvement occurs for all jobs.
+
+This original local search was later improved by avoiding a redundant search in Pan and Tasgetiren (2008) and Pan and Ruiz (2012b) (referred to as referenced local search (RLS)), as well as in Deng and Gu (2012) (referred to as insertion-based local search (IBLS)).
+
+The difference between these two local search methods only lies in the sequence used at the very beginning; the RLS utilises a referenced sequence, whereas the IBLS employs a random sequence to make the local search more stochastic.
+
+The insertion-based local search is adopted here, and its procedure is shown in Algorithm 3, where π is the new solution.
+
+Considering that the problem characteristics of the NWJSP and PFSP probably differ considerably, another commonly-used neighbourhood structure, namely, the swap neighbourhood, is also examined.
+
+Similarly, a job is selected from the sequence π and swapped with other n−1 jobs.
+
+Let πbswaps be the sequence of the best swap move.
+
+A counterpart of the IBLS, referred to as swap-based local search (SBLS), is obtained.
+
+Section 5.4 reports the test made on the SBLS to identify the more powerful neighbourhood for the considered problem.
+
+SECTION
+
+PARAGRAPH
+
+NEH-based initialisation
+
+PARAGRAPH
+
+As mentioned earlier, the PBIG is evolved with a population, which means that there are p solutions or individuals which evolve simultaneously in each iteration.
+
+Population size p is a parameter controlling the scale of population evolution.
+
+To acquire initial solutions with both quality and diversity, all solutions are initialised based on the NEH heuristic (Nawaz et al., 1983) and its variants.
+
+PARAGRAPH
+
+The NEH heuristic has been shown to be one of the most effective heuristics for the PFSP (Framinan and Leisten, 2003; Framinan et al., 2003), and it has been extensively utilised to generate initial solutions of metaheuristics for the PFSP (Pan and Ruiz, 2014; Deng and Gu, 2012; Deng et al., 2016a; Wang et al., 2011; Deng et al., 2016b; Ding et al., 2015 and many others).
+
+The NEH heuristic firstly sequences jobs in a non-increasing order of the total processing time on all machines.
+
+Thereafter, it constructs a partial solution by taking into consideration the first two jobs.
+
+Finally, a complete solution is constructed by inserting these jobs one after the other into the current partial solution.
+
+PARAGRAPH
+
+To the best of our knowledge, this is the first application of the NEH heuristics to the NWJSP.
+
+To adapt the NEH heuristic for the NWJSP, the evaluation of a partial sequence in the NWJSP differs from that in the PFSP.
+
+For a partial sequence, the timetabling method is applied to construct a partial timetable as a partial solution.
+
+With this, the NEH heuristic is described as follows.
+
+PARAGRAPH
+
+Step 1: Sequence the jobs in a non-increasing order of the total processing time on all machines and obtain a priority job order ρ=(ρ1,…,ρn).
+
+Let the partial sequence be σ=(ρ1) and k=2.
+
+PARAGRAPH
+
+Step 2: Insert job ρ(k) in all possible k positions of σ and obtain k tentative partial sequences.
+
+Evaluate these partial sequences by applying the corresponding timetabling method and replace σ with the partial sequence that results in the minimum objective value.
+
+PARAGRAPH
+
+Step 3: Let k=k+1.
+
+If k≤n, then go to step 2; otherwise, σ is the final sequence.
+
+PARAGRAPH
+
+As a variant of the NEH heuristic, the NEH_WPT heuristic was developed by Wang et al. (2011) and shown to be more effective for the makespan minimisation in the blocking PFSP.
+
+The NEH_WPT heuristic is the same as the NEH heuristic except that it uses a non-decreasing order in the initial step.
+
+Ding et al. (2015) improved the first step of the NEH heuristic and proposed the MNEH heuristic which was shown to be more effective for the no-wait PFSP.
+
+In the first step of the MNEH, the non-increasing order is based on the standard deviation of the processing time, rather than the total processing time on all machines.
+
+To employ the NEH heuristic to generate a good quality random solution, a random job sequence is used as a job order in the first step and develop a variant of the NEH heuristic, called NEH_RAN.
+
+To construct initial solutions with both quality and diversity in the proposed PBIG, one initial solution is generated by the NEH_WPT heuristic, and the other solutions are initialised by NEH_RAN heuristic.
+
+The examination of the performance of the NEH heuristic and its variants is discussed in Section 5.3.
+
+SECTION
+
+Population evolution scheme
+
+PARAGRAPH
+
+After p initial solutions are generated, p IG procedures go into iteration simultaneously.
+
+For each IG procedure, the DC operator is firstly performed on the incumbent solution, and a candidate solution is found.
+
+Thereafter, the local search, IBLS, is performed on the candidate solution, and a new solution is obtained.
+
+The incumbent solution is replaced with the new solution only if it is not better than the new solution.
+
+It can be easily inferred that as the evolution proceeds, p incumbent solutions are probably not the same, which means some of the incumbent solutions may be relatively better than the others.
+
+Therefore, a reasonable assumption is that, when an iteration is accomplished, some advantages should be taken of the relatively better solutions, especially the best solution found so far which usually contains good characteristics.
+
+Based on this assumption, the tournament selection is introduced.
+
+In the tournament selection, three solutions are firstly randomly selected, and thereafter, the worst of the three is replaced with a shaking solution, which is generated by performing the DC operator on the best solution found so far (denoted as πb) with parameter D which denotes the shaking size.
+
+The tournament selection can be seen as a competitive mechanism in which the relatively worse solution is discarded and a new shaking solution is added.
+
+PARAGRAPH
+
+Let πk(k=1…p) denote the incumbent solution of the kth IG procedure.
+
+The whole procedure of the PBIG is outlined in Algorithm 4.
+
+Such an algorithm is expected to solve the NWJSP with the total flow time criterion effectively and efficiently.
+
+SECTION
+
+PARAGRAPH
+
+Computations and comparisons
+
+PARAGRAPH
+
+In computational experiments, the performances of different timetabling methods are first investigated, then, the effectiveness of the NEH heuristic, as well as its variants, is examined.
+
+Thereafter, the proposed PBIG is calibrated.
+
+Finally, the algorithm is compared with several effective metaheuristics in literature.
+
+SECTION
+
+Experimental preparations
+
+PARAGRAPH
+
+Well-known benchmark instances, including ft10, ft20 (Fisher and Thompson, 1963), orb01-10 (Applegate and Cook, 1991), abz5-9 (Adams et al., 1988), la01-40 (Lawrence, 1984), swv01-20 (Storer et al., 1992), and yn1-4 (Yamada and Nakano, 1992), are used in our computational experiments.
+
+These instances are divided into two groups: 23 small-size instances with 10 jobs and 58 big-size instances whose sizes vary from 15 to 50 jobs.
+
+All algorithms involved in this study are programmed in C++ language, and the running environment is a PC with Intel Core (TM) i7-6700 3.4-GHz processor.
+
+The relative percentage deviation (RPD) is calculated to indicate the deviation over the reference solution.
+
+RPD=tftalg−tftreftftref×100where tftalg is the solution obtained by the tested algorithm, and tftref is the reference solution.
+
+It is worth mentioning that the solution obtained by NEH_WPT heuristic is used as the reference solution in Sections 5.3 and 5.4, whereas the best known solution is used as the reference solution in Section 5.5.
+
+SECTION
+
+Comparison of timetabling methods
+
+PARAGRAPH
+
+Because the computational efforts in executing different timetabling methods are clearly different, an investigation is conducted to determine whether it is worthwhile to perform the more complicated and time-consuming timetabling methods.
+
+The non-delay, enhanced, left, and enhanced left timetabling methods are employed to solve small-size instances.
+
+In order to fairly compare these methods, all job sequences are enumerated and evaluated by a timetabling method, and the best solution is recorded as the solution found by the corresponding timetabling method.
+
+Furthermore, the solver Cplex 12.8 is applied to the MILP in order to assess the effectiveness and efficiency of the timetabling methods.
+
+Our pilot experiments revealed that Cplex could only solve the MILP optimally for small-size instances, and Cplex was unable to yield an optimal solution in one hour for the tested instances with more than 10 jobs.
+
+For this reason, we just provide the results of Cplex here but we do not compare it with the PBIG for middle-size or big-size instances.
+
+PARAGRAPH
+
+The computational results are summarised in Table 1, where solution is the solution found by the corresponding method (boldfaced if it is equal to the optimal solution), and T(s) is its running time cost (in seconds).
+
+PARAGRAPH
+
+In the list in Table 1, it is observed that there are only a few instances that the solutions found by the enhanced timetabling are better than those found by the non-delay timetabling.
+
+In most cases, the solutions obtained by these two timetabling methods are the same.
+
+The advantages become indiscernible when the inverse problem is considered for the left timetabling, because the enhanced left timetabling yields the same solutions as the left timetabling.
+
+As for the computational time, the enhanced timetabling consumes more than twice the running time of the non-delay timetabling, on average.
+
+The same result is obtained for the enhanced left timetabling and left timetabling.
+
+The above facts indicate that the consideration of the inverse problem does not distinctly improve the performance of the timetabling method, but causes more computational efforts.
+
+PARAGRAPH
+
+The list also indicates that the left timetabling provides better solutions than the non-delay timetabling and enhanced timetabling do.
+
+Only for 8 out of 23 instances, do the non-delay timetabling and enhanced timetabling yield equal solutions as the left timetabling does.
+
+The other 15 instances, yield worse solutions than the left timetabling does.
+
+Although the running time consumed by the left timetabling is more than that used by the non-delay timetabling and enhanced timetabling, the left timetabling is a competitive method from the perspective of solution quality.
+
+Therefore, we highly recommend the use of the left timetabling as a timetabling method for the total flow time criterion.
+
+Moreover, in our research, it is integrated into the PBIG as a method for the timetabling subproblem.
+
+Note that all job permutations are enumerated for each timetabling method to obtain the results in Table 1.
+
+When the PBIG is applied, it can generally find the best solution of the left timetabling with less running time than what is shown in Table 1.
+
+PARAGRAPH
+
+It can be observed that optimality is proven with the results of Cplex for small-size instances (with 10 jobs).
+
+The average running time of Cplex is overwhelmingly more than that of each timetabling method.
+
+The left timetabling method is also able to find the optimal solution for all tested instances except instances Ft10, La17, and Orb09.
+
+Indeed, these three instances are not optimally solved by any timetabling method.
+
+Therefore, the results in Table 1 also indicate that none of the timetabling method is complete.
+
+SECTION
+
+Comparison of NEH heuristic and its variants
+
+PARAGRAPH
+
+According to existing research, the NEH heuristic is powerful for the general PFSP.
+
+However, for the blocking PFSP, the NEH_WPT heuristic becomes more effective, whereas the MNEH heuristic seems to be more effective for the no-wait PFSP.
+
+To investigate the performance of different NEH-based heuristics for the NWJSP with the total flow time criterion, an experiment is conducted on the NEH, NEH_WPT, MNEH, and NEH_RAN heuristics.
+
+Considering that the speed-up method (Deng et al., 2019) for the insertion neighbourhood is beneficial to reduction of computational expenses, the speed-up method is used here.
+
+The solution obtained by the NEH_WPT heuristic (denoted as πNEH_WPT) is used as the reference solution (listed in Table 2) to compute the RPD value.
+
+The average RPD (ARPD) values, grouped by instance size, are summarised in Table 3.
+
+Note that the running times in Table 3 come from another round of experiment with no speed-up method, because the running times of these heuristics with speed-up method are all approximately zero.
+
+The result of each of the first three heuristics comes from one run for each instance, whereas that of the NEH_RAN heuristic is average value obtained by running each instance 10 times because it includes a random procedure.
+
+PARAGRAPH
+
+It can be observed from the list in Table 3 that the average ARPD value of each of the NEH_RAN, MNEH, and NEH heuristic is considerably greater than that of the NEH_WPT heuristic.
+
+For all groups, except the 15 × 15 and 20 × 20 groups, the NEH_WPT heuristic yields the best results.
+
+As for the average ARPD, the value (2.789) of the NEH_RAN heuristic considerably approximates that (2.800) of the MNEH heuristic, and both values are lower than that of the NEH heuristic.
+
+Overall, it is concluded that (1) the NEH_WPT heuristic outperforms the other three heuristics; (2) the NEH_RAN heuristic is equivalent to the MNEH heuristic; (3) the NEH heuristic is the worst among the tested heuristics; (4) the running times of all tested heuristics are trivial, even when no speed-up method is used.
+
+Based on these results, the initial solutions of the PBIG are generated by the NEH_WPT and NEH_RAN heuristics.
+
+SECTION
+
+Calibration of PBIG
+
+PARAGRAPH
+
+With regard to parameter p, evidently, the bigger the population size is, the more computational efforts the algorithm requires for each iteration.
+
+To ensure that the running time consumed is not extreme for each iteration, the population size is set as p=10, based on our pilot experiments.
+
+A large design of experiments (DOE) (Montgomery, 2017) is performed based on the following factors: (1) perturbation size d tested at five levels — 2, 4, 6, 8, and 10; (2) shaking size D tested at five levels — 2, 4, 6, 8, and 10; (3) the type of perturbator, tested at three choices — DC, BI, and RI; (4) the type of local search, tested at two variants — the IBLS and SBLS.
+
+For a fair comparison, the speed-up method is not used in evaluating the insert neighbourhood algorithm.
+
+The instances La01, La16, La06, La21, La36, La11, La26, Swv06, Yn1, La31, and Swv11 are selected for each problem size.
+
+The stopping criterion of the algorithm is the elapsed running time not less than 5mn2ms.
+
+For each combination of tested factors, the PBIG is run with five independent replications on each of the 11 instances, and the RPD (πNEH_WPT is used as reference solution) is calculated as a response variable.
+
+Such a large computational campaign requires 5×5×3×2×11=8250 treatments.
+
+The multi-factor analysis of variance (ANOVA) technique is used to analyse the computational results.
+
+Table 4 illustrates the ANOVA results, which reveal that the factors are statistically significant, except for the type of local search.
+
+The mean plots of these factors, together with Tukey’s honest significant difference (HSD) with 95% confidence intervals are illustrated in Fig. 6.
+
+Recall that if Tukey’s HSD intervals for two means do not overlap, then the difference between the two means is statistically significant.
+
+PARAGRAPH
+
+Fig. 6 suggests that there is no statistical difference between the SBLS and IBLS.
+
+Because the average RPD of the IBLS is slightly lower than that of the SBLS, the IBLS is used in the proposed PBIG algorithm.
+
+However, it should be noted that the SBLS is also an effective local search method.
+
+For the perturbator, it can be observed that the destruction and construction operator is statistically better than the best insert operator, and the best insert operator is statistically better than the random insert operator.
+
+As for the perturbation size, d, values 4, 6, and 8 are statistically better than values 2 and 10.
+
+However, the difference is small between 4, 6, and 8.
+
+Similar results can be obtained for the parameter D.
+
+The values 6, 8, and 10 are statistically better than the values 2 and 4, and no statistical significance is found among the values 6, 8, and 10.
+
+Based on the ANOVA results, the parameters of the PBIG are chosen as p=10, d=4, and D=8.
+
+SECTION
+
+Comparison with other metaheuristics
+
+SECTION
+
+Comparison of PBIG with PIGA, HDDE, and IG
+
+PARAGRAPH
+
+To test the effectiveness and efficiency of the proposed PBIG, its computational results are compared with some other existing metaheuristics.
+
+To the best of our knowledge, most of the research on the NWJSP aims at the makespan criterion, and the metaheuristics originally proposed for the PFSP can be easily adapted for the problem considered in this study.
+
+Thus, the following methods have been re-implemented and modified for the NWJSP with the total flow time criterion: population-based iterated greedy algorithm (PIGA) (Pan and Ruiz, 2012a), hybrid differential evolution (HDDE) (Deng and Gu, 2012), and iterated greedy (IG) (Ruiz and Stutzle, 2007) algorithms.
+
+The speed-up method for insertion neighbourhood is employed for all tested algorithms.
+
+Note that these algorithms have been run on the same computer with the same computational environment, and results are found completely comparable.
+
+PARAGRAPH
+
+For each algorithm, the stopping criterion is the elapsed running time not less than ρmn2ms, where parameter ρ has values of 5, 10, 20, and 50.
+
+Such a stopping criterion allows different running times for instances with different sizes.
+
+Setting a different parameter ρ helps in the analysis of the performance of algorithm changes when the allowed running time is increased.
+
+Note that one run yields four results of different ρ values.
+
+Each of the 81 instances is treated by each of the four algorithms with 20 runs; thus, a total of 81×4×20×4=25920 results are obtained.
+
+To calculate the RPD, the best known solutions (upper bounds) are used as reference solutions, as summarised in Table 5.
+
+Note that the upper bounds are aggregated by the results of Cplex, all tested algorithms, and the HDGSO from Deng et al. (2019).
+
+The optimal solution is denoted by an asterisk, and newly found solution is in bold.
+
+The upper bounds listed in Table 5 would facilitate comparisons by future researchers.
+
+The ARPD results of all tested algorithms, grouped by instance size, are summarised in Tables 6–9 for different running times.
+
+PARAGRAPH
+
+From the summaries in Tables 6–9, the following can be observed:
+
+PARAGRAPH
+
+(1) The PBIG algorithm is the best-performing algorithm among all tested algorithms.
+
+The PIGA, as another population-based IG algorithm, is also competitive.
+
+The average results shown that for all ρ values, the dominance relationship among performances of all four algorithms is consistently described as PBIG>PIGA>HDDE>IG, where “>” means an algorithm performs better than the other.
+
+PARAGRAPH
+
+(2) Instance groups with 10 jobs seem to be the least difficult to solve.
+
+For these small-size instances, the ARPD values are always the same (0.00 and 0.20) for all tested algorithms and ρ values, which imply that small-size instances are not difficult to solve, and no difference exists among all tested algorithms.
+
+Note that the reason why the 10 × 10 instance group has a value of 0.20 rather than 0.00 is that the used left timetabling is unable to include optimal solutions for instances Ft10, La17, and Orb09.
+
+PARAGRAPH
+
+(3) Instance groups with 15 jobs are relatively less difficult to solve.
+
+However, the 15 × 5 instance group is more difficult to solve than the 15 × 10 and 15 × 15 instance groups.
+
+When ρ=50 (the biggest running time is given), all algorithms obtain the ARPD values of 0.00 for the 15 × 10 and 15 × 15 groups, whereas only the PBIG yields an ARPD value of 0.00 for the 15 × 5 group.
+
+PARAGRAPH
+
+(4) Instance groups with 30 and 50 jobs are the most difficult to solve, because the ARPD values of the 50 × 10 and 30 × 10 groups are considerably greater than those of other instance groups.
+
+PARAGRAPH
+
+(5) As the problem size increases, the advantages of the PBIG over other algorithms become more evident.
+
+The reason is probably because the problem becomes more difficult to solve as the problem size increases.
+
+PARAGRAPH
+
+To further analyse the performance difference among these algorithms, a multi-factor ANOVA is conducted in which the RPD is the dependent variable and the instance, ρ and algorithm are factors.
+
+The hypotheses (normality, homoscedasticity, and independence) of ANOVA are checked by a residual analysis, which shows that the departure from normality is small.
+
+The statistical results are illustrated in Table 10.
+
+According to the ANOVA results, the factors instance, ρ, and algorithm, are statistically significant because the P-value is lower than 0.05.
+
+Moreover, as expected, the PBIG is statistically the best-performing algorithm.
+
+To save on print space here, only the more important results on the interaction between the algorithm and ρ are reported.
+
+The plot of the means for the interaction and Tukey’s HSD with 95% confidence intervals are shown in Fig. 7.
+
+PARAGRAPH
+
+As can be observed in Fig. 7, there are four algorithms and four ρ values.
+
+For the PBIG, the intervals of different ρ values do not overlap, which suggests that the running time (controlled by ρ) is statistically significant for the PBIG.
+
+The same results can be obtained for all other algorithms.
+
+Furthermore, it is observed that for ρ=5, the interval of the PBIG does not overlap with that of any other algorithms.
+
+This demonstrates that the PBIG is statistically better than the other algorithms at this ρ value.
+
+The same results can be obtained for all other ρ values.
+
+Fig. 7 also indicates that the PIGA outperforms the HDDE and IG, although it is not comparable with the PBIG.
+
+Specifically, the advantage of the PIGA over the HDDE and IG is statistically significant for ρ=50.
+
+As for the HDDE and IG, although the ARPD value of the HDDE is lower than that of the IG, their differences are not statistically significant.
+
+It can also be observed from Fig. 7 that as more running time is allowed, the gaps between the PBIG and the other algorithm, especially the PIGA, become less compelling.
+
+SECTION
+
+PARAGRAPH
+
+Comparison of PBIG with OJIRLS2
+
+PARAGRAPH
+
+Because the NWJSP with the total flow time criterion has not been sufficiently studied, only a few metaheuristics are proposed for the problem.
+
+As a recent research, Bürgy and Gröflin (2016) proposed two dedicated algorithms, named OJIRLS1 and OJIRLS2, for the NWJSP with regular objectives, and showed that the OJIRLS2 performs better.
+
+Here, the original results of the OJIRLS2 are gathered to make a tentative comparison with the PBIG.
+
+Note that the OJIRLS2 is implemented in Java and run on a PC with 3.4-GHz processor and 12-GB memory, which is different from the computational environment we used.
+
+The OJIRLS2 results are obtained after short (60 s), medium (300 s), and high (1800 s) running times, whereas the running times of the PBIG are 5mn2, 10mn2, 20mn2, and 50mn2ms.
+
+The average results grouped by instance size are summarised in Table 11.
+
+The OJIRLS2 algorithm did not tackle all instances.
+
+Thus, only a few results for comparison are listed in Table 11.
+
+PARAGRAPH
+
+Because results summarised in Table 11 are obtained based on different running times and under different computational environments, it is difficult to precisely determine the best algorithm.
+
+However, it can be observed from Table 11 that the performances of the PBIG and OJIRLS2 change differently as the problem size increases.
+
+For the 20 × 5 instances, the average result (16 883.6) obtained by running the PBIG for 100 s is slightly better than that (16 918.6) obtained by running the OJIRLS2 for 60 s, but worse than those (16 792.4 and 16 751.6) obtained by running the OJIRLS2 for 300 and 1800 s. For the 20 × 10 instances, the average results obtained by running 40, 80, and 200 s for the PBIG are better than those obtained by running the OJIRLS2 for 60 and 300 s, but worse than that obtained by running the OJIRLS2 for 1800 s. For the 20 × 15 and 20 × 20 instances, although in some cases the results of the PBIG are better than those of the OJIRLS2, the peak performance of the PBIG (running time allowed is 50mn2 ms) is worse than that of the OJIRLS2 (running time allowed is 1800 s).
+
+Interesting results are observed as the instance size increases.
+
+For the 30 × 10 and 50 × 10 instances, the average results of the PBIG is clearly superior to those of the OJIRLS2.
+
+The average results obtained by running the PBIG for 5mn2 ms are distinctly better than those obtained by running the OJIRLS2 for 1800 s.
+
+The above results illustrate that the proposed PBIG is a competitive metaheuristic for the considered problem, and it is considerably promising as the problem size becomes bigger.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+This study deals with the no-wait job shop scheduling problem to minimise the total flow time, which is a criterion not well-investigated previously.
+
+Based on the decomposition concept for the makespan criterion, the problem is decomposed into sequencing and timetabling subproblems and formulated with a feasible time difference.
+
+Several timetabling methods, including the non-delay, enhanced, left, and enhanced left timetabling, are developed to generate a schedule from a given job sequence.
+
+A population-based iterated greedy algorithm is proposed for the sequencing subproblem.
+
+The individuals in the population of the PBIG algorithm evolve by the key elements of the iterated greedy algorithm, namely the destruction and construction perturbator and insertion-based local search.
+
+In each iteration, a tournament selection is designed to replace a relatively worse solution.
+
+The Nawaz–Enscore–Ham-based heuristics originally presented for the flow shop scheduling problem are extended to the no-wait job shop scheduling problem.
+
+PARAGRAPH
+
+A large computational campaign is conducted based on well-known benchmark instances.
+
+Firstly, results show that the left timetabling is superior to other timetabling methods, and the contribution of the inverse problem is minor for the total flow time criterion.
+
+Secondly, the computational results demonstrate that the NEH_WPT heuristic performs best among all the considered NEH-based heuristics.
+
+Thereafter, an analysis of variance is conducted to calibrate the proposed algorithm.
+
+Finally, computational results and statistical analysis show that the proposed algorithm outperforms the hybrid discrete differential evolution algorithm, as well as the iterated greedy algorithm.
+
+When compared with the OJIRLS2 (a local search method based on optimal job insertion), the PBIG algorithm is shown to be a competitive metaheuristic especially for big-size problems.
+
+PARAGRAPH
+
+Compared with most of the existing methods for the no-wait job shop scheduling problem, the PBIG algorithm has the advantages of few parameters, simple structure, easy implementation and excellent performance.
+
+To further improve the proposed algorithm, however, there are two possible directions.
+
+Firstly, none of the existing timetabling methods is complete.
+
+The performance of the PBIG algorithm will be enhanced if a better or complete timetabling method is developed.
+
+Secondly, the population evolution scheme could be further investigated for better balancing the exploration and exploitation of the algorithm.
+
+PARAGRAPH
+
+The PBIG algorithm can be adapted for other kinds of permutation scheduling problems, with the redesign of problem-specific local search technique and appropriate solution representation.
+
+Therefore, it can be inferred that the PBIG algorithm is technically feasible for the actual production environment and may play a positive role in engineering application.
+
+In the future, we will focus on adapting the PBIG algorithm for practical scheduling problems in the real world, such as the multi-objective scheduling problems, and the scheduling problems with uncertainty.

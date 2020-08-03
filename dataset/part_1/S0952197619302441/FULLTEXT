@@ -1,0 +1,775 @@
+10.1016/j.engappai.2019.103281
+
+FULLTEXT
+
+TITLE
+
+Device free human gesture recognition using Wi-Fi CSI: A survey
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Digital advancements in Internet of Things (IoT) arena make the lives of humans better than ever before.
+
+Sensing and tracking of human activities have become an inevitable part in various fields like surveillance, entertainment, healthcare, etc.
+
+Thus, human gesture or activity recognition gains a lot of research interest, especially in areas that require human–machine interaction in some form.
+
+Several IoT protocols are implemented for various applications like sensing soil moisture (Boada et al., 2018), monitoring and controlling smart building (Vo et al., 2018), detecting human (Shukri et al., 2016) and stuffs (Nickels et al., 2013), human activity (Razzaq et al., 2018; Bhat et al., 2018; Hossain et al., 2018; Wang et al., 2015) and gesture (Abdelnasser et al., 2015) recognition, locating objects (Nezhadasl and Howard, 2019), finger printing localization (Janssen et al., 2018), crowd sensing (Alvear et al., 2018), smoke alarm (Wu et al., 2018), healthcare (Malik et al., 2018) and location tracking (Hong et al., 2018).
+
+IoT protocols like ZigBee, Z-wave, Bluetooth, Long Range (LoRa), and Wi-Fi are the widely used protocols for human activity and gesture recognition applications.
+
+PARAGRAPH
+
+Table 1 comprehensively discusses the pros and cons of various IoT protocols and analyzes the research advancements adopting COTS Wi-Fi devices in a device free gesture recognition paradigm.
+
+Summary of the observations from Table 1 are listed below.
+
+PARAGRAPH
+
+Gesture recognition automates the recognition task of human activities in a device-based or device-free sensing environment.
+
+The recognition task utilizes the advancements in the wireless technologies for sensing and recognizing the human targets in an indoor or outdoor environment depending on the spectral range of the wireless communication protocol adopted.
+
+State of the art device-free sensing utilizes radar-based or Commercial Off The Shelf (COTS) products that operate within the electromagnetic spectrum.
+
+PARAGRAPH
+
+The performance of the recognition model confines with the presence of sensing targets in the environment and the hardware specifications.
+
+Automatic recognition of human activities has a wide range of applications in the field of healthcare (Rodriguez et al., 2017; Wang et al., 2016d; Zeng et al., 2015; Shang and Wu, 2016), surveillance (Gavrilova et al., 2017; Ding et al., 2018), vehicular technology (Duan et al., 2018), and in almost all areas that require human–machine interaction (Saha et al., 2018).
+
+Gesture recognition systems perform the recognition task by implementing such sensing methods:
+
+PARAGRAPH
+
+Device-based sensing methods adopt wearable sensors or body contact devices for achieving the recognition task.
+
+Monitoring cardiac patients using wearable bio harness (Rodriguez et al., 2017), detecting elderly fall with acceleration sensors (Khawandi et al., 2012) and activity recognition implementing Bluetooth protocol using Texas Instrument-CC265 device (Bhat et al., 2018) are some work adopting device based sensing methods.
+
+Similarly, wearable sensing methods have a widespread application in the ambient assisted living environment, though it poses some limitations as these devices are perceived to be obtrusive by the users.
+
+Camera-based and sensor-based applications perform well in recognizing activities in complex scenarios, yet privacy and intrusive characteristics remain a challenging task.
+
+PARAGRAPH
+
+Device-free sensing methods provide alternate solutions as they adopt optical sensors or RGB Depth (RGBD) cameras like Microsoft Kinect (Gavrilova et al., 2017) and video cameras (Ding et al., 2018) and performs recognition in a contactless manner.
+
+Besides being device free, even optical sensors are considered intrusive and obtrusive as it captures images of the subject under surveillance.
+
+Furthermore, camera-based methods are sensitive to lighting conditions and occlusions.
+
+In such circumstances, device-free sensing adopting RF signals will be a better choice as they work only with the wireless signals.
+
+Device-free sensing methods adopting RF signals implements various IoT communication protocol and address the limitations mentioned above by establishing a contactless recognition paradigm.
+
+Radio frequency sensors using wireless signals of COTS devices perform activity recognition in a non-intrusive and non-obtrusive manner, operating in varying frequency range enabling the recognition task, depending on its coverage range and its corresponding spectral efficiency.
+
+Indoor sensing applications prefer Wi-Fi among other protocols as inferred from Table 1, as it is economical and does not demand any special infrastructure.
+
+Also, Wi-Fi is available readily with the deployment of commercial Wi-Fi devices in almost all indoor environments.
+
+Hence, Wi-Fi based recognition ensures a non-intrusive and privacy-preserving way of sensing by capturing only the signal reflections caused due to human movements.
+
+PARAGRAPH
+
+Recognition accuracy relies on capturing fine-grained signal reflections of the gestures or actions, enacted by the human, in the form of CSI metric of the Wi-Fi signal.
+
+However, the granularity level of acquired signal reflection influences the accuracy of the recognition model.
+
+This paper attempts to summarize the research findings on device-free sensing of human gestures using the CSI of COTS Wi-Fi devices in an indoor environment.
+
+Fig. 1 presents an overview of the present paper organization.
+
+Related work on gesture recognition in device-based and device free manner is discussed in Section 2.
+
+Section 3 introduces the basic concept of CSI, hardware and tools for extracting CSI values, and explains the recognition process.
+
+Section 4 presents various model-based approaches and learning based approaches adopted in literature is briefly described in Section 5 along with a short description of hybrid approaches.
+
+Lastly, the challenges and opportunities in the domain of device-free gesture recognition using Wi-Fi CSI are discussed under Section 6.
+
+SECTION
+
+PARAGRAPH
+
+Related work
+
+PARAGRAPH
+
+Gesture recognition is an emerging research topic with various applications.
+
+Notably, it is instrumental in interpreting the sign language communication of people with speech and hearing impairments.
+
+The related work reported in the literature on gesture recognition surveyed in this section is broadly classified into two categories.
+
+(i) Device-based gesture recognition and (ii) Device-free gesture recognition.
+
+SECTION
+
+Device based gesture recognition
+
+PARAGRAPH
+
+Device-based gesture recognition adopts sensor based sensing or vision based sensing for performing the recognition task.
+
+Sensor based sensing utilize wearable sensors or body contact devices in the form of data glove (Kanokoda et al., 2019; Shukor et al., 2015), accelerometer sensors (Galka et al., 2016) or any sophisticated gadgets configured with sensors.
+
+Wearable sensors or body contact gadgets achieves sensing by capturing the signal.
+
+Vision based sensing performs the sensing task with optical sensors like Kinect (Chin-Shyurng et al., 2019; Kim et al., 2015), which can perform accurate tracking and recognition by capturing the target image from different angles.
+
+Table 2 shows few works that adopt device based sensing methods applied predominantly for hand gesture recognition.
+
+The type of sensors used, the signal processing methods and classification algorithms adopted for the quantity of gestures recognized is reported with the corresponding accuracy.
+
+It could be observed that sensor or video based application pre-process the acquired signal or image data and feed it as input to the learning algorithms.
+
+Though these devices recognize with good precision, usage of such gadgets creates comfort issues and privacy threat to the participant.
+
+SECTION
+
+Device free gesture recognition
+
+PARAGRAPH
+
+Device-free gesture recognition uses the signals of commercial devices in the sensing environment for performing the recognition task.
+
+Device-free sensing primarily establishes the sensing environment using one of the following commercial devices: radar based or COTS Wi-Fi devices.
+
+Recognition model captures the human reflections in the format of signal descriptors like Doppler shifts, Received Signal Strength Indicator (RSSI), and CSI using specialized hardware of commercial devices.
+
+This section discusses the state of the art research work implementing such signal descriptors for recognizing human gestures and analyzes the performance based on recognition accuracy.
+
+SECTION
+
+Radar based
+
+PARAGRAPH
+
+Radar-based sensing methods perform the recognition task by extracting Doppler measurements from specialized hardware.
+
+WiSee (Pu et al., 2013) is first of its kind experiment done with Doppler shift for identifying and recognizing the human gestures using Universal Software Radio Peripheral (USRP) device.
+
+Table 3 summarizes radar-based methods using Doppler measurements used for human activity recognition in controlled environment.
+
+Doppler measurements appear to be a good choice for coarse-grained recognition applications.
+
+With the presence of more than one participant in the sensing area, the recognition performance declines due to signal interferences.
+
+The radar signals contain background noise and therefore pre-processing or signal transformation techniques are applied.
+
+The choice of learning algorithm adopted, for classification task, depends on the data acquisition and signal processing technique used.
+
+However, in real life scenario deploying such specialized hardware will be a difficult task and also not suitable for all indoor environments.
+
+SECTION
+
+Received Signal Strength Indicator (RSSI)
+
+PARAGRAPH
+
+RSSI contains the signal amplitude information and adopted in many reported works on device free sensing (Shi et al., 2012; Sigg et al., 2013).
+
+Within the operating range of the transmitter and receiver, human movement causes reflection or change in the received signal strength and stored as RSSI value.
+
+This value can be easily extracted from any device but shows limited gesture recognition accuracy, as the signal contains only coarse-grained information.
+
+The accuracy can improve with the deployment of more than one overhead Access Points (AP) (Abdelnasser et al., 2015).
+
+Table 4 summarizes the research work reported on human activity recognition using the RSSI descriptor.
+
+Some applications prefer to extract RSSI from user mobile device as it seems to be a cost effective solution than using other commercial devices (Chen et al., 2014).
+
+However, it could be a potential threat as it stores the MAC address of the device in the server and there are chances of data breaching as well.
+
+PARAGRAPH
+
+SECTION
+
+Channel State Information (CSI)
+
+PARAGRAPH
+
+CSI contains amplitude and phase information of the signal and capture the signal reflections of the human movements in subcarrier level.
+
+This helps in achieving fine-grained tracking and hence a preferable choice for attaining remarkable performance.
+
+Table 5 compares CSI based sensing models used in gesture recognition application.
+
+It could be observed that CSI sensing methods record signals with high granularity.
+
+The results show the recognition accuracy of CSI comparatively higher than RSSI as it is resilient to any changes in the environment and human movements.
+
+Also, it produces high accuracy with less number of user profiles.
+
+PARAGRAPH
+
+Tables 3, 4, and 5 comprehensively compare Doppler, RSSI, and CSI metric of the wireless signal.
+
+It shows that the CSI metric can capture the fine-grained signal information of the human body reflections and able to perform the recognition task more accurate than RSSI.
+
+Doppler metric has similar prediction accuracy as CSI and plausible for only coarse-grained actions and demands special radio devices like USRP to capture the signal information.
+
+Moreover, CSI based radio sensing also performs better than acoustic based sensing methods (Fang et al., 2016a).
+
+The following section briefly describes the CSI metric as it considered being beneficial for fine-grained gesture recognition applications.
+
+PARAGRAPH
+
+The wireless signals of the COTS Wi-Fi devices could be fed in raw or pre-processed form to the classification task.
+
+Existing methods generally pre-process the signals as they are prone to noise and fluctuations due to the unstable environmental conditions.
+
+Signal processing task contributes highly to the recognition accuracy as the quality of features extracted depends on the quality of the signal.
+
+Therefore, the recognition accuracy relies on signal pre-processing and feature extraction techniques for classifying the gestures.
+
+State of the art Wi-Fi CSI sensing could be broadly classified in terms of signal processing technique, as (i) Pre-processed CSI and (ii) Raw CSI and the following section summarizes the methods briefly.
+
+SECTION
+
+Pre-processed CSI traces.
+
+PARAGRAPH
+
+State of the art CSI based sensing methods apply filtering techniques and pre-process the signals to remove high frequency noise.
+
+Table 6 compares the literature reporting the application of Wi-Fi CSI in gesture recognition with pre-processing CSI traces.
+
+Band pass filters and Hampel filters are the commonly adopted filters to denoise the signal information and adopt FFT for performing signal transformation.
+
+PCA is the other commonly used feature extraction technique on the de-noised signal and extracts the principal components from the Gaussian signal before the classification step.
+
+State of the art also applies PSD; a well-known statistical metric in recognition systems to achieve better classification accuracy.
+
+Though the signals are pre-processed the classification algorithms like SVM, shows varying accuracy depending on factors such as obstacles in the experimental environment, action granularity to be captured and the number of participants present at the time of data acquisition.
+
+SECTION
+
+Raw CSI traces.
+
+PARAGRAPH
+
+Few studies build a recognition system that achieves better classification accuracy without signal pre-conditioning.
+
+Table 7 compares reported research works using Wi-Fi CSI in gesture recognition without signal pre-processing.
+
+State of the art methods perform the recognition task by extracting the channel characteristics in the form of amplitude and phase change of the signal.
+
+CFR and CFO are the widely extracted values from raw CSI traces for performing the classification task.
+
+PARAGRAPH
+
+Discussion on related work shows that, though device-based and radar-based sensing methods achieve higher classification accuracy, it demands sophisticated equipment and special infrastructure for extracting the signal information.
+
+This limitation paves the way for an alternate means of sensing, leveraging the RSSI and CSI values of the COTS Wi-Fi devices as they do not require special infrastructure for setting up the sensing environment.
+
+RSSI and CSI gain research interest in device free sensing methods, with CSI being more preferred than RSSI, as the former does not provide phase information.
+
+Literature with CSI reports notable performance as it is resilient to any changes in the environment and human diversity.
+
+It is also remarked that regardless of such fine-grained characteristics, CSI based sensing can build a robust recognition system with proper signal pre-processing and feature extraction techniques.
+
+Therefore, this paper introduces the basic concepts of CSI in Section 3.
+
+PARAGRAPH
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+CSI metric refers to the channel properties of the communication link and contains both amplitude and phase information of the signal in the subcarrier level.
+
+This section briefly introduces the basic concepts of CSI metric, tools used for obtaining the CSI values, and the process flow for recognizing the gestures in a device free environment.
+
+SECTION
+
+Channel State Information (CSI)
+
+PARAGRAPH
+
+COTS Wi-Fi devices following 802.11n standards work with Orthogonal Frequency Division Multiplexing (OFDM), achieve increased data rates, improved capacity, and reduced Bit Error Rate (BER) of the system.
+
+Moreover, the Wi-Fi signals of the COTS Wi-Fi device are non-stationary and exhibits non-Gaussian signal distribution.
+
+Also, devices starting from IEEE 802.11n support Multiple Input Multiple Output (MIMO) with the OFDM scheme, enabling them to send and receive information over multiple antennas, as shown in Fig. 2.
+
+The OFDM extracts the channel frequency response in the format of CSI, allowing the sensing to be more accurate.
+
+Since the wireless medium is unstable and channel conditions may vary from time-to-time, the CSI values at the transmitter and the receiver end may vary, and the data acquisition depends on how rapidly the channel conditions change.
+
+Therefore, the channel conditions profoundly influence the data acquisition of CSI traces, and the instantaneous values are estimated in the receiver end on a short-term basis.
+
+PARAGRAPH
+
+CSI contains information such as hardware timestamp, framecounter, number of receiving and transmitting antennas, Received Signal Strength Indicator (RSSI) of each antenna, noise, automatic gain control, amplitude, and phase information of the subcarriers in the form of a complex matrix.
+
+Eq. (1) represents the received signal, which consists of signal information of the sender and the CFR with noise.
+
+Rf,t=Hf,t×Tf,t+N,where, R(f,t) is the received signal strength of carrier frequency f measured at a time t; H(f, t) is the CSI in the form of CFR; T(f, t) is the transmitter signal strength, and N is the noise.
+
+COTS Wi-Fi devices capture the varying signal characteristics of human reflections in the Line of Sight (LoS) or Non-LoS (NLoS) path between the COTS Wi-Fi device (Router) and AP’s (Laptop with Intel 5300 NIC) in the format of CSI, as shown in Fig. 3.
+
+Wi-Fi signals from the transmitter are reflected from the floor, sidewalls, the ceiling, and objects in the confined experimental space.
+
+Any movement of a human in the designated space will have a reflected signal from the moving objects.
+
+The reflected signal, along with the LoS path information received at the receiver end relates the change in the CSI value of the signal and enables sensing of the human target.
+
+SECTION
+
+PARAGRAPH
+
+Tools for extracting CSI
+
+PARAGRAPH
+
+Recognition methods capture CSI information in the form of CFR using specialized hardware such as Intel 5300 Network Interface Card (NIC) as shown in Fig. 4a and Atheros NIC as in Fig. 4b. Devices that comply with the IEEE 802.11n could extract CSI values at the scale of OFDM in subcarrier level.
+
+Tools developed by Halperin et al. (2010) and Xie et al. (2018) collects CSI values from Intel and Atheros NIC’s respectively, and the corresponding tool installation instructions are readily available in the respective articles.
+
+Tool selection solely depends on the application and the model adopted for the study.
+
+For example, the authors Schussel (2016) adopted Intel NIC for measuring the Angel of Arrival (AoA) using Wi-Fi signals of a mobile device, as Atheros NIC demand modifications in the firmware and quite complex to implement in smartphones.
+
+SECTION
+
+PARAGRAPH
+
+Gesture recognition process
+
+PARAGRAPH
+
+The system architecture of gesture recognition using COTS Wi-Fi devices is shown in Fig. 5.
+
+The reflection from the human gesture or action causes variations in the signal strength at the receiver end, and these variations are stored as raw CSI traces.
+
+The process of gesture recognition captures the raw CSI measurements from COTS Wi-Fi device and applies appropriate signal processing and feature extraction techniques for achieving better recognition accuracy.
+
+The recognition process involves extraction and selection of quality features from pre-processed or raw CSI traces and predicts recognition accuracy using classification algorithms.
+
+The quality of the features extracted and selected for the classification task, influences the estimation of recognition accuracy.
+
+PARAGRAPH
+
+Human gesture recognition using Wi-Fi CSI can be broadly classified into two approaches:
+
+PARAGRAPH
+
+The literature reports, studies that are performed in a closed environment, in a LoS and NLoS scenario using either of the above approaches.
+
+Section 4 discusses various model-based approaches reported.
+
+SECTION
+
+PARAGRAPH
+
+Model-based approach
+
+PARAGRAPH
+
+The model-based approach relates the signal data to a physical space and derives the relationship between the captured CSI streams, and performs activity recognition using mathematical representations.
+
+This section discusses some of the key studies, adopting model-based approaches for human gesture recognition.
+
+PARAGRAPH
+
+SECTION
+
+CSI speed and activity model
+
+PARAGRAPH
+
+CSI based human Activity Recognition and Monitoring system — CARM (Wang et al., 2017), developed two performance driven mathematical models, namely, CSI speed model and activity model.
+
+The CSI speed model derives the relationship between the changes in CSI variations with the speed of human movements.
+
+On the other hand, the activity model relates to the speed of human movement with a specific activity.
+
+CARM conducted experiments with commercial Wi-Fi device and measure the quantitative speed features precisely, for improving the classification accuracy.
+
+It also applies PCA for noise removal and to reduce the dimensionality of extracted features.
+
+Though CARM performs well in distinguishing 8 different gestures with an average accuracy of 96% for trained samples and 85% for untrained samples, it has some limitations in identifying and recognizing fine-grained activities.
+
+WiDar (Qian et al., 2017) is an extended work of CARM for tracking the direction of human movement along with speed by implementing geometrical modeling.
+
+It enabled tracking of fine-grained signal reflection and achieved decimeter level accuracy with a commercial router with a pair of transmitter and receiver antenna.
+
+SECTION
+
+Angle of Arrival (AoA) model
+
+PARAGRAPH
+
+AoA model estimates the propagation direction of the RF wave incident on the antenna array.
+
+It computes the direction by measuring the difference in the arrival time at every antenna with the delay and computes the AoA value.
+
+The accuracy of AoA models depends on the number of antennas deployed in the environment.
+
+For achieving a higher resolution of angle estimate, AoA model adopts MUSIC algorithm especially for the signal sub-spacing.
+
+IndoTrack (Li et al., 2017b), WiDraw (Sun et al., 2015), and FreeSense (Xin et al., 2018) are some work that adopts the AoA method.
+
+Indotrack (Li et al., 2017b) adopted MUSIC method and proposed a Doppler-AoA model for estimating the absolute trajectory and track a single target with a median tracking error of 35 cm.
+
+WiDraw (Sun et al., 2015), an on-air hand motion tracking system, extracts the incoming AoA values from CSI and average RSSI values and achieves a recognition accuracy of 91%.
+
+The system achieves better performance with several transmitting antennas; however, the accuracy declines when the user is not within 2 ft of distance from the receiver.
+
+FreeSense (Xin et al., 2018) also adopts MUSIC to estimate the phase difference.
+
+AoA model performs well by varying the phase of each antenna, resulting in better recognition and classification performance.
+
+AoA based sensing can track and localize the target by adjusting the antenna power.
+
+FuseLoc (Sanam and Godrich, 2019) also adopted the AoA model for locating human targets in an indoor environment with the mean error of 0.71 m.
+
+SECTION
+
+Fresnel zone model
+
+PARAGRAPH
+
+Fresnel zone is a cylindrical ellipsoid region formed by the transmitter and receiver.
+
+The operating frequency and the distance between the transmitter and receiver determine the circular zone.
+
+It forms ‘n’ number of zones, though the first, second, and third zone will be of use, as they have a covered effect on radio wave propagation.
+
+Fresnel zone model incorporated with the commercial Wi-Fi device works in LoS path and helps in tracking human movement within the designated zone.
+
+The Fresnel zone model quantitatively calculates the CSI dynamics concerning human movement and performs micro to macro level sensing, ranging from respiration rate to walking direction (Zhang et al., 2017).
+
+WiDir (Wu et al., 2016) infers the walking direction with the median error of less than 10 degrees.
+
+The experimental results achieved desirable performance in a single participant environment and decline with the presence of more than one participant in the environment.
+
+PARAGRAPH
+
+Table 8 compares various model-based approaches discussed in this section based on the application area and granularity of the gestures.
+
+Other models like CFR, Rician fading, Threshold model, CFO, Radio absorption, Statistical model, and Sinusoidal model are also discussed along with its performance.
+
+Model-based studies primarily use AoA for detection and estimation applications and capture precise granularity depending on the distance between the sensing target and receiving antenna.
+
+AoA models extensively adopt the MUSIC algorithm and demand lots of antenna adjustments for tracking the target efficiently.
+
+In an NLoS scenario, Fresnel zone model seems to be a better choice and a requisite number of antennas for achieving better performance.
+
+It is noticed that all model based approaches substantially depends on the deployments of antennas and its placements in the sensing environment.
+
+Other factors like multiple distortions and the presence of multiple participants in the sensing environment influence the performance of the recognition model and still remain a challenging task.
+
+SECTION
+
+Learning-based approach
+
+PARAGRAPH
+
+Learning-based approaches perform the recognition task through learning algorithms that relate the signal data to an activity pattern.
+
+Learning algorithms recognize activities either offline or online by comparing it with a profile database and performs the classification task using classifiers.
+
+The classifiers perform the gesture recognition task using Machine Learning or Deep Learning algorithms.
+
+Recently, the research direction migrates from traditional Machine Learning approaches to Deep Learning approach, as Deep Learning methods report higher recognition accuracy.
+
+For better recognition accuracy, Deep Learning approaches demands a large volume of data for auto feature selection and classification, still suffers poor interpretability of data.
+
+Conversely, Machine Learning approaches can achieve satisfactory recognition accuracy even with relatively lesser sample size but rely on the quality of the features extracted.
+
+SECTION
+
+Machine learning methods
+
+PARAGRAPH
+
+Feature extraction is the critical aspect of any machine learning algorithm as the performance depends on the quality of handcrafted features.
+
+Complex computational efforts could be minimized with the introduction of the feature selection step prior to classification.
+
+This is achieved by reducing the dimensionalities of the extracted features to an optimal subset of features and fed as input to the classification algorithms.
+
+This section discusses feature extraction, selection, and classification step adopted by machine learning algorithms or classifiers.
+
+SECTION
+
+Feature extraction methods
+
+PARAGRAPH
+
+Features are extracted from the raw or pre-processed CSI traces for performing the recognition task.
+
+The size of the feature vector influences the classification task, as the complexity of the recognition model scales with the input features.
+
+Feature extraction is a vital step in the activity recognition process and applies the appropriate technique depending on the volume of data acquired in the receiver end.
+
+Segmenting the data, likewise, is a critical part as there is no straightforward approach to do it.
+
+The traditional method of data segmentation includes static sliding window approach (Bao and Intille, 2004; Stikic et al., 2008; Liao et al., 2005).
+
+It is a controlled learning approach and to obtain better results, detailed procedures, and vast knowledge to conduct the experimental work are required to fix the window size.
+
+Hence, the fixed window approach poses some limitations in terms of accuracy and may lead to classification errors in the later stage of activity recognition (Gu et al., 2009).
+
+In comparison to fixed length sliding window, dynamic sliding window based approach (Laguna et al., 2011) achieves better classification accuracy.
+
+PARAGRAPH
+
+The raw CSI traces consist of high-frequency noise and rarely fed as input to the classification step.
+
+Most of the recent sensing methods pre-process the raw signal to reduce noise and apply transformations for unwrapping raw CSI measurement that reveals the phase change of the signal.
+
+Noise reduction phase mainly removes the phase offset with outliers, using regression and filtering technique, to de-noise the high-frequency signal.
+
+Low pass filters like Butterworth (Zeng et al., 2015) or Hampel filters (Qian et al., 2018) are widely used for noise removal.
+
+Fast Fourier Transform (FFT), Inverse Fast Fourier Transform (IFFT) and Discrete Wavelet Transform (DWT) are frequently utilized signal transformation technique for performing a linear transformation on the de-noised signal (Xu et al., 2018b).
+
+DWT is another widely used preconditioning technique for signal compression.
+
+This pre-processed signal is of use in many applications that detects and locates human targets using CSI traces (Dang et al., 2019).
+
+SECTION
+
+Feature selection methods
+
+PARAGRAPH
+
+The extracted features may attribute to a large feature vector, which makes the model computationally complex.
+
+The occurrence of redundant and irrelevant features will also decrease the prediction accuracy of the recognition model.
+
+In such cases, feature selection automates the selection of features that contributes to the prediction variable and improves recognition accuracy.
+
+This section reports some of the works that adopt feature selection paradigm.
+
+A forward and backward feature selection method (Wang et al., 2015) reduce the original 24 features obtained from the statistical data into 14 features.
+
+The feature selection with SVM reported better recognition accuracy as the selected features reveal the most useful information.
+
+WiHear (Wang et al., 2016a) applies the Multi-Cluster/Class Feature Selection (MCFS) algorithm to extract the optimal feature subset from the wavelet features.
+
+WiFi-ID (Zhang et al., 2016a) uses a combination of feature selection (Relief algorithm) and classification (Sparse Approximation based Classification — SAC) to extract the optimal feature subset and recognize the individual human subject.
+
+The next important step of activity recognition is classifying the inputs to identify and recognize the activity or human behavior.
+
+SECTION
+
+Classification methods
+
+PARAGRAPH
+
+The classification approach is carried out either in a static method or in a temporal manner and requires lots of training of the learning algorithm for better performance.
+
+Machine learning methods adopt (a) supervised, (b) semi-supervised or (c) unsupervised learning algorithms to perform the classification task.
+
+The algorithm to be selected depends on the sample size and the application.
+
+In supervised learning, labeling is done for all data, and the algorithms learn to predict the output from the input data.
+
+The widely used supervised algorithms are Logistic Regression, Decision trees, SVM, k-Nearest Neighbors (k-NN), Naive Bayes, Random forest, Linear regression, and polynomial regression.
+
+In semi-supervised learning, only some data is labeled, and most of it is unlabeled, where a mixture of supervised and unsupervised techniques can be used.
+
+All of the information is unlabeled in unsupervised learning, and the algorithms learn the basic structure from the input data.
+
+The widely used unsupervised learning approaches are Clustering algorithms, K-means clustering, Hierarchical clustering, and HMM.
+
+Apart from the above learning algorithms, DTW is the commonly used algorithm to measure the similarities between the temporal sequences.
+
+PARAGRAPH
+
+Table 9 summarizes research work reported on machine-learning approaches adopted for human activity recognition.
+
+The classification task of machine learning algorithms depends on the quality of signal acquired and the handcrafted features.
+
+Typically the feature extraction techniques apply first and second order statistical measures.
+
+For example, PCA derived from second-order statistical moments is one of the popular feature extraction technique adopted by most of the reported studies.
+
+PCA based de-noising (Wang et al., 2016c; Wenyuan et al., 2018) work well in removing interference and computes discriminant feature from the CSI streams.
+
+The coarse-grained behavior like walking and standing can be recognized using static signal characteristics calculations like mean, median, variance, normalized entropy as features (Zeng et al., 2015).
+
+For capturing even more fine-grained activities like walking patterns, more specific features were extracted using spectrograms (Wang et al., 2016c).
+
+Capturing complex behaviors like watching TV, gazing, etc., is often considered to be a tedious task as it requires fine-grained mapping or labeling of signals to the appropriate CSI stream.
+
+Feature selection in learning based approach requires many feature adjustments, and it purely depends on the granularity level of human behaviors to be sensed and maps the signal patterns to the actions.
+
+Most studies on CSI based feature extraction and selection implements DTW which performs well with the scalable amount of data, even though its performance declines with large datasets.
+
+PARAGRAPH
+
+Fig. 6 compares various classifiers adopted in Machine Learning approach.
+
+The recognition accuracy of the machine learning classifiers is highly influenced by the number of participants, signal processing, and feature extraction technique adopted.
+
+Majority of the literature cited in the present work reports recognition accuracies greater than 90%.
+
+Amidst all, SVM is the widely used machine learning classifier and performs well in almost all scenarios.
+
+However, with multiple participants, the accuracy of SVM drops significantly.
+
+PARAGRAPH
+
+SECTION
+
+Deep learning methods
+
+PARAGRAPH
+
+Deep Learning methods gain more attention lately as it achieves recognition accuracy, sometimes exceeding human-level performance.
+
+Deep Learning methods automate the feature extraction, can achieve state-of-the-art accuracy and can handle a large set of labeled data.
+
+Deep learning models work with layered architecture: an input layer, a hidden layer, and output layer.
+
+The input layer of the deep learning model fed with pre-processed or raw CSI signal and the output layer generates the accuracy of the classification task based on the processing carried out by the hidden layers.
+
+The layers of the deep learning network widely apply WMA in the feature extraction step (Liu et al., 2017b); however, Deep Learning methods require high computing power as it needs to process a large volume of data.
+
+CNN is the most widely used deep learning model as it automates the feature extraction task.
+
+Table 10 summarizes the research work reported on human activities recognition adopting Deep Leaning methods.
+
+The performance of the Deep Learning algorithms scales with increasing sample size and drops with a lesser number of samples.
+
+However, the recognition accuracy of Deep Learning methods also suffers from interference characteristics of wireless signals in the presence of multiple participants and could improve the performance with an increasing number of antenna pairs.
+
+PARAGRAPH
+
+Fig. 7 compares various classifiers adopted in Deep Learning approach.
+
+CNN is the widely adopted classifier in Deep Learning approaches reported.
+
+CNN classifier exhibits better recognition accuracy with a large volume of the dataset and with a single participant.
+
+With multiple participants or with smaller sized datasets, its accuracy drops.
+
+BPNN and RNN classifier show less than 90% recognition accuracy, as there are multiple participants.
+
+PARAGRAPH
+
+Tables 9 and 10 provide a comprehensive report on Machine Learning and Deep Learning approaches adopted in the device free recognition paradigm.
+
+Model-based algorithms could capture coarse-grained information, whereas learning-based algorithms could recognize fine-grained information from the signal.
+
+The hybrid algorithm integrates both model-based and learning based approaches.
+
+Table 11 reports a few research works adopting a hybrid approach and achieving better recognition and estimation accuracy in complex environments.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+Device-free gesture recognition adopting model-based and learning-based approaches are broadly discussed in this paper.
+
+Robust recognition prerequisite appropriate data acquisition methods along with signal processing or pre-conditioning techniques, as it attributes to performance.
+
+Approaches utilizing CSI traces could achieve more accurate recognition accuracy by precisely capturing the action granularity.
+
+Predominantly, Wi-Fi CSI sensing considered being more convenient than the conventional methods, due to its privacy preserving and non-intrusive characteristics.
+
+PARAGRAPH
+
+Reported work on human gesture recognition using Wi-Fi CSI broadly classified into two approaches: Model-based approach and Learning-based approach.
+
+The model-based approach uses mathematical representation to relate the CSI dynamics with the human movement.
+
+Model-based approaches derive better performance with less number of samples.
+
+However, a generalization of solutions seems difficult.
+
+In general, model-based approaches perform well in the presence of a single participant.
+
+In case of multiple participants, multiple antennas need to be deployed for improving accuracy.
+
+PARAGRAPH
+
+Learning-based approaches suffer overfitting with less sample size and demand proper signal preconditioning for better recognition.
+
+Also, with untrained or unseen data, the classification task of learning algorithm yield less significant performance.
+
+Extensive research works on gesture recognition focus on signal pre-processing, feature extraction, and selection techniques due to its impact on recognition accuracy.
+
+It could be observed that the state of the art signal processing and feature extraction techniques solely relies on first-order and second-order statistical moments.
+
+Such statistical methods can deal only with Gaussian signal distribution and has limitations addressing the non-Gaussian signal distribution.
+
+A widely used statistical metric like PSD or feature extraction techniques like PCA were also derived from the first and second order statistical moments and also poses the same limitation as of first and second order statistical methods.
+
+PARAGRAPH
+
+Also, the choice of selecting a conventional machine learning approach or deep learning approach depends on the volume of data acquired in the data collection step.
+
+Deep learning algorithms rely on a large dataset for robust performance, and it performs auto feature extraction and classification simultaneously.
+
+However, inferring the relationship between the instances and measuring the inscribed results is still under research.
+
+PARAGRAPH
+
+On the other hand, many works reported so far, considers either spatial or temporal information for detection of actions and classifying temporal variation in action pattern still considered to be a puzzling task.
+
+This also motivates much recent work to adopt deep learning methods than traditional off the shelf methods.
+
+Fig. 8 compares the recognition accuracy estimated by various algorithms reported in literature against different approaches adopted.
+
+It is to be noted that each legend mark in the graph indicates recognition accuracy values of different reported works.
+
+Deep learning methods of learning based approach exhibits a similar trend, with a large volume of data trade-off.
+
+On the other hand, Machine learning methods shows consistent performance with a limited number of handcrafted features.
+
+SECTION
+
+Challenges
+
+PARAGRAPH
+
+Wireless signals are sensitive to different environmental factors and hence challenging to build a robust and generalized recognition model using COTS Wi-Fi devices.
+
+For example, the performance of the recognition model relies on the quality of data acquired and sometimes demands more hardware deployment for capturing fine-grained information.
+
+Other factors like users location from the receiver, number of participants in the sensing environment, the volume of training instances, transmission rate, signal preconditioning and features extraction and selection techniques also attribute to the recognition accuracy.
+
+Moreover, the gesture recognition requires expert knowledge in filtering the raw CSI data to identify the discriminant feature as it is a difficult task when it involves a multiclass classification task.
+
+It is also complex for Model-based and Learning-based approaches to perform well with untrained or unseen data.
+
+Moreover, the number of sample instances affects the performance and impact the complexity of the learning based recognition model.
+
+Therefore, the selection of appropriate data acquisition and signal pre-conditioning techniques, model-based, and learning based approaches contributes to building a robust recognition model.
+
+Other factors like environmental settings, hardware setup, and a number of participants causing multiple distortions also attribute to the recognition accuracy.
+
+SECTION
+
+Opportunities
+
+PARAGRAPH
+
+The performance of deep learning models scales with increasing samples.
+
+However, it is quite impossible for a user to provide all possible sets of actions or gestures in the data acquisition step.
+
+Therefore, automatic sample generation with few acquired samples could be considered in deep learning approach to generate virtual samples.
+
+Although extensive literature is available in model-based and learning-based approaches, capturing the details on ‘who performed what action’ remains as an excellent opportunity for researchers to explore in a multi-user participation scenario.
+
+Also, hybrid approaches and signal information collected from different sensors could be fused and analyzed for performing the recognition task more accurate.
+
+More opportunities could be envisioned in signal processing and feature extraction technique for handling the non-Gaussianity in the signal distribution to implement generalized solutions for diverse applications.
+
+PARAGRAPH

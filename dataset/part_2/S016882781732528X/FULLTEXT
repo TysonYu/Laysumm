@@ -1,0 +1,445 @@
+10.1016/j.jhep.2017.12.013
+
+FULLTEXT
+
+TITLE
+
+Modelling the elimination of hepatitis C as a public health threat in Iceland: A goal attainable by 2020
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The recent availability of highly tolerable direct-acting antiviral (DAA) treatments for hepatitis C virus (HCV) has led to the development of World Health Organization (WHO) HCV elimination targets,1 which propose an 80% reduction in HCV incidence and a 65% reduction in HCV-related mortality by 2030.
+
+Many countries are currently either formulating HCV strategies or determining what resources and policies will be required to reach elimination targets.
+
+PARAGRAPH
+
+Iceland is an island nation with a total population of approximately 332,0002 and an estimated 880–1,300 people living with chronic HCV,3,4 with domestic HCV transmission occurring primarily among people who inject drugs (PWID).5–7
+
+In 2016, a nationwide program was launched offering DAA treatments at no cost for the entire population living with HCV,8 which may lead to Iceland becoming the first country to achieve HCV elimination.
+
+PARAGRAPH
+
+Iceland’s geographical isolation and relatively small population – comparable in size to many cities globally – makes it an important case study.
+
+In general, geographically-targeted policies to reduce transmission among PWID are best implemented at a city rather than country level to account for local needs; for example, setting up testing and treatment programs, needle and syringe programs (NSPs) and opioid substitution therapy (OST) in consultation with local healthcare and community service providers.9,10
+
+In larger countries where neighbouring cities can have different program coverages or HCV epidemiology, human mobility and drug market interactions across jurisdictions may influence elimination efforts in unknown ways.
+
+It is difficult to predict how inter-city interactions would influence such an attempt at elimination if one city has an intensive elimination program and a neighbouring city has a more limited approach.
+
+Thus, the questions arise of what the first city needs to implement to achieve the WHO HCV elimination targets, as well as what further needs to be done to maintain control of the epidemic.
+
+Iceland provides a benchmark example where these factors are minimized due to its geographical isolation, and therefore a reference case for answering this question in countries with similar HCV epidemiology to Iceland but a larger population and geographical area.
+
+PARAGRAPH
+
+This study uses a mathematical model to simulate the implementation of HCV strategic responses in Iceland, in order to identify the programmatic targets required for elimination and factors that may limit this achievement.
+
+Specifically, we estimate (i) treatment scale-up and testing rates among PWID required to achieve the WHO HCV elimination targets; and (ii) the ongoing coverage and frequency of HCV testing required among PWID, in combination with various levels of harm reduction coverage, to prevent future HCV outbreaks from occurring.
+
+This can inform policy to ensure that gains made through the current DAA treatment program are not lost in the future.
+
+SECTION
+
+Methods
+
+SECTION
+
+Setting and model inputs
+
+PARAGRAPH
+
+Iceland has an estimated 880–1,300 people living with HCV,3,4 with stable diagnosis rates of 40–70 new cases per year over the past 20 years.11
+
+The burden of HCV-related liver disease is low relative to other settings;12 only 10% of people living with HCV are estimated to have progressed beyond liver fibrosis F0-F2 stages13 and only 12 cases of HCV-related hepatocellular carcinoma (HCC) were recorded for the period 1998–2015.
+
+This in part may be due to high diagnosis and retention in care; an estimated 80% of people with HCV have been diagnosed as antibody+,3 and more than 95% of those are estimated to have had a follow-up RNA test performed.13
+
+In Iceland there is mandatory reporting of all HCV-infected individuals to a national registry that has been kept since 1991 when diagnostic tests became available in the country.
+
+PARAGRAPH
+
+The vast majority of people with HCV infection in Iceland have a history of injecting drug use.14
+
+There are currently an estimated 400 active PWID in the country, with the most commonly injected drugs being stimulants.8
+
+The majority of PWID (an estimated 90%) access services or addiction treatment at Vogur Hospital (Society of Alcoholism and other Addiction—National Center of Addiction Medicine), where they are regularly screened for HCV.
+
+Data from Vogur indicate that the estimated prevalence of chronic HCV among PWID is 38%, and that approximately 37% always used clean needles for their injections.
+
+PARAGRAPH
+
+In January 2016, the Treatment as Prevention for Hepatitis C (TraP HepC) program8,13 was launched, providing universal access to DAAs for everyone living with HCV in Iceland.
+
+PWID are the central focus of the program in order to reduce incidence through treatment-as-prevention; rapid testing is offered in select sites, including shelters, and letters of notice were sent to all physicians in Iceland at the launch of the project and regularly thereafter.
+
+To further improve awareness, as well as to capture and treat infections among former or non-injecting drug users (which will have less impact on domestic incidence but represents the majority of people living with HCV), information has been made available to the general population through leaflets that were sent to every home in the country as well as social media and the internet.
+
+Extensive case-finding using the national registry is also taking place to provide treatment to people with previously diagnosed but untreated HCV infection.
+
+SECTION
+
+Model description
+
+PARAGRAPH
+
+We used a dynamic compartmental model of HCV transmission, liver disease progression and the complete cascade of care.
+
+The modelling framework was based on previous work15,16 but calibrated to epidemiological and clinical data from Iceland.
+
+A detailed model description and methodology is provided in the supplementary information and a model schematic is shown (Fig. 1).
+
+In brief, individuals who became infected experienced an acute infection stage before becoming chronically infected and developing increased liver fibrosis over time, including eventual compensated cirrhosis.
+
+People with compensated cirrhosis could develop decompensated cirrhosis (DC) or HCC, after which liver transplants were possible (but rare3).
+
+Chronically infected people could be treated with interferon-based therapies (pre-2016)14 or DAAs (from 2016 onwards).
+
+PARAGRAPH
+
+The model was stratified by:
+
+Injecting drug use status (current – defined as injecting within the past six months, former or never) with people in the model able to cease injecting or relapse into injecting drug use.
+
+Age (categories 20–24, 25–29, 30–34, 35–44, 45–54, 55–64, 65–74, 75–84, 85+ years), with 59% of mixing assumed to occur within the same age category and 41% outside.17
+
+Stage of engagement along the HCV cascade of care (undiagnosed, infected and tested positive for HCV antibodies, infected and tested positive for HCV RNA, infected and had a genotype test, infected and undergone a liver fibrosis test, on DAA treatment, failed initial treatment, on second round treatment, and cured), with people who had DC or HCC expedited through the care cascade.
+
+PARAGRAPH
+
+All-cause mortality occurred at differing rates for each age category (and also by injecting drug use status), and mortality rates were increased to represent the higher risk of death for people with DC, HCC, post liver transplant and those who were cured after developing compensated cirrhosis (to account for the possibility of decompensation).
+
+Following cure people could become re-infected based on their injecting drug use status and the dynamic prevalence of HCV among active PWID in the Icelandic population.
+
+SECTION
+
+Calibration and parameters
+
+PARAGRAPH
+
+The model was calibrated to reproduce the epidemic in Iceland.
+
+Calibration and population details, as well as HCV-related and health-related parameters are provided in the supplementary information.
+
+SECTION
+
+Scenarios
+
+PARAGRAPH
+
+Four scenarios were considered, and in each case projections (2016–2030) were made of total treatments administered to PWID, total treatments administered to the rest of the population, annual incidence and prevalence.
+
+Relative reductions in mortality were not considered, as estimates for 2016 HCV-related mortality were not available – and possibly zero – because only 1–4 cases of HCC were recorded in a given year.
+
+SECTION
+
+Scenario 1: Projecting the epidemic without increased treatment uptake
+
+PARAGRAPH
+
+In this scenario, the effectiveness of treatments was increased in 2016 to reflect the use of DAAs.
+
+However, rates of diagnosis, linkage to care and treatment numbers (approximately 20 per year,14 prioritized to people with advanced liver disease regardless of their injecting drug use status) were kept the same as in the pre-DAA era.
+
+This provides a reference scenario of no treatment scale-up.
+
+SECTION
+
+Scenario 2: Projected treatment uptake with current testing/engagement in care (estimating the impact of DAAs only)
+
+PARAGRAPH
+
+Scenario 1 was re-run but with the number of annual DAA treatments available in the model set to 480 in 2016 and 200 each subsequent year, reflecting actual (2016) and estimated (2017 onwards) treatment uptake.
+
+However, treatments were only administered to people in the model who were diagnosed and in care, meaning that without changes to testing and linkage to care the actual number of treatments administered was less than the total number available, in particular in later years.
+
+In this scenario, rates of diagnosis (80% of people which chronic HCV3) and follow-up (approximately 95% of people who test positive for HCV antibodies return for an RNA test13) were kept the same as in the pre-DAA era.
+
+The treatments were allocated to anyone diagnosed regardless of their injecting drug use status.
+
+SECTION
+
+Scenario 3: Treatment-as-prevention among PWID without health system limitations
+
+PARAGRAPH
+
+The model was used to estimate how many treatments per year would be required among PWID to achieve an 80% reduction in incidence by 2019 – i.e. following Iceland’s 2016–2018 treatment scale-up program.
+
+This scenario removed the requirement for people to move through the cascade of care before commencing treatment.
+
+Therefore, it is an estimate of the required treatment numbers without consideration of how they could be achieved in practice (which is the next scenario).
+
+This was repeated to estimate the annual number of treatments required among PWID to achieve the incidence reduction target in 2020, 2025 and 2030.
+
+SECTION
+
+Scenario 4: HCV testing
+
+PARAGRAPH
+
+Here we combine Scenario 2 with various testing policies.
+
+For the projected treatment uptake (480 in 2016 and 200 in subsequent years) we estimate what year elimination could be reached if HCV antibody testing occurred among PWID: at current frequency (an estimated 90% of PWID are tested approximately every two years), annually or six-monthly.
+
+SECTION
+
+Preventing outbreaks once elimination targets have been reached
+
+PARAGRAPH
+
+The basic reproduction number (R0) – the average number of new infections caused by one typical infected individual in a completely susceptible population – is an extremely important value for infectious diseases.
+
+Values of R0 <1 indicate that the disease is expected to eventually become extinct, while values of R0 >1 indicate that the disease can spread and take off within a population.18
+
+PARAGRAPH
+
+Interventions that reduce R0 from above one to below are therefore likely to prevent outbreaks from occurring once elimination targets have been reached.
+
+In our model this can be done by either reducing the risk of transmission (through harm reduction coverage), or reducing the average time a typical infected individual who is at risk of transmitting would spend before being cured (i.e. by improving stages in the HCV care cascade).
+
+The methodology used to calculate R0 is provided in the supplementary information.
+
+PARAGRAPH
+
+In general harm reduction for PWID refers to a package of interventions including NSP services, treatment services, education programs and other interventions aimed at reducing the negative consequences of drug use.
+
+For this study, we focus on the specific negative consequence of HCV infection and model increased “harm reduction” – referring to scaling up a package of services – as a proportional reduction in the probability of infection.
+
+In this sense we are modelling the outcome of scaled-up services, rather than the specific services themselves.
+
+This is because individual components of harm reduction may have ill-defined current coverage or effectiveness, whereas their combined impact on incidence reduction can be more objective to measure.
+
+For example, a 10% scale-up of harm reduction would be implemented as a 10% reduction in the force of infection proportionality constant for PWID (see supplementary information).
+
+For average testing frequencies among PWID of current practice, yearly and six-monthly, we estimate how much “harm reduction” scale-up is required (i.e. what percentage reduction in the force of infection needs to be achieved through prevention) to ensure R0 is below one.
+
+SECTION
+
+Sensitivity analysis
+
+PARAGRAPH
+
+A Monte Carlo uncertainty analysis was conducted to obtain plausible bounds around model estimates.
+
+Uncertainties of annual disease transition probabilities were taken from previously published values (see supplementary information).
+
+These uncertainties were parametrized as probability distributions and 100 simulations were undertaken using random, independent parameter draws, 95% CIs were taken as the 2.5th and 97.5th percentiles of the resulting outputs.
+
+PARAGRAPH
+
+One-way sensitivity analyses were also undertaken to test the impact when: 90% of PWID with chronic HCV were diagnosed compared to 80%; initial prevalence among PWID was either 30% or 50% compared to 38%; the total number of PWID in Iceland was either 200 or 1,000 compared to the estimated 400; the average length of injecting career was halved from 14 years to 7 years; treatment adherence among PWID was increased from 90% to 99%; the average times between positive RNA diagnosis, liver assessment and treatment commencement were doubled; the maximum annual number of DAAs courses commenced from 2017 onwards was doubled from 200 to 400; the effectiveness of DAAs was increased from 90% to 95%; and the total number of people living with HCV was decreased from 1,300 to 800.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Scenarios 1 and 2
+
+PARAGRAPH
+
+Without any treatment scale-up (Scenario 1) the burden of HCV in Iceland is expected to rise as the liver disease among the cohort of people living with chronic HCV becomes increasingly advanced (Fig. 2, left).
+
+DAA treatment scale-up (Scenario 2—using similar treatment numbers to what has occurred) was predicted to provide a significant reduction in this burden (Fig. 2, right), particularly because it was largely focused on people with advanced liver disease.
+
+This is because people with more advanced liver disease (a) had been infected for longer and were therefore more likely to be diagnosed; and (b) were more likely to seek treatment due to their worsening health.
+
+PARAGRAPH
+
+Without additional interventions to diagnose PWID, the model estimated that the projected treatment uptake in Scenario 2 would lead to a 72% decrease in incidence by 2030 (Fig. 3 and Table 1).
+
+This would fall slightly short of the target of an 80% reduction due to treatment scale-up not being started in recently infected and undiagnosed PWID who were at greatest risk of transmission.
+
+SECTION
+
+Scenario 3
+
+PARAGRAPH
+
+The model estimated that an 80% reduction in incidence could be achieved by 2030, 2025 or 2020 by treating 55/1,000, 75/1,000 and 188/1,000 PWID per year respectively, corresponding to total annual treatment numbers of 22, 30 or 75 active PWID (out of a total estimated 400 PWID) (Table 2).
+
+In the model it was not possible to achieve the incidence reduction target by 2019 without unfeasible levels of treatment scale-up.
+
+Even when all currently infected PWID were treated within the first year (i.e. approximately 150 current PWID in 2016), the contribution to transmission from HCV-infected former PWID relapsing into injecting drug use meant that to achieve an 80% reduction in incidence by 2019 all current PWID, as well as approximately 170 former PWID per year, would need to be treated.
+
+SECTION
+
+Scenario 4
+
+PARAGRAPH
+
+When Scenario 2 (the projected treatment scale-up) was extended to include HCV testing policies among PWID of either annually or six-monthly (using the same estimated treatment numbers), the incidence reduction elimination target was achieved by 2024 and 2023 respectively (Table 2).
+
+SECTION
+
+Preventing outbreaks once elimination targets have been reached
+
+PARAGRAPH
+
+The basic reproduction number (R0) was estimated to be 1.08 before treatment scale-up, indicating that without interventions to reduce the average time spent at risk of transmission, outbreaks of HCV would be possible in susceptible populations.
+
+This is slightly lower than previous estimates of R0 for HCV, which have ranged from 1.10–4.3319–21 in a variety of different epidemic settings, possibly because of the high levels of harm reduction (NSPs, OST and drug counselling support) currently available in Iceland.
+
+For comparison, this R0 value is also less than estimates for other infectious diseases: R0 has been estimated at 1.5–2.5 for the 2014 Ebola outbreak in Western Africa,22 3.0–6.6 for the 2016 Zika outbreak in Colombia,23 2–5 for HIV,18 1–3,000 for malaria,24 12–18 for measles,18 4–7 for mumps,18 5–6 for pertussis,25 3–4 for SARS,26 and typically 2–4 for influenza.18
+
+PARAGRAPH
+
+Making DAAs continually available with no other changes to the healthcare system reduced the average time an individual would spend at risk of transmission, and hence reduced the R0 value to 0.59 (Table 1), suggesting that with ongoing DAA treatment access an outbreak would be unlikely.
+
+Reducing the time at risk of transmission even further by including annual testing of PWID resulted in an even smaller R0 value of 0.38.
+
+SECTION
+
+Sensitivity analysis
+
+PARAGRAPH
+
+The model was sensitive to current estimates for the proportion of PWID who were diagnosed.
+
+For example, if 90% of PWID living with HCV were diagnosed (rather than the estimated 80%3), then the incidence reduction target was reached by 2027 without any additional testing requirements.
+
+It is therefore critical to understand current testing levels of PWID.
+
+Harm reduction scale-up was also an effective way of reducing incidence among PWID: a 20% increase in coverage meant that the incidence reduction target was reached by 2028 without any additional testing requirements, or by 2022 when combined with annual antibody testing of PWID.
+
+It may be feasible to improve NSP coverage to some extent too, as in a survey at the Vogur Hospital (SAA - National Center of Addiction Medicine) that demonstrated only 37% of PWID reported that they always used clean needles.
+
+PARAGRAPH
+
+Otherwise, the model was sensitive to epidemic parameters such as the average length of injecting career among PWID, the total number of PWID and the initial prevalence among PWID.
+
+It is common for models of HCV transmission among PWID to be sensitive to these parameters as the calibration constant varies in proportion to them when different assumptions are used.27
+
+The changes in outcomes (Table 2) when these assumptions were varied were in the directions expected.
+
+PARAGRAPH
+
+In all scenarios the estimated values of R0 following DAA treatment availability were <0.76.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+We have used a mathematical model to simulate the implementation of HCV strategic responses in Iceland, finding that achieving the WHO elimination target of an 80% reduction in HCV incidence by either 2030, 2025 or 2020 would require treating a minimum of 55/1,000, 75/1,000 or 188/1,000 PWID per year respectively (a total of 22, 30 and 75 PWID per year respectively).
+
+However, the feasibility and time to achieve the elimination target hinges on harm reduction coverage and the timely diagnosis of PWID.
+
+In particular, we found that the incidence reduction target could not be achieved without either additional HCV antibody screening of PWID beyond current practice or a 20% scale-up of harm reduction.
+
+Combining annual HCV antibody testing of PWID with DAA treatment uptake was estimated to achieve the incidence reduction target by 2024.
+
+PARAGRAPH
+
+Given the relatively small number of PWID in Iceland, an alternative additional testing policy, which may require less infrastructure support and/or education of healthcare providers, could be to use community-based and mobile services to operate once-off or regular targeted screening campaigns.
+
+This may even have the additional benefit of generating the initial treatment demand among PWID to achieve the incidence reduction target by 2020.
+
+Provided DAAs were continually accessible to people if they were diagnosed with HCV, the model estimated the basic reproduction number for HCV to be well below one from 2016 onwards.
+
+This suggests that additional testing or harm reduction (or both) is required in Iceland in an initial period until elimination targets are reached, rather than for epidemic control post-elimination.
+
+However importantly, this assumes that current HCV testing and monitoring practices would also be maintained.
+
+Also, it does not account for the existence of sub-populations among PWID with increased HCV transmission risk, for example prisoners, who may have limited access to harm reduction compared to the rest of the population.
+
+Therefore, potential pockets of infection could exist that would need additional ongoing monitoring.
+
+This heterogeneity of risk among PWID is an important subject for future epidemiological and modelling studies; in settings where data is available, consideration should be given to variations between individuals’ injecting practices and behavioural responses to drug market changes, as well as differences according to culture or geographical area, to determine what impact they may have on population-level outcomes.
+
+PARAGRAPH
+
+Currently the average time at risk of transmitting infection to others is relatively small in Iceland compared to many other countries, because of a high proportion of people living with HCV being diagnosed (80%) and an efficient healthcare system where RNA follow-up tests are almost always performed after a positive antibody test result.
+
+This is not always the case, for example in the USA only 50% of people living with HCV have been diagnosed28 (and only 20% have been globally29), while in Australia (albeit before DAAs were available) an estimated 50% of patients with a positive antibody test were not adequately followed up.30
+
+As with most infectious diseases, reducing the time at risk of transmission is pivotal for epidemic control.31
+
+Given the high cost of DAAs and the one-off opportunity of low-cost DAA treatment offered by the TraP HepC study, it is crucial that once elimination has been achieved the HCV epidemic is not allowed to re-emerge among PWID.
+
+In Iceland we have found that this will require continued effective screening and follow-up practices, maintaining (or improving) access to harm reduction services such as NSPs, OST and drug counselling, and ongoing treatment access for anyone diagnosed with HCV.
+
+PARAGRAPH
+
+Our modelling suggests that the TraP HepC program, combined with an efficient healthcare system and high levels of community engagement, are likely to make Iceland one of the first countries to achieve HCV elimination.
+
+During the first fifteen months of the program, treatment was initiated by 526 patients, with 89% reporting injecting drug use as their route of infection and 33% reporting recent injecting drug use (within six months).32
+
+This would correspond to approximately 174 current PWID treated in the first fifteen months, which at least for the initial period is above the number required to achieve elimination by 2020 (75 PWID per year).
+
+If successful in achieving elimination, Iceland would become a real-world example of treatment-as-prevention for HCV that should be critically evaluated against modelling projections.
+
+This is important because for HIV, the impact of treatment-as-prevention is often overstated in models compared to real-world settings,33 and so far it is too early to tell what may actually be achievable for HCV.
+
+Countries with larger populations or less consolidated health systems may not be able to support the screening and information distribution to the general population in the same way, but similar approaches and treatment-as-prevention impacts may be possible at the city level.
+
+For example, targeted community-based strategies could be used to achieve “local” elimination in countries with many cities the size of Iceland’s population.
+
+Such strategies would require particular emphasis on maintaining elimination and preventing outbreaks, given the increased population mobility between cities when compared to a geographically isolated island like Iceland.
+
+PARAGRAPH
+
+There are some limitations to this study.
+
+In particular, the parameters used come from a range of sources and settings that may not perfectly reflect epidemiological and clinical outcomes in Iceland.
+
+To account for this uncertainty, we have conducted both a multivariate uncertainty analysis to get confidence intervals for outcomes, and a sensitivity analysis to test the impact when various parameters were varied through plausible ranges.
+
+This resulted in reasonable confidence intervals and identification of important parameters for future epidemiological studies, such as estimates for the proportion diagnosed and the average length of injecting career for PWID.
+
+We have also considered re-infection and initial infection to occur at the same rates, when in reality there may be behavioural differences between PWID who have achieved a sustained virological response and infection naïve PWID that are so far unknown.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+HCV elimination in Iceland is achievable by 2020 with some additional screening of PWID.
+
+Maintaining current monitoring and harm reduction services while providing ongoing access to DAA therapy for people diagnosed with HCV would ensure that future outbreaks are unlikely to occur.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+No pharmaceutical grants were received in the development of this study.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+MH and the Burnet Institute receive investigator-initiated research funding from Gilead Sciences, AbbVie and BMS.
+
+Gilead Sciences provides DAAs for the HCV treatment program in Iceland in support of an epidemiological study.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+NS performed the modelling and drafted the manuscript.
+
+NS, SO, MG and MH conceived the study.
+
+TT, VR, IH, UBH and GS provided data and expert opinion to inform the modelling.

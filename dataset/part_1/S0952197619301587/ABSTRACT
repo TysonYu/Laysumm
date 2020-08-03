@@ -1,0 +1,21 @@
+10.1016/j.engappai.2019.06.019
+
+ABSTRACT
+
+TITLE
+
+Accelerating decentralized reinforcement learning of complex individual behaviors
+
+PARAGRAPH
+
+Many Reinforcement Learning (RL) real-world applications have multi-dimensional action spaces which suffer from the combinatorial explosion of complexity.
+
+Then, it may turn infeasible to implement Centralized RL (CRL) systems due to the exponential increasing of dimensionality in both the state space and the action space, and the large number of training trials.
+
+In order to address this, this paper proposes to deal with these issues by using Decentralized Reinforcement Learning (DRL) to alleviate the effects of the curse of dimensionality on the action space, and by transferring knowledge to reduce the training episodes so that asymptotic converge can be achieved.
+
+Three DRL schemes are compared: DRL with independent learners and no prior-coordination (DRL-Ind); DRL accelerated-coordinated by using the Control Sharing (DRL+CoSh) Knowledge Transfer approach; and a proposed DRL scheme using the CoSh-based variant Nearby Action Sharing to include a measure of the uncertainty into the CoSh procedure (DRL+NeASh).
+
+These three schemes are analyzed through an extensive experimental study and validated through two complex real-world problems, namely the inwalk-kicking and the ball-dribbling behaviors, both performed with humanoid biped robots.
+
+Obtained results show (empirically): (i) the effectiveness of DRL systems which even without prior-coordination are able to achieve asymptotic convergence throughout indirect coordination; (ii) that by using the proposed knowledge transfer methods, it is possible to reduce the training episodes and to coordinate the DRL process; and (iii) obtained learning times are between 36% and 62% faster than the DRL-Ind schemes in the case studies.

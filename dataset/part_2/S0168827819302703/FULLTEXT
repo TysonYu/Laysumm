@@ -1,0 +1,655 @@
+10.1016/j.jhep.2019.04.009
+
+FULLTEXT
+
+TITLE
+
+Chronic hepatitis delta virus infection leads to functional impairment and severe loss of MAIT cells
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatitis delta virus (HDV), a small, defective RNA virus, causes the most severe form of viral hepatitis.1,2
+
+For infection with HDV, coinfection with hepatitis B virus (HBV) is required.
+
+Up to 70 million individuals worldwide are chronically infected with HDV in conjunction with HBV infection.1–3
+
+Compared to other chronic viral hepatitis patients, HDV-infected patients experience an accelerated progression to liver fibrosis, increased risk of hepatocellular carcinoma, and earlier decompensation during liver cirrhosis.1,2
+
+Furthermore, treatment options against HDV infections are limited.
+
+At best, approximately 25% of infected patients respond to pegylated interferon-treatment with a measurable decline in HDV RNA viral load.4
+
+Alternative new treatment strategies are only in the very early stages of clinical development.5
+
+PARAGRAPH
+
+Similar to HBV and hepatitis C virus (HCV), HDV is non-cytopathic to infected hepatocytes.6,7
+
+Instead, it is thought that components of the immune system contribute to liver damage in HDV infection.6,7
+
+Despite this, adaptive immune responses against HDV are considered weak during chronic infection,8–11 possibly due to a defective initial role of innate immune cells in the immunopathogenesis of HDV infection.
+
+Indeed, we recently reported that natural killer cells, which are enriched in the human liver,12 are functionally compromised during chronic HDV infection.13,14
+
+PARAGRAPH
+
+Mucosa-associated invariant T (MAIT) cells represent an evolutionarily conserved subset of T cells with innate-like characteristics.15,16
+
+They express a semi-invariant T cell receptor, are abundant in mucosal tissues and peripheral blood,15,16 and are highly enriched in the human liver.17,18
+
+MAIT cells recognize vitamin B2 metabolites from many species of bacteria and fungi in complex with the major histocompatibility complex class I-related (MR1) protein.19,20
+
+Upon recognition of MR1-presented antigens, MAIT cells rapidly secrete proinflammatory cytokines such as interferon gamma (IFNγ), tumor necrosis factor (TNF), interleukin (IL)-17, and IL-22,15,21,22 and degranulate with concomitant release of cytotoxic effector molecules.23–25
+
+These effector functions contribute to their involvement in host responses towards bacterial infections as revealed by studies in both animal models and humans.26
+
+MAIT cells can also respond in an MR1-independent manner to innate cytokines, such as IL-12 and IL-18, produced by antigen-presenting cells and other cells in response to pathogens.27
+
+This mechanism may contribute to their involvement in several viral infections, such as those caused by human immunodeficiency virus (HIV), HCV, influenza virus, and dengue virus.28–31
+
+The role of MAIT cells in chronic HDV infection is currently unknown.
+
+However, sensing of RNA viruses via toll-like receptor (TLR) 8 in the liver can break tolerance and potentially trigger MAIT cell activation, suggesting a potential role for MAIT cells during chronic HDV infection.18
+
+PARAGRAPH
+
+In this study, we characterized in detail the phenotype and functionality of MAIT cells in the context of clinical HDV infection, comparing the results with HBV monoinfected patients and healthy controls.
+
+We report that chronic HDV infection causes a dramatic loss of MAIT cells in peripheral blood and, additionally, also signs of decline in the liver.
+
+Using an unsupervised high-dimensional analysis approach, we further show that chronic HDV infection makes a significant imprint on the residual MAIT cell compartment, characterized by an activated phenotype and functional impairment of TCR-mediated stimulation.
+
+In contrast, HBV monoinfection was associated with only minor changes in MAIT cell phenotype and function.
+
+Furthermore, HDV-infected patients presented with increased plasma levels of monocyte activation markers, as well as of IL-12 and IL-18.
+
+Both IL-12 and IL-18 can induce MAIT cell activation and death in vitro, suggesting a possible mechanism for the severe loss of MAIT cells in chronic hepatitis delta.
+
+The results are discussed in relation to current knowledge on human MAIT cell responses to other viral hepatitis infections and the possible role of MAIT cells in hepatitis delta.
+
+SECTION
+
+Material and methods
+
+SECTION
+
+Patient material and characteristics
+
+PARAGRAPH
+
+The subjects included in this study were seen at the outpatient clinic of the Department of Gastroenterology, Hepatology and Endocrinology at Hannover Medical School in Germany.
+
+For selected experiments, peripheral blood was collected from healthy individuals recruited at the Blood Transfusion Clinic at the Karolinska University Hospital Huddinge.
+
+Written informed consent was obtained from all individuals for the investigation of immunological parameters as part of the protocols approved by the Ethics Committee of the Hannover Medical School in Germany (5258, 5292) and by the Regional Ethics Review Board in Stockholm.
+
+Forty-one patients with chronic HDV infection were included in this study.
+
+Furthermore, 38 patients with chronic HBV monoinfection and 57 healthy controls were included for direct comparison with the HDV-infected patients.
+
+Patient characteristics are presented in Table 1.
+
+Peripheral blood mononuclear cells (PBMCs) were isolated by standard density-gradient separation and cryopreserved until further use.
+
+Liver biopsies for immunohistochemistry (IHC) and immunofluorescence (IF) analysis were acquired from 3 patients with HDV and, as controls, from 7 viral hepatitis-negative patients undergoing liver biopsy because of suspicion of liver disease but where the liver histology was normal (Table S1).
+
+SECTION
+
+Flow cytometry
+
+PARAGRAPH
+
+PBMCs were thawed and washed once in RPMI-1640 medium supplemented with 25 mM HEPES, 2 mM l-glutamine (all from Thermo Fisher Scientific), 10% FBS (Sigma-Aldrich), 50 μg/ml gentamicin (Life Technologies), and 100 μg/ml normocin (InvivoGen).
+
+PBMCs were then used for phenotypic stainings or functional assays.
+
+Surface and intracellular stainings for cytokines and transcription factors were performed as previously described.32
+
+The antibodies used are listed in Table S2 as well as in Supplementary CTAT Table.
+
+Samples were acquired on an LSRFortessa flow cytometer (BD Biosciences) equipped with 355, 405, 488, 561, and 639 nm lasers.
+
+Single-stained polystyrene beads (BD Biosciences) and the compensation platform in the FlowJo software v. 9.9 or v. 10 (TreeStar) were used for data compensation.
+
+Unless otherwise indicated, MAIT cells were defined as CD161hiVα7.2+ cells being CD8+CD4- or CD8-CD4-.
+
+High-dimensional analysis of flow cytometry data was performed through Barnes-Hut stochastic neighbor embedding (SNE) analysis using R (version 3.2.1, The R Foundation for Statistical Computing) with an in-house built script as previously described.12
+
+SECTION
+
+In vitro MAIT cell functional and viability assays
+
+PARAGRAPH
+
+MAIT cells in the PBMC samples were stimulated for 24 h with Escherichia coli strain D21 (ratio E. coli colony forming units: PBMC of 3:1) or with a combination of IL-12p70 (10 ng/ml, Peprotech) and IL-18 (100 ng/ml, Medical & Biological Laboratories).
+
+E. coli was mildly fixed in formaldehyde prior to addition to PBMCs as previously described.33
+
+To assess degranulation, anti-CD107a monoclonal antibody (BD Biosciences) was added at the beginning of the assay.
+
+In the E. coli-mediated stimulation assays, anti-MR1 monoclonal antibody (clone 26.5, Biolegend) or IgG2a isotype control (clone MOPC-173, Biolegend) were added at the beginning of the assay at the final concentration of 20 μg/ml.
+
+Monensin (Golgi Stop, BD Biosciences) and brefeldin A (Golgi Plug, BD Biosciences) were added for the last 6 h of the experiment.
+
+In selected experiments, viability of MAIT cells in PBMC samples was assessed by annexin V (AnnV) and dead cell marker (DCM) staining ex vivo or in vitro following either 5-day incubation of PBMCs with IL-12 p70 (10 ng/ml) and IL-18 (100 ng/ml) or 24 h incubation with supernatants (pure or at different dilutions) from HDV-infected or uninfected HepG2hNTCP cells.
+
+SECTION
+
+Immunohistochemistry
+
+PARAGRAPH
+
+For IHC analysis, frozen OCT-embedded liver biopsies from HDV-infected patients and controls were sectioned into 5-μm tissue sections, placed on SuperFrost Ultra Plus™ slides (Histolab) and stored at −80 °C until staining.
+
+The sections were fixed with 4% paraformaldehyde (Sigma-Aldrich) for 20 min on ice, followed by 2 blocking steps: one for elimination of endogenous peroxidase activity, using Bloxall™ (Vector Laboratories), and another one for reduction of general background staining, using Innovex background buster (Innovex Biosciences).
+
+Blocking was performed at room temperature (RT), for 10 and 20 min, respectively.
+
+Thereafter, sections were incubated with purified rabbit anti-human CD3 epsilon (EP449E, Epitomics) or mouse anti-human TCR Vα7.2 (3C10, Biolegend), with isotype-matched antibodies serving as the corresponding negative controls.
+
+Subsequently, sections were incubated with ImmPRESS™ mouse or rabbit reagent (Vector Laboratories) for 30 min at RT, followed by signal detection using ImmPACT™ DAB as the peroxidase substrate solution (Vector Laboratories).
+
+Tissue sections were counterstained with hematoxylin (Histolab) and mounted with VectaMount™ (Vector Laboratories).
+
+Immunoreactivity was visualized and analyzed by light microscopy (Leica DM 4000B).
+
+SECTION
+
+Multicolor immunofluorescence
+
+PARAGRAPH
+
+Five mm thick cut frozen liver sections were thawed and fixed in ice cold 4% paraformaldehyde for 20 min on ice followed by one wash with Tris Buffer Saline (TBS).
+
+Sections were incubated with Image-iT® FX signal enhancer for 30 min at RT and washed once in TBS, then blocked with Background Buster (Innovex Biosciences) for 15 min at RT.
+
+Sections were then incubated with the primary antibodies targeting TCR Vα7.2 (clone 3C10, Biolegend) and IL-18Rα (clone AF840, R&D Systems), or IgG1 (Biolegend) and Goat (R&D Systems) isotype control antibodies for 1 h at RT.
+
+The primary antibodies were detected with the corresponding donkey anti-mouse and donkey anti-goat secondary antibodies conjugated to Alexa 555 or 647 (all Invitrogen).
+
+DAPI was included at 0.0005% w/v with secondary antibody.
+
+Following staining background autofluorescence was quenched using TrueBlack® Lipofuscin Autofluorescence Quencher (Biotium) for 5 min followed by 3 brief washes in TBS, then washed once for 10 min in TBS.
+
+The slides were mounted using ProLong™ Diamond (Invitrogen).
+
+Sections were visualized with a Nikon Ti-E spinning-disk confocal microscope.
+
+Images were acquired at RT using a 40x Nikon air objective, and Andor DU-897 EM-CCD camera (512x512 pixels.
+
+Pixel size 16 μm).
+
+Images were generated using Cytosketch (CytoCode, Auckland, New Zealand).
+
+SECTION
+
+Plasma protein measurements
+
+PARAGRAPH
+
+Plasma levels of sCD14 and sCD163 were measured by ELISA (R&D Systems, catalog number DC140 and DC1630, respectively).
+
+Samples were analyzed in triplicates according to the manufacturer’s instructions.
+
+The optical density was measured at 450 nm with a wavelength correction at 570 nm.
+
+Plasma levels of IL-12 and IL-18 were determined using the LUMINEX®-based multiplex bead assay (BioPlex Pro Human Cytokine Panel; Bio-Rad), according to the manufacturer’s instructions and optimized protocols.34
+
+The samples were analyzed in 1 run and acquired on the LUMINEX instrument, using the BioPlex Manager 6.0 software.
+
+SECTION
+
+In vitro HDV-infection assay
+
+PARAGRAPH
+
+The production of HDV viral particles and HDV infection of the Huh7.5hNTCP cell line were performed as previously described.35,36
+
+To obtain supernatants from HDV-infected HepG2hNTCP cells, cells were seeded in 24-well plates (1–4 × 104 cells/well) in complete DMEM containing 10 μg/ml blasticidin.
+
+The following day, cells were infected with the virus in the presence of polyethyleneglycol.
+
+After 6 h, the medium was exchanged for fresh complete DMEM supplemented with 3% fetal calf serum.
+
+After 5 days the supernatant was collected, filtered, and stored at −80 °C until further use.
+
+SECTION
+
+Statistical analyses
+
+PARAGRAPH
+
+Statistical analyses were performed using Prism software v.6 (GraphPad).
+
+The data sets were first evaluated for normality of the data distribution.
+
+Statistically significant differences between samples were determined as appropriate using the Kruskal-Wallis test followed by Dunn’s multiple comparisons test, the ordinary 1-way ANOVA followed by Holm-Sidak’s multiple comparisons test or the 2-way ANOVA followed by Sidak’s multiple comparisons test for multiple unpaired samples, the Mann-Whitney U test or unpaired t test for pairwise comparison of unpaired samples, and the Wilcoxon’s signed rank test or paired t test for pairwise comparison of paired samples.
+
+Differences between categorical variables were assessed through the Fisher’s exact test.
+
+Correlations were calculated using the Spearman’s test.
+
+Two-sided p values <0.05 were considered significant.
+
+SECTION
+
+Results
+
+SECTION
+
+MAIT cell levels are severely reduced in peripheral blood during chronic HDV infection
+
+PARAGRAPH
+
+MAIT cells can be defined in healthy adult humans as T cells carrying the TCR Vα7.2 segment in combination with high expression levels of CD161.37
+
+We initially determined the frequency of CD161hiVα7.2+ MAIT cells in the peripheral blood of patients with chronic HDV infection, chronic HBV monoinfection, and healthy controls (Fig. 1A).
+
+Levels of total MAIT cells in HDV-infected patients were significantly lower than in HBV monoinfected patients, whereas HBV monoinfected patients exhibited only a mild decrease in MAIT cells compared with healthy controls (Fig. 1B).
+
+In contrast, and as a reference, no difference was detected in the levels of CD161-Vα7.2+ (non-MAIT) T cells between the groups (Fig. 1B).
+
+In HDV-infected patients, loss of MAIT cells occurred preferentially in the CD8+ compartment, as the levels of CD8+CD4-MAIT cells out of total MAIT cells (Fig. 1C) and out of T cells (Fig. S1A) were significantly lower than in healthy controls and HBV monoinfected patients.
+
+PARAGRAPH
+
+With respect to clinical characteristics, HDV-infected patients had significantly higher levels of the enzymes aspartate aminotransferase (AST), alanine aminotransferase (ALT), and gamma-glutamyltransferase (GGT), and significantly lower levels of prothrombin compared to HBV monoinfected patients (Table 1), indicative of a more extensive liver damage.
+
+The level of hepatic fibrosis was higher in HDV-infected patients than in HBV monoinfected patients (Table 1).
+
+However, only when considering the HBV- and HDV-infected patients together, was there a significant correlation between the loss of MAIT cells and the levels of fibrosis (Fig. S1B).
+
+This indicates that the decrease in circulating MAIT cell levels was not directly associated with the level of fibrosis in the HDV-infected patients.
+
+With respect to virological characteristics, the vast majority of HBV monoinfected patients and 57% of HDV-infected patients were HBeAg- (Fig. 1D and Table 1).
+
+No significant differences in MAIT cell levels were detected between HBeAg- and HBeAg+ HDV-infected patients (Fig. 1D).
+
+PARAGRAPH
+
+Patients with HBV and HDV received different types of antiviral treatments, and thus had disparate treatment histories.
+
+This might have affected the results.
+
+However, previous or ongoing treatment did not have a major effect on the levels of MAIT cells (Fig. 1E, F).
+
+Since only 5 or 3 HBV monoinfected patients had received nucleos(t)ide analogue (NUC) treatment or pegylated (peg)-IFNα, respectively, at the time of sampling, only a minor bias, if any, might have been introduced by this treatment (Fig. 1E).
+
+HDV-infected patients who had received NUC treatment presented with a minor increase in levels of MAIT cells (Fig. 1F, left), and no significant differences were detected in the levels of MAIT cells between either patients that had, or had not, been treated with peg-IFNα at the time of sampling (Fig. 1F, middle), or HDV-infected patients before and after 12 weeks of treatment (Fig. 1F, right).
+
+PARAGRAPH
+
+Taken together, these data indicate that peripheral blood MAIT cells are profoundly depleted in chronic HDV infection.
+
+SECTION
+
+Intrahepatic MAIT cells in chronic HDV infection
+
+PARAGRAPH
+
+We next examined whether the loss of MAIT cells in peripheral blood was a consequence of their homing to the liver.
+
+The presence of CD3+ and Vα7.2+ cells was analyzed by IHC in liver biopsies from HDV-infected patients and controls (Fig. 1G).
+
+There was no difference in the presence of Vα7.2+ cells in the livers of HDV-infected patients compared with control liver sections, whereas an accumulation of CD3+ cells was clearly detected (Fig. 1G).
+
+As conventional T cells can also express Vα7.2, we next performed IF staining using Vα7.2 and IL-18Rα co-expression as a strategy to accurately identify MAIT cells, as previously reported in other human tissues.15,21,38–40
+
+In contrast to the control samples, very few Vα7.2+ cells in the liver biopsies from HDV-infected patients co-expressed IL-18Rα (Fig. 1H).
+
+Thus, the Vα7.2+ cells detected through both IHC and IF in the livers of HDV-infected patients are likely not MAIT cells, indicating loss of intrahepatic MAIT cells during HDV infection.
+
+SECTION
+
+MAIT cells are activated during chronic HDV infection
+
+PARAGRAPH
+
+Next, we investigated the expression of immune activation markers on MAIT cells (Fig. 2A).
+
+In healthy controls and HBV monoinfected patients, peripheral blood MAIT cells expressed low levels of CD69, CD38, and human leukocyte antigen (HLA)-DR (Fig. 2A,B).
+
+In contrast, both CD38 and HLA-DR were significantly upregulated on MAIT cells during HDV infection (Fig. 2B).
+
+Furthermore, the expression of programmed cell death 1 (PD-1) was significantly higher in HDV-infected patients than in healthy controls (Fig. 2B).
+
+We also assessed the expression of the co-stimulatory molecule CD28 as well as CD127 on MAIT cells, and found these receptors to be significantly lower in HDV-infected patients than in healthy controls and HBV monoinfected patients (Fig. 2C,D).
+
+In contrast, there was no difference in the expression of Ki-67 between the groups.
+
+Only few alterations were noted in HBV monoinfected patients compared to healthy controls (Fig. 2A-D).
+
+As an additional control, we also assessed the phenotype of CD161-Vα7.2+ T cells (non-MAIT) and found no differences in the expression of the aforementioned markers between healthy controls, HBV monoinfected, and HDV-infected patients (Fig. S1C).
+
+PARAGRAPH
+
+MAIT cells express the innate-like T cell transcription factor promyelocytic leukemia zinc finger protein (PLZF), as well as eomesodermin (Eomes), T box transcription factor 21 (TBX21 or T-bet), and Helios (IKZF2).37,41,42
+
+To explore whether the phenotypic signs of activation (Fig. 2A-D) were paralleled by altered expression of master transcription factors, we examined the expression of these transcription factors in MAIT cells (Fig. 2E).
+
+Helios expression was decreased in HDV-infected patients compared with healthy controls, whereas the expression of PLZF, Eomes, and T-bet was unchanged (Fig. 2F).
+
+PARAGRAPH
+
+In summary, these data show that MAIT cells exhibit an abnormal phenotype in chronic HDV infection with upregulation of activation markers, downregulation of co-stimulatory molecules, and altered expression of the transcription factor Helios.
+
+SECTION
+
+High-dimensional analysis reveals a compound MAIT cell phenotype driven by chronic HDV infection
+
+PARAGRAPH
+
+In order to investigate the data set for complex phenotypic patterns that can easily be overlooked by conventional flow cytometry analysis, and to investigate the interrelatedness of the identified phenotypic alterations, we undertook an unsupervised high-dimensional SNE analysis to determine the overall impact of chronic HDV infection on the MAIT cell population.
+
+This type of analysis projects high-dimensional data into a low dimensional space at the single-cell level without perturbing the high-dimensional data relationships.
+
+To this end, a set of 13 surface receptors, intracellular molecules and transcription factors, including those used in the analysis described above, were simultaneously assessed in MAIT cells at the single-cell level from 10 healthy controls, 10 HBV monoinfected patients, and 7 HDV-infected patients in different pairwise comparisons (Fig. 2G-I and Fig. S1D,E).
+
+Electronic barcodes were individually assigned to the data from each individual, data were then merged, analyzed using Barnes-Hut SNE, and finally displayed in SNE maps for patients and controls.
+
+For each comparison, we also obtained the residual plot for the differences between the groups, which shows the relative position in the SNE map of the clusters of cells that are more abundant in each of the groups being compared.
+
+This analysis confirmed substantial differences in the phenotype of MAIT cells from HDV-infected patients compared with healthy controls (Fig. 2G), as well as compared to HBV monoinfected patients (Fig. 2H and Fig. S1D).
+
+In contrast, and in agreement with the conventional flow cytometry analysis (Fig. 2A-F), differences in the MAIT cell phenotype between HBV monoinfected patients and healthy controls were minor (Fig. 2I and Fig. S1E).
+
+PARAGRAPH
+
+To interpret the differences between the identified clusters in the residual plots, these were overlaid onto the individual SNE maps showing the expression intensity of each parameter in the analysis (Fig. 2J and Fig. S1F).
+
+This analysis revealed an HDV-specific cluster of MAIT cells expressing higher levels of CD38 and PD-1, and lower levels of CD28, CD127, and of the transcription factors PLZF, Eomes, and Helios, in comparison with healthy controls (Fig. 2J).
+
+Thus, this high-dimensional analysis revealed the appearance of a compound phenotype within MAIT cells of HDV-infected patients not uncovered by the conventional single-parameter flow cytometry analysis (Fig. 2A-F).
+
+On the other hand, other differences were found in both types of analysis, such as the higher levels of CD8-CD4- MAIT cells in HDV-infected patients compared with healthy controls (Fig. 1C and 2J).
+
+When comparing HDV with HBV monoinfected patients, a similar cluster of CD38hiPD-1hiCD28loCD127loPLZFloEomesloHelioslo MAIT cells was enriched in the HDV-infected patients (Fig. S1F).
+
+PARAGRAPH
+
+In conclusion, SNE analysis of this dataset revealed that higher expression of CD38 as well as PD-1 and lower expression of CD28 on MAIT cells from HDV-infected patients, as initially detected by single-parameter flow cytometry analysis, occurs in the same MAIT cell subpopulation.
+
+Also, this cluster of MAIT cells simultaneously expressed lower levels of CD127 as well as lower levels of the transcription factors PLZF, Eomes, and Helios.
+
+SECTION
+
+MR1-dependent MAIT cell responses are defective in chronic HDV infection
+
+PARAGRAPH
+
+We next assessed the functional capacity of MAIT cells upon specific bacterial and innate cytokine stimulation in chronic HDV infection.
+
+PBMCs were stimulated for 24 h with either mildly fixed E. coli to assess MR1-dependent responses (Fig. S2A) or with a combination of IL-12 and IL-18.
+
+The expression of activation markers on MAIT cells (Fig. 3A), as well as their capacity to produce cytokines and degranulate (Fig. 3C), was then assessed by flow cytometry.
+
+Upon stimulation with E. coli, MAIT cells from HDV-infected patients failed to upregulate CD69 and CD25 to the same extent as healthy control MAIT cells (Fig. 3A,B).
+
+They also produced significantly lower levels of IFNγ, and degranulated less than healthy control and HBV monoinfected patient MAIT cells (Fig. 3C,D).
+
+In contrast, MAIT cells from HDV-infected patients responded to IL-12 and IL-18 stimulation equally well as those from healthy controls, with only slightly lower levels of CD25 (Fig. 3A-D).
+
+Importantly, no differences in activation readouts were observed between MAIT cells from HBV monoinfected patients and healthy controls for any of the stimulations (Fig. 3A-D), indicating that the MAIT cell functionality is not compromised by chronic HBV infection alone.
+
+PARAGRAPH
+
+Unsupervised SNE analysis, integrating data on 11 activation markers as well as cytokines and cytotoxic molecules after E. coli stimulation, revealed extensive differences in the MAIT cell functionality between HDV-infected patients and healthy controls, and smaller differences for the HBV versus HDV, and the HBV versus healthy comparisons (Fig. 3E-G and Fig. S2C,D).
+
+Compared to healthy controls and HBV monoinfected patients, MAIT cells in HDV infection concomitantly failed to upregulate CD69 and CD25.
+
+Furthermore, MAIT cells from patients with chronic HDV infection degranulated to a lower extent with reduced expression of CD107a and GrzB (Fig. 3H and Fig. S2E).
+
+Taken together, these data indicate that MAIT cells in chronic HDV infection exhibit severely impaired responses against MR1-restricted bacterial antigen.
+
+PARAGRAPH
+
+Finally, we aimed to investigate the functional relevance of the compound phenotype identified in MAIT cells from HDV-infected patients.
+
+Upon IL-12 and IL-18 stimulation, PD-1+ MAIT cells from HDV-infected patients, but not their PD-1- counterparts, failed to upregulate CD25 and to produce TNF and perforin to the same extent as PD-1+ MAIT cells from healthy controls and HBV monoinfected patients (Fig. S2F).
+
+However, the functional deficiency was not directly linked to increased PD-1 expression in HDV as no restoration of function was noted upon PD-1/PD-L1 blockade (data not shown).
+
+Thus, the MAIT cell compound phenotype of activation and exhaustion observed during HDV infection (Fig. 2J and Fig. S1F) is also linked to MAIT cell dysfunction.
+
+SECTION
+
+The loss of MAIT cells during HDV infection cannot be explained by altered MR1 expression or exposure to HDV-infected cells
+
+PARAGRAPH
+
+We next investigated possible mechanisms behind the loss of MAIT cells in HDV-infected patients.
+
+We first assessed if HDV increases the expression of MR1 upon infection of hepatoma cells.
+
+To this end, Huh7.5hNTCP cells were productively infected with HDV viral particles (Fig. S3A), and the expression of MR1 was evaluated by flow cytometry (Fig. S3B).
+
+Both surface and intracellular expression of MR1 remained unchanged in HDV-infected cells (Fig. S3B).
+
+In addition, no difference in the expression of MR1 was observed by IHC in liver biopsies of HDV-infected patients compared to healthy controls (Fig. S3C).
+
+This suggests that alterations in MR1 expression are not responsible for driving the loss of circulating MAIT cells in HDV infection.
+
+Next, we assessed MAIT cell viability after exposure to supernatants from HDV-infected cells.
+
+For these studies, HepG2hNTCP cells were infected with HDV and MAIT cells were then exposed for 24 h with different dilutions of supernatants from the infected cultures.
+
+Interestingly, and in contrast to our hypothesis, we observed that at lower supernatant dilutions, the frequency of alive (AnnV-DCM-) MAIT cells was slightly, although significantly, higher in the presence of infected supernatants compared to control supernatants (Fig. S3D).
+
+Thus, the loss of MAIT cells during HDV infection cannot be explained by exposure to HDV-infected cells.
+
+Instead, MAIT cells exposed to high dilutions of viral supernatant showed signs of activation with increased expression of CD107a and perforin (Fig. S3E).
+
+SECTION
+
+Increased levels of IL-12 and IL-18 may contribute to loss of MAIT cells in chronic HDV infection
+
+PARAGRAPH
+
+We next determined the levels of sCD14 and sCD163, markers of monocyte/macrophage activation, in the plasma of healthy controls and HBV- and HDV-infected patients.
+
+The plasma levels of sCD14 were significantly increased in HDV-infected patients compared with healthy controls.
+
+A significant stepwise increase in the levels of sCD163 was detected from healthy controls through HBV-infected patients to HDV-infected patients (Fig. 4A).
+
+The loss of MAIT cells significantly correlated with the levels of sCD163 (and not with the levels of sCD14) when both patients with HBV and HDV were considered in the analysis (Fig. S3F,G).
+
+However, the significant correlation was lost when HDV-infected patients were analyzed independently (Fig. S3G).
+
+Thus, although plasma levels of inflammatory markers are increased in HDV-infected patients they cannot alone predict the loss of MAIT cells during HDV infection.
+
+PARAGRAPH
+
+We next assessed the levels of proinflammatory cytokines IL-12 and IL-18 in the plasma of healthy controls and HDV-infected patients.
+
+While subunit IL-12p40 could only be detected in 2 out of 35 healthy controls, it was more abundant in HDV-infected patients where it was found in detectable levels in 25 out of 115 investigated patients (Fig. 4B).
+
+Moreover, the plasma levels of IL-18 were significantly higher in HDV-infected patients compared to healthy controls (Fig. 4B).
+
+The continuous exposure to high levels of these proinflammatory cytokines could potentially drive MAIT cell loss in these patients.
+
+To test this hypothesis more directly, we compared the viability of MAIT cells between healthy controls, HBV monoinfected, and HDV-infected patients either ex vivo (Fig. 4C,D), or after in vitro incubation with a combination of IL-12 and IL-18 (Fig. 4E,F).
+
+The ex vivo apoptosis status of MAIT cells was similar between the 3 groups, and in general few apoptotic cells were present (Fig. 4C,D).
+
+Instead, long-term in vitro exposure to IL-12 and IL-18 significantly increased the frequency of non-viable MAIT cells in all 3 groups (Fig. 4E,F).
+
+Importantly, stimulation of PBMCs from healthy controls with IL-12 and IL-18 induced an abnormal MAIT cell phenotype similar to what we observed ex vivo in HDV-infected patients (Fig. 2A-D), with increased expression of CD38 and PD-1 as well as decreased expression of CD28 and CD127 (Fig. 4G).
+
+Altogether, these data suggest that dysregulated plasma levels of IL-12 and IL-18 may contribute to MAIT cell activation and loss in HDV-infected patients.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This study is the first comprehensive analysis of MAIT cells during chronic HDV infection, the most severe form of viral hepatitis in humans, which affects up to 70 million individuals worldwide.1,3
+
+MAIT cell levels were severely reduced in the circulation of patients with chronic HDV infection compared to HBV monoinfected patients.
+
+Residual MAIT cells in peripheral blood displayed an activated phenotype and were functionally impaired upon specific antigen-mediated stimulation.
+
+PARAGRAPH
+
+We initially determined the levels of MAIT cells in the peripheral blood of HDV-infected patients and found them to be significantly lower than in healthy controls and HBV monoinfected patients.
+
+Residual MAIT cells in the circulation displayed an activated compound phenotype of CD38hiPD-1hiCD28loCD127loPLZFloEomesloHelioslo expression.
+
+This was revealed by high-dimensional SNE analysis, which allows simultaneous assessment of multiple molecules in MAIT cells at the single-cell level.
+
+It is currently unknown what exactly drives loss of MAIT cells in chronic HDV infection.
+
+We found the plasma levels of IL-12 and IL-18 to be significantly higher in HDV-infected patients than in healthy controls, and showed that in vitro activation by IL-12 and IL-18 over several days significantly increased MAIT cell death.
+
+Thus, cytokine driven activation-induced cell death may underlie, or contribute to, the severe loss of peripheral blood MAIT cells in HDV-infected patients.
+
+It is notable that responsiveness to activation by IL-12 and IL-18 is intact in the total residual MAIT cell population, whereas the TCR-mediated triggering is impaired, as discussed below.
+
+This suggests a model where limited feedback inhibitory mechanisms are triggered by continuous activation by these cytokines, leaving MAIT cells vulnerable to persistent activation.
+
+In this context, it is interesting to note that a similar mechanism has been suggested for invariant natural killer T cells in the context of chronic inflammatory disease.43
+
+PARAGRAPH
+
+In HIV-1 infection, loss of MAIT cells in peripheral blood has been suggested to result downstream of compromised intestinal epithelial integrity and microbial translocation.28,30,44
+
+Interestingly, both chronic HBV and HCV infections are associated with increased microbial translocation,45 and it is thus possible that this phenomenon could also lead to activation of MAIT cells during chronic HDV infection due to continuous engagement of these cells in antimicrobial immune responses.
+
+We found the plasma levels of sCD14 and sCD163 to be significantly increased in HDV-infected patients compared with healthy controls and HBV monoinfected patients.
+
+Similarly, increased levels of sCD14 have been reported in acute HCV infection.46
+
+While increased levels of both sCD14 and sCD163 indicate monocyte activation, it remains to be investigated whether they occur downstream of microbial translocation during HDV infection.
+
+MAIT cells from HDV-infected patients, but not from HBV monoinfected patients, responded poorly to E. coli-mediated stimulation, and failed to upregulate CD69 and CD25, degranulate, and produce IFNγ and GrzB to the same extent as the healthy control MAIT cells.
+
+This MAIT cell dysfunction adds on to the activated compound phenotype observed in HDV-infected patients, but not during HBV monoinfection, and may compromise the ability of the immune system to respond to microbial pathogens.
+
+In agreement with this notion, MAIT cells in HBV-infected patients were not significantly affected in phenotype or function when compared with healthy controls, a pattern that is consistent with a recent report.47
+
+PARAGRAPH
+
+One may speculate that the MAIT cell decline in peripheral blood during chronic HDV infection may occur secondary to recruitment of these cells to the inflamed liver.
+
+IF staining of liver biopsies revealed that very few Vα7.2+ cells in liver biopsies of HDV-infected patients co-expressed IL-18Rα, in contrast to what was observed in control biopsies.
+
+These findings suggest a decrease of intrahepatic MAIT cells during HDV infection and are in agreement with previous studies showing that patients with severe HBV or HCV infections have reduced MAIT cell levels in the liver compared to healthy controls.18,48
+
+Importantly, the notion that MAIT cells are depleted in the liver of HDV-infected patients does not exclude the possibility that MAIT cells are recruited to the liver and then undergo apoptosis upon antimicrobial engagement and concomitant activation.
+
+Of note, downregulation of IL-18Rα specifically on MAIT cells during HDV infection might alternatively explain the lack of overlap between Vα7.2 and IL-18Rα in HDV-infected livers.
+
+However, in other inflammatory conditions affecting peripheral tissues, such as psoriasis and inflammatory bowel disease, this does not occur.39,49
+
+Thus, we find this alternative less likely to explain our microscopy results.
+
+PARAGRAPH
+
+TCR-independent innate cytokine-mediated stimulation of MAIT cells has been reported as the underlying mechanism of MAIT cell activation in infections caused by several viruses, including HCV, dengue, and influenza.31
+
+Since HDV is a single-stranded RNA virus with a high GC content in the nucleotide sequence,1 it is plausible that cells expressing TLR7 or TLR8 might sense and respond to HDV.
+
+In this regard, myeloid cells in the human liver seem to be particularly prone to produce IL-12 and IL-18 upon TLR8 engagement,18 and we detected higher levels of IL-12 and IL-18 in the plasma of HDV-infected patients.
+
+Thus, it is reasonable to speculate that MAIT cells might indirectly respond to HDV by responding to IL-12 and IL-18 in a TCR-independent manner.
+
+In this context, we evaluated the in vitro response of circulating MAIT cells to the combination of IL-12 and IL-18.
+
+Interestingly, we found that the majority of MAIT cells from HDV-infected patients responded to this cytokine combination as well as those from HBV monoinfected patients and controls did, with only a decrease in CD25 expression compared to the controls.
+
+Thus, the response of MAIT cells to innate cytokine stimulation may represent an important contribution to the overall immune response against HDV before they are depleted.
+
+PARAGRAPH
+
+Patients with HDV progress more rapidly to end-stage liver disease, with development of liver cirrhosis and hepatic decompensation, than patients with other chronic viral hepatitis infections.1,2
+
+Intriguingly, a recent report suggests that liver MAIT cells might contribute to fibrosis development in autoimmune liver diseases.50
+
+It may also be so that MAIT cells exhibit a pro-fibrogenic role in HDV infection before they are depleted.
+
+However, this needs to be explored in future studies.
+
+The severe depletion of circulating MAIT cells, and the ultimate imbalance in the proinflammatory cytokine milieu in circulation, and between the TCR-dependent and TCR-independent MAIT cell responses during chronic HDV infection reported here, may seriously affect the ability of HDV-infected patients to mount robust immune responses.
+
+We speculate, therefore, that this may contribute to the severity of the disease.
+
+Indeed, patients with liver cirrhosis mostly die from bacterial infections.51,52
+
+PARAGRAPH
+
+Limitations of our study must also be considered.
+
+First, microscopy analysis of liver biopsies from patients with HDV using IF and IHC is based on only 3 patients.
+
+Nevertheless, the lack of MAIT cells in these patients were found to be striking and thus these data were included, albeit bearing in mind the low number of patient liver biopsy samples.
+
+Second, we do not have clinical information on the healthy control blood donors used in this study.
+
+Hence, it might be so that a few of individuals could have had conditions that could affect MAIT cell levels, such as obesity, diabetes, and fatty liver disease.
+
+However, these conditions have been reported to lead to a decrease in the levels of circulating MAIT cells and therefore, we might be underestimating the differences between healthy controls and HDV-infected patients with regard to MAIT cell levels.
+
+Third, we did not manage to directly link loss of MAIT cells to the clinical outcome of HDV infection.
+
+However, with a cross-sectional study design, as used in the present study, this is often not the case; future prospective studies should investigate a possible association between the loss of MAIT cells and susceptibility to bacterial superinfections.
+
+Fourth, no clear relationship between soluble IL-12 or IL-18 levels in plasma and MAIT cell frequencies was found.
+
+IL-12 is known to be produced locally under tight control, thus it is probably not meaningful to correlate systemic IL-12 levels with immunobiological parameters such as MAIT cell percentages.
+
+Of note, however, in vitro stimulation of MAIT cells with IL-12 and IL-18 promoted the appearance of a similar MAIT cell phenotype to that observed ex vivo in HDV-infected patients.
+
+PARAGRAPH
+
+In summary, we conducted the first comprehensive characterization of MAIT cell phenotype and function during chronic HDV infection and report that the MAIT cell compartment is severely compromised in HDV-infected patients.
+
+Due to the size of this T cell subset, its particular compartmentalization to the human liver, and the severity of HDV infection, more studies on immune-mediated perturbations in the context of HDV infection are needed to get a better view on the immunopathogenesis of hepatitis delta.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by the Swedish Research Council, the Swedish Cancer Society, the Swedish Foundation for Strategic Research, the Swedish Society for Medical Research, the Cancer Research Foundations of Radiumhemmet, Knut and Alice Wallenberg Foundation, the Novo Nordisk Foundation, the Center for Innovative Medicine at Karolinska Institutet, the Stockholm County Council, the National Institutes of Health Grant R01DK108350 (to JKS), Karolinska Institutet, the International Research Training Group 1273 supported by the German Research Foundation (DFG), the Federal Ministry of Education and Research (BMBF) (grant 01KI0788), the Deutsches Zentrum für Infektionsforschung, and the German Center for Infection Research (TTU Hepatitis) (HW and TvH).
+
+JD was supported by Fundação para a Ciência e a Tecnologia Doctoral Fellowship SFRH/BD/85290/2012, co-funded by the Programa Operacional Potencial Humano-Quadro de Referência Estratégico Nacional and the European Social Fund.
+
+SECTION
+
+Conflicts of interest
+
+PARAGRAPH
+
+HW has received fees for lectures, consulting and research grants from Abbvie, Gilead, Roche, Roche Diagnostics, Abbott, BMS, and Novartis.
+
+MPM has received fees for lectures, consulting, research grants, and/or board membership from Gilead, BMS, Roche, Merck Sharp & Dohme (MSD), Novartis, GlaxoSmithKline, and Medgenics.
+
+MC has received fees for consulting lectures and/or board membership from MSD, Gilead, BMS, Janssen, Abbvie, and Roche.
+
+All other authors report no conflicts.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+All authors contributed to study concept and design as well as interpretation of data.
+
+JD, JH, EL, SL, DFGK, SH, TP, OS, CLZ, LB, NM, and TS acquired data.
+
+JD and NKB drafted the manuscript.
+
+HW, JKS, and NKB supervised the study.
+
+All authors contributed to critical revisions and approved the final manuscript.

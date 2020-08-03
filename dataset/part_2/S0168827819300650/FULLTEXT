@@ -1,0 +1,535 @@
+10.1016/j.jhep.2019.01.022
+
+FULLTEXT
+
+TITLE
+
+Tick-tock hedgehog-mutual crosstalk with liver circadian clock promotes liver steatosis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Circadian rhythm plays an important role in regulating physiology and behavior.
+
+In mammals, the natural light–dark cycle synchronizes the central circadian pacemaker in the suprachiasmatic nucleus (SCN), which, in turn, coordinates the rhythms of autonomous clocks in peripheral tissues such as the liver;1 these tissues adapt their functions to the rhythmic cycles of feeding and activity.
+
+Indeed, most metabolic and secretory functions of the liver show pronounced circadian rhythms.2,3
+
+In particular, liver carbohydrate and lipid metabolism, which are crucial for energy supply of the entire organism, oscillate throughout the day.
+
+The importance of this daily control is emphasized by epidemiological and experimental evidence that interruption or perturbation of circadian rhythms increases the risk for various types of liver disease and may even contribute to diabetes, obesity, metabolic syndrome and cancer.4–6
+
+PARAGRAPH
+
+On the molecular level, circadian oscillations in the liver are regulated by several transcriptional and translational feedback loops based on the transcriptional activators Clock and Bmal1, which heterodimerize to stimulate the expression of the Cry1 and Cry2 as well as Per1, Per2 and Per3 repressors that then regulate Clock/Bmal1 activity.7
+
+The oscillating activity of these central clock proteins is also responsible for daily rhythms in metabolic function.8,9
+
+In the liver, the peripheral clock machinery is essential for the maintenance of metabolic homeostasis.
+
+Thereby almost all metabolic processes, such as carbohydrate, lipid as well as the amino acid metabolism and many more are dependent on the functional internal clock of the liver.10,11,2,12
+
+For example, transcription factors such as DBP, HLF, and TEF are involved in transmitting the oscillations to a wide variety of so-called clock-controlled genes responsible for different liver functions.13
+
+Recently, we revealed the hepatic Hh signaling as a master regulator of liver lipid metabolism which, if disturbed or disrupted, may cause liver steatosis.14
+
+Since this morphogen signaling pathway is also involved in modulating the insulin-like growth factor axis,15 which was reported to contribute to metabolic zonation of the liver16 and was recently suggested to modify the circadian clock in human cells,17 we were interested to determine whether Hh signaling itself exhibits a diurnal rhythm and whether, and how, it influences the rhythm of lipid metabolism and other hepatic functions.
+
+PARAGRAPH
+
+By using mice that lack Smo, a key component of Hh signaling, and in vitro experiments, we demonstrate a strong mutual interaction between Hh signaling and core components of the hepatic circadian clock.
+
+Disturbance of the daytime-dependent expression of transcription factors that mediate clock output showed that this interaction considerably impacts hepatocyte gene expression.
+
+These results highlight an important but yet unrecognized role of Hh signaling in regulating daily metabolic function and other features in the healthy adult liver.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Generation of transgenic mice and the use of non-transgenic mice
+
+PARAGRAPH
+
+We generated a transgenic model for hepatocyte-specific knockout of Smo by crossing Smoflox/flox and Alfp-Cre lines (abbreviated SAC-KO mice) as described previously in detail.15
+
+The mice were maintained in a pathogen-free facility on a 12:12 h light–dark cycle, according to the German guidelines and the world medical association declaration of Helsinki for the care and safe use of experimental animals (permission numbers: T04/14; N03/14, T34/14, T22/14).
+
+Double-transgenic SAC-PER2::LUC reporter mice were breed via crossbreeding SAC mice with PER2::LUC18 reporter mice (Jackson Laboratories).
+
+For investigations in non-transgenic animals, mice from the C57BL/6N strain were used at the age of 12 weeks.
+
+For all investigations male mice were used.
+
+SECTION
+
+Bioluminescence detection of PER2::LUC SAC-PER2::LUC hepatocytes
+
+PARAGRAPH
+
+In order to follow circadian oscillation of cultured liver cells, hepatocytes from PER2::LUC mice18 were isolated as described above.
+
+Cells were resuspended in Williams Medium E containing 10 % fetal calf serum (FCS) and other additions13 and 0.6 × 106 cells were seeded in 35x10mm culture dishes.
+
+After 4 h FCS-containing medium was removed and a serum-free medium containing Luciferin (0.18 mM) was used.
+
+Bioluminescence of these hepatocytes was monitored throughout cultivation without medium change using photomultiplier tubes (HC135-11MOD, Hamamatsu, Japan) at 37 °C and 5 % CO2.
+
+Photon counts were stored in 5 min bins for 168 h.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Values are expressed as means ± standard error of the mean (SEM).
+
+When designing this proof of principle study, sample size was calculated using G*Power software with statistical power of 0.8 and alpha = 0.05.
+
+PARAGRAPH
+
+Since the data were normally distributed, statistical evaluation between 2 groups was performed using the unpaired t test for fresh tissue and hepatocytes as well as paired t test for siRNA experiments in cultured hepatocytes.
+
+The null hypothesis was rejected at *p ≤0.05, **p ≤0.01 and ***p ≤0.001 levels.
+
+For comparison among multiple diurnal groups one way ANOVA with Tukey's least significant difference post hoc test was performed, allowing the estimation of similar variances between the circadian groups and adjusting for multiple testing.
+
+Here, unless otherwise stated, significant differences to ZT0 are indicated by: *p ≤0.05, **p ≤0.01 and ***p ≤0.001.
+
+SECTION
+
+Results
+
+SECTION
+
+Hepatic Hh signaling pathway is time-of-day-dependent
+
+PARAGRAPH
+
+To determine whether Hh signaling genes show a diurnal rhythm in hepatocytes, we performed quantitative PCR (qPCR) analysis of RNA isolated at 6 different time points distributed over a 24 h period from liver tissue of C57BL/6 mice.
+
+As a control, we analyzed the expression of well-known clock genes (e.g. Bmal1, Dpb Cry1) which showed strong oscillation of clock genes (Fig. S1) confirming published results.19
+
+Interestingly, most Hh pathway genes also showed a pronounced diurnal rhythm (Fig. 1A) with various phases and amplitudes that might reflect distinct roles within the signaling cascade.
+
+In particular, Ihh mRNA levels were significantly increased (almost 5-fold) at ZT9 compared to ZT0 and then decreased after ZT12.
+
+The expression of the Hh receptor Ptch1 oscillated with a similar pattern, peaking at ZT12, while those of Smo peaked at ZT6 (Fig. 1A).
+
+The expression of further genes within this pathway, was evaluated to gain insight into pathway oscillations (Fig. 1A, S2).
+
+Shh did not show any significant variation.
+
+However, Hhip1 mRNA decreased continuously throughout the day, with minimum levels at ZT16.
+
+The expression of Fu was lowest at ZT0 and ZT6-12 and peaked at ZT3 and ZT16.
+
+Its antagonist, SuFu, showed the inverse behavior, reaching its maximum at ZT6.
+
+The Gli transcription factors displayed only moderate oscillations throughout the day, with smaller amplitudes than other members of the Hh cascade (Fig. 1A).
+
+PARAGRAPH
+
+The marked rhythmic expression of Ihh prompted us to investigate the cellular distribution of IHH protein.
+
+The expression of IHH shows a zonal distribution with predominant staining in the pericentral area.
+
+In accordance with the observed oscillation of Ihh expression, the pericentral expression zone enlarged after ZT3, peaked at ZT9 with the strongest staining (Fig. 1B) and shrank thereafter until it almost disappeared at ZT16 (Fig. S3).
+
+PARAGRAPH
+
+The pericentral expression of IHH protein appears to correspond with its transport vehicle very low-density lipoprotein, which is predominantly produced in the liver pericentral zone.
+
+When IHH protein was quantified in mouse serum, levels were lowest at ZT9 and highest at ZT16, indicating the expected delay between IHH production in the liver and its transport through the pericentral vein into the systemic circulation (Fig. 1C).
+
+SECTION
+
+Daily rhythmicity of Hh signaling genes is maintained in isolated hepatocytes and depends on Bmal1 expression
+
+PARAGRAPH
+
+To investigate daily rhythmicity of Hh associated genes in hepatocytes, pure fractions were isolated from C57BL/6N mice at ZT3 and ZT12 (Fig. 1D).
+
+Highly significant differences were found for the Hh genes Ihh, Ptch1, and SuFu, even though these 2 time points do not exactly correspond to the peak and nadir expression of every gene investigated.
+
+Surprisingly, Shh expression in hepatocytes showed a small but significant increase from ZT3 to ZT12 (Fig. 1D) in contrast to the results in liver tissue.
+
+Differences in the transcription of other genes (Gli1, Gli2, Gli3, Smo) were less pronounced at these 2 time points, which corresponds to the liver data.
+
+These findings prompted the question of whether these changes reflect the persistence of the circadian rhythm in isolated hepatocytes.
+
+First, we determined the diurnal expression of clock genes in hepatocytes (Fig. S4) and obtained similar data as that from the whole liver (Fig. S1).
+
+Second, we cultured hepatocytes from PER2-luciferase reporter mice18 and continuously monitored luciferase activity for up to 168 h.
+
+As shown in Fig. 1E, enzyme activity perfectly oscillated during in vitro cultivation with a period of approximately 25 h. Although the oscillation amplitude in hepatocytes steadily decreased over time, the amplitude after 72 h was still approximately 1/3 of that after 24 h.
+
+These findings convincingly show that the Hh signaling pathway exhibits diurnal rhythm in hepatocytes.
+
+PARAGRAPH
+
+To test whether the core clock oscillator is responsible for driving circadian rhythm of Hh pathway genes, we transfected cultured hepatocytes from C57BL/6 mice with siRNA against Bmal1.
+
+As a result of the downregulation of Bmal1 expression and BMAL1 protein at 24 h after transfection (Fig. S5), Gli1 and Ihh were significantly upregulated, Ptch1 was decreased, and Gli3 levels remained unaffected compared to control transfection (Fig. 1F) in agreement with the essential function of Bmal1 in circadian oscillation.20
+
+In contrast, transfection with Clock siRNA (and CLOCK protein) had no significant effects on these Hh genes (data not shown).
+
+SECTION
+
+Hh signaling feeds back on core clock genes
+
+PARAGRAPH
+
+To investigate whether hepatocyte Hh signaling feeds back on the liver clock, we used transgenic mice, where Hh signaling is substantially perturbed by the specific deletion of Smo in hepatocytes (SAC-KO).15
+
+In fact, the expression of some core clock genes showed profound changes in whole liver tissue of SAC-KO mice compared to wild-type littermates (Fig. 2A and S6).
+
+While the hepatocyte-specific deletion of Smo resulted in a significant downregulation of Clock at ZT3 and ZT12 as well as Dec2 at ZT15, Per3 was upregulated and showed a phase shift to maximal expression at ZT12.
+
+Likewise, peak expression of Nr1d1 shifted from ZT3 to ZT9.
+
+Other clock genes, such as Bmal1, Per1 and Nr1d2 (Fig. 2A), as well as Dbp, Cry1 and Per2 (Fig. S6) did not show significant differences.
+
+PARAGRAPH
+
+Since in SAC-KO Hh signaling is impaired only in hepatocytes we investigated the expression of clock genes at ZT3 and ZT12 in isolated hepatocytes (Fig. 2B).
+
+To uncouple the hepatocellular clock from SCN influence mice, were fasted and fed again prior to the isolation procedure.21
+
+In hepatocytes, Bmal1 showed strong downregulation at ZT3 in SAC-KO mice, whereas the alterations in Clock mRNA were less pronounced compared to whole liver.
+
+Per1, Per3, Nr1d1 and Nr1d2 were strongly upregulated at ZT3, indicating an altered clock in hepatocytes with impaired Hh signaling (Fig. 2B).
+
+In addition, we observed robust upregulation of Cry1 and Per2, whereas Dec2 expression was significantly downregulated in SAC-KO mice at ZT12 (Fig. S7).
+
+PARAGRAPH
+
+To explore the function of the circadian clock in SAC-KO hepatocytes in more detail, we crossbred SAC and PER2::LUC mice to produce double-transgenic SAC-PER2::LUC reporter mice.
+
+Upon measuring PER2-LUCIFERASE oscillations in hepatocytes derived from these mice (Fig. 2C), we found higher amplitudes and increased damping of circadian rhythms, while period and phase were unaffected.
+
+This finding may implicate a less robust rhythm due to the hepatocyte-specific ablation of Smo, i.e., impaired Hh signaling.
+
+PARAGRAPH
+
+To investigate whether these changes in clock gene expression influence SAC-KO mouse behavior, we placed the mice in metabolic cages.
+
+While feeding behavior was of great interest because feeding time is known to affect circadian rhythms,21 there were no alterations in food or water intake per day or the respiratory ratio.
+
+Based on this result, we conclude that the observed changes in circadian rhythm in the liver of SAC-KO mice have no influence on physiological feeding behavior in general.
+
+This is in line with findings of Shi et al. in mice lacking Bmal1 only in hepatocytes.22
+
+However, mouse activity (represented by distance moved) showed a decreasing trend, and a significant decrease in body erection of SAC-KO mice was observed (Fig. S8).
+
+SECTION
+
+Deletion of Smo in hepatocytes alters diurnal rhythms in Hh signaling gene expression
+
+PARAGRAPH
+
+To test, whether Smo deletion in hepatocytes has an impact on the time-of-day dependent expression of Hh signaling genes, we analyzed their expression in SAC-KO and SAC-WT mice in whole liver and isolated hepatocytes at various time points.
+
+Looking at the influence of the Smo deletion in hepatocytes, Ihh completely lost its diurnal variations.
+
+In contrast, the expression of the receptor Ptch1 as well as Fu and Sufu showed a smaller magnitude at nearly all time points with very low oscillatory behavior (Fig. 3A).
+
+Due to deletion of Smo, the oscillations of Gli1 and Gli2 were clearly diminished in SAC-KO livers, while for Gli3 a maximum at ZT12 was still observed.
+
+PARAGRAPH
+
+These results were consistent with those from isolated hepatocytes for most of the observed genes.
+
+For example, Ihh also showed a strong downregulation at ZT3 in SAC-KO mice.
+
+Also Ptch1 showed a strong upregulation in isolated hepatocytes from SAC-KO mice at ZT 3 similar as in whole liver (Fig. 3B).
+
+The expression Sufu did not increase at ZT3, as seen in whole liver.
+
+However, there are also some differences between whole liver and isolated hepatocytes data, such as the observed downregulation of Sufu.
+
+In addition, the decreased expression of Gli transcription factors, observed in the isolated hepatocytes of SAC-KO mice, was not present in the liver (Fig. 3A, B).
+
+This may be the result of a masking effect by a higher contribution of a non-parenchymal cell fraction in the liver material compared to isolated hepatocytes.
+
+SECTION
+
+Gli1 and Gli3 contribute to transcriptional regulation of the hepatic clock
+
+PARAGRAPH
+
+Since pronounced downregulation of Gli genes was observed in SAC-KO hepatocytes, we investigated a direct effect of these transcription factors on clock gene expression in vitro.
+
+RNAi-mediated depletion of Gli1 in isolated hepatocytes resulted in significant downregulation of Per1 and Nr1d2 after 48 h and slight upregulation of Per3 after 72 h (Fig. 4A).
+
+Knockdown of Gli3 significantly downregulated Per3 after 48 h, followed by a slight upregulation at 72 h post-transfection (Fig. 4B).
+
+Clock expression was also significantly downregulated 72 h after Gli3 depletion (Fig. 4B).
+
+PARAGRAPH
+
+To ascertain the effect of activating Hh signaling on clock gene expression, we knocked down Ptch1, which leads to the upregulation of Gli transcription factors, as described recently.15
+
+The results show an activation of Nr1d2 as well as Clock expression.
+
+This opposite regulation of clock components by inactivation or activation of Gli transcription factors, respectively, clearly indicates that Gli1 and Gli3 modulate central clock genes.
+
+SECTION
+
+Hh signaling controls hepatic lipid metabolism and its diurnal oscillation
+
+PARAGRAPH
+
+Next we asked how global gene expression depends on Smo expression and time-of-day.
+
+For this purpose, microarray studies were performed using total RNA from hepatocytes isolated from SAC-KO mice and WT littermates at ZT3 and ZT12.
+
+After comparing the diurnal regulation between ZT3 and ZT12, a total of 1,268 unique genes (fold change >1.3) were selected that showed diurnal expression in both SAC-WT and SAC-KO mice (Fig. 5A).
+
+Analysis of these data according to BKL (BIOBASE Knowledge Library23) GO terms revealed a highly significant enrichment of genes associated with metabolism (768/9078; p <2.87E−28), particularly lipid metabolism (106/1154; p <2.58E−18).
+
+The genes could be further separated into 2 clusters: cluster 1 (yellow bar), genes that showed different diurnal regulation between SAC-WT and SAC-KO mice; and cluster 2 (blue bar), genes with similar rhythmic behavior in both groups of mice (Fig. 5A).
+
+The majority of genes in cluster 1 were highly associated with lipid metabolism as assessed by WIKI pathway analysis (e.g., Cyp1A2, Acly, and Scd1), whereas those in cluster 2 were spread among more diverse WIKI-GO pathway terms, including oxidative phosphorylation, amino acid metabolism and glycogen metabolism (Table S1).
+
+The complete transcript profiling is available on: https://seek.lisym.org/data_files/34?code=DIYRPXUxjhYICg7zi3F98Mr%2FTqv4PP1z6wAS4Pdu.
+
+PARAGRAPH
+
+Among the lipid metabolism-associated genes, Fig. 5B and Table S2(A, B) provide detailed insight into which genes are higher or lower expressed at ZT3 than at ZT12 in SAC-WT and SAC-KO hepatocytes, as well as those which where regulated coherent in both genotypes.
+
+PARAGRAPH
+
+The gene array analysis results were confirmed and extended by qPCR experiments performed on hepatocytes isolated from transgenic mice at each time point.
+
+In SAC-WT hepatocytes, Srebf1 and Ppara showed a pronounced increase at ZT12 compared to ZT3 while Pparg and Chrebp1 expression did not differ at these time points (Fig. 5C).
+
+In SAC-KO hepatocytes, however, Chrebp1 expression was increased at ZT12 only, while Srebf1, Ppara and Pparg were deregulated by significant upregulation at ZT3.
+
+These results at ZT3 are in line with data reported previously for mice with a different hepatocyte-specific conditional deletion of Smo (SLC mice).14
+
+PARAGRAPH
+
+With respect to key lipogenic enzymes involved in the elongation of fatty acids, significant time-of-day-dependent downregulation of Elovl3 was detected in SAC-WT hepatocytes at both time points, whereas the inverse regulation was observed for Elovl6 (Fig. 5D).
+
+Gpam showed no time-of-day-dependent variation in control mice.
+
+Remarkably, the expression patterns of these enzymes changed dramatically in SAC-KO mice.
+
+Elovl3 was downregulated by more than 90% at both time points (Fig. 5D).
+
+Elovl6 maintained its expression at ZT3 but showed no time-of-day-dependent increase at ZT12.
+
+In contrast, Gpam increased significantly at ZT12, but its levels were slightly lower than those in wild-type mice.
+
+These changes point to an imbalance between the breakdown (lower) and synthesis (maintained) of fatty acids and/or triglycerides.
+
+PARAGRAPH
+
+In accordance with these expression level changes due to interruption of Hh signaling in SAC-KO mice, these animals developed pronounced steatosis at 12 weeks of age which was characterized by a considerable increase in storage lipid classes, such as triacylglycerides and cholesterol esters, in hepatocytes isolated at both ZT3 and ZT12 (Fig. 5E, F).
+
+In addition, we observed a slight increase in diacylglycerides and sphingomyelins at ZT3, inversing or ameliorating the diurnal changes in these lipids, particularly in SAC-KO mice (Fig. S8).
+
+No changes in diurnal variation and levels were observed for the membrane lipids phosphatidylethanolamine, phosphatidylcholines, ceramides, cholesterol (Fig. S9).
+
+PARAGRAPH
+
+The findings above clearly illustrate that interruption of the Hh pathway results in changes of both, rhythmicity and lipid metabolism finally leading to steatotic hepatocytes.
+
+Therefore, we were interested in the reverse question of whether steatosis induced by overnutrition may affect Hh signaling as well as liver circadian clock.
+
+Using C57BL/6 mice treated with an isocaloric high-fat diet (HFD), we could show that this is indeed the case.
+
+Without going into details for reasons of space and figure number limitations, an exemplary selection of data based on expression changes of Dbp, Gli1 and Gli3 demonstrates the high complexity of the clock-Hh response (Fig. S10).
+
+For instance, the ratios of the expression levels of SAC-KO and HFD-treated mice compared to the respective controls maintained their diurnal rhythm (Dbp) or lost (Gli1) or reversed it (Gli3).
+
+Thus, steatosis induced by genetic alterations (SAC-KO) or nutritional challenge (HFD) is characterized by both, partly similar and partly different responses of the clock-Hh system.
+
+Currently, this novel regulatory network is under detailed investigation.
+
+SECTION
+
+Simultaneous changes of clock and Hh genes induced by starvation and refeeding
+
+PARAGRAPH
+
+In a recent study we have shown that different timing of starvation of C57BL/6N mice results in completely different metabolic responses over a 24 h period.24
+
+Starvation induced in the morning at ZT3 resulted in the well-known response characterized by induced gluconeogenesis, while starvation induced in the evening at ZT15 caused a completely different response involving downregulation of gluconeogenesis and increased fatty acid and cholesterol synthesis.
+
+The expression of many clock genes was also differently affected by differently timed starvation.24
+
+According to our paradigm that clock and Hh signaling closely interact we show herein that components of the Hh signaling cascade are also differently affected by the different timing of starvation.
+
+As depicted in Fig. 6A, B, the mRNA levels of Ptch1 and Sufu respond highly significantly and almost in parallel to starvation starting at ZT3 by induction and at ZT12 by downregulation.
+
+Refeeding, on the other hand, causes a pronounced drop at ZT3 and does not approach the ad libitum level within a period of 12 h (ZT3) or 21 h (ZT12).
+
+The changes of the Gli transcription factors are less clear but, interestingly, indicate individual variations among the 3 factors.
+
+For instance, Gli1 seems to be markedly enhanced after refeeding for 21 h in the evening (Fig. 6C), in contrast to Gli2 and Gli3 which are downregulated (Fig. 6E).
+
+The resistance of Gli2 to starvation in the morning is also remarkable, as is the weak diurnal response of Gli3 under almost all conditions.
+
+PARAGRAPH
+
+Collectively, the altered Hh signaling may considerably contribute to explain the hitherto unknown different response of the liver to starvation at different times of day.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Compared to other organs, the widespread contribution of Hh signaling to the regulation of liver metabolism in healthy mature animals has been ignored for quite some time.25,26
+
+Here, in a proof of principle study, we show that Hh signaling regulates liver metabolism in close cooperation with the liver circadian clock to maintain metabolic homeostasis.
+
+PARAGRAPH
+
+The major results of our study are (i) Hh signaling is a target of the circadian clock and (ii) Hh signaling feeds back to the liver circadian clock.
+
+The diurnal rhythm is particularly pronounced for the ligand IHH; both Ihh mRNA and protein levels oscillated with high amplitude in liver tissue and serum.
+
+These results are in line with recently published data by Braune et al., who showed that the presence and levels of IHH and DHH, the 2 most prominent circulating Hh ligands, correlate with metabolic status in physiological and diseased conditions.27
+
+PARAGRAPH
+
+Despite the high similarity between Hh gene measurements in whole liver and in isolated hepatocytes of WT mice, as seen for Ihh and Ptch1, some differences highlight the need for caution and the importance of individual investigations at the level of isolated hepatocytes to appropriately interpret the results.
+
+For example, the rhythmicity of Shh expression is detectable in isolated hepatocytes only, whereas the whole liver rhythm may be masked by the high expression of Shh measured in hepatic stellate cells and bile duct cells.28,29
+
+In this context, the persistence of the liver clock in cultured hepatocytes revealed herein by continuously monitoring Per2-related expression changes in PER2::LUC reporter mice is of utmost importance because it ensures that primary hepatocytes even in conventional monolayer culture are an adequate in vitro system for studying phenomena related to diurnal rhythms.
+
+Similar findings were reported recently only for hepatocytes in sandwich culture.30
+
+It is also worth mentioning that oscillations presented in this work were detected without any additional synchronization protocol.
+
+The hepatocytes isolation procedure seems not to disrupt the synchronization present in vivo, since the synchronization by serum shock or dexamethasone did not lead to any differences in oscillations (data not shown).
+
+It is also possible that the isolation and cultivation procedures per se function as synchronization under in vitro conditions.
+
+PARAGRAPH
+
+To gain insight into the molecular mechanisms responsible for the diurnal rhythm of the expression of Hh components, we transfected cultured hepatocytes with siRNA against Bmal1 and Clock.
+
+Although Western blotting confirmed the downregulation of both proteins, only Bmal1 depletion significantly modulated core Hh signaling genes.
+
+These findings confirm that BMAL1 is essential for circadian oscillator function,20 while the loss of CLOCK in peripheral oscillators may (at least in part) be compensated by NPAS2.31,32
+
+Further, they suggest that major Hh genes, including Ihh and Gli1, are directly regulated in a transcriptional manner.
+
+These novel findings for the healthy adult liver corroborate the general predictions of Zhang et al. made from studies in a human cell line.17
+
+They are also in line with the results of Koike et al.33 which performed ChIP-seq.
+
+analysis of DNA-binding site occupation by circadian transcription factors in the liver (Table S3).
+
+Furthermore, there is direct evidence of E-box binding sites in intron 1 of Gli1.34
+
+Interestingly, in silico analyses suggest that several other components of Hh signaling, such as Ihh, Shh and Ptch1, have E-box binding sites in their promoters and thus might be regulated by similar mechanisms33 (Table S3).
+
+PARAGRAPH
+
+Conversely, our experiments using transgenic SAC-KO mice provided evidence that Hh signaling feeds back on the liver circadian clock exclusively in hepatocytes because only these cells showed a physiological response to impaired Hh signaling characterized by strong downregulation of Bmal1 and strong upregulation of Per1, Per2, Nr1d1 and Nr1d2 at ZT3 due to the hepatocyte-specific knockdown of Smo.
+
+In intact liver tissue of SAC-KO mice non-parenchymal cells which exhibit functional Hh signaling likely mask the hepatocellular response.
+
+PARAGRAPH
+
+In addition, feedback of Hh signaling on the circadian clock was detected by continuously monitoring the Per2-dependent reporter in hepatocytes isolated from transgenic SAC-PER2::LUC mice.
+
+PARAGRAPH
+
+Due to the mutual regulation of diurnal rhythm and Hh signaling, interruption of Hh signaling should alter both the clock and the subsequent diurnal variations in Hh components themselves.
+
+Indeed, in SAC-KO mice, the phase of oscillations in Ihh expression remained the same, but the amplitude decreased.
+
+Moreover, the 3 Gli factors lost their diurnal oscillation and stabilized at a lower expression level in SAC-KO mice at ZT12.
+
+These changes impact considerably on the expression of certain clock genes as revealed by transfection of hepatocytes with siRNA against these factors (cf. Fig. 4).
+
+Thus, GLI1 seems to be an activator of Per1 and Nr1d2.
+
+The delayed influence on Per3 after 72 h is most likely due to the indirect upregulation of Gli3, as was reported recently.15
+
+Direct support comes from the finding that Gli3 knockdown results in the significant downregulation of Per3 and Clock.
+
+Further support is provided by the stimulatory effect of Ptch1 knockdown on Clock and Nr1d2 expression because the recently discovered dynamic self-sustaining network of GLI transcription factors led to the prior upregulation of Gli1 and Gli3.14,35
+
+Moreover, the FANTOM4 database36 revealed specific binding sites for GLI factors within the respective clock genes, as illustrated in a transcriptomic output graph for the 3 Gli factors (Fig. 7A).
+
+In addition, as evidenced by the pronounced repressor function of GLI3, not all GLI-bound DNA fragments act as enhancer elements.37
+
+PARAGRAPH
+
+Previously, using the transgenic SLC mice, an inducible Smo KO model, we demonstrated that Hh signaling is a master regulator of liver lipid metabolism, and impairment of this signaling pathway ultimately leads to steatosis.14
+
+In the present study, we confirm these findings by using a different transgenic mouse model, the transgenic SAC-KO mouse.
+
+The difference between both types of mice with respect to the development of steatosis simply is that at the time of sacrifice (only 1 week apart), the steatosis in SLC mice lasted 5 weeks compared to 13 weeks in SAC mice, because of the later start of the knockout in SLC mice.
+
+By genome-wide analysis we could convincingly demonstrate that the Smo KO affected the rhythmicity of many metabolic pathways, including hepatic lipid metabolism.
+
+Indeed, the alterations in the clock network caused by impaired Hh signaling described above have a greater impact on hepatic lipid metabolism than previously thought.
+
+In addition, we provided first data demonstrating that Hh signaling and its rhythmicity are also deranged when steatosis is caused by nutritional challenge such as HFD.
+
+Whether Hh signaling may act as part of the mechanism by which nutrition can alter the liver circadian clock is currently being investigated by our group.
+
+PARAGRAPH
+
+Our results that Smo deletion is responsible for lipid accumulation are corroborated by another recent study, where patients with holoprosencephaly, a disease caused by genetic or teratogenic disruption of Hh signaling, and mice heterozygous for Gli2 deletion were found to develop liver steatosis.38
+
+In contrast, a recent study of Kwon and colleagues demonstrated that Smo-KO did not affect lipid accumulation in normal chow fed SmoLKO mice.
+
+The reason for this discrepancy could be that Kwon et al. measured triglycerides in whole liver material with a less sensitive detection method.39
+
+In fact, at higher levels of triglycerides, for instance after HFD feeding, both studies are in accordance.
+
+PARAGRAPH
+
+Collectively, our results show that Hh signaling and the hepatocyte cellular clock are part of a coupled regulatory network underlying the spatio-temporal control of hepatic lipid metabolism (Fig. 7B).
+
+Since Hh signaling in hepatocytes has been found to play an important role in liver zonation,16 particularly of lipid metabolism, this component may be dominant with respect to the spatial aspect, while the clock may predominantly control the oscillatory behavior.
+
+Perturbation of either component may ultimately lead to deregulation and disease.
+
+Conversely, therapeutic strategies ignoring one of the components of this regulatory network may be inefficient or inefficacious.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by the Federal Ministry of Education and Research (Germany) within the research network Systems Medicine of the Liver (LiSyM) [grant number 031L0054 and 031L0037] and the Virtual Liver Network (VLN) [grant number 0315735, 0315736, 0315755, and 0315775], the Deutsche Forschungsgemeinschaft (Bonn, Germany) [grant MA 6610/2-1].
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+The co-author Susanne Sales has left the field of liver sciences and is not available regarding the COI.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Eugenia Marbach-Breitrück: acquisition of data; analysis and interpretation of data; drafting of the manuscript; Madlen Matz-Soja: acquisition of data; analysis and interpretation of data; drafting of the manuscript; Ute Abraham: acquisition of bioluminescence data; analysis and interpretation of data; Wolfgang Schmidt-Heck: acquisition of microarray data, statistical analysis; Susanne Sales: acquisition of lipidomic data; Christiane Rennert: acquisition of data; Matthias Kern: acquisition of metabolic cage data; Susanne Aleithe: acquisition of data; Luise Spormann: Western Blot analyses; Carlo Thiel: acquisition of lipidomic data; Raffaele Gerlini: acquisition of data; Katrin Arnold: acquisition of data; Nora Klöting: acquisition of metabolic cage data; Reinhard Guthke: acquisition of microarray data, statistical analysis; Damjana Rozman: providedPER2::LUC reporter mice, critical revision of the manuscript for important intellectual content; Raffaele Teperino: acquisition of data; Andrej Shevchenko: acquisition of lipidomic data; Achim Kramer: interpretation of data; critical revision of the manuscript for important intellectual content; Rolf Gebhardt: study concept and design, interpretation of data; drafting of the manuscript; obtained funding; study supervision; critical revision of the manuscript for important intellectual content.

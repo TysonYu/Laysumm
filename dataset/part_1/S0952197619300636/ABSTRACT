@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.03.013
+
+ABSTRACT
+
+TITLE
+
+On the regulation of personal data distribution in online advertising platforms
+
+PARAGRAPH
+
+Online tracking is the key enabling technology of modern online advertising.
+
+In the recently established model of real-time bidding (RTB), the web pages tracked by ad platforms are shared with advertising agencies (also called DSPs), which, in an auction-based system, may bid for user ad impressions.
+
+Since tracking data are no longer confined to ad platforms, RTB poses serious risks to privacy, especially with regard to user profiling, a practice that can be conducted at a very low cost by any DSP or related agency, as we reveal here.
+
+In this work, we illustrate these privacy risks by examining a data set with the real ad-auctions of a DSP, and show that for at least 55% of the users tracked by this agency, it paid nothing for their browsing data.
+
+To mitigate this abuse, we propose a system that regulates the distribution of bid requests (containing user tracking data) to potentially interested bidders, depending on their previous behavior.
+
+In our approach, an ad platform restricts the sharing of tracking data by limiting the number of DSPs participating in each auction, thereby leaving unchanged the current RTB architecture and protocols.
+
+However, doing so may have an evident impact on the ad platform’s revenue.
+
+The proposed system is designed accordingly, to ensure the revenue is maximized while the abuse by DSPs is prevented to a large degree.
+
+Experimental results seem to suggest that our system is able to correct misbehaving DSPs, and consequently enhance user privacy.

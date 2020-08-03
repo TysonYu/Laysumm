@@ -1,0 +1,591 @@
+10.1016/j.jasrep.2018.11.040
+
+FULLTEXT
+
+TITLE
+
+Hunting social networks on the Salish Sea before and after the bow and arrow
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Social network analysis (SNA) has been applied to examine social transformations in non-state societies (Borck et al., 2015; Brughmans, 2010; papers in Knappett, 2013; Mills et al., 2015; Mills, 2017) such as demographic collapse (Birch and Hart, 2018; Knappett, 2011).
+
+Many of these studies have emphasized ceramic styles, as they are argued to reflect active social symbols, while others have integrated ceramic sourcing approaches to their studies (Gjesfjeld, 2014, 2015).
+
+In terms of lithic studies, analyses of lithic material sources have been employed by archaeologists in varied settings to assess the relationships between assemblages (Buchanan et al., 2016; Golitko et al., 2012; Golitko and Feinman, 2015; Mills et al., 2013; Phillips, 2011).
+
+Linking SNA with a geographic information system (GIS) has enabled archaeologists to engage with data in new ways using multiple spatial and temporal scales to understand social connections.
+
+PARAGRAPH
+
+Here, shifts in cultural transmission in hafted lithic tool styles are examined, during a time when substantial social transformations are argued to have occurred on the Salish Sea of the Pacific Northwest Coast of North America.
+
+The period from 3200 to 1000 cal BP is marked by transitions in residences towards large plank house villages (Lepofsky et al., 2009), hereditary forms of social inequality and shifts in the ways that people actively managed the landscape for food production (Bilton, 2014; Butler and Campbell, 2004; Campbell and Butler, 2010; Grier et al., 2017; Hopt and Grier, 2018; Martindale and Letham, 2011; McKechnie, 2014; Moss, 2011).
+
+PARAGRAPH
+
+Informed by ethnography (e.g. Duff, 1952; Elmendorf, 1992; Haeberlin and Gunther, 1930; Smith, 1940; Suttles, 1958, 1960) and archaeological studies, current theorizing has argued for the emergence of an expansive network of hereditary elites in Marpole-age (2400–1000 cal BP) sites (Angelbeck and Grier, 2012; Grier, 2003; Rorabaugh and Shantry, 2017; Schaepe, 2009) and resiliency to political centralization (Angelbeck, 2009; Angelbeck and Grier, 2012).
+
+Instead of focusing on elites in the Salish Sea during this critical transition, I explore shifts in social networks (e.g., Jordan and O'Neill, 2010).
+
+Specifically, this study focuses on corporate group ties traced through the cultural transmission of lithic manufacture.
+
+One fundamental question is, “What structure do social networks have in the Salish Sea?”
+
+This question is intricate in its complexities, particularly in light of arguments emphasizing regional connections (Grier, 2003; Rorabaugh and Shantry, 2017), subregional variability (Clark, 2010), and political autonomy (Angelbeck, 2009).
+
+A cultural transmission framework is combined with Coast Salish ontology to develop expectations for these patterns in the archaeological data.
+
+PARAGRAPH
+
+To address this question the co-occurrence of distinct lithic styles in dated Salish Sea assemblages was used.
+
+In the analysis, archaeological assemblages form nodes, and the co-occurrence of distinct styles between assemblages is network edges.
+
+The networks are binary with symmetric, undirected, edges.
+
+Measures of network structure were then applied to describe each social network, and compare changes through time with expectations as derived from an application of ethnography and Coast Salish ontology as interpreted through cultural transmission theory.
+
+SECTION
+
+Cultural transmission and lithic manufacture
+
+PARAGRAPH
+
+Here a theoretical approach drawing from cultural transmission theory is employed, which has over the past three decades provided key insights into the processes that guide and regulate the production and reproduction of culture (e.g. Bentley et al., 2004; Bettinger and Eerkens, 1999; Boyd and Richerson, 1985; Eerkens and Bettinger, 2008; Eerkens and Lipo, 2007; Gandon et al., 2014; Hamilton and Buchanan, 2009; Henrich and Henrich, 2007; Henrich and Gil-White, 2001; Kandler and Shennan, 2013; Kempe et al., 2012; Kohler et al., 2004; Lipo, 2001; Lipo and Madsen, 2001; Mesoudi and O'Brien, 2008; Neiman, 1995; Shennan, 2002; Shennan and Wilkinson, 2001).
+
+PARAGRAPH
+
+In models of gene-culture coevolution, or dual inheritance, socially learned behaviors can affect selective pressures and drive genetic evolution in populations (Boyd and Richerson, 1985).
+
+Culture and genes are both subject to selective pressures, although the types of pressures affecting genes and culture can be quite different.
+
+Furthermore, culture is inherited through unique pathways.
+
+Unlike the case with genetic inheritance in humans, culture may be acquired from individuals other than biological parents.
+
+The effort to characterize the pathways in which culture is transmitted is one of the key contributions of this theoretical framework.
+
+Each pathway of cultural transmission has empirical repercussions spatially and temporally for socially learned human behaviors (Cavalli-Sforza and Feldman, 1981; Boyd and Richerson, 1985) in the archaeological record.
+
+PARAGRAPH
+
+The ability to understand specific learning contexts in the record can also be confounded by equifinality in the pathways in which culture is transmitted and non-social processes (Premo, 2010: 31).
+
+A substantial body of literature (e.g., Boyd and Richerson, 1985; Eerkens et al., 2006; Henrich and Henrich, 2007; Shennan, 2000) has examined how processes including but not limited to strong functional constraints, learning from a key individual such as a craft master, conforming to the majority, and parent to child learning can result in less diversity in an archaeological assemblage through time (Eerkens and Lipo, 2007: 251, 252).
+
+PARAGRAPH
+
+The effects of population size and structure on learning has also drawn significant attention in the literature (e.g., Crema et al., 2014; Henrich, 2004; Holman et al., 2007; Kandler et al., 2012; Lipo and Madsen, 2001; Lipo et al., 1997; Lycett and Norton, 2010; Neiman, 1995; Perreault and Brantingham, 2011; Powell et al., 2010; Premo, 2012; Premo and Kuhn, 2010; Premo and Scholnick, 2011; Rorabaugh, 2014, 2015; Shennan, 2000).
+
+Population size affects both rates of innovation and loss of cultural information due to drift.
+
+Understanding factors such as population bottlenecks, and the spatial distance between learnings, are crucial for understanding how cultural variation is produced and reproduced.
+
+I suggest that the use of SNA to assess different time periods in an explicitly spatial manner is one means to address these issues.
+
+PARAGRAPH
+
+However, SNA itself I argue is not a sufficient method to distinguish between different cultural transmission pathways.
+
+The modes and mechanisms of cultural transmission focused on in this study are informed by Coast Salish ethnography and include oblique transmission, which is inheritance of cultural variants cross-generationally from a non-parental individual (Boyd and Richerson, 1985), conformist bias where individuals tend to disproportionately copy the cultural variants found in the majority, anti-conformist transmission where individuals select the least common cultural variants, and indirect bias where an individual selects a cultural variant due to an unrelated one that may be believed to be closely associated (Henrich and Henrich, 2007).
+
+PARAGRAPH
+
+Here, one aspect of culture that is transmitted is examined, lithic manufacture.
+
+For the purposes of this study lithic manufacture is defined this as the inheritance of the skills and techniques passed on for stone tool production and maintenance.
+
+As elaborated later, in the case of precontact Coast Salish communities this also includes the inheritance of immaterial culture such as songs and rituals intrinsically tied to acquiring the skills for the subsistence activities seen reflected in the archaeological record in hafted stone tools.
+
+SECTION
+
+Regional setting: the Salish Sea
+
+PARAGRAPH
+
+The Salish Sea study unit, which encompasses the Strait of Georgia and Puget Sound, has been crucial for theorizing the emergence of hereditary social inequality in small scale societies and the nature of food production and landscape management among sedentary ‘foragers’ (Angelbeck and Grier, 2012; Ames, 1991; Arnold, 1993; Burley, 1980; Coupland, 1985; Hayden, 1995; Matson, 1983).
+
+Anthropological explanations drawing heavily on cultural ecology have ranged from unequal access to resources and resource depression to charismatic leadership.
+
+Archaeological data, specifically large-scale regional syntheses of faunal analyses, have increasingly challenged these interpretations (e.g. Bilton, 2014; Butler and Campbell, 2004; McKechnie, 2014; Moss, 2011).
+
+As a result, some researchers have shifted explanatory frameworks from neoevolutionary approaches to examining the role of historic processes and social transformations during the Locarno Beach (3200–2400 cal BP) and Marpole (2400–1000 cal BP) periods (Fig. 1, Angelbeck, 2009; Cannon, 2002; Grier, 2003; Martindale and Letham, 2011).
+
+The term period is used to avoid the theoretical connotations of phase, and terminology of the Strait of Georgia applied broadly to reinforce the connectedness of the Salish Sea.
+
+PARAGRAPH
+
+Most researchers agree that the major social institutions attributed to the ethnohistoric Coast Salish are present by the Marpole period.
+
+The archaeological data, specifically the burial record, suggest hereditary social inequality (Angelbeck and Grier, 2012; Burchell, 2006; Burley, 1988; Burley and Knusel, 1989; Thom, 1995), resource storage, and large households similar to the ethnographic record (Ames, 1996; Grier, 2000, 2003; Hopt and Grier, 2018; Lepofsky et al., 2000; Matson, 2003).
+
+The preceding Locarno Beach period (3200–2400 BP) is less understood, but researchers argue for the presence of mass salmon storage and social inequality in the form of achieved social status (Carlson, 1987; Matson, 1989, 2010).
+
+Although the sample of Locarno Beach period residential structures is small (N = 8) (Bowie and Kristensen, 2011; Gaston, 1975; Hanson, 1990; Lewis, 2013; Matson, 2010; Morgan, 1998; Walker, 2003), at the very least the data suggests less aggregated winter residence, as the structures are markedly smaller than the large plank houses of the Marpole and Late periods.
+
+PARAGRAPH
+
+Rorabaugh and Shantry (2017) have argued that labrets, a form of personal adornment, served as an indicator of corporate group membership during the Locarno Beach period.
+
+This suggests a precedent for social networks on the Salish Sea prior to the Marpole period.
+
+By looking at material cultural over time and space, SNA can recognize oscillations in extensive bilateral kinship relationships over time, rather than drawing direct links to the ethnohistoric Coast Salish (e.g., Collins, 1979; Suttles, 1951, 1960).
+
+PARAGRAPH
+
+The aim here is to cautiously use Coast Salish ontology as presented in ethnographic accounts to theoretically assess cultural transmission in social network transformations over the past 3000 years.
+
+Interpretations derived from the post-contact era ethnographic record should be applied critically when addressing past shifts in technology and subsistence strategies (e.g., Grier, 2007; Grier and Shaver, 2008; Wobst, 1978).
+
+SECTION
+
+Hafted bifaces and social learning
+
+PARAGRAPH
+
+Using the Salish Sea dataset, stylistic diversity in lithic technologies is examined, as ceramics were not utilized in the region and emblematic cedar boxes and watertight basketry (Croes, 2017) do not preserve at the majority of sites.
+
+Preservation-wise, hafted lithic tools provide the largest artifact sample suitable to explore social learning in the region.
+
+I use the term hafted lithic tools as, the commonly used terminology of projectile point overlooks their non-projectile uses (Ahler, 1971; Faulkner and McCollough, 1973; Frison, 1968; Odell, 1989).
+
+PARAGRAPH
+
+Although the role that point function has played in shaping the morphological variation of Salish Sea points has long been hypothesized (King, 1950; Carlson, 1954; Carlson and Magne, 2008), sparse ethnographic detail on stone tool function is available in the literature.
+
+Chipped stone and projectile points were used for a wide range of purposes including arrows, the arming elements of composite harpoons, darts, and lances (Carlson and Magne, 2008:157).
+
+Non-projectile uses, such as hafted stone tools being used as expedient knives, may also complicate interpretations and result in unique use-life trajectories.
+
+PARAGRAPH
+
+There is a significant body of literature surrounding stone tool curation (Andrefsky, 2009; Shott, 1996; Shott and Sillitoe, 2004, 2005).
+
+Curation is defined as the relative use to maximum potential use of an artifact and use life which is the overall length of service of a tool and how curation impacts tool morphology (Andrefsky, 2009: 123).
+
+The impacts of curation on biface morphology are why haft styles are the focus in this study as blade elements are more subject to retouch in this sample.
+
+PARAGRAPH
+
+Here, lithic haft styles are examined as a materialization of culturally transmitted methods of stone tool manufacture, stone tool manufacture having been ethnographically noted as a form of restricted family knowledge tied to spiritual prerogatives in Coast Salish ontology (Elmendorf, 1971; Suttles, 1958).
+
+As such SNA of lithic styles should reflect changing social ties throughout the Salish Sea.
+
+With the Coast Salish, corporate groups of related individuals formed the basic economic unit (Ames, 1995).
+
+As such, I argue that the social ties for the transmission of knowledge examined in this study are corporate group ties.
+
+PARAGRAPH
+
+Previous analyses of Salish Sea lithic styles examined the impacts of toolstone quality (Rorabaugh and McNabb, 2014) and stone tool function (Rorabaugh and Fulkerson, 2015) on styles.
+
+Despite varied tools including knives, spears, darts, arrows, and harpoon armatures (see Erlandson et al., 2014 for arguments regarding chipped stone tool use as harpoons in coastal assemblages) similar haft styles are seen across functional classes implying transfer of knowledge resulting in a shared symbolic grammar.
+
+SECTION
+
+Lithic manufacture in Coast Salish ontology
+
+PARAGRAPH
+
+The results of SNA can provide insights into broader patterns of social connections, but the rich ethnographic record of the Northwest Coast provides a means of theoretically grounding these results to address equifinality in modes of cultural transmission.
+
+The ethnographic record of Coast Salish ontology at the time of contact tied familial knowledge of lithic production and practice to the accrual of spiritual power.
+
+Hunters would take younger relatives with them for instruction (Smith, 1940: 269), passing on family knowledge.
+
+Acquiring the skills for subsistence crafts enabled one to accrue personal prestige that could then be ascribed to the next generation.
+
+PARAGRAPH
+
+The most successful hunters demonstrated a strong guardian spirit relationship.
+
+This power enabled engagement among high society, or individuals considered to have good names through acquired and inherited status.
+
+Barnett (1955: 78) mentions that individuals could pay for training secrets with wealth items, and thus could acquire knowledge not normally accessible through affinal ties.
+
+PARAGRAPH
+
+Hunting spirit powers were arguably restricted to males, although gender restrictions did not necessarily apply to other activities such as fishing.
+
+Elmendorf (1971: 397) noted that women could ceremonially apply inherited hunting guardian spirit powers but stone tool production was a specialized task often done by older men in Twana communities (Fig. 2, Elmendorf, 1971: 397).
+
+The strictness of these gender roles should be interpreted with caution, as these are based on post-colonial accounts most often seen through the lens of male ethnographers.
+
+PARAGRAPH
+
+In the ethnographic period, people used chipped stone or small bone point projectiles to hunt large terrestrial mammals—mostly artiodactyls like bighorn sheep, deer, mountain goat and wapiti, as well as the occasional bear or bobcat.
+
+The types of projectiles used to hunt large mammals were also used in warfare; however this may not have been the case throughout the entire Salish Sea.
+
+An informant of Duff's (1952: 59) stated that among the Stó:lō Salish chipped stone points were used exclusively for war.
+
+PARAGRAPH
+
+To provide context for hunting craft knowledge and prowess as a pathway to acquisition of status in the Salish Sea, it is worth noting that the primary means of status acquisition was related to the maritime economy which involved construction and management of fishing operations such as fish traps, reef nets, weirs, and marine mammal hunting and shellfish cultivation.
+
+Relations between inland hunting societies like the Nooksack, Upper Skagit and Snoqualmie, and their coastal relatives would have governed access to upland hunting (Smith, 1940; Walker, 1997).
+
+PARAGRAPH
+
+With the widespread use of bow and arrow technologies by 1600 BP (Rorabaugh and Fulkerson, 2015), terrestrial mammal hunting often became an individual pursuit (Angelbeck and Cameron, 2014).
+
+Haberlin and Gunther (1930: 26) note that in Puget Sound distinct point styles, unfortunately not well-specified, were used for hunting or warfare.
+
+A reason for these distinct styles may be tied to the tensions between acquiring status through traditional social means (hunting) or through warfare (Elmendorf, 1971).
+
+PARAGRAPH
+
+The connection between spiritual powers and personal status in hunting skills is also reflected materially in one example—the Skagit Atlatl hook sculpture.
+
+Dated to 1700 BP this object has complex zoomorphic patterns and may have served as a non-functional symbol of chiefly power and prestige (Fladmark et al., 1987:6; Holm, 1990:173–176).
+
+Other anthropomorphic atlatl hooks have been identified dating to 2500 BP from the Locarno Beach site (Borden, 1968).
+
+Although rare, these decorated objects do suggest precedents for the Marpole period in the production and reproduction of hunting craft knowledge.
+
+To summarize, learned lithic styles are from non-parental individuals (oblique transmission) and reflect a symbolic grammar restricted within corporate group or family lines.
+
+SECTION
+
+Methods
+
+SECTION
+
+Social network analysis
+
+PARAGRAPH
+
+Social network analysis (SNA) combines mathematical methods and data visualization to explore the structure of social networks and the effects of that structure on the participants (Freeman, 2004).
+
+SNA provides a broad set of tools that archaeologists can use to examine the characteristics of network graphs derived from archaeological data and compare the similarity and differences between different graphs which may represent different spatial or temporal scales.
+
+PARAGRAPH
+
+Network characteristics often examined in archaeological studies have included degree centrality, which in the case of network analysis is calculating the total number of connections from a single node (Freeman, 1977).
+
+This definition of centrality is narrow compared to the substantial body of sociological and anthropological literature on centrality (e.g., Bonacich, 1972; Borgatti, 2005; Brughmans, 2010; Freeman, 1977, 1979; Freeman et al., 1991; Mizoguchi, 2009; Peeples and Roberts Jr., 2013; Wasserman and Faust, 1994).
+
+Graph centralization measures the tendency that any single node is more central.
+
+Graph density is an index of the number of connections in a network compared to the total number of possible connections.
+
+Spatial length of ties in the case of this study is a straight geodesic distance between archaeological sites.
+
+As graph measures are standardized, they enable a comparison of different generated social networks and can be used to assess social connects at different spatial and temporal scales.
+
+SECTION
+
+Sample
+
+PARAGRAPH
+
+The sample consists of the lithic assemblages from 50 dated site components from 34 sites assigned to the Marpole and Locarno Beach periods (Fig. 3) based on calibrated radiocarbon ages which have been published elsewhere (Chatters et al., 2017; Rorabaugh, 2017).
+
+The lithic assemblage consists of N = 1458 chipped stone tools with complete haft elements.
+
+The sample includes large, well dated multi-component sites along with smaller single component sites.
+
+Dated coastal and inland site components were selected to provide a representative sample of the variability of archaeological deposits and formed lithic tools over the Marpole and Locarno Beach periods.
+
+SECTION
+
+Hafted biface classification
+
+PARAGRAPH
+
+The paradigmatic classification utilized was derived from regional typologies for the Duwamish No. 1 (Campbell, 1981) and Qwu?gwes (Croes et al., 2008) sites, and is discussed in depth in Rorabaugh (2017:52–56).
+
+A summary of the typology is provided in Table 1 and attribute descriptions are provided in Appendix A.
+
+PARAGRAPH
+
+Classes constructed in this way have several advantages over extensionally defined taxonomic classes (Dunnell, 1971), including being explicit and unambiguous in terms of structure and criteria for class membership.
+
+As such, paradigmatic classes reduce confusion regarding artifact classification and the classification process lacks biases from “splitting” or “lumping” units provided that the traits used are mutually exclusive and theoretically informed.
+
+Numerous studies have demonstrated the utility of the method, particularly in terms of cultural transmission studies (e.g., Beck and Jones, 1989; Meltzer, 1981; O'Brien and Lyman, 2002, 2009; O'Brien et al., 2001).
+
+The typology employed here emphasizes haft elements to address variation from tool curation.
+
+Function as a dart or arrow for the hafted bifaces in this sample are discussed in Rorabaugh and Fulkerson (2015).
+
+SECTION
+
+Component temporal assignment and contemporaneous social networks
+
+PARAGRAPH
+
+Contemporaneous social networks were constructed for each 500-year period of interest (3500–3000, 3000–2500, 2500–2000, 2000–1500, and 1500–1000 cal BP).
+
+The use of 500 year periods mitigates issues arising from plateaus in the regional radiocarbon curve from 2200 to 2460 BP (e.g., Hutchingson, 2014; Wessen, 2017) and also some of the uncertainties surrounding local marine reservoir corrections for marine shell dates.
+
+The robustness of these temporal categories was tested with other bin sizes and breaks.
+
+Although many of the sites examined in this analysis span over thousands of years, site components are the unit of analysis and not entire sites, which helps to mitigate time averaging effects.
+
+SECTION
+
+Social network statistics
+
+PARAGRAPH
+
+Each network was derived from a Brainerd-Robinson coefficient of the stylistic classes (Appendix B) and a Monte Carlo simulation was applied to assess variation resulting from sampling error (Appendix C).
+
+The Brainerd-Robinson similarity coefficient is a pair-wise measure of the proportional similarity of nominal categories (0 being no similarity, 200 having identical proportions) independent of sample size (Robinson, 1951).
+
+The use of the Brainerd-Robinson coefficient to assess the similarity of different archaeological assemblages has been the basis for many recent SNA studies (e.g. Mills et al., 2015).
+
+PARAGRAPH
+
+Data were then converted to a cost matrix in ArcGIS10.3.1.
+
+Centrality of each network node was assessed using the outdegree centrality statistic (Freeman, 1977, 1979) which is the sum of the weights of all outbound edges of a node.
+
+For comparison between social networks for each time period, the standardized form of the outdegree centrality statistic was used which divides the summed outbound edge weights of a node by the sum total of all edge weights in a given network (Appendix D).
+
+Kruskal-Wallis Tests and Spearman's R were used to cross compare social network statistics.
+
+Statistical analyses were performed in R 3.4.4.
+
+SECTION
+
+Theoretical expectations
+
+PARAGRAPH
+
+Previous cultural transmission studies (Rorabaugh, 2015, 2017) of Coast Salish hafted lithics suggested biased transmission in haft styles at the assemblage level argued to be consistent with lithic manufacturing being controlled and transmitted at a corporate group level.
+
+This study expands on those findings by emphasizing inter-assemblage patterns to examine corporate group ties.
+
+I argue that SNA itself is an inappropriate technique to assess specific modes and mechanisms of cultural transmission due to the issues of equifinality discussed previously.
+
+However, from the previous discussion on Coast Salish ontology the results of SNA can be behaviorally grounded from the ethnographic record.
+
+PARAGRAPH
+
+From Coast Salish ontology and archaeological arguments about Coast Salish regional interaction in the subject time period (e.g. Angelbeck and Grier, 2012; Clark, 2010, Grier, 2003), there are three overall spatial and temporal patterns predicted for social networks in the study (further summarized in Table 2):
+
+Expansive - Based on the degree of interaction in the region, one prediction is expansive social networks that show an increased elaboration of network ties through time as populations expand.
+
+These networks would be expected to reflect low variation in degree centrality during the Marpole period (Grier, 2003; Rorabaugh and Shantry, 2017).
+
+From a cultural transmission standpoint this would involve more frequent oblique transmission and conformist bias at the inter-corporate group level.
+
+In other words, more communication between corporate groups and an intentionally or unintentionally shared symbolic grammar.
+
+Spatially Circumscribed - Clark (2010) argued that the Marpole phase was spatially limited to the Fraser Delta and Gulf Islands.
+
+This model assumes that the Fraser Delta serves as a central core for the region and that increased elaboration in network ties will be seen through time with high variation in degree centrality and central nodes at the Fraser Delta and Gulf Islands.
+
+From a cultural transmission standpoint this would be less frequent oblique transmission between corporate groups with indirect bias towards corporate groups from the Fraser Delta and Gulf Islands.
+
+Overall, less communication between corporate groups as they are more territorialized but an intentional use of styles found in the Fraser Delta and Gulf Islands by outlying groups.
+
+Autonomization - This model is based on anarchism arguments forwarded in the region (Angelbeck, 2009; Angelbeck and Cameron, 2014).
+
+I use the term autonomization instead of anarchism due to the fact that anarchy theory is fundamentally using individuals as the basic economic unit and Coast Salish society is economically based on corporate groups.
+
+Specifically, that the introduction of the bow and arrow would result in a shift from more collective to individual hunting, and learning of hunting tasks.
+
+The expected pattern from this would be an initial elaboration of social networks with low variation in degree centrality and a transition to weak network ties after the widespread adoption of bow and arrow technologies by 2000 cal BP.
+
+From a cultural transmission standpoint this would begin similar to the expansive networks model with frequent oblique transmission and conformist bias at the inter-corporate group level, followed by less frequent oblique transmission between corporate groups and anti-conformist bias at the inter-corporate group level when the bow and arrow becomes widespread.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+SNA of the dataset resulted in five social networks (Figs. 4–8).
+
+The networks from 3500 cal BP to 2000 cal BP, the Locarno Beach to mid Marpole period, all exhibit strong assemblage similarity throughout the Salish Sea among contemporaneous sites.
+
+This is reflected in the high Brainerd-Robinson coefficients which indicate that the compared assemblages are similar in the proportions of haft styles (Fig. 9).
+
+PARAGRAPH
+
+The minor differences between assemblages from 3500 cal BP to 2000 cal BP, based on the results of the Monte Carlo simulations are attributable to sampling error (Appendix C).
+
+Through time there appears to be strong connections throughout the Salish Sea, crossing ethnohistoric linguistic areas specifically Hul'qumi'num, Straits, and Lushootseed Coast Salish speakers.
+
+Through time there appears to be an elaboration and expansion of the social network with population growth.
+
+Although this is in part attributable to a greater sample of well dated sites from 2500 BP onward, is supported by the low standard deviation in degree of outbound centrality (Fig. 10).
+
+PARAGRAPH
+
+The youngest period examined, 1500–1000 cal BP or the Late Marpole period, shows a marked shift towards greater diversity between assemblages and weaker regional network ties as indicated by statistically significantly lower Brainerd-Robinson coefficients (Kruskal-Wallis Test Χ2 = 287.621, df = 4, p = 0.0001, Fig. 9).
+
+This shift is not attributable to sample size, or differences in assemblage richness by 500-year period (Kruskal-Wallis Test Χ2 = 0.607, df = 4, p = 0.962, Fig. 11).
+
+The transition to lower pairwise component Brainerd-Robinson coefficients also appears to be a robust pattern with different temporal binning.
+
+SECTION
+
+Assessing variation from inter-assemblage distance
+
+PARAGRAPH
+
+Spearman's R was used to examine the correlation between geodesic distance between assemblages and Brainerd-Robinson coefficients.
+
+The 3500–3000 and 3000–2500 cal BP networks had no correlations significant at a 0.05 level.
+
+From 2500 BP on there were moderate to weak negative correlations significant at a 0.05 level for each period (2500 BP: N = 20, Spearman's R = −0.433, p = 0.028; 2000 BP: N = 231, Spearman's R = −0.257, p = 0.0001; 1500 BP: N = 45, Spearman's R = −0.274, p = 0.034).
+
+These results suggest that for the 2500–2000 cal BP period 43% of the variation in Brainerd-Robinson coefficients may be attributable to distance, the remainder likely the result of sampling error as suggested by the results of the Monte Carlo simulations.
+
+For the 2000–1500 cal BP period 26% of inter-assemblage variation appears to be correlate with distance, and again the remaining variation is likely attributable to sampling error.
+
+The 1500–1000 cal BP period has 27% of inter-assemblage variation attributable to the distance between assemblages, but based on the Monte Carlo simulations the remaining inter-assemblage variation in this period does not appear to be the result of sampling error.
+
+Due to the low cost of transportation using watercraft (Ames, 2002; Gustas and Supernant, 2017) the finding that geodesic distance did not strongly pattern assemblages was not unexpected.
+
+SECTION
+
+Inter-network comparisons
+
+PARAGRAPH
+
+To compare social networks, two global measures are typically employed: graph density and graph centralization (Freeman, 1979, Table 3).
+
+The variance of network centrality measures can be used to compare networks.
+
+The variance of the 1500–1000 BP network is three orders of magnitude higher than preceding periods which is not attributable to differences in sample size or number of edges (Fig. 11).
+
+Density is a global index of the number of connections in a network out of the total number of possible connections standardized between 0 and 1.
+
+Dense networks have values tending towards “1” while less centralized networks have lower values.
+
+Network density is “1” for all periods except for 1500–1000 BP, where the value of 0.64 suggests a moderate degree of connectedness.
+
+SECTION
+
+Intra-network centrality
+
+PARAGRAPH
+
+Within network centrality measures are also the most informative for the 1500–1000 cal BP period, as indicated by the standard deviation for degree outbound centrality for assemblages in that period.
+
+An aspatial network organized by degree outbound centrality reveals that the assemblages at Helen Point (DfRu8), Crescent Beach (DgRr1) and Watmough Bay (45SJ280) share strong similarities in haft styles (Fig. 12).
+
+This suggests strong network ties between ethnohistoric Hul'qumi'num and Straits Salish speaking communities (cf., Clark, 2010).
+
+SECTION
+
+Assessing patterning from functional variation
+
+PARAGRAPH
+
+As 1600 cal BP was the period where arrow technologies became prevalent (Rorabaugh and Fulkerson, 2015), haft styles were examined by functional class.
+
+A chi-square test of independence was used on the ten most frequent classes, to avoid issues from small expected cell values.
+
+Haft styles were found to not be independent of functional class as a dart or arrow according to a chi-square test of independence (N = 1260, χ2 = 92.13, df = 9, p = 0.001).
+
+A closer examination of stylistic variation by functional class showed that no styles were unique to function as a dart or arrow, but certain styles such as small, triangular points, were ubiquitous with arrows (e.g., Carlson and Magne, 2008).
+
+SECTION
+
+Assessing patterning from stylistic richness and innovation
+
+PARAGRAPH
+
+Examining changes in assemblage stylistic richness and the accumulation of novel styles through time, Rorabaugh (2017: 137) noted a decrease in novel haft styles from 2000 to 1500 cal BP, not attributable to exhausting the possible design space for haft styles.
+
+From these findings, I argue that the introduction or innovation of new haft styles for arrows cannot alone explain the increased in inter-assemblage variability, and social network shifts, of the late Marpole period.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The findings of the network analysis are consistent with the predictions of the autonomization model.
+
+More regional heterogeneity in haft styles suggesting a shift towards less emphasized corporate group ties appears to coincide with the widespread adoption of the bow and arrow in the Salish Sea (Rorabaugh and Fulkerson, 2015).
+
+Researchers in different regions have noted that the widespread adoption of bow and arrow technology is a transformational event.
+
+In some regions such as the Great Basin (Bettinger, 2013, 2015), and Southeast (Kennett et al., 2013) a similar pattern of increased individual autonomy as a result of the widespread utilization of these technologies is observed.
+
+But these shifts are neither unidirectional nor always decentralizing.
+
+In the case of this analysis, the observed shift in social networks is not attributable to sample size effects, innovation of new styles, or inter-assemblage distance.
+
+PARAGRAPH
+
+The results of this study are consistent with arguments forwarded by Angelbeck and Cameron (2014) supported by faunal evidence.
+
+They argue that the increase in deer and wapiti in assemblages (e.g. Butler and Campbell, 2004) reflects the use of the bow and arrow as an alternative method for individuals to acquire wealth and prestige at the household level.
+
+When considering their argument, taphonomic and research history biases must be considered.
+
+In particular upland sites are understudied as there are undated upland sites with lithic assemblages that are stylistically assumed to date to the late period (Hedlund, 1973; Onat and Bennett, 1968).
+
+However, social network analysis has provided a complementary approach suggesting shifts in inter-group ties as bow and arrow technologies become prevalent.
+
+PARAGRAPH
+
+To place these findings in their broader context, Rorabaugh and Shantry (2017) have argued that labrets, and later, cranial modification, served as markers of corporate group membership throughout the Salish Sea, with cranial modification being a prevalent, unambiguous, marker allowing individuals to access corporeal, and noncorporeal (such as songs, dances, and ritual knowledge), resources held in trust by kin (Ames, 1995:159).
+
+The pattern seen through time in this study is consistent, with the expansion and elaboration of social networks with population growth until the widespread adoption of bow and arrow technology after which there is a clear shift in social networks.
+
+From a cultural transmission standpoint, these findings are consistent with frequent oblique transmission between corporate groups with conformist bias.
+
+PARAGRAPH
+
+The widespread use of bow and arrow technology in the Salish Sea corresponds with an increase in the intensity of warfare, corroborated by an increase in dated defensive sites throughout the Salish Sea (e.g., Angelbeck, 2009; Angelbeck and Grier, 2012; Lambert, 2002; Maschner, 1991).
+
+Maschner (1991) argued that the adoption of the bow and arrow resulted in greater social circumscription.
+
+Angelbeck and McClay (2011) note that large scale Coast Salish defensive political coalitions, such as against raiding Kwakwaka'wakw Lekwiltok from north of the Salish Sea operated in a decentralized manner that reinforced local autonomy.
+
+PARAGRAPH
+
+The shift from strong network ties to more regional heterogeneity may reflect this trend of increased autonomy in artiodactyl hunting practices and can be described as a shift from a collective hunting endeavor to an individualized pursuit.
+
+At the scale of individual corporate groups, the direct biased and indirect biased transmission dominates through time due to how apprenticeship of lithic manufacture is structured in traditional Coast Salish communities.
+
+However, at a regional scale we see fewer strong network ties throughout the region in haft styles which suggests a reduction in conformist bias at the inter-corporate group scale.
+
+These findings highlight the importance of examining datasets at multiple temporal and spatial scales as different transmission patterns may be revealed at the different levels of comparison.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+Social transformations resulting from the widespread adoption of bow and arrow technologies has gained renewed interest in the literature.
+
+This study contributes to that larger discussion through applying SNA to stone tool stylistic diversity.
+
+The spatial and temporal distribution of hafted stone tools was examined during a period of fundamental social transformations in the Salish Sea, using a cultural transmission framework that was critically informed by ethnography and Coast Salish ontology.
+
+Strong network ties were noted throughout the region which crossed language groups until 1600 BP, at which time the social network of stone tool producers appears to exhibit less developed regional ties.
+
+PARAGRAPH
+
+The change in stone tool assemblages at the time of the widespread adoption of bow and arrow technologies in the region (Rorabaugh and Fulkerson, 2015) also corresponds with greater emphasis on deer and wapiti observable in the faunal record (Angelbeck and Cameron, 2014; Butler and Campbell, 2004; Campbell and Butler, 2010).
+
+PARAGRAPH
+
+Following Angelbeck and Cameron (2014), I suggest that the shift in hunting social networks evidenced by diversity in hafted lithic tools from dated contexts in the Salish Sea marks a transition from participation in corporate hunting groups to smaller scale organization of hunting activities.
+
+The shift in hunting social networks may reflect an emphasis on autonomy coinciding with responses to political centralization and increased warfare (e.g., Ames, 2001; Angelbeck, 2009; Angelbeck and Cameron, 2014; Angelbeck and Grier, 2012).
+
+PARAGRAPH
+
+This study used SNA to look at intersections among people from the Salish Sea.
+
+The majority of Coast Salish ethnographers note that hafted bifaces are a gendered technology.
+
+To account for this, a theoretically informed classification of the lithic dataset was used.
+
+Applications of SNA to other aspects of Coast Salish material culture, specifically toolstone sources or basketry styles, may provide further insights into oscillations of corporate group connections throughout the Locarno Beach and Marpole periods in the Salish Sea.

@@ -1,0 +1,429 @@
+10.1016/j.jhep.2019.07.014
+
+FULLTEXT
+
+TITLE
+
+Genomic sequencing identifies WNK2 as a driver in hepatocellular carcinoma and a risk factor for early recurrence
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is a relatively common type of cancer with rising incidence and mortality rate.1
+
+Approximately half of the 782,500 new cases of liver cancer and the 745,500 deaths due to liver cancer that occur worldwide each year occur in China.1
+
+In China, most HCCs arise from hepatitis B,2 other risk factors such as exposures to aflatoxin3 and aristolochic acids4 can also be important in HCC development.
+
+Those etiological factors may result in different genetic alterations, as well as different therapeutic targets, in Chinese patients compared with patients from other countries and regions.
+
+PARAGRAPH
+
+Over the past decade, new discoveries have shed light on the molecular basis of HCC pathogenesis.
+
+Following technological advances, several pioneering studies have delineated the genetic landscape underlying liver carcinogenesis,5–11 including amplifications on chromosomes 6p21 (VEGFA) and 11q13 (FGF19/CNND1) and deletions on chromosome 9 (CDKN2A).
+
+Mutations in the coding regions of TP53 and CTNNB1 affect 25–30% of patients with HCC and, along with low-frequency mutations in some other genes (e.g., AXIN1, ARID2, ARID1A, TSC1/TSC2), define core pathways that are commonly de-regulated in HCC.
+
+Many genomic changes related to HCC have been characterized in Western and Japanese populations; however, the genomic landscape of HCC in the Chinese population has only been investigated in small patient cohorts, either with specified aflatoxin-associated HCC3 or with low sequencing depth.9
+
+To gain a comprehensive understanding of the molecular etiology of HCC, it is essential that we learn more about the genomic changes associated with HCC in the Chinese population.
+
+PARAGRAPH
+
+Advances in the treatment and management of patients with HCC have improved survival rates; however, HCC still has a high rate of early recurrence, which limits long-term survival even after surgical resection.12–14
+
+Although several studies have revealed biomarkers that shed light on the molecular mechanisms underlying HCC progression and prognosis,15 the association between genetic mechanisms and early HCC recurrence, especially in Chinese patients, remains largely unknown.
+
+PARAGRAPH
+
+We aimed to systematically define genomic alterations in Chinese patients with HCC and to identify mutations associated with early tumor recurrence in those patients.
+
+We performed whole-genome sequencing (WGS) of 49 matched pairs of tumor and normal tissues and whole-exome sequencing (WES) of 18 similarly matched pairs from patients with HCC who had tumor early tumor recurrence after curative resection.
+
+We next selected 97 genes and performed very deep, targeted sequencing of 115 additional HCC samples and paired normal tissues (34 from patients that experienced early recurrence and 81 from patients that did not experience early recurrence).
+
+Using all 182 HCC samples, we compared the frequency of somatic mutations in specific genes between the patients that experienced early recurrence and those that did not experience early recurrence.
+
+Then, focusing on WNK2, we used Sanger sequencing and qPCR to evaluate all of the coding exons and copy numbers of that gene in an additional 554 HCC samples and paired normal tissues (117 from patients that experienced early recurrence and 437 from patients that did not experience early recurrence) to investigate its value in predicting early tumor recurrence and overall survival (OS).
+
+Finally, we explored the functional effect and mechanism of WNK2 on tumor growth and metastasis.
+
+SECTION
+
+Materials and methods
+
+PARAGRAPH
+
+Detailed information about the patients and follow-up; DNA preparation, DNA capture, and sequencing; WGS, WES and targeted sequencing; date quality control; reads mapping and detection of somatic genetic alterations; spectrum and signatures of somatic mutations; significantly mutated genes; Sanger sequencing; inferring HBV/AAV2 genotype and identification of integration; cell lines, animals, and lentiviral vector; cell proliferation, colony formation, and matrigel invasion assays; in vivo assays for tumor growth and metastasis; RNA isolation, quantitative reverse transcription PCR, and RT2profiler PCR array; western blot and phosphokinase array analysis; TMA and immunohistochemistry; evaluation of immunohistochemical variables and statistical analysis are available in the CTAT table and supplementary methods.
+
+SECTION
+
+Results
+
+SECTION
+
+Overview of genomic alterations in patients with primary HCC who had early tumor recurrence
+
+PARAGRAPH
+
+To discover the genomic alterations in Chinese patients with HCC who had early tumor recurrence after curative resection, we performed WGS of tumor and matched non-cancerous liver-tissue samples from 49 patients with HCC (all of whom had early tumor recurrence after curative resection).
+
+The average sequencing depth was 54.5-fold for tumors and 36.1-fold for normal tissues (Table S2).
+
+We mapped the sequence reads to the human reference genome and identified a total of 1,662,031 somatic single-nucleotide variants (SNVs) and 36,684 indels, with 2,446–99,031 mutations per tumor genome (Table S3-5).
+
+Sanger sequencing to validate 1,146 randomly selected somatic coding mutations showed a high true-discovery rate (95.5%), with an average of 6.52 (range = 0.82–33.01) somatic mutations per Mb (Fig. 1A).
+
+We classified 7 tumor samples (14.3% of the samples) with mutation rates of >10/Mb as hypermutated.16
+
+PARAGRAPH
+
+C>A transversions and C>T and T>C transitions were ubiquitous in all of the HCCs (Fig. 1B), a feature shared by other HCC cohorts.5–7,17
+
+Of the 7 hypermutated HCCs, 6 also had a dominant T>A transversion pattern, however, and the remaining hypermutated HCC had a dominant C>G transversion pattern, implying that those substitutions might contribute to hypermutation in HCC.
+
+The T>A transversion pattern was significantly associated with the total number of somatic SNVs among all the HCC samples (Fig. S2A), which further suggested that the T>A transversion contributes to somatic SNVs in Chinese patients with HCC.
+
+PARAGRAPH
+
+Mutation signature analysis of 96 substitution patterns17,18 identified 5 signatures in the HCC samples (Signatures A–E; Fig. 1C-D, Fig. S3, Table S6).
+
+Signature A was characterized by dominant T>A mutations and was highly similar to the previously described Signature 22 (cosine correlation similarity = 0.98), which is known to result from exposure to aristolochic acid and to be associated with a high mutational burden.4
+
+Consistent with that, Signature A was a predominant signature in the hypermutated HCC samples and was significantly associated with the total number of somatic SNVs among all 49 HCC samples (Fig. S2B).
+
+Signature B, characterized by C>G mutations, was only dominant in 1 sample, which was also the sample with the highest number of SNVs across all 49 HCCs.
+
+Signature B had low cosine correlation similarity to the previously described Signature 13.
+
+Therefore, it represents a new mutational signature.
+
+Signature C, characterized by C>A mutations, showed a strong similarity to the previously described Signature 24 (correlation similarity = 0.92), which has been associated with exposure to aflatoxin in cancers.
+
+Signatures D and E were mainly characterized by C>T and T>C mutations and showed similarity to the previously described Signature 5 (correlation similarity = 0.84) and Signature 16 (correlation similarity = 0.91), which have been revealed to be associated with aging and alcohol consumption, respectively.7,19,20
+
+PARAGRAPH
+
+We identified 32 amplified segments, which harbored several known oncogenes such as CCND1, TERT, and MYC.
+
+We also identified 18 lost segments, which harbored tumor suppressors including TP53 (17p13), RB1 (13q14), and CDKN2A (9q21) (Fig. 1E, Fig. S4, Table S7).
+
+Additionally, we detected abundant genomic structural variations (SVs), with a mean of 43.4 SVs (range = 0–224) per sample.
+
+The SVs comprised 483 deletions, 18 deletions with inversion, 189 deletions with insertion, 414 tandem duplications, 3 insertions, and 1,019 intra- or inter-chromosomal translocations (Fig. 1F, Table S8).
+
+We found that HBV integration occurred in 26 (53%) of the tumor samples.
+
+We identified recurrent HBV integration events at TERT - a well-known HCC driver gene.
+
+We also identified HBV insertions upstream of CCNE1 in a tumor sample, which were associated with aggressive tumor behavior (Table S9).
+
+SECTION
+
+Identification of WNK2, RUNX1T1, CTNNB1, TSC1, and TP53 somatic mutations associated with early HCC recurrence after curative resection
+
+PARAGRAPH
+
+We performed WES of 18 pairs of tumor and matched normal tissues (average sequencing depth: 113.7-fold for tumors and 110.9-fold for normal tissues; Tables S2, S10) and combined the somatic SNVs and indels identified in the protein-coding exons with the data obtained from WGS.
+
+We identified 10 significantly mutated genes using MutSigCV, 6 of which (TP53, AXIN1, CTNNB1, CDKN1A, ALB, and ARID1A) were identified as potential cancer drivers in previous studies (Table S11).
+
+We then designed a gene panel consisting of all exon regions of 97 genes and the TERT promoter (Table S12).
+
+The genes in the panel fell into the following categories: i) 7 significantly mutated genes identified by MutSigCV (excluding KRTAP5-6, SLC10A2, and HIST1H2BD because of their low mutation frequency and lack of known relation to tumor development or progression) and several other genes that were frequently mutated in our samples, ii) genes that were previously documented as components of a cancer-related pathway or as potential therapeutic targets, and iii) previously reported HCC driver genes.5–7
+
+We performed very deep, targeted sequencing of an additional 115 samples of HCC tumors and paired normal tissues.
+
+The average sequencing depth was 2,149.6-fold for the tumors and 2,239.9-fold for the normal tissues (Tables S2, S13).
+
+PARAGRAPH
+
+Using the next-generation sequencing results from the total set of 182 HCC samples, we compared the frequency of somatic mutations in specific genes between the HCCs from patients that experienced early recurrence and those that did not experience early recurrence.
+
+We found that WNK2 had the most significant difference in mutation frequency: WNK2 was mutated in 12 of 101 HCC samples (11.9%) from patients that experienced early recurrence but only 1 of 81 HCC samples from patients that did not experience early recurrence (p = 0.006).
+
+Some other genes, such as RUNX1T1 (p = 0.018), CTNNB1 (p = 0.019), and TSC1 (p = 0.044), also had a significant difference in mutation frequency between the 2 groups of patients, while TP53 had a marginal difference (p = 0.057) between the groups (Fig. 2A, genes present in ≥5 samples are shown).
+
+PARAGRAPH
+
+When we looked at the combination of those 5 genes (WNK2, RUNX1T1, CTNNB1, TSC1, and TP53), we found that 21 of 23 patients (91.3%) with mutations in 2 or more of those genes, 49 of 85 patients (57.6%) with a mutation in only 1 of those genes, and 31 of 74 patients (49.1%) with no mutations in those genes experienced early recurrence (Fig. 2B-C).
+
+Furthermore, the 5-year cumulative recurrence rate was highest (95.7%) in the patients with mutations in 2 or more of the 5 genes, which was significantly higher than the rate in the patients with a mutation in only 1 of the genes (72.6%) and in those with no mutations in the 5 genes (57.6%).
+
+Similarly, the 5-year OS rate among the patients with mutations in 2 or more of the genes was 30.4%, which was significantly lower than that among the patients with a mutation in only 1 of the genes (53.9%) and in none of the genes (67.3%; Fig. 2D).
+
+SECTION
+
+Somatic mutations, copy number loss, and reduced expression of WNK2 were predictive of early tumor recurrence after curative resection
+
+PARAGRAPH
+
+We evaluated all the coding exons of WNK2 in an additional 554 HCC samples and paired normal tissues by Sanger sequencing.
+
+We found WNK2 somatic mutations in 17 of 117 HCCs from patients that experienced early recurrence and in 9 of 437 HCCs from patients that did not experience early recurrence.
+
+PARAGRAPH
+
+Overall, from the total set of 736 HCC cases included in our study, we identified 40 WNK2 somatic mutations in 39 different patients: 29 of the 218 patients (13.3%) that experienced early recurrence and 10 of the 518 patients (1.9%) that did not experience early recurrence (Fig. 3A-B, Fig. S5).
+
+Polyphen-2 analysis revealed that most of those mutations were predicted to adversely affect the function of the WNK2 protein (Table S14).
+
+PARAGRAPH
+
+WNK2 is located within a large genomic region of chromosome 9q (chr9:34399801–141213431) that was recurrently deleted in our initial set of 49 WGS HCC samples (Fig. 1E, Table S7).
+
+We performed qPCR to assess the copy number of WNK2 in all 736 HCC cases.
+
+The results showed that WNK2 copy number loss occurred in 27.2% (200/736, calculated copy number: 0.13–0.99) of the samples (Fig. 3C).
+
+PARAGRAPH
+
+We further evaluated WNK2 expression by immunohistochemistry in all 736 HCCs.
+
+The results showed that WNK2 expression was downregulated in tumor samples compared with that in adjacent non-tumor liver samples (Fig. 3D-E).
+
+The patients with WNK2 somatic mutation or copy number loss showed a further decrease in tumor WNK2 expression level (Fig. 3E).
+
+PARAGRAPH
+
+We then correlated WNK2 somatic mutation, copy number loss, and expression level with the patients’ clinical characteristics and outcomes.
+
+Somatic mutations in WNK2 were correlated with increased tumor size, vascular invasion, and satellite lesions.
+
+WNK2 copy number loss was correlated with increased tumor size, increased tumor number, vascular invasion, satellite lesions, and increased tumor differentiation and TNM stage.
+
+The WNK2 expression level was correlated with a higher gamma-glutamyltransferase level, increased tumor size and tumor number, vascular invasion, satellite lesions, and increased TNM stage (Table S15).
+
+PARAGRAPH
+
+Among the 736 patients with HCC, those with WNK2 somatic mutation, copy number loss, or reduced expression exhibited an elevated rate of early recurrence (Fig. 3F).
+
+Although some clinical characteristics such as tumor size and satellite lesions are predictive of early tumor recurrence after curative resection, patients with WNK2 somatic mutation, copy number loss, or lower expression were more likely than patients without those features to experience early tumor recurrence (Fig. 3G).
+
+Kaplan-Meier survival analysis also revealed significantly shorter OS and higher cumulative recurrence rates for patients with WNK2 somatic mutation, copy number loss, or lower expression compared with patients without those features (Fig. 3H).
+
+Univariate and multivariate analyses confirmed that WNK2 somatic mutation, copy number loss, and lower expression were independent prognostic factors for OS and time to recurrence (Table S16).
+
+SECTION
+
+WNK2 functions as a tumor-suppressor gene in HCC
+
+PARAGRAPH
+
+Our results suggested a possible tumor-suppressor role for WNK2 in HCC.
+
+To test that hypothesis, we analyzed the genotype and expression of WNK2 in 6 HCC cell lines.
+
+All 6 HCC cell lines were validated as wild-type (WT) by Sanger sequencing, using the same filter criteria as used for the HCC samples in next-generation sequencing.
+
+qPCR showed that high metastatic HCC cell lines: MHCC97L, MHCC97H, and HCCLM3 had WNK2 copy number loss (Fig. 4A).
+
+Western blots confirmed that WNK2 protein levels in 6 established HCC cell lines were decreased in comparison to the non-transformed hepatic cell line L0-2, especially in those HCC cell lines with high metastatic potential (MHCC97L, MHCC97H, and HCCLM3; Fig. 4A).
+
+PARAGRAPH
+
+Next, we knocked down WNK2 in HepG2 and Hep3B cells.
+
+Biofunctional investigations revealed that the knockdown of WNK2 resulted in an increase in HCC cell proliferation and colony formation activity (Fig. 4B-C, Fig. S6B-C) and led to enhanced invasive ability (Fig. 4D, Fig. S6D).
+
+In vivo HCC mouse models showed that WNK2 knockdown accelerated tumor growth and pulmonary metastasis (Fig. 4E, Fig. S6E).
+
+PARAGRAPH
+
+We generated lentiviral constructs to re-express WNK2 in HCCLM3 and MHCC97H cells.
+
+For WNK2 mutants, mutation sites located in protein kinase domain or oxidative-stress-responsive kinase 1 C-terminal domain, as well as some other sites that were recurrently mutated in our HCC samples, were selected.
+
+The results showed that overexpression of WT WNK2 substantially suppressed HCC cell proliferation, colony formation, and invasion ability.
+
+In contrast, the mutated WNK2 failed to cause those effects, in whole or in part (Fig. 4B-D, Fig. S6B-D).
+
+In agreement with the in vitro studies, analysis of an in vivo HCC mouse model showed that WT WNK2 significantly suppressed tumor growth and pulmonary metastasis, while the mutated WNK2 yielded a larger tumor volume and increased pulmonary metastasis compared with the WT WNK2 (Fig. 4E, Fig. S6E).
+
+Interestingly, we found that the nonsense mutant WNK2K211X and the frameshift mutant WNK2T275fs lost nearly all of their suppressive effects on HCC cells, which suggested that truncating mutations in the protein kinase domain destroyed the function of WNK2.
+
+These results support the notion that WNK2 is a tumor-suppressor gene in HCC and that certain somatic mutations abolish its function and its tumor-inhibitory effect.
+
+SECTION
+
+WNK2 inactivation leads to ERK1/2 signaling activation in HCC cells
+
+PARAGRAPH
+
+We investigated the mechanism of WNK2 function in HCC cells using a phosphokinase array and HCC cells with altered WNK2 expression.
+
+The results showed that p-ERK1/2 were upregulated by more than 100% in HepG2 cells after knockdown of WNK2, whereas they were downregulated by more than 50% in HCCLM3 cells following WNK2 overexpression (Fig. 5A).
+
+Western blot analysis validated these results and showed that compared with WT WNK2, mutated WNK2 failed to suppress ERK1/2 signaling, which suggests that WNK2 negatively modulates ERK1/2 signaling and that its mutation or downregulation activates that signaling pathway in HCC cells (Fig. 5B).
+
+Immunohistochemistry staining exhibited concordant results in tumor sections from HCC cell-derived mouse models (Fig. 5C).
+
+Clinical HCC samples with WNK2 somatic mutation or copy number loss tended to have strong p-ERK1/2 expression, as revealed by immunohistochemistry staining (Fig. 5D), which further indicated that WNK2 inactivation activates ERK1/2 signaling in HCC.
+
+Furthermore, U0126 (an MEK1/2 inhibitor) treatment significantly alleviated the increased cell proliferation, colony formation, and invasion in vitro (Fig. 5E-G) and the increased tumor growth and pulmonary metastasis in vivo (Fig. 5H) induced by WNK2 inactivation in HCCLM3 or HepG2-shRNA-WNK2 cells, suggesting that WNK2 inactivation promotes HCC growth and metastasis through ERK1/2 signaling.
+
+SECTION
+
+WNK2 inactivation promotes tumor-associated macrophage (TAM) infiltration in mouse models and patients with HCC
+
+PARAGRAPH
+
+To further explore the effect of WNK2 on the modulation of the tumor microenvironment, we used PCR arrays to quantify the expression of cytokines and chemokines that were affected by WNK2 expression in HCC cells.
+
+We identified 3 cytokines that were upregulated by more than 100% in HepG2 cells after WNK2 knockdown and downregulated by more than 100% in HCCLM3 cells following WNK2 overexpression: colony stimulating factor 1 (CSF1), C-C motif chemokine ligand 5 (CCL5), and transforming growth factor-β2 (TGFβ2; Fig. 6A).
+
+We validated those results by western blotting (Fig. 6B).
+
+Compared with WT WNK2, mutated WNK2 lost its ability to repress those cytokines in HCCLM3 cells (Fig. 6B).
+
+PARAGRAPH
+
+Given that CSF1, CCL5, and TGFβ2 play significant roles in the activation, chemotaxis, and function of macrophages,21,22 we evaluated the infiltration of TAMs in tumor samples from mouse models and patients with HCC.
+
+The numbers of TAMs were significantly increased in HepG2-derived tumors with WNK2 knockdown.
+
+In HCCLM3-derived tumors, overexpression of WT WNK2 reduced the TAM numbers, while overexpression of mutated WNK2 failed to suppress TAM infiltration in part or in whole (Fig. 6C).
+
+In patients with HCC, those with WT WNK2 had relatively low levels of CSF1, CCL5, and TGFβ2 expression and had fewer infiltrated TAMs, whereas those with WNK2 somatic mutations or WNK2 copy number loss had higher expression levels of those cytokines and more infiltrated TAMs (Fig. 6D).
+
+Considering that WNK2 inactivation leads to ERK1/2 signaling activation in HCC cells, we treated HCCLM3 or HepG2-shRNA-WNK2 cells with U0126 and observed decreased expression of cytokines/chemokines (Fig. 6E) and reduced numbers of infiltrated TAMs (Fig. 6F), which suggests that WNK2 inactivation promotes the expression of specific cytokines/chemokines and induces TAM infiltration through ERK1/2 signaling.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This study is the most comprehensive description, to date, of the genetic events that characterize Chinese HCCs, which recur early after curative resection.
+
+We delineated the genomic landscape, including somatic SNVs/Indels, CNVs, and SVs, in 49 patients with HCC by WGS.
+
+Our WGS cohort had a higher mutational burden than other HCC cohorts.5–7
+
+We propose the following reasons for the relatively high mutational burden in our cohort.
+
+First, our WGS cohort was based on patients with HCC who had early tumor recurrence, and higher mutational burden has been associated with poor prognosis in several types of cancer.23–26
+
+Second, we identified 5 prominent mutational signatures; Signature A (aristolochic acid) and Signature C (aflatoxin) were the dominant signatures in 34.7% (17/49) of the patients, which was different from other HCC cohort studies.5–7
+
+Exposures to aristolochic acid or aflatoxin are important environmental risk factors for HCC development, especially in China, and are known to contribute to hypermutation in cancer.3,4
+
+We confirmed that the patients with dominant Signature A or Signature C had a higher mutational burden than the patients without those signatures (Fig. S2C).
+
+PARAGRAPH
+
+Recurrence of HCC after curative resection can be classified as early, occurring within weeks or months, or late, occurring more than 2 years after resection.27
+
+Early recurrence accounts for nearly 70% of all recurrent HCCs and is attributable to micrometastases that occur in the liver outside of the treated area.27
+
+In this study, through WGS, WES, and targeted sequencing of 182 HCC samples, we identified mutations in WNK2, RUNX1T1, CTNNB1, TSC1, and TP53 that were correlated with early tumor recurrence after curative resection.
+
+The combined mutational profile of those 5 genes showed a strong predictive value and correlated with cumulative recurrence and OS.
+
+Although some other genes, such as TERT, AXIN1 and ARID1A, have been confirmed as drivers in HCC, they have no ability to predict early HCC recurrence.
+
+Our results suggest that WNK2, RUNX1T1, CTNNB1, TSC1, and TP53 may play roles in HCC invasion and metastasis.
+
+We also validated the association of TP53 and TSC1 mutations with recurrence and OS in an HCC cohort from The Cancer Genome Atlas (TCGA).
+
+WNK2 and RUNX1T1 mutations showed no ability to predict tumor recurrence or OS, possibly because of their low mutation frequency in the TCGA cohort.
+
+In addition, we did not observe any difference in recurrence or OS between patients with a CTNNB1 mutation and those without a CTNNB1 mutation.
+
+We hypothesize that the difference in the predictive value of CTNNB1 mutations between our cohort and the TCGA cohort may be caused by differences in racial, etiological, or demographic factors between the cohorts (Fig. S7).
+
+PARAGRAPH
+
+Among the genes that correlated with early tumor recurrence after curative resection, WNK2 had the most significant difference in mutation frequency and occurred in about 5% of the 736 HCC samples.
+
+WNK2 was mutated in 1.4–3% of HCC samples in other studies from Japan, South Korea, Europe, and the TCGA cohort.5,6,8,28
+
+In our study of a Chinese HCC cohort, we found that more than half of the WNK2 mutations were caused by T>A/A>T transversions and C>A/G>T transversions, which are characteristics of Signature A (aristolochic acid) and Signature C (aflatoxin), respectively.
+
+We reasoned that this might have contributed to the higher frequency of WNK2 mutations in our cohort compared with that in other HCC cohorts.
+
+Furthermore, in a previous study of 49 aflatoxin-associated HCC samples from the Qidong Liver Cancer Hospital Institute in China, there were somatic WNK2 mutations in 3 of 49 HCC samples (6.1%), and 2 of those mutations were caused by C>A/G>T transversions, which is a characteristic of Signature C (aflatoxin).
+
+That result is consistent with the results of our present study.3
+
+PARAGRAPH
+
+WNK2 is a cytoplasmic serine-threonine kinase that belongs to the protein kinase superfamily.
+
+WNK kinases play an important role in cell cycle progression, metabolic adaptation, anti-apoptosis, invasion, and metastasis.29
+
+Epigenetic silencing of WNK2 has been found in gliomas, meningiomas, and pancreatic ductal adenocarcinomas;30–32 however, the functional impact of genetic mechanisms affecting WNK2 is still unknown, especially in cancer.29
+
+We showed that in addition to somatic mutations in WNK2, copy number loss occurred in nearly 30% of patients, and WNK2 expression in the tumor samples was also downregulated.
+
+Moreover, we demonstrated that WNK2 somatic mutation, copy number loss, and downregulation were all predictive of early tumor recurrence and shorter OS.
+
+Importantly, we revealed through gain-of-function and loss-of-function studies that WNK2 plays a tumor-suppressor role in HCC.
+
+We confirmed that WNK2 inactivation by somatic mutation or downregulation promotes HCC growth and metastasis.
+
+Mechanistic study suggested that the effect of WNK2 inactivation on HCC relies on the ERK1/2 pathway.
+
+WNK2 can suppress ERK1/2 signaling in HCC cells, while its inactivation abolishes that suppression.
+
+Thus, through clinical and functional study, we demonstrated that WNK2 is a driver gene in HCC and that its inactivation is predictive of early tumor recurrence and shorter OS.
+
+PARAGRAPH
+
+Different types of non-tumor stromal cells in the surrounding environment can be activated and recruited to the tumor bed.21,22
+
+Among the stromal cells recruited to the tumor site, macrophages are particularly abundant and are present at all stages of tumor progression.21
+
+Substantial experimental and clinical evidence suggest that these TAMs promote tumor development and metastasis in the majority of cases.33
+
+The tumor-promoting functions of TAMs include stimulation of angiogenesis and enhancement of tumor cell proliferation, migration, and invasion,33 effects that have been recently validated in HCC.21,34
+
+Our result showed that WNK2 inactivation can induce CSF1, CCL5, and TGFβ2 expression through the ERK1/2 pathway and that it also promotes TAM infiltration.
+
+Therefore, we hypothesize that WNK2 inactivation promotes HCC not only through a direct effect on ERK1/2 signaling in HCC cells but also by increasing TAM infiltration in the tumor microenvironment.
+
+PARAGRAPH
+
+Taken together, our results delineate the genomic events that characterize Chinese HCCs.
+
+We identified WNK2 as a driver of HCC that was associated with early tumor recurrence after curative resection.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This study was jointly supported by the National Key R&D Program of China (No. 2016YFC0902400, 2018YFA0109400), the National Natural Science Foundation of China (No. 81972708; No. 81773069; No. 81830102; No. 81572823; No. 81772578), Shanghai Rising-Star Program (18QA1401200) and Municipal Human Resources Development Program for Outstanding Young Talents in Medical and Health Sciences in Shanghai (2018YQ14).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+SLZ, ZJZ and ZQH performed the experiments; SLZ, CLS and YJL analyzed the data; CBL, HYX, XRY, YHS and ZW provided the samples; SLZ and JZ wrote the paper; XWH, YC and JF commented on the study and revised the paper; JZ obtained funding and designed the research.
+
+SECTION
+
+Accession codes
+
+PARAGRAPH
+
+All sequencing data were deposited in the Sequence Read Archive (SRA) under accession code number PRJNA504942.

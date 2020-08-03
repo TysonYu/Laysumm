@@ -1,0 +1,857 @@
+10.1016/j.engappai.2019.08.018
+
+FULLTEXT
+
+TITLE
+
+Hybrid structures in time series modeling and forecasting: A review
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Time series forecasting is a broad and active research area which is drawn considerable attention from wide variety of fields such as finance, engineering, statistics and etc.
+
+Therefore, a large amount of literature has focused on approaches that can get accurate forecasts in numerous practical applications.
+
+In general, two main ways can be traced in the literature in order to achieve desired and accurate results and/or improve the accuracy of obtained results: (1) developing and proposing new forecasting models and (2) hybridization of existing forecasting models.
+
+Hybridization is generally performed due to the lacking of the comprehensive individual model in capturing various patterns in the data, concurrently.
+
+Undoubtedly, one model is not sufficient to deal with complex real world systems with unknown mixed patterns.
+
+Combining different models is one of the most common remedy introduced in the literature aiming to take the strength of individual models in patterns modeling and recognition applied in large amount of time series forecasting articles.
+
+Pioneer researchers such as Bates and Granger (1969), Clemen (1989); Granger and Ramanathan (1984), Hibon and Evgeniou (2005), Timmermann (2006), Winkler and Markakis (1983), Bunn (1989) and Armstrong (2001) claimed that combining different models can enhance forecasting accuracy compared with individual models used separately.
+
+PARAGRAPH
+
+Main advantages of hybrid models enumerated in related articles can be summarized in three substantial points:
+
+PARAGRAPH
+
+According to the importance of the forecasting with high degree of accuracy, applying hybrid models for time series modeling and forecasting continues to grow in recent studies.
+
+Several review articles overviewed the hybrid forecasting models and their applications.
+
+These review papers provided different classifications of the hybrid models in specific field of time series forecasting.
+
+Tascikaraoglu and Uzunoglu (2014) generally reviewed the most widely-used hybrid models and developments in the short term wind power and speed forecasting field namely weighted based hybrid model, data preprocessing, parameter selection and optimization and error processing techniques.
+
+Deb et al. (2017) presented the comprehensive overview on the machine learning approaches and their hybrid models which are constructed from two or more machine learning techniques for energy consumption forecasting.
+
+Pradeepkumar and Ravi presented (Pradeepkumar and Ravi, 2018) the review on soft computing hybrid models for FOREX rate prediction.
+
+They categorized the soft computing hybrid models in to ANN based, evolutionary computation based, fuzzy logic and SVM based hybrid models.
+
+The final conclusion of this study is that ANN-based hybrids are more pervasive and more accurate hybrid techniques in the pertinent area.
+
+Rather et al. (2017) surveyed important published papers for stock market forecasting and portfolio selection.
+
+They divided reviewed articles in to two general classes including single and hybrid models.
+
+Antonanzas et al. (2016) reviewed the different techniques to generate power forecasts for photovoltaics.
+
+The hybrid models surveyed in this study followed two hybridization approaches: combining two or more statistical models (statistical hybrid models) and combining statistical models and photovoltaic performance model (physical hybrid model).
+
+PARAGRAPH
+
+Even though some recent review articles surveyed the specific branch of hybrid models and make classification in the particular fields, none of them pay comprehensively attention to all combining structures in various hybrid time series forecasting models.
+
+Therefore, the best of our knowledge is to fill the gap in the literature by reviewing various hybrid models based on the three main structures proposed in the literature: parallel, series and parallel–series regardless of the field of study.
+
+In the next phase, each research study is analyzed based on the specific features of used combination structure.
+
+Two highlighted goals followed in this review paper are:
+
+PARAGRAPH
+
+The rest of the paper is organized as following sections: In Section 2, existing hybrid methods in the literature are classified and then key concepts of combination approaches are briefly described.
+
+In Section 3, articles that proposed parallel hybrid models for time series modeling and forecasting are reviewed.
+
+In Section 4, the overview of series hybrid models is presented.
+
+Section 5 contains the main conclusions attained from analyzing hybrid structures in reviewed papers.
+
+In addition, a brief summary about the most important findings achieved by reviewing the related studies is presented at the end of each section.
+
+In the last section, conclusions are discussed.
+
+The description of all acronyms and abbreviations used in this paper are alphabetically summarized in Table 1.
+
+SECTION
+
+Classification of hybrid models applied for time series modeling and forecasting
+
+PARAGRAPH
+
+The majority of hybrid models proposed for time series forecasting can be clustered in four main classes namely (1) Data preprocessing based hybrid models, (2) Parameters optimization based hybrid models, (3) Component combination based hybrid models, and (4) postprocessing based hybrid models.
+
+Data preprocessing and parameters optimization based models are the most popular and widely-used hybrid models; respectively.
+
+The postprocessing based models have the lowest usage.
+
+PARAGRAPH
+
+Data preprocessing based hybrid models are the most well-known category in hybridization that usually has much focus on the data preprocessing techniques.
+
+In this category, the time series is transformed into a simpler data or it is divided in to several sub data sets.
+
+For instant, Nguyen and Novák (2019) have developed a preprocessing based hybrid model to forecast seasonal time series.
+
+In this study, a time series decomposed into three main parts including a trend-cycle, seasonal, and irregular fluctuation parts.
+
+Then, each of these constituents is modeled by fuzzy transform, pattern recognition, fuzzy natural logic techniques and Box–Jenkins approach.
+
+EMD and Wavelet families are the most commonly used decomposition techniques for time series forecasting.
+
+The comprehensive analyzing on preprocessing based hybrid models is provided in some recent review papers (Qian et al., 2019; Shao et al., 2017).
+
+The brief literate review of the recent developed data preprocessing based hybrid models is given in Table 2.
+
+PARAGRAPH
+
+The second class of hybrid models in which parameters of different forecasting models are determined by optimization models and especially Meta heuristic algorithms is the parameter optimization based hybrid models.
+
+Meta heuristic algorithms are successfully adopted in this category due to its comprehensive searching advantages (Qian et al., 2019).
+
+Ojha et al. have provided a broad overview on optimization based hybrid models developed on ANN models (Ojha et al., 2017).
+
+In addition, in several researches both preprocessing techniques and optimization algorithms have been simultaneously applied in order to improve the forecasting ability of hybrid models.
+
+Some recent studies on parameters optimization based hybrid models are summarized in Table 2.
+
+PARAGRAPH
+
+Ensemble models are the most well-known hybrid models in the component combination based models.
+
+Recently different ensemble models have been proposed and used widely in numerous practical fields (Zameer et al., 2017; Chen et al., 2018; Song and Dai, 2017).
+
+The conceptual application of ensemble models is to improve the accuracy and additionally reducing variance.
+
+As an example, Ribeiro et al. (2019) proposed an ensemble hybrid model using WNN in which wavelet functions are utilized in a hidden layer as an activity function in neural network for short term load forecasting.
+
+Galicia et al. (2019) presented an ensemble framework composed of three models including decision tree, gradient boosted trees and random forest for big data time series.
+
+After thorough analyzing the previous review studies on this field, it can be noticed that there is no survey study concentrated on the overviewing the component based hybrid models.
+
+Thus, the main area of interest in this study is to categorize and review the component combination based hybrid models, considering their combination structure which is not addressed in the literature of time series forecasting and discussed in detail in this paper.
+
+PARAGRAPH
+
+SECTION
+
+Component combination based hybrid structure
+
+PARAGRAPH
+
+By reviewing component based hybrid models presented in a large amount of papers, the combination methods that are connected and combined different types of individual models can be generally categorized based on the hybridization structure in three main categories: (1) parallel, (2) series, and (3) parallel–series, which are described in three following subsections, respectively.
+
+The framework of general classification of hybrid structures considered in this study is shown in Fig. 1.
+
+SECTION
+
+Parallel hybrid structure
+
+PARAGRAPH
+
+Early studies in forecasting with combined models starting with Bates and Granger (1969), Newbold and Granger (1974), and Winkler and Markakis (1983) who tried to develop parallel hybrid models.
+
+Clemen (1989) made a comprehensive review on preliminary articles that used hybrid parallel models and classified them based on their contribution in different areas.
+
+Parallel hybrid structure is the most advanced combination method introduced by Bates and Granger (1969) in the initial classic study.
+
+They constructed a parallel hybrid model by linear combination of different separate sets of forecasts.
+
+They demonstrated that their proposed parallel hybrid model can lead to achieve smaller error variance that any of based models.
+
+From conceptual perspective, the procedure of parallel hybrid structure used for combining forecasting models can be defined when raw data is given to individual models, simultaneously.
+
+In the second step, the relative effectiveness of each forecast known as a component weight is determined by choosing a specific weighting algorithm.
+
+In the last stage, the weighted forecasts are integrated by employing linear or nonlinear function as given in Eq. (1).
+
+The general framework of parallel hybrid structure is shown in Fig. 2. fcombined,t=φ(w1fˆ1,t,w2fˆ2,t,…,wnfˆn,t)t=1,2,…,T
+
+where, φ is defined as a linear or nonlinear combination function, wifˆi(i=1,2,…,n) is referred to weighted forecasted value of each individual model at time t, T is the number of underlying data, and n is the number of individual based models (components).
+
+PARAGRAPH
+
+SECTION
+
+Series hybrid structure
+
+PARAGRAPH
+
+Series combination methods were found on the concept of sequential modeling procedure.
+
+Series model was implemented for the first time by Zhang in 2003 (Zhang, 2003) for real world time series forecasting.
+
+Zhang (2003) was proven that by decomposing time series in to linear and nonlinear parts and modeling them by ARIMA and MLP models respectively, due to processing the output of ARIMA model by MLP model, the superior performance can be achieved against individual components used separately.
+
+The unique advantage of series approaches is to decompose the underlying time series in to different components and processing output of each model sequentially.
+
+In this way, the final combined forecast is achieved by summation of different forecasts, shown in Eq. (2).
+
+A general framework of series models is illustrated in Fig. 3. fcombined,t=fˆ1,t+fˆ2,t′+fˆ3,t′+⋯+fˆn,t′t=1,2,…,T
+
+where, fi(i=1,2,…,n) is the ith individual involved model, fˆ1 is the forecasted value of the first model applied on raw data, and the fˆ2′ is the forecasted value of the second model applied on the obtained forecasting results of previous model; and therefore, the fˆn′ is the forecasted value of last model applied on forecasted results of (n−1)th model.
+
+SECTION
+
+PARAGRAPH
+
+Parallel–series hybrid structure
+
+PARAGRAPH
+
+The parallel–series hybrid structure is constructed based on the combination of parallel and series hybrid concepts for extracting the advantages of both structures.
+
+This structure is generally proposed in the literature for combining two different individual models.
+
+The procedure of the parallel–serieshybrid structure is initialized by parallel combination phase.
+
+In this way, the data is first given simultaneously to two components (Eq. (3)). oˆ1=f1(yt),oˆ2=f2(yt)
+
+where, oˆi(i=1,2) is the output of the ith individual models.
+
+Then in the series phase, the output of first model consists of residual (eˆt) and forecasted value (Lˆ1,t), along with actual data are given to the second model in a sequential modeling form.
+
+Consequently, the final forecasting result is considered as an output of second model.
+
+Thus, based on the choosing of the output of first including: eˆt, Lˆ1,t or both of them, as an input of second model, three possible architectures can be proposed as follows:
+
+PARAGRAPH
+
+Architecture-1: fcombined,t=f2(eˆt,yt)t=1,2,…,Twhere, f2 is a nonlinear function that are determined by an intelligent model.
+
+This architecture for the first time was proposed by Khashei and Bijari (2010) by choosing ARIMA and ANN individual models as f1 and f2, respectively.
+
+PARAGRAPH
+
+Architecture-2: fcombined,t=f2(Lˆt,yt)t=1,2,…,Twhere, Lˆt is the forecasted value obtained by the first model, which is selected from statistical models.
+
+PARAGRAPH
+
+PARAGRAPH
+
+This formulation of the parallel–series hybrid model is the extended work of Khashei and Bijari (2011).
+
+They verified that the proposed model can be achieved superior forecasting result compared with the constructive ARIMA and MLP models and also the ARIMA-ANN series model.
+
+The general framework of parallel–series model is shown in Fig. 4.
+
+SECTION
+
+PARAGRAPH
+
+Reviewing papers
+
+PARAGRAPH
+
+In this section, the general overview of papers that are analyzed in this review study is given.
+
+The information of articles reviewed in this study based on the number of papers in both journal and conference and the contribution of publication in each year is shown in Table 3 and Fig. 5, respectively.
+
+In Table 4 the information of reviewed papers with respect to the field of study is presented.
+
+PARAGRAPH
+
+Table 4 represents the distribution of papers analyzed with respect to the forecasting field.
+
+As seen the most common fields used hybrid models to yield more accurate performance are the energy, financial and real data forecasting respectively.
+
+The reason is that in these fields data sets have the highest level of complexity and including several different structures simultaneously.
+
+So, the hybridization can be a promising strategy to process and capture different patterns in data more accurately.
+
+SECTION
+
+Reviewing the parallel hybrid structure in time series forecasting
+
+PARAGRAPH
+
+There are several studies in which the similar concept of parallel hybrid method proposed by Bates and Granger (1969) have been used and tried to develop this structure for time series modeling and forecasting.
+
+The key step in constructing parallel model is choosing linear or nonlinear combination function and appropriate weighting approach.
+
+Thus, the classification in this paper is constructed based on specific characteristics of this structure combination function and weighting approaches.
+
+The combination function is proposed in two linear and nonlinear forms, which related articles are reviewed in following subsections.
+
+SECTION
+
+Linear combination methods
+
+PARAGRAPH
+
+The linear combination method is the most commonly used method for parallel hybridization.
+
+In linear combination approach, final combined forecasts are obtained by summation of weighted forecasts of each individual model (Eq. (1)).
+
+Thus, the main objective issue in parallel linear hybridization is to determine the appropriate weight for each individual model.
+
+Since the primary parallel hybrid scheme proposed by Bates and Granger (1969), Dickinson (1973, 1975), and Newbold and Granger (1974) various essential works have been done for developing weights assignment approaches in parallel hybrid models.
+
+As a result, several weighting approaches have been evolved in the literature that can be classified in to two main static and dynamic groups.
+
+In this section, papers regarding to each of these weighting approaches are reviewed.
+
+SECTION
+
+Static weighting approaches.
+
+PARAGRAPH
+
+In the static weighing approaches, the corresponding weights are estimated by statistical methods and applied for all forecasting horizons.
+
+In another word, time is considered as a fixed variable along with weight determining procedure.
+
+Static groups are generally divided in to six classes: (1) Averaging, (2) Minimizing error, (3) Var-Cov, (4) Outperformance, (5) DMSFE, and (6) Differential.
+
+In such methods, exact values of component weights are calculated through mathematical equations.
+
+In the next subsections, a brief description of reviewed papers in each of these statistical methods is presented.
+
+PARAGRAPH
+
+PARAGRAPH
+
+It is proven in the literature that averaging different forecasting models can reduce estimation variance (Yin et al., 2012).
+
+Although, there is a large literature on using averaging multiple forecasting models, there is no consensus about which model averaging should be used.
+
+Here, the most cited averaging methods used for weighting individual models in the literature are reviewed.
+
+PARAGRAPH
+
+SA: The SA is the easiest way for determining component weights, which allocated equal weight to each forecasting model.
+
+There is some evidence in the literature that simple average method can perform well in terms of accuracy and also in some cases obtain superior performance compared with other advanced methods (Wang et al., 2018b; Genre et al., 2011; de Menezes et al., 2000).
+
+SA is used as a main choice of determining weights in parallel models or in comparison with other methods in large amount of studies (See Table 4).
+
+Median (Stock and Watson, 2004), TM, and WM (Jose and Winkler, 2008) are robust alternatives to simple averaging.
+
+In median method, the median of forecasting results obtained by various individual models is considered as a final hybrid result.
+
+The TM and WM weighting methods are formulated in Eqs. (7) and (8), respectively.
+
+TM(i)=1n−2i∑k=i+1n−ifˆk WM(i)=1nifˆi+1+∑k=i+1n−ifˆk+ifˆn−iwhere, i is the integer and is 0≤i≤n2.
+
+The BCM (Finlayson, 2013) method is similar to the SA; however, the sum of forecasts error variance is sorted in BCM method.
+
+The weights calculation formula in BCM method is given in Eq. (9) Wi=c2n−1i22n−2(i=0,1,…,n−1)
+
+PARAGRAPH
+
+SWAM: The SWAM is the unequal weighted average method (Madigan and Raftery, 1994).
+
+This method is also sorts the sum of forecast errors, which is defined in Eq. (10). wi=i∑i=1ni(i=1,2,…,n)
+
+PARAGRAPH
+
+BMA: in this averaging method (Madigan and Raftery, 1994; Hoeting et al., 1999), the weights of individual models are determined regarding to their posterior model probabilities.
+
+The Bayesian posterior probabilities for each model are considered as corresponding weights using Bayesian information criteria as given in Eq. (11). wi=exp(−12BICi)∑j=1nexp(−12BICj),BICi=m.ln(σˆi2)+ki.ln(m)
+
+where, σˆi2 is the estimated error variance of ith model, kidefined as a number of parameters in ith model, and m is the number of observations in time series.
+
+In Table 5, the reviewed papers used different averaging weighting methods are listed.
+
+PARAGRAPH
+
+✔ Minimizing error (min error)
+
+PARAGRAPH
+
+In this method, the corresponding weight of each individual model is estimated through minimizing errors between combined forecasts and actual values (Eq. (12)).
+
+Different robust mathematical methods and also meta-heuristic algorithms are developed in order to solve this optimization problem.
+
+The ordinary least squared method (Granger and Ramanathan, 1984) and simplex are the most cited mathematical methods and genetic algorithms and PSO are frequently used metaheuristic algorithms for solving Eq. (12) addressed in the literature.
+
+MinGyt−yˆcombined(t)t=1,2,..,Twhere, G  is a predetermined function such as sum squared (SSE), mean squared (MSE), sum absolute (SAE), mean absolute (MAE), etc., yt is the actual value, and yˆcombined(t) is the obtained forecast at time t.
+
+The information of surveyed papers used the Min error approach for estimating weights in linear static parallel combination scheme is summarized Table 6.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The basic idea of Var-Cov method proposed by Bates and Granger (1969) is to determine each model weight by minimizing the error variance of the hybrid forecast using the past forecasting performance.
+
+Suppose that the final parallel hybridization of two unbiased models is obtained by Eq. (13), in which the sum of weights is equal to one.
+
+In this way, the forecasting error can be represented as Eq. (14). ycombined,t=w1f1,t+w2f2,tw1+w2=1 ecombined,t=yt−yˆt=∑i=1nwiyt−(w1f1,t+w2f2,t)=w1(yt−w1f1,t)+w2(yt−w2f2,t)
+
+Therefore, the variance of error term is calculated as follows: var(ecombined)=w12var(e1)+w22var(e2)−2w1w2cov(e1,e2)
+
+PARAGRAPH
+
+Accordingly, the weights that minimize the variance of error are obtained by following equations: w1=var(e2)−cov(e1,e2)e12+e22−2cov(e1,e2) w2=var(e1)−cov(e1,e2)var(e1)+var(e2)−2cov(e1,e2)Thus, the estimators of previous weights can be represented as follows: w1=e22−cov(e1,e2)e12+e22−2cov(e1,e2) w2=e12−cov(e1,e2)e12+e22−2cov(e1,e2)Most of the studies and also Bates and Granger (1969) have suggested that the weights formulated in Eq. (20) can be used rather than Eqs. (18) and (19). w1=e22e12+e22,w2=e12e12+e22
+
+In the similar fashion, corresponding weights for combining the multiple cases can be presented by the following equation (Fritz et al., 1984). wi=∑j=1Tej,i2−1∕∑i=1n∑j=1Tej,i2−1
+
+where, the ei is the obtained error that can be different kinds of forecasting error and n denotes the number of individual based involved models.
+
+Various hybrid models have used the Var-Cov weighting method for constructing parallel hybrid structure for time series forecasting [See Table 7].
+
+It is must be noted that in some papers, this approach is also called error based weighting method.
+
+PARAGRAPH
+
+PARAGRAPH
+
+This weighting method was first proposed by Bunn (1975) on the basic concept of Bayesian probabilistic approach.
+
+In this method, the related weight of each single model is determined based on the number of times that the specific single model represents the best performance in the past in sample forecasting trials (Netsanet et al., 2018).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Winkler and Markakis (1983) have suggested the DMSFE method for determining weights in parallel hybrid models, which is calculated as Eq. (22). wi=∑j=1T(δT−j+1ej,i2)−1∑i=1n∑j=1T(δT−j+1ej,i2)−1∑i=1nwi=1
+
+where, δ is referred to discount factor with 0<δ≤1.
+
+It should be noted that the Var-Cov method is specific case of the DMSFE, if δ=1.
+
+The calculated weights by the DMSFE method satisfied the constraint ∑i=1nwi=1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+As mentioned previously, in the Var-Cov method, the information of covariance matrix is required to be minimized the variance of hybrid forecast error, which is practically unknown.
+
+Due to this limitation (Newbold and Granger, 1974; Makridakis and Winkler, 1983), differential methods have been proposed in the literature.
+
+These methods can be generally categorized in five classes, which two most frequently used types of them are presented in Eqs. (23) and (24). wi=∑s=t−vt−1(ei,s)2−1∕∑j=1n∑s=t−vt−1(ej,s)2−1(i=1,2,…,n)(t=1,2,…,T) wi,t=βwi,t−1+(1−β)∑s=t−vt−1(ei,s)2−1∑j=1n∑s=t−vt−1(ej,s)2−1(i=1,2,…,n)(t=1,2,…,T)
+
+where, v and β are two constant parameters in which 0<β≤1 and eit is the percentage error at time t, which is calculated by Eq. (25). ei,t=yt−yˆityt(i=1,2,…,n)(t=1,2,..,m)
+
+The reviewed articles applied the Var-Cov, the outperformance, the DMSFE and the Differential weighting methods for constructing parallel hybrid models are summarized in Table 7.
+
+SECTION
+
+Dynamic weighting approaches
+
+PARAGRAPH
+
+Although, statics weighting approaches are the much more cited methods in the literature in which each component weight is determined based on the historical data and applied over the whole of forecast horizon or during the time, some dynamic weight generation schemes are also proposed for overcoming the deficiency of this method related to lacking the flexible method for updating information during the time.
+
+In the dynamic weighting methods, the component weights varied with each time index (Yang, 2004; Sánchez, 2008).
+
+It is documented in the literature that there is no guarantee that dynamic combination models can always outperform astatic ones, but some dynamic combination schemes can often improve forecasting performance (Timmermann, 2006).
+
+The brief description of each dynamic weighting method used in literature is given here.
+
+PARAGRAPH
+
+Wang et al. (2018b) have presented a parallel forecast combination model by integrating four kinds of neural networks.
+
+In this study, a dynamic weighting procedure called in-sample training–validation pair-based neural network (TVPNNW) is applied for obtaining the weight of components.
+
+Simulation results indicate that the proposed model shows better performance than some static combination methods such as SA, Median, OLS, Outperformance, and Var-Cov methods.
+
+Adhikari (2015) has worked on a linear parallel combination system in which the hybrid weights are determined by a novel dynamic method.
+
+In this study, weights are assigned to Box–Jenkins, SVM, MLP and ELNN components with static Var-Cov method.
+
+Then, an ANN model is employed to discover and learn inherent patterns of in-sample weights.
+
+The findings confirm that the proposed model can yield more accurate forecasting results, compared with its based components as well as other well recognized linear static combination approaches.
+
+PARAGRAPH
+
+Zhao et al. (2014) have suggested a time-varying weighted average method for parallel hybridization of SARIMA, MLP, and LSSVR.
+
+In the proposed model, at the first step, an in-sample time-varying combining weights for each component are calculated with quadratic programming.
+
+Then, the out-of-sample dynamic weights predicted by these in-sample weights employing a high order Markov chain model.
+
+Evaluation results point out that the proposed dynamic hybrid model outperforms its components and some traditional static approaches.
+
+Reviewed papers used parallel hybrid models by employing dynamic weighting approaches are summarized in Table 8.
+
+SECTION
+
+PARAGRAPH
+
+Nonlinear combination methods
+
+PARAGRAPH
+
+The straightforward alternative for parallel hybridization is to use the linear combination function, which is described in the previous section.
+
+However, in parallel hybrid models, the linear integration approaches will be generally unsatisfactory, if the true relationship is nonlinear.
+
+While, the assumption of linear function for data generation process of components in real world problems is often nonlinear.
+
+For this reason, the nonlinear combination functions have been proposed in the literature for addressing this problem.
+
+In earlier studies, ANNs are applied in order to discover the nonlinear relationships among forecasting outputs (Shi et al., 1999).
+
+In general, the parallel nonlinear combination can be developed in two main frameworks.
+
+The first option is to mathematically use the correlation among components in order to lift the limitation of the linear combination framework for modeling interconnection patterns.
+
+The combined forecast for integrating three individual models, as an example, is given in Eq. (26). ycombined,t=w0+w1fˆ1,t+w2fˆ2,t+w3fˆ3,t+θ1v1,tv2,t+θ2v2,tv3,t+θ3v3,tv1,t
+
+where, vi,t=(yt,i−μi)(σi)2(i=1,2,3)(t=1,2,…,T), μi and σi are the mean and standard deviation of the fˆi, respectively.
+
+In this scheme, the weights are calculated by solving the optimization problem regarding to minimizing corresponding forecasting errors such as SSE.
+
+The presented mathematical procedure of this matter can be followed in Adhikari and Agrawal (2012b, a), Xie et al. (2015b).
+
+PARAGRAPH
+
+Second option consists of applying intelligent models to obtain corresponding weights and nonlinear combination function, concurrently.
+
+In contrast to linear combination framework, in this framework, the weight of each model is calculated during the processing procedure of intelligent model and is not predetermined.
+
+Therefore, the output of intelligent model is considered as final hybrid result.
+
+The advantage of this method is that the historical data is used in order to determine component weights.
+
+In research works done in combining multiple models with parallel hybrid concept, different kinds of intelligent models are employed to combine individual models, component weights, and hybrid outputs.
+
+The information of related articles in which intelligent models are used as parallel nonlinear combination is given in Table 9.
+
+SECTION
+
+PARAGRAPH
+
+Summary of parallel reviewed models
+
+PARAGRAPH
+
+The distribution of analyzed parallel models regarding to combination function and weighting methods is shown in Fig. 6.
+
+From the reviewing 84 papers, the following points can be concluded:
+
+SECTION
+
+Reviewing series hybrid structure in time series forecasting
+
+PARAGRAPH
+
+Research and development on hybrid models has grown dramatically since 2003, which series structure and method is proposed by Zhang (2003).
+
+Since then, most of the articles have been focused on the series models for extracting unique merits of different individual models in sequential modeling in order to get superior performance compared with individual base models, in wide variety of real world modeling and forecasting problems.
+
+In this section, the series models are reviewed based on the sequence of modeling, i.e. the most specific characteristic of this structure.
+
+PARAGRAPH
+
+Hybrid series models that decompose time series in to linear and nonlinear components have shown suitable performance because of those mixture patterns existed in most of the real world data.
+
+Therefore, based on two sequence modeling procedure, i.e. linear–nonlinear or nonlinear–linear, two types of series models are developed in the literature.
+
+In the literature, numerous statistical and intelligent models have been used for constructing series models due to their specific features in linear and nonlinear patterns recognition.
+
+This section covers the articles employed series models from 2003 to 2018 in time series modeling and forecasting domains.
+
+The description of these two series hybrid models is also given in the following subsections.
+
+SECTION
+
+Linear–nonlinear sequential modeling
+
+PARAGRAPH
+
+Various hybrid models addressed in the literature follows the linear–nonlinear modeling procedure when linearity and nonlinearity of patterns in unknown.
+
+Therefore, by selecting the statistical models as first permutation and intelligent model as second one, various series models can be evolved.
+
+The linear–nonlinear series models based on the use of different statistical models such as different kinds of ARIMA models (e.g. ARIMAX, SARIMA, etc.) models and intelligent models such as ANN, SVM can be generally divided in to five main groups: (1) ARIMA-ANN (2) ARIMA-SVM (3) ARIMA based model (4) ANN based model (5) SVM based model.
+
+PARAGRAPH
+
+✔ ARIMA-ANN series hybrid models
+
+PARAGRAPH
+
+Focusing on the constructing hybrid models with employing ARIMA and ANN models have experienced enormous attention in published papers in hybrid time series forecasting, specifying in series hybrid models.
+
+This popularity comes from specific features of these models in linear and nonlinear modeling.
+
+ARIMA is a statistical methodology that predicts future value of data by extracting linear relationship and processing historical data.
+
+Neural networks are the most effective group of intelligent models for nonlinear pattern recognition, which are the data driven and universal approximators.
+
+Various series models have been developed in the literature by using different kinds of ARIMA and ANN models as components of series hybrid model, which are reported in Table 10.
+
+Brief description of some recent studies is given here.
+
+PARAGRAPH
+
+Banihabib and Ahmadian (2018) have proposed a series model by integrating MARIMA model with NARX neural network to enhance forecasting accuracy of monthly inflow forecasting.
+
+Authors conclude that in comparison with the ARIMA model, a significant improvement is obtained by combining MARIMA and NARX for flow forecasting due to existing both linear and nonlinear patterns in data.
+
+Mo et al. (2018) have presented a four-step series model for container throughput forecasting.
+
+This series hybrid model decomposes a time series in two linear and nonlinear parts.
+
+Then, in a first step, linear patterns are modeled by SARIMA model.
+
+In second stage, three intelligent models including: SVR, MLP and GP are employed in order to forecast the nonlinear remained relationships in SARIMA’s residuals.
+
+In this paper, the GMDH neural network is suggested for selecting the appropriate nonlinear forecasting.
+
+In the last step, by integrating linear and nonlinear forecasting results, final combined forecasts are calculated.
+
+Empirical results of this paper show that the proposed series model based on SARIMA and GMDH neural network produced better performance that SARIMA and other series models such as SARIMA-SVR, SARIMA-GP, and SARIMA-BP for container throughput forecasting.
+
+PARAGRAPH
+
+Sun et al. (2017a) have investigated a series model by combining RARIMA and MLP models for short term forecasting of strip thickness.
+
+Obtained results indicate that considerable improvement in terms of accuracy and stability can be yielded by applying hybrid model.
+
+Barrow (2016) has proposed a SMA-ANN hybrid model for call arrival forecasting.
+
+In this study, two linear AR and nonlinear MLP models are adjusted for modeling remained residuals of the SMA model.
+
+This is the first study through SMA evaluation across averages of different lengths for forecasting call arrival data.
+
+Results indicate that the SMA-MLP hybrid model found to be more robust than other alternatives, which fits a linear AR model for modeling nonlinear patterns in residuals.
+
+PARAGRAPH
+
+✔ ARIMA-SVM series hybrid models
+
+PARAGRAPH
+
+In some papers, the SVM is chosen as intelligent model in second permutation of the series model due to the merit of this kind of models in solving nonlinear regression estimation.
+
+The information of papers employed series ARIMA-SVM models for time series modeling and forecasting is given in Table 11.
+
+Another discussed issue in some of these papers is concerned to comparing the ARIMA-ANN models with the ARIMA-SVM series hybrid models.
+
+It is clarified in these studies that the ARIMA-SVM models can generally achieve more accurate results (Shi et al., 2012a; Yuan et al., 2017; Zhang et al., 2012b; Rathod et al., 2017).
+
+PARAGRAPH
+
+✔ ARIMA based models
+
+PARAGRAPH
+
+Various ARIMA-based series models proposed in the literature for time series prediction.
+
+In these hybrid models, the ARIMA model is selected as first permutation of hybrid model for linear modeling and second model is chosen among other intelligent models, except ANN and SVM models.
+
+A brief description of these hybrid series models are given as follows:
+
+PARAGRAPH
+
+Lee and Tong (2011) have proposed a hybrid series model by combining ARIMA and GP models to improve both ARIMA and GP models.
+
+They state that the GP model is used rather than MLPs due to their limitations in explanation of the hidden layer.
+
+Besides, they claim that by employing the GP model for nonlinear modeling in second step of the proposed model, a mathematical equation can be also obtained.
+
+They evaluate the effectiveness of their proposed model in forecasting real data sets in comparison with the ARIMA-ANN, the ARIMA-SVM, and also its constitutes.
+
+Kane and Yusof (2013) have presented a hybrid ARFIMA-GARCH model for rainfall forecasting.
+
+In this study, the ARFIMA model is employed in order to model the linear relationships.
+
+Therefore, residuals obtained by the ARFIMA model consist of heteroskedasticity as a nonlinear relationship, which are processed by the GARCH model in second step.
+
+They conclude that the proposed model can be a viable alternative for analyzing both linear and nonlinear behaviors in rainfall time series.
+
+The reviewed papers in the ARIMA-based hybrid fields are summarized in Table 12.
+
+PARAGRAPH
+
+✔ ANN based models
+
+PARAGRAPH
+
+ANN based models are basically proposed in the literature in order to address the problem of mixed patterns in data, by using the nonlinear ANN models in second modeling procedure.
+
+In Table 13, ANN based series hybrid models, in which the ARIMA model is not used for linear modeling in a first step is presented.
+
+Some of these studied are also briefly described here.
+
+PARAGRAPH
+
+Bo et al. (2007) have proposed a hybrid model, incorporating ARCH family models and ANN model.
+
+Authors state that according to ARCH theory, the LM test is done and the ARCH effect is detected in data.
+
+Thus, at the first state for implementing linear modeling procedure, ARCH family is used and then using the ANN model, residuals of ARCH model are forecasted.
+
+Empirical outcomes of this paper indicate that the hybrid ARCH (1)-M-ANN outperforms the ARIMA, ARCH (1), GARCH (1,1), EGARCH (1,1), and ARIMA-ANN Series hybrid model.
+
+PARAGRAPH
+
+Pwasong and Sathasivam (2016) have combined the QRM and CFBN models together in series structure in order to construct the QRM-CFBN hybrid model.
+
+Obtained results from comparison of this model with other single and hybrid models, such as CFBN, LRNN, and ARIMA-ANN in forecasting daily time series datasets, obtained from the UCI repository data link and the cycle power plant; indicate that the proposed model can averagely produce better performance than others.
+
+PARAGRAPH
+
+✔ SVM based model
+
+PARAGRAPH
+
+Integration of SVM family models with other linear models, except ARIMA model has highlighted in few studies.
+
+Chen (2011) has combined linear models, such as ESM and ARIMA models with two MLP and SVR nonlinear models and proposes four ES-MLP, ES-SVR, ARIMA-SVR, and ARIMA-MLP models.
+
+They show that the SVR based hybrid models can achieve good forecasting accuracy and excellent directional change detection in real time series forecasting.
+
+The brief information about the SVM based papers are summarized in Table 14.
+
+SECTION
+
+Nonlinear–linear sequential modeling
+
+PARAGRAPH
+
+Despite the importance of sequence of components in series hybrid models on the forecast accuracy, only a few studies have addressed the nonlinear–linear series hybrid models.
+
+The information related to these papers is summarized in Table 15.
+
+PARAGRAPH
+
+Alwee et al. (2013) have created a series PSOSVR-PSOARIMA hybrid model that are combined the nonlinear SVR model with linear ARIMA model in nonlinear–linear modeling order in series hybrid structure.
+
+Empirical results indicate that the proposed model produces smaller forecasting errors in comparison with individual models and PSOSVR-ARIMA series hybrid model.
+
+Wang et al. (2015) have proposed a series nonlinear–linear series model, combined ELM and SARIMA models.
+
+In this study, the ELM is chosen for extracting nonlinear behaviors of time series in a first stage, due to its merits over ANN models e.g. time-saving and turning — tree features and then SARIMA model is employed for further processing of ELM’s residuals.
+
+Obtained result of using the proposed hybrid model for wind speed forecasting verify that the proposed hybrid model can yield superior performance in comparison with its based components and also other popular models, such as ARIMA and ANN models.
+
+PARAGRAPH
+
+Another issue in series hybrid models is related to comparing these two types of series models and analyzing the forecasting accuracy in these models.
+
+There are limited studies that pay attention both sequence modeling procedures, simultaneously and make a comparison between these two types of series models.
+
+Khashei and Hajirahimi (2018) have tried to make complete assessment of two possible types of series models, constructed with ARIMA and ANN models for stock price forecasting.
+
+Their empirical results of forecasting three benchmark data sets indicate that despite more popularity of the conventional ARIMA-ANN model, the ANN-ARIMA series hybrid model can overall achieve more accurate results.
+
+Purwanto et al. (2010) have proposed two linear–nonlinear and nonlinear–linear series models by combining ARIMA and ANN models.
+
+Empirical results of this study indicate that the series hybrid ARIMA-ANN model gives the best performance compared with linear models, ANN and ANN-ARIMA.
+
+PARAGRAPH
+
+Sallehuddin et al. (2008) have presented a study in order to develop a nonlinear–linear series model entitled GRANN-ARIMA.
+
+For assessing the performance of proposed GRANN-ARIMA model, the extensive comparison is done with individual ANN, LR, and ARIMA models and also ARIMA-ANN hybrid model.
+
+Their experiments indicate that the proposed hybrid model outperforms other models with 99.5% forecasting accuracy for small-scale data and 99.84% for large-scale data.
+
+Che and Wang (2010) have represented a combined model using SVR and ARIMA in order to exploit their unique advantages of these models in nonlinear and linear modeling, respectively.
+
+Their proposed series model is constructed based on the nonlinear–linear modeling procedure.
+
+Obtained results indicate that the proposed SVR-ARIMA model outperforms its based components, ANN, ANN-ARIMA, and ARIMA-SVR hybrid models.
+
+SECTION
+
+Summary of series reviewed models
+
+PARAGRAPH
+
+Development in series hybrid models since the first work proposed by Zhang (2003) leads to propose so many series models for time series forecasting in wide variety of areas.
+
+Distribution of these papers regarding to different types of series models and the modeling sequence is illustrated in Fig. 7.
+
+The most highlighted points of series hybrid models are given below:
+
+SECTION
+
+Parallel–series hybrid structure
+
+PARAGRAPH
+
+Another argument developed in the literature is related to propose a superior structure by combining parallel and series structures, which can improve the performance of both series and parallel hybrid models.
+
+Although, it can be inferred from parallel and series hybrid models, discussed in previous sections that these hybrid methodologies can improve the performance of individual models, there is no universal agreement on which hybrid structure should be used for achieving the most desirable performance.
+
+As mentioned, limited discussions and conclusions are only raised about this matter in few studies (Khairalla et al., 2017; McDonald et al., 2014; Khashei and Hajirahimi, 2017; Safari and Davallou, 2018; Yu et al., 2005; Xie et al., 2015b).
+
+This third hybrid structure is developed for the first time by Khashei and Bijari (2010).
+
+In this section, related articles are briefly reviewed based on three architectures presented for this structure.
+
+PARAGRAPH
+
+Ruiz-Aguilar et al. (2014) have proposed three architectures of parallel–series hybrid models, employing SARIMA and ANN models.
+
+In this study, three different kinds of parallel–series hybrid models as well as SARIMA-ANN series hybrid model, and also traditional models are used.
+
+Experimental results show that the architecture-3 is a superior model in term of forecasting accuracy.
+
+Zhu and Wei (2013) have presented the first and second architectures of parallel–series models to exploit specific advantages of ARIMA and LSSVM models.
+
+Empirical results indicate that the architecture-1 can obtain better performance than architecture-2, series ARIMA-LSSVM hybrid model, and also single models such as ARIMA, ANN and LSSVM.
+
+PARAGRAPH
+
+Wongsathan and Seedadan (2016) have implemented thearchitecture-3 of parallel–series hybrid models to improve the performance of both ARIMA and ANN models.
+
+Experimental results demonstrate that the hybrid model outperforms both components.
+
+Jeong et al. (2014) have proposed the parallel–series model, employingarchitecture-3 and using SARIMA and ANN models.
+
+Obtained results of this study confirmed that the parallel–series model can achieve superior forecasting performance than traditional SARIMA model.
+
+PARAGRAPH
+
+Summary of parallel–series reviewed models
+
+SECTION
+
+Some potential directions and trends for future researches
+
+PARAGRAPH
+
+According to the literature of the component combination based hybrid models, i.e. series, parallel, and parallel–series, some potential directions and trends for future researches can be summarized as following points:
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Time series forecasting plays a substantial role in numerous fields of economic, engineering, medicine, management, finance, etc. it is the main reason of considerable developments, which are appeared in the literature of time series forecasting in order to provide accurate and reliable results.
+
+Although, there are a wide range of single models proposed for time series forecasting, they are not promising approaches can be applied on all situations with desired performance.
+
+In most papers, it is demonstrated that hybrid methods are appropriate alternative that can yield superior performance compared to individual options.
+
+Several hybrid models have been proposed in the literature of time series forecasting which can be generally categorized in three main categories based on the used structure.
+
+Hence, one of the most critical issues in hybridization is to choose the suitable structure in order to achieve the most accurate results.
+
+Several review papers have been written in the literature in order to classify of forecasting models based on the various criteria; however, in none of them has properly considered the structure of hybridization.
+
+PARAGRAPH
+
+Following by this gap, in this study in the first step, three hybrid structures proposed in the literature of time series forecasting including: parallel, series and parallel–series structures are briefly described.
+
+Then, a comprehensive review is studied on developed papers in each category, totally more than 150 papers in time series forecasting.
+
+At last, detailed findings, remarks, and conclusions are presented regarding to specific characteristics of each hybrid structure.
+
+Maybe the most important and the most crucial points that can be extracted from reviewing the provided information in these papers can be summarized as follows:
+
+PARAGRAPH
+
+The comparative analyzing in this paper could help the researchers in time series forecasting fields in order to select the proper hybrid structure and yield desired forecasting accuracy.
+
+Besides, some research gaps as well as theoretical and practical guideline provided for each hybrid structure suggested in this paper can help forecasting professionals for their future works.

@@ -1,0 +1,483 @@
+10.1016/j.jhep.2018.02.004
+
+FULLTEXT
+
+TITLE
+
+Recipient characteristics and morbidity and mortality after liver transplantation
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Liver transplant (LT) recipients in the United States are globally sicker in the current era.1,2
+
+The number of candidates delisted for being too sick has nearly tripled over the last few years.3
+
+Indications for LT have also evolved with a noticeable increase in transplantation of candidates with non-alcoholic fatty liver disease (NAFLD) and cryptogenic cirrhosis, as well as patients with significant co-morbidities.2,4,5
+
+In the current organ allocation policy based on urgency, people at the highest risk of death are offered liver transplantation (LT) first.
+
+However, several recipient characteristics may diminish the guiding principle of an MELD-based system.6–8
+
+PARAGRAPH
+
+First, cirrhotics with equivalent MELD scores may have divergent post-transplant outcomes based on presence of relevant co-morbidities.6–9
+
+For example, a cirrhotic with diabetes, advanced age, intubated in the intensive care unit (ICU), with a high MELD score (>25) may do worse than a cirrhotic with an equivalent MELD score but without these co-morbidities.
+
+Further, with the changing transplant population, subsets of patients may achieve acceptable survival after LT, but at the expense of significant morbidity, manifested as frequent hospitalizations, worsening of chronic conditions and significant resource utilization.6,10
+
+PARAGRAPH
+
+Prior studies have examined predictors of mortality after LT, however studies are limited by utilization of extensive lists of variables8,11 and lack of granular data linking morbidity and mortality.
+
+Further, previous analyses of national data have included patients transplanted with hepatitis C. However, analysis of historical outcomes after LT for HCV recipients may not accurately reflect future trends in survival, given the impact of current antiviral therapy both before and after LT.12 Further, patients transplanted with lower MELD scores may be systematically different than those transplanted with high MELD scores.13
+
+PARAGRAPH
+
+We sought to devise and validate an easily applicable set of recipient factors to identify HCV negative recipients with significant morbidity and mortality within five years after LT using national and center-specific data.
+
+National data was used to develop and validate the predictive factors and center data was utilized to provide external generalizability and relevant data on morbidity.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Data source
+
+PARAGRAPH
+
+1.
+
+National data: We utilized data submitted to the Scientific Registry of Transplant Recipients (SRTR) between 2002 and 2015 on all recipients that underwent LT. The SRTR data system includes data on all donors, waitlisted candidates, and transplant recipients in the US, submitted by the members of the Organ Procurement and Transplantation Network (OPTN), and has been described elsewhere.1
+
+The Health Resources and Services Administration, US Department of Health and Human Services, provides oversight of the activities of the OPTN and SRTR contractors.
+
+PARAGRAPH
+
+2.
+
+Center data: We examined center-specific data at Baylor University Medical Center (2002–2012) using a prospectively maintained database capturing inpatient, outpatient, and non-transplant related encounters in all listed patients before and after transplant, with seamless linkage to clinical data and long-term outcomes.
+
+Data elements include resource utilization (readmissions, costs, length of stay, ICU utilization), development of relevant chronic conditions (chronic kidney disease [CKD], significant cardiac events) and death.
+
+In addition, patients are classified as mild moderate or severely malnourished using standardized criteria and assessment by center transplant nutritionists.
+
+Diagnoses were extracted using administrative data, death data adjudicated by a single physician (GK) and manual chart review performed for data on relevant outcomes (e.g. chronic diseases, cardiac disease and rehabilitation) and discrepant or missing data.
+
+SECTION
+
+Case ascertainment
+
+PARAGRAPH
+
+We examined all adult recipients (age ≥18) of single organ deceased donor LT. Recipients undergoing re-transplantation, status 1 patients, living donors and other multi visceral organ transplantation were excluded.
+
+We also excluded candidates receiving MELD exception points for pre-specified indications including hepatocellular carcinoma.
+
+We further excluded subjects with HCV, given that survival data in retrospective databases (national or center data) may not be generalizable given the ability to more effectively cure HCV in the current era (Fig. S1).
+
+SECTION
+
+Sensitivity analysis
+
+PARAGRAPH
+
+We limited the analysis to subjects with a calculated MELD score >25 given that patients with low MELD on the waiting list may have a different natural history and to further accurately mirror the current state of disease severity at transplantation.1,14,15,13
+
+SECTION
+
+Statistical methods
+
+PARAGRAPH
+
+The primary outcome of interest was patient and graft survival for up to five years after LT. The primary variables of interest were objective recipient-related factors identified a priori based on clinical association and previously published data.1,6
+
+This included age, diabetes, serum creatinine >1.5 mg/dl, weight, body mass index, albumin, hemodialysis, mechanical ventilation, portal vein thrombosis, gender, indication for transplantation, and hypertension.
+
+Firstly, we identified recipient-related factors associated with poor graft survival on univariate and subsequent multivariable analysis (Cox proportional hazard analysis).
+
+The total number of factors to consider during model building was determined by examination of the lowest Akaike information criterion as a function of the number of predictors in the model.
+
+The final five pre-transplant factors (need for mechanical ventilation, recipient age, hemodialysis at the time of LT, diabetes, and serum creatinine >1.5 mg/dl and not on hemodialysis) were chosen based on clinical and statistical relevance.
+
+Next, the coefficients from the multivariate analysis for the five factors were converted to weighted points and scaled from 0–5 based on transformation of the regression coefficients.
+
+The points system was developed using the same approach as utilized for derivation of the Framingham study risk score functions, using the estimates of the Cox regression coefficients.16
+
+Further details are provided in the supplementary information.
+
+Survival tree analysis was used to determine optimal cut-offs for the respective variables.
+
+PARAGRAPH
+
+We compared individual factors with the composite model using the likelihood ratio test to assess whether the composite model was a significantly better fit than the individual components.
+
+In addition, we modeled serum creatinine as a restricted cubic spline to assess whether higher points should be assigned for higher measurements of serum creatinine (e.g. serum creatinine 3.5 mg/dl vs. 1.6 mg/dl) for patients not on hemodialysis.
+
+Next, we examined whether addition of other recipient, donor and transplant related factors significantly altered the predictive capability of the model.
+
+Specifically, we examined the impact of gender as well as the interaction between gender and serum creatinine.
+
+PARAGRAPH
+
+The proportional hazard assumption was checked graphically by looking at the plot of Schoenfeld’s residuals against time to identify patterns.
+
+Validation of the Cox proportional model was undertaken using resampling techniques, such as bootstrapping and cross-validation with comparable results as measured by Harrel’s statistics.
+
+We subsequently proceeded with bootstrapping.
+
+PARAGRAPH
+
+With the bootstrapping approach, the model is fitted using the full sample and subsequently bootstrapping resampling is used to adjust the naive estimate of model accuracy (optimism corrected).
+
+With bootstrapping one is able to obtain nearly unbiased estimates of model performance without reducing the sample size for model development.
+
+PARAGRAPH
+
+Bootstrapping involves creating resamples of similar size with replacement from the original data.
+
+Multiple bootstrap samples with replacement are created to validate the original model.
+
+A model is derived in each bootstrap sample and is applied to the original sample.
+
+The accuracy index from the bootstrap sample minus the index computed in the original sample is an estimate of the optimism.
+
+The process is repeated for at least 300 bootstrap replications to obtain an average optimism, which is subtracted from the original model apparent accuracy to obtain a biased-corrected (or overfitting-corrected) estimate of model performance.
+
+PARAGRAPH
+
+Calibration was obtained in the form of shrinkage coefficient to quantify lack of fit of the model and a calibration curve was drawn to see extent of bias in the model.
+
+The discrimination aspect of the model was measured by Somer’s Dxy rank correlation between the log hazard and the observed survival time through bootstrapping.
+
+PARAGRAPH
+
+Kaplan-Meier survival curves were created to examine patient and graft survival at five years for recipients assigned 0–4, 5–8, and >8 points based on any combination of the final variables (cut-offs were 0–4 and ≥5 for center-specific data given smaller numbers of recipients).
+
+Finally, we examined whether receipt of a “suboptimal” donor (defined as donor risk index >1.7 or donor age >40 years, cold ischemia time [CIT] >10 h, and donation after cardiac death [DCD organ] based upon statistical relevance) attenuated graft survival rates within the stratified point categories.
+
+We also analyzed data by separately examining recipients with an MELD score <25 and >25 given that the natural history of these subsets may be different.
+
+SECTION
+
+Morbidity
+
+PARAGRAPH
+
+Sicker patients are expected to have higher resource utilization.10,17,18
+
+Using center data, we further examined whether patients assigned to categories by point system, as described above, not only showed a difference in mortality rates but also in morbidity.
+
+Using the separate categories, we examined differences in distribution of resource utilization (readmissions, duration of initial stay, ICU utilization, rehabilitation, charges), and prevalence of future chronic diseases (CKD, cardiovascular disease) after LT. CKD was defined as the prevalence of stage 3 or 4 CKD (measured or estimated glomerular filtration rate (GFR) <60 and <30 ml/min, respectively) using either protocol measurement of GFR using urinary clearance of iothalamate if available, or estimated with modification of diet in renal disease (MDRD-4) equation.19,20
+
+Cardiac disease was defined as incidence of new post-transplant incident myocardial infarction, a clinical diagnosis of heart failure, ventricular arrhythmia, or coronary artery disease which was corroborated by chart review.
+
+All statistical analyses utilized the SAS Enterprise Guide statistical package (version 9.4; SAS Institute Inc., Cary, NC, USA) and R 3.3.2 Statistical Software (Foundation for Statistical Computing, Vienna, Austria).
+
+Statistical significance was set at p <0.05.
+
+The study was approved by the institutional IRB.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+National data
+
+PARAGRAPH
+
+Between 2002 and 2015, there were 51,209 (19,380 HCV) transplanted individuals: 31,829 non-HCV patients met study criteria.
+
+The characteristics of the overall patients and the center cohort (n = 869) are listed (Table 1).
+
+In the study cohort (n = 31,829), median age was 55 years (interquartile range [IQR] 46–62), 41% were women, 10.9% were African American and 11.4% were of Hispanic ethnicity.
+
+Patients were transplanted for cirrhosis with NAFLD/cryptogenic (24.5%) and alcohol (26.8%) etiology.
+
+The median MELD score at transplant was 23 (IQR 16–31).
+
+The patient and graft survival was 90.0% and 86.6% (one year), 84.0% and 79.8% (three years) and 79.1% and 74.8% (five years) respectively.
+
+PARAGRAPH
+
+The univariate recipient variables associated with graft survival at five years are described (Table 2).
+
+Mechanical ventilation (hazard ratio [HR] 1.68; 95% CI 1.57–1.79), portal vein thrombosis (HR 1.26; 95% CI 1.12–1.42), ICU status (HR 1.48; 95% CI 1.40–1.57), age >60 years (HR 1.30; 95% CI 1.23–1.36), diabetes (HR 1.24; 95% CI 1.17–1.31), and elevated serum creatinine ≥1.5 mg/dl (HR 1.27; 95% CI 1.21–1.34), were associated with poor graft survival.
+
+PARAGRAPH
+
+In multivariable analysis, recipient factors associated with graft failure and assigned points included: ventilator support (five patients; HR 1.59; 95% CI 1.478–1.72); recipient age >60 (three patients; HR 1.29 95% CI1.23–1.36); hemodialysis (three patients; HR 1.26, 95% CI 1.16–1.37); diabetes (two patients; HR 1.20, 95% CI 1.14–1.27); or serum creatinine ≥1.5 mg/dl without hemodialysis (two patients; HR 1.15, 95% CI 1.09–1.22) (Table 2).
+
+Discrimination showed moderate correlation (optimism corrected concordance c-statistic 0.62) and measure of relative calibration, or slope shrinkage, was 0.97 suggesting very little overfitting.
+
+An MELD score >25 was significant in univariate analysis and coefficients were refit for the subgroup with an MELD score >25 (Table S1).
+
+Addition of portal vein thrombosis did not affect the coefficients of the model and was no longer considered.
+
+Addition of other recipient, donor and transplant related factors did not improve the predictive capability of the model.
+
+(Data not shown) The composite model was statistically better than each of the individual components (p <0.001).
+
+Assignment of different points for higher measurements of serum creatinine did not change the results (Fig. S2).
+
+Further, there was no relevant interaction between gender and serum creatinine in the model (Fig. S3).
+
+PARAGRAPH
+
+The five-year patient survival based on cumulative points (any combination) was 79.1 (95% CI 78.6–79.6).
+
+The five-year patient survival by points: 81.9%.
+
+(95% CI 81.4–82.5) (0–4), 72.1% (95% CI 71.0–73.2) (5–8) and 61.3% (95% CI 57.5–65.4) (>8) (p <0.001) (Fig. 1).
+
+Similarly, graft survival based on cumulative points, (all points) was 74.8% (95% CI 74.3–75.3); by points it was 77.2% (95% CI 76.6–77.8) (0–4), 69.1% (95% CI 68.4–70.9) (5–8) and 57.9% (95% CI 54.1–61.9) (>8).
+
+As expected, a majority of the difference in mortality was driven by outcomes within the first year.
+
+As an example in national data, graft survival within one year was 92% (0–4) vs. 75% (>8) (p <0.001).
+
+PARAGRAPH
+
+Similar patterns were seen in center data (Fig. 2).
+
+Addition of nutrition status or Karnofsky score (available only for center data) did not alter the results (Fig. S4).
+
+SECTION
+
+MELD >25
+
+PARAGRAPH
+
+When limited to sicker patients, the same factors were significant and survival curves were similar, though the weight of coefficients marginally changed (Table S2 and Fig. S5).
+
+Addition of MELD scores (HR 1.00, 95% CI 0.98–1.05) to the model did not substantially affect the magnitude of the coefficients.
+
+PARAGRAPH
+
+We examined patients that had a survival ≤50% at five years solely based on recipient factors.
+
+These patients had greater than 12 cumulative points.
+
+A total of 100% of these patients were on life support and were above age 60 years.
+
+The median MELD was 40.00 (36.00–40.00).
+
+SECTION
+
+Donor
+
+PARAGRAPH
+
+On univariate analysis, receipt of a donor risk index (DRI) >1.7 (HR 1.32, 1.26–1.38), DCD donor (HR 1.27, 95% CI 1.11–1.45), donor age >50 years (HR 1.27, 95% CI 1.23–1.35), or CIT >10 h (HR 1.34, 95% CI 11.26–1.42), were associated with worse graft survival.
+
+Receipt of an organ with a DRI >1.7 affected survival among the separate groups.
+
+For recipients with >8 points, overall graft survival (optimal donor vs. suboptimal) was 59% vs. 55% at five years (overall) but 55% vs. 42% for an MELD score <25 and 61% vs. 50% for an MELD score 25–35 (Fig. 3 and Table 3).
+
+As an example, at five years after LT, transplanting a 61-year diabetic recipient on the ventilator (8 points) with an MELD score of 28 led to a survival of 50% or less with a suboptimal donor and 64% with an optimal donor, compared to 80% survival for a 61 year old with an MELD score of 28 that was not diabetic and not on the ventilator (4 points).
+
+Utilization of alternate definitions of a suboptimal donor (donor age >40, DCD, CIT >10 h) yielded similar results.
+
+SECTION
+
+Impact of era
+
+PARAGRAPH
+
+We examined the impact of era on the findings by points (0–4, 5–8, >8).
+
+Over time, graft survival improved, keeping with national trends.
+
+However, there continued to be an approximate 8–10% difference in survival between the three point categories.
+
+Further, survival for the sickest recipients (>8 points) receiving sicker organs remained poor over the three eras (Table S3).
+
+SECTION
+
+Morbidity
+
+PARAGRAPH
+
+In center-specific data within the first year, subjects with ≥5 points (vs. 0–4) had longer median initial hospitalization (11.0 vs. 8.0 days; p <0.001), and greater need for admissions to a rehabilitation facility post-transplant (12.3% vs. 12.7%; p <0.01).
+
+Overall transplant related charges (from time of listing to within one year) were higher ($370,400 vs. $280,700; p <0.01).
+
+At five years, survivors in the similar point categories with ≥5 points (vs. 0–4) had higher incidence of cardiac events (14.2%, vs. 5.3%, p <0.01) and higher incidence of stage 3 CKD (measured GFR <60 ml/min 66.7% vs. 45.2%, p = 0.03) or stage 4 CKD (measured GFR <30 ml/min, 20.0% vs. 5.4%, p = 0.01).
+
+Difference in morbidity was more pronounced for MELD scores >25 (Table 4).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Though principles of MELD-based organ allocation to the sickest first still apply, there may be a subset of subjects that do poorly after transplant regardless of degree and magnitude of liver preserving interventions.
+
+In the dynamic milieu of a changing waitlisted population skewed towards sicker patients with significant co-morbidities, a recalibration of an MELD-based organ allocation system is needed.
+
+In this study examining national and center-specific data, we show that risk stratification based on a succinct set of recipient-related factors may help identify patients with less than optimal outcomes after transplant both in regard to morbidity and mortality; in a subset of recipients, five-year graft survival was less than 50% especially among low MELD patients receiving high DRI organs.
+
+Poor survival may be mitigated to an extent by receipt of an “optimal” donor to improve short term outcomes.
+
+Though urgency of transplant and reduction of geographic disparity are the cornerstones of the final rule, relevant morbidity and mortality with transplant needs to be equally reconsidered.21
+
+PARAGRAPH
+
+Our study has several implications.
+
+One tenet of our findings may be identification of patients that do not have the aforementioned recipient factors, helping clinicians to identify them as being at a low risk of untoward outcomes after LT. One extreme position may be to not transplant patients that exceed a center’s tolerance for high-risk patients.
+
+As patients get older and sicker, a larger proportion of patients are expected to fall into this category and hence such a programmatic position may be untenable.
+
+A more practical implication is use of this simple tool when selecting patients for listing and collectively deciding whether the benefit of transplant would be seen in a patient under consideration relative to other potential recipients.
+
+Identification of a set of objective factors may formalize the essence of the “eye ball” test and possibly play a role in discussions regarding the listing of competing patients with equivalent MELD scores.
+
+Further, even among patients with MELD scores less than 25, transplantation of high-risk donors may lead to untoward outcomes (Table 3) and may highlight discussions to consider living donation.
+
+Indeed, in the study, equivalent patients with high MELD scores (>25) had different trajectories based on the presence of the relevant risk factors.
+
+As an example, graft survival is approximately 80%, 70% and 60% at five years for recipients with 0–4, 5–8 and >8 points.
+
+If a “suboptimal” donor is used, survival is approximately, 50% for recipients with >8 points.
+
+Analogous decisions are often already taken when an organ is offered to centers for potential transplant, whereby the patient on the top of the list may not receive an organ under consideration because of a myriad of factors.22
+
+Moving such a decision at the time of listing rather than at the time of transplant may defuse some of the last minute decisions.
+
+Alternatively, if centers are expected to transplant patients with extremely high MELD scores, driven either by programmatic needs, local competition or best interest of the patient, the national bar may need to be reset to accurately reflect what survival is realistically achievable long-term.23
+
+Further, if a cohort of patients is identified with poor survival, realistic expectations of outcomes may need to be incorporated for derivation of program specific reports, as a more accurate gauge of center performance.
+
+In addition, national attention needs to be directed toward the programmatic burden in transplanting high-risk patients first to the patient (morbidity, chronic diseases), the program (costs and performance) and health care system (length of stay, readmissions, rehabilitation).
+
+Resource utilization needs to be anticipated for multidisciplinary efforts to temper early mortality, rehabilitation facilities and the need for longitudinal follow-up to mitigate the long-term impact of chronic diseases (e.g. CKD).
+
+PARAGRAPH
+
+Our study has several strengths.
+
+This paper provides relevant data and is reflective of current landscape of transplant recipients.
+
+We used national data for a contemporary cohort in the post-MELD era to develop a simple model and examined our center data to increase generalizability.
+
+We were able to devise a score that is easy to use at bedside or during decisions for listing for transplantation.
+
+We were able to devise a point system based on analogous scores (Framingham risk score function).
+
+We limited our variables to recipient-related variables that are succinct and easily available.
+
+These variables were not chosen for novelty, but rather as well-established factors associated with graft survival and pragmatic translations of clinical experience.
+
+Though donor factors impacted survival, the goal was to describe an easily applicable set of factors that could be used in the pre-transplant setting (e.g. at time of candidate selection for listing).
+
+The center can then decide what outcomes may realistically be achieved by implantation of an optimal or suboptimal donor.
+
+Further, absence of the reported recipient characteristics may help identify patients as being low risk for significant morbidity and mortality after LT. In addition to mortality data, we have shown several facets of morbidity and resource utilization in transplanting some of our sickest patients to put forth the argument that newer thresholds of acceptable outcomes after LT need to be addressed (or readdressed).
+
+We limited the primary analysis to non-HCV subjects.
+
+There have been palpable changes in the care of subjects with hepatitis C (antiviral therapy and donor selection), whereby retrospective analysis of outcomes in HCV recipients prior to the last couple of years may not accurately reflect anticipated future outcomes.
+
+Hence, findings incorporating HCV data may not be generalizable for future decisions.
+
+Further, clinical relevance of the findings is more aptly applicable to the anticipated increased transplantation of recipients with NAFLD and cryptogenic cirrhosis with increasing underlying co-morbidities.4,5
+
+PARAGRAPH
+
+Our study may have limitations.
+
+Factors used in this analysis are restricted to those reported to SRTR.
+
+In addition, our findings reflect selected matchings and extrapolation to unmatched combinations must be done with caution.
+
+Other factors such as severe malnutrition which is an extreme pre-operative risk factor was not reported to SRTR and have not been included.
+
+In our study, nutritional status assessment or assessment of functional impairment by the Karnofsky Performance Scale Index did not provide further risk stratification.
+
+Center-specific data was limited by number of patients that had >5 points which may reflect a programmatic decision to select out patients with significant co-morbidities.
+
+The benefits of center-specific analysis are that it affords the chance to examine morbidity in detail which is not gleaned from national data.
+
+Future studies should further refine these risk scores and further validation at other transplant centers is warranted.
+
+PARAGRAPH
+
+We did not examine patients that received exception points, a group that primarily included patient transplanted for HCC.
+
+Survival in this subset may be driven by disease specific factors such as recurrence of disease.
+
+Disease recurrence may lead to graft failure or patient death among patients with HCC and this was not included in the model.
+
+When patients with HCC are separately examined using the same factors described in the study, the risk stratification offered by the model is the same (Fig. S6).
+
+PARAGRAPH
+
+Our study did not look at decisions between dual organ transplantation as several of the variables (presence of dialysis, diabetes, advanced age) may be used by programs for decisions between simultaneous liver kidney transplantation and LT alone.
+
+However, we did not feel that the analysis could explain center-specific reasons that may drive such a decision.24
+
+The effects of geography and the specific centers were not explored as one center may have better patient selection and outcomes for equivalent factors under consideration.
+
+Center variation is a known driver of post-transplant outcomes.25
+
+PARAGRAPH
+
+As our waitlisted population changes towards being sicker and having more co-morbidities, our approach to transplant decisions also needs to evolve.
+
+The MELD score indeed provides the essential backbone for an allocation policy based on urgency.
+
+However, our drive to adhere ourselves to transplanting the sickest patient should also be tempered by realistic expectations and tangible decisions such as better donor selection for high-risk recipients.
+
+Further, as more and more patients climb the MELD ladder, objective factors need to be re-evaluated that may help to identify patients who may benefit most from deceased donor LT, both from aspects of survival but also within the realistic constraints of center-specific dynamics.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Study concept and design: SA, GS, GK, JT.
+
+PARAGRAPH
+
+Acquisition of data: SA, GS, GK.
+
+PARAGRAPH
+
+Analysis and interpretation of data: SA, GS, JO, SG, PK, GM, GK, JT.
+
+PARAGRAPH
+
+Drafting of the manuscript: SA, GS.
+
+PARAGRAPH
+
+Critical revision of the manuscript for important intellectual content: SA, GS, JO, SG, PK, GM, GK, JT.
+
+PARAGRAPH

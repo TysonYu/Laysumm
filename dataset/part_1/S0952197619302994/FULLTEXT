@@ -1,0 +1,803 @@
+10.1016/j.engappai.2019.103374
+
+FULLTEXT
+
+TITLE
+
+A point-of-interest suggestion algorithm in Multi-source geo-social networks
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Recent years have witnessed a blooming of Web 2.0, positioning systems and wireless communication technologies.
+
+Location based social networks (LBSNs), such as Foursquare2  and Yelp3  have become a popular application and facilitated users’ daily life.
+
+People can expand circles of friends, share their real experience and post reviews, photos and videos.
+
+As a significant tool of LBSNs, suggestion methods learn users’ preferences from their historical records and meta-data such as social relationship and review content, then suggest underlying points-of-interest (POIs) to the specific users.
+
+POI suggestion can benefit advertising agencies with an effective way of launching advertisements to the potential consumers, and improve user viscosity to LBSN service providers as well (Zhao et al., 2016a).
+
+PARAGRAPH
+
+One of the troublesome problems in POI suggestion is data sparsity (Xie et al., 2016), especially in out-of-town areas.
+
+It stems from incompleteness of reviews posted in the LBSNs and degrades the accuracy of POI suggestion.
+
+When a user visits an area in his city or an out-of-town place which he is not familiar with, this problem becomes extremely severe and LBSNs can hardly suggest ideal results.
+
+PARAGRAPH
+
+Meanwhile, the loose relationship of users in LBSNs make the suggestion results in out-of-town scenario trustless.
+
+Users are declined to trust friends in LBSNs since they usually have different backgrounds and interests.
+
+MBSNs (Microblog-Based Social Networks) (Xiong et al., 2018) such as Facebook and Twitter are platforms for users to communicate with close friends and share their current status.
+
+Sufficient valuable information is generated and can be used for POI suggestion.
+
+A typical application scenario is illustrated in Fig. 1.
+
+Due to the data sparsity of LBSNs, users are able to acquire extra information from Twitter, a MBSN, which can help a user make a more accurate decision.
+
+A geo-social network can be viewed as a heterogeneous information system (Bu et al., 2019; Cao et al., 2019; Li et al., 2019) composed of a LBSN and a MBSN.
+
+PARAGRAPH
+
+Users’ preferences in LBSNs show some temporal and geographical patterns.
+
+POIs with similar attributes are usually clustered in a specific region.
+
+For instance, users prefer to visiting a street with more restaurants which can provide more choices, that is, a user’s visited places are often clustered together.
+
+A user is more likely to visit places nearby rather than the distant ones.
+
+Moreover, a user tends to visit a place at right time, e.g., he is more likely to visit a restaurant at lunch time rather than a cinema.
+
+Thus the spatio-temporal factors should be taken into account when suggesting POIs.
+
+PARAGRAPH
+
+Inspired by these motivation, we introduce a latent probabilistic generative model called Multi-source Topic Awareness Suggestion (MTAS) to fuse the information from geo-social networks.
+
+Fig. 2 shows the basic idea of the proposed MTAS model.
+
+The geo-social network can be classified into four distinct information layers, and each layer corresponds to a part of “4W” (i.e., who, when, where and what) information structure.
+
+The content layer represents reviews from users; the social layer indicates different topologies of relationships between users in LBSNs and MBSNs, which generates different kinds of communities; the geographical layer and temporal layer show the spatio-temporal information of a posting event.
+
+The behavior of posting reviews about POIs bridges the gap between online social networks and offline physical world.
+
+Given a review, a layer link connects these four layers.
+
+An anchor link connects two different accounts of one user in a LBSN and a MBSN, respectively.
+
+PARAGRAPH
+
+In order to study the applicability of MTAS, we explore its working mechanism and performance in two scenarios: (1) home-town suggestion is supposed that a specific user is located at his familiar regions such as his living or working areas.
+
+He appeals to suggestion services of LBSNs for new suggestion based on his activity records.
+
+(2) out-of-town suggestion satisfies the needs of users who travel to distant and unfamiliar areas.
+
+LBSNs can still suggest some POIs to the users but the results seem unreliable.
+
+It should be noticed that both the suggestion scenarios have its own spatio-temporal features.
+
+PARAGRAPH
+
+In this study, we make the following original contributions:
+
+PARAGRAPH
+
+(1) We model the multiple geo-social influence from social communities, time intervals and geographical locations to the textual content of reviews in both LBSNs and MBSNs based on the following facts: (a) users from a community might be interested in POIs located in the same region due to their frequent online communication; (b) the activity time of a community’s members tend to be tightly connected with each other; (c) a better POI suggestion result for a specific user can be inferred from review content extracted from LBSNs and MBSNs.
+
+PARAGRAPH
+
+(2) We propose a latent probabilistic generative model called MTAS, which can accurately capture review words in LBSNs as well as MBSNs by taking into account information of social communities, time intervals and geographical locations.
+
+In addition, we can effectively infer the parameters of the MTAS model by the Gibbs sampling method.
+
+PARAGRAPH
+
+(3) extensive experiments are conducted to evaluate the performance of the proposed MTAS model in two geo-social networks, and the experimental results show that our approach outperforms state-of-the-art baseline approaches in effectiveness and efficiency of POI suggestion.
+
+PARAGRAPH
+
+The remainder of this paper is summarized as follows: Section 2 briefly reviews related works.
+
+Section 3 introduces some important definitions and formalize the POI suggestion problem.
+
+Section 4 describes the details of our proposed POI suggestion model, and then presents the inference process.
+
+Section 5 illustrates the application framework of POI suggestion.
+
+The experimental results are evaluated in Section 6.
+
+Lastly, we conclude this study in Section 7.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+To improve the efficiency and efficacy of POI suggestion, some recent studies have attempted to examine and integrate textual content, spatio-temporal information as well as heterogeneous geo-social information.
+
+PARAGRAPH
+
+Content effect.
+
+Textual content is an underlying factor which can reveal some significant information of POIs such as users’ sentiment and attitude (Xiong et al., 2019a, b).
+
+Ren et al. (2017) introduced a context-aware probabilistic matrix factorization approach for POI suggestion, which exploits multiple factors such as textual content, geographical locations, social relationship, categorical correlation and POIs’ popularity.
+
+Xu et al. (2016) developed a personalized POI suggestion method by simultaneously integrating user check-in records, reviews and POIs’ meta-information into a tripartite graph based on a sentiment-supervised random walk algorithm.
+
+Yin et al. (2016c) integrated the textual information of the given POIs with local preferences and personal interests of users, to handle the data sparsity problem for out-of-town suggestion.
+
+Wang et al. (2017) proposed a probabilistic generative model to integrate geographical information and user reviews with individual interests relevant to locations and sentiment.
+
+PARAGRAPH
+
+Heterogeneous geo-social effect.
+
+Current studies indicated astrong correlation between users behaviors, geographical distance and social relationship.
+
+Thus attention was brought on exploiting the geographical and social effect to improve the suggestion performance.
+
+Chen et al. (2016) proposed a divide-and-conquer method to predict users’ subsequent preferences based on POI types by ranking only a confined set of POIs and smoothing the missing information in LBSNs.
+
+Cao et al. (2017) represented an App suggestion model which integrates common features across platforms and specific features depending on the resided platform.
+
+Yuan et al. (2015) introduced an approach considering the effect of social relationship, which can distinguish each user’s trusted and susceptible friends, respectively.
+
+Wang et al. (2016) proposed several sampling approaches to precisely calculate POIs’ aggregate statistics from a small number of accessible regions returned by a query.
+
+Gao et al. (2017) developed a kernel estimation method with a self-adaptive kernel bandwidth by considering the geographical correlation between POIs and further put forward a uniform geo-social framework which integrates users’ preferences over POIs with geographical effect and social relationship.
+
+Han et al. (2016) introduced a simple and effective metric to calculate the similarity between two users within a community, then developed a community recommender system based on this metric to suggest appropriate communities.
+
+PARAGRAPH
+
+Spatio-temporal effect.
+
+Users’ behaviors have some spatial and temporal features which greatly affect the accuracy of suggestion.
+
+Yin et al. (2016a) developed a Bayesian model to incorporate multiple categories of factors including semantic content, social proximity and spatio-temporal co-occurrences into the generative process of communities.
+
+Liao et al. (2016) introduced a model to suggest underlying activities to users, which considers both the geographical proximity of the user and the location of the proposed activity.
+
+Zhao et al. (2016b) proposed a ranking-based tensor factorization method for successive POI suggestion with a fine-grained modeling of user-POI, POI-time, and POI-POI interactions by analyzing recent check-in records and querying time stamps.
+
+Moreover, the inherent characteristics of POIs can reflect users’ requirements from various aspects.
+
+Places with similar features usually show similar visiting pattern in temporal and geographical aspect.
+
+Thus, Wu et al. (2015) introduced an improved collaborative filtering model by simultaneously leveraging temporal similarity and geographical constraint.
+
+Liu et al. (2016) proposed a unified suggestion system by combining users’ interests and temporal evolving preferences with temporal interval assessment.
+
+Different from traditional POI suggestion systems, this system is able to make suggestion dynamically within a time period.
+
+PARAGRAPH
+
+In most of the above approaches, all textual content generated from reviews of LBSNs.
+
+Multiple types of content, especially content from other types of social websites, are ignored, which may contain some crucial information.
+
+It motivates us to propose the following novel model to improve the suggestion accuracy.
+
+SECTION
+
+Problem definition
+
+PARAGRAPH
+
+In this section, we first introduce some notations of input data, and then present some significant definitions used in the study.
+
+Lastly, we briefly formalize the POI suggestion problem.
+
+PARAGRAPH
+
+To facilitate understanding, Table 1 describes the important notations of input data appearing in this study.
+
+PARAGRAPH
+
+PARAGRAPH
+
+POI
+
+PARAGRAPH
+
+A POI v∈Nr is a uniquely identified place (e.g., a cinema or a supermarket) or an event (e.g., a conference or a party) that someone finds useful or interesting.
+
+A POI has two attributes, i.e, identifier v and location lv, which is represented by longitude and latitude coordinates.
+
+PARAGRAPH
+
+Community
+
+PARAGRAPH
+
+Social communities are groups of connected users with a high density, while the connections between groups are sparse (Xiong et al., 2018).
+
+PARAGRAPH
+
+Topic
+
+PARAGRAPH
+
+Given a collection of words W, a topic z is defined as a multinomial distribution over W, i.e., ϕz={ϕz,w:w∈W}, where ϕz,w represents the probability of a topic z generating the word w.
+
+PARAGRAPH
+
+User Activity
+
+PARAGRAPH
+
+A user activity is a tuple (u,v,lv,t) which denotes that user u selects a POI v with location lv at time t.
+
+All the activities such as reposting, replying and reviewing are taken into full consideration because all of them can generate textual content.
+
+PARAGRAPH
+
+Content on a POI
+
+Content on a POI
+
+PARAGRAPH
+
+Textual content associated with a POI involves semantic information.
+
+The content is generated from multiple kinds of users’ activities.
+
+Most of the content in LBSNs are objective reviews on POIs, but MBSNs are filled with textual content relevant to users’ daily life which contains useful information such as users’ sentiment.
+
+Therefore, these two kinds of social networks have different topic distributions of textual content.
+
+PARAGRAPH
+
+Given a set of user profiles U, our goal is suggesting POIs for a cross-platform user.
+
+We define the POI suggestion problem in an unified way as follows.
+
+PARAGRAPH
+
+Problem definition.
+
+Given the database of a heterogeneous geo-social network generated from a LBSN and a MBSN, which contains POIs’ profiles and relevant textual content as well as all relevant users’ profiles and activity records.
+
+Users are willing to post the message on the LBSN or the MBSN with a probability of σ or 1-σ, respectively.
+
+Our target is to suggest a list of POIs that a given user u may be interested in.
+
+SECTION
+
+Multi-source topic awareness suggestion model
+
+PARAGRAPH
+
+In this section, we propose a Multi-source Topic AwarenessRecommendation model (MTAS model).
+
+Firstly, Section 4.1 introduces the model structure of MTAS.
+
+Then, Section 4.2 introduces the probabilistic generative process of observed variables, e.g., topics and review words of POIs, which are generated according to their distributions.
+
+Moreover, we infer the parameters in Sections 4.3 and 4.4.
+
+Lastly, we analyze the computational complexity of the inference process.
+
+Importantly, the generative process executes automatically without manual intervention, and the inference phase is employed to calculate the parameters and their distributions.
+
+SECTION
+
+Model structure
+
+PARAGRAPH
+
+In order to infer the distributions of parameters from geo-social network data, we propose a probabilistic generative model called Multi-source Topic Awareness Suggestion model (MTAS model), which jointly models users’ reviewing behaviors by taking into full consideration spatio-temporal influence, heterogeneous social relationship and multi-source textual content.
+
+PARAGRAPH
+
+Fig. 3 shows the probabilistic generative process of MTAS, and the notations of the model are presented in Table 2.
+
+PARAGRAPH
+
+In general, the generative process of the proposed model consists of three components:
+
+PARAGRAPH
+
+User-community component.
+
+Due to the users’ complex relationships in social networks, the set of users U can be partitioned into different communities via community detection methods (Bai et al., 2017).
+
+We assume that the communities follow the multinomial distribution with the parameters ψu w.r.t. user u.
+
+PARAGRAPH
+
+Spatio-temporal component.
+
+Users’ reviewing behaviors can show spatial and temporal features.
+
+The regions and the POIs within a region follow the multinomial distribution with the parameters ϑ and ϕ, respectively.
+
+Based on the work proposed in Yin et al. (2016b), the geographical location of each POI v follows a geographical Gaussian distribution (Liu and Xiong, 2013) in region r, which is characterized by μ and Σ.
+
+PARAGRAPH
+
+Topic-word component.
+
+It describes the generative process of different topics and the relevant words w.r.t. a POI, which is similar to the LDA model (Blei et al., 2012).
+
+SECTION
+
+Generative process
+
+PARAGRAPH
+
+The probabilistic generative process is given in Algorithm 1.
+
+PARAGRAPH
+
+In Algorithm 1, when making a POI suggestion for user u, it first samples the distribution parameter of ψu, ϑu, σu, θv, φz, θc,v′ and φz′′ corresponding to the hyper-parameters (lines 1–13).
+
+Then, it samples each variable according to its distribution (lines 14–35).
+
+If user u visits a POI and generates a word, he first decides where he is willing to post the review containing the word, in a LBSN or in a MBSN.
+
+If the LBSN is viewed as the target, he selects a geographical region r, and chooses a POI v with the location lv, which follows the geographical Gaussian distribution.
+
+Then a topic distribution z w.r.t. v is generated (lines 14–23).
+
+If the MBSN is viewed as the target, with the POI v, he randomly selects a time stamp t and a community c from these communities, because u belongs to several communities relevant to his interests or special relationships.
+
+Then a topic distribution z′ w.r.t. the combination (c, v) is generated (lines 24–35).
+
+With the given topic z and z′, words Wv and Wc,v′ are generated by the distribution φz and φz′′ (lines 20–22 and 32–34).
+
+SECTION
+
+Model inference
+
+PARAGRAPH
+
+Based on the generative process, the joint probability of the observed (c,r,s,v,l,t,z,w,z′,w′) and hidden variables (ψ,σ,ϑ,ϕ,θ,φ,θ′,φ′) is represented in Eq. (1). p(ψ,σ,ϑ,ϕ,θ,φ,θ′,φ′,c,r,s,v,l,t,z,w,z′,w′|α,β,α′,β′,γ,τ,η,μ,Σ,h,U)=∏u∈UpMBSN⋅pLBSN⋅psenti
+
+where pMBSN, pLBSN and psenti are presented in Eqs. (2)–(4): pMBSN=p(t|h)p(c|ψ)p(ψ|η,u)p(s|σ)p(σ|u,λ0,λ1)=p(t|h)p(c|ψ)p(ψ|ηu)p(s|σ)p(σ|(λ0,λ1)u) pLBSN=p(l|r,μ,Σ)p(v|r,ϕ)p(r|ϑ)p(ϑ|γ,u)p(ϕ|τ)=p(l|μr,Σr)p(v|ϕr)p(r|ϑ)p(ϑ|γu)p(ϕ|τ) psenti=p(z|θ,v,s=1)p(θ|α)p(w|φ,z)p(φ|β)+p(z′|θ′,v,t,c,s=0)p(θ′|α′)p(w′|φ′,z′)p(φ′|β′)=p(s=1)p(z|θv)p(θ|α)p(w|φz)p(φ|β)+p(s=0)p(z′|θ′v,t,c)p(θ′|α′)p(w′|φ′z′)p(φ′|β′)
+
+PARAGRAPH
+
+As shown in Eq. (1), the joint probability is partitioned into three parts corresponding to three components introduced in Section 4.1.
+
+Given the hyper-parameters α,β,α′,β′,γ,τ,η,λ0,λ1 and the observed values c,r,s,v,l,t,z,w,z′,w′.
+
+We aim to infer the latent variables ψ,σ,ϑ,ϕ,θ,φ,θ′ and φ′, as well as the parameters μ and Σ.
+
+We employ the Gibbs sampling approach, one of Markov Chain Monte Carlo (MCMC) methods (Zhang et al., 2018), to estimate the distribution of these latent variables.
+
+PARAGRAPH
+
+We first draw the binary variable s as tossing a coin in terms of the posterior probability: p(su=1|su¬,u)∝nu,su=1¬+λ0nu,su=1¬+nu,su=0¬+λ0+λ1 p(su=0|su¬,u)=1−p(su=1|su¬,u)where su¬ represents user u’ decisions excluding the current one; nu,su=1 and nu,su=0 are the numbers of words sampled from the LBSN and the MBSN w.r.t. user u, respectively; the number n¬ represents the number of items, e.g., reviews, words and regions, excluding the current item.
+
+PARAGRAPH
+
+For each review (u,v,l,Wv) in the LBSN and each review (u,v,l,t,c,Wc,v′) in the MBSN, we sample region r based on the following posterior probability: qp(r|r¬,u,v,lv)∝nu,r¬+γ∑u(nu,r¬+γ)⋅nv,r¬+τ∑v(nv,r¬+τ)⋅p(lv|μr,Σr)where r¬ represents all regions except the current one; c¬ represents all communities except the current one; nu,r is the number of occurrences that region r are sampled w.r.t. user u; nv,r is the number of occurrences that location v is drawn from region r; the number n¬ indicates the number of items, e.g., regions, communities and POIs, excluding the current item.
+
+PARAGRAPH
+
+After each iteration, we update parameters μr and Σr by the following equations: μr=E(r)=1|Sr|∑v∈Srlv Σr=D(r)=1|Sr|−1∑v∈Sr((lv−μr)T(lv−μr))where Sr is the set of locations assigned to region r.
+
+PARAGRAPH
+
+For each review (u,v,l,t,c,Wc,v′) in the MBSN, we sample community c in terms of the following posterior probability: p(c|c¬,u,z′)∝nu,c¬+η∑u(nu,c¬+η)⋅nc,z′¬+α′∑z′(nc,z′¬+α′)where nu,c is the number of occurrences that community c are sampled w.r.t. user u; nc,z′ is the number of occurrences that topic z′ is drawn from community c.
+
+PARAGRAPH
+
+Kernel Density Estimation (KDE) approach is a non-parametric way to estimate the probability density of time when users from the community c visit POI v.
+
+By means of KDE, the probability of a user from community c visiting POI v at time t can be defined as the following equation.
+
+P(t|hc,v)=1Tc,v∑t′∈Tc,vKhc,vt′(t−t′)where Tc,v denotes a set of time stamps at which all other users from community c visit POI v, and Khc,vt′(t−t′) is calculated as Eq. (12): Khc,vt′(t−t′)=12πhc,vt′exp(−(t−t′)22hc,vt′2)where K(⋅) denotes a Gaussian kernel function, and hc,vt′>0 is an adaptive bandwidth parameter (Lichman and Smyth, 2014) for the specific time point t′.
+
+In the proposed model, it is necessary to select an adaptive bandwidth parameter hc,vt′ for each specific time point t′, rather than to choose a fixed bandwidth parameter hc,v for all time points in Tc,v, for the reason that it can hardly choose an appropriate common bandwidth parameter hc,v for all time points in Tc,v.
+
+P(t|hc,v) is extremely sensitive to the value of hc,v, generating densities which are sharply peaked around the time points in Tc,v when hc,v has a tiny value.
+
+Conversely, a large value of hc,v leads to an excessively smooth estimate that may ignore some significant structures in the data.
+
+The most common optimality criterion used to select hc,vt′ is the mean integrated squared error (MISE) (Sheather and Jones, 1991), that is, MISE is regarded as the loss function to acquire hc,vt′.
+
+PARAGRAPH
+
+Then, based on the newly sampled variables s, v and c, we sample the topic z w.r.t. v in accordance with the following posterior probability: p(z|z¬,v,Wv,su=1)∝nv,z¬+α∑v(nv,z¬+α)⋅∏w∈Wvnw,z¬+β∑w(nw,z¬+β)where z¬ represents topics for all review words in the LBSN w.r.t. v except the current one; nv,z is the number of occurrences that topic z is sampled from POI v; nw,z is the number of occurrences that word w is generated from topic z.
+
+PARAGRAPH
+
+We sample the topic z′ w.r.t. the combination (c,v,t) according to the following posterior probability: p(z′|z′¬,c,v,t,Wc,v′,su=0)∝nc,v,z′¬+α′∑c∑v(nc,v,z′¬+α′)⋅∏w′∈W′c,vnw′,z′¬+β′∑w′(nw′,z′¬+β′)⋅p(t|hc,v)where z¬′ represents topics for all review words in the MBSN w.r.t. v except the current one; nc,v,z′ is the number of occurrences that topic z′ is sampled from POI v w.r.t community c; nw′,z′ is the number of occurrences that word w′ is generated from topic z′. p(t|hc,v)
+
+is calculated by Eq. (11).
+
+Let hc,vt′ be the Euclidean distance of t′ to its kth nearest neighbor in Tc,v, following recent study (Lichman and Smyth, 2014).
+
+Tc,v is the collection of time stamps at which users from community c visit POI v, excluding the current one.
+
+PARAGRAPH
+
+Since the numbers of topics (K, K′), the number of regions (R) and the number of communities (C) are usually limited in 50, the hyper-parameters are specified to: α = 50/K, α′ = 50/K′, γ = 50/R, η = 50/C.
+
+We take a fixed value β=β′=τ = 0.01, λ0=λ1 = 0.5 for simplicity following the literature (Yin et al., 2013).
+
+We randomly initialize topic z assigned to each word.
+
+During each iteration, the assignments for decision probabilities, regions and topics are updated by Eqs. (5)–(7) and (13)–(14), respectively.
+
+After each iteration, the geographical Gaussian distribution parameters are updated by Eqs. (8) and (9).
+
+The iteration is repeated until convergence.
+
+Lastly, the posterior samples can be used to estimate the parameters by examining the numbers of c, r, v, z, z′, w and w′ assignments to the reviews.
+
+SECTION
+
+Inference framework
+
+PARAGRAPH
+
+After adequate sampling iterations, the approximated posteriors are available for parameter estimation by examining the numbers of c, r, v, z, z′, w and w′ assignments to users’ reviews in the LBSN and the MBSN.
+
+The proposed inference process is given in Algorithm 2.
+
+PARAGRAPH
+
+Algorithm 2 contains several main steps: (1) randomly initialize the community, region and topic assignments for each review in the LBSN and the MBSN, respectively (lines 1–6); (2) in each iterative operation, update the decision probability, region, topic and community assignments for each review, respectively (lines 10–20); (3) the iteration is repeated until convergence (lines 9–31).
+
+Furthermore, a burn-in process (Papanikolaou et al., 2017) is presented at the initial hundreds of iterations to ignore unreliable sampling data (line 21).
+
+In order to eliminate correlation between samples after burn-in, intervals between samples called the sample lags are introduced to sample periodically (line 21).
+
+SECTION
+
+Computational complexity
+
+PARAGRAPH
+
+The computational complexity of the inference framework is discussed in this section.
+
+Suppose that the whole process executes for I iterations, in each of which, all reviews are scanned.
+
+By using the notations introduced in Table 1, for each review, O(C+R+K+K′) operations are required to sample latent communities, latent regions and latent topics.
+
+The series of reviews from a specific user is indicated by Mu, so the whole computational complexity is O(I(C+R+K+K′)∑u|Mu|).
+
+SECTION
+
+A POI suggestion framework via MTAS
+
+PARAGRAPH
+
+In order to achieve our goal presented in Section 3, the POI suggestion framework is shown in Fig. 4.
+
+PARAGRAPH
+
+Basically, the POI suggestion framework contains three essential phases: (1) Data is crawled from LBSN and MBSN portals and then we use the hybrid data to build geo-social networks.
+
+A series of geographical clusters called regions are generated by DBSCAN algorithm (Qiao et al., 2015a, b, 2018a, b).
+
+Users are grouped into different communities by GN algorithm (Montero, 2016), and each user is associated with multiple communities by different hobbies or relationships; (2) The visiting probabilities of unvisited POIs w.r.t. a given user are calculated based on the MTAS model; (3) Suggest the k POIs with the highest probabilities in the suggestion list to the given user.
+
+PARAGRAPH
+
+Once we have estimated the model parameter set Ψˆ={σˆ,θˆ,φˆ,θ′ˆ,φ′ˆ,ϑˆ,ψˆ,ϕˆ}, given a target user u at a specific location, we compute the probability of each unvisited POI v selected by user u as follows: P(v|u)=P(v|u,σˆu)+P(v|u,1−σˆu)where the two items can be calculated by: P(v|u,σˆu)=σˆu∑r∑v∈rP(r|u)P(v|r)P(lv|r)P(Wv) P(v|u,1−σˆu)=(1−σˆu)⋅∑r∑v∈r∑cP(r|u)P(c|u)P(v|r)P(lv|r)P(W′c,v)where Wv and Wc,v′ denote the collection of words generated in the LBSN and the MBSN, respectively.
+
+They are computed by the following equations: P(Wv)=∑zP(z|v)∏w∈WvP(w|z)1Wv P(W′c,v)=∑z′P(z′|c,v)∏w′∈W′c,vP(w′|z′)1W′c,v
+
+PARAGRAPH
+
+Then Eqs. (16) and (17) can be reformulated as: P(v|u,σˆu)=σˆu∑r∑v∈rP(r|u)P(v|r)P(lv|r)∑zP(z|v)∏w∈WvP(w|z)1Wv=σˆu∑r∑v∈rϑˆϕˆP(lv|μˆr,Σˆr)∑zθˆv∏w∈Wvφˆz1Wv P(v|u,1-σˆu)=(1−σˆu)∑r∑v∈r∑cP(r|u)P(c|u)P(v|r)P(lv|r)∑z′P(z′|c,v)∏w′∈W′c,vP(w′|z′)1W′c,v=(1−σˆu)∑r∑v∈r∑cϑˆψˆϕˆP(lv|μˆr,Σˆr)∑z′θˆ′c,v∏w′∈W′c,vφˆ′z′1W′c,v
+
+PARAGRAPH
+
+Based on Eqs. (20) and (21), the original Eq. (15) can be redefined as follows.
+
+P(v|u)=σˆu∑r∑v∈rϑˆϕˆP(lv|μˆr,Σˆr)∑zθˆv∏w∈Wvφˆz1Wv+(1−σˆu)∑r∑v∈r∑cϑˆψˆϕˆP(lv|μˆr,Σˆr)∑z′θˆ′c,v∏w′∈W′c,vφˆ′z′1W′c,v
+
+PARAGRAPH
+
+The value of P(v|u) is the probability of POI v that will be recommended to user u.
+
+The remaining work of POI suggestion is to sort all the POIs based on the P(v|u) value and suggest the k POIs with the largest probabilities to user u.
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+A series of experiments were conducted to evaluate the effectiveness and efficiency of MTAS including the comparisons with the state-of-the-art methods in the environment with Java 8, Windows 10, and run on a PC with a CPU of Core i7 (7500U) and 8 GB RAM.
+
+The experimental results are presented in this section with the parameter K=K′ = 10.
+
+SECTION
+
+Experimental setup
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+Real data utilized in this section evaluate the effectiveness of our proposed model for POI suggestion.
+
+Generally, the dataset cannot meet the requirement of geo-social networks which contain multi-source textual content from LBSNs and MBSNs simultaneously, thus we collect new data from three popular social media, i.e., Foursquare (LBSN) in San Francisco, Facebook (MBSN) and Twitter (MBSN) during May in 2017 by our designed crawler.
+
+PARAGRAPH
+
+Foursquare is a popular LBSN portal and can offer many location-based services.
+
+The dataset was collected from 75,140 users living in the areas of San Francisco, California in USA including their identities, profiles, friend relationship and review information such as texual content, time and locations in terms of latitude and longitude.
+
+Facebook and Twitter are both popular microblog portals with a huge number of users from the Internet.
+
+Users prefer to share their experience of daily life via these websites.
+
+PARAGRAPH
+
+If users leave their Twitter and Facebook accounts on theirFoursquare homepages, anchor links across these social networks are formed.
+
+After removing abundant data such as users without anchor links, we combine these data together and create two geo-social networks: the Foursquare-Facebook network and the Foursquare-Twitter network.
+
+PARAGRAPH
+
+The statistical features of the datasets and artificial heterogeneous networks are displayed in Tables 3 and 4.
+
+PARAGRAPH
+
+SECTION
+
+Baseline approaches
+
+PARAGRAPH
+
+We compare our proposed POI suggestion method, i.e., MTAS, with the following state-of-the-art techniques.
+
+PARAGRAPH
+
+UPS-CF (Ference et al., 2013) is a collaborative suggestion approach to recommend POI for out-of-town users in LBSNs based on current locations.
+
+The suggestion result depends on users’ preferences, social influence as well as geographical proximity.
+
+PARAGRAPH
+
+IBGP (Chen et al., 2016) is a divide-and-conquer method to predict users’ subsequent preferences based on POI types by ranking only a confined set of POIs and smoothing the missing information in LBSNs.
+
+PARAGRAPH
+
+GME-S (Xie et al., 2016) is an effective network embedding model which converts POIs into a low-dimensional space and tracks users’ interests.
+
+Unlike the Markov chain-based recommender models, this model exploits the temporal patterns of users’ check-in records, which reduces the computational complexity when computing the POI-POI transition matrix.
+
+PARAGRAPH
+
+SSR (Xu et al., 2016) leverages the multisource information embedded in LBSNs such as users’ relations, POI geographical information, user check-ins and user reviews via a supervised random walk algorithm.
+
+The method also incorporates sentiment analysis into suggestion and considers one phrase has a positive sentiment polarity when it has strong associations with positive terms, and vice versa.
+
+PARAGRAPH
+
+TGSC-PMF (Ren et al., 2017) is a context-aware probabilistic matrix factorization approach for POI suggestion, which exploits multiple factors such as textual content, geographical locations, social relationship, categorical correlation, and POIs’ popularity.
+
+PARAGRAPH
+
+LSARS (Wang et al., 2017) is a latent probabilistic generative model which exploits users’ check-in records by considering users’ interest drift and group emotion under both home-town and out-of-town scenarios, which learns individual interests relevant to locations and sentiment from profiles of POIs and reviews of users.
+
+However, the geographical influence is not considered when generating the review words in LSARS.
+
+PARAGRAPH
+
+The difference of distinct POI suggestion methods are shown in Table 5.
+
+PARAGRAPH
+
+In order to evaluate the effect of each factor in MTAS, we designed four variant models based on MTAS that omits the effects of time, regions, locations, and communities, respectively.
+
+PARAGRAPH
+
+MTAS-time assumes that the model is time-invariant, i.e., the topics of reviews are not influenced by the time effect.
+
+PARAGRAPH
+
+MTAS-region adopts larger administrative divisions like cities instead of a small regions, and then infer city-dependent personal interests and make a suggestion.
+
+PARAGRAPH
+
+MTAS-location does not consider the influence of locations on topics of reviews, i.e., all the POIs in a region have the same topic distribution.
+
+PARAGRAPH
+
+MTAS-community does not consider the influence of community structure, i.e., the topic distribution is the same within all the users.
+
+SECTION
+
+Evaluation metrics
+
+PARAGRAPH
+
+In order to conduct a comprehensive experiments to evaluate the suggestion performance of MTAS, we introduce two real-world scenarios: (1) querying regions are home-town regions to a target user; (2) querying regions are out-of-town regions or new regions to a target user.
+
+To determine whether the suggestion happens in home-town or out-of-town, we select a location as user u’s home before visiting POI v, which is extracted from his profile.
+
+Then we measure the distance between v and u.
+
+The target user is thought to be located in an out-of-town region if the distance is larger than the threshold d0.
+
+According to the previous study (Wang et al., 2015), d0 is specified to 100 km in this study.
+
+PARAGRAPH
+
+Then we utilize Accuracy@k to evaluate the overall suggestion efficiency and effectiveness according to the methodological framework (Hu and Ester, 2013) by 10-fold cross validation.
+
+Specifically, for each comment (u,v,Wv) in the testing set, (1) the ranking scores are computed for all POIs including the POI v; (2) a ranked list is obtained by ordering all the POIs, where p denotes the position of POI v in the list.
+
+The ideal result is v exceeding all unvisited POIs; (3) a top-k suggestion list consists of the first k POIs from the list.
+
+If p⩽k, a hit happens (i.e., the actual visited POI v is recommended to user u); otherwise, a miss case happens.
+
+Accuracy@k is defined as below: Accuracy@k=|hit@k||Dtest|where |hit@k| and |Dtest| represent the number of hits in the testing set and the number of all test cases, respectively.
+
+SECTION
+
+Suggestion effectiveness
+
+PARAGRAPH
+
+In this section, we compare the performance of different POI suggestion approaches having well-tuned parameters.
+
+PARAGRAPH
+
+Figs. 5 and 6 demonstrate the effectiveness of POI suggestion with different k values in the Foursquare-Facebook network and the Foursquare-Twitter network, respectively.
+
+A larger k value is often ignored in a top-k suggestion to make suggestion more efficient.
+
+PARAGRAPH
+
+According to Figs. 5 and 6, we find that MTAS outperforms other baseline methods on both networks, and the gap is from 0.6% to 23.8%, which shows that the suggestion effectiveness can be significantly improved, by taking into full consideration the factors of spatio-temporal influence, users’ profiles, social relationship and multiple textual content simultaneously.
+
+Thus, we obtain some conclusions:
+
+PARAGRAPH
+
+(1) Due to data sparsity, the CF-based method of UPS-CF performs worse than text-based methods, i.e., ST-LDA, JIM, UCGT, LSARS, and MTAS, which shows that multiple underlying factors, such as textual content, profiles of users, descriptions of POIs and visiting history, are valuable information to cope with the problem of data sparsity, especially under out-of-town circumstances.
+
+Users within a community probably visit the POIs successively due to their similar hobbies or tastes.
+
+PARAGRAPH
+
+(2) Different from other methods only involving textual content of a LBSN, the textual content of MTAS is extracted from both the LBSN and MBSN.
+
+Importantly, in the textual content of MBSNs, multiple user relationships and behaviors provide a large amount of useful textual information.
+
+PARAGRAPH
+
+(3) SSR, TGSC-PMF and LSARS perform better than IBGP and GME-S, which shows that textual content is capable of significantly improving the accuracy of suggestion both in home-town and out-of-town scenarios.
+
+In addition, based on the comparison experiments of LSARS and MTAS, we find that the temporal effect and social relationship have a greater impact on users’ decision-making than users’ preferences.
+
+PARAGRAPH
+
+(4) We find that MTAS has a better suggestion performance in the Foursquare-Facebook network than the Foursquare-Twitter network as well.
+
+This can be explained by the reason that these two MBSNs have different features such as user behaviors.
+
+Users often exchange messages, post status updates and share photos with their close friends by Facebook, and follow celebrities and pay attention to their status updates in Twitter.
+
+In addition, users tend to believe in their friends in Facebook than the friends in Twitter.
+
+SECTION
+
+Impact of different factors
+
+PARAGRAPH
+
+To explore the benefit brought by each factor, including the temporal effect (F1), the effect of region scope (F2), the effect of locations in a region (F3) and the effect of community structure (F4), MTAS is compared with its four variant versions introduced in Section 6.1.2, and the comparison results are given in Fig. 7.
+
+PARAGRAPH
+
+As shown in Fig. 7, MTAS outperforms its four variant versions with the gap changing from 3.2% to 30.7% for home-town suggestion, and from 2.3% to 29.1% for out-of-town suggestion.
+
+The results indicate the benefit brought by each factor, respectively.
+
+For example, the performance gap between MTAS and MTAS-V2 validates the benefit of distinguishing multiple geographical regions.
+
+PARAGRAPH
+
+Each factor owns different contribution to improving the effectiveness of suggestion.
+
+Similarly, the same factor has different contribution to home-town and out-of-town suggestion.
+
+The four factors in the home-town suggestion scenario are ranked as F4>F1>F3>F2 in terms of the significance, and ranked as F4>F3>F2>F1 in the out-of-town scenario.
+
+This can be explained by the different characteristics of the two scenarios:
+
+PARAGRAPH
+
+(1) Users make lots of reviews on home-town POIs in MBSNs so as to share their experience with others.
+
+On the contrary, more LBSN reviews are generated for out-of-town regions in order to make objective evaluation for POIs.
+
+PARAGRAPH
+
+(2) Users are probably relying on their friends in most cases and scenarios, especially when they visit out-of-town areas without any experience.
+
+PARAGRAPH
+
+(3) The geographical effect is apparent in home towns, while users in out-of-town regions mainly rely on their social relationship.
+
+SECTION
+
+Analysis of decision probability
+
+PARAGRAPH
+
+In this section, we investigate the relationship between users’ decision probability and individual interest and preference.
+
+The LBSN probability σ and the MBSN probability 1-σ are learned by the proposed MTAS model automatically.
+
+Since individuals’ decision probabilities are different, we present the cumulative distribution function (CDF) of decision probability among all users w.r.t. the home-town and out-of-town scenarios.
+
+PARAGRAPH
+
+The results on the Foursquare-Facebook network are illustrated in Fig. 8.
+
+It can be observed that, users tend to make a review for out-of-town POIs in LBSNs rather than in MBSNs.
+
+Specifically, the probability of choosing the LBSN is higher than 0.5 for more than 75% of out-of-town users, which implies that users mainly depend on close social relationship to make a decision in home-town scenario and they appeal to LBSN to acquire an objective suggestion result in out-of-town scenario.
+
+SECTION
+
+Suggestion efficiency comparison
+
+PARAGRAPH
+
+In this section, we evaluate the efficiency of our proposed model by comparing it with the baseline methods in the Foursquare-Facebook and Foursquare-Twitter networks.
+
+PARAGRAPH
+
+As shown in Fig. 9, most models are time consuming with similar training time except the UPS-CF method.
+
+This is because the computational complexity for the UPS-CF method is O(U2), where U represents the number of users.
+
+However, other four models including SSR, TGSC-PMF, LSARS, and MTAS contain textual analysis, which has been proved time-costly.
+
+The cost of training time in the Foursquare-Twitter network is about half of that in the Foursquare-Facebook network.
+
+This can be explained by the reason that the Foursquare-Facebook network in the experiments has more users, reviews and POIs, which greatly increases the cost of training time.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+POI Suggestion is a very challenging and difficult task in LBSNs.
+
+The data sparsity and user distrust in the LBSNs create a severe challenge for traditional recommender systems.
+
+Additionally, users’ behaviors in a LBSN show an obvious spatio-temporal pattern.
+
+In order to effectively recommend POIs in LBSNs, we integrate the factors including cross-platform textual content, temporal effect, social communities and geographical regions.
+
+Then, we propose a latent probabilistic generative model called MTAS, which can accurately capture users’ words in both LBSNs and MBSNs by taking into consideration posting decision probability, a latent variable indicating a user’s tendency to publish a review in LBSNs or MBSNs, which have different distribution w.r.t. topics and words.
+
+In particular, the parameters of the MTAS model can be inferred by the Gibbs sampling method in an effective fashion.
+
+Beyond these proposed techniques, we introduce an POI suggestion framework based on MTAS.
+
+Extensive experiments were conducted to evaluate the performance of the proposed framework on two real geo-social networks.
+
+The experimental results demonstrate the superiority of MTAS on effective and efficient POI suggestion in both home-town and out-of-town scenarios, when compared with the state-of-the-art baseline approaches.

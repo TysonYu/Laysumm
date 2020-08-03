@@ -1,0 +1,663 @@
+10.1016/j.engappai.2019.04.008
+
+FULLTEXT
+
+TITLE
+
+A bounded actor–critic reinforcement learning algorithm applied to airline revenue management
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Reinforcement Learning or RL (see Bertsekas and Tsitsiklis (1996), Sutton and Barto (1998), Gosavi (2014b) and Szepesvári (2010)) is used to solve problems in which an agent selects optimal actions in an unknown stochastic environment via repeated trials and errors.
+
+In every trial, the agent gathers feedback from the environment and uses the feedback to update its knowledge base.
+
+Typically, after a large number of trials and errors in its interactions, the agent learns to select an optimal action in every state.
+
+The Markov Decision Process or Problem (MDP) and the semi-MDP (SMDP) (Bertsekas and Tsitsiklis, 1996) have been extensively used as the underlying models in the above-described RL domain.
+
+Essentially, in the MDP model, the underlying system dynamics and behavior are governed by Markov chains.
+
+Further, in an MDP, the time taken in a one-step transition from any state to any other is assumed to be the same.
+
+The SMDP is a more general model in which this transition time is assumed to be a random variable whose distribution is known.
+
+PARAGRAPH
+
+In this paper, we study a class of RL algorithms known as actor critics.
+
+The classical actor–critic algorithm (Barto et al., 1983) predates the more popular RL algorithm, namely, Q-Learning, discovered by Watkins (1989).
+
+The classical actor–critic algorithm, however, has the following critical deficiency: the values of one class of iterates of the algorithm, called the actor’s values, become unbounded, i.e., become very large in magnitude.
+
+This causes the computer to overflow.
+
+One approach to alleviate this difficulty is to use a mathematical projection that artificially bounds the actor values (Borkar, 2008).
+
+However, this artificial bounding curtails the amount of exploration the algorithm can perform, leading to poor solutions on large-scale problems at times.
+
+Kulkarni et al. (2011) studied a version of this projection-bounded actor–critic algorithm on a problem from airline revenue management, but the best results from these algorithms were obtained from employing numerous replications (re-runs of the simulations with new sets of random numbers).
+
+In other words, at times, the algorithm did not explore sufficiently (Gosavi et al., 2012).
+
+To alleviate this difficulty, Gosavi (2014a) proposed a variant of the classical algorithm in which the actor’s values were naturally bounded; however, experimentation with this algorithm also showed that the magnitude of the actor’s values still often become quite large.
+
+When the magnitude of the values becomes large, one needs to use a temperature-tuning parameter in the Boltzmann action-selection strategy, which unfortunately adds a whole layer to the computational exercise involved in the algorithm (Lawhead et al., 2017).
+
+Also, different temperatures lead to different depths of exploration, and hence one must then search for a good temperature for the best exploration.
+
+Further, even with this temperature tuning, the algorithm in Gosavi (2014a) may still explore insufficiently on large-scale problems, leading the user to sub-optimal solutions.
+
+In other words, overall, the artificial projection as well as the temperature-tuning make it harder to use the algorithm in practice.
+
+PARAGRAPH
+
+Contributions of this paper: In this paper, we present a new algorithm that provides a significant improvement in its performance over that of the above-described past work in the existing literature in the following ways: (i) the actor’s values remain naturally bounded, thereby eliminating the need for any artificial projection, and (ii) the actor’s values also remain small in magnitude, thereby eliminating the need for any temperature tuning with the Boltzmann action-selection.
+
+The algorithm is first tested on small-scale problems in this paper to demonstrate both of these features.
+
+But, the true test of strength for any RL algorithm is on large-scale problems, where unless the algorithm explores sufficiently, it cannot generate satisfactory performance.
+
+We hence tested our algorithm on a large-scale problem from airline revenue management with real-world data, where it outperformed a well-known industrial heuristic called EMSR-b (Talluri and van Ryzin, 2004b).
+
+We further note that while the λ-SMART algorithm (Gosavi et al., 2002) and the projection-bounded actor–critic algorithm in Kulkarni et al. (2011) are other examples of RL algorithms that have been applied to the airline revenue management problem in the past, the λ-SMART algorithm is based on a finite trajectory, which may not be applicable to all RL settings, and the projection-bounded actor–critic algorithms of the past do not always return optimal solutions in practice.
+
+PARAGRAPH
+
+The reader interested in exploring the connection of actor–critics to policy gradients (Baxter and Bartlett, 2001) is referred to an excellent review paper by Grondman et al. (2012).
+
+Actor–critics have also been studied via a control-theoretic viewpoint (Lewis and Vrabie, 2009; Venayagamoorthy et al., 2002; Werbös, 1987; Liu et al., 2001).
+
+Finally, RL algorithms based on Q-Learning (Watkins, 1989) and SARSA (Rummery and Niranjan, 1994) have been used widely in industrial problems, ranging from preventive maintenance (Das et al., 1999; Aissani et al., 2009) to supply chain management (Pontrandolfo et al., 2002; Mortazavi et al., 2015; Chaharsooghi et al., 2008) and robotics (Kober et al., 2013), but industrial-scale applications of actor–critics are not as common as those of traditional Q-Learning-based algorithms.
+
+PARAGRAPH
+
+The rest of this article is organized as follows.
+
+Section 2 provides the background on the MDP and SMDP, as well as that of the airline revenue management problem.
+
+Section 3 presents the new algorithm, as well as a review of the past work.
+
+Section 4 discusses numerical results with using the algorithm.
+
+Concluding remarks along with comments on future work are provided in Section 5.
+
+SECTION
+
+Background
+
+PARAGRAPH
+
+This section is divided into two parts: the first subsection is devoted to presenting the mathematical framework underlying MDPs and SMDPs, as well the motivation for using RL, while the second is devoted to a description of the airline revenue management problem.
+
+SECTION
+
+MDPs, SMDPs, and RL
+
+PARAGRAPH
+
+As mentioned above, MDPs and SMDPs are useful in modeling interactions in stochastic environments.
+
+In such models, in every state visited by the system, a decision must be selected from a set of permitted actions in that state.
+
+The objective considered in this paper is to maximize the so-called average reward, i.e., the expected reward per unit time over an infinitely long time horizon; in such an objective function, the assumption is that the system settles down into a steady state after a long period of time.
+
+In MDPs, the time taken for any transition from one state to another is the same for every transition and is considered to be one unit.
+
+In an SMDP, the time of transition is any given random variable, whose distribution is known, and the time is explicitly modeled into the objective function.
+
+Since the MDP is a special case of the SMDP in which the time of transition always equals one, we present details of the SMDP.
+
+We first present some notation:
+
+PARAGRAPH
+
+Also, note that: r̄(i,a)=∑j∈Sp(i,a,j)r(i,a,j) will denote the expected immediate reward in state i when action a is chosen in state i, while t̄(i,a)=∑j∈Sp(i,a,j)t(i,a,j) will denote the expected immediate transition time out of state i when action a is chosen in state i.
+
+PARAGRAPH
+
+We now define the so-called average reward for a policy π in an SMDP.
+
+Let xs denote the state of the system before the sth transition of the system, where it is important to note that in an infinite horizon problem, s will go from 1 to infinity.
+
+Then, the following scalar, in which x1=i, is called the average reward of the policy π if the system starts its transitions from state i: ρi(π)=limk→∞E∑s=1kr(xs,π(xs),xs+1)|x1=iE∑s=1kt(xs,π(xs),xs+1)|x1=i.It can be shown that when the policy π is regular (Ross, 1992), the average reward does not depend on the starting state i and can hence be denoted as ρ(π), which essentially means that the average reward is the same regardless of which state the system starts at.
+
+In this paper, we will assume that all policies in our SMDP are regular.
+
+The goal in solving the SMDP is then to identify the policy that maximizes the average reward, i.e., identify a policy π∗, whose average reward equals ρ∗: Maximizeπρ(π)≡ρ∗.In an MDP, which, as we stated above is a special case of the SMDP, the transition time t(.,.,.)=1 for all instances of t(.,.,.).
+
+The average reward for the MDP can then be analogously obtained from Eq. (1).
+
+PARAGRAPH
+
+The average reward is necessary in the large-scale tests of our new algorithm.
+
+However, in order to demonstrate key properties of the algorithm, such as boundedness, we also used the so-called discounted-reward metric in tests on small-scale problems.
+
+The discounted reward metric for MDPs is defined as follows: Θi(π)=limk→∞E∑s=1kλs−1r(xs,π(xs),xs+1)|x1=i,where λ is the discount factor.
+
+The goal in this context is to identify a policy, π∗, that maximizes Θi(.) for every value of i∈S.
+
+PARAGRAPH
+
+A classical method for solving MDPs and SMDPs is dynamic programming (DP) (Bertsekas, 2007).
+
+DP seeks to solve these problems using the so-called transition probabilities (TPs) of the Markov chains underlying the system transitions; the TP is the probability of transitioning from one state to another under a given action and has been defined above in the notation.
+
+Because TPs are required in DP, the latter tends to break down when the number of state–action pairs exceeds a few thousands.
+
+This is because the TP model then becomes too large to store in the computers.
+
+To be more specific, a system with N states and M actions would yield a TP matrix (TPM) of size N×N for each of the M actions.
+
+As a result, when N is large, it is difficult to store and process all the elements of the TPMs, and then the so-called curse of dimensionality sets in.
+
+This is typical of large-scale problems in the real world.
+
+RL was invented to deal with the curse of dimensionality; RL avoids the TPs, but requires either a simulator of the real-world system or has to be implemented in the real-world system itself to work.
+
+RL thus allows us to bypass the construction of the TPMs, thereby avoiding the curses of dimensionality but still producing near-optimal solutions.
+
+SECTION
+
+Airline revenue management
+
+PARAGRAPH
+
+Deregulation in 1978 gave airlines in the U.S. the flexibility to determine their own schedules, routes, and fares, as long as they followed the guidelines formulated by the Federal Aviation Administration.
+
+The science of airline revenue management started gaining attention from then onwards.
+
+More recently with the progress of DP and simulation, the problem of airline revenue management has been studied via near-optimal or optimal techniques.
+
+The main decision to be made in the context of revenue management is to decide whether to accept or reject customers as they arrive, via a website (McGill and van Ryzin, 1999), for the price they are willing to pay.
+
+Essentially, the airline offers different fares for differing privileges for a given origin–destination itinerary, and customers reserve tickets accordingly.
+
+But as time passes and as seats at different fares are sold, the airline must close down certain fares and open new fares—in order to maximize their profits.
+
+This is the central theme underlying the dynamics of the airline revenue management problem.
+
+PARAGRAPH
+
+Durham (1995) estimates that a reservation system may need to handle up to five thousand potential bookings per second, which should highlight the importance and scale of this problem.
+
+The customer in the main cabin of the economy class is generally offered a set of several different fares for a given origin–destination plan.
+
+Internally, for the airline, each fare is associated to a fare class.
+
+Different fare classes do not imply that the seats are located in different sections of the plane; typically, all seats are available to all fare classes within the cabin.
+
+Generally, the lower fare classes are among the first ones to be closed down by the airline.
+
+This is because, in general, the lower fare classes have the greatest demand and are hence sold first; however, it should be noted that the higher fare classes may offer advantages, and hence some passengers arriving early in the booking horizon may actually buy higher fares, even when lower fares are still available.
+
+Customers who choose to pay a higher fare, even when lower ones are available, generally, receive better benefits such as a lower cancellation penalty or the ability to board the flight sooner.
+
+In general though, customers arriving earlier in the booking horizon are more likely to buy a lower-priced ticket.
+
+Each airline typically updates its price offerings regularly based on the time remaining until departure, preferences of the customer, and many other factors.
+
+Prices have to be adjusted in a suitable manner in order for the continued success of an airline company.
+
+PARAGRAPH
+
+Mathematically, the problem of setting prices is really one of determining the number of seats to be allocated to each fare class in a way that leads to the maximum profits.
+
+If too many seats are allocated to the lower fare classes, there would be few empty seats at the time of departure, but low profits would also result at the same time.
+
+On the other hand, if too many seats are allocated to the higher fare classes, one will end up with many empty seats at the time of departure, which will also lead to diminished profits.
+
+Thus, airlines seek a compromise between these two extreme scenarios to strike a balance.
+
+PARAGRAPH
+
+Another aspect of this problem is the number of empty seats in the plane when it takes off.
+
+Airline seats are a perishable commodity, meaning that as soon as a flight departs, any empty seat signifies a loss of potential revenue.
+
+Needless to add, airline companies strive to reduce the probability of empty seats; of course, this is a world of cut-throat competition, and every opportunity to make revenues is seized upon by competitors, making it essential for every airline to ensure that it loses no opportunity to make revenues in a legal manner.
+
+These cancellations and no shows are accounted for by overbooking a flight.
+
+This implies that the airline company sells more seats than the total number of seats available on the plane.
+
+If the number of passengers who show up exceeds the capacity, the airline company must pay an overbooking penalty to the passengers who could not get a seat (a compensation fee) and also find a new flight for them.
+
+PARAGRAPH
+
+Taken together, for any given origin–destination, the demand for different fares, the probability of cancellations, and overbooking make the airline revenue management problem a challenging one in which it is necessary to get the arithmetic right in terms of how many seats are sold at each fare, prior to flight departure.
+
+This requires data collection on the actual demand for each fare, the cancellation probabilities, the cancellation penalties, and the overbooking penalties.
+
+When this data is available, one can either use a heuristic, or if the problem has a small dimension, a more advanced DP technique.
+
+DP techniques break down on large-scale problems encountered in industry; though heuristics work on large-scale problems, they are always questionable in terms of how close to optimality their solutions are.
+
+In this paper, we will use the SMDP model underlying DP, but use an RL technique that can be employed on large-scale problems for solution purposes.
+
+RL can generate near-optimal solutions on MDPs/SMDPs when DP breaks down on them due to their large dimensionality, making it impossible to compute the TPs underlying the respective Markov chains.
+
+We will also show that the RL-based approach outperforms the heuristic approach in our numerical experiments.
+
+PARAGRAPH
+
+We now enumerate two assumptions made in our model.
+
+(1) We assume a binary choice to the customer: either the customer accepts the offer of the current fare or rejects it.
+
+This assumption is justified by the nature of the data we use for our simulation model, where the arrival process is assumed to be Poisson and hence the arrival of each customer class is an independent Poisson process (see Chapter 2 of Kao (1996)).
+
+See also Talluri and van Ryzin (2004a) for a model in which this assumption is relaxed, but, their approach is not simulation-based; rather used in conjunction with the heuristic EMSR-b.
+
+(2) The input data for every leg in the network is known and can be used independently for each leg.
+
+The decomposition of the network problem into independent legs is possible via the Displacement Adjusted Virtual Revenue approach developed in the revenue management community (see Talluri and van Ryzin (2004b)) for networks.
+
+The decomposition allows the airline to focus on the key legs that generate the most revenues and use the very tractable single-leg approach in each of the legs studied.
+
+A network model that considers multiple legs becomes too unwieldy and acquires a black-box nature that practicing managers are not attracted to.
+
+Also, from a technical standpoint, network problems become intractable for simulation-based settings and typically require either multi-stage stochastic programming (Chen and Homem-de Mello, 2010) or a recently developed fluid model (Dai et al., 2019).
+
+As such, the single-leg approach continues to be popular in the airline industry, as indicated to us by industry practitioners in the 2016 Annual Conference of the Institute of Operations Research and Management Science (INFORMS) during our presentation.
+
+SECTION
+
+SMDP model.
+
+PARAGRAPH
+
+Before presenting the SMDP model, i.e., the state and action space, for the revenue management problem, we present additional notation that is required:
+
+PARAGRAPH
+
+The action space for this problem contains two actions, which are (Accept,Reject), and the state space is as follows: (c,t,s1,s2,…,sn,ψ1,ψ2,…,ψn), where ψi is a vector of size si that contains the times of arrival (in the booking horizon) of the passengers in the ith fare class.
+
+Clearly, the state space here is too large.
+
+Even if the continuous component, t, is ignored, the size of the state space equals several billion.
+
+Naturally, developing TPs for this model is also ruled out, thus making this a suitable case study for an RL algorithm.
+
+PARAGRAPH
+
+Even for RL, the state space cannot be used as is.
+
+After significant experimentation for the airline case study (the details of which can be found in Section 4.2), it was found that keeping t and the vectors ψ did not improve the results from the RL algorithm, and hence t and ψ were dropped from the state space.
+
+Such approximation of state-space is common in the RL community (Sutton and Barto, 1998).
+
+The following function from Gosavi (2004a) was used to reduce its dimensionality to a manageable number: ϕ=∑i=1n(fi×si)θ,where fi is the fare for the ith class and θ is a hand-coded, but user-defined, scaling value used in the encoding needed to produce an aggregation of the state space.
+
+The value of θ must be determined through experimentation (trial and error) for each case of input parameters, and its value will hence be case dependent.
+
+We further note that ϕ is often referred to as a feature in the literature (Bertsekas and Tsitsiklis, 1996).
+
+The equation above actually produces a continuous state space, which can be problematic; but by rounding the value of the right-hand side of the equation down to the nearest integer, we have a discrete integer value for ϕ and thus a suitable feature space that can be used in our experimentation.
+
+As a result of the above transformation, the altered state (feature) space can now be defined in discrete terms as (c,ϕ).
+
+SECTION
+
+EMSR-b.
+
+PARAGRAPH
+
+A widely used heuristic in the airline industry for solving the single-leg version of the problem is called EMSR-b (Talluri and van Ryzin, 2004b).
+
+We will use this heuristic to benchmark the computational results from using our RL algorithm on the airline case study.
+
+We now present details of how the heuristic works.
+
+PARAGRAPH
+
+As noted above, we will use fi to denote the fare in dollars for the ith class, where f1<f2<f3<⋯<fn, and Yi to denote the demand (i.e., projected number of customers) in the ith class.
+
+The heuristic first computes two quantities based on the fares and the projected demands: (i) the so-called aggregate demand, Yˆi, for the ith fare class and (ii) the so-called aggregate revenue, f¯i, for the ith fare class.
+
+For i=1,2,…,n, Yˆi=∑j=inYj.Thus, Yˆi denotes the sum of the demands for the ith fare class and that for all classes with fares exceeding fi.
+
+Also, for i=1,2,…,n, f¯i=∑j=infjE[Yj]∑j=inE[Yj].
+
+PARAGRAPH
+
+Next, the heuristic solves the following equation, also called Littlewood’s equation (Littlewood, 1972): For i=1,2,…,n−1, fi=f¯i+1Pr[Yˆi+1>Pi+1],where Pi+1 is the so-called protection level for the ith class and is one of the (n−1) unknown variables, whose value needs to be determined from solving the equation above; the protection level is the number of seats to be protected for a given class from the lower fare classes.
+
+Thus, Pi is the number of seats to be protected for class (i−1) from classes i,i+1,…,n.
+
+There is no protection level for class 1, as it is the lowest fare class from which no protection is needed.
+
+For solving the Littlewood’s equation, one needs the distribution of each of the random variables, Y¯i, for all values of i; these distributions can be determined from the input data available to airlines, and oftentimes, the underlying distribution is normal, which can be approximated by the Poisson distribution, which allows us to use the exponential distribution for the time between successive arrivals.
+
+PARAGRAPH
+
+Finally, in the last step of the heuristic, the booking limit for the ith class is calculated as follows: BLn=C and for i=1,2,…,n−1, BLi=max{C−Pi+1,0},where C denotes the capacity of the plane.
+
+The tangible meaning of the booking limit in the airline reservation system is that if there are BLi seats booked in class i already, no further customers are allowed in that class.
+
+If overbooking is considered, one heuristically replaces C in the above by C∕(1+cp), where cp denotes the average cancellation probability over all fare classes, in order to accommodate for an artificially increased capacity only during the booking process.
+
+SECTION
+
+New algorithm
+
+PARAGRAPH
+
+In this section, we first present the background theory of actor critics, along with mathematical reasons for difficulties encountered with the algorithm in the literature, and finally propose a new algorithm: first a discounted-reward version and then the average-reward version; the latter is suitable for the airline case study.
+
+This section is organized as follows.
+
+Section 3.1 discusses the background material focusing on the classical actor–critic.
+
+Section 3.2 presents the discounted-reward version on the MDP model.
+
+Section 3.3 is devoted to presenting a step-by-step description of the new algorithm on the average-reward SMDP.
+
+SECTION
+
+Classical actor critics
+
+PARAGRAPH
+
+The key underlying problem in the RL setting is to discover the optimal action in each state.
+
+The so-called policy is a collection of actions for each state.
+
+The optimal policy is hence one that delivers the best value for the performance metric.
+
+In the actor–critic setting, an actor is the agent that selects a policy and a critic is the other agent that computes the so-called value function of dynamic programming (Bertsekas, 2007) for each policy.
+
+As a result of its interactions with the environment, both the actor and the critic update their iterates on the basis of feedback produced by the environment.
+
+We now provide mathematical notation needed for the actor–critic algorithm.
+
+PARAGRAPH
+
+Steps in Projection-Bounded actor–critic Algorithm for Discounted-Reward MDPs:
+
+PARAGRAPH
+
+The main steps in the discounted-reward traditional actor–critic MDP algorithm that uses the projection to bound its actor’s values are as follows.
+
+PARAGRAPH
+
+As discussed above, the artificial bound does not allow proper exploration.
+
+One heuristic way to use a large value for P¯ and still compute the exponential term is to use a so-called temperature, U, where U∈(0,1), in the Boltzmann action-selection, modifying it to the following: q(i,a)=eP(i,a)×U∑b∈A(i)eP(i,b)×U.As a result of the above, since U is positive but much smaller than 1, the product P(i,a)×U becomes small, even if P(,.,) is large, thereby allowing us to compute eP(i,a)×U.
+
+Unfortunately, there are three difficulties associated with this: (i) technically the convergence proof requires that U is equal to 1, (ii) this heuristic approach still limits the exploration, and (iii) using the temperature does not resolve the problem of computer overflow with the value of the actor itself, i.e., when P(,.,) itself becomes too large to be stored in the computer.
+
+SECTION
+
+Bounded actor–critic for discounted-reward MDPs
+
+PARAGRAPH
+
+The algorithm in Gosavi (2014a) that we now present in brief seeks to alleviate the above-mentioned difficulties; the aim is to produce boundedness in the actor’s iterates without any projection—by using a convex combination in its update.
+
+The algorithm’s steps would be the same as shown for the projection-bounded algorithm with the following exceptions.
+
+Of course, the projection step would be eliminated and the update in Eq. (3) would be replaced by: P(i,a)←(1−α)P(i,a)+αr(i,a,j)+λV(j).Note that a key difference between the update above and that in the projection-bounded algorithm is that we multiply the first P(i,a) term on the right hand side by (1−α), which makes the update a convex combination.
+
+Of course, one still needs to prove mathematically that the iterates will remain bounded with the update defined in (5); see Gosavi (2014a) for a mathematical proof.
+
+The other difference with the update in Eq. (3) is that the term within the square brackets in the right-hand side of Eq. (5) does not contain the subtracted term V(i).
+
+PARAGRAPH
+
+As discussed in the introductory section, despite the mathematical bound, unfortunately, the values of the actor using the update in Eq. (5) still become quite large in magnitude in practice, which poses problems for the exploration.
+
+We will demonstrate this issue numerically in Section 4.
+
+PARAGRAPH
+
+We now propose a different refinement of the projection-bounded algorithm in which we do not erase the subtracted term V(i) from the original algorithm, while simultaneously using the notion of convex combination.
+
+This algorithm and its extension to the average-reward SMDP, discussed in the next subsection, are the main contributions of this paper.
+
+The main update for the actor in the new algorithm for the discounted-reward MDP, which will henceforth be referred to as Algorithm 1, would be: P(i,a)←(1−α)P(i,a)+αr(i,a,j)+λV(j)−V(i).This algorithm should follow all the steps shown for the projection-bounded algorithm with two exceptions: (i) the projection step should be skipped and (ii) Eq. (6) should replace Eq. (3).
+
+Our new algorithm is shown to have the following nice properties: (i) boundedness, (ii) the actor’s iterates, i.e., the P(.,.) terms, end up with values that have a small magnitude, and (iii) as a result of the previous behaviors, the algorithm can explore fully.
+
+We will prove mathematically the first property, i.e., the boundedness of the actor’s and critic’s iterates, in Appendix A.1.
+
+The other two properties will be demonstrated in the section on numerical results.
+
+SECTION
+
+Bounded actor–critic for average-reward SMDPs
+
+PARAGRAPH
+
+For the average reward SMDP, the algorithm needs an additional update for computing the average reward.
+
+Further, the Bellman equation is different, and we present the main result associated to it.
+
+PARAGRAPH
+
+PARAGRAPH
+
+For an average-reward SMDP in which all Markov chains are regular, there exists a vector V≡{V(1),V(2),…,V(|S|)} and a scalar ρ that solve the following system of equations: V(i)=maxa∈A(i)r̄(i,a)−ρt̄(i,a)+∑j=1|S|p(i,a,j)V(j) for all i∈S. Further ρ equals ρ∗ , the optimal average reward of the SMDP.
+
+PARAGRAPH
+
+Eq. (7) is the so-called Bellman optimality equation for SMDPs.
+
+The above result leads us to the optimal solution of the average reward SMDP, since it implies that if one can find a solution to the vector V and the scalar ρ∗, then the following policy d is optimal, where d(i)∈arg maxa∈A(i)r̄(i,a)−ρ∗t̄(i,a)+∑j=1|S|p(i,a,j)V(j) for all i∈S.
+
+PARAGRAPH
+
+In order to use the equation in our RL framework, we will need a slight modification of the above equation, which is as follows: V(i)=maxa∈A(i)r̄(i,a)−ρ∗t̄(i,a)+η∑j=1|S|p(i,a,j)V(j),where η∈(0,1) is a constant.
+
+The uniqueness of the solution of the above equation follows directly from the theory of discounted reward MDPs (Bertsekas, 2007).
+
+The use of η, it has been observed empirically, makes actor–critic algorithms behave better in practice (Kulkarni et al., 2011), i.e., makes it easier to approach the optimal solution, and just as importantly also ensures that the values of the actor remain bounded; (we will present a mathematical proof of boundedness in Appendix A.2.)
+
+Our algorithm will hence use the above equation, Eq. (8), as its foundation.
+
+As η tends to 1, the above equation tends to the Bellman equation for SMDPs, i.e., Eq. (7).
+
+In practice, if the value of η is set close to 1, Eq. (8) behaves just like (resembles) the Bellman optimality equation for SMDPs.
+
+Forcing a unique solution for the average reward Bellman equation is an idea that we have borrowed from the literature: this idea has been used in the context of policy gradients (Baxter and Bartlett, 2001) to obtain superior algorithmic behavior.
+
+Further, past work in RL for average reward SMDPs has also used this concept (Gosavi, 2004b; Kulkarni et al., 2011).
+
+Because of the use of η in Eq. (8), the equation is mathematically identical to the Bellman optimality equation of a discounted reward MDP, which is known to be a contraction map and to consequently carry a unique solution (see Prop. 1.4.1 in Vol II of Bertsekas (2007)).
+
+This related discounted reward MDP would have an average immediate reward function defined as w¯(i,a)=r̄(i,a)−ρ∗t̄(i,a) for all (i,a) and a discount factor λ that equals η.
+
+PARAGRAPH
+
+The main steps in the new algorithm, which will henceforth be called Algorithm 2, are as follows.
+
+PARAGRAPH
+
+Steps in the New actor–critic Algorithm for Average-Reward SMDPs:
+
+PARAGRAPH
+
+We note that the Boltzmann action-selection scheme employed above and shown via Eq. (9) does not require the temperature, U, and, as will be shown later in the next section, works effectively in the algorithm; in other words, no temperature reduction is needed, nor is any artificial bounding required in our algorithm.
+
+SECTION
+
+Numerical results
+
+PARAGRAPH
+
+This section is divided into two subsections.
+
+The first subsection is devoted to results on small MDPs to demonstrate important properties of our new algorithm, while the second provides results via the airline case study.
+
+SECTION
+
+Small MDPs
+
+PARAGRAPH
+
+Algorithm 1, i.e., the new bounded actor–critic algorithm whose actor update is defined in Eq. (6), was run for 4 different discounted reward MDPs consisting of two states each and two actions allowed in each state.
+
+Cases have been taken from Gosavi (2014a).
+
+The data for each case is as follows, where TPMa denotes the TPM for action a and TRMa denotes the TRM for action a.
+
+Note that the element in the ith row and jth column of TPMa equals p(i,a,j).
+
+Similarly, the element in the ith row and jth column of TRMa equals r(i,a,j).
+
+PARAGRAPH
+
+Case 1: TPM1=0.70.30.40.6;TPM2=0.90.10.20.8; TRM1=6−5712;TRM2=1017−1413.For the remaining cases, only those inputs where the problem differs from Case 1 are listed.
+
+Case 2: r(1,1,2)=5;r(2,2,1)=14; Case 3: r(1,2,1)=12; Case 4: r(1,1,1)=16.
+
+Also, λ=0.8 for all cases.
+
+PARAGRAPH
+
+The algorithm was run for a maximum of 10,000 iterations with the following learning rates: α=(log(k+1))∕(k+1), β=150∕(300+k).
+
+The optimal policy for each case was obtained using Q-value iteration (Gosavi, 2014b) and is denoted as 〈a1,a2〉, where a1 denotes the optimal action in state 1 and a2 denotes the optimal action in state 2.
+
+Table 1 shows the optimal policy, d∗, and the optimal value function, V∗(.)—both obtained from value iteration.
+
+The table also shows the value function, V(.), obtained from the actor–critic algorithm for discounted reward MDPs, where the actor-update defined in Eq. (6) is employed.
+
+It can easily be seen that the value functions produced by the actor–critic are very close to the optimal values produced from value iteration.
+
+PARAGRAPH
+
+Table 2 shows the actor’s values from the actor–critic with the update in Eq. (6), as well as the policy produced by the algorithm, d; this policy can be derived by examining the actor’s values and finding the action that produces the largest values for each state.
+
+For example, in Case 1, P(1,1)=−8.389 and P(1,2)=−0.004 implying that action 2 is better in state 1 because P(1,2)>P(1,1).
+
+Similarly, in state 2, P(2,1)=−0.020>P(2,2)=−3.497 meaning that action 1 is better in state 2, which produces a policy of 〈2,1〉; this matches the optimal policy produced from value iteration (See Table 1).
+
+Thus, it is clear from the table that the actor–critic algorithm produces the optimal policy in all 4 cases.
+
+Very importantly, the actor’s values, P(i,a), are of a significantly small magnitude in all cases.
+
+PARAGRAPH
+
+In contrast, to the small magnitude actor’s values produced above, see Table 3 for results from using on the same cases where the actor’s update followed Eq. (5), which is from Gosavi (2014a); the table also shows the policy generated by the algorithm, which matches with the optimal one in each case.
+
+What is more interesting is that the actor’s values in Table 3 have significantly larger absolute values than those in Table 2, which are from the proposed new algorithm; the maximum absolute value for the actor in Table 2 is 10.73, while minimum absolute value in Table 3 for the actor is 38.17.
+
+It is interesting to note that though this algorithm, based on Eq. (5), also generated the optimal policy, our simulations showed that a large magnitude of the actor’s values did not permit the thorough exploration of the state space that was observed with the previous algorithm (Algorithm 1).
+
+PARAGRAPH
+
+SECTION
+
+Airline revenue management
+
+PARAGRAPH
+
+We now present numerical results from an elaborate experimentation on a large-scale airline system, using the average reward SMDP actor–critic algorithm, i.e., Algorithm 2, proposed in this paper.
+
+Much of this data employed here is from an airline industry, but it has been masked and slightly modified without changing the basic structure to avoid identification.
+
+PARAGRAPH
+
+Input Parameters: The fare structure for each case is given by FS=(f1,f2,f3,…,fn,b),where fi is the fare of the ith fare class and b is the bumping cost.
+
+As stated before, a lower value of i stands for a lower revenue fare class.
+
+Two sets of systems (cases) were created for the experimentation: systems with four fare classes and systems with six fare classes.
+
+Part of this dataset was obtained from a real airline company, where it was made available at the 2017 INFORMS conference, but the dataset was masked to hide the identity of the airline, i.e., some numbers were modified without altering the basic structure of the dataset.
+
+In every case, the booking horizon was assumed to be 100 days long, and, for the arrivals, a homogeneous Poisson process with a rate of Λ=1.4 passengers per day was used; the plane was assumed to have a total capacity of 100 seats.
+
+The Poisson process for each fare class will hence be an independent process, whose rate should be equal to ΛPr(i), where Pr(i) denotes the probability that the arrival belongs to the ith class.
+
+The so-called cancellation probability for each fare class is essentially the probability with which a traveler in that given fare class cancels the ticket.
+
+When a cancellation occurs, it is scheduled using a uniform distribution between the time of arrival and the time of flight departure.
+
+Tables 4 and 5 provide much of the data for input parameters needed in our experimentation.
+
+Finally, the tuning parameters of the algorithm were determined as follows.
+
+The value of θ in the algorithm update had to be determined separately for each individual case, based on careful experimentation, to produce the best possible policy, and these values are presented in the table that shows the outputs from our experimentation.
+
+A value of 0.999999 was used for η in the actor–critic algorithm, which was also determined after suitable experimentation.
+
+After significant experimentation, the following step-sizes were found to be most suitable for the three updates in the algorithm: α=15000300000+k;β=10000300000+3k;γ=10000300000+10k.
+
+PARAGRAPH
+
+Experimentation and Algorithm Performance: The performance for both the actor–critic algorithm and EMSR-b was measured in terms of the average reward, ρ, whose unit is dollars per day.
+
+The algorithm was tested on ten cases for each of the four-fare systems and for each of the six-fare systems.
+
+Booking limits were first computed from the EMSR-b heuristic, via a MATLAB program.
+
+These limits were then used within the system simulator, again with 8 replications for each case, to evaluate the performance of the EMSR-b heuristic; the average value of average reward from these replications was denoted by ρEMSR−b.
+
+Tables 6 and 7 provide the EMSR-b booking limits returned for the 4-fare and 6-fare systems, respectively, where BL(i) represents the booking limit of the ith fare class.
+
+Results of using the actor–critic algorithm, as well as EMSR-b, for the 4-fare systems and 6-fare systems, are shown in Tables 8 and 9 respectively.
+
+The learning phase of the actor–critic algorithm was run for approximately 1000 flights and took at most 130 s on a 64-bit, 2.5 GHz windows operating system in MATLAB.
+
+The learning phase helped determine the policy generated by the algorithm.
+
+Then the simulator was re-run with the fixed policy (also called frozen policy) for 8 replications with 200 flights per replication; the resulting average reward was shown as ρActor−Critic in Tables 8 and 9.
+
+Numerical improvement of the actor–critic algorithm over EMSR-b was defined as: IMP=ρActor−Critic−ρEMSR−bρEMSR−b×100%.This improvement was also shown in Tables 8 and 9.
+
+As can be seen from the tables, the actor–critic algorithm outperforms EMSR-b; a t-test was performed to determine if the results delivered from the actor–critic differ from those of EMSR-b with 95% confidence in a statistical sense, and, in every case, a statistical difference was shown to exist.
+
+The improvement has ranged from 1.35% to 4.36%.
+
+It is to be noted that EMSR-b is widely used in the industry, where even a 1% improvement can lead to increased profits of millions of dollars in a single year.
+
+Figs. 1:4 show the plots and the nature of the learning that occurs in some sample cases; each “iteration” shown on the x-axis of these figures actually equals 1000 iterations of the algorithm.
+
+Note that these figures display the so-called learning curves of reinforcement learning.
+
+Each learning curve can be unique, where the algorithm learns with trial and error.
+
+It is not uncommon for the algorithm to learn a policy that produces high rewards in the short run and yet dip to a lower reward after some time, but recover later to a better policy; Fig. 2, which is for Case 7 of the 4-fare systems, shows such behavior.
+
+However, in the other three cases (see Figs. 1, 3, and 4), the algorithm shows gradually improving or stable behavior in the limit.
+
+PARAGRAPH
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+While the actor–critic algorithm predates the more popular Q-Learning algorithm, one drawback of the actor–critic that has perhaps prevented its applications in large-scale problems is the unboundedness of the actor’s values.
+
+There are two significant difficulties associated to the unboundedness: (i) the values can become too large in magnitude causing a computer overflow and (ii) the large values usually cause insufficient exploration of the state space when used in conjunction with the popular Boltzmann action-selection scheme.
+
+Two mechanisms suggested in the literature to circumvent these difficulties are: (i) an awkward projection that forces the values to be bounded and (ii) a temperature-reduction scheme; unfortunately, both of these mechanisms can still lead to poor solutions due to the insufficient exploration that they deliver.
+
+A key contribution of this paper was to develop a new update in which the actor’s iterates were not only bounded, but also remained small in magnitude without any artificial projection or temperature reduction; further it should be noted that this led to a superior exploration of the state space.
+
+PARAGRAPH
+
+We developed two algorithms for two different performance metrics: one for the discounted reward MDP and the second for the average reward SMDP.
+
+Both performance metrics are of interest in industry; the first is used widely in computer science, while the second is more popular in management science.
+
+Numerical tests were performed with both algorithms: the discounted reward MDP algorithm was tested on small instances, where the optimal policy was known, while the average reward SMDP was tested on a large-scale test-bed from the domain of airline revenue management with industrial data.
+
+In both types of tests, the algorithm showed encouraging empirical behavior, generating the optimal solution on the small MDPs in the discounted reward case and outperforming a well-known industrial heuristic in the large-scale tests with the average reward SMDPs.
+
+We also proved boundedness of the iterates mathematically for both algorithms, but a full-blown convergence analysis of the algorithms is beyond the scope of this paper.
+
+In future work, we will pursue such a convergence analysis for both algorithms developed here and develop an extension of the first algorithm to discounted reward SMDPs.
+
+We also seek to develop model-based reinforcement learning actor–critics (see Gosavi et al. (2012) for an earlier attempt), which have the potential to be more robust than their model-free counterparts (Wiering et al., 2001).
+
+An additional future direction would be to test these algorithms on conjunction with deep learning architectures that are currently gaining significant interest in the field of artificial intelligence.

@@ -1,0 +1,1041 @@
+10.1016/j.engappai.2020.103479
+
+FULLTEXT
+
+TITLE
+
+Differential Evolution: A review of more than two decades of research
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Optimization is a kind of the decision making, or more specifically, is one of the major quantitative tools in the machinery of decision making, where decisions have to be taken to optimize one or more objectives under some prescribed set of circumstances.
+
+It may be said that optimization problems are ubiquitous in nature as most of the real-life problems can be formulated in terms of optimization models, involving several criteria and objectives.
+
+It forms the core of various fields such as Mathematics, Computational Science, Operations Research, Engineering, Economics, Physics, and Biology, etc. (Boyd and Vandenberghe, 2004).
+
+Optimization is a wide area of research which prescribes a particular method for solving a particular class of problems like Linear Programming Problems (LPP), Integer Programming Problems (IPP), Quadratic Programming Problem (QPP), Non-convex optimization and many more.
+
+The difficulty, however, arises when it becomes difficult to identify the nature of the problem.
+
+Under such circumstances when the nature of the problem is not known a priori, it becomes very difficult to select an appropriate method for obtaining the solution.
+
+Researchers are therefore focusing on generic algorithms that can be exploited for solving a wide range of problems.
+
+Past few decades have witnessed a boom of such general-purpose algorithms that can be put under the umbrella term of Meta-heuristics, defined in the next subsection.
+
+SECTION
+
+PARAGRAPH
+
+Meta-heuristic techniques
+
+PARAGRAPH
+
+Literature does not provide a very clear definition of Meta-heuristics but they may be considered as high-level strategies for guiding the heuristics algorithms (Ibarra and Kim, 1977).
+
+These are the optimization techniques mainly based on function evaluation and make little or no use of the properties of objective functions and constraints.
+
+Meta-heuristics are thus problem independent techniques not taking advantage of any specificity of the problem.
+
+Classification of meta-heuristics techniques is explained below and is pictorially depicted with the help of a network graph given in Fig. 1.
+
+PARAGRAPH
+
+Meta-heuristics may be segregated into two categories
+
+PARAGRAPH
+
+The algorithms mentioned above and many other such algorithms that are proposed from time to time have proved the mettle in solving complex and intricate problems that are otherwise difficult to solve through classical gradient-based methods.
+
+This focus of the present document is Differential Evolution (DE), an algorithm belonging to the class of evolutionary algorithms.
+
+The manuscript is divided into seven sections, opening with Section 1, which provides a brief introduction to the Meta-heuristic techniques available for solving optimization problems.
+
+Section 2, provides an introduction to DE, the core of the paper, also a performance assessment of benchmark problems.
+
+In Section 3, methodology used for preparing this survey is provided.
+
+Review of articles laying emphasis on selected aspects of DE is given Section 4.
+
+Section 5 provides the statistical analysis on the basis of different publishers (Elsevier, Springer, IEEE, Taylor & Francis Online etc.) Statistics based on journal rank by online platforms like incites (an online platform for ranking the Science citation index (SCI) articles).
+
+Section 6, provides an analysis and discussion on the status of DE since 1995 to 2018.
+
+Finally, future directions and conclusion are provided in Section 7 highlighting the key points.
+
+SECTION
+
+Differential Evolution
+
+PARAGRAPH
+
+Conceptualized by Storn (1996), the first documented article on DE appeared in the form of a technical report.
+
+A year later, the performance of DE was demonstrated at the First International Contest on Evolutionary Optimization in May 1996, which was held in conjunction with the 1996 IEEE International Conference on Evolutionary Computation (CEC) Storn and Price (1996).
+
+Since then DE has emerged to be a popular choice among researchers for solving optimization problems occurring in different domains.
+
+The total number of citations of DE since 1996 are recorded as 20366 till date as per Google Scholar citation and 7 of its variants has citations above 500 out of which 8 most cited variants are shown in Table 1.
+
+Fig. 2, provides the percentage citation of DE and its variants.
+
+Also, since 2005, many variants of DE have managed to obtain a position among the top three algorithms in the CEC competitions in successive years except for 2013, when DE obtained the 4th rank.
+
+The consistent performance of DE in different CEC competitions is shown in Table 2.
+
+Count of DE variant by Rank can be seen in Fig. 3.
+
+PARAGRAPH
+
+Literature (Das and Suganthan, 2011; Das et al., 2016; Neri and Tirronen, 2010) reveals the emergence of DE as an effective and competitive member of the family of population based search algorithms such as Genetic Algorithms (Goldberg, 1989), Evolution Strategies (Rochenberg, 1973), Evolutionary Programming (Fogel et al., 1965), Particle Swarm Optimization (PSO) (Eberhart and Kennedy, 1995), Firefly Algorithms(FA) (Yang, 2009).
+
+SECTION
+
+Working of differential evolution
+
+PARAGRAPH
+
+DE works in two phases: initialization and evolution.
+
+In first phase, population is generated randomly and in the second phase, which is evolution, the generated population goes through mutation, crossover and selection processes which are repeated until a termination criteria is met.
+
+Figs. 4(a)–4(c) shows the mutation, crossover and selection scheme of DE respectively.
+
+PARAGRAPH
+
+Mutation: In mutation we generate a mutant vector VjG for each target vector XjG at generation G as VjG=Xr1G+F∗Xr2G−Xr3Gwhere F is the scaling factor and value of is F is vary from 1 to 0 and r1,r2,r3∈{1,2,…,NP} are mutually different, randomly chosen vectors.
+
+PARAGRAPH
+
+Crossover: After mutation, crossover is done to generate a new vector called trial vector denoted as UjG=u1,jG,u2,jG,…,uD,jG.
+
+Crossover is performed between target vector XjG=x1,jG,x2,jG,…,xD,jG and mutant vector VjG=v1,jG,v2,jG,…,vD,jG using a crossover probability Cr whose value is between 01.
+
+UjG is generated as ui,jG=vi,jGifrandj≤Crxi,jGotherwisewhere i∈1,2,…,DandCr∈0,1.
+
+PARAGRAPH
+
+Selection: In this operation, a comparison is done between the target vector and trial vector according to their fitness value.
+
+The one having better fitness survives to the next generation.
+
+This operation is performed as: XjG+1=UjGiffUjG≤fXjGXjGotherwiseMutation, Crossover and selection of evolution phase are repeated till a predefined termination criterion is satisfied.
+
+Flowchart of DE and its Pseudo are provided in Figs. 5(a) and 5(b) respectively.
+
+PARAGRAPH
+
+SECTION
+
+Performance assessment
+
+PARAGRAPH
+
+According to “No free lunch theorem for optimization”, all algorithms that search for an extremum of a cost function perform exactly the same when averaged over all possible cost functions.
+
+So, for any search/optimization algorithm, any elevated performance over one class of problems is exactly paid for in performance over another class.
+
+Consequently, to prove the efficiency of a meta-heuristic algorithm over the other, many experiments are to be performed to reach a conclusion.
+
+Several performance metrics are available in the literature that can be used for evaluating the performance of a meta-heuristic algorithm like that of DE.
+
+In this section, we highlight some popular metrics:
+
+PARAGRAPH
+
+PARAGRAPH
+
+The first and foremost step to evaluate the performance of an optimization algorithm is to have an extensive set of test functions and benchmark problems based on properties like modality, scalability etc.
+
+Some standard benchmark problems include Ackley, Rosenbrock, Rastrigin, Sphere and many more.
+
+Selected benchmark functions along with their properties are provided in Appendix.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Stopping criteria or quantifying “how and when” to stop the algorithm is another measure of evaluating the performance of an algorithm.
+
+Basically, stopping criteria provides an idea about the rate of convergence of an algorithm.
+
+Commonly used stopping criteria include (a) Number of runs, (b) Number of function evaluation (FE) (c) Terminating the algorithm before it reaches maximum function evaluation if the error in the function value is less than an absolute function error value.
+
+PARAGRAPH
+
+PARAGRAPH
+
+It is a numerical value used to rank solutions.
+
+Since the meta-heuristic algorithms are stochastic in nature, the values are observed in the form of mean, median, best, worst and standard deviation of the fitness values.
+
+PARAGRAPH
+
+PARAGRAPH
+
+It is a rough approximation of the number of steps necessary to execute an algorithm (Suganthan et al., 2005).
+
+While evaluating complexity, one talks about the order of operation count, not of the exact count.
+
+Complexity can be measured as: Algorithmcomplexity=T2−T1T1where,
+
+PARAGRAPH
+
+T1=∑t1iNumberoffunction,t1i is the computing time for ‘A’ evaluation of the problem.
+
+PARAGRAPH
+
+T2=∑t2iNumberoffunction,t2i is the complete computing time for the algorithm with ‘B’ evaluation of the problem i.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Some other indicators that are used for assessing the performance of an algorithm are:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Statistical analysis is needed when even after comparing the algorithms based on above-mentioned performance metrics, no concrete conclusion can be made.
+
+Some well-known non-parametric models that can be used for analyzing and ranking the meta-heuristic algorithms are listed below (Bagdonavičius et al., 2013):
+
+SECTION
+
+Data collection and methodology
+
+PARAGRAPH
+
+The paper provides an extensive review of DE algorithm by considering the research papers having following types of variants: population-based variants, mutation scheme based variants, crossover based variants, and selection based variants, hybrid variants of DE.
+
+Besides, discrete variants of DE are also discussed.
+
+Along with real life applications of DE in different areas of research and selected recent variants of DE.
+
+The search for research articles to be included in this paper is based on Journal Citation Report (JCR) (Thomson Reuters, 2018) until October, 2018.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Differential Evolution + optimization, Differential Evolution + optimization + variants, Differential Evolution + mutation, Differential Evolution + crossover, Differential Evolution + selection, Differential Evolution + change in parameters, hybrid Differential Evolution, Differential Evolution + review (TITLE), Differential Evolution + survey (TITLE).
+
+PARAGRAPH
+
+A total of 283 articles are reviewed, including 219 journal papers, 56 conference papers and 8 books/ edited books.
+
+The rank of articles are categories as per their quartile score (Q1, Q2, Q3, and Q4) using the online platform Incites (https://incites.clarivate.com/).
+
+PARAGRAPH
+
+A pictorial representation of the methodology used in the paper is presented in Fig. 6.
+
+SECTION
+
+PARAGRAPH
+
+Variants of differential evolution
+
+PARAGRAPH
+
+DE has undergone a plethora of modifications since its conceptualization to further enhance its performance on complex optimization problems.
+
+The modifications are based on the parameters involve and the steps of DE i.e. population alignment, mutation, crossover, and selection.
+
+SECTION
+
+Initialization techniques
+
+PARAGRAPH
+
+In population-based search algorithms, population is initialized through computer generated random numbers which usually follow a uniform distribution.
+
+Though, this is a simple method for initializing the population, researchers observed that customizing the initialization process may help in improving the performance of the algorithm.
+
+Consequently, a variety of initialization methods have been proposed in literature.
+
+Mostly these modifications are based on either contracting the search space in the beginning itself to encourage faster convergence or are based on dividing the population into smaller subgroups of populations that can perform in parallel or tries to adaptively tune the population.
+
+Some interesting initialization methods are discussed in the following paragraph.
+
+PARAGRAPH
+
+Rahnamayan et al. (2008) proposed an opposition based differential evolution, where an opposition based rule is used for initializing the population.
+
+Pant et al. (2009) used the quadratic interpolation method for initializing the population.
+
+Ali et al. (2009a) proposed a technique in which the population is initialized using the simplex method.
+
+Ali et al. (Tanabe and Fukunaga, 2013) proposed decentralization of initial population.
+
+Ali et al. (2013) also presented a compilation of different methods for population initialization.
+
+De Melo and Botazzo Delbem (2012) applied smart sampling for the initialization of the population.
+
+They made use of machine learning to identify the promising regions of the continuous search space.
+
+Ali et al. (De Melo and Botazzo Delbem, 2012) introduced a multi population-based DE for solving global optimization problems.
+
+They proposed to divide the population into different subgroups and used different mutation and update strategies to guide the search process and applied the proposed algorithm on large scale global optimization problems.
+
+PARAGRAPH
+
+Researchers also worked on implementing an adaptive population size, where the size of the population varies as the algorithm progresses.
+
+The concept of adaptive population was first suggested by Teo in Teo (2005, 2006).
+
+Deng et al. (2013) developed an improved self-adaptive differential evolution algorithm with multiple strategies (ISDEMS) using a different search strategy and a parallel evolution mechanism.
+
+In the ISDEMS algorithm, the population is dynamically divided into multiple populations according to the fitness value of the individuals.
+
+Multiple strategies are used to improve the diversity of the individuals, to avoid premature convergence and to ensure efficiency in exchanging information among subpopulations.
+
+In Sun et al. (2012), authors have proposed a DE variant called adaptive population topology differential evolution algorithm (APTDE) for solving unconstrained problems.
+
+The authors showed that their method helps in avoiding premature convergence by updating the population topology adaptively.
+
+PARAGRAPH
+
+Zhu et al. (2013) proposed an adaptive population tuning scheme (APTS) for DE for dynamically adjusting the population size based on ranking technique and perturbed the population to generate “fine” individuals.
+
+Sun (2017) proposed a novel symbiosis co-evolutionary model based on the population topology of DE, namely SCoPTDE, in which the population is divided into small species using specific topologies.
+
+Wang et al. (2016) introduced Cooperative Differential Evolution (CDE) for multi-objective function using multi-population strategy.
+
+Di Carlo et al. (2015) also used the multi-population technique.
+
+Aalto and Lampinen (2015) proposed an adaptive mechanism population-based DE called cumu-DE in which a probability mass function mechanism is used for automatically adapting the population size.
+
+Awad et al. (2017b) used niching based population reduction in a DE variant named sinusoidal differential evolution.
+
+Du Plessis and Engelbrecht (2012) proposed differential evolution using competitive population evolution dynamic environment.
+
+In Zhao et al. (2016), differential evolution with self-adaptive strategy and control parameters based on symmetric Latin hypercube design for unconstrained optimization problems in which the initial population is initialized by symmetric Latin hypercube design (SLHD) to increase the diversity.
+
+SECTION
+
+Modifications in mutation scheme
+
+PARAGRAPH
+
+Mutation is the most important step of DE as it produces a new individual in the population.
+
+A lot many researchers have worked towards this direction and have proposed modifications in mutation strategies.
+
+Yu et al. (2015) proposed a DE variant in which mutation becomes adaptive when the population clusters around the local optima.
+
+They also considered adaptive control parameters and validated the performance of the algorithm on eighteen benchmark problems.
+
+Islam et al. (2012) proposed a new mutation strategy with binomial crossover and two adaptive control parameters.
+
+In their work, a biased selection method is introduced where the mutant vector undergoes crossover with ‘p’ top-ranked population vectors, rather than the target vector.
+
+The authors validated the results on 25 CEC 2005 benchmark problems.
+
+Bujok and Tvrdík (2015) used current-to-pbest mutation strategies of JADE and proposed a modified strategy.
+
+They implemented the proposed algorithm on rotated benchmark problems.
+
+Mohamed (2015) proposed a triangular mutation approach based on the convex combination vector.
+
+He used three randomly selected vectors and calculated the difference between best and worst vector and combined it with basic mutation rule.
+
+Mezura-Montes and Cruz-ramírez (Ameca-Alducin et al., 2015) developed a method in which feasible solutions as reference are not required and is inspired by differential mutation.
+
+Authors combined two well-known DE variants: DE/rand/1/bin (base variant) and DE/best/1/bin (alternative variant) to propose a new mutation strategy.
+
+PARAGRAPH
+
+In Zhang and Sanderson (2009), the authors proposed a new mutation strategy “DE/current-to-pbest” with optional external archive and adaptively updating control parameters.
+
+The DE/current-to- pbest is a generalization of the classic “DE/current-to-best”, while the optional archive operation utilizes historical data to provide information on progress direction.
+
+Both operations diversify the population and improve the convergence performance.
+
+In Mallipeddi and Suganthan (2010), an ensemble of mutation strategies and control parameters with the DE (EPSDE) is proposed.
+
+In EPSDE, a pool of distinct mutation strategies along with a pool of values for each control parameter coexists throughout the evolution process and competes to produce offspring solution.
+
+Sacco and Henderson (2014) proposed a new mutation operator for DE.
+
+The proposed operator was inspired by the topographical heuristic algorithm (TA) introduced in the early nineties (Törn and Viitanen, 1994), for solving global optimization problems.
+
+Sacco and Henderson named the new variant TopoMut-DE and used it for solving a highly multimodal nuclear reactor problem.
+
+Wei et al. (2015) proposed non-dominated sorting mutation operator based on fitness and diversity named.
+
+The corresponding algorithm was named MS-CDE and was used for solving constrained optimization problems.
+
+In this algorithm, the fitness of each individual is calculated and sorted and parents for mutation are selected on the basis of fitness as well as diversity.
+
+PARAGRAPH
+
+Cui et al. (2016) developed a DE algorithm named as MPADE in which the population is divided into three parts based on the fitness values and three mutation strategies are applied on that for exploitation or exploration and further an adaptive technique is designed for parameter adjustment.
+
+MPADE was tested on 55 benchmark problems and 15 real-life problems.
+
+Some other modifications in mutation include: concept of donor mutation proposed by Fan et al. (2003) and Kumar et al. (2011a).
+
+Kaelo and Ali (2007) used the attraction–repulsion concept of electromagnetism to enhance mutation operation.
+
+Das et al. (2009)applied the concept of a neighborhood for each population member and used the DE/target-to- best/1/bin scheme of mutation in DE.
+
+Ali and Pant (2011) proposed a mutation operator following Cauchy distribution.
+
+In Lai et al. (2009), the authors proposed a wavelet-based mutation operation to control the scaling factor.
+
+PARAGRAPH
+
+Some other modified mutations are multiple-deme based mutation (DEMDE), Epitropakis et al. (2011) proposed proximity-based mutation operators in which an attempt to efficiently guide the evolution of the population toward the global optimum, without sacrificing the search capabilities of the algorithm.
+
+PARAGRAPH
+
+In Sun and Cai (2017), a novel DE algorithm with neighborhood-dependent mutation operator is proposed called neighborhood-dependent DE (NDE) in which a pool of population topologies is used to define multiple neighborhood relationships for each individual and then the neighborhood relationships are adaptively selected for the functions being solved during the evolutionary process and applied on the benchmark functions from CEC2013.
+
+In Opara and Arabas (2013), a censoring mutation is proposed and is used to guide and customize the search process.
+
+Liao et al. (2014) improved the performance of DE by using a ring topology based mutation strategy for faster convergence to attend the global solution.
+
+PARAGRAPH
+
+Biswas et al. (2014) proposed a mutation operator named parent-centric mutation with normalized neighborhoods for inducing niching behavior in DE.
+
+Al-dabbagh et al. (2014) proposed a new variant of DE called DE-BEA with new mutation scheme called bacterial mutation scheme.
+
+In DE-BEA, the standard mutation scheme DE/current-to-rand/1/bin is replaced by DE/current-to-rand/bin scheme and results were validated on benchmark functions including several CEC 2005 test problems.
+
+Sharma and Pant (2011a) proposed SaMDE, a dynamically adaptive mutation step size scheme for DE and called SaMSDE.
+
+Sindhya et al. (2011) suggested a hybrid version of mutation operator for multi-objective optimization problems in which the standard mutation scheme is hybridized with polynomial based operator to improve the performance of differential evolution.
+
+Piotrowski (2013) proposed a memetic mutation operator based on global and local neighborhood.
+
+Choudhary et al. (2017), proposed a mutation operator with stochastic mutation factor inspired by levy flight random walk.
+
+Yu et al. (2018) proposed a mutation operator for constrained multi-objective problems.
+
+They showed that the proposed mechanism can produce well-distributed Pareto optimal front while satisfying the concerning constraints.
+
+Ortiz et al. (2013) proposed a new mutation scheme along with auto-adaptive control parameters and showed that the proposed algorithm can help in avoiding the stagnation of population points.
+
+Zhang and Yuen (2015) proposed directional mutation operator.
+
+Some other mutation strategies proposed in literature include: interpolation-based mutation (Kumar et al., 2012), intersect mutation operator (Zhou et al., 2013) and ranking based mutation (Gong and Cai, 2013).
+
+SECTION
+
+Modified crossover schemes
+
+PARAGRAPH
+
+As we already know, the crossover operator constructs a new trial vector with the help of a mutant vector.
+
+Initially, exponential crossover was proposed in the original work of Storn (1996) but later on it was mostly binomial variant that gained popularity among researchers (Storn and Price, 1997).
+
+An efficient comparative study of binomial and exponential crossover is given by Zaharie (2007).
+
+Zhao and Suganthan (2013) showed the success of exponential crossover in the high dimensional optimization problem; Gong et al. (2014) proposed a crossover rate repair technique for adaptive DE algorithms.
+
+In their scheme, the crossover rate in DE is repaired by its corresponding binary string, i.e. by using the average number of components taken from the mutant vector.
+
+PARAGRAPH
+
+Pant et al. (2008a) proposed a parent centric crossover approach in which multiple parents recombines to produce the child and showed that the proposed algorithm works better in terms of convergence rate and robustness.
+
+Fister et al. (2016) gave Epistatic arithmetic crossover based on the Cartesian graph product.
+
+Ali (2007) proposed a crossover rule called the preferential crossover rule, to reduce the drawbacks of scaling parameters and applied their variant on 50 application problems.
+
+Fan and Zhang (2016) proposed self-adaptive differential evolution with adaptive crossover strategies.
+
+Wang et al. (2012) introduced an orthogonal crossover scheme and applied it on the variants of DE.
+
+Mukherjee et al. (2013) gave a locality-based crossover scheme for dynamic optimization problems.
+
+Guo and Yang (2015) proposed an eigenvector based crossover operator and showed that this concept can be applied to any crossover strategy.
+
+Zou and Gao (2012) modified crossover rate by using a linear increasing strategy.
+
+Qin and Suganthan (2005) proposed a self-adaptive Differential Evolution (SaDE), in which the generation of trial vectors and control parameter values are self-adaptive based on previous experiences.
+
+SECTION
+
+Modifications done in selection scheme
+
+PARAGRAPH
+
+DE has a unique selection mechanism that separates it out from the contemporary algorithms.
+
+Though modifications suggested in the selection scheme are limited to only a few papers, researchers have shown that suitable changes in it can further help in improving the performance of the algorithm.
+
+PARAGRAPH
+
+Yi et al. (2016) proposed a fitness function value based p best selection mechanism.
+
+If the offspring is having better fitness value it means the p-best of that particular offspring is suitable for exploitation.
+
+By doing so, the population is not gathered near p-best, which results in the diversification of the population.
+
+Pan et al. (Gämperle et al., 2002) proposed each target vector to be associated with a different strategy list (SL), a scaling factor F list (FL) and a crossover rate R list (CRL).
+
+When a trial vector is generated F and CR are selected from strategy lists and if an obtained trial vector is better than target vector then F and CR will enter into the winning strategy list (wSL), a winning F (wFL) and winning crossover (wCRL) respectively.
+
+After certain number of iterations, F and CR values are updated by selecting elements from wFL, wCRL and wSL.
+
+SECTION
+
+Changes in parameters
+
+PARAGRAPH
+
+The four main parameters of DE are population size NP, the crossover rate Cr and the scaling factor F. Numerous studies have been done for finding out the proper setting of these parameters to get an optimal solution.
+
+Initially, Storn (1996) suggested that the population size of 5D–10D and the value of scaling factor as 0.5 are sufficient for obtaining an optimal solution, where D denotes the dimension of the problem.
+
+Later, Gämperle et al. (2002) recommended that choosing the population size between 3D to 8D, scaling factor as 0.6 and crossover rate in the interval [0.3–0.9] is a good choice.
+
+According to Storn and Price (1997) and Liu and Lampinen (2002), the value of F and Cr should be in between [0.5, 1] and [0.8, 1] respectively.
+
+PARAGRAPH
+
+Ronkkonen et al. (2005) suggested that to obtain a good solution the value of F should lie in the interval [0.4, 0.95] and taking F as 0.9 initially, is a good choice.
+
+For the crossover probability, they suggested that if the objective function is separable then Cr should lie between [0, 0.2] whereas it should be in between [0.9, 1] if the function is not separable i.e if its parameters are dependent.
+
+Zielinski and Laur (2006) suggested that in many cases by setting F and Cr ≥ 0.6 good results can be obtained.
+
+PARAGRAPH
+
+Zhao et al. (2016) presented a DE approach for unconstrained optimization problems with self-adaptive strategy and control parameters.
+
+To increase the diversity, the population is initialized through Latin hypercube design, trial vector is selected adaptively and F and CR values are updated through Cauchy and Normal Distribution.
+
+PARAGRAPH
+
+In the approach of Lin et al. (2015), two parents are picked from the population to give a better evolutionary direction.
+
+The success rate of offspring and the scaling factor is made adaptive based on evolutionary progress.
+
+In Qin et al. (2009) Self-adaptive DE (SaDE) algorithm is proposed, in which both, the method of generation of trial vector and their associated control parameter values are moderately self-modified by learning from their previous experiences in improving solutions.
+
+PARAGRAPH
+
+Ghosh et al. (2011) described a very simple and very flexible technique for tuning both F and Cr, on the run, without any user involvement.
+
+The adaptation strategy is based on the value of the objective function for different individuals in the DE population.
+
+Wang et al. (2013) introduced Gaussian bare-bones DE (GBDE) and its modified variants which were parameter-free.
+
+Meng et al. (2018) proposed Parameters with Adaptive Learning Mechanism called (PALM) in DE to tackle the inconvenience involved in selecting the control parameters.
+
+PARAGRAPH
+
+Ortiz et al. (2013) proposed DE with auto-adaptive control parameters to overcome the stagnation of population near local minima.
+
+Brest et al. (2006) also used the concept of self-adaptive control parameters in DE and tested the proposed algorithm on numerical benchmark problems.
+
+Zamuda and Brest (2015) further used the self-adaptive mechanism of control parameters in DE to randomize the frequency and propagation.
+
+In Guo et al. (2014), proposed an improved Differential Evolution having self-adaptive control parameters based on simulated annealing.
+
+In their variant, firstly, two groups of the population are initialized.
+
+Secondly, it generates a set of control parameters for one of the two populations and then further creates another new series of control parameter for the other population through mutating the initial control parameters.
+
+Once the control parameters are generated, the two populations are mutated and crossed to produce two groups of trial vectors.
+
+Finally, the target vectors are selected from the two groups of trial vectors through selection operation.
+
+To enhance its global search capabilities, simulated annealing (SA) is involved in the selecting operation and the control parameters with better performance are chosen as the initial control parameters of the next generation.
+
+SECTION
+
+Hybrid variants of different evolution
+
+PARAGRAPH
+
+Hybridization is another important modification in DE which is implemented to enhance its performance and convergence speed.
+
+Plenty of work can be found in the literature on the hybridization of DE.
+
+The authors in El Dor et al. (2012) hybridized PSO with DE for enhancing the algorithm.
+
+Pant et al. (2008b) also proposed a hybrid version of DE with PSO and results show that the proposed DE-PSO is quite competent for solving the considered test functions as well as real-life problems.
+
+Liu et al. (2010) proposed a hybrid technique using DE with PSO for constrained optimization problems.
+
+In Long et al. (2013), direct search technique augmented Lagrangian method is hybridized with DE to solve constrained problems.
+
+PARAGRAPH
+
+Zhang et al. (2009a) proposed hybrid variants where DE is hybridized with PSO for enhancing the exploration ability and also modified DE operators are incorporated for enhancing each particle’s local tuning ability.
+
+Yan and Shi (2011) hybridized DE with PSO and Harmony Search Optimization and named the resulting algorithm HDPH.
+
+They validated the proposed hybrid approach on benchmark problems and reported that it gave promising results.
+
+Caponio et al. (2009) proposed DE variant named super-fit memetic differential evolution (SFMDE) in which DE is hybridized with PSO and two local search algorithms namely Nelder Mead and Rosenbrock.
+
+The efficiency of the algorithm was tested on for image processing problem and optimal control drive design for direct current (DC) motor.
+
+Zhang et al. (2017) hybridized cuckoo search and krill herd optimization with DE.
+
+Omran and Engelbrecht (2009) developed a hybridized DE named Free Search DE (FSDE), in which DE is hybridized with the Free Search Algorithm and opposition based learning algorithm.
+
+PARAGRAPH
+
+Menchaca-Mendez and Coello (2009) hybridized DE with Nelder Mead algorithm and applied it for solving constrained optimization problems.
+
+Ali et al. (2009b) hybridized the Ant Colony Algorithm with DE and applied it on problems related to water resources.
+
+Liao (2010) proposed two hybrid DE variants, one hybridized with local search operator and other with harmony search algorithm for solving engineering design applications.
+
+In Dong et al. (2016), the authors hybridized DE with an estimation of distribution algorithm for locating the promising global solutions.
+
+PARAGRAPH
+
+Cai et al. (2011) presented a hybrid DE algorithm called clustering-based DE (CDE), which is based on k-means clustering used for solving unconstrained global optimization problems.
+
+Sharma and Pant (2011b) hybridized Differential evolution with Artificial Bee Colony algorithm.
+
+The hybridization of DE and ABC was also reported in Stanarevic (2012).
+
+In Ustun and Akdagli (2017) also, the authors hybridized ABC with DE, and named it hybrid optimization method (HOM).
+
+Worasucheep (2015) used opposition based hybrid ABC and DE called OABCDE for solving the continuous optimization problems.
+
+The proposed OABCDE was tested on more the 15 benchmark problem with varying dimensions of size 30, 60 and 100.
+
+Zhang et al. (2013) incorporated the concepts of Lamarckian and Baldwinian learning into DE, to improve its performance and used it for solving well placement problem.
+
+Sethanan and Pitakaso (2016a) applied three local search technique shifting, exchange (SWAP) and k-variable move algorithms into DE and used it for solving assignment problems.
+
+Li et al. (2011) hybridized DE with a local search operator simplified quadratic approximation(SQA) for the constrained optimization problem.
+
+PARAGRAPH
+
+In Zhang et al. (2009b), the authors proposed a hybrid version of DE with simplified quadratic interpolation to optimize the performance of the antenna.
+
+In Yuan et al. (2008) chaos theory was applied to obtain self-adaptive parameter settings in differential evolution (DE) to solve short term hydrothermal system generation scheduling problems.
+
+Awad et al. (2017c) proposed CADE a hybrid version of the Cultural Algorithm (CA) and Differential Evolution (DE).
+
+In this algorithm both the meta-heuristics work in parallel.
+
+SECTION
+
+Discrete differential evolution
+
+PARAGRAPH
+
+Wang et al. (2010a) proposed a hybrid discrete DE algorithm to solve blocking job scheduling problems.
+
+The individuals are represented as discrete permutations and mutation and crossover are performed directly in the discrete domain and a neighborhood-based local search algorithm is embedded to maintain exploration and exploitation.
+
+Liu et al. (2009) proposed a discrete DE algorithm for solving job-shop scheduling problems, the floating values are encoded as discrete with the help of random key encoding scheme and then mutation, uniform crossover and selection are activated in the algorithm.
+
+PARAGRAPH
+
+Sauer and Coelho (2008) worked for solving traveling salesman with DE.
+
+They used four methods for solving the problem, first the problem was solved using DE, in the second DE was hybridized using variable neighborhood search (VNS), in third DE was hybridized using Lin–Kernighan–Heulsgaun (LKH) method and in fourth, DE was hybridized with both VNS and LKH methods.
+
+PARAGRAPH
+
+Zhang et al. (2008) proposed a discrete DE by applying the idea of JADE and suggested discrete encoding with the help of rank-based representation schema.
+
+Yuan et al. (2009) proposed a discrete binary differential evolution (DBDE) approach to solve the unit commitment problem (UCP) in which they used the method given by Gong and Tuson (2007) for binary encoding in mutation and crossover and selection are same as in basic DE.
+
+In Li-bao et al. (2016), the authors proposed a hybrid mutation scheme based discrete differential evolution for optimizing multidimensional knapsack problem.
+
+PARAGRAPH
+
+In Pan et al. (2011), the authors proposed a hybrid discrete differential evolution (HDDE) algorithm to minimize the total make-span in a flow shop scheduling problem, applied job permutation-based mutation and crossover and hybridized the algorithm with a local search algorithm based on insert and swap neighborhood structures.
+
+He et al. (2009) proposed a discrete binary differential evolution(BDE) for feature selection, to select the best feature subset.
+
+PARAGRAPH
+
+Cuevas et al. (2011) proposed a discrete differential evolution algorithm in which solutions are initialized as discrete points which are converted into real values using a forward transformation, mutation and crossover operations are performed after that, and the real values are converted back to integers.
+
+After this step, selection is performed and the algorithm is used in detecting circles with sub-pixels’ accuracy in noisy images.
+
+PARAGRAPH
+
+Datta and Figueira (2013), worked directly for discrete integer values.
+
+They kept the basic crossover and selection as it is but modified the mutation operation.
+
+During mutation, the random vectors can take three values 0 or 1 out of eight combinations; one is selected in each case.
+
+In Mahdavi (2017) authors proposed an enhancing discrete differential evolution for conducting election.
+
+Zeng et al. (2012) proposed a Pareto Utility Discrete Differential Evolutionary (PUDDE) based optimization model for solving operator allocation problems (OAP).
+
+The proposed algorithm is a combination of discrete event simulation (DES) and Pareto utility selection strategy in which the discrete value is handled with the help of two modified operators namely addition and subtraction.
+
+Fatih Tasgetiren et al. (2010) presented a discrete DE with a parallel population to solve the traveling salesman problem.
+
+In Tasgetiren et al. (2009) authors proposed Discrete DE to solve a single machine total weighted tardiness problem with sequence-dependent setup times.
+
+Deng and Gu (2012) formulate a hybrid DE for solving no-idle flow shop scheduling in which DE was hybridized with a neighborhood-based local search algorithm.
+
+PARAGRAPH
+
+SECTION
+
+Miscellaneous
+
+PARAGRAPH
+
+Reed et al. (2013) gave the idea to adjust both mutation and cross-over rates, during the optimization, in a manner that increases the convergence rate to the desired solution.
+
+Performance is demonstrated on a challenging problem of identifying imperfections in submerged shell structures.
+
+PARAGRAPH
+
+In Zou et al. (2013) the authors proposed a modified DE (MDE) which employs Gaussian and uniform distribution to adjust scale factor and crossover rate.
+
+They assured that this modification helped in increasing the diversity of the population.
+
+Segura et al. (2014) tell about the relationship between success and failure of adaptive schemes and the balance between exploration and exploitation introduced by the formulation trial vector.
+
+Elsayed et al. (2013a) proposed a DE variant in which different mutation operators are used and also a covariance adaption matrix evolution strategy local search algorithm is incorporated in that.
+
+Parouha and Das (2016) incorporated the “pbest”, “gbest” (local best, global best) concept of PSO into DE and proposed a variant named Memory based DE (MBDE).
+
+PARAGRAPH
+
+Wu et al. (2016) proposed multi population-based ensemble DE named as MPEDE in which the whole population is divided into three equally sized smaller subpopulation and one much larger population.
+
+Three different mutation strategies names as “current-to-pbest/1”, “current-to-rand/1” and “rand/1” are used in the three populations.
+
+After some generations, the current best strategy is determined and the larger population is assigned to it.
+
+Also, the control parameters of each strategy are made adaptive.
+
+PARAGRAPH
+
+Elsayed et al. (2013b) proposed two DE variants for solving constrained optimization problems.
+
+In this mutation and crossover operators are mixed and made adaptive by an adaptive learning process.
+
+In Salman et al. (2007), a self-adaptive DE is proposed in which the manual setting of the control parameter is eliminated.
+
+Ameca-Alducin et al. (2014) proposed a method to solve dynamic constrained optimization problems in which feasibility rule is applied for handling constraints.
+
+They combined two popular DE variants namely DE/rand/1/bin and DE/best/1/bin later applied hill-climbing local search algorithm for faster convergence.
+
+Guo et al. (2016) proposed a constrained min–max optimization algorithm by generating the method of escape vectors.
+
+Jiang and Qiang (2013) introduced DE with a base vector group.
+
+All individuals are ordered according to their fitness from high to low.
+
+Then a certain number of individuals in front are chosen to form a base vector group.
+
+For each target vector, its mutation base vector is chosen from the base vector group when the mutation is operated.
+
+PARAGRAPH
+
+Fig. 7(a) Shows a pie graph of different DE variants and a network graph of DE with its variants can be seen in Fig. 7(b).
+
+Fig. 8 shows ranking of DE variants using incites.
+
+SECTION
+
+Applications of differential evolution
+
+PARAGRAPH
+
+DE has been applied to a wide range of problems arising in various fields of science, engineering, and management.
+
+It is very difficult to summarize all the applications at one place; therefore, a brief review of some of the major applications is shown.
+
+A literature survey of applications of DE is shown in the following Table 3.
+
+A Pie chart of number of applications of DE is provided in Fig. 9.
+
+Fig. 10 shows a network graph of DE applications.
+
+PARAGRAPH
+
+Some of the screens capture of DE applications in different engineering applications are illustrated in Fig. 11.
+
+PARAGRAPH
+
+SECTION
+
+Recent developments in differential evolution (2016–2018)
+
+PARAGRAPH
+
+Awad et al. (2016b) introduced a differential stochastic fractal evolutionary algorithm (DSF-EA) with balancing the exploration or exploitation feature.
+
+They presented a three-stage optimization algorithm with differential evolution diffusion, success-based update process and dynamic reduction of population size.
+
+Maciel et al. (2016) applied DE to estimate the parameters of the Nelson–Siegel and Svensson functions using real data of US Treasury government bonds.
+
+Wang et al. (2017a) proposed a two-phase DE for Uniform Designs in Constrained Experimental Domains Asafuddoula et al. (2015) introduced a new constraint handling technique in DE in which every solution is assigned a random sequence of constraints and the solutions are sorted on the basis of satisfied constraint and the violation measure.
+
+Sallam et al. (2017) proposed a new two-phase (exploration and exploitation) multi-operator DE algorithm.
+
+It starts with the exploration phase, dynamically placing emphasis on the best-performing DE based on two landscape indicators and its performance history.
+
+This process is repeated during the exploitation phase.
+
+They applied their algorithm for solving many real-world problems.
+
+PARAGRAPH
+
+Cheng et al. (2016) proposed a DE variant for on multi-objective optimization problems.
+
+In the proposed algorithm, the objective space is divided into grids based on non-dominated solutions in the population.
+
+Based on these grids, three indexes are defined which include grid fitness, grid density, and grid objective-wise standard deviation to measure rank, density, and population search status respectively of individuals.
+
+PARAGRAPH
+
+ZorarpacI and Özel (2016) hybridized DE with ABC for feature selection of classification and evaluated the performance of the proposed algorithm on a dataset from the UCI Repository.
+
+Cai et al. (2018) proposed social learning DE, inspired by the social learning behavior of the animal kingdom.
+
+The strategy was named adaptive social learning (ASL).
+
+In this strategy, each individual is only allowed to interact with its neighbors and the parents for mutation will be selected from its neighboring solutions.
+
+PARAGRAPH
+
+In Tian and Gao (2018), the authors tried to improve the performance of DE by designing a stochastic mixed mutation strategy and an information intercrossing and sharing mechanism.
+
+Mlakar et al. (2016) proposed a hybrid differential evolution by using a switching probability strategy of Cuckoo search and applied it for multi-level image thresholding.
+
+Ali et al. (2016) also combined two heuristic search techniques in which DE is used as population space for the cultural algorithm.
+
+Do et al. (2016) proposed a novel DE approach in which scaling factor F and crossover rate Cr are made adaptive, also the mutation and selection phases of the original DE are substituted by the best individual-based mutation and elitist selection techniques.
+
+Fan et al. (2016) proposed a multi-population multi-strategies differential evolution algorithm that was applied for searching the globally stable structure of Fe and Cr nano-clusters.
+
+PARAGRAPH
+
+Li et al. (2016) combined two DE strategies and developed a new hybridized DE algorithm.
+
+In their work two popular techniques of DE (JADE and CoDE), are combined to form a new DE algorithm named as HMJCDE.
+
+Yeh et al. (2017) introduced a new version of DE named Gaussian barebones differential evolution (GBDE).
+
+In this algorithm they proposed two strategies (1) Gaussian based mutation strategy (2) hybrid crossover strategy, the hybridization of the binomial and arithmetic crossover strategies, for DE to balance the global search ability and convergence rate.
+
+Sahoo et al. (2016) proposed a DE variant by changing its important parameters step size and crossover probability for achieving better performance.
+
+The strategy used was DE/rand-to-rand, with population size as 70; F and CR were decreased exponentially from 1.0 to 0.001 and 1.0 to 0.1 respectively.
+
+They applied it for solving load frequency control (LFC) of interconnected power systems.
+
+Cárdenas-Montes (2018) suggested Weibull-based scaled-differences schema for Differential Evolution.
+
+In this work, the statistical distribution of these differences of high-performance variants of Differential Evolution is modeled through a Weibull probability distribution.
+
+PARAGRAPH
+
+Banitalebi et al. (2016) proposed a self-adaptive binary DE in which new trial vectors are generated adaptively.
+
+Wang et al. (2018a) proposed a novel global and local surrogate-assisted DE for solving an expensive constrained optimization problem with inequality constraints.
+
+The proposed method consisted of two main phases: (1) global surrogate-assisted phase and (2) local surrogate-assisted phase.
+
+In the global surrogate-assisted phase, DE served as the search engine to produce multiple trial vectors.
+
+In the local surrogate-assisted phase, the interior point method coupled with radial basis function is utilized to refine each individual in the population.
+
+PARAGRAPH
+
+Peñuñuri et al. (2016) employed self-adaptiveness in DE and used DE/rand/1/bin strategy for finding a good value of Cr parameter.
+
+Zhou et al. (2017) suggested Adaptive DE with sorting crossover rate for continuous optimization problems.
+
+Qiu et al. (2016) maintained an equilibrium for exploration and exploitation by giving the same probability to population-based and neighborhood-based mutation operators respectively and applied this for solving multi-objective problems.
+
+Sakr et al. (2017) solved the optimal reactive power management problem using a modified multi-objective DE.
+
+Wang and Tang (2016) applied the concept of clusters for solving multi-objective optimization problems in DE.
+
+Zhou et al. (2016) worked for solving NP-hard problem of job scheduling by modifying a DE variant in which individuals in the population were coded into job permutations and based on this encoding system, discrete mutation and crossover operations were proposed.
+
+Wang et al. (2018b) proposed a composite DE for solving constrained optimization problems.
+
+Here, the authors used three different trial vector strategies to maintain a balance between diversity and convergence.
+
+Zhou and Zhang (2018) introduced a DE variant with an underestimation based multi-mutation strategy (UMS).
+
+DE highly depends on the mutation vector and it is very difficult to choose the best mutation strategy for some optimization problem.
+
+So, they proposed an Underestimation-Based multi-mutation strategy in DE.
+
+Hultmann Ayala et al. (2015) used Free Search Differential Evolution (FSDE) algorithm to solve power engineering problems.
+
+Sethanan and Pitakaso (2016b) proposed five modified DE algorithms by adding two additional steps, reincarnation and survival process and applied it to solve a typical type of vehicle routing problem.
+
+Du et al. (2017) borrowed idea from control theory and applied it in DE to improve its performance.
+
+Shih et al. (2017) proposed an enhanced differential evolution algorithm for solving directional overcurrent relay (DOCR) coordination problem.
+
+Segura et al. (2015) proposed a DE variant for dealing with the problems having large dimensions.
+
+Two main modifications in their work were the increase in the diversity of trial vectors and adaptive behavior of mutant factor.
+
+Balaji et al. (2016) developed a DE variant named mathematical approach assisted differential evolution (MADE) for solving maintenance scheduling problem in power system.
+
+Salehinejad et al. (2017) worked on the idea of low population size DE for faster convergence.
+
+They proposed a new mutation scheme in which mutation can be performed even when the population size is less than four population size.
+
+Wang et al. (2017b) worked on a multi-objective evolution algorithm based on neighborhood and gradient mechanism for achieving the exploration–exploitation balance of the algorithm.
+
+The algorithm was tested on two, three and four objectives optimization problem of wind turbine blade design.
+
+Chen et al. (2016) proposed a new ranking-based mutation operator in DE and applied the algorithm for solving dynamic optimization problems arising in chemical engineering.
+
+Pham (2016) developed a DE variant with three modifications in it including adaptive p-best strategy, the directional rule for mutation and the nearest neighborhood comparison method for solution.
+
+This variant was applied for a truss optimization problem with dynamic constraints.
+
+Koutny (2016) proposed meta DE in the medical field.
+
+They validated their results in measuring the continuous blood glucose level in diabetic patients from Jaeb Center for Health Research.
+
+Castillo et al. (2019) further proposed a dynamic parameter adaptation in meta-heuristics using a high-speed interval type 2 fuzzy system approach.
+
+Harold et al. (Chamorro et al., 2019) a novel fuzzy adaptive DE algorithm for the tuning of a fuzzy controller for the improvement of the synthetic inertia control in power systems.
+
+Prauzek et al. (2016) applied DE on wireless sensors with the help of fuzzy controllers.
+
+Fig. 12, tree-map representation justifies the research articles by the proportion of colored area.
+
+SECTION
+
+Bibliometric analysis
+
+PARAGRAPH
+
+This section visualizes the bibliometric analysis for this study based on ‘InCites’ (https://incites.clarivate.com/).
+
+SECTION
+
+Statistics according to quartile
+
+PARAGRAPH
+
+Based on Impact Factor (IF) data, the journal citation report published by Thomson Reuters (https://incites.clarivate.com/) provides yearly rankings of science and social science journals, in the subject categories relevant for the journal.
+
+PARAGRAPH
+
+Quartile rankings (Qr) are therefore derived for each journal in each of its subject categories according to which quartile of the IF distribution the journal occupies for that subject category.
+
+Q1 denotes the top 25% of the IF distribution, Q2 for middle-high position (between top 50% and top 25%), Q3 middle-low position (top 75% to top 50%), and Q4 the lowest position (bottom 25% of the IF distribution).
+
+Tables 4(a) and 4(b) provides the journal names and their quartiles.
+
+Impact factors of different quartile journals are provided in Fig. 13.
+
+Fig. 14 provides the quantitative analysis of Quartile rankings.
+
+Average IF of quartile ranking can be seen in Fig. 15.
+
+PARAGRAPH
+
+SECTION
+
+Statistics based on different publishers
+
+PARAGRAPH
+
+The review done in the above section incorporates 283 papers; including 137 journal articles from Elsevier, 30 journal articles from Springer, 35 journal articles from IEEE, 6 journal articles from Taylor & Francis, 11 journal articles, 56 conferences and 9 books taken from the other sources.
+
+The articles have been explored through the different keywords like; Differential Evolution + optimization, Differential Evolution + optimization + variants, Differential Evolution + mutation, Differential Evolution + crossover, Differential Evolution + selection, Differential Evolution + change in parameters, Hybrid + Differential Evolution, Differential Evolution + review (TITLE), Differential Evolution + survey (TITLE).
+
+Table 5 shows the number of reviewed papers published in different publishers and can be visualized in Fig. 16(a), which shows the reviewed research article percentage in different publishers.
+
+Fig. 16(b) shows the number of reviewed research papers published in the last two decades.
+
+This study shows that different authors from different countries (Fig. 17) working on DE and applied in different application areas.
+
+PARAGRAPH
+
+For further analysis, we have generated network visualization map and density visualization map using “VOSviewer” (https://www.vosviewer.com/).
+
+Network Visualization consists for items (circles and labels) and links (relation between the items).
+
+Items are grouped into the clusters specified by the different colors assigned to the items.
+
+Fig. 18 shows the network visualization of keyword of the reviewed articles and link between them shows their co-occurrences.
+
+Figure shows the keyword ‘differential evolution’ has the highest occurrences and it is highly co-occurred with ‘optimization,’ ‘global optimization,’ and ‘evolutionary algorithms’ etc.
+
+Fig. 19 shows the network visualization of the terms taken from the abstract and title of the reviewed articles, links indicates the number of articles in which two terms occur together.
+
+In this the term ‘model’ has the highest occurrences and it strongly co-occurred with ‘accuracy,’ ‘data’ and ‘prediction’ etc.
+
+SECTION
+
+Analysis and discussions
+
+PARAGRAPH
+
+The main aim of this paper is to generate an interest among the readers for DE and to explore its potentials.
+
+In the present study, an attempt is made to provide an overview of the expedition of DE for a little more than 20 years (1995–2018) along with few papers from 2019.
+
+The journey is shown through the modifications that are proposed in the basic operators and parameters of DE like modification in the initialization methods, modification in mutation, crossover and selection operators; discrete variants of DE; hybridization and selected recent developments in DE.
+
+PARAGRAPH
+
+From the collected data and statistics, the following inferences can be drawn:
+
+SECTION
+
+Conclusions and future directions
+
+PARAGRAPH
+
+The present study is done in two phases.
+
+The first phase provides the survey of literature on the basic aspects of DE, and in the second phase bibliometric analysis is provided.
+
+The first phase is expected to help the readers in identifying the potential areas of research in DE and Bibliometric analysis will be beneficial to the readers in identifying the leading journals and publication houses related to this area.
+
+The demographic spread may also help in collaborative research work.
+
+Some concluding remarks based on the present study are:
+
+PARAGRAPH
+
+In most of the hybrid variants of DE, hybridization is done with some other meta-heuristics (mostly PSO as per the papers considered in this study).
+
+Though the integration of two meta-heuristic results in improving the quality of the solution, it rarely provides a deep insight on the “whats” and “hows” of the combination.
+
+A thorough investigation on hybridization methods may help in developing important and concrete guidelines which in turn may help the beginners working in this area.
+
+Also, there are very limited examples of combining DE (or any other meta-heuristic algorithms) with classical methods.
+
+Interaction of meta-heuristics with methods like mathematical programming methods can be an interesting research direction.
+
+PARAGRAPH
+
+DE is naturally suited for continuous optimization problems and certain level of efforts are required for making it compatible for discrete and combinatorial optimization problems.
+
+Many researchers are working in this area to develop a suitable discrete variant of DE.
+
+Also, it is observed that the application of DE for solving multi and many-objective optimization problems is also limited.
+
+These two research areas can be explored further to analyze the potential of DE.
+
+PARAGRAPH
+
+Finally, the authors would like to add that though we have tried to include most of the relevant DE publications, there is a possibility that some important articles are missed, for which the authors apologize.

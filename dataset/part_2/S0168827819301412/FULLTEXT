@@ -1,0 +1,475 @@
+10.1016/j.jhep.2019.02.020
+
+FULLTEXT
+
+TITLE
+
+Hepatovirus 3ABC proteases and evolution of mitochondrial antiviral signaling protein (MAVS)
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Despite effective vaccines, hepatitis A virus (HAV) remains a common cause of acute viral hepatitis in many regions of the world.1
+
+The continued presence of this hepatotropic virus is dependent upon unbroken chains of fecal-oral transmission, since persistent infection is rare-to-nonexistent and chronic HAV shedders are unknown.
+
+Accordingly, HAV disappears at times from small, isolated, human populations, only to return with a vengeance when re-introduced.2,3
+
+Thus, unlike hepatitis B virus (HBV) and hepatitis C virus (HCV) that cause long-term persistant infections and co-evolved with humans and other primate species over millions of years,4–6 HAV likely became established among human populations only when groups living together became large enough to sustain chains of transmission 10–12 thousand years ago.
+
+Multiple, distantly related hepatoviruses have recently been discovered among bats, rodents and other small mammals.7,8
+
+These viruses are hepatotropic, and although distantly related phylogenetically, share antigenic determinants with human HAV.
+
+Their phylogeny provides evidence for multiple past host species shifts across different mammalian orders, and ancestral reconstructions suggest a rodent origin for human HAV.7
+
+PARAGRAPH
+
+Given their proclivity for de novo generation of diversity through error-prone genome replication, RNA viruses such as HAV are disproportionately involved in host species shifts.9,10
+
+The determinants of such host shifts are not fully understood, but innate immune surveillance represents a substantial biological barrier to overcome in a new host.
+
+HAV is a stealthy pathogen in humans and chimpanzees, inducing little innate immune response in the liver.11
+
+This is due in part to cleavage of mitochondrial antiviral signaling protein (MAVS), a critical innate immune adaptor protein, by a precursor of the mature HAV 3Cpro protease, 3ABC.12
+
+Although the natural host range of HAV appears limited to primates,13 the virus robustly infects Mavs−/− knockout mice.14
+
+Unlike the human MAVS protein (hsMAVS), murine MAVS (mmMAVS) is not cleaved by the 3ABC protease.
+
+These data suggest that HAV must overcome MAVS-mediated innate immunity to achieve cross-species transmission, and led us to ask whether the 3ABC proteases of contemporary bat and rodent viruses are capable of cleaving hsMAVS, and whether this host-pathogen interaction has shaped the past evolution of hepatoviruses and their hosts.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Cells
+
+PARAGRAPH
+
+HEK293FT cells and human hepatocyte-derived cell lines including Huh-7.5,15 PH5CH8,16 and CRISPR/Cas9-edited MAVS-deficient PH5CH8 cells (PH5CH8-KO)17 were mycoplasma-free.
+
+All cells were cultured in DMEM with 10% FBS (Gibco) at 37 °C.
+
+SECTION
+
+Virus stocks
+
+PARAGRAPH
+
+The cell culture-adapted HM175/18f strain of human HAV18 was propagated in Huh-7.5 cells for 7 days following electroporation of in vitro-transcribed viral RNA (GenBank accession number KP879216.1).
+
+Several cell culture-adaptive mutations exist within the 3ABC sequence of HM175/18f virus, but they are not known to influence 3ABC cleavage of MAVS.
+
+Lentiviruses were prepared as described previously.17
+
+Sendai virus (SeV, Cantell strain) was purchased from Charles River Laboratory.
+
+SECTION
+
+Virus infection and transduction
+
+PARAGRAPH
+
+Cultures were infected with HAV (106 genome equivalents/culture) or SeV (600 HA units/ml) at 37 °C for 4 h and 6 h, respectively.
+
+Transduction was facilitated by the addition of 8 µg/ml polybrene, and the resulting cells were subjected to selection with blasticidin (6 µg/ml).
+
+SECTION
+
+Quantification of HAV genomic RNA by RT-qPCR
+
+PARAGRAPH
+
+Total RNA was extracted with the RNeasy Mini Kit (Qiagen).
+
+First-strand cDNA was synthesized with Superscript III reverse transcriptase (Invitrogen).
+
+HAV cDNA was quantified by PCR with Universal SYBR supermix using cDNA from in vitro-transcribed HAV RNA as a standard (Bio-Rad).
+
+Primers are listed in Table S1.
+
+SECTION
+
+Plasmids
+
+PARAGRAPH
+
+Hepatovirus 3ABC protease sequences were cloned into pCMV-(N)HA, whereas pcDNA3-(N)FLAG12 and pcDNA3-(N)FLAG/eGFP were used to express MAVS sequences.
+
+Lentivector pLOCΔGFP17 was used to stably express HA-tagged 3ABC and GFP-fused MAVS proteins.
+
+All constructs were tagged N-terminally, with cloning carried out using a PCR-based strategy19 that generated a non-relevant 2.4 kDa carboxy-terminal tail.
+
+Products were verified by DNA sequencing.
+
+Oligonucleotide primers are listed in Table S1.
+
+SECTION
+
+Transfection
+
+PARAGRAPH
+
+HEK293FT and Huh-7.5 cells preseeded in 12-well plates were transfected with vectors expressing GFP-hsMAVS (100 ng) and either empty vector (EV) or non-primate hepatoviral 3ABC proteases (HA-3ABC, 100 ng).
+
+GFP-fused non-primate MAVS vectors (500 ng) were similarly transfected with hepatovirus 3ABC proteases (250 and 500 ng).
+
+MAVS-knockout PH5CH8-KO cells preseeded in 12-well plates were transfected with vectors expressing GFP-fused mammalian MAVS vectors (500 ng).
+
+The interferon-β (IFNB1) promoter-driven firefly luciferase plasmid (40 ng IFNβ-luc) and the Renilla luciferase plasmid (4 ng pRL-TK) were co-transfected with 3ABC (40 ng) and/or MAVS constructs (40 ng) into naïve or PH5CH8-KO cells preseeded in 96-well plates.
+
+SECTION
+
+Immunoblots
+
+PARAGRAPH
+
+Twenty-four (HEK293FT cells) and 48 h (Huh-7.5 and PH5CH8 cells) after transfection, cells were lysed and immunoblotting carried out as described.17
+
+Detailed information regarding the primary antibodies used can be found in the supplementary CTAT table.
+
+All secondary antibodies (LI-COR Biosciences; Cat# 926-32211, 926-32212, 926-68020 and 926-68073) were used at a 1:12,000 dilution.
+
+SECTION
+
+Dual luciferase reporter assay
+
+PARAGRAPH
+
+Luciferase activity was determined 30 h after transfection using the Luciferase Assay System (Promega).
+
+To compare the impact of expressing catalytically active vs. inactive proteases, we normalized IFNB1-driven firefly luciferase activity to that of an internal control, Renilla luciferase (expressed from a co-transfected vector), and expressed the result as relative luciferase activity (Fig. 3D and 3F).
+
+In experiments comparing SeV vs. mock virus challenge, we similarly normalized luciferase activities but report it as fold-increase due to the virus infection (Fig. 1C).
+
+In Fig. 3A, where we show that overexpression of MAVS generates an innate immune response, we reported raw firefly luciferase light units together with immunoblots showing the expression of IFIT1 (an interferon-stimulated gene) and GAPDH as a control for cell mass.
+
+SECTION
+
+Phylogeny analysis
+
+PARAGRAPH
+
+Bayesian phylogeny was generated at the amino acid level from translation alignments excluding all ambiguous data or gaps using MrBayes V3.120 and a WAG substitution model.
+
+Trees were run for 2 million generations, sampled every 100 steps.
+
+After excluding 5,000 of the total 20,000 trees as burn-in, final trees were annotated with TreeAnnotator from the BEAST package21 and visualized with FigTree.
+
+Genome annotations and translation alignments were done using Geneious 6.1.8 (https://www.geneious.com).
+
+SECTION
+
+Evolutionary analyses
+
+PARAGRAPH
+
+Pressure analyses were performed using translation alignments of all available MAVS sequences from the 3 different orders done in Genious 6.1.8.
+
+The CodeML program implemented in the pamlX 1.3.1 software package22,23 was used to investigate positive selection pressure in different MAVS datasets.
+
+Codon substitution models M0, M1a, M2a, M3, M7 and M8 were tested using the codon frequency model F61.
+
+Likelihood ratio tests (LRTs) on 2 pairs of site-specific models, M1a vs. M2a and M7 vs. M8, were performed to determine whether MAVS genes from each of the 3 orders are evolving under positive selection using the chi-square calculator implemented in the PAMLX package, a user interface for phylogenetic analysis by maximum likelihood (PAML).
+
+Fixed effect likelihood (FEL), single likelihood ancestor counting (SLAC), and random effect likelihood (REL),24 and single bayesian approximation (FUBAR)25 from the HyPhy package (Datamonkey.org) were also employed to detect sites under selection pressure using the HKY85 substitution mode, as suggested by automatic model selection in Datamonkey.
+
+The branch-site unrestricted statistical test for episodic diversification (BUSTED) was used to detect gene-wide positive selection in the MAVS datasets.
+
+PARAGRAPH
+
+Amino acid sequence distances were calculated with MEGA726 using the pairwise deletion option and all species per order for which MAVS sequences were available.
+
+MAVS pairwise distances of species were normalized by mean cytochrome b pairwise distance per order.
+
+Sequence distances were plotted using SSE V1.2.27
+
+Representative viruses from each host order were tagged and sequence identities within families were plotted using a fragment length of 200 and a step size of 100 amino acid residues.
+
+Alignment gaps were excluded from the analysis.
+
+SECTION
+
+Data availability
+
+PARAGRAPH
+
+GenBank accession numbers for hepatovirus sequences are listed in Table S2.
+
+GenBank accession numbers for MAVS sequences are listed in Table S3.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Comparisons were carried out by 2-sided t test using Prism 6.0 (GraphPad Software, Inc.).
+
+SECTION
+
+Results
+
+SECTION
+
+3ABC proteases from bat hepatoviruses cleave hsMAVS
+
+PARAGRAPH
+
+The 3A polypeptides of human, rodent and bat hepatoviruses all contain a transmembrane domain like that in human HAV 3A that anchors the 3ABC protease to mitochondria and is essential for MAVS cleavage.7,12
+
+However, the 3Cpro sequences themselves share only ∼50% amino acid identity (Fig. 1A).
+
+We were surprised therefore to find that N-terminally HA-tagged 3ABC proteases from 2 bat hepatoviruses, M32 (Eidolon helvum) or FO1A-F48 (‘F48’, Rhinolophus landeri), cleaved hsMAVS fused at its amino terminus to GFP and co-expressed in HEK293 cells (Fig. 1B).
+
+Replacing the active-site Cys residues in these proteases with Ala (M32* and F48*, respectively) abolished hsMAVS cleavage (Fig. 1B), confirming that the 3ABC cysteine protease was responsible.
+
+By contrast, 3ABC proteases from viruses recovered from the grey dwarf hamster (Cricetulus migratorius) KS11-1230 (‘KS11’) and Jaliscan cotton rat (Sigmodon mascotensis) KEF121, either failed to cleave hsMAVS or did so less efficiently (Fig. 1B), although these rodent virus proteases are phylogenetically closer to human HAV 3ABC than the bat hepatovirus proteases (Fig. 1A).
+
+Ablating the active-site Cys residues in the rodent proteases (KS11* and KEF121*, respectively) enhanced their levels of expression (Fig. 1B), consistent with the elimination of autocatalysis at the internal 3A/B and 3B/C cleavage sites and providing evidence that the proteases were in fact functionally active.
+
+PARAGRAPH
+
+Overexpression of either bat virus protease in PH5CH8 cells, which are derived from normal adult human hepatocytes and have a robust MAVS signaling pathway, disrupted SeV-induced activation of the IFNB1 promoter, whereas the catalytically inactive mutants did not (Fig. 1C).
+
+Importantly, stable lentivirus-based expression of the bat virus proteases in PH5CH8 cells resulted in cleavage of endogenous MAVS and impaired SeV-triggered dimerization of the transcription factor, interferon regulatory factor 3 (IRF3) (Fig. 1D).
+
+Consistent with these data, HAV replication was significantly enhanced in lentivirus-transduced PH5CH8 cells expressing the wild-type vs. mutant bat proteases, despite the fact that the human viral 3ABC protease was also expressed by the HAV replicating in these cells (Fig. 1E).
+
+We conclude from these data that MAVS cleavage is a conserved attribute of hepatoviruses found in bats, and that proteases expressed by these viruses are capable of disrupting innate immune responses to virus infection in human cells.
+
+PARAGRAPH
+
+Additional experiments revealed that the M32 and F48 proteases preferentially cleave hsMAVS at Glu463/Gly464, rather than Gln427/Val428, where hsMAVS is targeted by the human virus12 (Fig. 2A).
+
+Both sites in hsMAVS are consistent with the dipeptide substrate specificities of human HAV 3Cpro.
+
+Previous peptide cleavage studies show Gln is strongly preferred by HAV 3Cpro over Glu at the p1 position (the first residue on the amino side of the site of scission), favoring the Gln427/Val428 site28 (Fig. 2B).
+
+However, peptides with Gly at the p’1 position (as in the Glu463/Gly464 site) are cleaved significantly more efficiently than those with p’1 Val.
+
+Overall, the preference for Glu463/Gly464 demonstrated by the bat 3ABC protease indicates a subtle difference in substrate specificities, and is consistent with differences in the amino acid side chains abutting the substrate cleft in the crystallographic structure of the protease29 (Fig. 2C).
+
+SECTION
+
+Chiropteran MAVS proteins are resistant to cleavage by human or bat 3ABC proteases
+
+PARAGRAPH
+
+We next asked whether MAVS proteins expressed by small mammals harboring hepatoviruses are equally subject to cleavage by human or bat viral proteases.
+
+Since the MAVS sequence is not known for R. landeri, the horseshoe bat from which F48 virus was recovered, we expressed MAVS from a related species, R. sinicus (rsMAVS).
+
+Similarly, we expressed MAVS from the hispid cotton rat (S. hispidus, shMAVS) and the Chinese hamster (C. griseus, cgMAVS) in lieu of S. mascotensis and C. migratorius, which harbor KEF121 and KS11 viruses respectively.
+
+The IFNB1 promoter was strongly activated by expressing GFP fusions of these MAVS orthologs, as well as MAVS from the M32 virus host, E. helvum (ehMAVS), in PH5CH8 cells knocked out for endogeneous MAVS expression by CRISPR/Cas9 gene editing (Fig. 3A).
+
+The synthesis of IFIT1, an interferon-stimulated gene product, was also stimulated (Fig. 3A).
+
+Moreover, RIG-I signaling could be efficiently reconstituted in these cells by representative bat (rsMAVS) and rodent (cgMAVS) MAVS proteins, resulting in SeV-induced IRF3 dimerization (Fig. 3B).
+
+These data reveal a surprising degree of functional conservation among MAVS proteins from distantly related mammalian species, and indicate that these non-primate proteins were expressed in physiologically relevant compartments.
+
+PARAGRAPH
+
+Under these conditions, we observed only minimal cleavage of rsMAVS, and no cleavage of ehMAVS by ectopically expressed human HAV 3ABC (Fig. 3C, lanes 1–2 and 7–8).
+
+Consistent with this, IFNB1 promoter activation induced by expression of rsMAVS, but not ehMAVS, was reduced by co-expressing HAV 3ABC vs. the catalytically inactive mutant 3ABC* (Fig. 3D).
+
+Importantly, the p1 Gln residue is preserved in rsMAVS at the position aligning with Gln427 in hsMAVS (Gln421), whereas it is replaced by Cys in ehMAVS (Fig. 2B).
+
+By contrast, there is no conservation of the p1 and p’1 residues aligning with Glu463/Gly464 in either bat MAVS ortholog.
+
+Surprisingly, HAV 3ABC robustly cleaved shMAVS (cotton rat), and less efficiently, cgMAVS (hamster) (Fig. 3C, lanes 13–14 and 17–18).
+
+These cleavages were functionally important, as co-expressing the active protease reduced IFNB1 promoter activation induced by either rodent MAVS ortholog (Fig. 3D).
+
+In line with these results, the amino acid sequence around the Gln427/Val428 cleavage site in hsMAVS is well preserved in alignments of the rodent orthologs, whereas the Glu463/Gly464 site targeted by bat hepatovirus 3ABC proteases is ablated by deletion of 3 residues (Fig. 2B).
+
+Further experiments confirmed that the HAV 3ABC protease cleaves each of these MAVS orthologs at residues aligning with Gln427/Val428 in hsMAVS (Fig. 3E).
+
+PARAGRAPH
+
+Despite cleaving human hsMAVS (Fig. 1A), 3ABC proteases from the bat hepatoviruses, F48 (R. landeri) and M32 (E. helvum), failed to cleave the cognate MAVS proteins expressed by the bats (Fig. 3C, lanes 3–6 and 9–12).
+
+This is consistent with the Glu463/Gly464 site targeted by these proteases in hsMAVS being poorly conserved in bat MAVS (Fig. 2B).
+
+Similarly, the cotton rat shMAVS was only cleaved minimally, and the hamster cgMAVS was not cleaved at all, by the cognate rodent 3ABC proteases (Fig. 3C, lanes 19–20 and 15–16, respectively).
+
+As might be expected from these results, there was no evidence of cleavage of chiropteran MAVS orthologs by proteases from rodent viruses, or vice versa (data not shown).
+
+Consistent with these results, none of the 3ABC proteases from non-primate viruses was capable of significantly disrupting IFNB1 promoter signaling transduced through either cognate or non-cognate rodent or bat MAVS orthologs (Fig. 3D, F).
+
+SECTION
+
+Bat and rodent MAVS proteins have undergone diversifying selection at sites of 3ABC cleavage
+
+PARAGRAPH
+
+The data presented above suggest that bat and rodent MAVS orthologs are relatively resistant to cleavage by their cognate 3ABC proteases, whereas the bat viral proteases retain the ability to cleave human hsMAVS (Fig. 3G).
+
+This led us to seek evidence for genetic diversifying selection in the MAVS proteins expressed by these mammalian orders that have likely hosted hepatoviruses over millions of years.7
+
+Two-thirds of ∼5,400 extant mammalian species belong to the orders Rodentia and Chiroptera,30 which together host the greatest diversity of hepatoviruses (Fig. 4A).
+
+Because MAVS sequences were available from only 11 bat and 19 rodent species, none known hosts of hepatoviruses, we determined MAVS coding sequences in 4 bat (E. helvum, Hypsignathus monstrosus, Pipistrellus pipistrellus, R. ferrumequinum) and 2 rodent (Myodes glareolus and S. hispidus) hepatovirus host species, providing a total of 75 MAVS sequences for analysis (Table S3).
+
+Although primates were overrepresented in this database, MAVS sequences from Chiroptera and Rodentia were significantly more diversified than those from primates (Fig. 4B).
+
+Surprisingly, MAVS diversity was not related to overall host genetic relationships.
+
+hsMAVS shared less identity with rodent than bat MAVS (Fig. 4C), although rodents and primates are genetically closer than bats and primates.31
+
+Sequence distances were unevenly distributed across the MAVS reading frame (Fig. 4D).
+
+These data suggest that MAVS from distinct mammalian orders in general, and some regions of MAVS in particular, may have been shaped by differential evolutionary forces.
+
+PARAGRAPH
+
+The ratio (ω) of non-synonymous (dN) to synonymous (dS) substitution rates was less than unity across the entire MAVS protein in all 3 mammalian orders, regardless of the method used for calculation (Fig. 5A).
+
+However, significant episodic diversifying selection was evident in primate, rodent and chiropteran MAVS (p <0.001) according to both LRTs (Table 1) and BUSTED.32
+
+Maximum-likelihood (FEL, SLAC and PAML) and Bayesian (REL and FUBAR) methods24,25 identified 90 positively selected residues, mostly in bats and rodents (Fig. 5B, Table S4).
+
+Notably, 41 of these (45.6%) aligned in a contiguous fashion with other residues under positive selection.
+
+Fourteen of the 17 (87.5%) contiguous peptide segments thus identified had evidence of diversifying selection in at least 2 different orders, suggesting similar evolutionary pressures shaping MAVS across different orders.
+
+PARAGRAPH
+
+Using any of the 5 analytic methods, we found no evidence for diversifying selection at the site targeted by the human HAV protease, Gln427/Val428, among MAVS proteins expressed by primates (Fig. 5B, Table S4).
+
+This is consistent with the relatively recent introduction of HAV into primate populations, as discussed above.
+
+In contrast, as reported previously,4 PAML detected a signal for selection at residues aligning with Cys508/His509, where hsMAVS is cleaved by the HCV NS3/4A protease.33,34
+
+This is consistent with evidence suggesting the existence of hepaciviruses related to HCV among primates for millions of years.4
+
+We also noted evidence for diversifying selection at residues aligning with this site in MAVS orthologs expressed by rodents and bats (Fig. 5B, Table S4), which also host diverse hepaciviruses.35,36
+
+PARAGRAPH
+
+Despite the absence of diversifying selection at the HAV 3ABC cleavage site, Gln427/Val428, among MAVS proteins expressed by primates, we detected a selection signal at residues aligning with this site in bats using PAML, and a strong signal for selection at this site in rodents using multiple tests for genetic pressure (Fig. 5B, Table S4).
+
+These results are consistent with ancestral reconstructions which suggest rodents hosted the immediate ancestor of human HAV.7
+
+Just as striking, however, was a very strong signal for diversifying selection among chiropteran MAVS othologs at residues aligning with Lys461 and Thr465 (Fig. 2B), which bracket the site of hsMAVS cleavage by the bat viral proteases (Fig. 5B, Table S4).
+
+These data are consistent with MAVS having evolved over millenia to a relatively 3ABC-resistant phenotype in these 2 mammalian orders under continued pressure from proteases expressed by ancient hepatoviruses.
+
+PARAGRAPH
+
+Lastly, we asked whether it is possible to convert a 3ABC cleavage-resistant rodent MAVS protein to an active 3ABC substrate by limited substitutions of amino acids at a site aligning with cleavage in human hsMAVS.
+
+To answer this question, we co-expressed either wild-type or minimally modified murine (Mus musculus) mmMAVS and 3ABC from human HAV in 293 cells.
+
+Our previous work shows that mmMAVS is not susceptible to 3ABC cleavage, and that normal mice cannot be infected with HAV, whereas Mavs−/− mice lacking expression of mmMAVS are highly permissive.14
+
+mmMAVS and hsMAVS have only about 50% amino acid identity, and they differ at 3 residues when aligned at the cleavage site in hsMAVS targeted by human HAV (Gln427/Val428, Fig. 5C).
+
+These differences include the p’1 residue that is a major contributor to substrate activity of peptides28 (Fig. 2B).
+
+Consistent with this, a Leu to Val substitution in mmMAVS at the residue aligning with p’1 in hsMAVS, coupled with a Glu to Ser substitution at the p’3 position (mmMAVSVS) resulted in robust cleavage of the mutated mmMAVS by HAV 3ABC, but not by the catalytically inactive 3ABC* (Fig. 5C).
+
+Substitutions at all 3 divergent residues (muMAVSA-VS), effectively ‘humanizing’ mmMAVS at the cleavage site, similarly conferred 3ABC cleavage.
+
+These data provide evidence that the major constraint on 3ABC cleavage is sequence at the direct site of cleavage, where we find evidence of diversifying selection (Fig. 5B), and not elsewhere within MAVS proteins.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+HAV is distinct from hepaciviruses like HCV and hepadnaviruses like HBV that commonly cause long-term persistent infection, and thus do not require a continued high rate of transmission between individuals to maintain their presence in human populations.
+
+In contrast to HAV, which likely became established among humans only with the development of population densities sufficient to support continuous chains of fecal-oral transmission, these hepatotropic viruses appear to have infected primates for millions of years.4–6
+
+For example, divergent hepaciviruses have been recovered from both New World tamarins and Old World colobus monkeys,37 non-human primates that have been separated for millions of years of evolution.
+
+Divergent hepaciviruses have evolved over eons in primates, explaining why there are signs of evolutionary pressure at the site of HCV NS3/4A cleavage in primate MAVS orthologs.4
+
+We confirmed this finding, while finding no pressure at the site of HAV 3ABC cleavage site, consistent with the more recent establishment of HAV among primate hosts (Fig. 5B).
+
+Nonetheless, it is noteworthy that divergent genotypes of HAV have also been recovered from non-human primates.38–40
+
+These viruses are not well studied, and many may have been derived ultimately from a human source.
+
+However, some of these viruses, such as the AGM27 strain recovered from an Old World monkey, have biological and even antigenic differences from human HAV,40 and they deserve further study.
+
+PARAGRAPH
+
+Phylogenetic analyses indicate that the past evolution of hepatoviruses has involved multiple shifts between host species in different mammalian orders.7
+
+While ancestral state reconstructions suggest that rodents hosted the immediate ancestor of human HAV, hepatoviruses likely have a broader origin in bats and potentially other insectivorous small mammals.7,41
+
+The factors allowing hepatoviruses to sustain such dramatic host species shifts are not understood, but such events are likely to be favored by the ability of 3ABC proteases to cleave MAVS and disrupt innate immune signaling across broadly divergent mammalian species.
+
+X-ray crystallographic studies indicate that the active site of the hepatovirus 3Cpro protease is more flexible than that of other, structurally-related chymotrypsin-like proteases.29
+
+This feature could contribute to its relatively broad substrate specificity.
+
+Although not examined in this study, it is intriguing to speculate that the 3Cpro protease may also have influenced evolution of its mammalian host species through its interactions with NEMO (IKBKG),42 a crucial adaptor that bridges NF-κB and IRF antiviral signaling,43 or TRIF (TICAM1), an adaptor protein essential for TLR3 signaling.44
+
+PARAGRAPH
+
+Previous studies indicate MAVS signaling is a key roadblock that must be overcome for HAV to successfully infect mice.14
+
+Consistent with this, we found a strong signal for diversifying selection among rodent MAVS orthologs at residues aligning with the site of 3ABC cleavage in hsMAVS, Gln427/Val428 (Fig. 5B, Table S4).
+
+In contrast, diversifying selection among chiropteran MAVS was found to have occurred primarily at an alternative site in the protein that aligns with the site of hsMAVS cleavage by bat viral proteases: Glu463/Gly464.
+
+This site is highly divergent in bat MAVS (Fig. 2B), consistent with the lack of cleavage by bat hepatoviral proteases.
+
+These data are consistent with hepatoviruses having existed in bats for much longer than humans, perhaps millions of years,7 allowing more time for selective pressure on MAVS and the evolution of 3ABC-resistant MAVS proteins.
+
+Hepatovirus infections are rarely lethal in humans, and long-term, persistent HAV infection has never been described.
+
+Such limited pathogenicity could also contribute to a lack of diversifying selection at sites of HAV 3ABC cleavage in hsMAVS.
+
+The consequences of infection could be more serious in Chiroptera, in which our data suggest the possibility of host escape from 3ABC cleavage.
+
+It is clear, however, that hepatoviruses have established alternative strategies for their survival in this mammalian order.
+
+PARAGRAPH
+
+Do contemporary bat viruses pose a risk for human populations, given their similar capsid structures, common antigenic determinants, shared tropism for the liver,7 and, as we show here, capacity to disrupt a critical mediator of innate immunity in humans?
+
+None of these viruses has yet been isolated in infectious form and their natural host range and potential pathogenicity in humans remain uncertain.
+
+Yet, the history of hepatovirus evolution tells us this is a threat that cannot be discounted.
+
+Understanding the capacity of viruses to evade human innate immune responses is crucial for risk assessments and integrated evolutionary and experimental studies such as those described here should help elucidate factors controlling virus emergence and the risks posed to humans.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by the U.S. National Institutes of Health (NIH), grants U19-AI109965, R01-AI103083 and R01-AI131685 (S.M.L.), and the University of North Carolina Cancer Research Fund.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no competing financial interests.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+S.M.L. and H.F. designed the experiments; H.F., A-L.S., and A.M-S.
+
+performed experiments; D.Y. provided key reagents; J.F.D. and A.L.S. designed and conducted phylogenetic and evolutionary analyses; S.M.L. supervised the study; H.F., J.F.D. and S.M.L. analyzed the data and wrote the manuscript; all authors reviewed the manuscript.

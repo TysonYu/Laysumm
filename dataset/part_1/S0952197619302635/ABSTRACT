@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.103303
+
+ABSTRACT
+
+TITLE
+
+SECUR-AMA: Active Malware Analysis Based on Monte Carlo Tree Search for Android Systems
+
+PARAGRAPH
+
+We propose SECUR-AMA, an Active Malware Analysis (AMA) framework for Android.
+
+(AMA) is a technique that aims at acquiring knowledge about target applications by executing actions on the system that trigger responses from the targets.
+
+The main strength of this approach is the capability of extracting behaviors that would otherwise remain invisible.
+
+A key difference from other analysis techniques is that the triggering actions are not selected randomly or sequentially, but following strategies that aim at maximizing the information acquired about the behavior of the target application.
+
+Specifically, we design SECUR-AMA as a framework implementing a stochastic game between two agents: an analyzer and a target application.
+
+The strategy of the analyzer consists in a reinforcement learning algorithm based on Monte Carlo Tree Search (MCTS) to efficiently search the state and action spaces taking into account previous interactions in order to obtain more information on the target.
+
+The target model instead is created online while playing the game, using the information acquired so far by the analyzer and using it to guide the remainder of the analysis in an iterative process.
+
+We conduct an extensive evaluation of SECUR-AMA analyzing about 1200 real Android malware divided into 24 families (classes) from a publicly available dataset, and we compare our approach with multiple state-of-the-art techniques of different types, including passive and active approaches.
+
+Results show that SECUR-AMA creates more informative models that allow to reach better classification results for most of the malware families in our dataset.

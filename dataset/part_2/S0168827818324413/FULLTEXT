@@ -1,0 +1,477 @@
+10.1016/j.jhep.2018.09.022
+
+FULLTEXT
+
+TITLE
+
+Ketoconazole exacerbates mitophagy to induce apoptosis by downregulating cyclooxygenase-2 in hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is the second leading cause of cancer-related death worldwide.1
+
+Among all the treatment options for HCC, surgical resection remains the main approach, with the best long-term survival for early-onset disease.2
+
+However, the majority of patients with HCC are diagnosed at late stages when curative strategies are not applicable.
+
+Thus, the options become extremely limited for those patients who are referred to systemic therapy because of the low response rates of chemotherapeutic agents in HCC treatment.3,4
+
+Despite the current use of an oral multikinase inhibitor, sorafenib, in the standard care for advanced HCC, multiple clinical trials on sorafenib revealed limited survival benefits in patients with HCC, which is normally attributed to primary and acquired drug resistance.5
+
+As such, new therapeutic agents are urgently needed to improve outcomes in patients with HCC.
+
+PARAGRAPH
+
+Autophagy is a catabolic process by which intracellular cargo components, such as excess or defective proteins and organelles, are engulfed in double-membrane autophagosomes and subsequently degraded in autolysosomes.6
+
+The importance of autophagy in cancer treatment is highlighted by recent findings of the association of autophagy with tumor progression and drug response.7,8
+
+In some forms of autophagy, superfluous or damaged organelles and protein aggregates may be removed in a cargo-specific manner.
+
+Mitophagy, a well-studied type of cargo-specific autophagy, has commonly been recognized as a form of basal quality control to remove damaged mitochondria.9
+
+However, there has been evidence showing that in certain context, mitophagy is preferentially engaged to decrease the mass of functional mitochondria, contributing to cell demise.10,11
+
+In the scenario of HCC treatment, it has been perceived that mitophagy may play a double-faceted role in tumor cell survival depending on different cellular context.12,13
+
+Therefore, dissection of the mechanism underlying the dual role of mitophagy is crucial for exploiting mitophagy as a therapeutic target in HCC treatment.
+
+PARAGRAPH
+
+Ketoconazole (KET) is a broad-spectrum antifungal agent derived from imidazole and is primarily used to treat fungal infections such as candidiasis.14,15
+
+The systemic use of oral ketoconazole for fungal infections has been discontinued due to potential risk of liver injury.16
+
+Nowadays growing evidence suggests that ketoconazole alone or in combination with other agents possesses considerable antitumor properties.
+
+Initially shown for prostate cancer, these findings have been extended to other cancers, including breast, colon, and bladder cancers.17–19
+
+Moreover, the oral use of ketoconazole has been proven to be fairly well tolerated in cancer patients with no obviously increased toxicity in several clinical studies.20–22
+
+However, to date, limited data exist regarding the efficacy of ketoconazole in the treatment of HCC.
+
+These observations, in conjunction with the reported potential hepatotoxicity, underscore the need to evaluate the rational utility of ketoconazole in HCC treatment and to investigate the mechanisms involved.
+
+PARAGRAPH
+
+In this study, we demonstrate that ketoconazole induces apoptosis in HCC cells by triggering excessive mitophagy.
+
+The downregulation of cyclooxygenase-2 (COX-2) is characterized as a key event in the induction of excessive mitophagy in response to ketoconazole treatment.
+
+Notably, ketoconazole acts synergistically with sorafenib in the suppression of HCC xenograft growth in vivo.
+
+These findings provide a novel link between ketoconazole and mitophagy, which is of particular clinical relevance for a potential therapeutic strategy against HCC.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Cell culture
+
+PARAGRAPH
+
+Human embryonic kidney 293T (HEK293T) cells, human HCC cell lines HepG2, Hep3B, and the immortalized human liver cell line LO2 were maintained in high glucose Dulbecco’s modified Eagle Medium (DMEM, Gibco) supplemented with 10% FBS (Biowest), 100 U/ml penicillin, and 100 U/ml streptomycin (Hyclone).
+
+All cells were grown at 37 °C in a humidified incubator with 5% CO2.
+
+SECTION
+
+Reagents, plasmids, and antibodies
+
+PARAGRAPH
+
+Ketoconazole (K1003), MTT (M2128), Crystal Violet (C0775), 10-Nonylacridine orange bromide (A7847), Chloroquine diphosphate salt (C6628), Bafilomycin A1 (B1793) were purchased from Sigma.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+All statistical analyses and graphics were performed using GraphPad 6 software and R software (version 3.4.3, R Core Team).
+
+Student’s t test and one-way ANOVA were used to compare the means of 2 groups.
+
+The significance on repeated measurements over time and dosage was calculated using two-way ANOVA.
+
+Linear mixed-effect model was used to compare differences between groups of in vivo experiments, controlling correlations within the same subject.
+
+Tukey's post hoc test was used for multiple comparisons.
+
+A value of p <0.05 was considered statistically significant.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Ketoconazole inhibits cell growth of HCC cells by promoting apoptosis
+
+PARAGRAPH
+
+To evaluate whether ketoconazole exhibits antitumor effects against HCC, an MTT assay was performed to assess the cell viability in response to ketoconazole treatment in human HCC cell lines (HepG2, Hep3B) and a non-tumor human hepatic cell line, LO2.
+
+Ketoconazole treatment resulted in viability reduction in a dose-dependent manner in all cell lines.
+
+Notably, HepG2 and Hep3B cells were highly sensitive to ketoconazole, whereas LO2 cells demonstrated higher tolerance to ketoconazole (Fig. 1A).
+
+Consistently, the proliferation of HCC cells was significantly inhibited in response to ketoconazole treatment, as shown by reduced colony formation (Fig. 1B).
+
+Moreover, a lactate dehydrogenase release assay revealed that ketoconazole treatment exhibited marked cytotoxicity in HCC cells (Fig. 1C).
+
+Together, these results suggest that ketoconazole has a considerable antitumor effect in HCC cells in vitro.
+
+PARAGRAPH
+
+To examine whether the cytotoxic effect of ketoconazole is associated with apoptosis, we measured apoptosis induction by examining the apoptotic ratio of HCC cells in response to ketoconazole treatment.
+
+An in situ terminal deoxynucleotidyl transferase dUTP nick end labeling assay revealed obvious apoptotic induction in HCC cells after ketoconazole treatment, while apoptotic cells were rarely detected in LO2 cells (Fig. 1D).
+
+Increased cleavage of both caspase 3 and PARP was also observed in ketoconazole-treated HCC cells (Fig. S1A).
+
+Moreover, ketoconazole treatment led to the downregulation of Mcl-1, Bcl-2 and Bcl-xL (3 anti-apoptotic Bcl-2 proteins), and enhanced the expression of Bax and Bak (2 pro-apoptotic Bcl-2 family members) in a dose-dependent manner (Fig. S1B).
+
+The apoptotic phenotype was further supported by the FITC-annexin A5-PI assay showing a marked increase of apoptotic cells in ketoconazole-treated HCC cells (Fig. 1E).
+
+To confirm the role of apoptosis in the antitumor effect of ketoconazole in HCC cells, we pre-treated HCC cells with apoptosis inhibitor zVAD-fmk (zVAD) and assessed the cell viability in response to ketoconazole treatment.
+
+As expected, zVAD rescued ketoconazole-induced cytotoxicity in HCC cells (Fig. S1C-E).
+
+Thus, these data indicate that ketoconazole promotes the induction of apoptosis in HCC cells in vitro.
+
+PARAGRAPH
+
+To confirm the antitumor effects of ketoconazole against HCC in vivo, we used a subcutaneous mouse xenograft model and a patient-derived xenograft (PDX) model derived from a 62-year-old male patient with HCC, respectively.
+
+In both models, ketoconazole demonstrated a significant inhibitory effect on tumor growth (Fig. 1F-H).
+
+Moreover, apoptosis induction in xenograft tissues was also confirmed by stronger staining of cleaved caspase 3 and cleaved PARP in the ketoconazole-treated group compared with controls (Fig. 1I and Fig. S1F).
+
+Taken together, these data indicate that ketoconazole inhibits HCC growth by inducing apoptosis both in vitro and in vivo.
+
+SECTION
+
+Ketoconazole induces mitochondrial dysfunction in HCC cells
+
+PARAGRAPH
+
+Several previous studies have shown that mitochondrial loss is a phenotypic change in cells treated with azole antifungal drugs including ketoconazole.22,23
+
+To ascertain the mitochondrial alterations in response to ketoconazole treatment in HCC cells, we evaluated the morphology, quantity, and function of mitochondria.
+
+Compared with the normal tubular mitochondria in the control group, ketoconazole treatment led to an increased number of mitochondria with ring-shaped structures (Fig. 2A), suggesting the occurrence of mitochondrial fission or even fragmentation.
+
+We then measured mitochondria quantity by examining the intensity of a fluorescent dye 10-N-nonylacridine orange, and by using the MitoTracker Green FM probe.
+
+After ketoconazole treatment, a significant reduction in mitochondria mass was observed (Fig. 2B and C).
+
+As the relative mitochondrial number can be predicted by quantifying the mitochondrial DNA copy number, we measured the levels of mtDNA content and found that ketoconazole treatment resulted in decreased mtDNA copy number (Fig. 2D).
+
+Consistently, the expression levels of mitochondrial components such as SOD2, VDAC1, COX4I1, and TOM20 were downregulated in ketoconazole-treated cells compared with controls (Fig. 2E).
+
+Alongside the reduction of mitochondrial quantity, the mitochondrial function was aberrant under ketoconazole treatment as shown by decreased ATP levels (Fig. 2F).
+
+Additionally, we measured mitochondrial membrane potential and mitochondrial reactive oxygen species generation to address the functional alterations.
+
+We found that mitochondria in ketoconazole-treated cells produced more superoxide than control cells (Fig. 2G).
+
+Compared to the control group, ketoconazole-treated cells showed a decline in mitochondrial membrane potential as determined by the uptake of JC-1 (Fig. 2H).
+
+Despite the significant association of ketoconazole with mitochondrial dysfunction in HCC cells, we did not observe obvious mitochondrial alterations in ketoconazole-treated LO2 cells (Fig. S2A-H).
+
+Thus, these results suggest that ketoconazole induces mitochondrial loss and impairs mitochondrial function in HCC cells.
+
+SECTION
+
+Ketoconazole promotes mitophagy via enhancing Parkin recruitment to mitochondria
+
+PARAGRAPH
+
+Mitophagy is a form of mitochondrial quality control to remove the poorly functioning mitochondria.24
+
+As the results above confirmed mitochondrial dysfunction in response to ketoconazole treatment, we investigated whether ketoconazole induced mitophagy in HCC cells.
+
+We found that ketoconazole promoted conversion of LC3-I to lipidated LC3-II in a dose- and time-dependent manner along with an increase in endogenous LC3 puncta, suggesting the formation of autophagosomes (Fig. 3A, 3B and Fig. S3A).
+
+Consistently, the formation of autophagosomes was also observed in ketoconazole-treated cells by transmission electron microscopy imaging (Fig. 3C).
+
+The increase of autophagosomes is due either to autophagy activation or the blockage of the autophagosome-lysosome formation.25
+
+To this end, we examined the LC3-II conversion and endogenous LC3 puncta in the presence or absence of autolysosome inhibitors (CQ or BafA1).
+
+Ketoconazole treatment combined with autolysosome inhibitors resulted in enhanced LC3-II conversion and accumulation of endogenous LC3 puncta (Fig. S3B-D).
+
+Using a tandem monomeric RFP-GFP-tagged LC3, we observed increased formation of red fluorescent autolysosomes in ketoconazole-treated cells (Fig. S3E).
+
+Moreover, we examined LC3 levels in tumor tissues from both HepG2 xenografts and the PDX model.
+
+Consistent with the in vitro results, ketoconazole-treated HepG2 xenografts and the PDX model exhibited stronger LC3 staining and increased LC3-II accumulation compared with controls (Fig. 3D and E).
+
+Together, these results suggest that ketoconazole induces complete autophagy in HCC cells.
+
+PARAGRAPH
+
+To determine whether the mitochondria was engulfed by an autophagosome, we first analyzed the co-localization of the autophagosome and the mitochondria.
+
+The results showed that ketoconazole significantly increased co-localization of the autophagosome with the mitochondria, as evidenced by the merged fluorescent signaling of GFP-LC3 and MitoTracker (Fig. 3F).
+
+Recent studies have identified the PINK1/Parkin pathway as a key signaling pathway that mediates mitophagy in mammalian cells.26
+
+Thus, we detected the expression levels of PINK1 and Parkin after ketoconazole treatment.
+
+As shown (Fig. 3E, G), ketoconazole treatment increased the expression of PINK1 and Parkin in HCC cells as well as in HepG2 xenografts and the PDX model, while no evidence of mitophagy was found in ketoconazole-treated LO2 cells (Fig. S4).
+
+The translocation of Parkin to mitochondria is a hallmark of mitophagy.27
+
+We then examined mitochondria translocation of Parkin in ketoconazole-treated cells by analyzing cellular fractionations.
+
+As expected, we observed enriched Parkin in the mitochondria fraction in ketoconazole-treated cells (Fig. 3H).
+
+These results were further supported by the increased level of ubiquitinated proteins in mitochondria from ketoconazole-treated cells, which is the result of Parkin-mediated ubiquitylation of mitochondrial substrates (Fig. 3I).
+
+Together, these data suggest that ketoconazole stimulates mitophagy by inducing mitochondrial Parkin translocation in HCC cells.
+
+SECTION
+
+Ketoconazole induces mitochondrial dysfunction by activating mitophagy in HCC cells
+
+PARAGRAPH
+
+We then addressed whether ketoconazole-induced mitophagy plays a role in degrading damaged mitochondria.
+
+Unexpectedly, blocking mitophagy using ATG5 shRNA reduced the fragmentated mitochondria and restored mitochondria length in ketoconazole-treated cells (Fig. 4A and B).
+
+Following the restoration of mitochondria morphology, the mitochondrial mass is significantly increased in ATG5-knockdown cells compared with the control cells in response to ketoconazole treatment (Fig. 4C-E).
+
+Consistently, the impairment of mitophagy efficiently mitigated the ketoconazole-induced ATP loss (Fig. 4F).
+
+Similar results were obtained concerning the mitochondrial reactive oxygen species production, which was also partially attenuated by mitophagy inhibition in ketoconazole-treated cells (Fig. 4G).
+
+Collectively, these data indicate that ketoconazole induces mitochondrial damage and dysfunction by triggering mitophagy in HCC cells.
+
+SECTION
+
+Ketoconazole-induced mitophagy potentiates apoptotic cell death in HCC cells
+
+PARAGRAPH
+
+This inverse relationship seemingly contradicts the paradigm that mitophagy maintains mitochondrial dynamics by removing damaged mitochondria.24
+
+The aberrant mitophagy is presumed to promote cell death by disturbing mitochondrial homeostasis.28
+
+Indeed, the suppression of ketoconazole-induced mitophagy by ATG5 knockdown resulted in an alleviation in ketoconazole-induced cytotoxicity in HCC cells (Fig. 5A and B).
+
+A similar increase in both cell viability and clonogenic survival were also observed in ketoconazole-treated HCC cells in combination with CQ or BafA1 (Fig. 5C, 5D and Fig. S5A), suggesting that mitophagy induction, rather than other potential effects of ketoconazole, contributes to HCC suppression.
+
+Notably, both ATG5 knockdown and autolysosome inhibition (CQ or BafA1) partially reversed ketoconazole-induced apoptosis in HCC cells (Fig. 5E-H and Fig. S5B and C).
+
+Along this line, we explored the temporal sequence of events related to cell death after ketoconazole treatment and identified autophagy as an early event prior to the onset of cell cycle arrest, apoptosis, and necrosis (Fig. S6A-C).
+
+Thus, these data suggest that ketoconazole induces an ordered cascade of molecular events leading to cell death in HCC cells, whereby mitophagy serves as a crucial early event to provoke apoptosis in ketoconazole-mediated HCC suppression.
+
+SECTION
+
+Ketoconazole triggers mitophagy-mediated cell death through COX-2 inhibition in HCC cells
+
+PARAGRAPH
+
+To further understand the mechanism underlying ketoconazole-induced mitophagy, we searched the PINK1-interacting proteins which might account for the excessive mitophagy activation in HCC cells based on a previously constructed database of protein–protein interactions (Fig. S7).29
+
+Among all determined proteins, COX-2, also called prostaglandin G/H synthase 2 (PTGS2), is of particular interest for further study, considering its reported role in the biological effect of ketoconazole,30 as well as its specific localization in mitochondria of HCC cells (Fig. S8A and B).31,32
+
+First, we found the basal levels of COX-2 in HepG2 and Hep3B cells were significantly higher than in human hepatocyte cell line LO2 cells (Fig. S8C).
+
+This is consistent with the previous observations that COX-2 was overexpressed in HCC cancers.33
+
+Along this line, we then analyzed COX-2 expression in ketoconazole-treated cells and found that ketoconazole significantly decreased COX-2 expression in HepG2 and Hep3B cells (Fig. 6A).
+
+Moreover, we measured the level of COX-2 in tumor tissues from HepG2 xenografts and the PDX model and confirmed decreased COX-2 expression in ketoconazole-treated groups (Fig. 6B).
+
+It is noteworthy that CQ treatment failed to impair the effect of ketoconazole on COX-2 expression, suggesting that COX-2 downregulation is not a result of mitophagy (Fig. S8D).
+
+Together, these results implicate COX-2 downregulation as an early downstream event of ketoconazole treatment, which likely involves the alteration of mitochondrial dynamics in HCC cells.
+
+PARAGRAPH
+
+To investigate whether COX-2 inhibition is a potential trigger in ketoconazole-mediated mitophagy, we established COX-2-overexpressing and COX-2-knockdown cells to determine the role of COX-2 in ketoconazole-induced mitophagy (Fig. S8E).
+
+We found that enforced COX-2 expression attenuated ketoconazole-induced LC3 lipidation (Fig. 6C), while COX-2 knockdown resulted in an apparent accumulation of LC3-II to a similar level observed in ketoconazole-treated cells (Fig. S8F).
+
+Moreover, COX-2 overexpression suppressed ketoconazole-induced Parkin accumulation in the mitochondrial fraction (Fig. 6D).
+
+Notably, repression of COX-2 induced a marked accumulation of Parkin in mitochondrial fraction, which cannot be further enhanced by the addition of ketoconazole (Fig. S8G).
+
+Next, we analyzed the recruitment of the autophagosome to the mitochondria by confocal microscopy.
+
+As expected, overexpression of COX-2 abolished ketoconazole-induced accumulation of GFP-LC3 puncta and efficiently inhibited the co-localization of GFP-LC3 with MitoTracker (Fig. 6E).
+
+However, GFP-LC3 puncta and their co-localization with MitoTracker could not be further increased in ketoconazole-treated cells with COX-2 knockdown (Fig. S8H).
+
+In summary, these results demonstrate that the downregulation of COX-2 is required for ketoconazole-induced mitophagy activation in HCC cells.
+
+PARAGRAPH
+
+To further determine whether ketoconazole suppresses HCC growth via the downregulation of COX-2, we evaluated the effect of COX-2 expression on the antitumor effect of ketoconazole.
+
+MTT assay showed that COX-2 knockdown inhibited cell viability (Fig. S9A), which is consistent with previous studies.31,34
+
+Notably, COX-2 overexpression restored cell viability and suppressed apoptosis induction in ketoconazole-treated cells (Fig. 6F and Fig. S9B), while COX-2 knockdown could not further increase the sensitivity of HCC cells to ketoconazole (Fig. S9A and C).
+
+These results were supported by the HepG2 tumor xenograft model showing that COX-2 overexpression abrogated the effect of ketoconazole on tumor growth inhibition (Fig. 6G-I).
+
+Together, these data suggest that ketoconazole induces mitophagy-mediated cell death through downregulation of COX-2 in HCC cells.
+
+SECTION
+
+Ketoconazole sensitizes HCC cells to sorafenib treatment
+
+PARAGRAPH
+
+Sorafenib, a first-line chemotherapeutic agent for HCC, commonly exhibits primary and acquired drug resistance.5
+
+Recent evidence has implicated a connection between mitophagy and drug resistance.35
+
+In this regard, we evaluated the effects of ketoconazole addition on the response of HCC to sorafenib treatment in vitro.
+
+Either ketoconazole or sorafenib treatment demonstrated inhibitory effects on HCC cell growth, while the combinatorial treatment of ketoconazole and sorafenib has an additive effect on cell growth inhibition (Fig. 7A).
+
+Moreover, only moderate levels of apoptosis were detected in the sorafenib-treated group, while ketoconazole treatment combined with sorafenib caused a more severe increase of apoptosis (Fig. 7B and C).
+
+PARAGRAPH
+
+The synergistic effects of ketoconazole and sorafenib in vitro were further confirmed in vivo in Hep3B xenograft model.
+
+Xenografts with combinatorial treatment exhibited a slower growth rate compared with other groups.
+
+In addition, the tumor size and weight of combinatorial treatment group were remarkably reduced compared with those of other groups (Fig. 7D-F).
+
+Furthermore, tumor xenografts with combinatorial treatment showed robust LC3 and cleaved caspase 3 staining, and weak COX-2 staining in comparison with other groups (Fig. 7G and H).
+
+Taken together, these results indicate that ketoconazole could effectively enhance the cytotoxicity of sorafenib in HCC.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this study, we investigated the roles and mechanisms involved in the regulation of mitophagy in response to ketoconazole treatment in HCC cells.
+
+Our data suggested that ketoconazole provokes apoptosis by the induction of excessive mitophagy.
+
+We found that ketoconazole decreased COX-2 expression, resulting in Parkin mitochondrial translocation and excessive mitophagy.
+
+The resultant mitophagy contributes to apoptosis of HCC cells and tumor suppression.
+
+To our knowledge, our findings provide a novel mechanism of ketoconazole-mediated HCC suppression with a focus on the role of COX-2 in mitophagy induction.
+
+PARAGRAPH
+
+Generally, mitophagy may promote cell survival by degrading damaged mitochondria which could otherwise be toxic.
+
+Mitophagy can be triggered either by oncogenic signaling pathways that boost HCC malignant transformation,36 or by nutrient deprivation or chemotherapeutic agents to protect cells from stress-induced HCC cell death.37
+
+Here, we initially demonstrated the induction of mitophagy in ketoconazole-treated HCC cells.
+
+Interestingly, inhibition of autophagy restored ketoconazole-induced mitochondrial dysfunction, indicating that ketoconazole-induced mitophagy precedes mitochondrial dysfunction.
+
+In this regard, ketoconazole-induced mitophagy is likely to be excessive, leading to the massive degradation of functional mitochondria and subsequent cell death.
+
+It has been reported that excessive mitophagy contributes to cell death in an apoptosis-dependent or -independent manner.10,38–41
+
+Our results show that ketoconazole-induced mitophagy in HCC potentiates apoptotic cell death.
+
+In line with our findings, mitophagy induced by melatonin could sensitize HCC cells to apoptosis.42
+
+Whereas in AML or HNSCC model, ceramide stimulates lethal mitophagy independent of apoptosis.10,43
+
+These previous reports together with our findings suggest that mitophagy may promote cell survival or cell death in response to different stress conditions, which appears to be context-dependent.
+
+PARAGRAPH
+
+COX-2 is a key enzyme catalyzing the conversion of arachidonic acid into prostaglandins.
+
+Compared with constitutively expressed COX-1, COX-2 is inducible under pathological conditions and is highly expressed in inflamed and tumorous tissues.44,45
+
+A high COX-2 expression phenotype in cancer is intimately involved with more aggressive behavior, higher metastatic potential, lower apoptotic ratio, and correlated with diminished overall survival.46
+
+On the basis of such evidence, COX-2 inhibitors have been used alone or in combination with other chemotherapeutic agents in cancer treatment.47
+
+More specifically, efficacy of COX-2 inhibitors (including celecoxib, rofecoxib, and parecoxib) in HCC has been determined by several studies where COX-2 inhibition resulted in a marked growth inhibition of HCC cells via apoptosis induction and proliferation inhibition.48
+
+Our study has shown that ketoconazole treatment decreases COX-2 expression in a dose-dependent manner, implicating ketoconazole as a potential COX-2 inhibitor.
+
+PARAGRAPH
+
+We show that inhibition of COX-2 by ketoconazole treatment plays a critical role in mitophagy induction in HCC cells.
+
+Overexpression of COX-2 prevents mitophagy-mediated mitochondrial dysfunction by impeding PINK1 accumulation and Parkin recruitment on the mitochondrial membrane in response to ketoconazole treatment.
+
+These results support COX-2 as a negative regulator of the induction of excessive mitophagy, which is distinct from protective mitophagy in normal mitochondrial dynamics.
+
+In agreement with our data, it has been reported that COX-2 could localize to mitochondria in liver cancer cells and suppresses apoptotic cell death, which involves mitochondrial dysfunction and caspase activation.31,34
+
+However, the mechanism underpinning COX-2-regulated Parkin recruitment merits further investigation.
+
+Notably, a connection between ketoconazole efficacy and COX-2 expression is supported by our data, suggesting that a high COX-2 expression phenotype may not only account for the corresponding biological effect in ketoconazole-treated cells, but may also play a further role as a candidate biomarker for tumor response in HCC.
+
+Although the administration of oral ketoconazole is currently applied in cancer patients in several clinical studies,20,21 the real benefit of ketoconazole in patients with HCC is still uncertain considering the potential risk of it causing liver injury.
+
+Along this line, our study identifies a possible subgroup characterized by a particular phenotype with a high COX-2 expression who could benefit more from ketoconazole treatment compared with other groups that do not exhibit high COX-2 expression.
+
+Further studies based on the use of ketoconazole in HCC with high COX-2 expression are warranted to elucidate and broaden its clinical value.
+
+PARAGRAPH
+
+Taken together, our results suggest that excessive mitophagy induced by COX-2 inhibition may be the primary contributing factor for apoptosis induction in HCC cells in response to ketoconazole treatment, resulting in cell death and tumor suppression.
+
+These results provide novel insights into the mechanism of action of ketoconazole, implying ketoconazole as a potential therapeutic agent against HCC and highlighting that context-dependent mitophagy may hold promise as a therapeutic target in cancer.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by National 973 Basic Research Program of China (2013CB911300), National Natural Science Foundation of China (81790251, 81702378, 81430071, and 81672381).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Yan Chen, Hai-Ning Chen and Canhua Huang conceived the project and designed the experiments.
+
+Yan Chen, Hai-Ning Chen, Yong Peng and Canhua Huang analyzed data and wrote the manuscript.
+
+Zong-Guang Zhou provided the clinical materials.
+
+Yan Chen, Jiayang Liu, Kui Wang and Zhe Zhang established the cell models and performed relevant experiments.
+
+Yan Chen, Lu Zhang, Zhao Huang and Maochao Luo developed the animal models and performed related experiments.
+
+Yuquan Wei and Canhua Huang supervised this work.

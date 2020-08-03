@@ -1,0 +1,1077 @@
+10.1016/j.engappai.2020.103501
+
+FULLTEXT
+
+TITLE
+
+A hybrid meta-heuristic algorithm for scientific workflow scheduling in heterogeneous distributed computing systems
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Heterogeneous distributed computing systems include set of miscellaneous processors, machines and computers which are interconnected with high speed networks (Hosseini Shirvani and Babazadeh Gorji, 2020; Tanenbaum and Van Steen, 2007).
+
+They can share their resource capabilities to figure out complicated problems.
+
+In the past, scientists have run their scientific workload on distributed grid computing also known as e-Science.
+
+By the advent of cloud computing, it is utilized not only for e-Business applications, but also for e-Science problems.
+
+With the pervasiveness of cloud computing in geographical domain, low cost and flexibilities thanks to virtualization technology, it has attracted a lot of attention in scientific and research communities.
+
+Mathematical parallelizable workflows known as scientific workflows are being applied in several real world engineering applications such as LU-decomposition, GJ-elimination, FFT and etc. (Jin et al., 2008; Xu et al., 2014).
+
+A common representation of a parallel application is to model it into directed acyclic graph (DAG) with which the nodes are application tasks and directed edges connect data-dependent tasks.
+
+Such parallelizable applications have wide range of variation in shapes and have variable resource demand.
+
+In addition, the users cannot ultimately scale up their own infrastructure; therefore, a distributed system such as cloud computing is scalable enough especially with elasticity attribute that provisions requested services commensurate with users’ variable resource demand.
+
+In the cloud environment, independent tasks in a DAG can simultaneously be executed by multiple virtual machines (VMs).
+
+On the other hand, one of the most important quality of service (QoS) parameters is turnaround time which is the duration between execution of the first task until the last task is finished in requested application; this time duration is so-called makespan which a user indeed experiences in reality.
+
+This is the reason to consider makespan minimization as a prominent objective function in this paper.
+
+PARAGRAPH
+
+Generally, scheduling of tasks on parallel distributed machines to obtain minimum makespan, total execution time, is a NP-Hard problem (Johnson and Garey, 1979; Hosseini Shirvani et al., 2017; Amin and Hosseini Shirvani, 2009).
+
+Therefore, heuristic approaches can be applied to obtain a sub-optimal solution instead of exhaustively traversing all possible scheduling solutions.
+
+In the cloud marketplace, different providers such as Amazon, Google and IBM present variable VM configurations which lead different performance (Hosseini Shirvani, 2019; Hosseini Shirvani et al., 2018).
+
+To reach optimal task scheduling, several works have been published in literature, which can be classified into list schedulers, heuristic-based, and meta-heuristic-based approaches.
+
+One of the basic idea in this ambit is list scheduling approach which has attracted attentions because of low time complexity and rather good results.
+
+Heterogeneous earliest finish time (HEFT) is one of the most well-known list scheduling algorithm (Topcuoglu et al., 2002).
+
+It has two phases, at the first phase it provides a list of tasks with topological sort order and at the second phase, it picks up a task from in front of list and finds the suitable processor/VM/Computer which can guarantee the earliest finish time (EFT) of task.
+
+It also preserves dependency constraints between sub-tasks.
+
+Heuristic-based approaches are clustering and duplication techniques.
+
+In task duplication technique, the idea is behind the fact that the parent task which has many children is in critical position; then it can be duplicated on one or more machines to open new parallel paths leading to reduction in task finishing time (Lin et al., 2013; Sinnen et al., 2009; Bansal et al., 2003).
+
+On the other hand, clustering technique tries to cluster dependent tasks with high communication costs to be executed on the same processor/VM/computer; in this way, the communication cost can be omitted and consequently the execution time would be reduced (Tang et al., 2010; Mishra et al., 2012; Sih and Lee, 1993).
+
+Besides aforementioned approaches, abundant meta-heuristic algorithms are being published in this domain to cover weakness of list scheduler and heuristic-based algorithms.
+
+For instance, a genetic-based task scheduling algorithm on heterogeneous computing systems has been presented by Xu et al. (2014).
+
+The only smart way they went, was to consider multiple priority queue derived from list schedulers.
+
+However, it could not smartly explore search space in the next rounds because it explores search space uniformly.
+
+Al Badawi and Shatnawi have designed PSO-based task scheduling algorithm (Al Badawi and Shatnawi, 2013).
+
+Although it converges very fast, it lacks to balance between exploration and exploitation in search space because it tends to explore search space globally and neglects to enhance the obtained solutions via local search improvement.
+
+However, reviews in literature reveal that list scheduler and heuristic-based approaches produce only accurate solution which are not necessarily an optimal solution; also, applying a single meta-heuristic approach does not yield an optimal solution because in larger task graphs, search space are very large scale in which current approaches cannot well explore search space; as a result rarely exact optimal solutions can be made by utilizing only a single meta-heuristic algorithm.
+
+It revolves around the fact that most of the literature tend to explore search space globally which neglect to enhance local search; therefore, the overall performance is not as it should be.
+
+Since the task scheduling problems have discrete optimization search space, there exist scares discrete optimization methodologies to figure out this kind of problems in a logical time window.
+
+Among them, simulated annealing attracted great attentions because of its fast convergence, but with low optimality (Damodaran and Vélez-Gallego, 2012).
+
+Performance result of SA reported in Jin et al. (2008) and Akbari et al. (2017) proves that SA cannot control huge search space in this type of problems.
+
+Therefore, we needed a fast and rather optimal algorithm to cover this problem.
+
+So, we customized PSO as a fast optimization algorithm, based on our requests.
+
+Also, we obviate its original weakness by two novel works.
+
+Firstly, we present a new version of discrete PSO commensurate with discrete search space.
+
+Secondly, exploitation technique is randomly applied to improve local search and global quality as well.
+
+In this way, all shortcomings such as earlier convergence and getting stuck in local optimal trap are overshoot.
+
+This is the reason for preparing the current paper.
+
+PARAGRAPH
+
+The main contribution of the current papers is as follows:
+
+PARAGRAPH
+
+This novel hybrid meta-heuristic approach has different phases, i.e., initial swarm are randomly generated based on proved theorems.
+
+This generated population is an input of PSO algorithm.
+
+As the discrete nature of problem shows, canonical PSO that is continuous is no longer beneficial.
+
+Afterwards, our new discrete PSO (DPSO) with new updating rules plummets into solving the problem.
+
+Also, to balance between exploration and exploitation in search space, our algorithm randomly applies local search treatment by Hill Climbing technique to improve algorithm’s overall performance.
+
+The result of different settings indicated the promising outcome against other state-of the art methods.
+
+The rest of the current paper is structured as follows: Section 2, is dedicated to related works in literature; Section 3, clarifies task scheduling modeling and formulation; theorems and motivation are placed in Section 4.
+
+Our proposed novel hybrid meta-heuristic algorithm is elaborated in Section 5.
+
+Time complexity is discussed in Section 6.
+
+Experiments and Analysis are brought in Section 7.
+
+Finally, Section 8 concludes the paper along with future direction.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+Task scheduling can be classified into three classes below:
+
+PARAGRAPH
+
+List Scheduler: In list scheduler, each task is assigned a weight as a priority which guarantees dependency constraints.
+
+The task selection is based on determined priority and the available processor/VM that returns earliest finish time of task can be selected.
+
+Heterogeneous earliest finish time (HEFT) and critical path on processor (CPOP) are the most famous version of list schedulers (Topcuoglu et al., 2002).
+
+In HEFT algorithm, two type of rankings upward and downward are done to weight on graph nodes.
+
+In upward ranking, the algorithm starts from exit node, which has not any child, to entry node, which has not any parent, by considering appropriate weight to each node.
+
+In this way, the parent nodes have greater weight in comparison with their children; the final list is provided by decreasing order based on nodes’ weight.
+
+Another technique, downward ranking starts from entry node to exit node.
+
+It tries to augment children weight more than related parents.
+
+In this line, the lowest weight determines the highest priority.
+
+On the other hand, CPOP approach tries to determine critical path and strives to put that critical tasks on the fastest processors/VMs.
+
+Several works in this domain that have been presented in research community such as CCP, CEFT, RHEFT and DHEFT are the extension of HEFT and CPOP algorithms (Khan, 2012; Thaman and Singh, 2017).
+
+Although list schedulers take benefit of promising techniques, there is a clear lack of good exploring in search space.
+
+PARAGRAPH
+
+Heuristic-based approaches: Two heuristic algorithms namely clustering and duplication techniques have been presented to improve scheduling performance.
+
+The former technique is used to reduce graph communication costs.
+
+Indeed, clustering method tries to bundle high communication delay dependent tasks to be mapped on the same processor/VM.
+
+By this, it precludes data transfer between two consecutive dependent tasks (Sahni and Vidyarthi, 2016; Gkoutioudi and Karatza, 2010).
+
+The latter technique, duplication method, tries to apply task duplication on different processors/VMs.
+
+In fact, in this technique, the idea is behind the fact that the parent task which has many children is crucial; then it can be duplicated on one or more machines to open new parallel path leading to reduction in processor/VM communication and task finishing time too.
+
+Bansal et al. (2003), Lin et al. (2013) and Mishra et al. (2012) have exploited aforementioned techniques.
+
+However, aforementioned techniques are not suitable for limited computing platforms (Bansal et al., 2003; Hosseini Shirvani, 2015).
+
+PARAGRAPH
+
+Meta-heuristic-based approaches: Besides canonical and traditional list schedulers and heuristic approaches, meta-heuristic algorithms have been extended to harness such large-scale search space.
+
+Genetic-based, PSO-based and ant colony optimization (ACO)-based algorithms are more popular among others.
+
+For instance, a new shuffle genetic-based task scheduling algorithm in distributed heterogeneous systems has been proposed by Hosseini Shirvani (2018).
+
+The Quantum genetic algorithm with rotation angle refinement for dependent task scheduling on distributed systems has been published in Gandhi and Alam (2017).
+
+Also, Akbari et al. have presented an enhanced genetic algorithm with new operations to solve task scheduling problem (Akbari et al., 2017).
+
+Multiple priority queue genetic algorithm (MPQGA) has been propounded in heterogeneous systems to solve task scheduling (Xu et al., 2014).
+
+Al Badawi and Shatnawi presented a PSO-based static task scheduling algorithm in 2013 (Al Badawi and Shatnawi, 2013).
+
+Their algorithm only explores search space globally which saturates in local optimum.
+
+Another PSO-based, entitled “Self-Adaptive Learning PSO-Based Deadline Constrained Task Scheduling for Hybrid IaaS Cloud” has been presented in literature by Zuo et al. (Zuo et al., 2013).
+
+Kang and He presented a new DPSO algorithm for meta-task assignment in parallel distributed systems (Kang and He, 2011).
+
+Sarathambekai and Umamaheswari presented a Discrete PSO task scheduling algorithm in distributed systems works on dynamic topology that is binary heap tree for communication between the particles in the swarm (Sarathambekai and Umamaheswari, 2017).
+
+Nevertheless, their particles uniformly traverse trajectory in search space and neglect local neighborhood search.
+
+Penharkar proposed ant colony optimization (ACO) for constrained task allocation problem (Pendharkar, 2015).
+
+This is a single method which could not lead sustainable results.
+
+PARAGRAPH
+
+However, study on related works such as in static list schedulers, heuristic, and meta-heuristic approaches reveals that aforementioned methods uniformly explore search space and there is not any balance between exploration and exploitation which can promisingly improve generated solutions.
+
+Applying only a single method does not lead optimal solution in this combinatorial problems; this is the reason to extend current hybrid meta-heuristic algorithm that take Hill Climbing technique with local search trend for improving solutions generated by meta-heuristic algorithm.
+
+SECTION
+
+Task scheduling modeling and formulation
+
+PARAGRAPH
+
+Here the task scheduling problem formulation and modeling are presented.
+
+To do so, the system, application, and scheduling models are brought in advance.
+
+SECTION
+
+System and heterogeneity model
+
+PARAGRAPH
+
+Our proposed system framework is depicted in Fig. 1.
+
+It has different components such as Front-end module, Cloud Broker, Scheduler, VMs, and Datacenter.
+
+PARAGRAPH
+
+Front-end component receives user applications that need to be executed on parallel processors/VMs.
+
+Cloud Broker delivers users semantic of cloud service ability and related QoS.
+
+The datacenter contains a set of m different heterogeneous processors which are interconnected with high speed networks.
+
+The system heterogeneity is based on architecture and speeds; each of which can run multiple VMs.
+
+Such system model is illustrated in Fig. 2.
+
+The number one on the links indicates that network speed is normalized and all processors uniformly are accessible to each other.
+
+PARAGRAPH
+
+Each VM has its own configurations, so every task has different final execution time based on underlying VM’s configuration.
+
+Moreover, execution time can be estimated in advance by datacenter profiling techniques.
+
+Also, physical machines are equipped with high speed networks; therefore, VMs can easily communicate with each other.
+
+If in distributed systems all processors are the same, the runtime of given tasks are the same on each processor, but in real distributed systems the speed of processors are variable.
+
+The heterogeneity model indicates the difference speed of processors to executing the given task.
+
+The Eq. (1) shows the degree of asymmetry of processors. degree of asymmetry=1+h1−h
+
+So that h is heterogeneity parameter in which it is h∈ [0.
+
+.1).
+
+If we consider h=0, the degree of asymmetry is 1; or if taking h=0.5, the degree of asymmetry is 3.
+
+In the latter case, it means that the fastest processor is 3 times faster than the lowest processor of distributed system in executing a given task.
+
+The amount of computation cost of task Ti on processor Pj, W  (Ti,pj), is calculated by Eq. (2) where Wcomp(Ti) and S(Ti,pj) are the amount of computation of task Ti and the execution speed of task Ti on processor pj respectively.
+
+W(Ti,pj)=Wcomp(Ti)S(Ti,pj)Moreover, w(Ti)¯ is the average computation cost of task Ti which is calculated by Eq. (3). wi¯=∑j=1qW(Ti,pj)q
+
+Note that, the parameter q is the number of processors in distributed system.
+
+In heterogeneous systems, inequality (4) is valid. w(Ti)¯(1−h2)≤W(Ti,pj)≤w(Ti)¯(1+h2)
+
+In case of h=0, the degree of asymmetry according to Eq. (1) is 1 and execution time of task Ti on each processor pj is the same because the processors are homogeneous.
+
+In our simulation, we consider a heterogeneous system by h=0.6 with 4 processors in which it normalizes their speed to 0.25, 0.5, 0.75 and 1.0; in the other words, the fastest processor is 4 times quicker than the lowest in this system.
+
+We also consider homogeneous scenario by taking h=0.
+
+SECTION
+
+PARAGRAPH
+
+Application model
+
+PARAGRAPH
+
+Parallel applications are modeled in the form of DAG.
+
+Fig. 3 depicts such applications which have sub-task inter-dependencies.
+
+For instance, LU-decomposition, GJ-elimination and FFT task graphs are illustrated in Fig. 3a, Fig. 3b and Fig. 3c respectively.
+
+Note that, in linear algebra and numerical analysis, LU-decomposition factors a matrix as the product of lower triangular matrix and an upper triangular matrix.
+
+Computers usually figure out square systems of linear equations using LU-decomposition.
+
+Accordingly, GJ-elimination algorithm, also known as row reduction, is used in linear algebra to solve system of linear equations too.
+
+On the other side, FFT algorithm computes the discrete Fourier transform (DFT) of a sequence and converts a signal from its original domain (time or space) to a frequency domain and vice versa.
+
+As a result, it reduces computing complexity of DFT from O(n2) to O(nlogn) where n is the input data size.
+
+Indeed, serial execution of such mathematical algorithms are time-consuming especially in an interactive environment.
+
+So, scheduling of aforementioned problems on parallel platforms can improve performance and reliability.
+
+PARAGRAPH
+
+If a DAG has some exit/entry nodes, we can consider a dummy node with zero processing and communication costs.
+
+Fig. 3b. demonstrates GJ-Elimination algorithm which needs a dummy input node T0 to be connected to tasks T1 through Ti for constructing standard DAG.
+
+Also, Fig. 3c needs a dummy exit node T16 to have connections from nodes T12 through T15.
+
+In addition, the structure of LU-decomposition graphs is determined by the number of nodes equal to {L2+5L+42,L≥1}, which depends on level L; also, the structure of GJ-elimination graphs is determined by the number of nodes equal to {L2+3L+22,L≥1}, which depends on level L. Moreover, FFT task graphs needs 2m−1 recursive and m.log(m) butterfly operations respectively, where the parameter m is the length of input vector that must be power of 2 (Topcuoglu et al., 2002).
+
+Since the majority of mathematical workflows have homogeneous and symmetric task graph structure, as can be seen in Fig. 3, we present random approximately asymmetric and heterogeneous task graphs to prove our proposed algorithm’s robustness on wide variety input spectrums.
+
+For example, Fig. 4 is a random task graph.
+
+As underlying architecture is heterogeneous, Table 1 shows execution time of each task on determined processor; moreover, the number on the arc indicates average communication costs provided two dependent tasks are executed on different processors/VMs.
+
+PARAGRAPH
+
+Each task graph, a DAG, has several nodes which are defined for computations and edges which show average communication cost between nodes.
+
+The edge also indicates precedence constraint between nodes.
+
+Every subtask should be executed on one computational node from our target parallel system.
+
+Also, each DAG has two special nodes TEntry and TExit that not have predecessor and successor nodes respectively.
+
+As the defined system is heterogeneous in nature, processing of each subtask of DAG over different computational nodes have different costs.
+
+Although execution time could be a real number, we take integer number for the sake of simplicity.
+
+Note that, the execution time can be taken deterministic since in the compile time, the number of instructions are determined.
+
+Also, the processing power of underlying infrastructure has been determined in advance.
+
+Then, the execution time can be obtained from Eq. (2).
+
+For instance, Table 1 shows the different task execution times on different processing nodes.
+
+The last row in Table 1 indicates average execution time.
+
+Moreover, to determine whether an application is computation-intensive or communication-intensive, we apply communication-to-computation ratio (CCR) concept which can be attained via Eq. (5) (Topcuoglu et al., 2002): CCR=1e∑edgeTi,Tj∈EC(Ti,Tj)¯1n∑Ti∈Tw(Ti)¯For instance, the amount of CCR parameter related to graph depicted in Fig. 4 is 0.7189.
+
+It indicates that this graph is computation-intensive.
+
+SECTION
+
+PARAGRAPH
+
+Scheduling model
+
+PARAGRAPH
+
+List schedulers are famous scheduling algorithms in distributed systems.
+
+The Heterogeneous Earliest Finish Time (HEFT) belongs to list scheduler category.
+
+It was firstly introduced by Topcuoglu et al. for static task scheduling on limited heterogeneous parallel processing systems (Topcuoglu et al., 2002).
+
+To apply such static-oriented algorithm in dynamic environment such as in cloud computing, we can determine static time window to behave the problem with static fashion (Burkimsher et al., 2013).
+
+HEFT utilizes two important functions: Earliest Finish Time (EFT) and Earliest Start Time (EST).
+
+The first indicates the earliest time in which a processor pj can executes subtask Ti whereas the second indicates the earliest time that the execution can be started.
+
+The earliest start time for entry task in DAG is zero in which Eq. (6) calculates.
+
+In addition to, functions EST and EFT for other nodes are calculated by Eqs. (7) and (8) respectively (Topcuoglu et al., 2002).
+
+EST(Tentery,pj)=0EST(Ti,pj)=max{avail{j},maxAFTTm+C(Tm,Ti)Tm∈pred(Ti)}EFT(Ti,pj)=W(Ti,pj)+EST(Ti,pj) The function predTi in Eq. (7) indicates to a set of all predecessor nodes of Ti in DAG.
+
+Moreover, the term availj illustrates the time that processor pj accomplished the last task on itself and it is ready for the next task to execute.
+
+The inner max in Eq. (7) means that the actual finish time (AFT) of the last task in predTi should be determined.
+
+Meanwhile, the outer max indicates that it may happen the situation that the output of last subtask of Ti in predTi becomes ready later than availj.
+
+On the other words, despite pj readiness, the execution time is postponed until the time which the last precedence subtask of Ti is ready; because this procedure precludes of swerving in dependency constraints violation in a given DAG.
+
+On the other hand, if the value of availj is greater than the finish time of last subtask in pred(Ti), despite execution of all subtasks in pred(Ti), the actual execution will be started until the processor pj is ready.
+
+The parameter C(TmTi), indicates average transfer time between processors pm and pi.
+
+If m=i then C(TmTi)=0.
+
+The actual execution time for subtask Ti on processor pj is calculated by Eq. (9) (Topcuoglu et al., 2002).
+
+Moreover, the total execution time of DAG so called makespan, is calculated by Eq. (10) (Topcuoglu et al., 2002).
+
+AFTTi,pj=min1≤l≤mEFTTi,plmakespan=maxAFTTexit Therefore, the scheduling objective of this paper can be stated as an optimization problem, which is formulated in Eq. (11): minmakespan=minmaxAFTTexitIt is subject to precedence constraints that must be preserved.
+
+The aforesaid algorithm is executed in two phases.
+
+In the first phase subtasks are sorted based on predetermined priority.
+
+Upward ranking, Downward ranking and Level ranking are three typical approaches in this ambit (Xu et al., 2014).
+
+For instance, in Upward ranking approach each subtask is assigned with a weight directed from exit subtask to entry subtask.
+
+This value for exit subtask is calculated by Eq. (12) (Topcuoglu et al., 2002); for other subtasks the value is calculated by Eq. (13) recursively (Topcuoglu et al., 2002). rankuTexit=wexit¯rankuTi=wi¯+maxTj∈succTi(C(Ti,Tj)¯+rankuTj)
+
+Note that, the function succ(Ti) indicates to all immediate successors of task Ti in a DAG application.
+
+In addition to, the average execution time for each node is calculated by Eq. (3) which has been stated in this paper in Section 3.1.
+
+PARAGRAPH
+
+On the other side, in Downward approach, priority value is calculated from entry node to exit node.
+
+This value is considered zero for entry subtask whereas for other subtasks the value is recursively calculated by Eq. (14) (Topcuoglu et al., 2002). rankdTi=maxTj∈predTi(rankdTj+wj¯+C(Tj,Ti)¯)
+
+In the Level ranking approach, level for each subtask is calculated by Eq. (15) (Topcuoglu et al., 2002).
+
+Then, each subtask is placed in sorting list based on its level value in increasing order.
+
+In case of the same level for two different subtasks, the subtask which have greater value in sum of Upward rank and Downward rank values is selected from left to right in ordered list.
+
+LevelTi=0,ifTi=Tenterymax(Level(Tj))Tj∈pred(Ti)+1,otherwiseFor instance, for the DAG depicted in Fig. 4, Table 2 shows the priority values of different approaches for each node.
+
+PARAGRAPH
+
+Note, sum of upward and downward values makes new ranking method; the nodes which have the most value make graph’s critical path.
+
+It urges high priority for this type of nodes.
+
+Here, we define new method as Level ranking.
+
+In this method we try to place this type of tasks on the fastest processor such as CPOP algorithm in Topcuoglu et al. (2002).
+
+Hereafter, we try to place at least three promising lists in our initial population.
+
+PARAGRAPH
+
+Hence, three lists of subtasks [t1t3t2t7t6t4t5t8t10t9t11], [t1t2t3t4t6t7t5t9t10t8t11] and [t1t3t2t7t5t6t4t8t10t9t11] are valid topological sort, based on Upward, Downward and Level ranking approaches (Xu et al., 2014).
+
+As stated before, in the second phase, a subtask is picked up from in front of sorted list to be scheduled; the algorithm searches to find a processor which guarantees the earliest finish time for that subtask.
+
+Therefore, the search space can be explored with different ways because it has several possibilities to take task for execution.
+
+In this discrete space, not only it has so many feasible permutations of sub-tasks for large DAGs, but also even for small DAGs, this is the reason that deterministic algorithms do not take over this kind of optimization problems.
+
+SECTION
+
+An illustrative example
+
+PARAGRAPH
+
+An illustrative example is necessary to determine discrepancies in performance of approaches which solve task scheduling problems.
+
+Fig. 5 demonstrates execution of approaches Upward (Topcuoglu et al., 2002), Downward (Topcuoglu et al., 2002) GA-based (Xu et al., 2014), PSO-based (Al Badawi and Shatnawi, 2013) and proposed HDPSO for DAG depicted in Fig. 4.
+
+Note that, all of the algorithms in Xu et al. (2014), Topcuoglu et al. (2002) and Al Badawi and Shatnawi (2013) have been studied and executed on the same graph in the same circumstance; then, the results have been reported in Fig. 5.
+
+This figures prove the success of HDPSO to take over on search space.
+
+SECTION
+
+PARAGRAPH
+
+Theorems and motivation
+
+PARAGRAPH
+
+In the list schedulers, it is necessary to provide a topological order of task lists for preserving dependency constraints.
+
+Existing list schedulers and heuristics cannot well explore search space.
+
+Here we present some theorems; they can be exploited toward problem optimization.
+
+We also prove that this type of problem is a NP-Hard one.
+
+Later, we state our motivation to figure out this combinatorial problem.
+
+Presented theorems are conducted in such a way that to find optimal solutions.
+
+PARAGRAPH
+
+PARAGRAPH
+
+A task scheduling solution S includes a given topological sort of tasks which determines the execution order of tasks.
+
+Each sub-listS′ obtained from S by deleting one or more tasks are still topological sort lists.
+
+PARAGRAPH
+
+PARAGRAPH
+
+If a task Ti is deleted from a valid topological sort list, it is trivial that the dependency constraints are not violated; only in the case of adding some tasks in a list needs checking whether the constraints are violated or not.
+
+This theorem is also verified for sub-list of the main list.
+
+PARAGRAPH
+
+PARAGRAPH
+
+A solution S, containing a list of ordered tasks, has topological attribute if for each taskTi∈ {list of ordered tasks in S} is placed after the last elements of pred (Ti) and before the first elements of succ (Ti) in the ordered list.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Take L be an ordered list of n tasks, so each task Ti∈ L[1..
+
+n].
+
+If task Tj=L[p] is the last task of pred (Ti) and Tk=L[q] is the first task of succ (Ti) in the list of topological sort L; then, each task Tm∈L [p+1..q−1]
+
+does not have any dependency to Ti.
+
+Therefore, it can be placed in arbitrary order between them.
+
+PARAGRAPH
+
+To apply aforesaid theorems, we categorize nodes by their level detection.
+
+Fathers of nodes which are in level dth are in level (d−1)th also their children are in level (d+1)th; therefore, each arbitrary permutation of tasks in level dth between levels (d−1)th and (d+1)th are valid.
+
+This note can be observed in the List below.
+
+From ordered List below we can derive several topological sort lists based on aforesaid theorems.
+
+For instance, List2 is derived from List1 by permutation of tasks in the same level which leads promising result; each of which is valid for graph depicted in Fig. 4.
+
+Also, Fig. 6 demonstrates application of our theorems in practice.
+
+Even we can go further to permute tasks from distant levels provided dependency constraint is not violated; it is the reason we apply it in exploitation of hybrid approach to improve local search solutions.
+
+PARAGRAPH
+
+List= [TEntry,…. {tasks in level (d−1)th}, {tasks in level dth}, {tasks in level (d+1))th} ….,Texit ]
+
+PARAGRAPH
+
+Ordered List based on node level = [T1,{T2,T3},{T4,T5,T6,T7},{T8,T9,T10},T11},
+
+PARAGRAPH
+
+List1= [T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11}.
+
+In a system with 2 non-identical VMs/processors, the execution of List1 based on HEFT leads makespan to be 83 which Fig. 6a demonstrates.
+
+PARAGRAPH
+
+On the other hand, List2= [T1, T2, T3, T5, T4, T7, T6, T8, T9, T10, T11} wherein we put {T5,T4,T7,T6}, as one of 4! =
+
+24 valid permutations of {T4,T5,T6,T7} in level 2 of graph that is known as {Segment2}.
+
+Fig. 6b proves the effectiveness of proposed theorems which leads makespan to be 78 instead of 83.
+
+PARAGRAPH
+
+Motivation: For simplicity, assume that we are given a scientific DAG with n vertices with average k levels in which each level has nk tasks on average.
+
+For instance, there are a lot of such scientific workloads such as LIGO, CyberShake, Montage, SIPHT and Epigenomics (Bharathi et al., 2008; Verma and Kaushal, 2017; Haidri et al., 2017; Abrishami et al., 2013).
+
+Anyway, we put set of tasks with same level in a segment; to avoid confusing, we use segment concept instead of cluster known as heuristic approach in scheduling problems.
+
+According to stated theorems, each arbitrary permutation of tasks in each segment is valid.
+
+Take a List=[{Segment1},{Segment2},…,{Segmentk}] where each segment has a set of sibling tasks.
+
+Fig. 7 draws the facts about possible permutations.
+
+PARAGRAPH
+
+In each segment nk! possible states are contingent, so the total states are calculated at least by a formulation in Eq. (16): At least probable states=∏i=1knk!∈Ω(nk!k)We use Ω(.)
+
+notation because there exists more chance even for permutations of tasks in distant levels, but we consider the ceil of positions.
+
+For instance, in List1 related to a graph depicted in Fig. 4, we can exchange task T3 with tasks T4, T5 and T6 in the next level except for T7, which is its parent, to make new list although they do not belong to the same level.
+
+Moreover, each possible permutation leads different results and performance.
+
+Therefore, this problem is NP-Hard whereas for big n there is not any deterministic polynomial time algorithm to reach optimal solution in limited time window.
+
+For instance, deem a moderate graph with 50 nodes which has approximately 5 levels of 10-node; the minimum possible lists to be investigated are 10!5=6.29∗1032 based on Eq. (16).
+
+If it is executed on a platform that can take a nanosecond to investigate one list, the total investigation will take myriad centuries.
+
+SECTION
+
+Proposed hybrid Meta-heuristic algorithm definition
+
+PARAGRAPH
+
+Before presenting the novel HDPSO, we shortly explain about canonical PSO, new DPSO along with its new operators and Hill Climbing technique.
+
+SECTION
+
+Canonical PSO
+
+PARAGRAPH
+
+The PSO algorithm has been published by Kennedy and Eberhart in 1995 which inspired from bunch of animal movements such as flock of birds and fish behaviors (Eberhart and Kennedy, 1995).
+
+A PSO algorithm is a population based meta-heuristic like other evolutionary algorithms.
+
+Assume Xi⃗=(xi1,xi2,…,xid) be a position of ith particle in d-dimensional search space, Vi⃗=(vi1,vi2,…,vid) be velocity attribute of the particle, Pi⃗=(pi1,pi2,…,pid) be the best personal experience so far, for ith particle.
+
+The next step velocity and trajectory of particle, of each dimension j, is governed by Eqs. (17) and (18) respectively. vijt+1=ω.vij(t)+c1.r1.(Pijt−xij(t))+c2.r2.(g−xij(t))xijt+1=xijt+vij(t+1)
+
+The movement of particles in a swarm is governed toward three directions, i.e., the last position as inertia, the local optimal as cognition and the global optimal as social concepts.
+
+The values of ω,c1andc2 allow to tune the inertia, cognition and social behaviors where ω,c1,c2≥0 and r1,r2∈[0..1] to make the sense of randomness for particles in the flight.
+
+Moreover, the variable g in Eq. (17) is representative of global performance in all of the particles.
+
+Variable ω controls the effect of last velocity on current velocity.
+
+The canonical PSO was originally presented for continuous optimization problems; so it is no longer beneficial for natural discrete problems such as task scheduling in parallel processors environment.
+
+It is necessary to present a new version of discrete PSO (DPSO) to figure out discrete optimization problems.
+
+PARAGRAPH
+
+SECTION
+
+DPSO and new operators
+
+PARAGRAPH
+
+Kennedy and Eberhart also presented discrete version of PSO.
+
+It tries to round continuous value into near integer one (Kennedy and Eberhart, 1997).
+
+It is no longer beneficial here.
+
+Here we define several new parameters and operators which are used in our novel DPSO.
+
+New definitions and operators are listed below:
+
+SECTION
+
+Particle position
+
+PARAGRAPH
+
+Let Particlei⃗=(Pi1,Pi2,…,Pin) be a particle position vector and Xi⃗=(xi1,xi2,…,xin) be a binary n-bit vector to indicate which element of Particlei must be modified; the bit xij is embedded for this reason; if xij=0 then Pij is possible to be changed; otherwise no change for Pij happens.
+
+Moreover, the meme Pij in Particlei is one of the task Tk∈T={set of tasks in DAG}; the index i and j indicate to number of particle in swarm and the place of task in the given list.
+
+For instance, take particle P1=(1,2,3,5,4,7,6,8,9,10,11) and X1=(1,0,1,0,1,0,0,0,1,0,1) means that corresponding tasks in P1 having bit 0 in Xi can be constituted; as an example pair tasks (T2,T7), (T6,T8) and (T5,T10) are candidates to be exchanged, but the only pair (T5,T10) exchange makes precedence violation, so it can be ignored.
+
+Finally, new position for particle P1 is (1, 7, 3, 5, 4, 2, 8, 6, 9, 10, 11).
+
+Note that the possible pairs can be randomly opted.
+
+SECTION
+
+Particle velocity
+
+PARAGRAPH
+
+This particle velocity Vi⃗=(vi1,vi2,…,vin) is also n-bit binary vector to effect on particle position binary vector Xi which is placed in updating rule by ⊗ operator.
+
+SECTION
+
+Subtract operator (A ⊖ B)
+
+PARAGRAPH
+
+This operator is designed to calculate the difference between two vectors; if the corresponding elements are the same the corresponding bit is assigned to 1 otherwise it is set to 0.
+
+For instance; (1, 0, 1, 0) ⊖ (1, 1, 0, 0) = (1, 0, 0, 1).
+
+SECTION
+
+Add operator (A ⊕ B)
+
+PARAGRAPH
+
+This operator is used for velocity update operation affected by inertia, local best and global best velocity in velocity updating process.
+
+Therefore, the new operators is such as V=P1V1⊕P2V2⊕…PnVn where ∑i=1nPi=1.
+
+For instance, 0.3(1, 0, 1, 0, 0)⊕ 0.7(1, 1, 0, 0,1) = (1, #, #, 0, #); the symbol # indicates uncertainty.
+
+Here, the first sharp means the bit can be almost both 0 and 1 with 30% and 70% respectively whereas the second sharp chance is exactly vice versa.
+
+To solve this problem, the novel approach is to find coefficients Pi in such a way that P1≤P2≤⋯≤Pn; then we draw a random number 0<q0<1; if q0<P1 then corresponding bit is captured from V1 else if q0≥P1 and q0<P2 the corresponding bit is captured from V2 etc.
+
+SECTION
+
+Multiply operator (A ⊗ B)
+
+PARAGRAPH
+
+This operation is used to update binary particle position vector X = X⊗V; the binary position vector is used in the next step; only if the corresponding bit of velocity vector is 0; then the binary position vector must be adjusted.
+
+For instance, (1, 0, 1, 0, 0) ⊗ (1, 0, 0, 1, 1) = (1, 1, 0, 0, 0).
+
+SECTION
+
+Updating rule
+
+PARAGRAPH
+
+After definition of several new operations; two binary vectors Vi and Xi for Particlei are defined which are the basis of particles treatment in flight.
+
+It is conducted by Eqs. (19) and (20).
+
+Vi+1=P1Vi⊕P2(Xlbi⊖Xi)⊕P3(Xgb⊖Xi)Note that, like Xi, the binary vectors Xlbi and Xgb are utilized for particle Pi and the whole swarm respectively.
+
+Xi=Xi⊗Vi+1Then the vector Xi governs movement direction of Particlei in flight.
+
+SECTION
+
+Hill Climbing
+
+PARAGRAPH
+
+Hill Climbing technique is a local search optimization algorithm.
+
+It is combined with global optimization meta-heuristic to improve the current solution by searching locally.
+
+It starts searching around current solution which obtained via meta-heuristic algorithm to improve current solution; if the solution found by Hill Climbing is better than that of current solution, the new solution is constituted otherwise it is rejected (Rusell and Norvig, 2003; Taborda and Zdravkovic, 2012).
+
+This technique is a promising approach to balance between exploration and exploitation.
+
+For this reason, we randomly call Hill Climbing approach beside our proposed meta-heuristic algorithm to keep randomness treatment and to avoid earlier convergence of PSO.
+
+SECTION
+
+Proposed HDPSO
+
+PARAGRAPH
+
+Here, we explain our novel hybrid algorithm.
+
+The fundamental and new operations have been explained in Section 5.2; also we call randomly Hill Climbing algorithm in proposed meta-heuristic the reason for naming our algorithm to hybrid discrete PSO (HDPSO).
+
+Algorithm 1 in Fig. 8 illustrates proposed novel HDPSO.
+
+Also, Fig. 9 demonstrates block diagram of proposed algorithm.
+
+This algorithm receives a given DAG specification in terms of number of tasks and edges along with their computation and communication costs, underlying system configuration, number of swarm members, and maximum number of iteration (MaxIteration) as input.
+
+Then, it returns an optimal task scheduling solution.
+
+Also, we consider constant q0 to be 0.5 as another input for applying it in exploitation phase.
+
+During the main loop, a random number q is drawn in line 10; if this number is greater than q0 then the exploitation as complementary algorithm, which is done by calling Hill Climbing algorithm, is combined to DPSO to avoid earlier convergence and to improve overall performance.
+
+PARAGRAPH
+
+Algorithm 1 starts with producing initial swarm members.
+
+Firstly, the swarm with limited members is randomly generated by applying Algorithm 2.
+
+To improve random population as a random swarm, it also takes benefit of other heuristic approaches such as Upward, Downward and Level rankings; it can be seen in lines 1 through 3 of Algorithm 2.
+
+In the other words, three particles are made by aforesaid heuristics and the rest particles are produced randomly based on proved theorems in line 7.
+
+Fig. 10 depicts it in details.
+
+Then, the main algorithm calls Algorithm 3 to evaluate each particle’s fitness in the swarm.
+
+It is done by EFT heuristic algorithm.
+
+It can be seen in Fig. 11.
+
+This algorithm receives a swarm which contains several particles; each of which has a topological ordered of tasks as a candidate solution.
+
+For each particle, while there is one non-visited task remained in the list, it takes a non-visited task based on priority and assigned on the available processor/VM which guarantees the earliest finish time; it continues till all the tasks are assigned to processors/VMs.
+
+The actual finish time of the last task is considered as a fitness value of current particle.
+
+PARAGRAPH
+
+After evaluating swarm members by Algorithm 3, the DPSO parameters are initialized by Algorithm 4 which is depicted by Fig. 12.
+
+It takes benefit of some binary vectors to govern particles trajectories in search space for next steps; its preliminaries have been explained in Section 5.2.
+
+In this initial state, all personal best particles are themselves and the best between them is the global best particle in the initial swarm.
+
+Then in the next steps, all of the variables would be changed based on environment circumstances.
+
+PARAGRAPH
+
+Then main loop of Algorithm 1 starts from line number 4 to line number 22 whereas the while loop iterates MaxIter times; the variable MaxIter is determined by the user.
+
+In each iteration, all particles in the swarm are moved by governing binary vectors X and V. For each particle in the swarm, Algorithm 5 modifies particle’s position affected by binary vectors X and V; if changed particle is valid, the updating rules are applied on particle’s parameters both on binary vectors and its main values; this updating rules are utilized by Algorithm 6.
+
+Note that, the first and the last tasks in the particles are always remained unchanged the reason why their corresponding bit value in velocity vector are set to 1; it can be observed in lines 8 and 9 of Algorithm 5.
+
+Moreover, the valid function checks whether new changed particle represents a topological sort of tasks or not.
+
+Algorithms 5 and 6 are depicted in Figs. 13 and 14 respectively.
+
+PARAGRAPH
+
+As mentioned earlier Algorithm 5 changes particle position, if it is a valid particle then Algorithm 6 updates personal best and global best particle; in this situation if current particle’s fitness is better than that of previous situation the Algorithm 6 returns true; it is the clue to indicate movement was effective.
+
+Afterwards, we draw a random number q∈ [0.
+
+.1]; if q>q0 then Algorithm 7 is called; it is Hill Climbingtechnique as complementary of DPSO to balance between exploration and exploitation.
+
+Note that drawing random number preclude permanent calling Hill Climbing technique which may lead getting stuck in local optimal.
+
+This procedure also avoids intrinsic earlier convergence of PSO.
+
+Anyway, it locally searches around current particle to improve current solution.
+
+The details of Algorithm 7 is brought in Fig. 15.
+
+PARAGRAPH
+
+Hill Climbing receives a particle as a solution and explores around this particle to improve performance of current solution.
+
+It can investigate tasks in particle except for entry and exit tasks.
+
+It starts from second task in the list and finds the next successor task appeared in the list; it can exchange current task with all task before the first successor which is appeared in the list.
+
+If this exchange leads a promising solution; then this solution is placed on previous particle.
+
+Note that, this auxiliary movement guarantees precedence constraints.
+
+Also, the local and global best are updated by Algorithm 6.
+
+Moreover, Fig. 16 presents a real example of Hill Climbing effectiveness based on Algorithm 7.
+
+Take a DAG depicted in Fig. 4.
+
+List1 is the value of Particlei as input of Hill Climbing algorithm.
+
+Here, List1= (1, 3, 2, 7, 6, 4, 5, 8, 10, 9, 11) with makespan=86.
+
+It starts from second task in the list which is T3; then it finds the first successor appeared in the list which is T7; T3 can be constituted with tasks in the list, but before T7.
+
+The only possible exchange happens between T3 and T2 which leads a valid particle (1, 2, 3, 7, 6, 4, 5, 8, 10, 9, 11), but the makespan=88 is not promising.
+
+The algorithm continues searching locally; so it eventually improves the current solution to makespan=81.
+
+Fig. 16 shows Hill Climbing approach in details that can improve current solution.
+
+PARAGRAPH
+
+Since meta-heuristic algorithms do not terminate, termination criteria must be determined in advance.
+
+To do so, reaching to predetermined fitness value or limited number of iterations are typical termination criteria which are applied in such algorithms.
+
+Here, we experimentally determined MaxIter as limited rounds where no improvement happens.
+
+In this study, we considered MaxIter=50; also, the number of particles are 10 times of number of given DAG’s node.
+
+Moreover, the average result of 20 different runs is reported.
+
+SECTION
+
+Time complexity
+
+PARAGRAPH
+
+The time complexity of proposed HDPSO is analyzed as follows.
+
+It starts with Algorithm 2 to produce random swarm; it applies three heuristic to generate three particles.
+
+All of them took O(n).
+
+Moreover, its main loop executes S-3 times to generate new particles.
+
+Totally, it takes O(n+S) where n and S are particles length and swarm length respectively.
+
+Algorithm 3 takes O(e×P) where e is the number of DAG’s edge and P is the number of parallel processors in the system.
+
+This algorithm is also utilized as a fitness function.
+
+Time complexity of Algorithm 4 is O(S).
+
+The main loop of HDPSO takes the most.
+
+It repeats MaxIter times which contains lines 5 through 22.
+
+In each iteration for every particle (and all the swarm) several process such as Algorithm 5, Valid, Algorithm 6 and Algorithm 7 are executed.
+
+Time complexity of Valid function is O(e+n) where in the worst case is O(n2).
+
+Time complexity of Algorithm 5 and Algorithm 6 are the same O(n) for investigating n-bit vectors.
+
+Finally, Hill Climbing algorithm takes O(n2) in the worst case.
+
+Time complexity of HDPSO is O(MaxIter×S×n2+e×P); typically the last term is less than the first one; then we can take it O(MaxIter×Sn2).
+
+SECTION
+
+Experiments and analysis
+
+PARAGRAPH
+
+To attain good evaluation, several scenarios are conducted.
+
+We assess effectiveness of HDPSO by utilizing different level of mathematical workflows on Homogeneous and Heterogeneous parallel systems respectively.
+
+In this study, we considered LU and GJ task graphs along with FFT-like random graph.
+
+To analyze scalability, the size of the task graphs increases from 14 tasks to 35 tasks for LU decomposition and from 15 to 36 tasks for GJ-elimination algorithm.
+
+Note that, all datasets of LU-decomposition and GJ-elimination graphs have been derived from Jin et al. (2008) except for FFT-like graph where we produce datasets based on information in Table 3 to adjust them for suitable CCR parameter.
+
+Fig. 3a and b show the general structure of n tasks for LU-decomposition and GJ-elimination task graphs respectively.
+
+Also, to show algorithm’s robustness we define a random pseudo-mathematical workflow known as FFT-like graph with 34 nodes.
+
+In this regard, performance metrics schedule length ratio (SLR), Speed Up, and Efficiency have been derived from literature to compare HDPSO versus different heuristic-based algorithms such as Upward (Topcuoglu et al., 2002), Downward (Topcuoglu et al., 2002), and meta-heuristic-based algorithms such as GA-based (Xu et al., 2014), PSO-based (Al Badawi and Shatnawi, 2013) which are explained in the forthcoming subsection.
+
+Moreover, all scenarios have been executed 20 times and the average results is reported.
+
+SECTION
+
+Performance metrics
+
+PARAGRAPH
+
+Three metrics SLR, Speed Up, and Efficiency are applied to contrast the performance of HDPSO task scheduling with other state-of-the-arts.
+
+As different graphs have different attributes which are utilized in the algorithm, it is essential to normalize them.
+
+It needs a lower bound value to reach good normalization.
+
+Therefore, critical path (CP) is the best option.
+
+If we consider schedule length of tasks belonging to CP which are executed on the fastest processor, certainly, the scheduling of whole tasks cannot be less than it.
+
+The SLR metric is used for this reason that is computed via Eq. (21).
+
+So, the low value of SLR is favorable.
+
+Note that, this value cannot be less than one (Xu et al., 2014; Topcuoglu et al., 2002; Akbari et al., 2017).
+
+SLR=makespan∑Ti∈CPminminPj∈P(WTi,Pj)The next metric is Speed Up which indicates how many times the algorithm runs faster in comparison to a single processor, preferably the faster processor.
+
+This metric is attained via Eq. (22) (Xu et al., 2014; Topcuoglu et al., 2002; Akbari et al., 2017).
+
+Speedup=SerialExecutionontheFastestprocessormakespan=minPj∈P(∑Ti∈TWTi,Pj)makespan The complementary metric is efficiency because the Speed Up metric does not determine you gained this level of speed up with spending how many processors.
+
+This metric is calculated via Eq. (23) (Xu et al., 2014; Topcuoglu et al., 2002; Akbari et al., 2017).
+
+Efficiency=SpeedupNumberofprocessors∗100%For instance, gaining Speedup=3 by spending 4 parallel processors are more beneficial rather than spending 5 parallel processors; in the former case efficiency is 75% whereas in latter case is 60% based on Eq. (23).
+
+SECTION
+
+Mathematical workloads on homogeneous system
+
+PARAGRAPH
+
+Here we considered LU-decomposition problems with {14, 20, 27, 35} as set of nodes and GJ-elimination problems with {15, 21, 28, 36} as set of nodes.
+
+The computation and communication values have been derived from paper published by Jin et al. (2008).
+
+For GJ-elimination, each computation node needs 40 units of time along with communication cost 100 unit of time whereas in LU-decomposition problem each computation node in bottom layer needs 10 unit of time, plus 10 units for every layer and taking 80 unit of time for communication cost.
+
+In this experiment we take underlying infrastructure a homogeneous system with considering wi=1 where i=1,…,4; Fig. 17, demonstrates superiority of HDPSO for LU and GJ graphs in terms of SLR and Speed Up metrics in comparison with other existing approaches.
+
+SECTION
+
+Mathematical workload on heterogeneous system
+
+PARAGRAPH
+
+Here we consider the scenarios in Section 7.2 except for taking the underlying architecture heterogeneous.
+
+The reason behind it refers to energy consumption.
+
+Fortunately, existing datacenters utilize Dynamic Voltage Frequency Scaling (DVFS)-enabled servers which are capable to adjust their voltage–frequency pair based on current workload (Hosseini Shirvani et al., 2018; Mokaripoor and Hosseini Shirvani, 2016); we consider this concept with w1′=0.25, w2′=0.5, w3′=0.75 and w4′=1.0 respectively to normalize it for 4 parallel heterogeneous systems.
+
+Note that lowering down the frequency saves energy, but extends execution time.
+
+Also, in this scenarios the HDPSO beats other approaches in terms of SLR and Speed Up metrics for LU and GJ graphs.
+
+Fig. 18 proves this issues.
+
+SECTION
+
+Semi-mathematical workload on heterogeneous system
+
+PARAGRAPH
+
+As mentioned earlier, we conduct a FFT-like random graph with 34 nodes.
+
+To attain better results we make some FFT-like graphs with different CCR values, so that we show effectiveness of HDPSO for different graph spectrums from communication-intensive to computation-intensive.
+
+For this, we take heterogeneous system.
+
+Fig. 19 depicts FFT-Like random graph with 34 nodes.
+
+Table 3, shows the result of uniform distribution of determined values for computation and communication to construct FFT-like graph with different CCR={0.4,1.0,5.0,10.0}.
+
+The high CCR value indicates the graph is communication-intensive; on the other hand its low value means that the graph is computation-intensive.
+
+In this scenario, we take three parallel heterogeneous computing system.
+
+PARAGRAPH
+
+Fig. 20 shows different algorithms’ performance in term of SLR metric versus different CCR.
+
+As the figure proves HDPSO outperforms in comparison to other approaches in term of SLR except for in the last scenario.
+
+In that case, the high CCR for the sake of high communication costs compels most of algorithms to place tasks on just one fastest processor to execute serially.
+
+It tends to make a big cluster till it is executed on the fastest processor to omit communication costs; consequently, it leads the same results for all algorithms.
+
+PARAGRAPH
+
+Also, Fig. 21 illustrates algorithms’ efficiency decrease by increasing the number of VMs/processors in distributed system.
+
+Fig. 21 separates this comparisons in different CCR categories.
+
+PARAGRAPH
+
+In addition, Tables 4 and 5 respectively bring analytical data analysis in terms of SLR and SpeedUP of our proposed HDPSO against other approaches for all used datasets.
+
+We also utilize relative percentage deviation (RPD) parameter to indicate the amount of improvement in percent.
+
+Moreover, Table 6 illustrates efficiency comparison of HDPSO against other approaches in FFT-Like dataset.
+
+As can be seen increasing the number of processors declines system efficiency.
+
+Nevertheless, HDPSO has superiority against other approaches in term of efficiency except for in the last scenario in which the given DAG is communication-intensive.
+
+In the last scenario of HDPSO, Upward heuristic along with GA and PSO meta-heuristic have the same treatment; it revolves around the fact that aforementioned algorithms tend to omit high communication cost and executing tasks on the fastest processor the reason for having the same behavior and result.
+
+One important thing about efficiency is that, increasing the number of processors/VMs can increase speedup in some extent but after a point, not only the increment in the number of processors/VMs does not lead more speedup, but also declines the whole system efficiency; it revolves around the fact that graph depth and width, and task dependencies nullify spending more processors/VMs (Hosseini Shirvani, 2018).
+
+This point can be observed in Table 6 where the last two rows in each CCR category shows no improvement.
+
+PARAGRAPH
+
+Overall, if we neglect our proposed HDPSO algorithm’s trivial superiority versus heuristic-based approaches, the average results of different executions of intensive settings on 12 scientific datasets proved our hybrid meta-heuristic has the amount of 10.67, 14.48, and 3 percentage dominance respectively in terms of SLR, SpeedUp, and efficiency against other existing GA-based and PSO-based meta-heuristics.
+
+One important thing to mention is that we applied our novel approach on typical scientific workflows with specific scale, which have been cited in literature.
+
+Then, out of curiosity, we applied HDPSO on large scale random task graphs with 63, 127 nodes.
+
+For instance, we made 8 new dataset of FFT-like graphs with 63 and 127 nodes respectively; each of which has been made with different CCR value.
+
+Afterward, we executed them on heterogeneous platforms with 6 and 8 VMs respectively; the average value of 20 executions is reported.
+
+Table 7 illustrates the comparison of makespan metric derived from their average execution reports amongst HDPSO, PSO, and GA algorithms.
+
+PARAGRAPH
+
+The gained results showed superiority of HDPSO in some extent in comparison with other single meta-heuristic approaches.
+
+It proves that HDPSO is a scalable algorithm.
+
+SECTION
+
+Conclusion and future direction
+
+PARAGRAPH
+
+This paper presented a stochastic searching algorithm to schedule tasks on heterogeneous distributed platforms such as in cloud computing environment.
+
+This hybrid meta-heuristic algorithm is based on discrete PSO because task scheduling problems are intrinsically discrete optimization problem in which it intends to minimize makespan, as an important quality of service parameter that a user experiences.
+
+Therefore, the new DPSO algorithm with efficient operators have been designed.
+
+Also, to balance between exploration and exploitation it takes benefit of Hill Climbing algorithm which has local approach.
+
+This hybrid approach also precludes earlier convergence nature of PSO.
+
+The intensive experimental simulation results demonstrated that proposed HDPSO has superiority against other existing heuristics and meta-heuristic approaches.
+
+Anyway, although utilizing more virtual machines in cloud environment increases parallelism degree and leads more speedup, but it definitely burdens more monetary costs for subscribers which is related to their budget.
+
+Therefore, for future work, we envisage to design a bi-objective scheduling model to minimize both equally important parameters makespan and total monetary service cost simultaneously.

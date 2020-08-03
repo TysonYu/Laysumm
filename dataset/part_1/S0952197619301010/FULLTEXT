@@ -1,0 +1,1043 @@
+10.1016/j.engappai.2019.05.001
+
+FULLTEXT
+
+TITLE
+
+New improved DEMATEL method based on both subjective experience and objective data
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The decision-making trial and evaluation laboratory (DEMATEL) method was originally developed by the Science and Human Affairs Program of the Battelle Memorial Institute of Geneva between 1972 and 1976.
+
+The DEMATEL as a common multi-criteria decision making (MCDM) method is aimed at describing the basic concept of contextual relations and identifying cause–effect chain components/factors for a complex decision problem (Gabus, 1973; Fontela, 1974).
+
+PARAGRAPH
+
+The DEMATEL is mainly used to solve the actual group decision making (GDM) problem from the perspective of identifying the critical factors that have the greatest influence on a special system.
+
+With the help of this method, some critical factors have been successfully identified in the systems such as disaster operations management, hospital service quality improvement, industrial symbiosis networks, sustainable supply chain adoption or management, emergency management, supplier selection, truck selection, electric vehicles diffusion, and so on (Celik, 2017; Shieh et al., 2010; Ghaemi Rad et al., 2018; Bacudio et al., 2016; Li and Mathiyazhagan, 2016; Zhou et al., 2017; Mirmousa and Dehnavi, 2016; Lin et al., 2018; Song et al., 2017; Ding and Liu, 2018; Liu et al., 2017).
+
+Specially, the DEMATEL method has been widely applied into industrial applications due to its simplicity and effectiveness.
+
+Yadegaridehkordi et al. (2018) applied the DEMATEL to discover the interdependencies among the adoption factors and reveal the importance level of these adoption factors towards big data adoption.
+
+Raz and Gabis (2009) demonstrated the application of DEMATEL in identifying and analyzing barriers for implementing industrial symbiosis in an industrial park of Laguna.
+
+Bhatia and Srivastava (2018) applied the gray-DEMATEL to analyze external barriers to remanufacturing and found that the sustainable technology (providing environmental, economic and social benefits) was one of the key factors.
+
+PARAGRAPH
+
+In recent years, the more complex decision situations are considered and fuzzy set has been popularly employed to solve the MCDM problems.
+
+For examples, Li and Chen (2019) integrated fuzzy belief structure and gray relational projection method to propose a novel failure mode and effects analysis method.
+
+Arora and Garg (2018) presented a novel MCDM method based on the intuitionistic fuzzy soft set theory.
+
+Similarly, the fuzzy set is also employed to solve DEMATEL problems in the situation of insufficient subjective knowledge and thus several kinds of fuzzy DEMATEL methods are proposed.
+
+The mechanism of fuzzy DEMATEL methods can be summarized as follows (Si et al., 2018).
+
+The fuzzy set is used to represent subjective assessments for comparisons between each pair of factors in initial direct-relation (IDR) matrix, then some operation rules of fuzzy set theory are carried out in the steps of DEMATAL method.
+
+For examples, Suo et al. (2012) presented a formula to transform correlation information from uncertain linguistic terms to trapezoidal fuzzy numbers, and proposed a novel DEMATEL method in an uncertain linguistic environment.
+
+Fan et al. (2012) combined a 2-tuple fuzzy linguistic representation model with the classical DEMATEL to identify the importance together with the classification of risk factors of IT sourcing.
+
+Liu et al. (2015) proposed a novel hybrid MCDM model by integrating the 2-tuple DEMATEL technique and fuzzy MULTIMOORA method for selection of health-care waste treatment alternatives.
+
+Shieh and Wu (2016) proposed an integrated DEMATEL approach of using corrected item-total correlation and split-half methods to evaluate the consistency from the survey data.
+
+Wu et al. (2017) used the fuzzy and gray Delphi methods to identify a set of reliable attributes, and applied both fuzzy and gray DEMATEL to determine the causal relations for supply chain risks and uncertainties.
+
+Asan et al. (2018) proposed a new interval-valued hesitant fuzzy approach to DEMATEL, which has the ability to explicitly deal with hesitancy in expert assessments and offer a better representation of uncertainty.
+
+PARAGRAPH
+
+The DEMATEL has been further developed by integrating it with other kinds of MCDM methods to solve contextual decision problems.
+
+The DEMATEL is mainly used to establish contextual relations among criteria, then some other kinds of MCDM methods such as analytic hierarchy process (AHP), analytic network process (ANP), or technique for order preference by similarity to ideal solution (TOPSIS) are used to derive the holistic priorities for the evaluated alternatives.
+
+For examples, the DEMATEL and the AHP were successfully combined to solve the management problems in human resource development, human resource for science and technology, and so on (Abdullah and Zulkifli, 2015; Chou et al., 2012).
+
+The DEMATEL was also employed to modify the ANP in the step of examining causal relations among element groups and a new combined method called DEMATEL-ANP was proposed (Gölcük and Baykasoğlu, 2016).
+
+Since the DEMATEL-ANP is capable of dealing with the decision issues of complexity and dependency among different criteria, it has been widely used to solve the decision making problems in customer relationship management partner evaluation, financial reporting supply chain management, outsourcing provider evaluation and selection for a telecommunication company, internal hospital supply chain performance evaluation, alternatives evaluation regardless of dilemmas in the decision making process, renewable energy resources selection, and so on (Büyüközkan et al., 2017; Lan and Zhong, 2016; Uygun et al., 2014; Supeekit et al., 2016; Pamučar et al., 2017; Gülçin and SezinGüleryüz, 2016).
+
+In addition, the DEMATEL was integrated with the hierarchical TOPSIS and the combined method was employed to solve SWOT-based strategy selection problems and truck selection problems (Baykasoğlu and Gölcük, 2017; Baykasoǧlu et al., 2013).
+
+PARAGRAPH
+
+The initial decision information used in DEMATEL is always given by experts subjectively.
+
+It is obvious to find that the effectiveness of decision-making may be restricted by experts’ domain knowledge, bounded rationalities or other aspects.
+
+If the initial decision information given by expert is unreliable, then decision making result may be debatable.
+
+A lot of efforts have been spent on improving these weaknesses by either extending the DEMATEL with fuzzy set theory or integrating it with other kinds of MCDM methods.
+
+We believe that these efforts can improve the accuracy of the decision results to a certain extent, however, previous researches are still the extensions of DEMATEL improved from merely subjective perspective and they fail to consider decision making problems from the objective perspective.
+
+In our opinions, the objective data on factors, which can be easily observed in the era of big data, are beneficial to improve the decision making qualities of DEMATEL.
+
+For instance, if experts believe that there exists an influence relation between a pair of factors, but such a hypothesis is rejected by objective data, then the decision relying on subjective experience is undoubtedly to be wrong.
+
+On the contrary, is it reasonable to make a decision completely relying on objective data?
+
+From any two data sets of variables, we can compute the relation (e.g., correlation coefficient or regression coefficient) between the two variables by statistical analysis technologies.
+
+But whether the relation is significant or not should require to be tested in practice.
+
+The spurious regression often exists in statistical practice in the absence of subjective experience, just as the chief editor of MIS Quarterly argued that “The researcher may follow a process of changing and re-estimating the model until it fits the data.
+
+The final model is mistakenly believed to be correct”.
+
+(Chin, 1998)
+
+PARAGRAPH
+
+The motivation of this paper is to further extend the DEMATEL from the holism perspective and propose a new improved DEMATEL method based on both subjective experience and objective data.
+
+In the proposed method, subjective experience would be extracted and fused to derive the subjective IDR matrix, based on which the possible relations included in the subjective IDR matrix are tested by objective data and the objective IDR matrix is constructed, and then the subjective and objective IDR matrices are combined to make a final decision.
+
+To facilitate our discussions, in Section 2, we describe background knowledge related to the DEMATEL, the Dempster–Shafer evidence theory (DST) and path analysis.
+
+In Section 3, the new improved DEMATEL method based on both subjective experience and objective data is established in details.
+
+Numerical comparison and discussion are provided to demonstrate the performances of the proposed method in Section 4.
+
+We come to the conclusions and future research directions of this paper in Section 5.
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+In order to facilitate the later formulation, some basic concepts of DEMATEL, DST and path analysis are given in this section.
+
+SECTION
+
+DEMATEL method
+
+PARAGRAPH
+
+The DEMATEL is an effective method for analyzing influence relations among factors of a system.
+
+Through the analysis of total influence relation of the factors by the DEMATEL, a better understanding of the structural relations and an ideal way to solve complicate system problems can be obtained.
+
+Suppose K experts are invited to provide their opinions for identifying the influence relations of L factors.
+
+Each expert is asked to indicate the influence degree to which he/she believes factor fi has an effect on factor fj (denoted by fi→fj).
+
+The central concepts in the DEMATEL are defined as below.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose a pair-wise comparison of influence degree from the ith to the jth factor given by the kth expert ek is denoted as gijk with 0–4 grade levels, and the grade levels given by each expert form a L×L non-negative answer matrix Gk=[gijk]L×L, k=1,⋯,K.
+
+The IDR matrix which represents the initial direct relation between each pair of factors derived from experts is obtained by calculating the average values of all experts’ answer matrices as G=[gij]L×L, where gij=∑k=1Kgijk∕K, i,j=1,⋯,L.
+
+PARAGRAPH
+
+In Definition 1, the 0, 1, 2, 3, 4 grade levels respectively means “no influence”, “low influence”, “medium influence”, “high influence” and “very high influence”.
+
+Note that, the diagonal elements of each answer matrix giik are all set to zero, which means that the factors do not influence themselves.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose the maximal row-wise and column-wise sum of matrix G is g′=max(max1≤i≤L∑j=1Lgij,max1≤j≤L∑i=1Lgij), the normalized IDR matrix D=[dij]L×L can be computed by Eq. (1).
+
+D=G∕g′
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose the direct and indirect relations among factors are represented by the total relation matrix which is defined as: A=limN→∞(D+D2+⋯+DN)=D(I−D)−1.
+
+PARAGRAPH
+
+Some kinds of extensions are further discussed to strengthen the original DEMATEL processes.
+
+One kind is to overcome the drawbacks that raising the normalized IDR matrix to the power of infinity may not converge to zero and hence the total-relation matrix may not converge (see Eq.(2)).
+
+A very small positive number ε (e.g., ε=10−5) is introduced in the maximal row-wise and column-wise sum of matrix G as g″=max(max1≤i≤L∑j=1Lgij, ε+max1≤j≤L∑i=1Lgij) and other steps are remained unchanged as in the original DEMATEL.
+
+The revised DEMATEL guarantees that the normalized IDR matrix to infinite power will converge to zero and the total-relation matrix can be smoothly obtained (Lee et al., 2013).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose r and c represent the sum of rows and the sum of columns of the total-relation matrix A.
+
+According to A=[aij]L×L, r and c can be defined as follows: r=[ri]L×1=(∑j=1Laij)L×1c=[cj]1×L′=(∑i=1Laij)1×L′
+
+PARAGRAPH
+
+In Definition 4, ri shows the total influence, both direct and indirect, given by the factor fi to other factors; ci shows the total influence, both direct and indirect, received by the factor fi from other factors; ri+ci is defined as the prominence, showing the degree of the important role that the factor fi plays in the complex system; ri−ci shows the net influence that the factor fi contributes to the complex system.
+
+Note that, if ri−ci is positive, the factor fi is a net causer; if ri−ci is negative, the factor fi is a net receiver.
+
+PARAGRAPH
+
+Based on the above definitions, the formulating steps of the classical DEMATEL are described as follows:
+
+PARAGRAPH
+
+Step 1 Generate the IDR matrix G=[gij]L×L based on expert subjective assessments.
+
+PARAGRAPH
+
+Step 2: Normalize the IDR matrix by g″=max(max1≤i≤L∑j=1Lgij,ε+max1≤j≤L∑i=1Lgij) and D=G∕g′.
+
+PARAGRAPH
+
+Step 3: Obtain the total relation matrix by A=limN→∞(D+D2+⋯+DN)=D(I−D)−1.
+
+PARAGRAPH
+
+Step 4: Compute factors’ attribute parameters ri, ci, ri+ci and ri−ci by r=[ri]L×1= (∑j=1Laij)L×1 and c=[cj]1×L′=(∑i=1Laij)1×L′, i,j=1,⋯,L.
+
+PARAGRAPH
+
+Step 5: Produce the cause–effect relation diagram and identify the major factors in complex system by ri+ci and ri−ci.
+
+SECTION
+
+Dempster-Shafer evidence theory
+
+PARAGRAPH
+
+The DST, known as evidence theory, is used to handle uncertain information.
+
+It has the advantage of directly expressing the “uncertainty” by assigning the probability to the subsets of the set composed of multiple objects, rather than to each of the individual objects.
+
+Besides, it has the ability to combine belief functions to derive a combined belief function.
+
+The basic probability assignment (BPA) function as a key concept in the DST is regarded as the most natural and flexible generalization of conventional probability distribution in the sense that the former allows inexact reasoning at whatever level of abstraction and on the other hand reduces to the latter if basic probabilities are assigned to singleton propositions only.
+
+PARAGRAPH
+
+Xu et al., 2006
+
+PARAGRAPH
+
+Suppose Θ={θ1,⋯,θN} is a set of mutually exclusive and collectively exhaustive propositions, which is also called the frame of discernment, if the mapping function m:2Θ→0,1 could fulfill m(∅)=0,∑θ⊆Θm(θ)=1,then m(⋅) is called the BPA function of Θ.
+
+If m(θ)>0, θ is called a focal element.
+
+The degree of belief assigned exactly to the complete set Θ reflects the degree of global ignorance, and to a smaller subset of Θ except for any singleton proposition measures the degree of local ignorance.
+
+PARAGRAPH
+
+Shafer, 1978
+
+PARAGRAPH
+
+Suppose the BPA function is b as in Eq. (4), and γ is a parameter to discount the evidence, 1≤γ≤1, then the Shafer’s discounting is defined as follows: m(θ)=γ⋅b(θ),θ⊂Θγ⋅b(θ)+1−γ,θ=Θ
+
+PARAGRAPH
+
+The discounting parameter may be defined by the weight or the reliability of evidence.
+
+If it is the weight and the sum of weights is equal to one, then the discounting parameter is usually derived by standardizing the weights as γk=wk∕max{wk|k=1,⋯,K}.
+
+PARAGRAPH
+
+Dempster’s rule is capable of combining BPA functions to derive a comprehensive result, which has been successfully applied in multi-bearing fault diagnosis, enhanced voice activity detection, multi-granulation information fusion, stock portfolio selection, structural damage detection, evidence combination rule improvement, and so on (Hui et al., 2017; Park and Chang, 2018; Li et al., 2015; Mitra Thakur et al., 2018; Zhou et al., 2015; Du and Wang, 2017).
+
+PARAGRAPH
+
+Dempster, 1967
+
+PARAGRAPH
+
+Suppose the BPA functions of two pieces of evidence are m1 and m2 on Θ, ⊕ is the orthogonal sum operator, then the Dempster’s rule to combine m1 with m2 can be defined as m(θ)=m1⊕m2(θ)=0,θ=∅∑θ′∩θ″=θ,θ′,C⊆Θm1(θ′)m2(θ″)1−∑θ′∩θ″=∅,θ′,θ″⊆Θm1(θ′)m2(θ″),θ⊆Θ
+
+SECTION
+
+Path analysis
+
+PARAGRAPH
+
+Path analysis is a kind of statistical analysis technologies and it is usually applied to obtain the influence relation of factors through statistical data.
+
+This method has the ability to analyze sociological statistics and it is benefit to understand the causal influence relations between cause variables and outcome variables through the related surface phenomena.
+
+It has been widely used in many fields, including agriculture, epidemiology, psychology, management, and genetics (Tiecher et al., 2018; Deshpande and Look, 2018; Gui et al., 2017).
+
+The objective data on different factors may have different dimensions whatever types of data, therefore it is necessary to make standardization for these data before carrying out path analysis.
+
+Here we suggest using the z-score method to make standardization.
+
+PARAGRAPH
+
+Anysz et al., 2016
+
+PARAGRAPH
+
+Suppose Pi=(p1i,⋯,pNi)′ is the sample data of factor fi, N denotes the size of sample data, P¯i is the average of sample data, and Si=∑n=1N(Pin−P¯i)2∕(N−1) is the standard deviation of sample data, then the standardized data is defined as Xi=(Pin−P¯i)∕Si,n=1,⋯,N,i=1,⋯,L.
+
+PARAGRAPH
+
+Path analysis can be used to explore the influence relation between any two factors combined with multiple regression analysis, and the absolute path coefficient is considered to represent the direct influence degree (de Colombia, 1921; Bilginol et al., 2015).
+
+The path coefficient is defined as follows.
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose δij is a partial regression coefficient, Si and Sj represent the standard deviations of independent variable fi and dependent variable fj, then the path coefficient oij that represents the direct influence degree for fi→fj can be calculated by oij=δijSiSj.
+
+SECTION
+
+The proposed method
+
+SECTION
+
+Subjective experience extraction and fusion
+
+PARAGRAPH
+
+In the original DEMATEL and its extensions, the IDR matrix consisting of all influence relations of factors is always given by experts.
+
+Restricted by expert experience, the assessments given by experts may be ignorant and partially credible and thus we employ BPA functions to extract subjective experience and Dempster’s rule to combine individual assessments in this paper.
+
+Subjective experience extraction mechanism is shown as in Fig. 1.
+
+Suppose a group of experts is invited to assess the influence relations for a set of factors F=f1,⋯,fL with a set of grade levels {0,1,2,3,4}, and the influence degree for fi→fj is assessed by expert ek and denoted by gijk, ∀i,j,k.
+
+The meaning of each element in the set of grade levels is the same as in Section 2, e.g., 0 denotes “no influence” and 4 denotes “very high influence”.
+
+PARAGRAPH
+
+Since each grade level is a proposition and they are mutually exclusive and collectively exhaustive, the set of grade levels can be regarded as the frame of discernment.
+
+Let the frame of discernment be Θ={θ1,⋯,θ5}={0,1,⋯,4}, expert ek is asked to assess the influence degree for fi→fj and his/her assessment is allowed to be expressed by the BPA functions as Definition 5 in Eq. (9). bijk={(θ,bijk(θ))|∑θ⊆Θbijk(θ)=1;bijk(θ)≥0,θ⊆Θ,∀i,j,k}
+
+PARAGRAPH
+
+Note that, the basic probabilities in bijk can be assigned to not only singleton grade levels but also any subsets of Θ, thereby it allows such an assessment (also called a piece of evidence) to be profiled by a BPA defined on the power set of the frame of discernment.
+
+It is capable of reflecting the ignorance in expert assessments.
+
+If the expert well knows the assessment problem and he/she may point out the influence degree for fi→fj belongs to which grade level, then the basic probabilities in bijk can be given to θv∈Θ.
+
+If the expert knows the assessment problem to a certain extent and he/she may point out the influence degree belongs to several grade levels but not sure which is the best one (local ignorance), then the basic probabilities in bijk can be given to θ⊂Θ.
+
+If the expert does not know the assessment problem at all and he/she cannot give any information about the influence degree (global ignorance), then the basic probabilities in bijk can be given to Θ (Du and Xu, 2017).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume expert e1 points out the influence degree for fi→fj has 40% probabilities belonging to θ3 and 60% probabilities belonging to θ4, his/her assessment is described as bij1={(θ3,0.40),(θ4,0.60)}; expert e2 points out the influence degree has 80% probabilities belonging to (θ3,θ4) but not sure which is the best one, and has 20% probabilities belonging to θ5, his/her assessment is described as bij2={((θ3,θ4),0.80),(θ5,0.20)}; expert e3 cannot give any information about the influence degree, his/her assessment is described as bij3={(Θ,1.00)}.
+
+PARAGRAPH
+
+The importance of experts may be not equivalent for their diverse experience.
+
+Suppose expert ek is weighted by wk, 0≤wk≤1, ∀k, which is derived by the methods such as AHP, ANP, and so on. wk=0
+
+and 1 respectively denote “not important at all” and “the most important”.
+
+Obviously, weight wk has the ability to describe the importance degree of assessment bijk given by expert ek.
+
+In order to take into account the weights, here we employ Shafer’s discounting to deal with bijk as in Definition 6.
+
+Taking bijk and γk=wk∕max{wk|∀k} into Eq. (5), we derive mijk={(θ,mijk(θ))|∑θ⊆Θmijk(θ)=1;mijk(θ)≥0,θ⊆Θ,∀i, j,k} which is discounted by Shafer’s discounting method.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume the weight set of experts is W={w1=0.50,w2=0.30,w3=0.20}, the assessments given by three experts are the same as in Example 1.
+
+The discounting parameters for three experts can be computed as γ1=w1∕max{w1,w2,w3}=0.50∕0.50=1.00, γ2= 0.30∕0.50=0.60, γ3=0.20∕0.50=0.40.
+
+Using Eq. (5) to discount the BPA functions given by three experts, we have mij1={(θ3,0.40),(θ4,0.60)}, mij2={((θ3,θ4),0.48),(θ5,0.12),(Θ,0.40)}, mij3= {(Θ,1.00)}.
+
+PARAGRAPH
+
+Since the assessment given by each expert only reflects one personal views to the problem, it is necessary to make combination for all experts to get the collective assessments as in Definition 7.
+
+The collective BPA functions of all experts can be combined by the Dempster’s rule recursively, i.e., mij=mij1⊕⋯⊕mijK.
+
+Obviously, mij is the final influence degree for fi→fj.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume the discounted BPA functions for fi→fj are the same as in Example 2, mij1={(θ3,0.40),(θ4,0.60)}, mij2={((θ3,θ4),0.48),(θ5,0.12),(Θ,0.40)}, mij3={(Θ,1.00)}.
+
+The collective assessments of three experts can be recursively combined by following process, i.e., mije(2)(θ3)=[mij1⊕mij2](θ3)=[mij1(θ3)mij2(θ3,θ4)+mij1(θ3)mij2(Θ)]∕{1−[mij1(θ3)mij2(θ5)+mij1(θ4) mij2(θ5)]}=0.40, mije(2)(θ4)=[mij1⊕mij2](θ4)=[mij1(θ4)mij2(θ3,θ4)+mij1(θ4)mij2(Θ)]∕{1−[mij1(θ3)mij2(θ5)+ mij1(θ4)mij2(θ5)]}=0.60; mije(3)(θ3)=[mije(2)⊕mij3](θ3)=[mije(2)(θ3)mij3(Θ)]∕(1−0)=0.40, mije(3)(θ4)=[mije(2)⊕ mij3](θ4)=[mije(2)(θ4)mij3(Θ)]∕(1−0)=0.60.
+
+PARAGRAPH
+
+Similarly, the final influence degree to each pair of factors in F=f1,⋯,fL could be determined and all of that can make up the subjective IDR matrix M=[mij]L×L.
+
+Note that, M is different from the original IDR matrix G, i.e., the former can reflect the ignorance in subjective assessments while the latter cannot.
+
+The direct-relation map for reflecting the initial influence relations among factors could be straightly determined by the IDR matrix M=[mij]L×L as follows.
+
+If mij(θ1)=1, it means that there is no influence relation for fi→fj and no directed arrow is drawn in the map.
+
+If mij(θ1)<1, it means that there may be an influence relation for fi→fj.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume a subjective IDR matrix included five factors is shown as in Eq. (10).
+
+We know that m12(θ1), m13(θ1), m23(θ1), m24(θ1), m34(θ1), m45(θ1) are less than 1 and the remained probability masses for θ1 are all equal to 1, thus the direct-relation map could be derived as shown in Fig. 2.
+
+Note that, m23(Θ) means that experts know nothing on the influence relation for f2→f3, whether the relation between the both exists or not needs to be further analyzed by the objective data.
+
+See the equation given in Box I.
+
+PARAGRAPH
+
+SECTION
+
+Objective data training and testing
+
+PARAGRAPH
+
+In the era of big data, the objective data describing the status of factors can be easily obtained from statistical yearbooks, government bulletins, field investigation, and experimental collection.
+
+The obtained data are frequently displayed as three types, i.e., time-series data, cross-section data, and blended data (Chang, 2017; Dobashi, 2017).
+
+Based on above discussion in Section 2.3, path analysis is applied in this paper to explore the influence relation between pair of factors in DEMATEL problem.
+
+The sample data of factor fi are Pi=(p1i,⋯,pNi)′ which have been obtained in advance, i=1,⋯,L.
+
+As mentioned above, prior to path analysis, the data Pi for i=1,⋯,L should be standardized by Eq. (7) whose results are shown as Table 1.
+
+PARAGRAPH
+
+The standardized data could be analyzed to obtain the influence relation between pair of factors as in Definition 9.
+
+In Eq. (8), the partial regression coefficient δij between any two factors fi and fj can be calculated via the ordinary least-squares (OLS) method, in which the summation of the squared differences between actual and estimated output values are minimized by gradient descent (Rashid and Naeem, 2017; Chatterji and Lobato, 2015; Zhang et al., 2016).
+
+For convenience, let the influence factor set for fj be Fj={fi1,⋯,fiQ} in which each factor may have an effect on fj, let the no-influence factor set for fj (complement set of Fj) be F¯j=F−Fj={f1,⋯,fL}∖{fi1,⋯,fiQ,fj}.
+
+Obviously, the relations between Fj and fj can be a causal influence relation map as shown in Fig. 3.
+
+The causal influence relation map is a basic unit of the direct-relation map.
+
+In other words, the direct-relation map consists of all of the causal influence relation maps.
+
+The OLS method can be used to compute the regression coefficients as follows.
+
+PARAGRAPH
+
+As shown in Fig. 3, fi1,⋯,fiQ are the independent factors (variables) and their derived objective data vectors are denoted as Xi1,⋯,XiQ; fj is an dependent factor and its derived objective data vector is denoted as Yj.
+
+According to the path analysis, the general form of the multivariate linear regression equation for Fig. 3 can be expressed as Yj=δ0+δi1jXi1+δi2jXi2+⋯+δiQjXiQ+ε.where δi1j,⋯,δiQj are partial regression coefficients, Xiq=(xiq1,⋯,xiqN)′, Yj=(yj1,⋯,yjN)′, q=1,⋯,Q.
+
+PARAGRAPH
+
+Let the estimated coefficients be δˆ0,δˆi1j,⋯,δˆiQj, the estimated values of independent factors could be computed by Eq. (11) as Yˆj=δˆ0+δˆi1jXi1+δˆi2jXi2+⋯+δˆiQjXiQ+εn, where Xiq=(xiq1,⋯,xiqN)′, Yˆj=(yˆj1,⋯,yˆjN)′, q=1,⋯,Q.
+
+The optimally estimated coefficients should have the ability to minimize the deviation between the predicted values and the actual values, i.e., satisfying the objective function min∑n=1N(Yn−Yˆn)2.
+
+As a result, the coefficients can be calculated with the standardized objective data of factors, i.e., ∂Q∕∂δˆ0=0, ∂Q∕∂δˆiqj=0, q=1,⋯,Q.
+
+The formal equations can be established as in Eq. (12), based on which the partial regression coefficients can be determined. ∑n=1Nyjn=∑n=1N(δˆ0+δˆi1jxi1n+δˆi2jxi1n+⋯+δˆiQjxiQn)∑n=1Nxi1nyjn=∑n=1Nxi1n(δˆ0+δˆi1jxi1n+δˆi2jxi1n+⋯+δˆiQjxiQn)∑n=1Nxi2nyjn=∑n=1Nxi2n(δˆ0+δˆi1jxi1n+δˆi2jxi1n+⋯+δˆiQjxiQn)⋮∑n=1NxiQnyjn=∑n=1NxiQn(δˆ0+δˆi1jxi1n+δˆi2jxi1n+⋯+δˆiQjxiQn)
+
+PARAGRAPH
+
+The significance test is necessary to ensure that the derived coefficients are effective.
+
+The t-test method is frequently employed in a regression analysis (Leontitsis and Pange, 2004), and it has the ability to verify the statistical significance that an independent variable has an effect on a dependent variable.
+
+Thus, it is suggested employing t-test to check the effectiveness of the estimated coefficients in this paper.
+
+The t-test, also called the Student’s t-test, is frequently used to examine whether the difference of sample mean and population mean is significant (Feng et al., 2017).
+
+Let S(δˆiqj) be the estimated error of δˆiqj, μ be the confidence level, and the corresponding critical value tμ can be got by looking up the critical values of the student’s t distribution.
+
+For the hypothesis H0:δiqj=0 and H1:δiqj≠0, we construct the t-statistic absolute value as Tiqj=|δˆiqj∕S(δˆiqj)|=|δˆiqj| ∕Siqj∕∑(xiqj−x¯iqj)2, x¯iqj represents the average value of xiqj.
+
+PARAGRAPH
+
+If Tiqj≥tμ, the hypothesis H0:δiqj=0 is rejected and H1:δiqj≠0 is accepted.
+
+It means that the influence is significant for fiq→fj.
+
+If Tiqj<tμ, the hypothesis H0:δiqj=0 is accepted and H1:δiqj≠0 is rejected.
+
+It means that the influence is insignificant for fiq→fj.
+
+Similarly, the effectiveness of the estimated coefficients δˆi1j,⋯,δˆiQj could be checked by t-test gradually in this paper, and the insignificant influence relations among factors as shown in Fig. 3 could be eliminated.
+
+PARAGRAPH
+
+Note that, the factors in the influence factor set Fj={fi1,⋯,fiQ} whose estimated coefficients do not pass the t-test, should be taken into the no-influence factor set Fj.
+
+The updated influence factor set for fj is denoted as Fj′={fi1,⋯,fiQ′} and the updated no-influence factor set for fj is denoted as F¯j′=F−Fj′.
+
+It is reasonable to assign partial regression coefficients corresponding to the factors in F¯j′ to zero and assign that corresponding to the factors in Fj to the estimated coefficients.
+
+Following the above process, the partial regression coefficient δij between any two factors fi and fj in the set of factors F=f1,⋯,fL could be determined, ∀i,j.
+
+Furthermore, taking the partial regression coefficients and the standard deviations of independent variables into Eq. (8), we can compute the path coefficient oij that represents the direct influence degree for fi→fj.
+
+Whether the path coefficient oij is positive or not, its absolute value |oij| denotes the influence degree for fi→fj in the DEMATEL.
+
+Therefore, we let oij=|oij|=|δij|SiSj and all of that can make up the objective IDR matrix O=[oij]L×L.
+
+The matrix O=[oij]L×L is determined by objective data and reflects the initial direct relations of all factors from the perspective of objectiveness.
+
+Similar to the process of drawing Fig. 2, the objective IDR matrix is able to be denoted by a direct-relation map.
+
+SECTION
+
+Combination for subjective and objective results
+
+PARAGRAPH
+
+It is obvious to find that M=[mij]L×L and O=[oij]L×L are two kinds of IDR matrices, i.e., the former is determined by subjective experience while the latter is computed by objective data.
+
+The difference between the both is as follows.
+
+The result M=[mij]L×L obtained based on subjective experience reflects the logical judgments for the relations between each pair of factors in the view of experts, while that O=[oij]L×L obtained based on objective data reflects the statistical laws for the relations between each pair of factors in the view of sample data.
+
+They reflect the influence relations among factors respectively from the subjective perspective and the objective perspective, and thus each of them has contributions to the DEMATEL method.
+
+How to fuse the two kinds of IDR matrices is very important to ensure the constructed DEMATEL method to be reasonable.
+
+Here we firstly discuss the possible scenarios for a pair of factors.
+
+PARAGRAPH
+
+Case 1 Objective data show that factor fi has influence on fj (oij>0), while subjective experience show that factor fi has no influence on fj (mij(θ1)=1), and then their combined result should be there is no influence for fi→fj.
+
+As Arbuckle and Wothke (1999) disputed “a modification must only be considered if it is makes theoretical or common sense”, if the influence relation fi→fj derived by objective data has no sense in reality, then it is reasonable to consider that there is no influence between them.
+
+PARAGRAPH
+
+Case 2: Subjective experience show that factor fi has influence on fj (mij(θ1)<1), while objective data show that factor fi has no influence on fj (oij=0), and then their combined result should be there is no influence for fi→fj.
+
+If the influence relation fi→fj derived by subjective experience is not supported by objective data, then it is reasonable to consider that there is no influence between them.
+
+PARAGRAPH
+
+Case 3: Both subjective experience and objective data show that factor fi has influence on fj (mij(θ1)<1 and oij>0), and then their combined result should be there is influence for fi→fj.
+
+If the influence relation fi→fj derived by subjective experience is also supported by objective data, then it is reasonable to consider that there must be influence between them.
+
+PARAGRAPH
+
+The Dempster’s rule is suitable for solving the combination problem in the one-vote negation system, i.e., if a hypothesis is negated by one evidence source, no matter whether the other evidence sources support the hypothesis or not, the hypothesis must be negated.
+
+Here we employ the Dempster’s rule to make combination for each element in two kinds of matrices.
+
+Obviously, the three kinds of characteristics in the fusion as mentioned above can be well reflected in the combination process by the Dempster’s rule.
+
+Actually, Case 1 will not occur in reality since there is no need to analyze the relation of two factors when experts consider there is no relation between them.
+
+PARAGRAPH
+
+Note that, the Dempster’s rule is capable of combining the BPA functions, however the objective IDR matrix O=[oij]L×L is the form of crisp values which lead to we cannot combine it with the subjective IDR matrix M=[mij]L×L directly.
+
+Fortunately, the triangular fuzzy numbers (TFN) has the ability to obtain a membership function of crisp value, which has been employed in semantic transformation, group decisions, and like domains (Ashtiani et al., 2009; Zhang et al., 2011; Wang et al., 2016).
+
+Thus we employ the TFN to transfer crisp values to BPA functions.
+
+PARAGRAPH
+
+Liu et al., 2018
+
+PARAGRAPH
+
+A fuzzy number H on ℜ is said to be a triangular fuzzy number if its membership function Hx:ℜ→0,1 is equal to Hx=x−αβ−α,α≤x≤βφ−xφ−β,β≤x≤φ0,otherwisewhere parameters α and φ represent the lower and upper bounds of the fuzzy number H respectively, and β is the median value.
+
+PARAGRAPH
+
+Since the frame of discernment Θ={θ1,⋯,θ5}={0,1,⋯,4} consists of five grade levels, we divide the values in objective IDR matrix O=[oij]L×L into four equal intervals.
+
+Let b0=min{oij|∀i,j}, b4=max{oij|∀i,j}, the interval width be (b4−b0)∕4, each interval node represents a corresponding grade level from θ1 to θ5 as shown in Fig. 4.
+
+The BPA function hij corresponding to a crisp value oij can be computed by its membership function as in Eq. (13).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume the crisp value oij is located between b1 and b2.
+
+It is obvious to find that it has contributions to both θ2 and θ3 (see Fig. 4), and the membership degrees for those could be computed by hij(θ2)=(b2−oij)∕(b2−b1) and hij(θ3)=(oij− b1)∕(b2−b1) respectively.
+
+Thus the BPA function transferred from oij is hij={(θ2,hij(θ2)), (θ3,hij(θ3))}, where hij(θ2)+hij(θ3)=1.00, hij(θ2)≥0, hij(θ3)≥0.
+
+If oij=0.25, b1=0.20, b2=0.40, then hij(θ2)=(0.40−0.25)∕(0.40−0.20)=0.75, hij(θ3)=(0.25−0.20)∕(0.40−0.20)=0.25.
+
+Thus BPA function hij corresponding to oij=0.25 is hij={(θ2,0.75),(θ3,0.25)}.
+
+It is easy to find that the BPA functions derived by the TFN must be a distribution on only singleton elements, in which there is no local or global ignorance.
+
+PARAGRAPH
+
+With the help of Dempster’s rule, the subjective result mij and the objective result hij can be combined as zij=mij⊕hij={(θ,zij(θ))|∑θ⊆Θzij(θ)=1;zij(θ)≥0,θ⊆Θ,∀i,j}, ∀i,j.
+
+The result zij is a BPA function to reflect the influence degree for fi→fj by both subjective and objective perspectives.
+
+Since hij is a distribution on only singleton elements, the combination result zij=mij⊕hij with the Dempster’s rule (following the orthogonal sum operator) must be a distribution on only singleton elements without any local or global ignorance.
+
+As a result, it is equivalent to have such a description as zij={(θv,zij(θv))| ∑vzij(θv)=1;zij(θv)≥0,∀i,j,v}.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume the subjective result is mij={((θ3,θ4),0.90),(θ1,0.10)}, the objective result is hij={(θ1,0.75),(θ3,0.25)}, zij(θ1)=[mij⊕hij](θ1)=[mij(θ1)hij(θ1)]∕[1−(mij(θ1)hij(θ3)+mij(θ3) hij(θ1)+mij(θ1)hij(θ3,θ4)+mij(θ3,θ4)hij(θ1))]=0.25, zij(θ3)=[mij⊕hij](θ3)=[mij(θ3)hij(θ3)+mij(θ3)hij(θ3θ4) +mij(θ3,θ4)hij(θ3)]∕[1−(mij(θ1)hij(θ3)+mij(θ3)hij(θ1)+mij(θ1)hij(θ3,θ4)+mij(θ3,θ4)hij(θ1))]=0.75.
+
+The final result is zij={(θ1,0.25),(θ3,0.75)}.
+
+The BPA function zij is a distribution on only singleton elements without any local or global ignorance.
+
+PARAGRAPH
+
+Which influence grade level or influence degree is the relation of fi→fj attached to?
+
+There are two kinds of strategies to solve this problem.
+
+(1) The grade level with the highest probability gij={θv|max{zij(θ1),⋯,zij(θ5)}} is chosen as the final influence grade level.
+
+(2) The expected value gij=∑v=1Vθv×zij(θv) is calculated as final influence degree.
+
+According to the real situation, we can get the final influence degree for fi→fj with one of the two strategies and the final IDR matrix could be constructed as G=[gij]L×L.
+
+SECTION
+
+New improved DEMATEL method and algorithm
+
+PARAGRAPH
+
+The process of new improved DEMATEL method and its steps can be illustrated in Fig. 5 and following steps.
+
+PARAGRAPH
+
+Step 1: Define DEMATEL problem.
+
+Suppose the set of factors is F={f1,⋯,fL}, set of grade levels is Θ={θ1,⋯,θ5}, set of experts is E={e1,⋯,eK}, weight set of experts is W={w1,⋯,wK}, sample data of factors is P=(P1,⋯,PL), confidence level is μ and threshold value is η.
+
+PARAGRAPH
+
+Step 2: Extract and fuse subjective experience.
+
+The expert ek is asked to assess the influence degree for fi→fj with grade levels in Θ and gives his/her assessment bijk which is a BPA function as in Eq. (9) for ∀i,j,k.
+
+The mijk is derived by taking bijk and γk=wk∕max{wk|∀k} into Eq. (5).
+
+The collective BPA functions of all experts are fused by Dempster’s rule such as mij=mij1⊕⋯⊕mijK for fi→fj, ∀i,j, based on which the subjective IDR matrix M=[mij]L×L and the direct-relation map can be constructed.
+
+PARAGRAPH
+
+Step 3: Train and test objective data.
+
+The sample data of factor Pi=(p1i,⋯,pNi)′ for factor fi are standardized by Eq. (7) to derive standardized data Xi=(x1i,⋯,xNi)′, i=1,⋯,L.
+
+For each causal influence relation map which is a basic unit of the direct-relation map, taking the data of independent factors Xiq=(xiq1,⋯,xiqN)′, q=1,⋯,Q, and that of dependent factor Yˆj=(yˆj1,⋯,yˆjN)′ into Eq. (12), the estimated coefficients δˆ0,δˆi1j,⋯,δˆiQj are determined.
+
+The effectiveness of the estimated coefficients δˆi1j,⋯,δˆiQj are checked by t-test with confidence level μ.
+
+Taking the partial regression coefficients who pass the t-test and the standard deviations of independent variables into Eq. (8), the path coefficient oij that represents the direct influence degree for fi→fj is computed, based on which the objective IDR matrix O=[oij]L×L is constructed, where oij=|oij|=|δij|SiSj.
+
+PARAGRAPH
+
+Step 4: Combine subjective and objective results and construct the final IDR matrix.
+
+The crisp value oij of objective IDR matrix is transferred into hij which is a BPA functions through TFN transformation as shown in Eq. (13).
+
+The subjective result mij and the objective result hij are combined by Dempster’s rule and obtain zij=mij⊕hij, ∀i,j.
+
+The grade level of influence degree for fi→fj is determined by gij={θv|max{zij(θ1), ⋯,zij(θ5)}} or gij=∑v=1Vθv×zij(θv), ∀i,j.
+
+The final IDR matrix G=[gij]L×L is constructed.
+
+PARAGRAPH
+
+Step 5: Calculate the normalized IDR matrix.
+
+For guaranteeing the normalized IDR matrix to infinite power will converge to zero and the total-relation matrix can be smoothly obtained, g″=max(max1≤i≤L∑j=1Lgij,ε+max1≤j≤L∑i=1Lgij) as in Eq. (1) is introduced to calculate the normalized IDR matrix D=[dij]L×L, where dij=gij∕g″, ∀i,j.
+
+PARAGRAPH
+
+Step 6: Compute the total relation matrix.
+
+The total relation matrix is calculated by A=D(I−D)−1=[aij]L×L.
+
+The influencing degree of fi is computed by ri=∑j=1Laij, the influenced degree of fi is computed by cj=∑i=1Laij, the prominence degree of fi is computed by ri+ci, and the net influence degree of fi is computed by ri−ci, ∀i,j.
+
+PARAGRAPH
+
+Step 7: Set a threshold value and obtain the major factors.
+
+In order to simplify the complexity of a system to a manageable level, it is necessary to set a threshold value η to filter out some negligible factors.
+
+Only the factors whose prominence degrees are greater than the threshold value (ri+ci≥η) are chosen and considered in the complex system.
+
+PARAGRAPH
+
+The total relations of factors can be well analyzed with the proposed DEMATEL, and therefore a better understanding of structural relations as well as an ideal way to solve complicate system problems can be obtained.
+
+The algorithm could be summarized as:
+
+SECTION
+
+Numerical comparison and discussion
+
+PARAGRAPH
+
+In this section, we apply the proposed method and the fuzzy DEMATEL method to solve the same DEMATEL problem, in which the major factor group could be determined respectively.
+
+Afterwards, the results are compared and discussed to analyze the superiority of thismethod.
+
+SECTION
+
+The proposed method
+
+PARAGRAPH
+
+Step 1 : Define DEMATEL problem.
+
+PARAGRAPH
+
+Suppose the set of factors is F={f1,f2,f3,f4,f5,f6,f7}, sample data of factors P=(P1,⋯,P7) is shown in Fig. 6.
+
+A group of experts E={e1,e2,e3} is invited to assess the influence degree between each pair of factors.
+
+According to subjective experience, the weight set of experts is determined as W={w1,w2,w3}={0.20,0.30,0.50}.
+
+The 0–4 grade levels denoted by θ1,θ2,θ3,θ4,θ5 are used to express expert assessments, the confidence level is set as μ=0.10, and the threshold value is set as η=0.20.
+
+PARAGRAPH
+
+Step 2: Extract and fuse the subjective experience.
+
+PARAGRAPH
+
+The experts are invited to assess the influence degree for fi→fj with the BPA function and give their judgments bijk as in Eq. (4), i,j=1,⋯,7, k=1,2,3.
+
+Because of different experience, weights should be used to discount the BPA functions.
+
+As mentioned in Section 3.1, the discounting parameters for three experts are derived by γ1=w1∕max{wk|k=1,2,3}=0.20∕0.50=0.40, γ2=0.30∕0.50=0.60, γ3=0.50∕0.50=1.00.
+
+Taking bijk, γ1=0.40, γ2=0.60 and γ3=1.00 into Eq. (5), we derive the discounted results mijk, i,j=1, ⋯,7, k=1,2,3.
+
+Taking f2→f1 for example, the BPA function for that assessed by three experts and their discounted results are respectively illustrated in Eqs. (14a)–(14b).
+
+With the help of Dempster’s rule, we make combination for the BPA functions and derive a holism result for f2→f1 as m21e(3)={(θ3,0.17),(θ4,0.43),(Θ,0.40)}.
+
+Similarly, we derive the holism results for the influence degrees between any two factors, which are shown in Table 2.
+
+According to previous drawing principles, the direct-relation map derived by subjective experience can be drawn as subfigure (a) of Fig. 7.
+
+Note that, if there is no arrow line connection from fi to fj in the direct-relation map, it means that the influence degree for fi→fi is equal to zero, i.e., mij(θ1)=1. b211={(θ4,0.80),(Θ,0.20)}b212={(θ3,0.50),(Θ,0.50)}b213={(θ4,0.30),(Θ,0.70)} m211={(θ4,0.32),(Θ,0.68)}m212={(θ3,0.30),(Θ,0.70)}m213={(θ4,0.30),(Θ,0.70)}
+
+PARAGRAPH
+
+Step 3: Train and test the objective data.
+
+PARAGRAPH
+
+According to algorithm 1, each the influence degree between two factors should be trained and tested by objective data.
+
+Here we take the factor f1 for example to illustrate the whole training and testing process.
+
+Firstly, we initialize the influence factor set with F1=∅.
+
+From subfigure (a) in Fig. 7 and Table 2, it is obvious to find that there are mi1(θ1)<1 for f2,f4,f6,f7 and mi1(θ1)=1.00 for f3,f5.
+
+Thus we obtain the influence factor set F1={f2,f4,f6,f7}.
+
+Secondly, we construct the Eq. (12) to determine partial regression coefficients between F1={f2,f4,f6,f7} and f1, and we get δˆ21=−0.1280, δˆ41=0.5021, δˆ61=0.0567, δˆ71=0.0318.
+
+Because of S(δˆ21)=S21∕∑(x21−x¯21)2=0.0735, S(δˆ41)=0.0884, S(δˆ61)=0.0715, S(δˆ71)=0.0777, we construct t-statistic with T21=(|δˆ21∕S(δˆ21)|)=1.7406, T41=5.6788, T61=0.7927, T71=0.4095.
+
+The confidence coefficient is given as μ=0.10, its corresponding trust threshold is t0.1=1.66 by looking up the critical values of the student’s t distribution.
+
+Obviously, the t-statistic absolute values for T21 and T41 are all greater than t0.1 and thus their partial regression coefficients can pass the t-test.
+
+It is believed that the influence relations truly exist in those factors.
+
+However, the t-statistic absolute values for T61 and T71 are all less than t0.1 and thus their partial regression coefficients cannot pass the t-test.
+
+It is believed that the influence relations do not exist in those factors.
+
+Therefore the influence factor set should be updated by F1={f2,f4}.
+
+Thirdly, we let the partial regression coefficient for each factor in F¯j=F−Fj={f3,f5,f6,f7} to f1 be zero, and then calculate the direct influence degrees (absolute path coefficients) by oij=|δij|SiSj whose results are shown in the first column of Table 4.
+
+PARAGRAPH
+
+The partial regression coefficients for other factors can be similarly determined and they are listed in Table 3.
+
+In the computing process, it appears such the situations that the derived coefficients cannot pass t-test.
+
+In Table 3, the partial regression coefficients whose relations of two factors cannot pass t-test are marked with underline.
+
+As discussed in Case 2 of Section 3.3, we know that if the influence relation derived by subjective experience is not supported by objective data, then there is no influence between them and the direct arrow in the direct-relation map should be deleted (see subfigure (b) of Fig. 7).
+
+Thus the partial regression coefficients with underline in Table 3 are set to zero in the following calculation process.
+
+After that, the IDR matrix derived by objective data as O=[oij]L×L, can be computed and their results are listed in Table 4.
+
+The final direct-relation map is shown in subfigure (c) of Fig. 7.
+
+PARAGRAPH
+
+Step 4: Combine subjective and objective results and construct final IDR matrix.
+
+PARAGRAPH
+
+From Table 4, we know that b0=min{oij|∀i,j}=0.0779 and b4=max{oij|∀i,j}=2.0199.
+
+We set the interval width as (b4−b0)∕4=0.4855, each interval node as a grade level from θ1 to θ5, and then the membership diagram for this question could be derived as in Fig. 8.
+
+According to Fig. 8, each crisp value in Table 4 could be easily transferred into the BPA functions.
+
+Taking the direct influence degree of f7→f5 for example, the calculation process is as follows.
+
+Because o75=0.4994∈(b0,b1), it may belong to the grade levels θ1 and θ2.
+
+We calculate the membership degrees for the two grade levels as h75(θ1)=0.5634−0.49940.5634−0.0779=0.13 and h75(θ2)=0.4994−0.07790.5634−0.0779=0.87, and then we have the corresponding BPA function as h75={(θ1,0.13),(θ2,0.87)}.
+
+Similarly, each direct influence degree can be transferred into BPA functions and they are listed in Table 5.
+
+PARAGRAPH
+
+With the help of Dempster’s rule, we make combination for subjective results and objective results as zij=mij⊕hij (i,j=1,⋯,7) and get the final probability distributions of influence degrees as shown in Table 6.
+
+Here the strategy of expected values is adopt to derive the final influence degrees, e.g., g53=θ4×z53(θ4)+θ5×z53(θ5)=3×0.78+4×0.22=3.22.
+
+Similarly, the final influence degrees for all of elements could be calculated, and the final IDR matrix G=[gij]7×7 is determined as in Eq. (15).
+
+G=0.00000.00000.00000.00000.00000.00000.00000.28000.00000.00000.00000.43000.00000.00000.00000.00000.00000.53000.00000.00000.00000.31000.00000.00000.00000.00000.00000.50000.00000.00003.22000.00000.00000.00000.00000.00000.08004.00000.00000.00000.00000.00000.00000.00000.00000.00000.87001.63000.0000
+
+PARAGRAPH
+
+Step 5 : Calculate the normalized IDR matrix.
+
+PARAGRAPH
+
+Let ε=10−5 and we have g″=max(max1≤i≤L∑jgij,ε+max1≤i≤L∑igij)=7.22001, and the normalized IDR matrix can be calculated by Eq. (1).
+
+The result is shown as in Eq. (16).
+
+D=0.00000.00000.00000.00000.00000.00000.00000.03880.00000.00000.00000.05960.00000.00000.00000.00000.00000.07340.00000.00000.00000.04290.00000.00000.00000.00000.00000.06930.00000.00000.44600.00000.00000.00000.00000.00000.01110.55400.00060.00000.00000.00000.00000.00000.00000.00000.12050.22580.0000
+
+PARAGRAPH
+
+Step 6 Compute the total relation matrix.
+
+PARAGRAPH
+
+The total-relation matrix can be calculated by Eq. (2), and the result is shown as in Eq. (17).
+
+A=0.00000.00000.00000.00000.00000.00000.00000.03890.00000.02660.00200.05960.00000.00010.00320.00000.00090.07350.00060.00110.00510.04300.00020.01240.00090.00840.01560.06930.00140.00000.44640.03280.00030.00050.00230.00220.01110.55480.04070.00100.00060.00280.00070.00250.17900.01310.12080.22600.0009
+
+PARAGRAPH
+
+According to Eqs. (17) and (3), we can derive the following parameters as listed in Table 7, i.e., the total influence ri=∑j=17aij, the total influence ci=∑j=17aji, the degree of the important role ri+ci, and the net influence ri−ci, i=1,⋯,7.
+
+Additionally, the causal diagram of factors as shown in Fig. 9 is constructed with the horizontal axis r+c and the vertical axis r−c.
+
+According to Definition 4 and Fig. 9, we know that f2,f5,f6, f7 are net causers, while f1,f3, f4 are net receivers.
+
+PARAGRAPH
+
+Step 7: Set a threshold value and obtain the major factors.
+
+PARAGRAPH
+
+Because of the threshold value η=0.20, only the factors with ri+ci≥η should be chosen as the major factors.
+
+As a result, the major factors in the complex system are F˜={f3,f4,f5,f6,f7}.
+
+SECTION
+
+The fuzzy DEMATEL method
+
+PARAGRAPH
+
+The fuzzy DEMATEL method which is proposed by Wu and Lee (2007) is an improvement of DEMATEL from the perspective of vagueness and incomplete information extraction.
+
+Since the fuzzy DEMATEL method is not only very popular but also a major extension of DEMATEL, here we employ it to make a comparison with the proposed method.
+
+Note that, the fuzzy DEMATEL method is constructed on subjective experience and its inputs are the assessments given by experts.
+
+In order to ensure that the results of two kinds of methods can be compared with each other, the set of factors F={f1,f2, f3,f4,f5,f6,f7}, the group of experts E={e1,e2,e3}, and the threshold value η=0.20 are all the same as in the proposed method.
+
+Besides, the inputs of fuzzy DEMATEL method should be generated from the initial assessments given by experts in the proposed method.
+
+According to the procedure of fuzzy DEMATEL method, its computation process can be summarized as follows.
+
+PARAGRAPH
+
+Step 1 : Define DEMATEL problem and fuzzy linguistic scale.
+
+PARAGRAPH
+
+The DEMATEL problem is defined as the same as in Section 4.1 and the fuzzy linguistic scale is defined as shown in Table 8, where {No, VL, L, H, VH} are equal to θ1,θ2,θ3,θ4,θ5 respectively.
+
+PARAGRAPH
+
+Step 2 : Exact and fuse expert assessments.
+
+PARAGRAPH
+
+As mentioned above, the inputs of fuzzy DEMATEL method should be generated from the initial assessments given by experts in the proposed method.
+
+Because the assessments given by experts in Section 4.1 are given by BPA functions, how to make a reasonable transformation from the BPA functions to the inputs of fuzzy DEMATEL method is very important.
+
+It is reasonable to choose the grade level with the highest probability as expert assessments in the fuzzy DEMATEL method.
+
+For example, the transformed assessments of expert e1 are shown in Table 9.
+
+PARAGRAPH
+
+Using the Converting Fuzzy data into Crisp Scores (CFCS) defuzzification method to aggregate these assessments by three expert, the IDR matrix G′=[gij′]7×7 is produced as in Eq. (18).
+
+G′=0.00000.03300.03300.03300.31500.03300.03300.54830.00000.03300.03300.26630.03300.03300.03300.03300.00000.57770.03300.03300.03300.40730.03300.03300.00000.03300.03300.25200.03300.03300.64070.03300.00000.03300.03300.88900.88900.33000.03300.03300.00000.03300.39300.03300.03300.03300.40730.17400.0000
+
+PARAGRAPH
+
+Step 3 : Calculate the normalized IDR matrix.
+
+PARAGRAPH
+
+The normalized IDR matrix is calculated and shown as inEq. (19).
+
+D′=0.00000.01430.01430.01430.13670.01430.01430.23800.00000.01430.01430.11560.01430.01430.01430.01430.00000.25070.01430.01430.01430.17680.01430.01430.00000.01430.01430.10940.01430.01430.27810.01430.00000.01430.01430.38590.38590.14320.01430.01430.00000.01430.17060.01430.01430.01430.17680.07550.0000
+
+PARAGRAPH
+
+Step 4 Compute the total relation matrix.
+
+PARAGRAPH
+
+The total-relation matrix is calculated and shown as in Eq. (20).
+
+A′=0.00000.00040.00090.00050.02040.00030.00030.06330.00000.00100.00050.01850.00030.00040.00120.00040.00000.06500.00060.00030.00070.03890.00050.00060.00000.00100.00040.01280.00080.00040.08080.00130.00000.00030.00040.20000.15770.02890.00120.00210.00000.00060.03960.00080.00130.00070.03910.00650.0000
+
+PARAGRAPH
+
+According to Eq. (3), we can derive the following parameters as shown in Table 10 and the cause–effect relation diagram as shown in Fig. 10.
+
+According to Definition 4 and Fig. 10, f5,f6, f7 are net causers, while f1,f2,f3, f4 are net receivers.
+
+PARAGRAPH
+
+Step 5: Set a threshold value and obtain the major factors.
+
+PARAGRAPH
+
+Because of the threshold value η=0.20, only the factors with ri+ci≥η should be chosen as the major factors.
+
+As a result, the major factors in the complex system are F˜′={f1,f2,f6}.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+It is obvious to find that the major factors in the complex system determined by the proposed method are F˜={f3,f4,f5,f6,f7}, while those determined by the fuzzy DEMATEL method are F˜′={f1,f2,f6}.
+
+The results of two kinds of methods are very different from each other.
+
+Which one is more reasonable?
+
+Now we make discussions from the following three aspects.
+
+PARAGRAPH
+
+(1) Subjective experience extraction mechanism.
+
+Subjective experience of experts is used as the inputs of DEMATEL whether in the proposed method or in the fuzzy DEMATEL method.
+
+The proposed method allows the experts to give assessments with BPA functions, while the fuzzy DEMATEL method employs the fuzzy linguistic scale to express their assessments.
+
+The local or global ignorance in experts’ minds can be well reflected in the proposed method (e.g., b632={((θ3,θ4),0.70),(Θ,0.30)}), but it is unfortunate to find that such the ignorance cannot included in the fuzzy DEMATEL method (it only allows the grade level /fuzzy linguistic scale with the highest probability to express assessments, e.g., b632={L}={θ3}).
+
+It is obvious to find that the proposed method is more feasible than the fuzzy DEMATEL method in the aspect of extracting subjective assessments.
+
+PARAGRAPH
+
+(2) The importance roles of experts.
+
+The importance roles of experts which are reflected by expert weights may be not equivalent for their diverse experience.
+
+If the importance roles of experts are neglected in the process of decision making, the decision results may lose effectiveness.
+
+The proposed method employs Shafer’s discounting to modify the subjective assessments with expert weights, while the importance roles of experts are unconsidered in the whole process of fuzzy DEMATEL method.
+
+It is obvious to find that the proposed method is more applicable than the fuzzy DEMATEL method in the aspect of reflecting the importance roles of experts.
+
+PARAGRAPH
+
+(3) Subjective experience and objective data.
+
+The fuzzy DEMATEL method only takes the assessments given by experts as the inputs and thus it is the extension of DEMATEL improved from merely subjective perspective.
+
+Fortunately, the proposed method takes both the assessments given by experts and the sample data of factors into consideration, and thus it is undoubted to be the extension of DEMATEL improved not only from subjective perspective but also from objective perspective.
+
+The relations of factors derived by subjective experience can be tested by objective data in the proposed method and those relations cannot pass the test are rejected (e.g., the relations of f6→f1 and f7→f1 are corrected in Eq. (15).
+
+However, such an excellent capability does not exist in the fuzzy DEMATEL method (e.g., the relations of f6→f1 and f7→f1 both exist in Eq. (18).
+
+It is obvious to believe that the proposed method is more reasonable than the fuzzy DEMATEL method in the aspect of reflecting subjective experience and objective data.
+
+PARAGRAPH
+
+Consequently, we believe that the proposed method is superior to the fuzzy DEMATEL method from the above three aspects of discussions.
+
+In addition, it is obvious to find that Algorithm 1 can be programmed easily, thus the proposed method in this study is suitable for engineering applications of artificial intelligence.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+In the present study, we proposed a new improved DEMATEL method based on both subjective experience and objective data, where the two perspectives of subjectivity and objectivity of a complex problem could be well considered.
+
+The main contributions of the present study can be summarized into four aspects.
+
+PARAGRAPH
+
+Firstly, a subjective experience extraction mechanism is introduced to effectively derive the subjective IDR matrix by employing the DST to extract and fuse expert assessments.
+
+Secondly, the sample data of factors are innovatively introduced into the DEMATEL to construct objective IDR matrix with the help of path analysis.
+
+Thirdly, the Dempster’s rule is employed to well combine subjective and objective IDR matrices by following one-vote negation principle and TFN transformation way.
+
+Fourthly, an algorithm is summarized to solve the new improved DEMATEL problem based on both subjective experience and objective data and the set of major factors in the complex system could be easily determined.
+
+PARAGRAPH
+
+The proposed method is very important for solving the DEMATEL problems nowadays due to the reasons that the objective data of factors can be easily observed and more and more experts can conveniently participate in the decision making in the era of big data.
+
+Actually, the proposed method belongs to a kind of static methods.
+
+It can be extended to become a dynamic method by integrating it with a consensus reaching mechanism.
+
+Thus studying on the dynamic DEMATEL method with consensus reaching will be a good direction in the future research.

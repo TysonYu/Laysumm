@@ -1,0 +1,763 @@
+10.1016/j.engappai.2019.103370
+
+FULLTEXT
+
+TITLE
+
+Performance analysis of Chaotic Multi-Verse Harris Hawks Optimization: A case study on solving engineering problems
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Recently, the real-world optimization problems (OPs) has got more attention in many fields includes function optimization, information science, operational research, engineering design, and their applications.
+
+In general, there are two categories of methods used to solve the OPs, the first one is traditional methods and the second is the meta-heuristic methods.
+
+The traditional methods such as gradient descent and Newton which are easy to implement, however, these methods are time-consuming, also, in each run there exists only one solution and their efficiency depending on the type of the given problem (such as constraints), variables (integer, continuous, binary), fitness function (linear, non-linear), the search space (convex, non-convex) and the number of the variables (Baykasoglu, 2012).
+
+In order to overcome these drawbacks, the meta-heuristic (MH) optimization methods, that considered as a branch of artificial intelligence, were proposed as global optimization approach (Ewees et al., 2018).
+
+The properties of MH methods are low complexities, highly robust, and high efficiency.
+
+It also overcomes the high complexity and the weakness problem in the searching process of the traditional methods (El Aziz et al., 2018a, 2017).
+
+PARAGRAPH
+
+There are several types of MH methods includes evolutionary algorithms (EA) and swarm intelligent (SI) that have received much attention.
+
+The EA methods have been inspired by natural evolutionary mechanisms (Yang, 2008).
+
+For example, evolutionary strategy (ES) (Beyer and Schwefel, 2002), genetic algorithms (GA) (Han et al., 2016), and differential evolution (DE) (Sarker et al., 2014).
+
+However, the parameters of the EA operations (i.e., crossover, mutation, and selection) may lead to getting stuck in a local point since they require to select the optimal value before starting their optimization task.
+
+The SI based algorithms inspired by emulating the behavior of insects or animals which live in groups (Yang, 2008).
+
+The individuals of these groups provide their experience to service the group in finding their foods in a short time and a fast way.
+
+This relation between the individuals is simulated to solve the complex problems.
+
+There are several methods of SI include ant colony optimization (ACO) (Kaveh and Talatahari, 2010), bat algorithm (BAT) (Yang, 2010), moth-flame optimization (MFO) (Mirjalili, 2015b), and artificial bee colony (ABC) algorithm (Karaboga, 2005).
+
+PARAGRAPH
+
+In general, the meta-heuristic algorithms are divided the search process into exploration and exploitation phases.
+
+When the meta-heuristic algorithm tries to explore the best areas of search space, the exploration phase is performed.
+
+Unlike the exploration, the exploitation phase points to the convergence of the algorithm towards the global solution.
+
+However, both of these concepts conflict with each other and may make the MH algorithms get stuck in a local point (Elaziz et al., 2017; El Aziz et al., 2018b).
+
+To try to maintain this issue, chaos is used to balance exploration and exploitation phases.
+
+PARAGRAPH
+
+The chaos (Feldman, 2012) is a stochastic phenomenon generated in a nonlinear dynamic system with the properties of regularity, randomness, sensitive to the initial condition and ergodicity.
+
+These properties of chaos, make the algorithms perform at higher speeds than standard stochastic search with standard probability distributions and avoid getting stuck in local optimal point (Ewees et al., 2017).
+
+PARAGRAPH
+
+Based on the advantages of chaos theory and MH methods, they are combined together to increase the MH algorithms’ performance for solving optimization problems in literature, for example, particle swarm optimization (PSO) (Ren and Zhong, 2011), krill heard (Wang et al., 2014), fruit fly optimization algorithm (FOA) (Mitić et al., 2015), bat algorithm (Gandomi and Yang, 2014), ABC (Oliva et al., 2017), and Runner-Root Algorithm (Ibrahim et al., 2017).
+
+All of the previous hybridization algorithms illustrate the importance of chaos theory to improve the performance of MH methods.
+
+PARAGRAPH
+
+In the same context, the Harris Hawks Optimization (HHO) is recently developed as a meta-heuristic technique (Heidari et al., 2019).
+
+The HHO simulates the strategies used by Harris Hawks to catch their preys (i.e., rabbits).
+
+According to these strategies, the HHO is applied to solve global optimization (Heidari et al., 2019) and it established its performance over all the comparative algorithms.
+
+This high-performance result can be due to the HHO contains six stages which used for exploration and exploitation.
+
+These stages provide HHO with high ability to escape a local point and improve its convergence rate.
+
+However, its ability to exploitation is better than its exploration.
+
+PARAGRAPH
+
+Therefore, the aim of this paper is to apply chaos theory and HHO to improved Multi-Verse Optimizer (MVO) and evaluate it in solving global optimization and four well-known engineering problems.
+
+PARAGRAPH
+
+In general, the search for global solutions depends on randomness; therefore, it may fail to find the best solution and traps in some local optima; therefore, the selection of the optimization algorithm is an important task.
+
+In this context, the MVO showed superior results in previous studies includes Mirjalili et al. (2016) and Benmessahel et al. (2017) as well as proved a good behavior in exploitation phase (Elaziz et al., 2019).
+
+Nevertheless, its behavior varies due to the standard probability distributions, like any meta-heuristic algorithms.
+
+Hence to improve the performance of the basic MVO and make it converges fast to the global optimal solution, it is modified using different chaotic maps which utilized to change the random behavior of the basic MVO parameters as well as the HHO is applied as local search operators.
+
+The proposed method is called CMVHHO and its behavior and efficiency are tested in solving global optimization problems and different types of engendering problems.
+
+Therefore, this paper presents a new optimization algorithm, called CMVHHO, that benefits from the characteristics of the chaotic theory and HHO algorithm.
+
+PARAGRAPH
+
+The main contributions of this paper are as follows:
+
+PARAGRAPH
+
+This paper is organized as follows, Section 2 presents the chaotic maps types and explains the concepts of the basic MVO algorithm as well as the HHO algorithm.
+
+The proposed algorithm is described in Section 3.
+
+The experiments results and discussions are introduced in Section 4.
+
+In the last section, the conclusions and future work are listed.
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+In this section, the Chaotic Maps, multi-verse optimizer, and Harris hawks optimization algorithm are introduced.
+
+SECTION
+
+Chaotic maps
+
+PARAGRAPH
+
+There are numerous important characteristics for Chaotic methods such as stochastically intrinsic, ergodicity, and showing irregular conduct; in addition, they are sensitive dependence on the initial criteria (Zawbaa et al., 2016).
+
+According to these characteristics, the chaotic maps are constructed which represented by different various equations to update the random variables in optimization methods thus, this process is called chaotic optimization algorithm (COA) (Wang et al., 2014).
+
+The type of optimization gives the optimization methods the strength of chaos theory such as the non-repetition and ergodic; therefore, the optimization methods avoid getting stuck in a local point as well as the convergence speed is improved.
+
+PARAGRAPH
+
+In this paper, one-dimensional and non-invertible maps are applied to generate a set of chaotic values to improve the basic MVO parameters.
+
+Table 1 and Fig. 1 show ten chaotic maps which are used in the experiments.
+
+These maps are selected because they have different behavior in generating their numbers and showed their effectiveness in several previous studies and literature (Oliva et al., 2017; Ibrahim et al., 2017).
+
+PARAGRAPH
+
+SECTION
+
+Multi-verse optimizer (MVO) algorithm
+
+PARAGRAPH
+
+MVO algorithm is an optimization algorithm proposed by Mirjalili et al. (2016).
+
+It uses the mathematical form of communication between universes.
+
+SECTION
+
+Inspiration
+
+PARAGRAPH
+
+The MVO was inspired by the theory that says: there is more than one universe besides our universe.
+
+These universes communicate with each other based on the multiverse’s theory.
+
+The multiverse theory has three notions namely white holes, black holes, and wormholes.
+
+A white hole appears if two universes or more collide with each other; such collision produces new universes.
+
+Whereas, the black hole works to attract everything around it (Davies, 1978).
+
+While wormholes are tunnels that allow the different parts (objects) of a universe to fly from a particular side of a universe to another one or to another universe.
+
+SECTION
+
+Mechanism
+
+PARAGRAPH
+
+This subsection illustrates the technique of the MVO algorithm as in Mirjalili et al. (2016).
+
+The solution in MVO is represented as a universe; whereas, the parts (objects) of a universe are considered as a variable in the solution.
+
+The fitness function’s value of MVO is called the inflation rate of the universe; whereas, if this rate is high in a universe, it be able to send objects to another universe through a white hole; otherwise, this universe can receive objects from its black hole.
+
+In addition, objects in any universe can update their position by wormhole according to the universe’s objects which have the best rate (i.e. fitness value).
+
+PARAGRAPH
+
+White holes and black holes are modeled mathematically as in the following (Mirjalili et al., 2016): X=x11x12…x1dx21x22…x2d⋮⋮⋮⋮xn1xn2…xndwhere X is the population of universes, x is an object, N is the universes’ numbers, and d represents the problem’s dimension.
+
+The fitness values (i.e. inflation rates) of universes are applied to sort the universes, then the roulette wheel mechanism is used to select one of them to be an objects sender (i.e. have a white hole). xij(t+1)=xkj(t),ifr1<NI(xi(t))xij(t),otherwise
+
+where x is a universe’s object, jth represents a parameter of ith universe, kth denotes the universe chosen by a roulette wheel. r1
+
+is a random number in ∈[0,1] and NI(xi(t)) indicates the normalized fitness value (i.e. inflation rate) of the ith universe at iteration t.
+
+PARAGRAPH
+
+The wormholes in each xi work to improve the exploitation phase and maintain the diversity of universes by transferring the objects of xi through space randomly.
+
+This process is working in a random form regardless of the fitness value (i.e. inflation rate) of xi.
+
+The wormholes are applied also to improve the universes’ objects and enhance the rate of the inflation through updating the objects of the universe xij which has the best rate as explained in the following equation: xij(t+1)=Zij(t),r2<WEPxij(t),r2≥WEP Zij=Xj∗+TDR×((ubj−lbj)×r4+lbj),r3<0.5Xj∗−TDR×((ubj−lbj)×r4+lbj),r3≥0.5where Xj∗ is the best universe’s object, lbj denotes the lower bounds and the ubj is the upper bounds in jth parameter (i.e. variable), r2,r3, and r4 represent random numbers in [0,1].
+
+PARAGRAPH
+
+TDR represents the traveling distance rate, it is a coefficient works to define the distance to move the object to the best universe by wormholes, it can be defined as: TDR=1−t1∕pT1∕pwhere t denotes the current iteration, T is the iterations’ maximum number, and p is set to 6 as a default value, and it defines the accuracy of the exploitation phase in the iterations.
+
+PARAGRAPH
+
+WEP represents the wormhole existence probability and it works to increase linearly over the iterations to maintain the exploitation phase, the following equation defines it: WEP=WEPmin+t×WEPmax−WEPminTwhere WEPmin and WEPmax are default values set to 0.2 and 1 respectively.
+
+SECTION
+
+Harris Hawks optimization
+
+PARAGRAPH
+
+In this section, the phases of the Harris Hawks Optimization (HHO) to simulate the behaviors of Harris Hawks during the process of search and catching the rabbit in natural space are introduced.
+
+Following (Heidari et al., 2019), the HHO uses three phases to find the optimal solution for the given problem.
+
+These phases are exploration, transition from exploration to exploitation, and exploitation.
+
+SECTION
+
+Exploration phase
+
+PARAGRAPH
+
+The HHO applied two strategies to simulate the behaviors of Harris Hawks during the exploration in the search space as defined in Eq. (7) xi(t+1)=xrand(t)−q1|xrand(t)−2q2xi(t)|q5≥0.5(X∗(t)−Xm(t))−q3(lb+q4(ub−lb))q5<0.5In Eq. (7), the position of ith hawk represents by xi(t) at the current iteration t.
+
+Meanwhile, the xrand and X∗ are random solutions selected from the population and the best solution (i.e., the position of rabbit). q1,q2,q3,q4
+
+and q5 are random numbers belong to [0,1].
+
+The Xm is the average of the solutions and it is formulated as Xm(t)=1N∑i=1Nxi(t)where N is the total number of solutions.
+
+In general, the first branch of Eq. (7) is used when the Hawks will catch the rabbit using the information from a random hawk.
+
+While the second one will be used when the information from all hawks and the best hawk are used.
+
+SECTION
+
+Transition from exploration to exploitation phase
+
+PARAGRAPH
+
+The main objective of this phase is to pass the HHO from exploration to exploitation and this performed according to the energy or prey E as in the following.
+
+E=2E0(1−tT),E0∈[−1,1]
+
+SECTION
+
+Exploitation phase
+
+PARAGRAPH
+
+This phase is performed by using various strategies based on a set of parameters.
+
+These strategies including the soft besiege, hard besiege, soft besiege with progressive rapid dives, and hard besiege with progressive rapid dives.
+
+PARAGRAPH
+
+In soft besiege phase, the solution will be updated using the information available from the best solution as defined in Eqs. (10) and (11): xi(t+1)=Δxi(t)−E|J×X∗(t)−xi(t)|,J=2(1−r5) Δxi(t)=X∗(t)−xi(t)where r5∈[0,1] a random value and J represents the jump strength of the rabbit.
+
+PARAGRAPH
+
+In addition, the solutions in the hard besiege are updated using the best solution also but with different way as formulated in Eq. (12): xi(t+1)=X∗(t)−E|Δxi(t)|
+
+PARAGRAPH
+
+In the soft besiege with progressive rapid dives, the solution has the ability to choose their next movement and this performed using Eq. (13): Y(t)=X∗(t)−E|J×X∗(t)−xi(t)|In order to calculate the rapid dives, the Levy flight is used to update the Y as: Z(t)=Y(t)+S×LF(D)In Eq. (14), S∈R1×D is a random vector with dimension D, and LF is the levy flight that defined as: LF(x)=0.01×u×σ|v|1β,σ=Γ(1+β)×sin(πβ2)Γ(1+β2)×β×2(β−12)1βwhere u and v are random parameters and β is set to 1.5.
+
+The next step determines the best of Y and Z then uses it to update the current solution.
+
+That can be formulated as follows: xi(t+1)=Y(t)ifF(Y(t))<F(xi(t))Z(t)ifF(Z(t))<F(xi(t))
+
+PARAGRAPH
+
+In the last strategy, called hard besiege with progressive rapid dives, the solutions will be updated using the following rule: xi(t+1)=Y′(t)ifF(Y′(t))<F(xi(t))Z′(t)ifF(Z′(t))<F(xi(t))where Y′ is defined as Y′(t)=X∗(t)−E|J×X∗(t)−Xm(t)|Then Z′ is updated using the following equation.
+
+Z′(t)=Y′(t)+S×LF(D)
+
+SECTION
+
+Proposed algorithm
+
+PARAGRAPH
+
+This section explains the structure of the proposed algorithm, called Chaotic Multi-Verse Harris Hawks Optimization (CMVHHO).
+
+The main aim of the CMVHHO is to improve the basic MVO algorithm by two steps, the first one is combining the MVO with the chaotic map whereas, the second is using the operators of HHO as a local search method.
+
+This combination in the basic MVO inherits the strength of the HHO algorithm in exploiting the search space as well as the behavior of the chaotic theory that makes differences in algorithm’s behavior by adjusting the values of the parameters.
+
+PARAGRAPH
+
+In order to evaluate the proposed algorithm, a sensitivity analysis is performed to check the effectiveness of chaotic maps on all random parameters (r1, r2, r3, and r4) in the MVO, as in Section 4.2.
+
+This analysis showed that the performance of the MVOHHO is improved when using a chaotic map with the fourth parameter (r4); this parameter is used in the exploration phase to implement local changes for each universe and maintain the inflation rate.
+
+Therefore, using a chaotic map to tune this parameter (i.e. r4) in each loop helps in avoiding getting stuck in local optima and improving the exploration phase.
+
+PARAGRAPH
+
+The entire process of the CMVHHO is illustrated in Fig. 2 and for more details the steps of the proposed method are given in Algorithm 1.
+
+PARAGRAPH
+
+The CMVHHO begins by creating a population of X of size N and dimension d using the following equation: xi=lb+rand×(ub−lb),i=1,2,…,Nwhere lb and ub represent the lower and upper boundary of the search domain, respectively.
+
+After that, generate a value for the parameter r4 using a chaotic map.
+
+PARAGRAPH
+
+For each solution, Ui∈U, the fitness function fi is calculated, then the Quicksort algorithm is used to sort solutions according to their fitness values and the best universe (solution) is determined which has the best fitness value.
+
+The next step is to compute the probability of Probi for each solution according to the following equation: Probi=fi∑i=1Nfi
+
+PARAGRAPH
+
+Thereafter, the operators of CMVO will be used when the value of Probi>0.5 otherwise, the operators of HHO will be applied.
+
+In the case of using CMVO, the objects in universes are exchanged through white holes and black holes by applying the roulette wheel selection.
+
+Thereafter, the wormholes work to improve the solution by changing the local objects in each universe based on Eq. (3).
+
+However, when the operators of HHO are used, the current solution is updated as discussed in Section 2.3.
+
+PARAGRAPH
+
+Finally, the best solution and the best fitness value are saved to be used in the next iteration.
+
+These procedures are iterated till meeting the stop criterion (it is the maximum iterations’ number in this paper).
+
+SECTION
+
+Experiments and discussion
+
+PARAGRAPH
+
+In this section, the details of the experiments are illustrated as well as a set of experiments is performed to evaluate the performance of the proposed CMVHHO method namely sensitive analysis of the basic MVO random parameters, comparing the proposed CMVHHO with other optimization algorithms, statistical analysis, and solving four engineering problems.
+
+The details of these experiments are given the following subsections.
+
+PARAGRAPH
+
+SECTION
+
+Experiments details
+
+PARAGRAPH
+
+In this paper, fifteen benchmark functions are used, these functions are divided into unimodal, multimodal, and fixed-dimension multimodal, as presented in Table 2; as well as ten chaotic maps, which are discussed in Section 2.1, are applied; all these maps are normalized in [1, 0], and 30 independent runs are performed to obtain statistical results.
+
+The experiments refer to all methods which combined MVOHHO with any chaotic maps by chaotic map name, such as MVOHHO with Tent map is written as “Tent”, MVOHHO with Sine map is written as “Sine”, and so on.
+
+Also, the benchmark functions are mentioned using character “F” followed by its number such as F1, F2, F3, …, F15.
+
+PARAGRAPH
+
+The performance of the algorithms is evaluated using statistical measures namely mean of fitness values (μ) as in Eq. (23) and their standard deviations (STD) as in Eq. (24).
+
+As well as, the best value (minimum value) of the fitness function is represented.
+
+These measures are calculated for each chaotic map and each benchmark function.
+
+Best=min1≤i≤Nrfi μ=1Nr∑i=1Nfiwhere Nr is the number of run and fi is a fitness value.
+
+STD=1Nr−1∑i=1Nr(fi−μ)2where μ is calculated by Eq. (23).
+
+PARAGRAPH
+
+In addition, a statistical test is applied namely Wilcoxon rank-sum test to compare the results of all optimization algorithms and determine whether the results are significantly different from each other or not.
+
+PARAGRAPH
+
+As in related studies (Ewees et al., 2017; Wang et al., 2014; Mitić et al., 2015; Mirjalili et al., 2016), the parameters setting are taken into account.
+
+Therefore, the number of search agents is set to 30 universes, and 100 iterations are used for each run as a maximum number of iterations.
+
+The initial value of all chaotic maps is set to 0.7.
+
+Whereas, the dimensions, lower, and upper values are taken from the benchmark functions as shown in Table 2.
+
+The parameter setting of MVO and CMVHHO are set as the following: minimum of wormhole existence probability = 0.2, maximum of wormhole existence probability = 1, and beta = 1.5.
+
+All experiments are implemented under Matlab (2014b) on Windows 10 (64bit) that runs on “CPU Core2 Due” and “4 GB RAM”.
+
+PARAGRAPH
+
+The results are recorded in Tables 3–17 and Figs. 3–6 (the best values in all tables are highlighted in boldface).
+
+SECTION
+
+Sensitive analysis
+
+PARAGRAPH
+
+This section aims to study the influenced of the chaotic maps on the parameters r1,r2,r3 and r4 of the basic MVO (as in Eqs. (2)–(4)).
+
+To perform this goal, ten chaotic maps are used to adjust these parameters namely Chebyshev, Circle, Gauss-Mouse, Iterative, Logistic, Piecewise, Sine, Singer, Sinusoidal, and Tent maps.
+
+Consequently, four versions of the CMVHHO are proposed based on these parameters and tested using all chaotic maps overall benchmark functions.
+
+The yielded fitness values are evaluated and compared with each other to determine the sensitive parameter to the chaotic maps as well as select the best map to be used in the rest of the experiments.
+
+In the experiments, when one parameter is combined with a chaotic map, the other parameters are set to a default value.
+
+The average of the fitness values over 30 independent runs are listed in Tables 3–6.
+
+PARAGRAPH
+
+SECTION
+
+Effect of chaotic maps on parameter r1
+
+PARAGRAPH
+
+In this experiment, the values of r1 are assigned using ten chaotic maps and the average of the fitness values over all runs are presented in Table 3.
+
+The last row in this table presents the count of the best values obtained by each map over all functions.
+
+This table shows that the CMVHHO based on Circle, and Piecewise provides better results than using the other maps, each of them achieves the best results at three functions.
+
+Followed by the Chebyshev, Gauss-mouse, and Sine which have better results than the rest maps at two functions.
+
+Whereas the Iterative, Logistic, and Sinusoidal achieve the better results at only one function meanwhile, the Singer and Tent give the worst results when applied to the current tested parameter r1.
+
+PARAGRAPH
+
+SECTION
+
+Effect of chaotic maps on parameter r2
+
+PARAGRAPH
+
+The results of the chaotic maps over the parameter r2 are tabulated in Table 4.
+
+It can be observed that, in general, the CMVHHO based Circle and Singer maps achieved the best values at four functions.
+
+Followed by the Logistic map which has better results at three functions, then each of the Chebyshev, Iterative, Sinusoidal, and Tent has the best values at only one function.
+
+Meanwhile, the other maps provide the worst results (e.g., Gauss-mouse, Piecewise, and Sine) when used to update the value of the parameter r2.
+
+SECTION
+
+Effect of chaotic maps on parameter r3
+
+PARAGRAPH
+
+The effect of r3 on the performance of CMVO is studied in this experiment and results are summarized in Table 5.
+
+It can be noticed that the CMVHHO based on Singer map is better than other maps in four functions (i.e., F6, F10, F12, and F14), also, the CMVHHO based on Circle map provides good results better than the other maps specifically at the functions (i.e., F1, F11, and F15).
+
+Whereas, the Chebyshev, Gauss-mouse, and Sinusoidal achieve the third rank with two functions.
+
+For example, Chebyshev is the best at F8 and F9; Gauss-mouse at F7 and F13; and Sinusoidal at F3 and F5.
+
+The Logistic (at F2) and Sine (at F4) are better than the rest of the other maps.
+
+SECTION
+
+Effect of chaotic maps on parameter r4
+
+PARAGRAPH
+
+The effect of r4 on the CMVHHO is tested in this experiment and results are listed in Table 6.
+
+Table 6 shows that, the Circle map obtained the best values in F6, F8, and F12–F14 and is ranked first; followed by Sine and Tent maps which achieved the best values in three functions (F1, F2, and F5) and (F3, F4, and F9), respectively.
+
+Moreover, the Chebyshev, Gauss-mouse, Iterative, and Logistic are better at F10, F11, F7, and F15, respectively.
+
+PARAGRAPH
+
+In general, Fig. 3 summarizes the aforementioned results based on each chaotic map.
+
+By comparing the performance of each map it has been found that the Circle map achieved the best results among the other maps.
+
+Followed by the Singer map that has the largest effect on the parameters r2 and r3.
+
+While, the Chebyshev, Logistic, and Sine have a better performance than others where each of them has six best results.
+
+The Gauss-mouse is similar to the three maps except it achieves only the best results at 6 functions especially at the parameters r1 and r3.
+
+The other maps have best results variant from 3 to 4 at different values.
+
+PARAGRAPH
+
+Moreover, Fig. 4 depicts the rank of each parameter among the tested function.
+
+It can be observed that the parameter r4 based chaotic maps are the best one over most of the tested functions.
+
+This superiority is obvious especially in F1, F3, F8, F9, F10, and F14.
+
+PARAGRAPH
+
+From the above analysis and the results in Tables 3–6 and Figs. 3–4 that can be concluded, the best parameter to be used with chaotic maps is r4, as well as the best chaotic maps is Circle.
+
+To provide more evidence about this conclusion, the minimum values and the standard deviation obtained by CMVHHO with all chaotic of r4 are illustrated in Tables 7 and 8, respectively.
+
+The data in both tables are normalized using Eq. (25).
+
+NormValue=VVminwhere V is the obtained value.
+
+Vmin is the minimum value obtained by all maps in each benchmark function.
+
+PARAGRAPH
+
+Table 7 records the best fitness values for all maps.
+
+From this results, CMVHHO combined with Circle map yielded better values than other methods in five functions namely F1, F6, F8, F12, and F13 and obtained the minimum values equally with others maps in 4 functions.
+
+Whereas, Gauss-mouse provide the best results at three function F2–F3, and F10, followed by Piecewise with two functions (F5, and F7).
+
+Also, each of the Singer and Tent maps has better values at only one function namely F4 and F15, respectively.
+
+In addition, the performance of all maps at F9, F11, and F14 are the same.
+
+PARAGRAPH
+
+The standard deviations for all methods are shown in Table 8.
+
+Circle map achieved the best values in five functions (i.e., F6, F8, and F12–F14); followed by Tent map which attained the best values in four functions (i.e., F3, F4, F7, and F9).
+
+Whereas, the Chebyshev, Gauss-mouse, Iterative, Logistic, Sine, and Sinusoidal maps are the best at F10, F11, F1, F15, F2, and F5, respectively.
+
+PARAGRAPH
+
+Fig. 5 shows the convergence curve of all CMVHHO methods, and that can be noticed, the CMVHHO with the Circle map achieved the good convergence rates in seven functions and showed competitive rates in the rest of them.
+
+PARAGRAPH
+
+From Tables 3–8 and Fig. 5, that can be observed, all of CMVHHO methods prove effective results in terms of performance and convergence.
+
+The best one of them was MVOHHO combined with the Circle map which performed better than other methods.
+
+Therefore, it was chosen as the best map to propose the CMVHHO that will be used in comparing with other optimization algorithms in the next subsection.
+
+PARAGRAPH
+
+SECTION
+
+The performance of CMVHHO with other optimization algorithms
+
+PARAGRAPH
+
+This section compares the CMVHHO with the basic MVO and seven well-known optimization algorithms namely SCA, PSO, GA, Bat, DA, MFO, and ALO.
+
+The parameters settings of these algorithms in this experiment are same as the default and recommended setting in their works, as well as the parameters settings of the CMVHHO and the performance measures of the comparisons, are the same as in Section 4.1.
+
+The comparison results are tabulated in Tables 9–11 and Fig. 6.
+
+Circle map is proposed for CMVHHO because the analysis in the previous section showed a better performance of this map against all chaotic maps.
+
+PARAGRAPH
+
+Tables 9–11 display the average, best and the standard deviation of fitness values obtained by all algorithms over 30 runs, respectively.
+
+To show the improvement clearly, the data in Tables 10 and 11 are normalized by Eq. (25).
+
+PARAGRAPH
+
+Table 9 shows that the CMVHHO obtained the best mean values over all the tested functions and is ranked first.
+
+The PSO outperformed other algorithms in nine functions these are F1–F6, and F10, F13, and F15 and obtained the second rank.
+
+Whereas, GA yielded better values in F9, F11, F12, and F14.
+
+The other algorithms did not achieve high-level results in all functions.
+
+PARAGRAPH
+
+In Table 10, the best minimum values for all algorithms are recorded.
+
+From this table, the CMVHHO is ranked first; it obtained the minimum values in all functions followed by the PSO in seven functions namely F1, F3, F4, F6, F10, F12, and F13.
+
+The SCA has the best value at the three functions F7–F9, whereas, the GA obtained the minimum values at the functions F2, F5, and F11.
+
+The MVO, ALO, SCA, PSO, GA, DA, and MFO have nearly the same performance at F14; whereas, the GA and DA have similar performance at the function F15.
+
+PARAGRAPH
+
+Fig. 6 shows the convergence curve of all algorithms over 100 iterations; and that can be observed, the CMVHHO algorithm is obtained the best fitness values before reaching the maximum number of iterations and showed a fast convergence (for example, F2, F4, F9, and F10), however, at the most of the other functions, it reached the optimal values nearly at the end of iterations followed by the PSO and GA, respectively.
+
+Furthermore, all algorithms outperformed the BAT algorithm.
+
+PARAGRAPH
+
+Table 11 tabulated the values of the standard deviations for all algorithms.
+
+The CMVHHO is considered as the most stable algorithm because it achieved the minimum values in all functions.
+
+Whereas, PSO obtained the best value at F1–F6, F10, F13, and F15.
+
+the GA showed more stable at the F9, F11, F12, and F14, meanwhile, the basic MVO and SCA are stable at F7, and F8, respectively.
+
+Bat, DA, MFO, and ALO did not achieve any best value in these results.
+
+PARAGRAPH
+
+From Tables 9–11 and Fig. 6, that can be concluded, the CMVHHO proved efficiency and effectiveness behavior in finding the global optimal values of the optimization problems with a fast convergence rate.
+
+PARAGRAPH
+
+In term of computational time, Table 12 and Fig. 7, the fastest algorithms are PSO, SCA, MFO, and Bat respectively followed by CMVHHO, MVO, and GA whereas, ALO and DA are the slowest algorithms.
+
+These results, as expected, show that the basic MVO without any improvement takes more time than PSO, SCA, MFO, and Bat algorithms, however, the CMVHHO was faster than MVO in 12 functions out of 15.
+
+Therefore, in general, the chaotic map and HHO operators do not increase the computational cost of the basic MVO at all.
+
+SECTION
+
+PARAGRAPH
+
+Statistical analysis
+
+PARAGRAPH
+
+In this subsection, a non-parametric test called Wilcoxon rank-sum test is used to show if there are significant differences between the proposed algorithm and the other methods at the p-value less than 0.05 or not.
+
+In the Wilcoxon test, the null hypothesis is accepted if all algorithms are equivalent; otherwise, the alternative hypothesis is accepted if there is a difference between the proposed algorithm and other algorithms.
+
+This test is applied to the average of the fitness values overall benchmark functions using thirty independent runs for each algorithm.
+
+The results of this test are listed in Table 13.
+
+PARAGRAPH
+
+From this table that can be noticed, the CMVHHO showed significant differences with all compared algorithms in all functions therefore, the null hypothesis is rejected.
+
+PARAGRAPH
+
+This result indicates the superiority of the CMVHHO over the other algorithms as well as the chaotic maps and the HHO algorithm are really improved the behavior of the basic MVO in solving the problems and make it able to reach the best values than other methods by maintaining its population and overcoming many drawbacks such as slow searching, premature convergence, and get trap in local minima.
+
+SECTION
+
+PARAGRAPH
+
+CMVHHO for classical engineering problems
+
+PARAGRAPH
+
+In this subsection, the performance and efficiency of the proposed algorithm are evaluated by solving four constrained real engineering problems namely a welded beam, tension/compression spring, a pressure vessel, and rolling element bearing design.
+
+These problems have many inequality constraints, therefore the CMVHHO is evaluated in solving these different problems.
+
+A simplest penalty function called the death penalty is applied in which swarms are obtained big values if they violate any of the constraints.
+
+The number of the solution in all experiments are set to 30 and the maximum number of iterations is set to 500.
+
+SECTION
+
+PARAGRAPH
+
+Welded beam design
+
+PARAGRAPH
+
+Welded beam design is an engendering problem.
+
+It tries to minimize the fabrication cost of it.
+
+Fig. 8 illustrates this problem.
+
+The optimization process tries to optimize four variables and seven constraints.
+
+The variables are the thickness of weld (h), length of the attached part of the bar (l), the thickness of the bar (bb), and the height of the bar (tt).
+
+PARAGRAPH
+
+The mathematical model of this problem is formed as in the following: Considerx→=[x1x2x3x4]=[hlttbb],Minimizef(x→)=1.10471x12x2+0.04811x3x4(14.0+x2),Subjecttog1(x→)=τ(x→)−τmax⩽0,g2(x→)=σ(x→)−σmax⩽0,g3(x→)=δ(x→)−δmax⩽0,g4(x→)=x1−x4⩽0,g5(x→)=P−Pc(x→)⩽0,g6(x→)=0.125−x1⩽0,g7(x→)=1.10471x12+0.04811x3x4(14.0+x2)−5.0⩽0Variablesrange0.1⩽x1⩽2,0.1⩽x2⩽10,0.1⩽x3⩽10,0.1⩽x4⩽2whereτ(x→)=(τ′)2+2τ′τ″x22R+(τ″)2,τ′=p2x1x2,τ″=MRJ,M=P(L+x22),R=x224+(x1+x32)2,J=22x1x2x224+(x1+x32)2, Variablesrangeσ(x→)=6PLx4x32,δ(x→)=6PL3Ex32x4Pc(x→)=x32x46364.013EL2(1−x32LE4G),P=6000lb,L=14in.,δmax=0.25in.,E=30×16psi,G=12×106psi,τmax=13600psi,σmax=30000psi
+
+PARAGRAPH
+
+The CMVHHO is examined for solving this problem and is compared with ten optimization algorithms which are reported in previews studies, namely, MVO (Mirjalili et al., 2016), Coevolutionary Particle Swarm Optimization (CPSO) (Krohling and dos Santos Coelho, 2006), Gravitational Search Algorithm (GSA) (Rashedi et al., 2009), Co-evolutionary Differential Evolution (CDE) (Huang et al., 2007), Genatic Algorithm (GA) (Deb, 1991), Harmony Search (HS) (Lee and Geem, 2005), Co-evolutionary Differential Evolution (CDE) (Huang et al., 2007), Simplex method (SIMPLEX) (Ragsdell and Phillips, 1976), and Davidon–Fletcher–Powell (DAVID) (Ragsdell and Phillips, 1976), as well as Griffith and Stewart’s successive linear approximation (APPROX) (Ragsdell and Phillips, 1976) as shown in Table 14.
+
+From this table that can be concluded, the results of CMVHHO obtained the best value than all compared algorithms.
+
+SECTION
+
+Tension/compression spring design
+
+PARAGRAPH
+
+This problem aims to minimize the weight of the tension/compression spring by optimizing three parameters namely wire diameter (dd), mean coil diameter (D), and the number of active coils (NN).
+
+Fig. 9 illustrates this problem, and the mathematical model of this problem is as follows: Considerx→=[x1x2x3]=[ddDNN],Minimizef(x→)=(x3+2)x2x12,Subjecttog1(x→)=1−x23x371785x14⩽0,g2(x→)=4x22−x1x212566(x2x13−x14)+15108x12⩽0,g3(x→)=1−140.45x1x22x3⩽0,g4(x→)=x1+x21.5−1⩽0,Variablesrange0.05⩽x1⩽20.25⩽x2⩽1.302.00⩽x3⩽15
+
+PARAGRAPH
+
+The CMVHHO is tested for solving this problem and compared with nine optimization algorithms which are reported in previews studies namely MVO, CDE (Huang et al., 2007), CPSO (He and Wang, 2007a), Evolution Strategy (ES) (Mezura-Montes and Coello, 2008), GA (Coello, 2000), Simple Evolution Strategy (SES) (Mezura-Montes et al., 2003), Ray–Saini method (Ray and Saini, 2001), and mathematical method by Belegundu, and Arora (Belegundu and Arora, 1985) as shown in Table 14.
+
+The CMVHHO showed good behavior and outperformed all compared methods.
+
+PARAGRAPH
+
+SECTION
+
+Pressure vessel design problem
+
+PARAGRAPH
+
+The purpose of this test is to minimize the whole cost of the cylindrical pressure vessel.
+
+Fig. 10 illustrates the problem.
+
+The optimization process works to optimize four variables namely the thickness of the shell (Ts), the thickness of the head (Th), the inner radius (R), and the length of the cylindrical section without considering the head (L); also there are four constraints of this problem as follows: Considerx→=[x1x2x3x4]=[TsThRL],Minimize0.6224x1x3x4+1.7781x2x32+3.1661x12x4+19.84x12x3,Subjecttog1(x→)=−x1+0.0193x3⩽0,g2(x→)=−x2+0.00954x3⩽0,g3(x→)=−πx32x4−43πx33+1296000⩽0,g4(x→)=x4−240⩽0, Variablesrange0⩽x1⩽99,0⩽x2⩽99,10⩽x3⩽200,10⩽x4⩽200
+
+PARAGRAPH
+
+The proposed algorithm is evaluated for solving this problem and compared with thirteen algorithms which are reported in literature namely MVO (Mirjalili et al., 2016), PSO-DE (Liu et al., 2010), HPSO (He and Wang, 2007b), CPSO (He and Wang, 2007a), ACO (Kaveh and Talatahari, 2010), CDE (Huang et al., 2007), ES (Mezura-Montes and Coello, 2008), GA (Coello and Montes, 2002; Deb, 1997), Lagrangian Multiplier (Kannan and Kramer, 1994), Branch-bound (Sandgren, 1990), GSA (Mirjalili et al., 2016), and Backtracking biogeography-based optimization (Guo et al., 2016) as shown in Table 16.
+
+From Table 16 that can be concluded, the CMVHHO outperformed all other algorithms.
+
+SECTION
+
+Rolling element bearing design problem
+
+PARAGRAPH
+
+This problem aims to maximize the dynamic load carrying ability.
+
+It contains ten variables for assembly and restrictions of geometric.
+
+Fig. 11 shows a sample of this problem whereas, the mathematical model of this problem is formed as follows: MaximizeCd=fcZ2∕3Db1.8,ifD≤25.4mm,Cd=3.647fcZ2∕3Db1.4,ifD≤25.4mm,Subjecttog1(z→)=ϕ02sin−1(Db∕Dm)⩽0,g2(z→)=2Db−KDmin(D−d)>0,g3(z→)=KDmax(D−d)−2Db>0,g4(z→)=ξBw−Db⩽0,g5(z→)=Dm−0.5(D−d)≥0,g6(z→)=(0.5+e)(D+d)−Dm≥0,g7(z→)=0.5(D−Dm−Db)−ϵDb≥0,g8(z→)=fi≥0.515,g9(z→)=f0≥0.515,wherefc=37.911+1.64(1−γ1−γ)1.72fi(2f0−1)f0(2fi−1)0.4110∕3−0.3×γ0.3(1−γ)0.39(1−γ)1∕32fi2fi−10.41,x=[{(D−d)∕2−3(T∕4)}2+{D∕2−T∕4−Db}2−{d∕2+T∕4}2],y=2{(D−d)∕2−3(T∕4)}{D∕2−T∕4−Db},ϕ0=2π−cos−1(xy),γ=DbDm,fi=riDb,f0=r0Db,T=D−d−2Db,D=160,d=90,B=30,ri=r0=11.033,0.5(D+d)⩽Dm⩽0.6(D+d),0.15(D−d)⩽Db⩽0.45(D−d),4⩽Z⩽50,0.515⩽fiandfo⩽0.6,0.4⩽KDmin⩽0.5,0.6⩽KDmax⩽0.7,0.3⩽e⩽0.4,0.02⩽e⩽0.1,0.6⩽ξ⩽0.85
+
+PARAGRAPH
+
+Table 17 records the results of CMVHHO in solving the problem along with the compared algorithms namely MVO, HHO (Heidari et al., 2019), TLBO (Rao et al., 2011), and PVS (Savsani and Savsani, 2016).
+
+From this table that can be seen, the proposed CMVHHO reached the best result (i.e., the maximum cost) and is ranked first compared with the other algorithms.
+
+PARAGRAPH
+
+From the obtained results of the proposed CMVHHO during the above experiments and discussions, it can be observed that the quality behavior of the CMVHHO is obvious and its results are better than the comparative methods in solving both global optimization problems and engineering problems.
+
+These results and improvement can be due to the use of the HHO’s operators which increased the ability of the proposed algorithm to exploit the search space.
+
+In addition, using the chaotic maps to adapt the parameters of the basic MVO helped in finding the global solution for the given problems.
+
+SECTION
+
+Conclusions and future works
+
+PARAGRAPH
+
+In this paper, the basic Multi-Verse Optimizer (MVO) was modified using two phases namely applying chaos theory and using the operators of a recent optimization algorithm called Harris Hawks Optimization (HHO).
+
+The chaotic maps are applied to determine the optimal values for the parameters of the MVO whereas, the HHO is used as a local search to improve the ability of the MVO to exploit the search space.
+
+Therefore, ten different chaos maps were tested over all the random parameters of the basic MVO in the proposed algorithm (CMVHHO) to select the best map and the suitable parameter, consequently, the proposed algorithm was evaluated in finding the minimum values of global optimization problems as well as it was tested in solving four engineering problems.
+
+The comparisons results summarized that the proposed algorithm showed the best results in searching for the global optimal solutions and showed high performances in terms of convergence and the statistical analysis.
+
+Moreover, the proposed CMVHHO was applied successfully to solve four engineering problems and providing the best results compared to the state-of-the-art methods.
+
+The experimental results concluded that the chaotic Circle map is the best map among all maps because it improved the performance of the CMVHHO in addition, the HHO affected positively in the proposed algorithm behavior.
+
+The limitation of the proposed CMVHHO is that it consumes more CPU time than the PSO and GA algorithms, though it takes less CPU time than the basic MVO.
+
+Therefore, in the future, the proposed algorithm will be enhanced to decrease its computational time as well as it can be evaluated on different applications such as image segmentation, classification, and clustering problems.

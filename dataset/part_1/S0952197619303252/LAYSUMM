@@ -1,0 +1,17 @@
+10.1016/j.engappai.2019.103419
+
+LAYSUMM
+
+TITLE
+
+DFNet: Discriminative feature extraction and integration network for salient object detection
+
+PARAGRAPH
+
+Salient object detection aims at localizing the most interesting and prominent parts of an image, and it is an effective pre-processing step for many computer vision tasks.
+
+Accurately detecting salient objects in complicated scenarios is still a challenge in computer vision.
+
+In this paper, we propose a novel real-time salient object detection model which is able to adaptively weight feature maps from different scales and different levels of abstraction.
+
+In addition, our Sharpening Loss function guides our network to output saliency maps with higher certainty and less blurry salient objects, and it has far better performance than the Cross-entropy loss.

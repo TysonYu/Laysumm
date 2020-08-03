@@ -1,0 +1,501 @@
+10.1016/j.jasrep.2018.09.010
+
+FULLTEXT
+
+TITLE
+
+Landscape applications of photogrammetry using unmanned aerial vehicles
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Photogrammetry is quickly becoming an important, cost effective technique for recording cultural heritage, with particularly impressive and innovative applications in excavation and artefact recording (De Reu et al., 2014; Dellepiane et al., 2013; Roosevelt et al., 2015; Lerma and Muir, 2014).
+
+Beyond the micro-scale of site evaluation, however, there are also effective landscape applications, with drone-based image collection allowing for large-scale survey.
+
+This combination of technology can be used to capture overlapping geo-referenced vertical and oblique photographs in order to create accurate and dense three-dimensional models at a fraction of the cost of LiDAR, and often at a much high spatial resolution.
+
+Furthermore, the hardware is highly portable, allowing the user to access a wider range of sites.
+
+The surveys have become fully automated and modern structure from motion software allows the user to create ortho-rectified aerial photographs and DSM's (Digital Surface Model) at the click of a button.
+
+Yet, despite this, few studies have assessed the viability of this technique in regard to landscape studies.
+
+Those that have, such as Muñoz-Nieto et al. (2014), highlight the effectiveness of this technique and its ease of use.
+
+This paper assesses the viability of this technology for mapping large archaeological sites such as hillforts, providing a case study for its application to landscape archaeology.
+
+SECTION
+
+Drone survey and photogrammetry
+
+PARAGRAPH
+
+Topographical surveys can contribute greatly to the identification of previously unseen surface features and can be used to produce three dimensional computer models of the surveyed area, which can be manipulated in a number of ways.
+
+The digital environment can be viewed from any perspective, free of vegetation or features that may obscure view.
+
+The height and direction of the sun can be manipulated to create shading and shadow effects, making interpretation easier.
+
+Micro-topographic surface features of buried or destroyed archaeological deposits occasionally exist, and can be identified with the exaggeration of the vertical axis by a set multiple (Newman, 1997, 11).
+
+PARAGRAPH
+
+Until recently, the acquisition of topographical data was undertaken with a total station or D-GPS (Differential-Global Positioning Systems).
+
+Barratt et al. (2000, 141) have speculated that a single total station team would capture about 1000 points in a day, whereas one person using a D-GPS systems can record up to 2000 points every hour.
+
+More recently, LiDAR (Light Detection and Ranging) surveys have been used for archaeological purposes to collect large amounts of elevation data.
+
+This technique allows millions of points to be acquired in a matter of hours at an accuracy of + or −7 cm vertically, and + or −15 cm horizontally, usually with a resolution of 1–16 data points per metre squared.
+
+The common weakness in these techniques is that data collection and processing can be time consuming and costly.
+
+PARAGRAPH
+
+Terrestrial photogrammetry has been used by archaeologists since the early eighties (Fussell, 1982) but the prohibitive expense of hardware and processing equipment meant that it was not a viable technique for most projects.
+
+With the advent of low-cost digital cameras and increased computer processing power in the late 2000s, however, this technique became a more viable option for artefact analysis and small-scale site evaluation.
+
+However, even until recently, photogrammetric surveys of monuments were undertaken using cumbersome methods such attaching cameras to poles or kites and relying on an extensive system of ground control points for software programmes to knit the photographs together (see McCarthy, 2014).
+
+PARAGRAPH
+
+In the past few years, the rapid development of drones and structure from motion software, as well as the substantial decrease in their cost, has made them a viable option for archaeologists.
+
+While they have quickly become the go-to platform for taking site and excavation photographs, the ability of this technology to further enhance archaeological investigations has not yet been fully realised.
+
+Even low-cost drones aimed at casual, non-professional users can now be integrated with free mapping and flight planning software for automated flight and data capture to create highly detailed three dimensional models.
+
+PARAGRAPH
+
+There are a number of problems with this approach, most notably the inability of the technique to penetrate vegetation and tree canopy, and the absolute accuracy of the collected data.
+
+The former is also a problem for LiDAR (though usually not promoted as such), with data collected in environments with dense conifer forestry often being unusable (for example, see O'Brien and O'Driscoll, 2017, 214–215).
+
+Absolute accuracy depends on the type and accuracy of the GPS integrated with the drone.
+
+With non-professional consumer drones this can vary considerably and can sometimes be in the range of + or −50 m or more.
+
+If accessing the erosion rate of a coastal monument, for example, where multiple surveys of the same environment are needed, this is inadequate and a much higher absolute accuracy is needed.
+
+There are a number of different options to correct this, such as setting up control points with a DGPS or using smart ground control points like AeroPoints, buying a RTK-GPS enabled drone, or georeferencing the collected data in GIS.
+
+However, if accessing an individual site in a one off survey, the relative accuracy of the data is more important.
+
+This depends on the height of the drone during survey and quality of the camera used, but is usually between 1 and 2 cm, which is more than accurate to produce a highly detailed and accurate model.
+
+SECTION
+
+Practical applications of drone survey
+
+PARAGRAPH
+
+For this study, a DJI Mavic Pro was used.
+
+This drone weights 0.734 kg including the in-built camera, battery and gimbal and can be folded into a 0.083 m (height) by 0.083 m (width) by 0.19 m (length) package, making this a highly portable unit.
+
+Using the freely downloadable Drone Deploy app on a mobile phone or tablet, the software connects to the Mavic Pro via a USB cable linked to the controller.
+
+Once the app automatically connects to the drone, the user then creates a project by zooming into the area of interest on a satellite map and creating a polygon that outlines the extent of the survey area.
+
+The user then assigns the height of the drone, which determines the resolution of the model and number of data points per metre squared.
+
+This allows the software to automatically generate a flight path, with the number of traverses increasing as the user decreases the height of the drone.
+
+The direction of these traverses can also be adjusted if necessary.
+
+The percentage of overlap is automatically set to 65% sidelap and 75% frontlap, though for more accurate readings the user should increase both to at least 80%.
+
+Once these settings have been input, the user simply uploads the flight plan to the drone via the upload button.
+
+Once this is completed, the user selects ‘begin collection’ and the drone will automatically take off, rise to the desired height, and move to the first traverse where it will automatically begin taking images (Fig. 1).
+
+The user can view where the drone is on their phone/tablet and also view what is visible from the camera.
+
+A survey can be planned in a matter of minutes in the field, allowing for archaeologists to collect survey data on the fly (pun intended!).
+
+PARAGRAPH
+
+Like many forms of modern digital archaeology, photogrammetry is easily implemented.
+
+It is therefore easy to view this technology in terms of its inputs and outputs, without any knowledge of its internal workings.
+
+The algorithms and processes used by photogrammetry programmes are complex and are continually developing.
+
+It is not the concern of this paper to summarise the evolution of this technique in an archaeological context (see Remondino, 2014 for a comprehensive outline).
+
+Instead, the author proposes to quickly outline the basic methodologies used by photogrammetry programmes as well as how to use this software in a practical setting.
+
+PARAGRAPH
+
+The collected images are imprinted with XYZ coordinates, allowing the photogrammetry software to locate where the photographs were taken in three-dimensional space, although this is not essential for the software to produce good quality outputs (Many non-commercial drones cannot geo-tag photographs and can still produce excellent quality DSM's).
+
+The software is able to create a three-dimensional model due to the multiple overlapping images at slightly differing positions, giving each photograph a unique angle of the select area/object while also providing it with keypoints (reference points) visible to multiple photographs.
+
+As such, it is important that multiple photographs overlap (hence the increase in the percentage of overlap applied above).
+
+In instances where there is sufficient overlap, the number of keypoints per pixel can be in excess of 10,000.
+
+This is more than sufficient to derive an accurate model.
+
+PARAGRAPH
+
+For software programmes such as Pix4D, the creation of a DSM and orthomosaic is as simple as dragging the photographs into the folder (Fig. 1).
+
+Once these have been uploaded to the cloud, the programme automatically begins to process the data, giving outputs such as a DSM, orthomosaic, LAS file, Mesh OBJ file, etc.
+
+Depending on the variables outlined above, a survey can have a resolution in excess of hundreds, and sometimes thousands of points per square metre.
+
+This programme will also automatically create a three dimensional model that you can view and manipulate immediately after completion of the processing.
+
+Similar to the way setting-up and undertaking image capture with a drone has become a straightforward and easy process, the practical use of the photogrammetry software is also uncomplicated.
+
+While these outputs can immediately be manipulate in GIS without any processing from the user, programmes such as Pix4D does allow users to further enhance or clean-up data, but in many instances this is just for aesthetic reasons.
+
+The remainder of this paper will outline a number of different case studies to highlight the applicability of this new survey technique to landscape studies.
+
+SECTION
+
+Case study: Cahercommaun, Co. Clare, Ireland
+
+PARAGRAPH
+
+Cahercommaun fort is position at the southwestern edge of Tullycommon townland in Co.
+
+Clare, Ireland (Fig. 2).
+
+The site is c. 145 m above Ordnance Datum and overlooks a deep north–east/south–west ravine, approximately 30 m in height.
+
+The fort itself is approximately 0.68 ha in total area and comprises three widely spaced enclosing elements that abut the edge of the ravine to the north.
+
+These defend the eastern, southern and western approaches to the fort, while the north is protected by steep natural cliff face.
+
+The monument was partially excavated by Hugh O'Neill Hencken (1938) in 1934, who argues that the site was an important centre of a regional Early Medieval chiefdom known as Tulach Commain.
+
+PARAGRAPH
+
+Cahercommaun is more broadly situated within the extensive karst landscape of the Burren.
+
+This environment was formed in the last glacial maximum, when ice sheets eroded the overlying soil and exposed the limestone surface.
+
+The lack of soil cover is less suitable for intensive farming which has led to the survival of much of the ancient landscape, including significant Early medieval remains (Hull and Comber, 2008).
+
+PARAGRAPH
+
+Survey of the site was funded by a Royal Irish Academy grant which aimed to record in detail the Western Stone Forts on the tentative list of UNESCO World Heritage sites in Ireland.
+
+In total, 166 geo-tagged aerial images were captured, resulting in the generation of a DSM and orthomosaic 11.69 ha in size (Figs. 3–4).
+
+This took approximately 17 min to collect in-field.
+
+The DSM consists of 13,519,874 three-dimensional data points with an average density of 186.84 points per square metre.
+
+This data was then processed in GIS to produce hillshade (Fig. 5) and slope (Fig. 6) models which were analysed to create a plan (Fig. 7) of the visible archaeological features.
+
+PARAGRAPH
+
+Cahercommaun is a particularly good case study, as there have been a number of surveys undertaken to record the layout of the fort.
+
+Despite this, the photogrammetry survey identified a number of unrecorded features, including levelled field systems and possible hut structures.
+
+These became particularly visible when using GIS analytical techniques such as slope or hillshade analysis to view the data.
+
+Of particular relevance was the use of GIS visibility analysis (Fig. 8).
+
+This highlighted that views from the interior of the inner enclosure are restricted by the substantial defences even at the north, where the wall is less substantial.
+
+Access to the top of these walls is provided by steps built into the inner face.
+
+Visibility analysis highlights the extensive views from this area, with particularly excellent views of the eastern and western approaches to the fort, as well as visibility of the valley to the north.
+
+The heightened visibility from the top of the inner enclosure may explain why there is no evidence for terracing in the middle and outer enclosing elements, as such features may have been practical elements incorporated into the defences of the inner wall to augment the visibility of the immediate landscape to those inside the interior.
+
+As such, it was not necessary to incorporate such features, allowing the walls to be thinner which, in turn, resulted in reduced costs in labour and resources.
+
+In fact, the practicalities of the walls themselves come into question when we consider the viewshed between the inner and outer enclosure.
+
+Views from this position are restricted by the outer wall, which in antiquity would have been taller than what is visible today.
+
+This could indicate that the outer two enclosing elements may have been constructed primarily to convey the status and power of the occupants to those approaching the fort, though they could have also had a number of subsidiary functions, such as cattle management and defence.
+
+PARAGRAPH
+
+At Cahercommaun, the photogrammetery survey has provided us with a better understanding of the site.
+
+While the enclosing elements could be regarded as defensive in nature, the photogrammetry survey and viewshed analysis highlights that the height of the outer wall would have restricted the visibility of people located between the inner and outer defences.
+
+It may be more plausible to regard the middle and outer defences principally as status symbols that could have had a secondary defensive function.
+
+SECTION
+
+Case study: Glanbane, Co. Kerry, Ireland
+
+PARAGRAPH
+
+Glanbane hillfort in Co.
+
+Kerry, Ireland is positioned on the eastern edge of the Slieve Mish Mountains overlooking a broad valley that connects the bays of Dingle and Tralee and sits at approximately 86 m Ordnance Datum (Fig. 9).
+
+The site comprises two widely spaced enclosing elements that occupy an area of 6.58 ha, though these have been completely levelled and are only visible as crop marks in some aerial photographs.
+
+Geophysical survey mapped the extent of these defences, as well as the interior of the fort.
+
+This revealed a number of possible circular wooden structures within the interior, including a large, 45 m post structure positioned near the centre of the interior partially truncating a 55 m earthen enclosure (O'Brien and O'Driscoll, 2017).
+
+Trial excavations over the two enclosing elements revealed that each consisted of a rock-cut ditch up to 3.1 m wide and 1.35 m deep, with an internal stone faced bank.
+
+Radiocarbon dates from the basal layers of the internal ditch indicate that Glanbane hillfort was constructed around 1150–900 BCE and is therefore broadly contemporary with the majority of other large hilltop enclosures in Ireland known as hillforts.
+
+PARAGRAPH
+
+Considering that we know the extent and layout of the enclosing elements at Glanbane and there is little in the way of any topographical low-relief features apparent on the surface, this provides an excellent case study for the application of drone and photogrammetry technology to map and record levelled archaeological sites.
+
+In total, 235 geo-tagged aerial images were captured, resulting in the generation of a DSM and orthomosaic 21.43 ha in extent (Fig. 10).
+
+This took approximately 21 min to collect in-field.
+
+The DSM consists of 20,797,450 three-dimensional data points with an average density of 200.5 points per square metre.
+
+PARAGRAPH
+
+The results of the survey revealed the extent of the inner enclosing element, with the outer example being less extensively mapped and topographical features visible only on the north, northwestern and southeastern sides.
+
+This suggests that the internal bank ranged from 7 to 10 m wide and the external example 6–7.5 m wide.
+
+This is important additional information, as neither excavation nor geophysical survey conclusively confirmed the extent of these features.
+
+We can now suggest that banks of the hillfort would not have been more than 1–1.5 m high (considering a combination of the width of the banks and the depth of the external ditches, which presumably would have been the main, if not sole, source of material for its construction), though there is the possibility that this would have been topped with a wooden palisade and evidence for this has been destroyed.
+
+The photogrammetry survey was also useful in clarifying the presence of an entrance at the north-east.
+
+This is apparent as a tapering of the two enclosing elements, where the average separation between the features narrows from 16 m to 8 m.
+
+There is also a possible corresponding 6 m break in both enclosing elements, though this is difficult to confirm due to obstruction from a modern farm track.
+
+This probable entrance appears faintly in the geophysical survey results, though not as clearly and well defined as in the photogrammetry survey.
+
+The survey was also useful in helping us to identify that the large structures near the centre of the fort are located at the highest point of the interior, something which is not noticeable considering the flat nature of most of the site (Fig. 11).
+
+PARAGRAPH
+
+The survey at Glanbane has provided important insights regarding the layout and possible size of the enclosing elements and positioning of the central structures within the interior.
+
+The results revealed a possible entrance at the north-east comprising a narrowing of the defences and corresponding gaps.
+
+This is an important discovery, as nearly all of the recorded Bronze Age hillforts in Ireland have simple entrances consisting of small corresponding breaks in the defensive works, with rare example of more complex entrance at such sites like Carn Tighernagh, Co.
+
+Cork possible being a later refurbishment of the fort in the Iron Age or Early Medieval period.
+
+The ‘pinching’ of the enclosing elements near the entrance at Glanbane is a unique feature only found at this site.
+
+The survey also revealed the width of the hillfort banks, which may infer that the height of the earthworks would not have been substantial.
+
+However, considering the combination of the depth of the ditches (up to 1.35 m) and possible height of the banks (1–1.5 m), these features may have still formed a practical defensive barrier 2–3 m in height.
+
+The presence of the large structures at near the centre of the fort at the height point of the interior may be a hint of its ritual nature and function.
+
+Structural evidence from the contemporary Irish hillfort of Haughey's Fort, Co.
+
+Armagh is a good comparison for Glanbane.
+
+Here, a large 25–30 m wooden structure delimited a series of substantial pits containing carbonized grain, coarse ware pottery, fragments of quern stones, metal artefacts and fragments of bronze and gold (Mallory, 1995, 78; Mallory and Warner, 1988), leading Mallory (1995, 84) to argue that ‘defended as it may be, [Haughey's Fort] was primarily the focus of ritual activities’ (Mallory, 1995, 84).
+
+A similar interpretation could be ascribed to Glanbane.
+
+SECTION
+
+Case study: Turin Hill, Angus, Scotland
+
+PARAGRAPH
+
+Turin Hill in Angus, Scotland is a complex of fortifications comprising two hillforts and three smaller ringforts located on the highest point of a roughly east-west running ridge of hills overlooking an expansive tract of land to the north, east and west (Fig. 12).
+
+The earliest fort at the site occupies an area of 4.68 ha and is defined by a low relief bi-vallate earthwork comprising a bank-ditch-bank-ditch arrangement on the western side, with a series of natural craigs defending the eastern approach.
+
+Inside this fort, on the southern side, is an oblong enclosure with a single robbed out stone wall occupying an area of 0.67 ha.
+
+Three smaller ringforts are located at the crest of ridge each occupying areas of 0.085 ha, 0.09 ha and 0.1 ha respectively.
+
+PARAGRAPH
+
+The wealth of archaeological features on the hill has attracted numerous researchers, with a number of ground surveys having been undertaken.
+
+The most detailed plan was produced by Alexander and Ralston (1998) who recorded the enclosing elements of the various forts, as well as identifying unrecorded hut platforms and additional earthworks.
+
+More recently, LiDAR data has also become available for the site.
+
+The available plans and topographical data for Turin Hill, therefore, makes this an excellent case study for the application of drone and photogrammetry technology, where we can assess if these new techniques are accurate enough to identify the archaeological features already recorded or map any new features, while also allowing comparisons to be made with other data collection methods like LiDAR.
+
+PARAGRAPH
+
+Survey of the site was funded by the Leverhulme funded Comparative Kingship Project.
+
+A total of 342 geo-tagged aerial images were captured, resulting in the generation of a DSM and orthomosaic 12.76 ha in extent (Fig. 13).
+
+This took approximately 32 min to collect in-field.
+
+The DSM consists of 26,578,680 data points with an average density of 500.8 points per square metre.
+
+The survey results allowed for a more accurate assessment of the visible surface remains and clarified the relative chronology of the fortifications on the hill.
+
+Previous plans and the more coarse LiDAR data were unable to clearly demarcate if and where the individual forts overlap (Figs. 13 and 14).
+
+In contrast, the photogrammetry results clearly reveal that the large bi-vallate hillfort (T1 and T2) is truncated on the western side by the oblong fort (T5), which itself it truncated by the central ringfort (T7) (Fig. 15).
+
+Similarly, although a series of small upstanding mounds (T10) are also apparent in the LiDAR survey, up to five additional examples were identified in the photogrammetry results, while three more hut structures and an additional part of the enclosing elements (T9) were only visible with photogrammetry.
+
+PARAGRAPH
+
+The survey also revealed interesting aspects relating to the defences of each fort.
+
+For example, the builders of the larger bi-vallate hillfort seemed to have positioned the enclosing elements on a natural break of slope to enhance their appearance and apparent size when viewing or approaching the site from the exterior.
+
+The survey also recorded linear depressions at the crest of the inner bank, possibly indicating the presence of a palisade slot (which is supported by the geophysical survey results).
+
+In some areas, parallel linear features approximately 3.35 m apart define the limits of external bank and this could represent the inner and outer wall face.
+
+An unrecorded low-relief bank (T3) extends from the western side of the outer enclosing element, before dividing in two, with the inner bank extending towards the east–west running craig to the south while the outer bank extending to incorporate the westernmost ringfort.
+
+This is also visible in the LiDAR data.
+
+The earthwork clearly incorporates the westernmost ringfort (T6), which is probably later than the large bi-vallate hillfort.
+
+We might therefore suggest that this newly discovered bank is a later addition, built to visually incorporate the ringfort into the design of the larger fort in order to substantiate the legitimacy and status of the ringfort occupants through direct visual links with the past.
+
+PARAGRAPH
+
+On the lower craig overlooked by the forts, T9 represents the earthwork recorded by Alexander and Ralston (1998), however, a second low-relief feature is apparent in both the LiDAR and photogrammetry data.
+
+This is in-line with the T6 extension, and effectively cuts off access to the lower craig, creating a variation of a nuclear hillfort.
+
+These types of forts are apparent in Scotland from the Early Medieval period, a date that would correspond well with the probable construction of the three small ringforts on the summit.
+
+PARAGRAPH
+
+The photogrammetry survey recorded the oblong fort and three ringfort, all of which are at risk of damage by local agricultural activity, making detailed survey of these sites timely.
+
+However, little in the way of additional information was gained from the photogrammetry results.
+
+PARAGRAPH
+
+Scattered throughout the interior of the bi-vallate hillfort are a number of possible hut platforms.
+
+Five of these have previously been recorded by Alexander and Ralston and three are visible in the LiDAR data.
+
+In contrast, eight possible hut sites were identified in the photogrammetry results, comprising circular or oval terraces approximately 5–14 m in diameter cut into the natural slopes of the hill.
+
+Furthermore, up to 14 raised flat-topped platforms approximately 4–7.5 m in diameter are apparent in the photogrammetry results that were not recorded by Alexander and Ralston.
+
+These features are also visible in the LiDAR data though they are less defined.
+
+It is only in the photogrammetry data that we can accurately measure the size and shape of these features.
+
+These platforms may represent some form of structures, where the build-up of material over time raised the floor levels, resulting in these distinctive features visible on the surface.
+
+This interpretation is partly supported by recent geophysical survey at the site.
+
+PARAGRAPH
+
+Despite the previous earthwork and topographical surveys at Turin Hill, detailed photogrammetry survey revealed a number of previously unrecorded archaeological features that have transformed our understanding of the site.
+
+We can now confirm the relative chronology of the fortifications on the hill: the large bi-vallate hillfort being truncated by the oblong fort which in turn is truncated by the central ringfort (though this does not necessarily mean the other two small ringfort are contemporary with this).
+
+We might also recognise the site as a type of nuclear hillfort, considering the newly discovered earthworks on the lower craig to the east protects this area and creates a terraced division (possibly reflecting divisions in the status of those living on the hill) that defines this type of fortification.
+
+We can also argue that the hill was occupied by domestic structures, although these cannot be linked with any specific phase of use of the hill, as without excavation, it is impossible to speculate regarding their chronology.
+
+SECTION
+
+Summary of results
+
+PARAGRAPH
+
+As demonstrated in the case studies above, this technology can be used to significantly enhance our understanding of a site, even where these has already been detailed earthwork surveys or where LiDAR data is available.
+
+At Cahercommaun in Co.
+
+Clare, Ireland, for example, the photogrammetry results were used in GIS to demonstrate the impractical characteristics of the outer enclosing elements as defensive works, allowing us to interpret the impressive walls as a mark of the status and power of the occupants.
+
+PARAGRAPH
+
+The survey at Glanbane hillfort in Co.
+
+Kerry, Ireland, demonstrated the ability of drone and photogrammetry technology to accurately detect and map the extent of low-relief topographical features that are almost imperceptible at ground level.
+
+This allowed us to confirm the presence of an entrance at the north-east of the hillfort, with evidence of some form of elaboration not usually found at contemporary sites in Ireland.
+
+Other minute surface variations within the interior revealed that the large structures near the centre of the fort were built at the highest point on a slight rise, further emphasising the importance of these features.
+
+PARAGRAPH
+
+The LiDAR available at Turin Hill in Angus, Scotland provided an excellent comparison for newly collected photogrammetry data.
+
+In many cases, the LiDAR survey identified similar low-relief features, though the photogrammetry results were at a much higher resolution, allowing for more accurate recording and measurements to be extracted.
+
+In some instances, the photogrammetry survey identified features not visible in the LiDAR data, including a number of probable circular hut structures and minute variations in the form of the defences of the large bi-vallate hillfort.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+There are obvious disadvantages to photogrammetry, the most notable being its inability to penetrate vegetation and tree canopy.
+
+However, without the proper conditions and sensors, LiDAR can also struggle in these environments.
+
+There are also the stated issues with regard to the absolute accuracy of photogrammetry data, thought there are ways to alleviate these issues (see above).
+
+PARAGRAPH
+
+Despite these problems, there are clear advantages to this type of methodology, specifically those relating to cost and time, as well as ease of use, portability and the ability to do on-the-fly surveys.
+
+The integration of drones has allowed for exponentially larger areas to be survey much quicker than ground based methods of data capture, with far greater accuracy and resolution.
+
+We now have the ability to examine large-scale monuments and landscapes using these techniques and as such, this technology should be seen as a serious alternative to other more conventional forms of topographical data collection.
+
+PARAGRAPH
+
+As well as doing surveys of monuments and environments as those identified above, there are numerous archaeological applications to this type of survey, such as management and mapping of coastal archaeology at risk of erosion or built heritage, for example.
+
+Furthermore, the collected data can be made available to the public through various web-hosts such as Sketchfab, facilitating more accessibility and increasing engagement.
+
+PARAGRAPH
+
+The rapid development of drones and affiliated hardware is already positively impacting archaeology in more conventional ways, with as drone aerial photography being used for site detection, survey and excavation, and is now positioned to make high resolution topographical data a viable option for many more archaeologists.
+
+Compact LiDAR systems have recently been developed for drones, and though it is currently prohibitively expensive, we will quickly see this technology becoming more cost effective and widespread.
+
+There are also more novel methods of site detection, such as hyper-spectral, multi-spectral or thermal imaging, that can now become more regularly implemented in the field via drones, allowing for more rapid means of sub-surface remote sensing.
+
+SECTION
+
+Conflict of interest statement
+
+SECTION
+
+Compliance with ethical standards
+
+PARAGRAPH
+
+This research complies with all ethical standards.
+
+SECTION
+
+Funding
+
+PARAGRAPH
+
+Royal Irish Academy Directed Research on UNESCO World Heritage Sites; Leverhulme Trust.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare that they have no conflict of interest.

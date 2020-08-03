@@ -1,0 +1,329 @@
+10.1016/j.engappai.2019.03.018
+
+FULLTEXT
+
+TITLE
+
+Feedback controller design over the internet of things
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The “internet of things” (IoT) is the interaction between devices to sense the environment, interpret the information, and react to real-world events autonomously with or without human intervention over a network (Vermesan and Friess, 2011).
+
+It promotes the idea that an increasing number of devices are being connected to the internet which allows more efficient monitoring and control of these devices (Anzelmo et al., 2011).
+
+Furthermore, smart systems, like the smart lights studied here, are some of the building blocks for the IoT (Kortuem and Kawsar, 2010).
+
+With mobile TCP/IP communication in hand, mobile devices such as those in control systems of automobiles, aircraft, and trains can be connected to the IoT to improve various aspects of travel (Ernst and Uehara, 2002).
+
+Automobiles can be connected over the IoT to receive updates to controllers such as ones for climate control or cruise control for optimal performance over all connected vehicles.
+
+Also, home appliances, such as refrigerators, ovens, and washing machines, will be able to communicate with each other to reach optimum performance in each home connected to the IoT.
+
+PARAGRAPH
+
+There is a vast list of possible applications which will benefit from the IoT, and, with the growing number of devices connected, a more robust controller of these devices can be designed through a distributed non-gradient optimization method.
+
+The growing number of devices connected to the IoT translates to a growing number of controllers connected to the IoT.
+
+It is expected that the non-gradient algorithms provide near optimal design for large sets of controllers, such as those prevalent in the IoT.
+
+If this expectation is confirmed, it is hoped that the non-gradient algorithms tested here can be adapted to design many feedback control systems in the IoT more complex than the control system tested in this article.
+
+PARAGRAPH
+
+Distributing control systems over a network allows for them to be monitored, accessed, and changed in real-time.
+
+In this article, a distributed non-gradient optimization algorithm is operated over a network to tune a large set of feedback controllers in a relatively large scale laboratory experiment of 40 lighting control systems through a centralized algorithm.
+
+A centralized algorithm is required to share and compare information from all controllers to determine the optimal design of the entire set of controllers and communicate the design to the other controllers for verification and improvements.
+
+A localized alternative would cause gaps in communicating optimal designs to other controllers.
+
+In the centralized algorithm tested in this article, it is shown that a “robust controller” emerges, one that performs well in all of the feedback control systems.
+
+By utilizing non-gradient optimization methods, this experimental approach to designing a controller removes the difficulties in modeling of complicated non-linear systems, and, thus, permits minimal system understanding to obtain a good solution with no need to consider manufacturing variances in system devices.
+
+Essentially, the information that is exploited in design is from a large set of operating control systems.
+
+PARAGRAPH
+
+Due to the lighting control systems being non-linear and stochastic and including significant delay, an analytical gradient cannot be determined.
+
+Therefore, two standard non-gradient optimization methods, the genetic algorithm (GA) and the set-based stochastic (SBS) optimization method, are tested in this experiment.
+
+Based on Darwin’s natural selection theory, the GA is a non-gradient stochastic search method which allows multiple simultaneous search points to reach near a global optimum point.
+
+The SBS optimization method creates a set of search points centered about the best point of the previous generation to find a solution near the global optimum point (Passino, 2004).
+
+Although doubts about performance assurance surfaced in the past, these algorithms have now reached a stage of maturity to solve complex and conflicting problems which used to be considered “deadlocked” (Man et al., 1996).
+
+The GA is now being successfully implemented in a variety of engineering applications from the classic inverted pendulum problem to complicated VLSI circuit design problems (Lee and Takagi, 1993; Dasgupta, 1997).
+
+Both of these algorithms have been shown to be appropriate methods for feedback control system design, resulting in stable optimal designs (Fleming and Purshouse, 2002).
+
+PARAGRAPH
+
+Smart lighting solutions have been an important topic in energy conservation with the potential of reducing energy costs by 50% in existing buildings (Rubinstein et al., 1993).
+
+Smart lighting has been successfully tested to reach desired light values through an illumination balancing algorithm (IBA) while being influenced by cross-illumination effects and ambient light sources (Koroglu and Passino, 2014).
+
+Furthermore, sensory nodes communicate illumination levels to the controller through a network to provide real-time changes over a large set of lighting systems.
+
+Due to the importance, experimental simplicity, and fast response times, smart light experiments provide an ideal system to test the use of distributed optimization algorithms for controller design over a network.
+
+SECTION
+
+Experiment: Distributed networked light control systems
+
+PARAGRAPH
+
+A proportional–integral (PI) controller sets the LED voltage, Vin=u(t), in order to achieve the desired sensor voltage, Vout=y(t), in Fig. 1.
+
+Unlike the IBA experiments (Koroglu and Passino, 2014), cross-illumination effects and ambient light sources are minimized by barriers between each light source.
+
+Each light controller, j=1,2,…,S, has two gains, KPj and KIj, which are used to pick uj(t) via uj(t)=KPjej(t)+KIj∫0tej(τ)dτwhere ej(t)=r−yj(t),where ej is the error input to the controller, r is the reference input, and yj is the output of the plant.
+
+It is practical to choose a constant illumination reference for all controllers as was done in the IBA experiments (Koroglu and Passino, 2014).
+
+Also, via extensive experimentation, including system identification, we determined that the system is basically “type 0” so that adding an integrator and gain via PI control would result in zero steady state tracking error, and a fast response after tuning the proportional gain.
+
+In our adjustment algorithms below, we keep the PI gains positive so this is the case.
+
+PARAGRAPH
+
+In order to effectively use the distributed optimization algorithm to improve (tune/design) the feedback gains, a large population of control systems are necessary for the best results as this will provide for the evaluation of many alternative designs.
+
+Therefore, a control network was created with eight light control systems on each of five computers to achieve S=40 controllers reporting their performance calculations to the central computer as shown in Fig. 2 (it is generally difficult, in a university setting, to get many more control systems implemented simultaneously).
+
+Hence, it is the responsibility of each of the 5 computers to implement 5 feedback control systems, one for each light/sensor pair, and also perform control system performance evaluation as the feedback control system operates.
+
+Via TCP/IP another computer: (i) gathers performance information for the 5 computers, and (ii) computes the next design iteration.
+
+Then, it passes, via TCP/IP the new controller designs to the 5 computers.
+
+That is, using Matlab, the central computer runs the optimization algorithm based on the performance of each controller and returns a new set of gains to the population of feedback controllers through real-time Simulink models using transmission control protocol/internet protocol (TCP/IP) communication methods.
+
+Other IoT implementation are possible using this overall design approach; the focus here is not on the particular implementation details (as these will change with the introduction of new technologies), but on the experimental approach to control design over a network, something that is novel as a control system design methodology.
+
+SECTION
+
+PARAGRAPH
+
+Closed-loop control system performance evaluation
+
+PARAGRAPH
+
+A population of controllers P(k)={θj(k):j=1,2,…,S}where S is the number of controllers in the population and θj(k)=KPj,KIj.
+
+PARAGRAPH
+
+At t=0, each “step” (run of the control system) initializes the LED voltage at 0 V and sets the feedback control gains per Eq. (4).
+
+Each feedback control loop generates a response with a 1 ms sampling time.
+
+This sampling time is sufficient for the illumination experiment while allowing the computer to process the values in real-time.
+
+The control system runs for only 1 s because any light controller that reaches the desired light level after 1 s is not a practical illumination source.
+
+Once step k has completed, each local computer calculates the performance of its closed-loop system.
+
+The performance evaluation for each control system is Jj(k)=wsJsj(k)+wosJosj(k)+wstJstj(k)+wrtJrtj(k)which is a combination of steady state Eq. (6), overshoot Eq. (7), rise time Eq. (8), and settling time Eq. (9) values according to Jsj(k)=|sj−rr|,sj=1L∑t=0.8tftfyj(t) Josj(k)=maxt{yj(t)}−sjsj Jrtj(k)=trjtf Jstj(k)=tsjtf
+
+PARAGRAPH
+
+Here, L is the number of steps in the last 20% of the signal yj(t), trj is the 10%–90% rise time, tsj is the 2% settling time, and tf is the total test time of 1 s.
+
+The performance evaluation parameters were designed to be a percentage of a total.
+
+Therefore, the weights of this function (ws,wos,wst,wrt) were each set to 100 to describe the percentage as can be seen later in the results.
+
+These weights may be adapted to place more emphasis on specific performance attributes, but this functionality in the performance calculation is not tested here.
+
+SECTION
+
+Non-gradient optimization methods
+
+SECTION
+
+Genetic algorithm optimization method
+
+PARAGRAPH
+
+Following a standard genetic algorithm (GA) optimization approach, the performance value for each controller is gathered and used to form a new generation of controllers.
+
+Each controller has an opportunity to exchange its PI gain values to the next generation of controllers through a process in which controllers are paired based on pj(k)=1−Jj(k)∑i=1SJi(k).
+
+PARAGRAPH
+
+Once two controllers have been paired, an exchange of gains may only occur at a crossover probability, pc.
+
+Once a pair of controllers is selected and pc allows for crossover to occur, the algorithm selects a single gain to be exchanged.
+
+Once a gain is selected, a specific digit of a gain is selected to be transferred from one controller to the other.
+
+All of the subsequent digits in that gain also transfer to the other controller to complete the process.
+
+PARAGRAPH
+
+The example in Fig. 3 shows the transfer of digits of a gain between two controllers, θ5(k)=001.045,010.012 and θ9(k)=005.984,026.973.
+
+Notice that each gain always includes six digits with the decimal place between the third and fourth digit.
+
+The decimal location cannot be moved, and is therefore not considered in the exchange process.
+
+In this example, the crossover occurs at the fourth digit in the first gain to form the first controller of the next generation, θ1(k+1).
+
+Random pairs of controllers exchange gains S times based on their pj(k) probabilities to form a new generation of S controllers.
+
+PARAGRAPH
+
+Once the crossover stage is complete, a new generation of controllers, P(k+1), is ready to be tested on the physical plants.
+
+However, in order to allow for a more complete search for an optimal solution, a stochastic selection stage is included in the GA optimization method.
+
+For some low probability, pm, a controller’s gains are randomly reselected to be tested in the next generation of controllers.
+
+This probability remains constant for all generations.
+
+SECTION
+
+Set-based stochastic optimization method
+
+PARAGRAPH
+
+The SBS optimization method also uses a population of controllers as described earlier in Eqs. (3) and (4); gathering the performance values of each controller defined in Eqs. (5)–(9) determines the next generation of controllers.
+
+However, this non-gradient algorithm selects the best designed controller, j∗, from the previous generation, via j∗=argminjJj(k)and creates a “cloud” of new controllers around the best controller by selecting the next generation of controllers via θj(k+1)=θj∗(k)+βrj(k)where rj(k) is a random number from a normal distribution with zero mean and unit variance and β is a scaling factor.
+
+PARAGRAPH
+
+In this way, a cloud of controllers centered about the best controller is created as the next generation.
+
+However, since the best controller of the previous generation may not be the best solution for all controllers, a stochastic selection probability is again added to allow the algorithm to search randomly.
+
+Given the stochastic selection probability, pm, a random controller from the previous generation is selected for the next generation by θj(k+1)=θj(k),j≠j∗
+
+PARAGRAPH
+
+However, instead of using a constant stochastic selection probability as done in the GA optimization method, this method adapts pm as the performance changes according to pm(k)=110∑j=1SJj(k)
+
+PARAGRAPH
+
+Here, pm is defined as 10% of the total performance of the previous generation.
+
+Due to the narrow search space of the SBS optimization method governed by β, a varying stochastic selection probability is necessary to move the search away from local minima in early generations but decrease the probability in later generations when the cost is converging on an optimal point for all control systems.
+
+SECTION
+
+Time complexity
+
+PARAGRAPH
+
+The time complexity of the approaches are low enough to: (i) be implemented on current technology, and (ii) will scale well for other problems.
+
+Note that to compute the controls, first we need to compute the individual PI controller outputs for each of the low-level control systems.
+
+To do this, we need to implement the integrator, which in the computer is simply a summing operation.
+
+Next, we have to multiply the PI gains by that sum, and the error.
+
+These operations, however, are not done for all the feedback loops on one computer, they are done on the individual computers that implement the controllers for each case in a standard distributed computing fashion.
+
+Next, the control system performance evaluation must be done to compute Jj(k) for each k≥0.
+
+But, these calculations are simple as they involve standard low-demand operations (sums/differences, multiplies/divides, and a maximum), and most importantly these calculations are done for each lower-level control system, so that time-complexity is divided among the low-level control (computer) system implementations.
+
+Finally, we have to combine the results and use them in the genetic algorithm or non-gradient optimization method.
+
+First, note that we use a standard genetic algorithm; however, we do not iterate it between time steps.
+
+We force a time-step to correspond to a genetic algorithm optimization step.
+
+In this way, the time complexity is quite low, requiring standard genetic algorithm operations (survival of the fittest, cross-over, and mutation) only once per time step.
+
+Second, the case for the set-based stochastic optimization method has an even lower time complexity than the genetic algorithm; all that is need is computation of a maximum, and random number generation.
+
+Overall, the time complexity of this approach is low, making it scalable to application to other problems.
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+Since each system has unique circuit devices and construction, variances in individual control gain choices are expected to be found in this real-life system experiment.
+
+Therefore, the distributed optimization algorithms were tested on the light control systems repeatedly to represent a Monte Carlo method and to enable statistical analyses of the results.
+
+PARAGRAPH
+
+Here, one set of generations is considered a test, and a set of tests is one experiment.
+
+A test number is denoted by n, and the total number of tests is N. Each controller initiates the test with a random pair of initial gain values on the set [0, 100].
+
+Once a test completes the fixed amount of generations, the performance and gains are stored for future analyses.
+
+As described in Eq. (10), matrix MJn stores the performance values for each controller in each generation.
+
+When the experiment is complete, each test matrix is averaged via Eq. (11) to acquire statistical data for each generation.
+
+Similarly, the gain matrices are created and averaged to form K̄P and K̄I in Eqs. (12)–(15), MJn=Jj(1),Jj(2),…,Jj(k)j=1,2,…,S J̄=1N∑n=1NMJn MPn=KPj(1),KPj(2),…,KPj(k)j=1,2,…,S K̄P=1N∑n=1NMPn MIn=KIj(1),KIj(2),…,KIj(k)j=1,2,…,S K̄I=1N∑n=1NMIn
+
+PARAGRAPH
+
+The plots in Fig. 4 show the result of a GA optimization method experiment, which consisted of 25 tests with 30 generations in each test.
+
+Fig. 4 shows the average performance matrix, J̄, as well as the convergence of the gain matrices, K̄P and K̄I.
+
+The algorithm converges to a high KI gain and a low KP gain for each controller.
+
+The performance converges to a low cost of less than 10% combined error, which mostly consists of a 18 ms rise time and a 71 ms settling time.
+
+Given that the photocell device specifications state a typical total rise time of 55 ms, the final performance of the population is near optimum based on the response of the system of a sample case shown in Fig. 5.
+
+Furthermore, the convergence to a thin interquartile range in Fig. 4 shows that the experiment was repeatable over the 25 tests.
+
+PARAGRAPH
+
+Using the same physical plant in Eqs. (1) and (2), population in Eqs. (3) and (4), performance function in Eqs. (5)–(9), and initial conditions as the GA optimization method experiment, a comparison can be made with the SBS optimization method.
+
+The plots in Fig. 6 represent the statistics of an experiment with 25 tests and 30 generations.
+
+Again, the experiment shows convergence to a low average J̄ as well as convergence to a desired set of gains.
+
+Also, the thin interquartile range for the performance and gains displays repeatability in all 25 tests.
+
+In comparison to Figs. 4 and 6, similar but not identical results are obtained.
+
+SECTION
+
+PARAGRAPH
+
+Conclusion
+
+PARAGRAPH
+
+Utilizing non-gradient optimization methods on light control systems over a distributed network, experiments were implemented on many feedback control systems and have shown convergence and robustness.
+
+It is important to understand that this distributed method using non-gradient algorithms does not guarantee robustness or optimal performance for more complex systems.
+
+This is a first step in distributed non-gradient control over the IoT.
+
+However, in this test of the non-gradient algorithm, both non-gradient optimization methods selected desirable gains for the light control system even while inherent with noise, delays, and manufacturing differences.
+
+Moreover, all feedback control systems in the network had desirable responses, which shows a type of robustness.
+
+Finally, these non-gradient optimization methods allow control engineers to retrieve robust control designs without the need to model the system.
+
+PARAGRAPH
+
+The overall practical significance of this design method is that it sets a robust initial system while also being capable of maintaining robustness as the devices are sent out to the real world through continuous monitoring and adaption over the IoT.
+
+The ability to access, monitor, and change dispersed device controller designs in real time separates this design method from other conventional methods which design controllers then disperse the controllers without further design communication.
+
+It is hopeful that the distributed non-gradient optimization methods discussed in this paper will be tested further and eventually used to improve the robustness of IoT applications through this centralized non-gradient design method.

@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.103447
+
+ABSTRACT
+
+TITLE
+
+Emotional neural networks with universal approximation property for stable direct adaptive nonlinear control systems
+
+PARAGRAPH
+
+Universal approximation, continuity, and differentiability are desirable properties of any computational framework, including those that rise from human cognition and/or are inspired by nature.
+
+Emotional machines constitute one such framework, but few studies have addressed their mathematical properties.
+
+Here, we propose a Continuous Radial Basis Emotional Neural Network (CRBENN) that benefits from the universal approximation property, continuous output, and simple structure of RBF; while keeping the fast response properties of emotion-based approaches.
+
+As such, CRBENN is amenable to a wide array of challenging problems in systems engineering and artificial intelligence.
+
+Here, we propose a CRBENN-based direct adaptive robust emotional neuro-control approach (DARENC) for a class of uncertain nonlinear systems.
+
+Stability is theoretically established using Lyapunov analysis of the closed-loop system.
+
+DARENC is then applied to control two nonlinear systems, and the performance of the controller is numerically compared with several competing fuzzy, neural, and emotional controllers.
+
+The simulation results indicate improved tracking performance, better disturbance rejection, and less control effort.
+
+Finally, DARENC is implemented on a real-world 3-PSP (spherical–prismatic–spherical) parallel robot in our laboratory.
+
+The experimental results show the satisfactory performance of the robot in tracking the desired trajectory with low control effort.

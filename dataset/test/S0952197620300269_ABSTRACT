@@ -1,0 +1,33 @@
+10.1016/j.engappai.2020.103515
+
+ABSTRACT
+
+TITLE
+
+Advising reinforcement learning toward scaling agents in continuous control environments with sparse rewards
+
+PARAGRAPH
+
+This paper adapts the success of the teacher–student framework for reinforcement learning to a continuous control environment with sparse rewards.
+
+Furthermore, the proposed advising framework is designed for the scaling agents problem, wherein the student policy is trained to control multiple agents while the teacher policy is well trained for a single agent.
+
+Existing research on teacher–student frameworks have been focused on discrete control domain.
+
+Moreover, they rely on similar target and source environments and as such they do not allow for scaling the agents.
+
+On the other hand, in this work the agents face a scaling agents problem where the value functions of the source and target task converge at different rates.
+
+Existing concepts from the teacher–student framework are adapted to meet new challenges including early advising, importance of advising, and mistake correction, but a modified heuristic was used to decide on when to teach.
+
+The performance of the proposed algorithm was evaluated using the case study of pushing, and picking and placing objects with a dual arm manipulation system.
+
+The teacher policy was trained using a simulated scenario consisting of a single arm.
+
+The student policy was trained to handle the dual arm manipulation system in simulation under the advice of the teacher agent.
+
+The trained student policy was then validated using two Quanser Mico arms for experimental demonstration.
+
+The effects of varying parameters on the student performance in the advising framework was also analyzed and discussed.
+
+The results showed that the proposed advising framework expedited the training process and achieved the desired scaling within a limited advising budget.

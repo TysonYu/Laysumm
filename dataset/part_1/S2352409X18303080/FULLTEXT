@@ -1,0 +1,455 @@
+10.1016/j.jasrep.2018.08.016
+
+FULLTEXT
+
+TITLE
+
+Detecting prehistoric landscape features using thermal, multispectral, and historical imagery analysis at Midewin National Tallgrass Prairie, Illinois
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Archaeologists agree that narrowly defined sites, areas with high concentrations of artifacts, are small components of the complex and textured ways in which people make use of and interact with broader landscapes (e.g. Basso, 1996; Erickson, 2008; Gordillo, 2014; Ingold, 1993; Lelièvre, 2017; Yaeger and Canuto, 2000).
+
+However, documenting the varied traces of past human activities, which are often spread over large areas and produce little readily identifiable surface signatures, remains a perennial challenge.
+
+These challenges are heightened in locations where materials used for prehistoric construction (e.g. wood) easily degrade and where industry, housing, and agriculture have heavy impacts.
+
+Locating the often fragmented archaeological record in these contexts has previously required time intensive and expensive survey techniques, like pedestrian survey and shovel testing, that are poorly suited to documenting broadly dispersed archaeological landscape features.
+
+PARAGRAPH
+
+This paper presents advances in the use of high-resolution, drone-acquired thermal and multispectral imagery in concert with historical aerial photographs to detect previously unrecognized components of the archaeological landscape at a late prehistoric (c. 1600 CE) village in northern Illinois, Middle Grant Creek (11WI2739) (Fig. 1).
+
+Our approach uses historical aerial photography; thermal, multispectral, and visible light drone-acquired imagery; as well as experimental image processing techniques to offer a powerful, non-invasive, low-cost method to document different archaeological features across large areas.
+
+Employing these methods at Middle Grant Creek, we located a probable habitation area primarily in the historical imagery as well as a ritual earthwork or enclosure through drone-acquired imagery.
+
+Our results suggest that the prehistoric occupation spread over at least 20 ha and contextualize the findings of previous survey and excavation of the activity and storage area.
+
+These findings also lay the foundation for ongoing research at Middle Grant Creek, suggest that similarly unrecognized features may be preserved at other late prehistoric sites in the region, and demonstrate the power of drone-acquired aerial imagery to locate archaeological sites and features across large areas.
+
+SECTION
+
+Study area
+
+PARAGRAPH
+
+Middle Grant Creek (11WI2739) is a late prehistoric, Native American village located in Midewin National Tallgrass Prairie, Illinois, an 8000 ha protected tallgrass prairie managed by the Forest Service, USDA.
+
+The site is located within a flat prairie and wetland ecosystem along the intermittent Middle Grant Creek, approximately 5 km from the Kankakee River.
+
+Beginning in 1839, Euro-Americans began farming the area after a series of treaty negotiations with the Potawatomi.
+
+Farms continued to expand into the 19th century and by 1893, the Alexander farmstead (11WiI738), located within our study area, was founded.
+
+In 1940 at the start of WWII, the US Army constructed the 16,000 ha Joliet Arsenal, which manufactured trinitrotoluene (TNT) and packaged it into explosives.
+
+The Arsenal was operational until the 1980s and maintained hundreds of buildings, over 166 miles of paved roads, and 110 miles of railways (Walsh and Wingo, 1995) (Fig. 2).
+
+PARAGRAPH
+
+Situated within the now decommissioned TNT storage bunker field (Fig. 3), Middle Grant Creek dates to 16th–17th centuries, the regional archaeological period known as the Huber Phase (Brown and O'Brien, 1990).
+
+Huber sites are found throughout northern Illinois and Indiana as well as southern Wisconsin and Michigan, and are noted by their distinctive pottery, a local variant of the Midwestern Oneota tradition.
+
+Huber communities were semi-sedentary and moved among specialized camps and agricultural villages.
+
+Huber sites contain a mix of locally produced goods and trade items indicative of far-flung trade relationships spanning Canada to Florida (McLeester and Schurr, 2017).
+
+The Middle Grant Creek site was first located in 2002 during an archaeological survey of the former arsenal grounds.
+
+In 2006, a Phase II shovel testing survey of the site was conducted by the Great Lakes Archaeological Research Center (GLARC), the results of which estimated the extent of the site to be a minimum of 3.4 ha.
+
+The survey located Huber Trailed pottery, Upper Mississippian lithics, rolled metal tubes, faunal, and carbonized plant remains within feature contexts (Haas et al., 2012).
+
+A new, multi-year archaeological investigation at Middle Grant Creek began in Spring 2016 as part of Kankakee Protohistory Project, an initiative co-directed by McLeester and Schurr that is dedicated to exploring late prehistoric communities and lifeways along the Kankakee River in Illinois and Indiana.
+
+Excavations to date have focused on a cluster of subterranean storage pits refilled with refuse that are typical of prehistoric sites in the American Midwest (McLeester, 2018).
+
+PARAGRAPH
+
+While the arsenal construction damaged some archaeological features, Middle Grant Creek has remarkably good preservation for the region, a consequence of deep storage pits, clay rich soils, and the fact that the TNT storage bunkers prevented other forms of development since 1940 (Fig. 3).
+
+Based on excavation data, the site appears to have a single prehistoric component and was occupied for about one decade during the warm weather months.
+
+Excavations have also identified the only known evidence of marine shell working outside of the Mississippian period in the Midwest and uncovered painted pottery, which is regionally very rare for this time period (McLeester and Schurr, 2017).
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+In order to explore the archaeological landscape at Middle Grant Creek, we undertook drone-based aerial surveys using visible light, near infrared multispectral, and thermal infrared sensors.
+
+Our survey sought to implement advances to these relatively new methods together with an analysis of historical aerial photography in order to map the organization of the prehistoric settlement and to prospect for cultural features over a large area surrounding the known site location.
+
+SECTION
+
+Historical aerial imagery
+
+PARAGRAPH
+
+While aerial and satellite imagery are widely understood as powerful means to recognize archaeological landscape features, they also constitute a critical resource for interpreting higher-resolution drone-acquired imagery.
+
+In this study we began by acquiring a time series of historical aerial imagery with coverage dating back to 1939.
+
+These include USGS-served, high-resolution (0.15–0.5 m), plane-acquired, visible light orthoimagery from April 2002, May 2008, April 2010, March 2012 and July 2017, all georeferenced to a NAD 83 UTM projection for use as a basemap.
+
+We then acquired historical single frame aerial photographs from the USDA and other US government agencies, with series dating to March 1973 (1:30,000) and April 1952 (1:23,600) that are made available by the USGS, as well as one series from August–September 1939 (1:20,000) that had been scanned commercially from USDA negatives.
+
+Six overlapping photographs from each of these earlier aerial surveys were processed using Agisoft Photoscan Pro to create orthoimage mosaics and were georeferenced against modern aerial orthoimagery using ground control points visible on both sets of images.
+
+Elevation data for ground control points and analysis of the terrain was derived from a publicly available LiDAR dataset from April 2014, with a 0.44 m ground resolution.
+
+As is often the case with historical imagery, the earliest images available, from 1939, proved to be the most useful for recognition of potentially significant archaeological remains (see below).
+
+SECTION
+
+Thermal imaging
+
+PARAGRAPH
+
+A long history of experimental research shows that aerial thermography can potentially reveal archaeological features (e.g., Kvamme, 2006, 2008; Perisset and Tabbagh, 1981; Scollar et al., 1990:593–611; Sever and Wagner, 1991; Tabbagh, 1977; Tabbagh, 1979), but technological hurdles largely prevented its widespread use.
+
+The development of increasingly sophisticated drones, small, lightweight uncooled thermal cameras, and photogrammetric image processing software now enable archaeologists to collect very high resolution thermal images at any time of day or night.
+
+Recent studies show the power of drone-acquired aerial thermography, collected at optimal times in the diurnal cycle and under favorable ground conditions, to reveal a wide range of archaeological features including subsurface architecture, artifact concentrations, pits, ditches, and earthworks (Casana et al., 2014, 2017; Poirier et al., 2013; Thomas, 2018).
+
+The commercial availability of a new generation of thermal camera systems that collect radiometric thermal images now advance the discrimination of subtle differences in thermal properties of the ground and enable quantitative, raster-based processing of drone-acquired thermal images.
+
+PARAGRAPH
+
+In this project, thermal infrared imagery was collected using a FLIR Vue Pro-R, a drone-optimized, uncooled radiometric thermal camera.
+
+Unlike the camera systems used in earlier research that output a processed, 8-bit video feed that reduced spectral resolution of images to 256 values (e.g., Casana et al., 2014), radiometric thermal cameras output a 14-bit still image with 16,384 thermal values, offering the ability to discern subtle differences in thermal radiation.
+
+In addition, non-radiometric cameras use a proprietary “automatic gain control” function to continuously adjust the values in a given scene, meaning that the same feature will appear as a different value depending on the total range of other values in the scene.
+
+In contrast, the raw values recorded by a radiometric camera should remain the same from image to image, facilitating quantitative raster processing.
+
+In practice, the FLIR Vue Pro-R is susceptible to frequent changes in absolute values as the camera recalibrates itself during flights and also suffers from a drift in thermal values as the core temperature of the camera changes during flight, but it nonetheless offers a more powerful imaging tool than has previously been available.
+
+SECTION
+
+Multispectral imaging
+
+PARAGRAPH
+
+Like aerial thermography, near infrared (NIR) imagery also has a long history in archaeological prospection (e.g., Challis et al., 2009; Gumerman and Neely, 1972; Lasaponara and Masini, 2007), but has been used relatively infrequently due to the cost and difficulty of acquiring imagery of sufficiently high spatial resolution from an aircraft.
+
+Studies using standard digital cameras modified to enable collection of some NIR light show that high-resolution NIR imagery can be particularly valuable where subsurface archaeological remains impact the growth of vegetation (e.g., Verhoeven, 2008).
+
+While crop marks caused by subsurface archaeological features can sometimes be recognized in visible light aerial photography (Wilson, 2000), a normalized differential vegetation index (NDVI) produced from red and NIR imagery can potentially reveal otherwise invisible cultural features (Bennet et al., 2012).
+
+A new generation of sophisticated drone-based multispectral sensors that capture multi-band color and NIR images offer a promising but largely untested archaeological prospection tool, as they enable the acquisition of multispectral NIR imagery at low cost and at much higher spatial resolution than conventional satellite or plane-acquired imagery.
+
+High-resolution multispectral or NDVI data can also be used in concert with a time series of thermal images to filter out vegetation that may obscure archaeological features, or to perform more advanced quantitative raster processing using any number of techniques designed for multi-band, multi-spectral data (Casana et al., 2017).
+
+PARAGRAPH
+
+Multispectral imagery (visible light and NIR) was collected using a Parrot Sequoia camera system, a small, lightweight sensor designed for deployment on drones that record separate images for Green (530–570 nm), Red (640–680 nm), Red Edge (730–740 nm), and Near Infrared (770—810 nm) spectral bands alongside a simple RGB image.
+
+Light intensity information, used to produce radiometrically accurate reflectance data was recorded via a daylight sensor that is mounted on top of the drone.
+
+The four spectral bands can be combined to create false color NIR, NDVI, or other image products.
+
+SECTION
+
+Drones and survey methods
+
+PARAGRAPH
+
+Thermal and multispectral drone surveys were undertaken using a 3DR Solo quadcopter, while visible light imagery was collected using a DJI Phantom 3 Pro.
+
+Popular DJI drones have the longest flight times and most seamless integration with both DJI and third-party mission planning apps, but the 3DR Solo offers much greater flexibility in the integration of non-standard cameras and sensors.
+
+The FLIR Vue Pro-R was mounted on the drone using a specialized gimbal produced by OEM Cameras, while the Parrot Sequoia was attached using a fixed-mount system produced by Micasense.
+
+Drone and camera technologies are currently advancing at such a rapid rate that the systems we use in the study will likely be out-of-date quite soon.
+
+They nonetheless offer important advantages over systems in use a few years ago (e.g., Casana et al., 2014), notably in allowing for a relatively easy swap among different cameras, as well as enabling integration of the cameras into the drone hardware such that images are geotagged using onboard GPS data and can be viewed in real-time on a ground station.
+
+PARAGRAPH
+
+Prior to aerial surveys, six ground control points made of six-inch aluminum roof flashing were placed across the site, and the XYZ coordinates of each one were recorded using a total station set up on the local site grid.
+
+Unanodized and unpainted metals have very low thermal emissivity, causing them to appear nearly black in thermal imagery regardless of their temperature, and thus can generally be recognized fairly easily (Casana et al., 2017).
+
+PARAGRAPH
+
+All drone flights were executed using Pix4D Capture, a mission planner app that enables integration with numerous commercial drones and facilitates precise, autonomous surveys, which are necessary to maximize coverage area while also ensuring sufficient image overlap to enable automatic alignment in photogrammetry software (see below).
+
+Balancing the area we planned to cover with the desired image resolution, we elected to fly at 50 m elevation at 5 m/s enabling us to survey >25 ha using two flights per survey over a one-day period on September 27 and 28, 2018 (Table 1).
+
+SECTION
+
+Data processing
+
+PARAGRAPH
+
+Images from each of the five drone surveys, each comprised of two flights and >1500 images, were similarly processed in Photoscan Pro using GCP data collected with a total station, and georeferenced to historical imagery.
+
+For thermal images, Photoscan Pro 1.4 and later offer options for importing radiometric 14-bit images like those recorded by the FLIR Vue Pro-R, but if imagery is processed in its raw form, it will often result in pronounced banding across flight transects (Fig. 4a).
+
+The banding is caused by the camera's automatic “Flat-Field Correction (FFC)” function in which a uniform temperature shutter is periodically placed in front of the sensor, based on which new corrections are applied to the images.
+
+This banding can be removed in Photoscan Pro using the “color balance” function (Fig. 4b), but we frequently found that the images still suffered from a drift in thermal values from the beginning to the end of a given survey.
+
+Note in Fig. 4b that values are darker at the north end and higher at the south end, despite the two flights having been completed in <30 min.
+
+This thermal drift is caused by the gradual cooling of the camera's bolometer core.
+
+During data collection the issue could be mitigated by allowing the camera to adjust to the ambient air temperature for at least an hour prior to flight (Berni et al., 2009), assuming constant air temperature through the flight.
+
+PARAGRAPH
+
+However, because the camera will likely encounter cooler temperatures during flight and thus will probably still experience drift, it is also possible to remove the effect of thermal drift in post processing.
+
+After exporting the thermal orthoimage from Photoscan Pro into ArcGIS, we detrended the data using a low-pass filter.
+
+Using the Focal Statistics tool, we first calculated the mean thermal values within a window surrounding each pixel in the image, producing a raster dataset that shows the overall thermal drift across the survey.
+
+We then simply subtracted this trend raster from the original raster, producing an image in which thermal drift is no longer evident (Fig. 4c).
+
+While thermal drift can create difficulties for raster math, it is more of an aesthetic issue for archaeological studies most interested in localized differences between a cultural feature and its background as such local differences remain evident in imagery that has not been processed to remove thermal drift.
+
+PARAGRAPH
+
+For multispectral imagery from the Parrott Sequoia sensor, Photoscan Pro version 1.4 and later now enables users to load all four spectral band images (Green, Red, Red-Edge and NIR) as a single multi-band file, simultaneously process all of the bands to produce an orthoimage, and then utilize data from the camera's sunlight sensor to correct for the amount of light during the survey.
+
+It is then possible to utilize Photoscan Pro's internal raster calculator to generate and export NDVI imagery.
+
+Once generated, NDVI and other imagery products were exported to ArcGIS for integration with other datasets.
+
+PARAGRAPH
+
+Finally, the availability of numerous thermal and multispectral image datasets offers the possibility for more advanced raster-based analysis.
+
+In principle, any number of these drone acquired images can be analyzed collectively as a multi-band image, using any of the many approaches developed for analysis of satellite multispectral data, with the potential to reveal otherwise invisible features or to better highlight features partially visible in one or more datasets.
+
+As an illustration of this approach, we first created a single, five-band image composed of the green, red, red-edge, NIR, and 12:30 am thermal images.
+
+We then applied principal component analysis (PCA), a standard approach in multispectral image analysis, to the multiband dataset, producing an output image that helps highlight some key features.
+
+SECTION
+
+Results
+
+SECTION
+
+The prehistoric settlement
+
+PARAGRAPH
+
+Prior to undertaking our drone surveys at Middle Grant Creek, our analysis of the 1939 aerial imagery revealed at least fourteen dark, sub-rounded features approximately 10 m in diameter spread over an area of 20 ha in the fields to the southeast of the known archaeological site.
+
+No similar features are evident elsewhere in the vicinity, suggesting the dark spots may be cultural in origin.
+
+Because they are darker than the surrounding soil, they are interpreted as likely infilled depressions, features which characteristically retain water.
+
+The presence of the dark sub-rounded features in the 1939 imagery led us to target this area for our drone survey.
+
+At the time of our survey, relatively dense vegetation, mainly prairie grasses and invasive shrubs, obscured much of the ground surface making it difficult to recognize whether these features are extant today (Fig. 2c), but in at least two cases the dark spots can be resolved in the thermal data.
+
+For example, Fig. 5 illustrates one feature that appears both in the 1939 imagery and in thermal imagery from 12:30 am, where it is visible as a low-value or cool spot, consistent with our interpretation as an infilled, water retaining depression.
+
+Moreover, the feature is not resolvable in visible light or NDVI imagery (Fig. 5c), suggesting that the thermal anomaly is a soil feature and not related to surface vegetation.
+
+The fact that some of these dark spots are more evident than others in the 1939 imagery and most do not appear with clarity in drone-acquired imagery leaves considerable ambiguity as to their interpretation, but it is possible that they represent the remains of houses or other cultural features associated with a habitation area.
+
+SECTION
+
+The hexagonal enclosure
+
+PARAGRAPH
+
+Perhaps the most surprising discovery of this investigation is a hexagonally-shaped feature on the northeastern edge of our survey (Fig. 6).
+
+The feature measures approximately 28 m in diameter with its perimeter marked by a 1–1.5 m wide ditch, most clearly visible in the 12:30 am thermal imagery where it appears as a low-value or cool anomaly.
+
+On the southeast side of the feature, there is a faint break in the cool feature, suggesting a possible entrance.
+
+As is often the case, the most useful aerial thermal images from Middle Grant Creek are those acquired after the ground has had many hours to cool, but before the ambient temperature reaches the dew point (Casana et al., 2017).
+
+The interior of the hexagon has no evident topographic expression, nor is there evidence of an embankment.
+
+These characteristics suggest that the enclosure is likely an infilled ditch, an interpretation that is strengthened by comparison with the NDVI imagery (Fig. 6e) where the enclosure is marked by enhanced vegetation health, and thus likely represents a subterranean feature that is retaining water or which has higher soil fertility.
+
+Enhanced vegetation growth also makes the enclosure evident in a hillshade topography dataset derived from visible light imagery (Fig. 6b).
+
+An experimental image processing method discussed above combined numerous image datasets into a multiband image and produces a principal component analysis output that similarly reveals the feature with some clarity (Fig. 6f).
+
+PARAGRAPH
+
+Analysis of the location of the hexagonal enclosure in 1939 and 1952 imagery shows no evident 20th century land use that could explain its presence.
+
+It is situated 350 m from the Alexander farmstead to the southeast making it unlikely to be related to it, and there is no evidence of activity there in the 1952 imagery just a few years after the WWII bunkers were in use.
+
+Similarly, careful analysis of numerous aerial and satellite images dated from the 1970s to the present show no suggestion of a structure in the area that could explain the existence of the enclosure.
+
+A ground inspection of the site following discovery of the hexagonal enclosure found no evidence of modern land use features such as fence posts or ditches associated with it, and a test magnetic gradiometry survey found none of the strong magnetic anomalies typically associated with historic features.
+
+Collectively, evidence from drone survey, aerial and satellite image analysis, and ground-based investigations suggests that the hexagonal enclosure is prehistoric in origin and likely associated with the late prehistoric Middle Grant Creek settlement.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Together, our data located probable housing, activity, and ritual areas spread across approximately 20 ha, an area that far exceeds the current site boundaries (3.4 ha) (Fig. 8).
+
+Excavations undertaken to date appear to be within an activity area at the western edge of the site, since no structures and only 3 small (<5 cm dia) post molds have been uncovered.
+
+This diffuse village model conforms to Huber sites, like Oak Forest, where known activity areas are nearly 200 m from the habitation area (McLeester, 2017), and within the Midwest more broadly, where subterranean features can radiate out as far as 1.6 km (Dunham, 2000).
+
+SECTION
+
+Habitation area
+
+PARAGRAPH
+
+The probable habitation area is situated 50–300 m east-southeast of the current excavations and is evidenced by a series of c.14 dark, sub-rounded or oval features, evident in 1939 aerial imagery (Fig. 2a) and to a lesser extent in thermal imagery (Fig. 5).
+
+We interpret these features as likely the remains of semi-subterranean or other house structures, which is supported by the discovery of a hearth in the area during the 2006 Phase II survey (Haas et al., 2012).
+
+While there has not yet been a systematic effort to document if and how prehistoric dwellings appear on historical aerial photography in the eastern tallgrass prairie, in other regions where such studies have been undertaken, like the Smithsonian Institution's surveys of the Middle Missouri River Valley, villages comprised of earth lodges with semi-subterranean floors generally appear as clusters of dark spots of a size and distribution similar to that seen at Middle Grant Creek (Clark and Casana, 2016; Johnson, 2007: 167–202).
+
+PARAGRAPH
+
+In general, the size, character, and distribution of the features at Middle Grant Creek is consistent with prehistoric houses in many parts of eastern North America; however, they are unlike the few known Huber houses, which are typically small, oval wigwams (also referred to as long houses) that measure 7.5 m–14.5 m in diameter (McLeester, 2017).
+
+The only site where multiple Huber houses were located is Oak Forest, where eight structures are fairly densely clustered within an area of approximately 0.7 ha (Bluhm and Fenner, 1961).
+
+The features identified as houses at Middle Grant Creek are of a similar size to those known from other sites in the region, but would be atypical in that they may be semi-subterranean, more circular, and spread in a more diffuse pattern across the landscape.
+
+However, if more diffuse settlement patterns were characteristic of Huber Phase occupations, it would explain why only single Huber houses are typically discovered at other sites.
+
+PARAGRAPH
+
+Variability in the structure and spatial patterning of house structures at different Huber Phase sites should not be surprising, as such variability is common during other time periods in the region.
+
+For example, throughout the mid-13th to 15th centuries in northern Illinois, housing types include multiple kinds of pit houses and possible earth lodges (Jeske, 2000; McLeester, 2017).
+
+At the Fisher and Zimmerman sites, pit houses are square cornered, mostly rectangular structures with walls of 6–9 m and floor depths of 30–45 cm below surface (BS).
+
+While only three houses total were excavated at these sites, the now razed Fisher site, located only 16 km from Middle Grant Creek, had at least 43 pit houses that were diffusely interspersed with burial mounds over 6.5 ha (Langford, 1927; Strezewski, 2006).
+
+Pit houses from both sites provide strong correlates for possible housing structures at Middle Grant Creek, since, though rectangular, they appear as circular depressions on the surface (Brown, 1961; Gillette, 1949; Horner, 1947).
+
+A different form of pit house was located at the fortified village area of Hoxie Farm.
+
+These densely clustered, mainly single family, circular pit houses (n = 84) have diameters ranging from 1.9 to 6.6 m and depths of 20–85 cm BS (Jackson, 2014).
+
+Unlike these pit houses, 27 elliptical structures were recorded in the 1838 GLO plat map of the Washington Irving site.
+
+Excavations of two partial floors determined that they were elliptical earth lodges, measuring approximately 6–10 m in length of unknown depths due to plowing (Jeske, 2000).
+
+Definitive identification of the features we have documented at Middle Grant Creek as prehistoric house structures will require further investigations, but for now this interpretation is supported by all available evidence.
+
+SECTION
+
+Hexagonal enclosure
+
+PARAGRAPH
+
+The hexagonal enclosure documented in thermal imagery is unusual but has several potential archaeological analogues in the region.
+
+It most closely resembles a ditched circular enclosure at Weise Mound (12PR35), near Kouts, IN (Fig. 7b).
+
+The Weise Mound, located near the Kankakee River, is a late Hopewellian mound (c. 400 CE) surrounded by artifact scatters, dating from the Archaic through late prehistoric period (3000 BCE–1670 CE).
+
+First documented in 1931, the circular enclosure at that time was defined as a shallow ditch measuring 22 m in diameter and 0.5 m to 0.9 m wide with an opening to the northeast (McAllister, 1932).
+
+Even prior to 1931, the enclosure had been nearly obliterated by plowing.
+
+A recent visit to the site found the enclosure was no longer visible on the surface, but shovel testing recovered shell tempered sherds, including one Huber Phase sherd (Schurr, 2014).
+
+The Weise circular enclosure is the only known enclosure of this type in northwestern Indiana and has no known use.
+
+PARAGRAPH
+
+It is possible that the hexagonal enclosure at Middle Grant Creek was once an earthwork with an embankment that has been plowed flat, such that only the outline of the ditch remains.
+
+Ditch and embankment earthworks are common at Huber phase and other late prehistoric sites in the western Great Lakes region and are typically associated with ritual rather than defensive functions (Kullen, 1994; Howey and O'Shea, 2006).
+
+There are five known earthworks at Huber villages in Illinois, all recorded by amateur archaeologist Albert Scharf from 1859 to 1926 (Kullen, 1994).
+
+These earthworks have multiple shapes, including circular (New Lenox, Fig. 7d), semicircular (Hoxie Farm, Fig. 7c), square (Knoll Springs), adjacent triangles (Palos), and a possible bison effigy (Comstock Trace, Fig. 7e).
+
+At least two of these earthworks (Comstock Trace and Knoll Springs) are surrounded by a ditch-palisade (Kullen, 1994).
+
+The circular enclosure located near the New Lenox site (Fig. 7d) has a similar opening as the hexagonal structure described here in the south; however, its dimensions are only approximately known.
+
+With the exception of the Comstock Trace (Fig. 7e), all earthworks are associated with large, known Huber villages and have been destroyed by intensive plowing or urban development.
+
+However, our results demonstrate that traces of these features may still be detectable using remote sensing technologies.
+
+PARAGRAPH
+
+In the eastern Midwest, earthworks are commonly found at prehistoric sites from the late Archaic period (3000–700 BCE) through European contact and vary tremendously in shape, from effigies (Mallam, 1976) to geometric shapes (Kullen, 1994) to platform mounds associated with Mississippian plazas (Lewis et al., 1998).
+
+While the purpose of earthworks changed through time, many later earthworks are interpreted within the context of the Midewiwin (also Midewin) ritual.1
+
+Practitioners of the Midewiwin ceremonies brought together medicinal plants, feasting, dancing, and spirituality into a healing practice.
+
+The Midewiwin rite is typically associated with the historic era, where documents recount this secretive healing society's popularity in the 1600s during a period of significant regional social upheaval resulting from epidemics and wars (Howey and O'Shea, 2006; White, 1991).
+
+However, the Midewiwin has known prehistoric roots (Hall, 1997; McLeester, 2017); and its link with structures or earthworks has been speculated at Anker (Bluhm and Liss, 1961) and Comstock Trace within Northern Illinois (Kullen, 1994).
+
+PARAGRAPH
+
+The connection between the Midewiwin and enclosures has been established through the investigation of a pair of Late Woodland (c. 1200 CE) enclosures in Missaukee County, MI.
+
+These ditch and embankment earthworks measure approximately 48 m and 50 m in diameter with two openings and are interpreted as a representation of the Midewiwin origin myth, the journey of Bear.
+
+They were pilgrimage sites where visitors practiced social and economic activities, combined with the feasting and dancing that accompanied the Midewiwin (Howey and O'Shea, 2006).
+
+Similar enclosures are found throughout Michigan as well as parts of Ontario, northwestern New York, Ohio, Indiana, Illinois, and Wisconsin (Howey and Clark, 2018).
+
+PARAGRAPH
+
+In addition to identifying the possible use of the enclosure at Middle Grant Creek, excavation of the Missaukee enclosures revealed the spatial separation of different archaeological features.
+
+As Howey and O'Shea (2006: 268) write, “the pattern of discrete dense cultural debris areas, separated by large areas devoid of material, suggests a structured and prescribed use of space in the area around the earthworks.”
+
+These large “empty” areas that do not produce cultural materials are nonetheless incorporated into this earthwork landscape.
+
+We thus need to implement methods that can capture other forms of archaeological deposits and extend our understandings of areas brought into the cultural purview.
+
+With an archaeological deposit invisible on the contemporary surface, as is the case with Middle Grant Creek, these methods become all the more imperative to preserving the archaeological record.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+This paper demonstrates the value of advances to a suite drone-based sensor technologies alongside experimental image processing techniques for archaeological prospection at the Middle Grant Creek site in northern Illinois, USA.
+
+Collecting visible light, multispectral NIR, and thermal infrared imagery at various times of day and night across a diurnal cycle, and analyzing these data in concert with historical and modern aerial photography, we have been able to discern a range of previously unrecognized prehistoric features.
+
+Analysis reveals numerous probable housing structures across an area of >20 ha, just east of an activity and processing area currently being excavated by the Kankakee Protohistory Project.
+
+If the village interpretation is correct, Midewin would be the largest and most complete Huber site ever located.
+
+PARAGRAPH
+
+We also discovered a 28 m-diameter hexagonal enclosure, the function of which remains enigmatic but was likely ritual in nature and potentially part of the Midewiwin rite.
+
+The fact that both the houses and the enclosure have little or no topographic expression, lack a concentration of surface artifacts, and were not investigated by shovel testing because they were in a location thought to have a low potential for intact archaeological remains helps to highlight the potential power of our multisensor aerial imaging approach at sites like Middle Grant Creek.
+
+Furthermore, our ability to recognize what may be prehistoric houses in 1939 aerial imagery underscores the still largely untapped potential of historical aerial photography to reveal archaeological landscape features in North America.
+
+PARAGRAPH
+
+Alongside these discoveries, this paper has also illustrated some novel approaches to processing drone-acquired multispectral imagery.
+
+We have demonstrated methods for removing thermal artifacts caused by the cooling of the thermal camera, as well as an approach towards integration of multispectral and multitemporal drone-acquired imagery.
+
+Results highlight some of the many still underexplored possibilities for applications of these technologies in archaeological research, as drone-acquired and historical imagery can reveal features that would otherwise go undiscovered, thus offering a more complete and nuanced perspective on the larger archaeological landscape.

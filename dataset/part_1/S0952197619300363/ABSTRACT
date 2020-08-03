@@ -1,0 +1,33 @@
+10.1016/j.engappai.2019.02.012
+
+ABSTRACT
+
+TITLE
+
+A minimax probability extreme machine framework and its application in pattern recognition
+
+PARAGRAPH
+
+In this work we propose a minimax probability extreme learning machine framework (MPME), which combines the benefits of minimax probability machine (MPM) with extreme learning machine (ELM).
+
+For binary classification problems, we illustrate that the proposed MPME can be interpreted geometrically by minimizing the maximum of Mahalanobis distances to the two classes.
+
+Then two variants of the MPME are presented based on the l2-norm loss and l1-norm loss functions (called LSEMPME and LADMPME) respectively.
+
+Without making specific assumption on the data distribution, the proposed methods can provide explicit upper-bounds for the generalization error, moreover the LSEMPME and LADMPME minimize empirical risk simultaneously.
+
+The decision hyperplanes of the proposed methods pass through the origin in ELM feature space with few decision variables.
+
+By using the multivariate Chebyshev–Cantelli inequality, all the proposed problems can be reformulated as second-order cone programming (SOCP) with global solutions.
+
+Furthermore, numerical experiments have been carried out on two databases that are drawn from UCI benchmark database and a practical application database.
+
+First, the proposed methods are evaluated for a practical application consisting on the analysis of licorice seeds using near-infrared spectral (NIR) data.
+
+Experiments in six different spectral regions illustrate that the proposed methods can improve generalization in most cases.
+
+Then the proposed methods are evaluated on benchmark datasets.
+
+In comparison with traditional methods including MPM, ELM and support vector machine (SVM), experiments show that the proposed methods achieve comparable results in generalization.
+
+With few decision variables, the proposed methods are easy to implement for nonlinear classification and to estimate a lower-bound on the prediction accuracy.

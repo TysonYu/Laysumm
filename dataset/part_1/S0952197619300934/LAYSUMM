@@ -1,0 +1,19 @@
+10.1016/j.engappai.2019.04.008
+
+LAYSUMM
+
+TITLE
+
+A bounded actor–critic reinforcement learning algorithm applied to airline revenue management
+
+PARAGRAPH
+
+Reinforcement Learning (RL) is an artificial intelligence technique which, like the human brain, works on feedback gathered from trials and errors.
+
+The actor-critic is a type of RL algorithm in which one of the algorithm’s parameters, called the actors, become very large in magnitude, causing the computer to crash.
+
+Therefore, this algorithm fails on large-scale industrial-strength cases.
+
+We develop a new actor-critic algorithm in which the computer crash is avoided, allowing the algorithm to deliver solutions on large-scale problems.
+
+We test the algorithm on large-scale airline pricing problems, where it performs better than a very popular industrial technique called EMSR-b.

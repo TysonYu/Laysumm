@@ -1,0 +1,877 @@
+10.1016/j.engappai.2019.103303
+
+FULLTEXT
+
+TITLE
+
+SECUR-AMA: Active Malware Analysis Based on Monte Carlo Tree Search for Android Systems
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+In recent years the increasing reliance on computer systems and the increasing use of Internet, wireless networks, autonomous systems, e.g., cars, boats, as well as the growth of smart and tiny devices as part of the Internet of Things (IoT) resulted in a corresponding increase in the number of cyber-security flaws.
+
+In particular, Android is one of the most diffused operating systems employed in smartphones and IoT devices, making it the preferred target for cyber-criminals due to its huge market share (Cheung, 2018).
+
+Android malware are then one of the biggest threats in IT security nowadays, with millions of malicious applications released every year.
+
+Analyzing such amount of threats have become almost impossible for human security experts, and consequently, tools based on machine learning are fundamental to automate and speed up the process.
+
+In this work we aim to extend an analysis technique we proposed in Sartea and Farinelli (2017), by creating a fully fledged automated framework for Android malware analysis that substitutes the manual analysis of an unknown application, i.e., by performing automated test interactions and adapting to what is observed.
+
+Broadly, the concept of executing specific actions to perform a better analysis can be linked to the general framework of active learning, and recently there has been a specific interest in applying active learning techniques to malware analysis (Nissim et al., 2014).
+
+In that work, authors propose the use of an SVM classifier to select which samples (already analyzed) should be fed to the classifier, so to refine the classification bounds.
+
+In this work, our aim is to generate malware models that can be studied by a human security expert or processed by automated techniques (clustering, classification) for comparison.
+
+Hence, we focus on the decision making side of the analysis by devising an intelligent strategy for the analyzer action selection.
+
+For this reason, SECUR-AMA differs from active learning approaches where the methodology is usually tied to the specific choice of classifier in order to improve the classification bounds, e.g., k-NN and naïve Bayes (Wei et al., 2015), logistic regression (Guo and Schuurmans, 2007), linear regression (Yu et al., 2006), SVM (Tong and Koller, 2002).
+
+PARAGRAPH
+
+Current malware analysis methodologies can be broadly divided into static, where program’s code is examined without actually executing it (Sharif et al., 2008; Lakhotia et al., 2013; Yang et al., 2014; Suarez-Tangil et al., 2014b), and dynamic, which refers to methods that execute programs in a safe environment in order to observe their behaviors (Meng et al., 2016; Gascon et al., 2013; Zhang et al., 2014; Shin et al., 2011; Rieck et al., 2011).
+
+All the mentioned techniques however suffer from an important limitation: they are passive, meaning that no interaction happens between the analyzer and the target program (in contrast to what a human security expert would usually do).
+
+Unfortunately, both static and passive analysis present weaknesses that an adversary can exploit in order to harden the malware code, and consequently thwart the analysis process.
+
+For instance, a malware designer could implement obfuscation or encryption mechanisms to make static analysis inconclusive.
+
+Although dynamic analysis is almost immune to such misleading adversary measures, it suffers from implicit code coverage issues and can be countered by anti-emulation techniques.
+
+A combination of static and dynamic analysis features may help mitigating the limitations of each other, and the recent work of Martín et al. (2019a) aims at doing this.
+
+Feature selection is indeed important as attackers may exploit the knowledge about how a detection tool uses such features to mislead the process.
+
+A case study of this problem is provided in Calleja et al. (2018), in which authors analyze multiple defense models and also propose how to strengthen them in order to be more resilient to feature thwarting attacks.
+
+In particular, different anti-virus software focus on different features, resulting in malware signatures that can be used to identify different families (classes) of malicious applications, e.g., adware, spyware, ransomware, as in the work of Martín et al. (2019b).
+
+In Mariconti et al. (2017), the call graph of the applications is used to distinguish a malware from a harmless software, without considering the possible categories.
+
+The same goal is pursued in Zhang et al. (2019), where authors aim at using non standard static features and apply the widely used n-gram model to eXtensible Markup Language (XML) strings of the application executable.
+
+In our approach we tackle the problem of identification of malware families, a subsequent but still important step, that is performed after an application has been flagged as a possible malicious sample in order to acquire further information on the behaviors and then select the proper countermeasures.
+
+Nonetheless, it has been assessed that in many cases interaction is fundamental to extract behaviors that are only exhibited when triggered since malware often try to mask their real intentions (Moser et al., 2007).
+
+For this reason, recent works have introduced an active type of dynamic analysis that performs actions on the system to stimulate a target program.
+
+In Suarez-Tangil et al. (2014a), authors build an analyzer that aims at reproducing specific activation conditions to trigger malicious payloads relying on stochastic models extracted by past samples of user behaviors.
+
+The active procedure proposed in Martín et al. (2018) instead is very effective in assessing malware families, however the triggering policy targets the Graphical User Interface (GUI) with random actions, without employing an intelligent strategy.
+
+Another interesting active approach based on random triggering actions is (Bhandari et al., 2018), a runtime semantic-aware malware detector resilient to code injection and capable of deciding whether an application is malicious or not.
+
+All the mentioned active techniques present no rational target-oriented strategy to stimulate the malware under analysis, therefore more research is required to devise an approach that can select the triggering actions so to maximize the acquired information.
+
+PARAGRAPH
+
+The approach drawn in this paper presents a new analysis framework based on an adversarial, two-agent environment, where two players, i.e., analyzer and malware, have opposite objectives: the analyzer aims at discovering the highest amount of information about the malware, while the malware aims at hiding its malicious policy to the analyzer.
+
+This analysis design is justified by works where practical problems of interest are represented as multi-agent systems in which intelligent and autonomous entities interact within a complex dynamic environment learning information and adapting their behavior accordingly.
+
+In particular, the work presented in Williamson et al. (2012) builds upon multi-agent system techniques by formalizing Active Malware Analysis (AMA) using game-theoretic approaches, and specifically stochastic games.
+
+In more detail, the analysis game involves two players: an analyzer and a malicious program, where the former tries to trigger the latter into showing behaviors that would otherwise remain undetected.
+
+The analyzer policy uses past observations of the malware agent behavior in response to the triggering actions in order to select the next estimated best triggering action.
+
+A key point of Williamson et al. (2012) lies in the necessary availability of a predefined model that is manually designed to represent the specific parts of the system that the analysis has to monitor.
+
+A first step in the direction of removing the prerequisite of a model is presented in Sartea et al. (2016), where the perspective of the analysis has been changed by formalizing the behaviors as execution traces (sequences of API calls) of the observed program.
+
+We developed an automated algorithm to generate models representing multiple known malware families to be given as input to the analysis process in order to identify if an unknown application belongs to one of the families embedded in the model.
+
+Further progress has been achieved in Sartea and Farinelli (2017) where we present a preliminary version of the proposed method: we completely remove the requirement of a pre-specified model for the analysis by devising a reinforcement learning algorithm based on Monte Carlo Tree Search (MCTS) to generate the model of each target application at runtime and by using it to guide the process.
+
+The result is a specific model for each analyzed program that is independent from the underlining system and is represented with multiple Markov chains embedding the observed execution traces.
+
+Every model encodes the policy of a target application and they can be compared and grouped using standard machine learning techniques, e.g., classification, clustering, etc.
+
+PARAGRAPH
+
+In this work we extend such approach and propose SECUR-AMA, a refined AMA framework implementing the technique introduced in Sartea and Farinelli (2017).
+
+In particular, we provide a formal definition of the analysis game, a more detailed explanation of the learning algorithm and a throughout empirical evaluation on a large real world dataset of Android malware.
+
+Moreover, we compare with different state-of-the-art malware analysis methodologies both static and dynamic, i.e., CANDYMAN (Martín et al., 2018) and DENDROID (Suarez-Tangil et al., 2014b).
+
+In more detail, experiments are conducted on a publicly available dataset of real malware composed of about 1200 samples divided into 24 families (classes).
+
+Results show that SECUR-AMA favorably compares with existing techniques in analyzing complex trigger-based malware while being competitive against classical malware.
+
+We also provide a running example detailing all the different steps of the methodology and implementation details.
+
+In particular, this work expands the previous in the following:
+
+PARAGRAPH
+
+This is all new material with respect to our previous publication (Sartea and Farinelli, 2017).
+
+The remainder of the paper is organized as follows: Section 2 reports the basic theoretical notions required to understand the analysis game of SECUR-AMA; Section 3 presents the framework itself and the analysis process in detail; Section 4 dives into implementation details for the framework and the MCTS; Section 5 shows the results of the empirical evaluation; Section 6 concludes the paper with final considerations and future research directions.
+
+SECTION
+
+Background material
+
+PARAGRAPH
+
+In this section we give a brief overview of the theory related to stochastic games and MCTS as they represent the core of the reinforcement learning methods used by SECUR-AMA.
+
+We present the formalization of AMA as a stochastic game, originally proposed in Williamson et al. (2012).
+
+SECTION
+
+Stochastic games and Markov chains
+
+PARAGRAPH
+
+In Williamson et al. (2012), authors define AMA as a stochastic game between an analyzer agent and an unknown program.
+
+Such representation is useful to formalize the interaction taking place during the analysis process by posing it in a multi-agent setting.
+
+PARAGRAPH
+
+Stochastic Game
+
+PARAGRAPH
+
+A stochastic game G, with n players, is a tuple G=(N,S,A,u,T) where:
+
+N is the finite set of n players
+
+S is the state space composed by stage games
+
+A=A1×⋯×An where Ai represents the actions available for player i in state s∈S
+
+u=(u1,…,un) where ui:S×A×S′→R is the utility function for player i
+
+T:S×A×S′→R[0,1] is a probabilistic transition function between states of the game
+
+PARAGRAPH
+
+A stochastic game clearly defines players and their available action sets, the state space and the transition function from state to state.
+
+The utility function for each player is based on the action performed in a specific state and the outcome (the state reached after the transition).
+
+At each stage the game is in state s, the n players choose actions A=(a1,…,an), the game transitions to state s′ according to the transition function T and players receive rewards (r1,…,rn) according to the utility functions u=(u1,…,un).
+
+In other words, the joint actions of the players move the game from one state to another with a probability expressed by the transition function.
+
+Furthermore, each player receives a reward that is based on the transition that took place.
+
+From the analyzer perspective, the target program’s policy can be extracted from the model generated during the analysis process.
+
+Specifically, such model embeds the observed, and possibly stochastic, behaviors conditioned by the analyzer triggering actions by using Markov chains.
+
+PARAGRAPH
+
+Markov Chain
+
+PARAGRAPH
+
+Let P be a k×k matrix with elements {Pij:i,j=1,…,k}.
+
+A random process (X0,X1,…) with finite space S={s1,…,sk} is a Markov chain with transition matrix P if for all n, all i,j∈{1,…,k} and all i0,…,in−1∈{1,…,k} we have P(Xn+1=j|X0=i0,…,Xn−1=in−1,Xn=i)=P(Xn+1=j|Xn=i)=Pij
+
+PARAGRAPH
+
+Markov chains are formal models to represent fully observable states of a system with a random variable that changes over time according to some probability distribution (Kemeny and Snell, 1983).
+
+In our case the environment is fully observable (as the sandboxed system used to perform the analysis is in our control) and we represent the evolution of the target program in terms of API calls.
+
+Equation 2 expresses the Markov property, i.e., the conditional probability distribution of the next state depends only on the current one.
+
+Such assumption, even though not realistic in some cases, is an acceptable approximation in many application domains as in ours.
+
+The transitions of a Markov chain are well described with the probability entries of its transition matrix, which express the likelihood of moving from one state to another.
+
+Furthermore, it is possible to prove by induction that the probability of being in a state si after n computational steps is exactly predictable by knowing only the initial state distribution μ and the transition matrix P of a Markov chain.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let P be a transition matrix of a Markov chain and let μ be the vector representing its initial distribution.
+
+Then the probability that the chain is in statesi aftern steps is the ith entry of the vector: μ(n)=μPn
+
+PARAGRAPH
+
+Theorem 1 (Kemeny and Snell, 1983) is useful to efficiently compute the probability distributions over the paths (behaviors) encoded in the model of a target program, a crucial operation for the analyzer to perform in order to take decisions about the next triggering actions to play.
+
+SECTION
+
+Monte Carlo Tree Search
+
+PARAGRAPH
+
+As previously mentioned, a key element of our approach is to operate without the requirement of a pre-specified model.
+
+To this end, we propose a method to generate such model at runtime during the analysis.
+
+As a consequence, the analyzer agent needs an efficient way to select the most promising action to perform on the system.
+
+MCTS is a suitable solution as it searches the state and action spaces by incrementally exploring the environment using simulations of executions and estimating the rewards of the actions taken into account.
+
+The strength of MCTS is that the search space is not explored exhaustively, but the focus is on the most promising sub-spaces detected by using the rewards computed at the end of the simulations conducted.
+
+The core structure of the algorithm is a tree which is initially empty and contains only the root node, therefore with no information about the target program under analysis.
+
+The nodes of the tree represent the possible actions of the analyzer agent.
+
+MCTS proceeds by repeating 4 basic steps (see Fig. 1):
+
+PARAGRAPH
+
+For each iteration of the procedure, the tree is descended and expanded with new nodes.
+
+Then, the reward given by the virtual performance (simulated) of the action-nodes added during the expansion step is estimated.
+
+Finally, the algorithm updates the statistics of the nodes traversed during the descent using the reward value.
+
+The algorithm runs until a predefined computational limit is reached and, at that point, the search is halted and the best-performing action estimated so far is returned (the most visited child node of the root).
+
+The approach offered by MCTS is typically employed whenever a standard exhaustive tree search is unfeasible for a given domain Browne et al. (2012).
+
+Since we deal with a problem that entails several computational efforts e.g., number of analyzer actions combined with the length of the analysis game and stochastic responses of malware, other classical search methods are not as efficient.
+
+Section 4.2 provides a detailed running example of MCTS in the context of our analysis game.
+
+SECTION
+
+Active malware analysis
+
+PARAGRAPH
+
+The work of Williamson et al. (2012) proposes to design an autonomous agent with an active role in the disclosure of malicious intents.
+
+The method sees an analyzer player aiming at the acquisition of non-trivial information regarding the opposite player, i.e., the malware.
+
+The process is formalized as a stochastic game (Definition 1) called AMA in which the analyzer performs an action on the system and the malware responds with a sequence of actions that change the status of such system.
+
+The analysis game requires a fixed model manually designed by a security expert that specifies which components of the systems to monitor for changes by the malware and which components the analyzer can interact with to trigger a response in the malware.
+
+Such model is represented with a Directed Acyclic Graph (DAG) where leaf vertices are the possible actions of the analyzer, internal vertices are possible actions of the malware, and paths in the graph are sequences of actions that the malware can take to reach a component (leaf vertex) touched by the analyzer.
+
+During the analysis game, the analyzer selects a component of the system to interact with and observes the malware reaction updating the transition probabilities on the model graph.
+
+At the end of the process, the transition matrix obtained represents the policy of the malware with respect to the pre-specified model, that is fixed and remains the same during the analysis of every malware.
+
+Authors implement the policy of the analyzer agent with an algorithm called MYOPIC where the next analyzer action to play is chosen with a 1-step look ahead heuristic based on the entropy of the malware execution patterns.
+
+Using the statistics (historical frequency) on how the malware transitioned between vertices of model, the analyzer action with highest entropy is selected to be played next.
+
+The intuition is that actions with higher entropy usually retrieve more information.
+
+Consequently, the malware policies extracted by the analyzer are strictly dependent on the quality and level of detail of the model employed: since a model represents the behavioral patterns on which to play the analysis game, the accuracy of its specification impacts whether the analysis computes meaningful policies.
+
+Indeed, if the model does not contain an important component of the system to observe as a malware possible action, that will be ignored when performed.
+
+Human expertise and manual effort is then fundamental to build a good model for a meaningful analysis process.
+
+PARAGRAPH
+
+In Sartea et al. (2016) we made a first step in the direction of diminishing the human effort and point of failure by changing the model for the analysis in order to represent possible malware actions as API calls instead of specific components of a system to monitor.1
+
+Therefore, a sequence of malware actions in the model becomes an execution trace of the malicious program, i.e., a behavior.
+
+Fig. 2 shows an example of the structure of a malware model, as defined in Sartea et al. (2016) and Sartea and Farinelli (2017).
+
+A model is composed as a set of Markov chains whose state space corresponds to the possible malicious actions a malware can perform; edges appearing in the transition graph are labeled with the executed analyzer triggers and each one connects consecutive malware actions, i.e., vertices, made in response to such trigger.
+
+In order to obtain a single graphical model, all Markov chains, each one referring to a specific analyzer triggering action, are collapsed in the same transition graph by merging vertices and edges.
+
+Furthermore, in Sartea et al. (2016) we also propose an automated algorithm that generates a model that can be used in a subsequent analysis to detect if a malware belongs to some given families.
+
+Although a security expert is no more involved in the process of generating a suitable model to conduct the analysis, such prerequisite is still needed and obtaining it, even though automatically, is a time consuming process.
+
+We aim to remove the requirement of a pre-specified model by generating it at runtime for each malware starting from scratch and properly updating it after each observed interaction between analyzer and malware.
+
+SECTION
+
+SECUR-AMA
+
+PARAGRAPH
+
+Following AMA introduced in Section 2.3, we formalize our framework as a stochastic game between an analyzer agent and a malware, where the former tries to acquire information about the latter by stimulating it and observing the reaction in the form of an execution trace consisting of API calls.
+
+PARAGRAPH
+
+SECUR-AMA Game
+
+PARAGRAPH
+
+The game of SECUR-AMA is a stochastic game with
+
+N={n1,n2} where n1 is the analyzer and n2 is the malware
+
+A1 consists of all the possible triggering actions for the analyzer (make a call, connect to WiFi, etc.)
+
+A2 consists of all the possible execution traces of the malware
+
+S is the set of states, each one defined by an instance of malware model
+
+u=(u1,u2) where u1:S×A×S′→R+ is the utility function for the analyzer
+
+T:S×A×S′→R[0,1] is a probabilistic transition function
+
+PARAGRAPH
+
+SECUR-AMA is clearly an instance of a stochastic game of Definition 1 between two players: the analyzer n1 and the malware n2.
+
+The action set A1 available to the analyzer comprises all the possible triggering actions that can be performed on the system and that could possibly cause a reaction in the adversary (make/receive call, enable/disable GPS, etc.).
+
+The malware action set A2 instead includes all the possible execution traces (sequences of API calls) that a malware can exhibit.
+
+A state of the game is defined by an instance of malware model that the analyzer generates during the analysis process (Section 3.2).
+
+The utility function is defined only for the analyzer (Section 3.3.3) and is based on the entropy gain between the model of current state s and next one s′: such transition between states is governed by function T using the joint actions of the players.
+
+While playing SECUR-AMA we do not take into account rewards for the malware since our focus is to analyze it by extracting the highest amount of information on the adversarial behaviors, rather than to counter a malware by minimizing its disruption potential.
+
+At the same time, malware are not aware of the fact that they are playing a game, therefore they do not “compute a strategy” based on what the analyzer may do in each situation.
+
+As such, computing an equilibrium for the game would not be beneficial for the analyzer.
+
+Hence, the formalization reflects the point of view of the analyzer on the game and the reward function is designed to guide the information gathering on the malware.
+
+PARAGRAPH
+
+The aim is to learn the policy (expressed as the transition function between vertices of the model) of a malware by using the minimum amount of analyzer actions.
+
+Furthermore, our efforts are not only directed on retrieving the policy of a malware, but also on doing it without requiring a pre-specified model and generating it at runtime for each specific malware.
+
+From such premises, the analysis process does not have access to the possible malware behaviors given by an input model.
+
+Consequently, the main problem to solve is how to handle the huge action space available to the malicious agent while planning the most promising analyzer action, as there are many possible sequences of API calls that can be triggered in response.
+
+To tackle the mentioned problems we decided to leverage on MCTS as it is a suitable approach to visit big search spaces and also very flexible depending on how the tree and default policies are implemented (Browne et al., 2012).
+
+We present the analysis technique with a top-down approach starting with the high-level view of the process and then explaining the technical details.
+
+SECTION
+
+Monte Carlo analysis
+
+PARAGRAPH
+
+The overall procedure is presented in Algorithm 1, where the malware model is generated incrementally by collecting the information extracted from the previous responses to the analyzer actions.
+
+Initially, the algorithm starts with an empty, hence uninformative, model (line 1).
+
+Next, the analyzer chooses the best action2  to play on the system (in order to stimulate the malware) with a MCTS that runs multiple simulations using the information contained in the current model (line 4).
+
+Once the resulting choice is returned, it is concretely executed on the system and the malware response is recorded as a sequence of API calls in a log file (line 5).
+
+Parsing the log, the current model is updated both on structure and statistics as transition probabilities between API calls (line 6).
+
+At this point the game moves to the next state associated to the new malware model.
+
+The algorithm ends when a computational stopping condition is met, usually corresponding to a game length, thus a fixed number n of analyzer triggering actions.
+
+The output is given by the last model obtained.
+
+SECTION
+
+Malware model structure
+
+PARAGRAPH
+
+The core of the analysis is the MCTS which uses the information on the malware agent collected so far.
+
+Such information is stored in a model based on a graph encoding the execution traces observed in response to the specific analyzer actions that triggered them.
+
+Fig. 3 shows two example of malware models.
+
+Vertices are labeled with malware API calls, while edges connect two consecutive API calls of an execution trace and are labeled with transition probabilities (using the historical frequency) conditioned by the actions executed by the analyzer.
+
+The labeling is crucial to represent behaviors that are triggered by specific stimuli.
+
+Considering a single analyzer action by keeping only its label on the edges, e.g., sms, we obtain a Markov chain representing the behavior observed in response to such action.
+
+Hence, models are compositions of multiple Markov chains, one for each analyzer action executed on the system during the analysis.
+
+Additionally, if a vertex is labeled with an API call that terminates one or more malware execution traces, such vertex is marked as terminal (T).
+
+Any path from the initial vertex to a terminal depicts a possible API execution sequence of the malware, i.e., a behavior.
+
+Every state of the stochastic game is represented by a malware model that is used by the analyzer to select the best next action to play.
+
+PARAGRAPH
+
+Given a malware model it is possible to extract the policy of such malware represented as the transition function between API calls.
+
+For any analyzer action a, let vr,a be the number of times vertex v is reached under a, and let et,a be the number of times the outgoing edge e of v (the set of outgoing edges of v is indicated with Ev) has been traversed under a.
+
+Then, given a model G=(V,E), we apply Eq. (2) to retrieve the conditioned probability value for each tuple (a,v,e) of G: P(e|a)=1+et,a|Ev|+vr,aWhenever vr,a=0 or et,a=0, the resulting probability value will be uninformative, reflecting the fact that we have no information on how the malware behaves in such case.
+
+SECTION
+
+Monte Carlo Tree Search implementation
+
+PARAGRAPH
+
+As previously mentioned, MCTS is a very flexible algorithm that can be adapted to many application domains depending on the implementation of the tree and default policies presented in their generic tasks in Section 2.2.
+
+In the following we detail our policy design choices for SECUR-AMA.
+
+SECTION
+
+Tree policy
+
+PARAGRAPH
+
+The role of the tree policy is to descend the search tree from the root to a leaf node by following the most promising branch.
+
+This allows to generate a tree without performing an exhaustive search, saving precious computational resources.
+
+The decision of which node to select at each level of the descent is modeled as a multi-armed bandit problem addressing the exploration–exploitation dilemma.
+
+In fact, a trade-off between selecting actions that appear to be promising and actions belonging to sub-spaces not well sampled yet and that may turn out to be optimal in the future, represents a suitable solution to our problem.
+
+Taking inspiration from the proposal of Kocsis and Szepesvári (2006), we employed an Upper Confidence Bound (UCB), often applied to multi-armed bandit contexts, to compute an estimate of the optimality value associated to every possible choice.
+
+In Kocsis and Szepesvári (2006), authors apply this mechanism to MCTS tree policy in order to select at each step the child node j maximizing: UCT=X¯i+2Cp2lnnniwhere n is the number of times the current node has been visited, X¯i is the average reward of the child node i, ni is the number of times the child node i has been visited, and Cp>0 is a constant.3
+
+The left-hand term encourages exploitation of high rewards obtained from previous simulation steps, on the contrary, the right-hand term encourages exploration of less visited nodes.
+
+Although the number of visits shifts the preference from one term to the other, the exploitation value is affected linearly by it, whilst the exploration one, appearing within a square root, is affected less than linearly.
+
+SECTION
+
+Default policy
+
+PARAGRAPH
+
+The default policy is responsible for conducting a simulation from the state of the game corresponding to an expanded node of the tree to a leaf corresponding to the termination of the game plus one more step (motivated in Section 3.3.3).
+
+The process simulates multiple interactions between the analyzer agent and the malware, at the end of which a reward for the former is estimated based on the outcome related to the conclusion of the game.
+
+As the reward is used by the tree policy to focus only on promising branches of the tree (Eq. (3)), a bad default policy could make the entire MCTS imprecise or even useless.
+
+In our implementation the simulation is composed as a sequence of iterations where the analyzer selects a triggering action and the malware responds to it with an execution trace of API calls.
+
+This informally described procedure is reported in Algorithm 2 and is part of the MCTS routine (line 4 of Algorithm 1).
+
+PARAGRAPH
+
+There are two crucial operations to perform in the default policy, the first of which being Simulate (line 3) to predict malware responses.
+
+Given the number of all possible execution traces, we devised a simple yet effective simulation strategy: if the analyzer triggering action a has never been concretely executed by the analyzer on the system previously in the game, we produce random API sequence for the malware response.
+
+Otherwise, a past observed API sequence is produced with the same historical probability associated to the observation of such trace in response to a.
+
+Consequently, at the beginning of the game the simulation is purely random, but it becomes more and more accurate as the game evolves.
+
+The second important operation is ChooseAction (line 5) which implements the analyzer strategy while playing the game.
+
+Recall that every state of the underlying game is associated to a malware model, therefore every node of the search tree is also associated to a temporary malware model m corresponding to the state of the game represented by such node (composed by mix of simulated malware responses generating during the MCTS and actually observed ones).
+
+We adopted an information-centric reward based on entropy aimed at selecting the action a that has maximum entropy value Hm(a) in the current temporary model m.
+
+Hm(a)=−∑iDm(a)ilnDm(a)i Dm(a) is the probability distribution for reaching a vertex i, labeled as terminal (T) in the model m, starting from the initial vertex while considering the analyzer action a.
+
+The motivation for this choice of value function is that usually high entropy is an indicator of a more informative action.
+
+Since the aim is to generate a model for the malware that is as informative as possible (without having access to the code, but only to the observation of behaviors), minimizing the entropy of the model under construction is a reasonable solution for the analyzer to confidently learn how a malware agent reacts to stimuli.
+
+For the model depicted in Fig. 3a, the computation of the entropy for action sms uses Theorem 1 as follows for n=3 steps Dm(sms)=1000000×00.6000.40000100000000.25000.7500000000000010000000100000003=00000.150.85⟹read,deleteMessage0.150.85Hm(sms)=−0.15⋅ln(0.15)+0.85⋅ln(0.85)=0.423
+
+SECTION
+
+Reward in backpropagation
+
+PARAGRAPH
+
+The reward for the analyzer is meant to represent the amount of information extracted by performing a triggering action in the environment.
+
+In particular, during the backpropagation step, the reward accumulated in each node of the path between the root and the expanded node is the entropy gain Hm(a)−Hm′(a) computed with Eq. (4), where a and m are the action and the temporary model associated to a node, while m′ is the temporary model obtained at the end of the simulation step.
+
+Notice that for the nodes at maximum depth (length of the game) Hm(a)−Hm(a)=0, hence we make the simulation of MCTS go one step further (to depth n+1) and compute the entropy gain from that model.
+
+Such value gives an estimate of how much information the analyzer might acquire by playing a certain sequence of actions from the current state of the game to the end of it.
+
+SECTION
+
+Policy comparison
+
+PARAGRAPH
+
+The end goal of AMA is to group malware policies based on shared characteristics and behaviors.
+
+The type of countermeasures to employ depends on the type of malicious applications, and in particular, detecting whether a malicious behavior shares common characteristics with known malware families is extremely important to take effective countermeasures.
+
+Our model formalization enables to compare and group (possibly) similar malware by extracting their compatible vectorial representation.
+
+First, the model graphs of the malware we want to compare are fused together by merging vertices based on API call labels.
+
+Then, the transition function of each model is projected on the merged graph using Eq. (2).
+
+This results in a feature vector for every sample where the features are the probability values associated to the transitions between model states.
+
+Such features can then be used to perform tasks such as classification and clustering using any standard machine learning tools and algorithms.
+
+To see how the comparison operation works, consider malware models A and B of Fig. 3: the comparison procedure would fuse the models obtaining a merged graph of the same shape of Fig. 3a, since it includes the one of Fig. 3b.4
+
+Then, the projection of the transition functions of A and B with Eq. (2) would result the in the following
+
+SECTION
+
+Framework architecture
+
+PARAGRAPH
+
+In this section we provide important implementation details of the framework and a running example of the MCTS action selection for the analyzer.
+
+Fig. 4 depicts the analysis pipeline by reporting the three main operations: setup of the environment, generation of the behavioral model and analyzer trigger selection.
+
+In particular, given an application to analyze, first the emulator is started and after the boot is completed the application is installed and executed.
+
+To avoid downtime, the analyzer trigger selection operation is executed in parallel with the setup of the environment operation.
+
+At this point, the environment is ready and a trigger has been selected, hence it can be applied by the analyzer in order to extract the response as an execution trace that will update the current application model.
+
+The process is iterated for a predefined number of times n=30, corresponding to the length of the analysis game.
+
+The MCTS then is set to reach a maximum depth of 30 and the reward to backpropagate is computed from the model obtained at that point.
+
+Based on our architecture and pipeline, the stopping condition for the MCTS instead is met when the emulator has finished booting and the application is installed and running, ready to be stimulated.
+
+In case of unsatisfying results and depending on the computational power available, it is possible to let the MCTS run longer, up to a predefined number of iterations or by increasing the waiting time before selecting the outcome.
+
+SECTION
+
+PARAGRAPH
+
+Experimental platform
+
+PARAGRAPH
+
+The experimental platform we built to implement SECUR-AMA, is composed by a set of tools based on an emulator acting as a sandbox.
+
+The virtual environment is a Genymotion5  emulator mounting an Android 6.0 image.
+
+The main tools employed include Xposed,6  a modular framework that can monitor and alter the behavior of the system and applications hosted within the guest side of the emulator, and Oracle, an ad-hoc Xposed module we developed to hook API calls performed by the malicious software under analysis.
+
+This last component provides also some measures to neutralize common anti-detection techniques employed by malware to avoid dynamic analysis if an emulated environment is detected.
+
+PARAGRAPH
+
+The action set for the analyzer agent is composed of 11 different actions that mimic a standard user’s behavior: send/receive SMS, make/receive call, add contact, switch on/off WiFi, install applications, change GPS position, internet navigation from default browser, charge battery.
+
+SECTION
+
+Running example of SECUR-AMA
+
+PARAGRAPH
+
+Suppose that the stochastic game of SECUR-AMA is currently in state s after 5 stages (5 analyzer–malware interactions) out of 30 (total game length).
+
+The state s is defined by the malware model sm generated so far and the analyzer has a history of past malware execution traces sh observed in response to specific triggering actions.
+
+The analyzer has now to select the 6th triggering action to play next by running a MCTS with input model sm and maximum depth 30−5=25.
+
+Fig. 5 provides a running example of a MCTS action selection operation.
+
+Every node of the tree contains the name of its triggering action and a couple (n,X) where n is the number of visits and X the accumulated reward for that node.
+
+The example starts at the beginning of the 16th iteration (notice that n=15 for the root node).
+
+The selection step visible in Fig. 5a descends the tree by computing the UCT (Eq. (3)) for every node at the same level to select the one with highest value.
+
+While descending, the input model sm is updated with a malware execution trace in response to the analyzer triggering action a corresponding to the node traversed (using the history sm or simulating a new trace as per Section 3.3.2).
+
+The green arrows highlight the selected descent path.
+
+The expansion of the selected node is represented in Fig. 5b where also the n values of the nodes in path have been updated (green) according to the selection step.
+
+Fig. 5c shows that from the expanded node, the remaining number of interactions to the end of the game (23 to reach 30+1) are simulated based on the history of the current analysis sh (see the default policy of Section 3.3.2), resulting in a model m′.
+
+In particular, at the first step of the simulation the analyzer selects the triggering action with associated highest entropy in the malware temporary model corresponding to the expanded node, simulates a malware response to such action, updates the temporary model and moves the game to the next state to continue the simulation.
+
+In the backpropagation step (Fig. 5d), for each node the information gain is computed with the entropy difference Hm(a)−Hm′(a), where a and m are the triggering action and the temporary model tied to a node respectively, from which rewards are updated accordingly (green).
+
+For an example of entropy calculation see Eq. (5) in Section 3.3.2.
+
+The 16th iteration is completed and if the MCTS process was to be stopped now, the selected action would be the most visited child node of the root, i.e., “wi-fi”.
+
+SECTION
+
+PARAGRAPH
+
+Empirical evaluation
+
+PARAGRAPH
+
+In malware analysis, the first step to analyze an unknown software is to decide whether it could be malicious (Aafer et al., 2013).
+
+Having decided that a program contains malicious code, a main task is represented by the identification of the specific malicious family a software belongs to in order to use proper (possibly already known) countermeasures to handle the potential threat.
+
+Our method aims to accomplish this identification goal employing standard machine learning techniques to train various classifiers, namely K-Nearest Neighbor (k-NN), Random Forest and Linear Support Vector Machine (SVM).
+
+In particular, we want to obtain models that are as informative as possible, i.e., a reliable representation of malware behaviors in response to specific analyzer actions, leveraging on the information entropy.
+
+Lower entropy means probability values on the transitions between APIs that are further away from uninformative.
+
+Therefore, entropy is an internal measure that SECUR-AMA optimizes (minimizing it) during the analysis process, whereas the F1-score is used as external measure to evaluate the results of the classification.
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+The dataset we used to test our approach has been built by selecting approximately 1200 malicious programs partitioned into 24 different families collected in Wei et al. (2017).
+
+Since our analysis is active, the main principle that guided the selection process was the presence of triggering mechanisms inside the malware payload.
+
+For instance, the family Finspy concerns the logging and exfiltration of personal information of the user on an Android device, thus it is sensitive to calls, SMS activities, browser navigation history updates, etc.
+
+For our classification problem, some of the families included in this experiment can be seen as challenging to correctly classify since they employ specific mechanisms aimed to deceive the analysis.
+
+In particular, Gorpo and Kemoge exploit a combination of anti-analysis techniques such as the dynamic loading of the malicious code at runtime and the execution of noisy API calls that are not useful to implement the malware payload but serve as a method to mislead an analyzer that focuses on the sequence of actions performed by the malicious sample.
+
+Hence, resulting models will contain malicious behaviors interweaved by APIs that can induce an analyzer to overlook malicious characteristics.
+
+Moreover, AndroRat and GoldDream families distinguish themselves on the type of infection vector.
+
+Such classes are composed by small malware injected into complex harmless applications7  such as games.
+
+This peculiar feature causes the models generated by SECUR-AMA to have only few branches depicting malicious behaviors (potentially negligible), thus making their identification hard.
+
+The rest of the families involved in the dataset can be considered less sophisticated because they do not employ advanced anti-detection mechanisms and do not hide themselves through injection.
+
+Fig. 6 shows the composition of the dataset in terms of relative frequency for each family.
+
+It can be noticed the unbalanced nature of the composition with families with more than 200 samples and others with as few as 5.
+
+Such dataset characteristic reflects how malicious software appear in the real world in relation to their families: recently, the focus in malware design has shifted from the creation of new types of malicious payloads, i.e., the code slice of a malware aimed at causing harm, to the engineering of the stealthy system,8  while the payload is reused from older deployed malware as is or with minor modifications.
+
+As a consequence of this trend, most of the malware in the wild fall in few families, inducing a disproportion among the cardinality of specimens contained in the different families (Walenstein and Lakhotia, 2006; Walenstein et al., 2007).
+
+SECTION
+
+PARAGRAPH
+
+Experimental methodology
+
+PARAGRAPH
+
+In order to empirically assess the contribution of our proposal we perform a comparison of SECUR-AMA with relevant techniques proposed in literature (Suarez-Tangil et al., 2014b; Martín et al., 2018).
+
+The main goal of such methods is the same: given a set of known malware K, where each element is labeled with its actual malicious family identifier, and a set of unknown (unlabeled) malware U, infer for each sample u∈U the malware family it belongs to using the knowledge provided by K.
+
+We selected state-of-the-art approaches that employ different paradigms in the analysis process, differentiating from the AMA approach of SECUR-AMA.
+
+In Suarez-Tangil et al. (2014b) authors propose a static method, called DENDROID, to determine the distribution of particular structures embedded in the applications of the dataset and exploit such features to train a classifier to recognize the similarity degree between malware samples and family representatives.
+
+More specifically, DENDROID can be summarized with the following steps: it first decomposes the application under analysis into its code chunks, i.e., basic elements obtained through the retrieval of the Control Flow Graph (CFG), each representing a single method of the program; once every sample of the dataset has been processed in order to gain a corresponding set of code chunks, the analysis proceeds by mining the code chunks inspiring to known text information retrieval methods.
+
+This phase requires the construction of a feature vector per sample where each entry represents a measure that recalls the term frequency–inverse document frequency (tf–idf) index, each one accounting for a specific code chunk.
+
+Once this sub-task is accomplished for the entire dataset, a 1-NN classifier is employed to estimate the malware family a sample belongs to.
+
+Since this technique does not require the execution of any programs of the dataset, it shall be categorized as part of the static analysis paradigm.
+
+Our implementation of DENDROID is identical to the one developed by authors in Suarez-Tangil et al. (2014b) since it relies on the same source code for the dataset processing and the feature extraction.
+
+PARAGRAPH
+
+We also examined an approach that is based on the dynamic paradigm.
+
+In Martín et al. (2018), authors describe a dynamic process to conduct the analysis of malware, called CANDYMAN, followed by the classifier training phase.
+
+A core aspect of this work is the wide range of supervised algorithms considered and evaluated, involving almost all classical learning methods and also deep learning techniques.
+
+In summary, CANDYMAN involves the execution of the malware under analysis in a controlled environment where it can be safely run while observing its behavior.
+
+All the data collected are then processed in order to construct a Markov chain model that expresses the malicious dynamics observed during the previous analysis step.
+
+Once this modeling phase is terminated, the features embedded in the resulting Markov chains are extracted and used for a classification task.
+
+The analysis steps of CANDYMAN might closely recall the main concepts composing the methodology of SECUR-AMA.
+
+Indeed, the authors choose to model a Markov chain using the state space corresponding to the malicious APIs captured during the observations.
+
+Nonetheless, there are some important points that distinguish our approach.
+
+First of all, CANDYMAN randomly selects the triggering actions that aim at simulating users’ behaviors.
+
+In contrast, in SECUR-AMA the analyzer agent implements a specific strategy, based on information gain, through multiple MCTS stages.
+
+This leads to different resulting models: for CANDYMAN, a single Markov chain is obtained for each sample and there is no labeling of the transition probabilities between Markov chain’s states; SECUR-AMA instead retrieves a set of Markov chains (each one specifying the behaviors observed in response to an analyzer action, hence associated to a triggering action label).
+
+As a consequence, we can consider CANDYMAN as naively active as it does not use an informed strategy to interact with the malware agent.
+
+Moreover, CANDYMAN applies some approximations on the Markov chains to lower the number of states composing the Markov chains and, in the feature extraction part, to reduce the feature space used to subsequently train a classifier.9
+
+During the replication of the work of Martín et al. (2018) we focused on preserving the same analysis process described by the authors, but some details in the implementation have been changed due to programmatic reasons related to some parts of our framework.
+
+In particular, the state space of the Markov chains we generate does not use event labels provided by the DroidBox tool,10  but rather adopt the actual Android API calls captured during the malware execution.
+
+Furthermore, some experimental setup choices made in Martín et al. (2018) have been changed due to the characteristics of our setting, e.g., families with less than 20 malware are not discarded as we want to be able to handle also unbalanced datasets.
+
+However, the mentioned changes do not affect the overall results obtained from the classifiers we trained, which are comparable to the ones obtained in Martín et al. (2018).
+
+PARAGRAPH
+
+In Fig. 7 we report a schematic overview of the experimental methodology.
+
+First, every malicious sample is subject to a mining phase to extract information about the malware, which is different for each method implemented, i.e., code chunks for DENDROID, log files of execution traces for both CANDYMAN and SECUR-AMA.
+
+Next, outcomes of CANDYMAN and SECUR-AMA are parsed in order to obtain a behavioral model of the sample (DENDROID skips this operation since the behavioral model is considered to be the set of chunks).
+
+Finally, features are extracted from each model and used to train a classifier to identify the malicious family an unknown sample belongs to.
+
+PARAGRAPH
+
+Both DENDROID (Suarez-Tangil et al., 2014b) and CANDYMAN (Martín et al., 2018) are focused on the Android platform and they provide a classification approach to produce malicious family detectors for each examined sample.
+
+In our empirical evaluation we also employ supervised learning algorithms.11
+
+In particular, we decided to conduct experiments using the best performing classifier pointed out in each paper, i.e., k-NN with k=1 and Random Forest for DENDROID and CANDYMAN respectively.
+
+We adopted Stratified K-Fold Cross Validation with K=5 to provide training and testing sets with 5 different random splits.
+
+Quality of the results is assessed with unweighted12  standard measures, i.e., precision, recall, and F1-score.
+
+Implementations of classifiers, quality measures and cross-validation make use of Scikit-Learn (Pedregosa et al., 2011).
+
+For each technique tested, we report the performance values achieved for every malware family in the dataset and the overall average score.
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+All three techniques are compared with 1-NN (chosen since DENDROID is built to work only with it).
+
+CANDYMAN and SECUR-AMA are also compared with Random Forest and Linear SVM where the first is shown to perform better with CANDYMAN in Martín et al. (2018), whereas the second performs better with SECUR-AMA.
+
+The overall best results for every approach are reported in Fig. 8 where it is visible that SECUR-AMA with Linear SVM performs better than the others.
+
+However, every method has its strengths and weaknesses that are worth to discuss more in detail.
+
+PARAGRAPH
+
+Table 1 reports the results of the comparison between all three techniques where 1-NN is used as classifier, Table 2 reports the results of the comparison between CANDYMAN and SECUR-AMA with Random Forest classifier, and finally, Table 3 reports again the results of the comparison between CANDYMAN and SECUR-AMA, but with a Linear SVM classifier.
+
+The two active techniques, i.e., CANDYMAN and SECUR-AMA perform better that the static one, i.e., DENDROID.
+
+A first common problem of static methodologies comes from analyzing malware with encrypted malicious code deployed at runtime or obfuscated.
+
+Another limitation is related to the “actually executed blocks” problem: these approaches analyze a given program by building the associated CFG and then studying its properties, but the CFG structure does not indicate the real execution flow of that program when it runs.13
+
+In other words, there is a gap between the code segments appearing in the compiled program and the statements actually performed at runtime, as these are a subset of the former.
+
+This characteristic represents a limit since, in a classification task, the feature extraction applied to such models will cause the presence of overflowing useless information in feature vectors, hence creating noise for the training phase potentially yielding misleading responses.
+
+Dynamic analysis instead typically suffers of the opposite problem: it is difficult to observe executions of the program that cover the entire code, i.e., the code coverage problem.
+
+Such problem is noticeable in the Opfake, Winge and Triada families as they are designed to receive commands from an external server controlled by an attacker in order to be triggered and show their malicious behavior.
+
+DENDROID is able to analyze such behaviors by looking at the code without executing it, resulting in a better classification score for such families regardless of the classifier used for CANDYMAN and SECUR-AMA.
+
+However, the code coverage limitation is much less prominent in Android malware analysis since what is observed is usually relevant in the overall behavior, as the application are developed for the specific smartphone usage.
+
+There are obviously some exceptions, nonetheless, experiments confirm the viability of dynamic analysis in our case to focus on what is important to learn for the classification task.
+
+Other families for which the static analysis of DENDROID performs better than the other two techniques are AndroRAT and GoldDream, characterized by small malicious code injected into bigger benign applications.
+
+Such configuration prevents dynamic techniques to obtain perfect scores, because of the mentioned problem of “noisy” execution traces.
+
+PARAGRAPH
+
+The strength of classical dynamic analysis in handling encrypted or obfuscated code with respect to static approaches contributes to better scores when considering the whole dataset, as visible in Tables 2 and 3.
+
+The main difference between CANDYMAN and SECUR-AMA is that the first performs sequences of thousands of random events focused on the user interface of the specific application under analysis, whereas SECUR-AMA strategically selects generic user-like actions (without considering the user interface) in the order of tens so as to trigger the malware.
+
+SECUR-AMA results in more satisfactory performances, justifying a triggering mechanism driven by rational policy to improve in efficiency over a random action selection.
+
+The capability of targeting the graphical parts of an application, although randomly as CANDYMAN does, have the clear advantage of being able to analyze malware that are explicitly triggered by actions on the user interface, such as for many games injected with malicious code.
+
+For SECUR-AMA it is not straightforward to implement the same kind of interaction since such an action is heavily context-dependent, hence there is the risk to gather no information if it is performed without checking whether the system is in the right context.
+
+A solution to address this problem could be the definition of a generic “use GUI” analyzer action, accountable for any interaction which involve a screen event.
+
+However, such trigger would be too broad as there are many distinct possible interactions that are substantially different from application to application, e.g., pressing a button within a program may have totally uncorrelated meanings with respect to another program.
+
+For instance, the consequences of pushing the fee button in a ransomware form are completely different and unrelated to the effects of pressing a button in the main menu of a game application.
+
+PARAGRAPH
+
+Fig. 9 shows the learning rate for SECUR-AMA with Linear SVM classifier, i.e., how the performance changes with the number of actions performed, in terms of classification measures.
+
+The best is reached at around 20 actions performed by the analyzer and results stabilize from that point onward.
+
+Fig. 10 depicts the normalized confusion matrix of SECUR-AMA with Linear SVM classifier for a more detailed visualization of results presented in Table 3.
+
+PARAGRAPH
+
+We may conclude the discussion by saying that our methodology accomplishes the objective to propose a valid analysis to deal with triggered malware.
+
+Nevertheless, the performances achieved by the comparison techniques confirm their effectiveness as well: in spite of their overall lower learning metrics, they require a lower amount of data to train a classifier with respect to SECUR-AMA14  and, in case of malware that does not present any event listeners to show the payload, perform similarly or even better than our active approach.
+
+We believe that SECUR-AMA is a valid addition to complement existing techniques by providing satisfying results on a real malware dataset.
+
+SECTION
+
+Runtime performance
+
+PARAGRAPH
+
+SECUR-AMA is built in order to make the analyzer perform its selected action and then observe the malware response for 10 s. Indeed, in the context of Android malicious applications it is often the case that if a target malware is reactive, it will probably respond as soon as triggered by the analyzer and will perform its goal in a reasonable amount of time.
+
+After each interaction the emulator is reset (using a snapshot) to a clean state in about 10 s.
+
+The optimal length of the analysis game has been found empirically to be around 20 actions for the analyzer in our experimental setting, as visible in Fig. 9, resulting in about 6.5 min for the analysis of a single malware on a standard machine with 4 cores and 16 Gb of RAM.
+
+Hence, the time resources required by SECUR-AMA are comparable to those specified for the experimental settings of CANDYMAN in Martín et al. (2018).
+
+SECTION
+
+Conclusions and future works
+
+PARAGRAPH
+
+We propose SECUR-AMA, an alternative AMA technique based on MCTS to collect information about malicious software.
+
+SECUR-AMA models a malware as a set of Markov chains representing the behavior of the malware in response to triggering actions performed by the analyzer.
+
+Malware models are generated at runtime using the information collected during the analysis and such information is used to guide the remainder of the analysis in an iterative process.
+
+This formalism allows to represent the features obtained from the generated models in order to proceed to their classification with standard machine learning techniques, i.e., k-NN, Random Forest and Linear SVM.
+
+We conducted a throughout evaluation by comparing SECUR-AMA with other state-of-the-art techniques of different nature on a real malware dataset.
+
+Results show that our approach is a viable addition to existing techniques and is better performing in many cases.
+
+PARAGRAPH
+
+Future lines of work include the study of static analysis techniques to extract specific triggers from malware code in addition to the current triggers based on the simulation of user activity.
+
+Furthermore, the amount of code covered during the execution of a malware in the sandbox could be estimated by statically extracting the CFG from the binary code and comparing it with the observed execution traces.
+
+Indeed, combining static and dynamic analysis would help in mitigating the limitations of the separate techniques.
+
+Nonetheless, fusing the information acquired by static and dynamic methods in meaningful features, or using static analysis to augment dynamic analysis, requires additional research.
+
+In addition, combining traditional machine learning e.g., a priori information such as the association between triggers and families, with information acquired by active analysis at runtime in a hybrid approach could improve the action selection strategy.
+
+An important extension to consider is represented by the explainability of the features that are used to classify.
+
+Indeed, although we obtain highly representative models, we would like to isolate the distinctive behaviors of each model and assess why they have been associated to a specific malware family.
+
+In this way, we would also provide an intrinsic method to identify the analyzer triggering actions that actually lead to unveil the characterizing malicious behaviors.
+
+Another interesting direction is to devise more sophisticated strategies for the default policy of the simulation step in the MCTS, such as generative models based on deep learning.
+
+The usage of a neural network trained with data of previous analysis to produce execution traces could be a precious improvement.

@@ -1,0 +1,633 @@
+10.1016/j.jasrep.2018.09.009
+
+FULLTEXT
+
+TITLE
+
+GIS modeling of agricultural suitability in the highlands of the Jornada branch of the Mogollon culture of southcentral New Mexico
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The evolution of agricultural life is associated with a group of developments sometimes referred to as “the Neolithic package” in the Old World and reflected in parallel developments in New World Formative societies.
+
+Aside from the adoption of agriculture itself, these changes typically include major technological transformations (for instance construction of substantial dwellings and storage facilities and widespread use of pottery and food grinding technologies), and changes in material manifestations of social patterns (particularly aggregation into sedentary village communities of integrated but distinct households).
+
+The interaction among these developments is of fundamental interest given their near universality and their role in creating the foundations of subsequent urbanization and complex social formations.
+
+However, despite the apparent consistency of such a “package,” the links among its constituents are variable, a factor noted even in early descriptions of Neolithic and Formative patterns (e.g., Childe, 1936; Willey and Phillips, 1958), and the concept of a rigid Neolithic package has been heavily criticized in recent decades (e.g., Jordan and Zvelebil, 2009; Thomas, 1999).
+
+PARAGRAPH
+
+Critical areas for research include both expanding the tools for individually evaluating elements of the “package” and examining the pattern of covariation among its constituent parts.
+
+Here we consider an approach to assessing agricultural dependence in the context of the settlement changes associated with the origins of village formation (the Formative period) in the United States Southwest, focusing on the highlands of south-central New Mexico.
+
+The goals are twofold, methodological and analytical.
+
+First, we develop an approach to assessing agricultural dependence using a GIS based model of agricultural potential in relation to site placement; we model potential based on soil characteristics, topography, and proximity to drainage.
+
+Then, we apply this model to compare agricultural dependence across time spanning the early period of village formation associated with pithouses, and then, pueblo occupations in this region.
+
+PARAGRAPH
+
+There are two basic approaches available for modeling prehistoric agricultural potential across the landscape.
+
+Perhaps best are the approaches that use data on known locations of maximum agricultural productivity to train the model to rank other locations for agricultural potential (Healy et al., 2017).
+
+As discussed below, the existing data from south-central New Mexico do not currently permit this approach.
+
+The alternative approach that we adopt here is to model agricultural potential through first principles of environmental characteristics of soils and location.
+
+PARAGRAPH
+
+Our project area lies in the Sierra Blanca and Capitan Mountains and adjoining parts of southern Lincoln County, New Mexico (Fig. 1).
+
+The Formative period archaeological materials of this region fall within the Jornada Branch of the Mogollon archaeological culture area (Lehmer, 1948).
+
+Our study focuses on a transect from the high elevation portion of this region to its foothills, but does not include the better studied adjoining lowland basins to the south and west which show a different pattern of economic and settlement development (Rocek and Rautman, 2012; Railey and Turnbow, 2018).
+
+PARAGRAPH
+
+Traces of maize horticulture in the Jornada Mogollon date back over 3000 calibrated radiocarbon years before present but are not initially accompanied by most of the other indications of the Neolithic package.
+
+By around 2000 years ago, this region shows growing evidence of agricultural dependence in the form of abundant finds of maize and large bell-shaped storage pits (Campbell and Railey, 2008; Rocek and Rautman, 2012; Railey and Turnbow, 2018; Wiseman, 1996).
+
+In the mid-sixth century A.D. (around 1400 cal BP), clusters of large round pit dwellings and pottery appear in quick succession (Campbell and Railey, 2008; Rocek, 2013).
+
+The period ca. 1100–1200 CE suggests perhaps a mix of architectural forms, and by ca. 1200 CE, we see an aggregation into villages of surface pueblo architecture in the northern portion of the area (the Lincoln Phase) or tightly packed rectangular pit structures to the south (the late Glencoe Phase) (Kelley, 1984).
+
+These late “pueblo period” sites have all the hallmarks of heavily agriculturally based integrated village communities typical of the full Formative or Neolithic concept.
+
+The social and economic pattern characteristic of the earlier “pithouse period,” dominated primarily by round pithouses (usually assigned to the early Glencoe Phase1) is less clear.
+
+Rocek (1995) has argued based on the frequent correlation of pithouse architecture and extramural pit storage with seasonal site abandonment that the pithouse period is characterized by significant although heavily tethered seasonal mobility.
+
+Analysis of the pattern of structure chronological and spatial overlap among structures also suggests that pithouse period sites in this area may be loose palimpsests of relatively isolated farmsteads rather than integrated village communities (Rocek, 2013).
+
+PARAGRAPH
+
+On the other hand, high agricultural dependence in this period is suggested by the abundance of the large pit storage features, high maize ubiquity (and high ubiquity rank relative to that of other seeds) that are indistinguishable from the pueblo period (Rocek, 1995, 2007; see also e.g., Campbell and Railey, 2008; Hard et al., 1996; Railey and Turnbow, 2018).
+
+This suggests a disjunction in the Neolithic package, with agricultural dependence significantly preceding settlement and social changes associated with aggregation into settled village communities.
+
+The current project aims to develop and apply a model of agricultural potential to examine whether the pithouse period sites are positioned on the landscape to maximize proximity to good farmland, consistent with the argument that they are already fundamentally committed to agriculture, or whether their locations imply a more limited focus on agricultural resources or compromise with other concerns.
+
+PARAGRAPH
+
+Our findings described below suggest that our GIS model succeeds in capturing factors relevant to settlement location selection by agriculturalists.
+
+Our results concerning the pattern of association between village origins and agricultural dependence is complex, indicating broad agreement with previous evidence of strong agricultural dependence by the early Formative (“pithouse period”), but hinting at a potential slight further increase later in the period (in the “pueblo period”).
+
+However, as discussed in the concluding section of this paper, the results regarding the latter finding remain open to multiple interpretations.
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+We model agricultural productivity from basic topography and soils data.
+
+As noted above, we adopt the strategy of developing an agricultural potential model from environmental first principles.
+
+Dorshow (2012a, 2012b) pioneered this approach for the Southwest.
+
+His work was set in Chaco Canyon in northwestern New Mexico; with certain modifications to accommodate the particular circumstances of our study and geography, we adapt his technique.
+
+This approach allows us to model agricultural conditions grounded in slope, soils, and distance to water, variables central to Southwestern agriculture (Buck and Sabol, 2014; Dominguez and Kolm, 2005; Herhahn and Brett Hill, 1998; Hertfelder, 2017; Hill, 1998; Kruse, 2007; Van West, 1994).
+
+Our GIS study uses ESRI's ArcGIS 10.4.1 software and a variety of spatial analysis tools.
+
+We project all layers (described below) into NAD_1983_UTM_Zone_13N, based on the 1983 Soil Survey for Lincoln County, NM.
+
+After each variable is reclassified onto a scale of 1–5 (5 being the best conditions for agriculture), the environmental data layers are combined through a raster weighted overlay function to generate a composite agricultural suitability map.
+
+The Chaco Canyon study used 1 m resolution based partially on lidar data collected by Dorshow, but our study area is 113,213 ha, roughly 12 times larger than Dorshow's, and we restrict our analysis to publicly available data with a 10 m pixel resolution.
+
+PARAGRAPH
+
+Our study area covers a transect in southern Lincoln County, New Mexico, from the western edge of the highlands east of modern Carrizozo to the base of the foothills along the Rio Bonito and Rio Hondo (Fig. 2).
+
+In order to capture a sample swath of the lowlands and uplands, the study area was delineated by an arbitrary boundary that included Indian Divide (the east-west drainage divide in this portion of the Sierra Blanca mountains) on the west, the forested southern side of the Capitan Mountains on the north, the Lincoln County boundary on the south, and the approximate start of the transition to Chihuahuan desert lowland vegetation on the east.
+
+Most of our study area is in the Capitan Mountain highlands between about 2000 m and 1600 m, but with a high of about 3000 m to a low around 1400 m. Calculation of the variables of flow length and drainage proximity were processed using an area extending beyond our study boundaries to include the larger watershed to provide a more comprehensive and defined drainage area; those layers were subsequently restricted to the project boundary.
+
+PARAGRAPH
+
+Our model uses five variables (additional details may be found in Dorshow (2012a, 2012b):
+
+SECTION
+
+Slope
+
+PARAGRAPH
+
+Using ESRI's ArcGIS, the first step was creating a Digital Elevation Model (DEM) layer for the slope variable, based on the 2013 USGS elevation data file for the area (USGS, 2013).
+
+Ideally, the surface elevation should reflect past conditions by refining the model with geological and archaeological data, but at this stage, our model uses the modern terrain.
+
+We generated a percent slope surface from the processed 10 m DEM (Fig. 2A) and reclassified the surface into the same five categories as defined by Dorshow (2012b:2102) (See Table M1).
+
+Non-terraced dry farming requires a fairly level landscape, and thus flatter land with a lower percent slope has a higher suitability score.
+
+SECTION
+
+Soils: texture and depth
+
+PARAGRAPH
+
+Bounding the study area on the south at the Lincoln County boundary was meant to simplify the data layers, including soil surveys.
+
+However, the study area cuts through the Lincoln National Forest, so soils data come from both the Lincoln County Soil Survey and the Lincoln National Forest Soil Survey.
+
+Unfortunately, these two surveys do not have layers that align exactly, nor do the databases have the same categories and attributes.
+
+We manually edited topological issues of gaps and overlaps created from the joining of the two layers to create the soil texture map (Fig. 2B).
+
+PARAGRAPH
+
+For the Lincoln County soils, we accessed the Soil Survey Geographic (SSURGO) database for Lincoln County Area, New Mexico through NRCS's Soil Data Mart (USDA, 2009).
+
+The soils layers are based on a digitized 1983 Soil Survey for the county (Sprankle, 1983).
+
+Each soil survey map consists of a set of soil “map units” (polygons), which are coded for the soil series or association of several soil series found within them.
+
+Based on the published soil texture descriptions for each soil series, we assigned each soil map unit a suitability rating corresponding to the soil texture data categories of the soil series found within it (see Table M2).
+
+In cases where multiple soils compose a single soil map unit, we used the weighted average score of the soil textures.
+
+PARAGRAPH
+
+The Lincoln National Forest Soil Information is located at the US Forest Service website (USDA, 2008).
+
+The polygon layer provides data as terrestrial ecological units with both soil and vegetation information.
+
+One Lincoln National Forest polygon (9999D) was missing data on its soil unit, so we assigned the polygon the same values as surrounding soil texture and soil depth ratings to avoid areas of missing data.
+
+We used the same strategy for the soil depth rating on a couple of additional polygons with missing data.
+
+We derived the Forest soil texture suitability scores of each polygon as a weighted average based on up to three soil series identified in a given mapped soil unit.
+
+In order to reconcile data categories to different soil texture descriptions for both the County and the Forest, we also rated soil textures that did not initially correspond to Dorshow's categories, such as riverwash and gravelly loam (Table M2).
+
+Sand- and silt-dominated soils have a high suitability rating compared to clay-dominated, or fine sediment, soil textures; rock dominated soils are rated very poor.
+
+PARAGRAPH
+
+In addition, we removed areas of permanent water from the soil texture layer by equating the water polylines and polygons from the 2006 TIGER dataset for Lincoln County, NM (U.S. Bureau of Census, 2006a, 2006b) to No Data.
+
+SECTION
+
+Depth to bedrock
+
+PARAGRAPH
+
+For depth to bedrock, deeper soils are assumed better suited for agriculture.
+
+Although we generally follow Dorshow's categories, we had to modify the data categories for soil depth to bedrock, because the County soils layer only reports up to 60 in.
+
+or about 1.5 m, whereas Dorshow's categories exceed 3 m.
+
+We created the following four categories based on the available County and Forest data (Table M3).
+
+PARAGRAPH
+
+Although both the County and Forest data have “very shallow” listed as a category, this category is always combined with shallow in the County data and is only identified once, and without a corresponding numeric depth, in the Forest data.
+
+Therefore, we combined very shallow and shallow into one category.
+
+We rated riverwash, rock outcrop, and lava flows as shallow since they did not have any recordable depths.
+
+As with soil textures, County soil units comprised multiple named soils series with different depths, so we calculated a weighted average rating for each polygon, resulting in some fractional average depths.
+
+However, Forest soil depth information only had a single depth for the soil units.
+
+Consequently, we rounded the weighted average County depth ratings to an integer in order for the County and Forest soil depth ratings to be at the same resolution (Fig. 2C).
+
+SECTION
+
+Flow length
+
+PARAGRAPH
+
+For Flow Length, we used the larger grid block of the DEM to include the upper reaches of the watershed to ensure that the ArcGIS tools worked properly.
+
+We processed the larger grid block using tools for FILL, FLOWDIRECTION, and FLOWLENGTH (Downstream) before clipping the layer to the project boundary.
+
+We follow Dorshow's procedure in this, except that Dorshow's published tables (Dorshow, 2012b: 2102; Dorshow, personal communication, June 2, 2016) inadvertently reversed the direction of the ratings.
+
+Thus, we use the reverse order from his published ratings; lowest flow length from outwash yields a high rating and highest distance yields the lowest rating (Fig. 2D).
+
+That is, downstream areas receive more accumulated water, and thus, have higher agricultural potential.
+
+Since our project area is also much larger than the Chaco project area, we did not use Dorshow's intervals but divided Flow Length into five equal intervals.
+
+Pixel rating values increase as they move downstream towards the outwash (Table M4).
+
+SECTION
+
+Drainage proximity and flow potential
+
+PARAGRAPH
+
+Drainage proximity and Flow Potential expands on information incorporated in the flow length to add a measure of proximity to the closest primary drainage, which influences the availability of water.
+
+Following Dorshow, the Drainage Proximity and Flow Potential variable consists of a series of five 700 m zones of increasing flow distances from the primary drainages (Rio Bonito, Rio Hondo, Rio Ruidoso).
+
+These form segments of the drainages flowing into the Bonito, Hondo, and Ruidoso rivers with buffers extending from the drainage courses over their banks and onto adjacent land that would benefit from the moisture in the drainages.
+
+These buffer zones are defined to be narrower as one moves up the drainage segments away from the primary drainage, decreasing as one progresses upstream up the 700 m flow length zones.
+
+Thus, the buffer width is defined as 50 m on either side of the drainage near the outwash into the primary drainages, and then drops in a series of 10 m increments every 700 m farther from the primary drainage, with a buffer width limited to 10 m beyond 5600 m upstream.
+
+The reasoning is that water would not be widely available beyond the drainage banks in these low order upstream areas.
+
+PARAGRAPH
+
+The specific steps to create this layer are as follows: First, we isolated all drainages from the primary drainages (Rio Bonito, Rio Hondo, Rio Ruidoso).
+
+Starting with the DEM, we created a flow accumulation layer based on a minimum flow accumulation threshold of 400,000 m2.2
+
+After processing the flow accumulation layer to create stream orders, we chose Levels 5 and 6 to be the primary drainage, and Levels 1–4 to become the buffered segments.
+
+Then, we created flow distances of the streams from the primary drainages using the Flow Length tool (downstream), segmenting the streams (700, 1400, 2800, 5600, >5600 m).
+
+In order to show the constriction of water availability on the banks and nearby land further from the primary drainages, we buffered these flow length stream segments according to Dorshow's categories (10, 20, 30, 40, 50 m) (Table M5).
+
+All buffered segments were merged together to create the final layer reclassified into suitability scores (Fig. 2E).
+
+SECTION
+
+Overbank flooding potential
+
+PARAGRAPH
+
+We should note that we could not replicate the published definition of the Chaco study's overbank flooding variable and have not included it in our five variable agricultural suitability model.
+
+After discussing the variable with Dorshow (personal communication, Dorshow, 2016), we decided that, in any case, the variable was not as suited to our relatively steep project area as it was to the flatter setting of Chaco Canyon, and we did not include it in our model.
+
+SECTION
+
+Composite agricultural suitability rating
+
+PARAGRAPH
+
+Following Dorshow, slope and soil texture are weighted twice as heavily as other variables.
+
+Thus, we combine our five variables into a composite agricultural suitability model:
+
+PARAGRAPH
+
+(2 ∗ Slope) + (2 ∗ Soil Texture) + Soil Depth + Flow Length + Drainage Proximity = Agricultural Potential.
+
+PARAGRAPH
+
+We reclassified this layer into five equal intervals to create the final Agricultural Suitability Score Composite Map with pixel scores that ranged between 1 (lowest agricultural potential) and 5 (highest agricultural potential) (Fig. 3).
+
+SECTION
+
+ARMS (sites) data
+
+PARAGRAPH
+
+We accessed site locations and associated contextual information through the New Mexico Historic Preservation Division's Archaeological Records Management Section (ARMS).
+
+After providing the ARMS contact with our project boundary, they provided digitized layers of sites and .
+
+dbf tables of site data [most recently updated July 2016].
+
+Using the Zonal Stats 2 tool, we calculated the pixel agricultural score counts and means for each site and each time period category based on the values of the final Composite Agricultural Potential values.
+
+We applied these calculations to a total of 266 identified sites, representing 317 temporal components.
+
+PARAGRAPH
+
+Within this body of sites, we coded site components by time period, focusing on Archaic, Pithouse, and Pueblo time periods, restricting the latter to sites with evidence of architecture.
+
+Archaic sites are associated with time periods that end before 200 CE.
+
+“Pithouse Period” sites are associated with time periods that end between 200 and 1100 CE.
+
+We identified sites as “Pueblo Period structural sites” if both the time period of the site component ended between 1100 and 1400 CE and the ARMS files coded the sites as having evidence of structural remains.
+
+The intent of this latter category is to distinguish pueblo period sites that are likely to be residential as opposed to outlying, limited-activity locations of the same time period.
+
+These categories, then, are not strictly speaking architecturally based, but they do correspond to the dominant architecture for the given time ranges; a more detailed site-by-site classification based on actual architecture is not possible given the uneven data available from various survey and excavation information incorporated into the ARMS data set.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+As a preliminary step in applying the agricultural suitability model, we examine the distribution of agricultural suitability scores of the total project area and compare it against site suitability scores (measured as the scores of land within site boundaries).
+
+Given the importance of agriculture throughout most of the periods represented by the sites, our expectation is that site locations should be biased in favor of higher agricultural potential relative to the region as a whole.
+
+PARAGRAPH
+
+Fig. 4 shows histograms of our five variable agricultural suitability model, comparing the total project area (4A) versus the values of only pixels falling within the boundaries of the 266 identified sites (4B).
+
+The bars represent percentages of pixels broken down according to the agricultural suitability values, ranging from the worst (1) to best (5).
+
+While we hesitate to perform statistical analysis for reasons discussed below, the distribution appears to fit what would be expected of the model.
+
+The graphs clearly show a notable contrast, with sites containing a substantially higher proportion of high ranked pixels and fewer areas of poor land compared to the project area as a whole.
+
+SECTION
+
+Survey bias
+
+PARAGRAPH
+
+However, in comparing site location agricultural potential values against the study region as a whole, we must address the issue of site discovery bias.
+
+The model is predicated on a number of variables, such as deep soils and level slopes, which undoubtedly correlate with areas subject to modern settlement, agricultural activities, and road construction.
+
+Thus, sites are more likely to found due to farming, construction, (or CRM survey prior to construction) in such areas compared with the full range of environments in the study area.
+
+Thus, the fact that sites tend to fall in areas encompassing predicted high agricultural potential is likely, at least in part, a result of discovery bias.
+
+PARAGRAPH
+
+While we cannot address all forms of discovery bias, one of the significant strengths of a GIS model is the ability to control for the effects of survey bias, a critical point that is often not addressed in settlement studies.
+
+We can do this by comparing the characteristics of surveyed regions against the characteristics of the study region as a whole, and similarly comparing surveyed sites to all sites found by any mode of discovery.
+
+PARAGRAPH
+
+As expected, Fig. 4C shows that surveyed land is dramatically different from the study area in general–that is, surveyed areas are highly biased towards what the model identifies as better land.
+
+This means that simply comparing site locations against the study region is potentially very misleading.
+
+We can correct for this, however, by restricting analysis to a comparison of the agriculture potential distribution of pixels within surveyed land only to the distribution of pixels on sites found only on surveyed land.
+
+PARAGRAPH
+
+This drops our sample from 266 down to 175 surveyed sites, and the contrast between surveyed sites (Fig. 4D) and surveyed land (Fig. 4C) is subtler.
+
+However, surveyed sites do show higher agricultural suitability locations relative to the full distribution of the surveyed land.
+
+Notably, category 4 increases, while categories 2 and 3 decrease.
+
+(The number of pixels in categories 1 and 5 is very low in all histograms, so that their percentage distributions probably primarily reflect random variation.)
+
+Therefore, while survey bias is substantial, it does not fully account for the observed patterning, and our five variable agricultural suitability model appears to be crudely effective in predicting site locations in general even when we control for survey bias in this way.
+
+SECTION
+
+Prediction of location of Pueblo period structural sites
+
+PARAGRAPH
+
+A next step is to examine whether the five variable agricultural suitability model specifically predicts the locations of agricultural sites or merely site locations in general.
+
+Unfortunately, the available historical and recent land use data suffer from two critical defects; they are not detailed enough for evaluating our model against direct evidence of pre-industrial agricultural use and they are confounded with historical transformations in the technology and mode of agriculture, including livestock ranching, pump irrigation, and both animal and mechanical transportation.
+
+As a substitute, we use our prehistoric site sample as an indirect test.
+
+We divide our total sample between the 42 pueblo period structural components, 11 pithouse components, 10 Archaic components, and 217 other components.3
+
+These 217 other “residual” components represent non-Archaic, non-Pithouse, and non-structural Pueblo sites.
+
+We evaluate the five variable agricultural suitability model's predictions against pueblo-period structural site components as a proxy for known agricultural locations based on the assumption that the pueblo period represents a peak period of agricultural dependence, and structural sites reflect the residential pattern in this period.
+
+We then contrast these structural pueblo locations against the 217 other residual site components, setting aside the 11 pithouse period components and 10 Archaic period components for later evaluation.
+
+As seen in Fig. 5, the model does seem to be encouragingly predictive of pueblo locations.
+
+While all sites trend towards higher agricultural potential than the study area as a whole, pueblo sites show a stronger agricultural pattern of increased agricultural suitability score 4 (high suitability) and decreased low ranked scores 2 and particularly 3 than the other residual site components (compare Fig. 5B and C, and compare both to Fig. 5A).
+
+In this case, scores 1 and 5 also pattern as predicted, but given the small sample sizes of pixels at these extremes, we place little reliance on them here or in the discussion that follows.
+
+PARAGRAPH
+
+Restricting analysis to just surveyed land and sites (Fig. 5D–F), we see similar patterning, although the slight differences in suitability category 2 are reversed.
+
+SECTION
+
+Archaic site placement
+
+PARAGRAPH
+
+While significant agricultural activity is evident by the late Archaic period in the highland areas and adjoining foothills adjacent to the study region (e.g., Campbell and Railey, 2008; Railey and Turnbow, 2018; Rocek and Rautman, 2012; Wiseman, 1996), our best proxy for contrasting the evident heavy agricultural activity of the Pueblo period occupation is the Archaic period occupation.
+
+Fig. 6 adds Archaic site components to the previous analyses; 10 Archaic sites total, including 7 surveyed components.
+
+Again, the histograms show clear differences between the agricultural suitability score distributions of pueblo period and archaic sites, with an increase of score 4 pixel percentage and the decrease of score 2 in Pueblo period versus Archaic sites, indicating that land with higher agricultural suitability scores were selected by the agriculturally-dependent pueblos (compare Fig. 6C and A).
+
+The trend holds true for the surveyed Archaic and surveyed Pueblo sites as well (Fig. 6D and F).
+
+SECTION
+
+Pithouse period site placement
+
+PARAGRAPH
+
+Despite limitations, we can look at relative change over time.
+
+One of us (Rocek, 1995, 2007) has previously argued that evidence of high maize ubiquity and abundant storage features indicate that pithouse sites are indistinguishable in agricultural dependence from later pueblos.
+
+Fig. 6 shows that pithouse sites look more agricultural than the project area in general, with increased soil suitability scores 3 and 4 (Compare Fig. 4A with Fig. 6B).
+
+Archaic sites are much less agricultural looking than pithouse sites, with a maximum peak in agricultural suitability score 2, substantially worse than seen for the project area as a whole (Fig. 6A and B).
+
+However, we also see that the pithouse sites (Fig. 6B) use somewhat lower agricultural suitability locations than pueblos (Fig. 6C).
+
+Thus, while the histograms show a lot of noise which might reflect imperfections in the model or small sample sizes (particularly in suitability categories 1 and 5 which we leave aside in the current discussion), they suggest that pithouse period sites reflect the choice of much more agriculturally suitable site locations than used for Archaic sites.
+
+However, they also suggest that pithouse agricultural suitability distribution falls below that of the pueblos, albeit much closer to the pueblo period than to the Archaic pattern.
+
+PARAGRAPH
+
+If we restrict analysis to surveyed Archaic sites versus surveyed pithouse and pueblo period sites, we see similar patterning of substantially higher agricultural suitability in both the pithouse and the pueblo period, but with an even higher concentration on high suitability land in the latter period (Fig. 6D–F).
+
+When survey bias is accounted for in this way, pithouse sites tend towards Categories 2 and 3 as well as Category 4, suggesting potentially complex resource strategies.
+
+Of course, this is an even smaller sample subject to more random sampling noise as well as the effects of any flaws in the agriculturally suitability model.
+
+Nevertheless, both analyses suggest that agricultural suitability may have influenced site locations substantially more in the periods after the Archaic, but with a secondary additional small increase in importance during the pueblo period relative to the pithouse period.
+
+SECTION
+
+Summary statistics
+
+PARAGRAPH
+
+The preceding graphically-based analysis is confirmed by an examination of agricultural suitability score pixel averages.
+
+These comparisons of average values are strongly consistent with the preceding pattern suggested by the histogram distributions (Table D1).
+
+Whether analysis includes all sites or is restricted to surveyed sites, pithouse and pueblo period sites have substantially higher agricultural suitability scores than Archaic sites; within that pattern, pueblo period site scores average still a little higher than pithouse period sites.
+
+PARAGRAPH
+
+Since the data in Table D1 are based on total pixel counts within estimated site boundaries for sites of each period, large sites are effectively weighted more heavily than small ones.
+
+This may not be the clearest indication of site location choices.
+
+Furthermore, survey estimates of site size might significantly affect the inter-period patterning if analyzed this way.
+
+As a way of checking for the robustness of our results, we can alternatively look at the same comparisons by calculating average values by site (that is, time period means of site means) rather than averaging pixels across sites, effectively weighting each site equally (Table D2).
+
+PARAGRAPH
+
+The results are the same as found at the pixel-level.
+
+For instance, surveyed pithouse period sites average 0.3 higher on agricultural suitability scores than surveyed archaic period sites; surveyed pueblo period site suitability scores are higher still, but only by 0.06.
+
+PARAGRAPH
+
+One likely factor affecting this pattern is the restriction of the analysis of pueblo period site components to only those with evidence of architecture in contrast to the inclusion of all pithouse period sites.
+
+Unfortunately, restricting pithouse period sites in the same way is impractical, both because of the already small sample size and the fact that pithouse remains in this region are often impossible to recognize from the surface, whereas pueblo architecture often is visible.
+
+The alternative of including all pueblo remains is also not practical, since the pueblo period occupation is by far the heaviest, and numerous isolated finds (“pot drops”, etc.) would render interpretation of patterning in this period problematical.
+
+PARAGRAPH
+
+Statistical testing of any of these results is impractical at this stage.
+
+An approximate power analysis (calculating for equal sample sizes and using pooled standard deviation estimates) suggests that in order to have an 80% chance of demonstrating significance of the observed difference between surveyed Pueblo and surveyed Archaic sites (at the 0.05% level, two sided) we would need samples of something over 92 sites in each category rather than the 23 and 7 respectively currently known.
+
+If analysis were not restricted to surveyed sites, over 225 Pueblo and Archaic sites respectively would be required.
+
+Note that these sample sizes would be needed to distinguish the (rather obvious) difference in Pueblo and Archaic sites, not the more subtle contrasts of Pithouse sites with the other categories.
+
+Thus at the current stage of research, our results must be viewed as suggestive; the issue of formal statistical testing is further discussed below.
+
+Still, we are left with a strong indication of a contrast between Pueblo and Archaic sites and the hint of a limited contrast between the pithouse and pueblo period that may be entirely or in part accounted for simply by the sampling strategy available for the current analysis.
+
+However, the possibility remains that the latter limited contrast in spatial distribution does reflect some cultural differences as well.
+
+PARAGRAPH
+
+An examination of a distribution map of sites from the three periods (Fig. 7) shows how the few Archaic sites include some widely scattered locations, whereas both pueblo period and pithouse period sites cluster either in the good farmland of the Rio Bonito alluvial zone or in a few patches of similarly good land.
+
+As discussed previously, there is a hint of wider scatter in the pithouse sites, including a higher proportion on good land outside of the valleys, but the contrast is small and may result from the factors noted above.
+
+SECTION
+
+Conclusions and directions for further refinement
+
+PARAGRAPH
+
+Our results have potential implications for both the interpretation of Formative period settlement in the Sierra Blanca/Capitan Mountain highlands, and for further methodological approaches to settlement analysis.
+
+SECTION
+
+The pithouse period and agricultural dependence
+
+PARAGRAPH
+
+Our findings are consistent with other evidence suggesting that both pueblo and pithouse period settlements were significantly dependent on agriculture.
+
+Somewhat unexpectedly (in light of the arguments outlined by Rocek, 1995, 2007), our preliminary results place pithouse sites in between Archaic-period and pueblo-period structural sites in terms of locations with agricultural potential.
+
+While the conventional interpretation is that this reflects relatively lower agricultural reliance during the pithouse period, other interpretations are equally possible.
+
+Rocek (e.g. 1995, 2007) argued that although pithouse settlements were equally reliant on agriculture as the succeeding pueblo occupations, their residential pattern suggests a more dispersed as well as more mobile settlement pattern.
+
+Thus, pithouse locations may be balancing the needs of agriculture and other concerns, such as mobility and social interaction, as well as specific technological constraints for placement of underground storage, access to wood for pithouse construction, and so forth.
+
+From the methodological point of view, it is important to recognize that pueblos are an imperfect proxy for agricultural suitability locations since they also may reflect additional factors, such as defense, access to travel routes, or firewood supply.
+
+As noted above, our restriction of pueblo period sites to those with architecture may also bias that period to “look” more agricultural.
+
+On the other hand, the conventional interpretation may be correct; pithouse site locations may reflect a compromise between agricultural considerations and the needs imposed by greater reliance on non-cultivated food than found in the pueblo period.
+
+The analysis does confirm that pithouse period sites are positioned much more similarly to pueblo period than Archaic period sites.
+
+PARAGRAPH
+
+For now, we view these results as highly tentative in light of the many possible uncertainties and improvements on the model we have outlined and that we consider below, but the approach appears well worth pursuing.
+
+The most basic question is how well our model is actually predicting the agricultural suitability of each pixel.
+
+We do not consider the model sufficiently developed to draw a firm conclusion that pithouse period sites reflect lower agricultural dependence than the pueblo period, though that may ultimately prove to be the case.
+
+We consider areas for further improvement and exploration below.
+
+SECTION
+
+Methodological observations and future directions
+
+PARAGRAPH
+
+From a practical point of view, the (ARMS) survey data used in this study, while a very rich and valuable resource, contains limited and uneven information about each site.
+
+Resurvey or small scale testing of selected sites could improve this situation, although there is always a balance between restricting data based on quality demands on the one hand and sample size on the other.
+
+Beyond issues of data quality, however, a range of methodological and theoretical improvements may be considered.
+
+PARAGRAPH
+
+First, we have experimented with adding regression-based estimates of precipitation and temperature (the latter divided into two variables: growing degree-days based on elevation and topographically-estimated cold-air drainage based on the topographic convergence index), to the agricultural suitability model in our large and topographically complex study region.
+
+Unfortunately, so far that expanded model with eight variables is actually less effective than the five variable model in predicting pueblo or other site locations, and it may be that local topographical variation swamps regional scale modeling of these additional variables.
+
+Still, if more accurate estimates of the values of these temperature and precipitation variables could be obtained (perhaps from fine-grained satellite observations and high-resolution lidar mapping), revisiting these variables may be warranted.
+
+PARAGRAPH
+
+Second, several additional approaches offer themselves to improving our agricultural suitability model, as well as more rigorously evaluating the results.
+
+One step is to investigate individual variables in the model and to examine how they contrast pueblo period structural components with other site locations.
+
+Our preliminary observations suggest that not all variables are equally effective, and some may simply add noise.
+
+Furthermore, variables are not necessarily unimodal or maximized in pueblo sites.
+
+In other words, a simple linear model incorporating these five variables may not best predict suitability, either because some variables exhibit bimodal peaks (more than one sort of environment is preferred for different sorts of farming) or because of interaction effects among variables (for instance, different sediments may be ideal in different topographic settings).
+
+PARAGRAPH
+
+Third, as noted previously, the use of residential (structural) pueblo sites as a proxy for maximum agricultural suitability is at best indirect, and at worst, circular reasoning.
+
+Unfortunately, no suitable source of pre-industrial subsistence agricultural productivity is available.
+
+Ultimately, a series of test field plots in a variety of settings might give greater insight into the effectiveness of the agricultural model variables.
+
+It may also be more effective to move away from the five-fold equal interval categories of agricultural potential scores to increase the sample sizes at the two ends of the distribution (scores 1 and 5) and/or to reflect actual estimates of the relative agricultural yield in each kind of setting.
+
+PARAGRAPH
+
+Fourth, an additional step in evaluating our models is to move beyond visual comparisons of histograms to resampling approaches to evaluate confidence intervals for the differences we are seeing.
+
+The patterning we have observed with our five variable agricultural suitability model appears quite robust; nevertheless, as we gain confidence in what we are actually modeling, we will move to significance testing among distributions.
+
+PARAGRAPH
+
+This leads to our fifth point.
+
+So far, we have used pixel counts within site boundaries as the basis for our histogram plots; that is, we assume that the proportion of land falling within site boundaries having particular suitability index values reflects settlement choices regarding site placement in relation to agricultural suitability.
+
+However, alternative measures are possible which might better reflect settlement decisions, including ones based on site densities within regions of a given suitability value, or on distance from sites to particular threshold suitability levels.
+
+The latter might be particularly realistic in modeling actual decision-making; people do not necessarily live on the best agricultural land, but they want to be near it.
+
+PARAGRAPH
+
+Sixth, as we work to improve our suitability model an additional approach appears promising: application of statistical methods such as Maximum Entropy or Mahalanobis Typicality models to optimize discrimination between the location parameters of agricultural and non-agricultural sites (Healy et al., 2017).
+
+This method does not escape the weakness discussed previously stemming from the lack of historical land use data.
+
+Our best current alternative is assuming that pueblo period structural sites can be treated as proxy ideal agricultural locations in contrast to other site locations that are assumed poorly suited for agriculture, and using these sites to train the model, but this suffers from the flaws noted above.
+
+However, Maximum Entropy or Mahalanobis Typicality offers an alternative, and perhaps, more systematic way of refining future models (Healy et al., 2017; Howey et al., 2016).
+
+It might be possible to approach this problem in a comparable region with better experimental or historical agricultural productivity data to avoid the circularity of using the pueblo period as a proxy for optimal agricultural locations.
+
+PARAGRAPH
+
+Finally, given the potential that agricultural considerations are likely to have been balanced by other factors noted above (access to travel routes, raw materials, etc.), ultimately it may be productive to combine a model of agricultural suitability with models of some of these other factors to examine their relative impacts on site placements.
+
+PARAGRAPH
+
+The current results are provocative, raising questions regarding the relation between pithouse and pueblo period occupations.
+
+While we do not view the current results as sufficient to draw strong conclusions, they are promising and suggest that further refinement of agricultural suitability (as other sorts of location optimization) modeling are well worth pursuing.

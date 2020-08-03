@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.02.015
+
+ABSTRACT
+
+TITLE
+
+Sequential hypothesis tests for streaming data via symbolic time-series analysis
+
+PARAGRAPH
+
+This paper addresses sequential hypothesis testing for Markov models of time-series data by using the concepts of symbolic dynamics.
+
+These models are inferred by discretizing the measurement space of a dynamical system, where the system dynamics are approximated as a finite-memory Markov chain on the discrete state space.
+
+The study is motivated by time-critical detection problems in physical processes, where a temporal model is trained to make fast and reliable decisions with streaming data.
+
+Sequential update rules have been constructed for log-posterior ratio statistic of Markov models in the setting of binary hypothesis testing and the stochastic evolution of this statistic is analyzed.
+
+The proposed technique allows selection of a lower bound on the performance of the detector and guarantees that the test will terminate in finite time.
+
+The underlying algorithms are first illustrated through an example by numerical simulation, and are subsequently validated on time-series data of pressure oscillations from a laboratory-scale swirl-stabilized combustor apparatus to detect the onset of thermo-acoustic instability.
+
+The performance of the proposed sequential hypothesis tests for Markov models has been compared with that of a maximum-likelihood classifier with fixed sample size (i.e., sequence length).
+
+It is shown that the proposed method yields reliable detection of combustion instabilities with fewer observations in comparison to a fixed-sample-size test.

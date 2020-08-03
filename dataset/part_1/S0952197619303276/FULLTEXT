@@ -1,0 +1,941 @@
+10.1016/j.engappai.2019.103423
+
+FULLTEXT
+
+TITLE
+
+Combinatorial search for selecting the structure of models of dynamical systems with equation discovery
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Computational scientific discovery is a major research topic since the early days of artificial intelligence.
+
+Scientific discovery has been approached with general heuristic methods for problem solving (Langley et al., 1987) or with combinations of knowledge representation formalisms and reasoning methods (Lindsay et al., 1993).
+
+Recent technological advances in measurement, i.e., data collecting equipment, on one hand, and data storage and processing equipment on the other hand, reestablish the importance of computational scientific discovery.
+
+Kitano (2016), following the paradigm of discovery informatics (Gil et al., 2014), establishes scientific discovery as a grand challenge for artificial intelligence, calling for development of “an AI system that can make major scientific discoveries”.
+
+PARAGRAPH
+
+The task of scientific discovery that we address is the one of mathematical modeling of dynamical systems from observational, measurement data.
+
+Most commonly, dynamical systems are modeled with ordinary differential equations, which express the time derivatives (i.e., rates of dynamical change) of system variables as functions of the current values of the system variables and constant model parameters, specifying the system behavior.
+
+Thus, the modeling of dynamical systems can be approached by using equation discovery (Todorovski, 2010), also referred to as symbolic regression (Schmidt and Lipson, 2009).
+
+Equation discovery aims at automatic induction of mathematical models, both their structure and parameter values, from time-series measurements of observed system variables.
+
+This is in contrast with standard regression in machine learning (Hastie et al., 2009), where the focus is on estimating the parameter values of a model with a fixed structure (i.e., linear regression) or a family of models with shared structure (i.e., decision trees).
+
+PARAGRAPH
+
+Both equation discovery and symbolic regression methods rely upon decomposition of the task at hand into two interleaved subtasks of structure identification and parameter estimation.
+
+The first is to identify a proper structure (expression) of the model equations.
+
+The second is to fit the values of the constant model parameters to the measurements.
+
+Both tasks aim at minimizing the discrepancy between the simulated behavior of the model and the measured behavior of the observed system.
+
+While the standard approach to parameter estimation is to reformulate it into a numerical optimization task, the task of structure identification has often been approached as a combinatorial optimization problem.
+
+Symbolic regression methods (Schmidt and Lipson, 2009; de França, 2018) are often purely data-driven and employ evolutionary algorithms to explore the unconstrained space of all possible arithmetical expressions for building mathematical models.
+
+To address the obvious issue of overfitting the observed data with unnecessarily complex mathematical models, these methods often use regularization techniques that introduce bias towards simpler models (Brunton et al., 2016).
+
+PARAGRAPH
+
+On the other hand, knowledge-driven equation discovery methods rely on expert knowledge to introduce bias towards model fragments used by scientists and engineers in the domain of interest (Todorovski, 2010; Bradley et al., 2001).
+
+This is in analogy with the work of scientists and engineers that derive the structure of the model equations following established modeling principles from the domain of the observed system.
+
+The process-based modeling approach (Bridewell et al., 2008; Tanevski et al., 2017), in particular, follows this paradigm by allowing the user to encode a domain-specific knowledge into templates for modeling entities and processes of interactions among entities.
+
+In turn, the entities and processes are used as components for building plausible model structures.
+
+Process-based modeling methods can then enumerate all plausible model structures and select one that fits the measured behavior of the observed system well.
+
+PARAGRAPH
+
+The result of the knowledge-driven approach is a readily understandable and interpretable model.
+
+The structure of the model can be used to explain the observed system behavior in terms of interactions among system entities.
+
+This is in contrast with data-driven approaches to symbolic regression that focus primarily on the fit of the models to the observations, sacrificing the interpretability of the model by considering a space of feasible solutions that is composed of general algebraic expressions.
+
+While these models, in principle, might provide interpretations and explanations, they require additional effort and inference.
+
+Note however, that this advantage comes at a price, since the knowledge-driven approach can only select one of the plausible model structures that stem from the user-provided knowledge specification.
+
+A data-driven approach can, on the other hand, discover new accurate models for a given system that have not been considered before.
+
+PARAGRAPH
+
+Knowledge-driven equation discovery follows the general model-solver paradigm in artificial intelligence (Geffner, 2014) that aims at developing solvers for well-defined mathematical models.1
+
+In this paradigm, the model provides a convenient high-level modeling language for specifying problems (model instances), the solutions of which are automatically computed by the general solver that can address any model instance.
+
+The burden of the user, therefore, is to provide a declarative problem specification (instead of a procedural one) on how the solution should be computed.
+
+In our case of modeling dynamical systems the declarative specification includes high-level knowledge about modeling dynamical systems in the particular domain of interest, as well as a specific modeling scenario and a set of assumptions.
+
+The solver, then, transforms the high-level declarative specification of the modeling task into a generator of candidate solutions, i.e., candidate structures of the dynamical system model equations to be explored by combinatorial optimization.
+
+Most knowledge-driven equation discovery methods rely upon exhaustive enumeration of candidate model structures (Tanevski et al., 2017).
+
+While the exhaustive strategy holds promise for finding the optimal model, its applicability to real-life modeling tasks is limited.
+
+A more scalable solution is to replace the exhaustive enumeration strategy with an incomplete search strategy.
+
+PARAGRAPH
+
+In this paper, we aim at identifying the optimal search strategy to be employed by knowledge-driven equation discovery methods for selecting a proper model structure.
+
+The search strategies considered in the paper are at different points of the trade-off between diversification, that is exploration of the search space, and intensification, i.e., exploitation of the promising regions of the search space determined by the best solutions found at a given search iteration (Talbi, 2009).
+
+More specifically, we consider five strategies ranging from random search, a strategy of extreme diversification, through genetic algorithms that have high diversification and moderate intensification, tabu search and particle swarm optimization (high intensification, moderate diversification) to greedy search (extreme intensification).
+
+PARAGRAPH
+
+We conjecture that the optimal, best-performing search strategy is problem specific, i.e., dependent on the structure and properties of the solution search space.
+
+To test this conjecture, we perform an empirical analysis along two dimensions.
+
+On one hand, we analyze the structure of the search space by computing a number of its properties.
+
+On the other hand, we empirically evaluate the performance of different search strategies on the given modeling tasks and analyze the relation between the performance of the strategies and the properties of the search space corresponding to the modeling task.
+
+The empirical analysis includes eight synthetic benchmark tasks of reconstructing known models of dynamical systems from simulated data in the domains of population dynamics and systems biology.
+
+PARAGRAPH
+
+The remainder of the paper is organized as follows.
+
+Section 2 introduces the model-solver approach to knowledge-based equation discovery by first introducing the model, i.e., the knowledge representation formalism.
+
+It then introduces the solver that transforms the modeling task specification into a generator of equation structures.
+
+The set of generated structures will be considered as a solution space for combinatorial optimization.
+
+Finally, it introduces the methods for analysis of the search space structure and its properties.
+
+Section 3 presents the results of the empirical evaluation of the five search strategies on the eight synthetic benchmarks of modeling dynamical systems and interprets them in the context of the relations between search space properties and search strategy performance.
+
+Section 4 puts the results in the wider context of related work on equation discovery and symbolic regression.
+
+Finally, Section 5 summarizes the findings and outlines several directions for further research.
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+We first introduce the model used to reformulate the learning task into a combinatorial optimization problem.
+
+In particular, optimizing the combination of equation fragments for individual processes into process-based models of the observed system.
+
+We next present a set of solvers, i.e., general search algorithms for addressing combinatorial optimization, to be empirically evaluated in the next section.
+
+Finally, we introduce a set of properties of the structure of the search space that we use to validate the conjecture of a relation between the properties of a particular search space and the corresponding performance of the different search algorithms.
+
+SECTION
+
+The model: knowledge representation for process-based modeling
+
+PARAGRAPH
+
+To address the task of learning models of dynamical systems, we follow the framework of process-based modeling (Tanevski et al., 2017).
+
+PARAGRAPH
+
+The framework builds upon a comprehensive representation of models of dynamical systems at different levels of abstraction.
+
+At the highest abstraction level, models are composed of entities and processes.
+
+Entities correspond to variables of an observed dynamical system.
+
+Processes model interactions between the entities.
+
+These interactions govern the system behavior.
+
+Together, entities and processes provide a mechanistic, understandable and qualitative insight into the structure of the observed system.
+
+However, this high-level structure does not represent an executable model that would allow for simulation and quantitative analysis of the behavior of the dynamical system.
+
+To address this, at a lower abstraction level, the specification of entities and processes includes quantitative aspects.
+
+In particular, the initial values of the variables of the dynamical system, the fragments of differential equations that describe the specific interactions, and the values of the constant parameters of these interactions.
+
+These allow for execution (simulation) of the model and, in turn, quantitative analysis of its behavior, for example, matching it against data.
+
+PARAGRAPH
+
+The process-based modeling framework requires a library of modeling knowledge specific to the domain of interest.
+
+The library takes the form of taxonomies of templates for entities and processes.
+
+The templates correspond to entities and processes that have been regularly used as model building blocks by domain experts.
+
+The templates of entities and processes are organized into taxonomies.
+
+The inner nodes of the process taxonomy correspond to general classes of interactions between entities observed in the domain of interest.
+
+In contrast, the leaf nodes correspond to a specific type of interactions, modeled with a particular equation.
+
+Hence, the equation fragments are specified only in the leaf nodes.
+
+In other words, the leaf nodes provide building blocks for constructing models of dynamical systems in the particular domain of interest, while the inner nodes provide rules on how to select and combine them into models.
+
+An example library of domain knowledge for modeling metabolic interactions is shown in Appendix A.
+
+PARAGRAPH
+
+When facing a particular modeling task, the knowledge about how entities and processes can be combined into a specific model is specified in an incomplete model.
+
+The entities of the observed system are specified as instances of template entities of the corresponding taxonomy within the library of domain knowledge.
+
+The incomplete model also instantiates processes that are hypothesized to govern the dynamical behavior of the system.
+
+Each of the processes in the incomplete model represents a reference to a (inner) node in the taxonomy of process templates.
+
+Since inner nodes do not contain exact quantitative information about the interaction they model, the task of the solver is to find specific leaf nodes that are descendants of the instantiated taxonomy nodes, that are most likely to have produced the observed behavior of the dynamical system.
+
+An example of an incomplete model for a branching metabolic pathway which relies on the taxonomy from Appendix A is shown in Appendix B.
+
+PARAGRAPH
+
+Resolving the instances defined by the incomplete model, leads to a potentially large number of candidate model structures, i.e., different models compiled of different fragments of differential equations.
+
+An example of a complete model which can be derived from the incomplete model in Appendix B is shown in Appendix C.
+
+To handle the large number of candidate model structures, we introduce a representation of the search space that would allow the use of an arbitrary algorithm for combinatorial optimization as a solver.
+
+PARAGRAPH
+
+The representation relies on mapping each candidate model structure to a fixed-length vector V of integers.
+
+Each vector component corresponds to a process p from the incomplete model.
+
+Recall that the incomplete model process references a node n in the taxonomy of processes from the library of domain knowledge.
+
+The vector value V[p] identifies a particular modeling choice, i.e., a leaf node from the process taxonomy that is a descendant of n.
+
+PARAGRAPH
+
+More formally, the mapping is implemented using the two functions in Algorithm 1.
+
+The first function prepareMapping defines the mapping M for a given combination of an incomplete model I and a library of domain knowledge L.
+
+The mapping M specifies the length of the vector V as a number of processes p in the incomplete model I. For each vector component V[p], the upper bound B[p] of its values is being calculated as the number of leaf-node descendants of the node n in the taxonomy of process templates in L.
+
+The second function decodeVector transforms a given vector V into a candidate model using an incomplete model I and a mapping M.
+
+PARAGRAPH
+
+Fig. 1 illustrates the mapping on a simple example.
+
+The example includes a taxonomy consisting of four components (at the bottom of the left-hand side of the figure) and an incomplete model consisting of six processes referring to five taxonomy nodes (i,h,c,a and g).
+
+Consequently, the vector V has six components p1,p2,…,p6.
+
+The upper bound for each vector component is the number of leaf nodes under the corresponding taxonomy node.
+
+For example, p4 corresponds to the taxonomy node a that has four descendant leaf nodes (b,d,e and f), hence the upper bound of 4.
+
+Dashed boxes denote optional inclusion of the process in the model, so there are two options for p2 (one corresponding to the presence of h in the model, while the other to its absence), even though it corresponds to a single leaf node h.
+
+SECTION
+
+The solver: from enumeration to search
+
+PARAGRAPH
+
+Algorithm 2 outlines the pseudo code of the current solver for the task of inducing process-based model from knowledge, domain library L and incomplete model I, and data.
+
+PARAGRAPH
+
+The current solver, ProBMoT, performs exhaustive search through the space of candidate model structures.
+
+In particular, it first uses the entities and processes from I to enumerate the leaf nodes from L that represent the model components.
+
+In the second step, it enumerates all the valid combinations of the model components.
+
+Each model structure is then compiled into a set of differential equations that allows for simulation of the candidate model and estimating the values of its constant parameters leading to the best match of model simulation against data.
+
+To this end, ProBMoT formulates parameter estimation as a numerical optimization task and employs Differential Evolution (Storn and Price, 1997), a metaheuristic, population-based evolutionary algorithm to solve it.
+
+The obtained models are finally ranked by their degree of fit to the observation data (see Fig. 2).
+
+PARAGRAPH
+
+The exhaustive enumeration of model structures leads to combinatorial explosion for many, even modest modeling tasks.
+
+To alleviate this problem, we propose to re-frame the task of structure identification (selection) as a task of learning by combinatorial optimization, with the goal of identifying the optimal combination of discrete components.
+
+PARAGRAPH
+
+Using the methods from Algorithm 1 we can replace the exhaustive enumeration in Algorithm 2 with an arbitrary combinatorial optimization algorithm.
+
+The nextStructure function is replaced by decoding the query from the combinatorial optimization algorithm to a model structure using the decodeVector function from Algorithm 1.
+
+PARAGRAPH
+
+The task of learning by combinatorial optimization for structure identification (selection) can be approached by various search algorithms.
+
+In this work, we limit our attention to methods that have traditionally been used for equation discovery and/or symbolic regression.
+
+Note also that the selection of the search algorithms and their parameter settings is such that they provide a wide coverage of the intensification–diversification (Talbi, 2009) trade-off in combinatorial optimization (see Fig. 3).
+
+PARAGRAPH
+
+The search methods with high intensification focus the search on the local neighborhood of the current set of optimal solutions.
+
+This includes greedy search methods, the extreme representative of which is hill climbing.
+
+Its generalizations – beam search with fixed beam width (Bisiani, 1992) and tabu search (Glover and Laguna, 1997) – use various techniques to increase diversification.
+
+To move towards the other end of the trade-off, we have implemented a particle swarm optimization (Parsopoulos, 2010) and genetic algorithm for combinatorial search (Eiben and Smith, 2015).
+
+Finally, we also consider the other extreme point of maximal diversification—random search, where at each search step we randomly select a candidate model structure.
+
+PARAGRAPH
+
+For the greedy and tabu search methods, we defined the local neighborhood of a candidate model structure using a simple refinement operator on its vector representation V.
+
+We consider all model structures with vector representations Vn, such that ‖V−Vn‖1=1, to be in the neighborhood of V, where ‖x‖1=∑i|xi|.
+
+The refinement operator makes use of the property of the taxonomy of processes that the taxonomically closest leaf nodes have the smallest differences in their symbolic representation.
+
+PARAGRAPH
+
+We implemented a variant of tabu search with a tabu list (short-term component) with no expiration, i.e., the same candidate model structure cannot be evaluated more than once during the entire search.
+
+We have diversified tabu search (intermediate-term component), such that it is capable of considering more than one best solution in each step, in the manner of beam search.
+
+However, worse candidate model structures can be accepted if no improving move is available.
+
+The search starts from a randomly generated model structure and continues to expand the local neighborhood even if all solutions are worse than the current best (long-term component).
+
+PARAGRAPH
+
+From the family of swarm intelligence algorithms we implemented a discrete version of the inertia weighted particle swarm optimization algorithm.
+
+According to recent surveys (Krause et al., 2013; Mavrovouniotis et al., 2017) on the application of swarm intelligence algorithms to different classes of problems and more specifically to combinatorial optimization problems, the particle swarm optimization algorithm is by far the most commonly applied algorithm.
+
+Since our encoding captures the neighborhood of each structure well, we discretized the continuous search space of the particle swarm optimization algorithm by the nearest integer approach (Krause et al., 2013).
+
+The algorithm was parametrized following the conclusions from the analysis of its convergence behavior by Clerc and Kennedy (2002) and Zheng et al. (2003), i.e., constriction coefficient χ=0.729 and cognitive and social coefficients c1=c2=φmax=2.05.
+
+The search starts by a randomly generated population of vectors with initial velocities of zero.
+
+PARAGRAPH
+
+We also implemented a population-based genetic algorithm.
+
+Each individual in the population has a genotype, where the alleles are lower bounded by 1 and upper bounded as explained in Algorithm 1.
+
+The phenotype is obtained by the decoding function from the same algorithm on the genotype.
+
+We defined three standard operators on the population, crossover, mutation and selection.
+
+Given that the genotype is a vector of integers, we deploy the standard implementations of these operators suitable for integer genotypes.
+
+We use a single point crossover operator, a discrete uniform mutation and a binary tournament selection.
+
+The search starts by a randomly generated population of vectors.
+
+PARAGRAPH
+
+Random search is the most diversified algorithm.
+
+It has been shown to be more efficient than alternative, more sophisticated search methods for hard optimization problems, and has been suggested as a relevant baseline (Bergstra and Bengio, 2012).
+
+SECTION
+
+Structure of the search space
+
+PARAGRAPH
+
+When analyzing the performance of the different search algorithms, we focus on the relationship between the algorithm performance and the properties of the search space.
+
+In particular, we observe the distribution of the goodness-of-fit of the models over the search space.
+
+PARAGRAPH
+
+For each candidate model structure s in the search space S, the parameter estimation finds values of the model parameters that minimize the discrepancy between the model simulation and the observed data for that structure, i.e., parameter estimation establishes a function P:S→R.
+
+The combinatorial optimization method looks for a structure s∗∈S that minimizes the value of P(s), i.e., s∗=argmins∈S(P(s)).
+
+When observing the structure of the search space S, we measure the properties of the distribution of values of P over S.
+
+PARAGRAPH
+
+First, the global minimum of P over the search space S is a model structure s∗, such that P(s∗)<P(s), for all s∈S∖{s∗}.
+
+Local minima in the search space S are all model structures s(l), such that P(s(l))<P(s), for all s∈N(s), where N(s) is the set of neighbors of s.
+
+Formally, N(s)={t∈S:‖V(s)−V(t)‖1=1}.
+
+The distribution of the values P(s(l)), and the number of local minima s(l) are two measures of the modality and the complexity of the search space.
+
+PARAGRAPH
+
+Moreover, we derive other properties of the structure of the search space with regard to the minima.
+
+The basin of attraction of the global minimum s∗ represents the fraction of candidate structures s∈S, from which the global minimum can be reached by following only the maximal negative gradient of the values of P.
+
+In other words, the basin of attraction measures the probability that the hill-climbing algorithm will converge to the global minimum from a randomly selected initial point s∈S.
+
+PARAGRAPH
+
+Finally, the reach of the global minimum in the search space is the fraction of model structures s∈S from which the global minimum s∗ can be reached by following any negative gradient of the values of P.
+
+In contrast with the basin, the reach estimates the ability of the more diversified search methods, e.g., beam and tabu search, to converge to the global minimum from a random initial point s∈S.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+We present the results of the empirical analysis of the performance of thirteen variants of the implemented search algorithms on eight tasks of reconstructing known models of dynamical systems.
+
+We evaluate the relation of the search space properties to the performance of the search algorithms.
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+We perform experiments on eight tasks of reconstructing models of real-world dynamical systems from synthetic, simulation data.
+
+The tasks come from diverse domains, are non-linear, have complex solution spaces and have been previously considered in the literature on modeling dynamical systems.
+
+For each task, the “true” model structure (the global optimum) is known: we consider this structure to be the target of the model reconstruction.
+
+PARAGRAPH
+
+Two tasks of modeling a gene-interaction network.
+
+The first two tasks are concerned with reconstructing the structure of a synthetic oscillatory network of three protein-coding genes interacting in an inhibitory loop, known as the repressilator, modeled by Elowitz and Leibler (2000).
+
+The activity of each gene is modeled by two system variables, the amount of mRNA transcribed by the gene and the amount of protein translated from the mRNA.
+
+Thus, the model consists of six ordinary differential equations, one for each system variable.
+
+The system is closed, i.e., is not affected by exogenous factors.
+
+Each of the three genes can interact with any of the other two genes by means of activating or inhibiting the transcription of its mRNA, leading to three modeling alternatives for each pair of genes: activation, inhibition (both following the Hill type kinetics) and no interaction.
+
+The first task aims at identifying the structure of the repressilator by identifying the proper alternative for each of the six pairs of genes, leading to 36=729 distinct model structures.
+
+The second task allows also the possibility of self-interacting genes, leading to 39=19,638 candidate model structures.
+
+The data for reconstruction involve measurements of the six system variables at 31 equidistant time points.
+
+PARAGRAPH
+
+Two tasks of modeling a metabolic pathway.
+
+The next two tasks are concerned with reconstructing a branching metabolic pathway (Voit and Almeida, 2004), i.e., a network of regulatory interactions between five metabolites.
+
+The structure and the parameters of a complete model of a branching metabolic pathway is shown in Appendix C.
+
+The regulation interactions among the metabolites are modeled following the S-system variant of the biochemical system theory modeling framework (Voit, 2017).
+
+The dynamics of the concentration of each metabolite is approximated with an ordinary differential equation including at most one positive and one negative term.
+
+The terms correspond to the production and degradation reactions, respectively.
+
+The reactions fluxes are approximated as products of power-law functions, leading to the general form of the S-system equations Xi̇=αi∏j∈IXjgij−βi∏j∈OXjhij, where I and O are the sets of influx and out-flux metabolites in the reaction for Xi, respectively, αi and βi are production and degradation rates of the reaction, and gij and hij correspond to the kinetic orders of the interactions between Xi and Xj.
+
+The library of domain knowledge for modeling using the S-system representation is shown in Appendix A.
+
+One of the five metabolites is considered to be an exogenous input to the system, with a constant inflow.
+
+The task of selecting the structure of the model aims at deciding upon the presence and the type of interaction between each pair of the other four metabolites, leading to a total of 312 candidate model structures.
+
+In the first task, we assume that the nature of the four of the 12 interactions is known in advance, resulting in 38=6561 structures.
+
+The incomplete model for this task is shown in Appendix B.
+
+For the second task, we assumes two known interactions, leading to 310=59,049 candidate structures.
+
+The data for these two tasks include concentrations of the four metabolites at 50 equidistant time points.
+
+PARAGRAPH
+
+Four tasks of modeling aquatic ecosystems.
+
+Here we deal with the reconstruction of the population dynamics of food webs in aquatic ecosystems.
+
+The food webs involve interactions of phytoplankton and zooplankton species with various inorganic nutrients (e.g., phosphorus and nitrogen).
+
+The background knowledge for process-based modeling involves an extensive library of mathematical models of interactions between a pair of species or between species and an inorganic nutrient (Čerepnalkoski et al., 2012).
+
+The models also involve the influence of exogenous factors, such as light and temperature, on the interaction dynamics.
+
+Automated process-based modeling then aims at identifying (1) the presence and absence of individual interactions and (2) in the case of presence of an interaction, its exact mathematical model.
+
+The models are evaluated in terms their ability to reconstruct the observed dynamical behavior of the concentration of the phytoplankton in the aquatic system, while considering all the other variables, i.e, the concentrations of nutrients and zooplankton species, as exogenous input variables.
+
+The tasks involve the reconstruction of four models of phytoplankton dynamics from time-series measurements of two consecutive seasons in two aquatic ecosystems, i.e., Lake Bled in Slovenia and Lake Kasumigaura in Japan (Atanasova et al., 2006).
+
+The number of candidate structures for each of the ecosystems is different (18,144 for Lake Kasumigaura and 27,216 for Lake Bled), due to the different number of input variables corresponding to the observed concentrations of inorganic nutrients and zooplankton species (5 in Lake Kasumiguara and 6 in Lake Bled).
+
+PARAGRAPH
+
+A summary of the properties of the eight modeling tasks is given in Table 1: after the number of (state and input) variables it lists also the number of constant parameters with unknown values.
+
+The next two columns show the number of candidate structures and the length of the vector representation used to encode them.
+
+The data used for reconstruction consists of simulated trajectories of the values of the state variables using the true model structure and the measurements of the input variables.
+
+The number of simulation points, i.e., data length, is shown in the last column.
+
+PARAGRAPH
+
+We estimate the values of the constant parameters of each candidate structure by minimizing the discrepancy between the simulated behavior of the model and the observed behavior in the data.
+
+We formulate the parameter estimation as a task of numeric optimization and use root mean squared error (RMSE) as an objective function to minimize.
+
+We solve the numeric optimization task using the Differential Evolution algorithm (Storn and Price, 1997) that has been shown to have robust performance across various numeric optimization tasks in different domains (Tashkova et al., 2011; Čerepnalkoski et al., 2012; Sun et al., 2012).
+
+PARAGRAPH
+
+To establish a performance baseline for the different incomplete, heuristic search algorithms, we first perform an exhaustive search experiment.
+
+With this experiment, where we enumerate and evaluate all the candidate model structures for a given modeling task, we are able to measure all the properties of the distribution.
+
+PARAGRAPH
+
+For each group of search methods, we consider three variants that differ by the level of diversification.
+
+For the greedy and tabu search methods, we considered beam search with 3 different beam widths: 1 (hill-climbing/basic tabu), 25% of the branching factor, and 50% of the branching factor.
+
+Note that the latter corresponds to the length of the vector representation of the candidate models.
+
+For the particle swarm optimization and the genetic algorithm, we consider 3 different population sizes: 1,2 and 4 times the length of the vector representation, i.e., 50%, 100% and 200% of the branching factor.
+
+PARAGRAPH
+
+For the greedy and tabu search methods, we use the empty beam as a termination criterion.
+
+For all methods, we use two more criteria: a limit on the number of candidate structures considered (set to 10,000) and a runtime limit (set to 7 days).
+
+For each modeling task, we restart the search algorithms five times with different random seeds.
+
+For all search algorithms, we use the minimal value of P as an estimate of its performance on a given task.
+
+PARAGRAPH
+
+The computational complexity of a reconstruction task is dependent on the number of simulations of the candidate model structures.
+
+In our study, the number of simulations for each model structure is equal to the number of evaluations of its performance during parameter estimation.
+
+Specifically, the number of simulations needed for each model structure is 5000⋅|θ|, where |θ| is the number of constant parameters in the model structure.
+
+Hence, it can take from several, up to tens of minutes of CPU time to estimate the values of the constant parameters of a single candidate model structure.
+
+Although the different search methods, in principle, have different computational complexities, their influence on the total time needed for completing the task is negligible.
+
+PARAGRAPH
+
+We measure and compare the performance of the search algorithms using convergence curves and structural recall.
+
+The convergence curve depicts the value of the achieved minimum of the objective function as a function of the number of evaluations (i.e., considered candidate structures).
+
+The speed of convergence is measured using inverse convergence curves depicting the minimal number of evaluations required to achieve a threshold value of the objective function.
+
+The structural recall R is calculated as R=maxM∈Ψ|ΠT∩ΠM||ΠT|, where ΠT represents the set of processes in the true model structure and ΠM the set of processes in the structure of a model M from the plateau Ψ.
+
+The latter is a set of best candidate model structures with indistinguishable values of P.
+
+We consider two candidate model structures indistinguishable, if the relative difference between their values of P is smaller than a threshold value of 10%.
+
+SECTION
+
+Analysis of the structure of the search space and search performance
+
+PARAGRAPH
+
+First, we observe the distribution of the values of P over the structures in S. Fig. 4 shows the kernel density estimate and the box plots of the distribution of P for each task.
+
+The different colors of the plots denote the different domains to which the tasks belong, i.e., molecular biology or population ecology.
+
+PARAGRAPH
+
+The distributions of errors are highly multi-modal with many outliers.
+
+The outliers are in general concentrated towards the lower side of the distribution, although several are also consistently present on the higher side.
+
+On the other hand, the interquartile ranges are narrow.
+
+These phenomena point towards search spaces that are characterized by wide plateau regions and sharp peaks and steep valleys, i.e., the presence of (many) local extrema.
+
+For all tasks, the global minimum is an outlier, which signifies a steep valley of P in the search space.
+
+PARAGRAPH
+
+The shape of the probability densities are similar for the tasks that take at input the same library of domain knowledge.
+
+The differences in the shape of the probability densities come from the structure of the incomplete model and the difference in the inputs to the system.
+
+The latter can be clearly seen in the modeling tasks from the domain of population biology.
+
+The library of domain knowledge is the same for all tasks.
+
+The structure of the incomplete model is the same for the pairs of tasks that are modeling the same aquatic ecosystem for different years.
+
+The behavior of the input variables, however, is different for each task.
+
+PARAGRAPH
+
+Table 2 shows the properties of the model structures that represent minima in the search space, taking into account the definition of the neighborhood in the previous section.
+
+For each task, there is a relatively high number of minima, up to 5.9% of the total number of model structures.
+
+By further manual inspection, we discovered that most of the outliers at the lower side of the error distributions correspond to local minima.
+
+The local minima in the search space are relatively well spread with an average distance of 4.5 or more.
+
+The minimum distance between two structures is 1 if they are neighbors, and the maximum distance is equal to the sum of the upper bounds of the encoding vector.
+
+PARAGRAPH
+
+Next, in Table 2 we analyze the properties of the global minimum and compare them to the properties of the local minima.
+
+We measure the z-score of the value for the global minimum given a population of all minima for the task.
+
+The high value of the z-score indicates that the global minimum is a significantly better attractor than the other (local) minima.
+
+The reach of the global minimum is significantly larger than the reach of other local minima for 3 out of 8 tasks, while the basin of the global minimum is significantly larger than the basin of other minima in 6 out of 8 tasks.
+
+PARAGRAPH
+
+The size of the basin of attraction ranges from 0.1% up to 15% of the total number of structures, which indicates that the different tasks have varying degrees of difficulty for purely intensification-based search methods.
+
+On the other hand, the reach of the global minimum is relatively high, ranging from 47% up to 88%.
+
+The size of the basin of attraction and the size of the reach are mildly positively correlated (ρ=0.288).
+
+PARAGRAPH
+
+The particular properties of the search spaces for the 8 tasks, signify that they are not well structured for exploitation by purely intensification based algorithms.
+
+However, it is not immediately clear what amount of diversification is more suitable for which task or classes of tasks.
+
+We therefore shift the focus towards the performance of the different search algorithms.
+
+PARAGRAPH
+
+Figs. 5–8 depict the performance of different search algorithms for the different modeling tasks using inverse convergence curves: the lower the curve, the better the performance.
+
+Note that points are missing from the end of some of the curves when the corresponding search algorithm has not reached the threshold until the end of the search.
+
+The plots show the performance for all tasks from both domains, where the search algorithms are mostly not able to enumerate all structures due to the imposed limit of 10,000 evaluations per task.
+
+The top plots in Figs. 5 and 6 are the exception, where the search algorithms are in principle able to enumerate all possible structures.
+
+PARAGRAPH
+
+Qualitatively, the inverse convergence curves show that all search algorithms outperform random search.
+
+The speed of convergence to the threshold values is inversely proportional to the amount of diversification considered in the search algorithms.
+
+In the long run (Figs. 5 and 6), the genetic algorithm is able to achieve the best performance for the problems from the domain of biology and the particle swarm optimization algorithm is able to achieve the best performance for the problems from the domain of population ecology.
+
+However, the genetic algorithm requires a significantly larger number of evaluations to achieve a certain threshold value than the other algorithms, which has a negative impact on the scalability of the approach and can even render it intractable for some tasks.
+
+PARAGRAPH
+
+We confirm that the search space is structured well for exploitation by intensification-based algorithms.
+
+The performance of the intensification-based algorithms is dependent on the significance of the size of the basin of attraction in comparison to other local minima.
+
+The greedy algorithms underperform in comparison to the other algorithms on the long run, but are still able to achieve good results in the least amount of time (bottom of Fig. 7).
+
+Finally, the tabu search and particle swarm optimization show consistently good performance both in the rate of convergence and the achieved minimal error.
+
+PARAGRAPH
+
+We next focus on the quantitative comparison of the different algorithms.
+
+Table 3 shows the minimum RMSE that was achieved by the different algorithms at the end of their run on each task.
+
+The greedy search algorithms were able to reach better minimum RMSE value than random search in two of the eight tasks (kasumigaura ’88 and kasumigaura ’89), and comparable performance on two other tasks (ssystem8 and ssystem10).
+
+All of these tasks have a significant basin of attraction.
+
+All other algorithms showed consistently better performance to random search in the long run.
+
+In the cases where the performance is comparable, the differences in performance can be attributed to the stochastic component of the parameter estimation method.
+
+The achieved minimum RMSE is not dependent on the parameterization of the algorithms.
+
+PARAGRAPH
+
+Table 4 shows the ratio of the number of evaluations needed to achieve the minimum RMSE shown in Table 3 to the total number of structures.
+
+In general, all search algorithms, with the exception of random search, achieve minimum error values by evaluating a remarkably small portion of the search space ranging from 0.1% to an average of 12.8%.
+
+Also, all search algorithms require fewer evaluations than random search to achieve their minimum RMSE value.
+
+As expected, the greedy search algorithms converge to the minimum RMSE the fastest, with little to no differences between hill-climbing and beam search with different beam widths.
+
+The tabu search algorithms consistently converge to the minimum RMSE faster than the genetic algorithms.
+
+The ratio of evaluated structures is proportional to the width of the beam.
+
+The particle swarm optimization performs better than both tabu search and genetic algorithms, with the exception of the problem with the smallest number of structures.
+
+The number of evaluations required by the particle swarm optimization and the genetic algorithm to achieve the minimum RMSE is proportional to the size of the population.
+
+PARAGRAPH
+
+Furthermore, we compare the convergence curves of the different search algorithms to that of random search.
+
+We calculate the significance of the difference in convergence during the entire runtime of the search between the search algorithms and random search on a uniform sample of 10 points using the Wilcoxon signed-rank test.
+
+The p-values of the statistical test are shown in Table 5.
+
+PARAGRAPH
+
+All algorithms converge significantly faster than random search on most tasks.
+
+The particle swarm optimization algorithm displays the best convergence performance, followed by beam search and hill climbing.
+
+Particle swarm optimization algorithms (pso100 and pso200) show significantly better convergence than random on seven out of eight tasks.
+
+Genetic algorithms (ga50 and ga200) show significantly better convergence than random search on six out of eight tasks, while tabu search converges significantly faster than random search on five out of eight tasks.
+
+PARAGRAPH
+
+Finally, Table 6 shows the maximal structural recall across the restarts.
+
+Taking into account the relatively small number of evaluations needed to reach the optimum, all search algorithms show high recall.
+
+PARAGRAPH
+
+Tabu search (tabu25) was able to reconstruct the true structures with highest recall.
+
+The particle swarm optimization algorithms and the genetic algorithms achieve consistently better recall than random search.
+
+Their recall is comparable to tabu search on the tasks from the biological domain.
+
+On the tasks from the domain of population ecology the particle swarm optimization performed better than the genetic algorithms.
+
+The greedy search algorithms achieved recall comparable to random search.
+
+SECTION
+
+Discussion and related work
+
+PARAGRAPH
+
+In recent years, many methods for equation discovery and symbolic regression have been proposed.
+
+The research on equation discovery follows the tradition on computational scientific discovery by focusing on knowledge-driven methods that incorporate background knowledge to constrain the space of plausible model structures.
+
+The central issue of interest that prevails in these studies is the formalism for representing knowledge that guides the procedures for selecting an appropriate model (equation) structure.
+
+This is especially true for the process-based modeling framework (Tanevski et al., 2017; Langley, 2019), used in this paper.
+
+The framework encompasses various formalisms for representing knowledge about entities and processes of interactions among entities, ranging from plain lists of entities and processes (Bridewell et al., 2008), through hierarchies (Tanevski et al., 2017), to constraint-based formalisms (Bridewell and Langley, 2010).
+
+PARAGRAPH
+
+The solvers used by the knowledge-driven approaches to equation discovery to address the task of structure identification are often simple, exhaustive methods for enumeration of the finite set of candidate model structures.
+
+In particular, the PRET framework for automated modeling (Bradley et al., 2001) uses exhaustive search to explore the space of candidate model structures constrained by cross-domain knowledge on modeling dynamical systems.
+
+Similarly, the SDS method (Washio and Motoda, 1997) employs information on the measurement units of the system variables to enumerate the set of candidate equations that properly combine the measurement units.
+
+PARAGRAPH
+
+Other solvers use heuristic search algorithms.
+
+Lagrange (Todorovski and Džeroski, 1997) uses grammars to specify the constrained space of candidate structures and explores it by using low-diversification search strategies, greedy and beam search.
+
+HIPM and its variants (Todorovski et al., 2005; Arvay and Langley, 2016) use beam search to select the model structure.
+
+Finally, SC-IPM (Bridewell and Langley, 2010), a method that transforms the model selection problem into a constraint satisfaction task, allows the use of any heuristic algorithm for constraint satisfaction.
+
+The results show that the use of incomplete search, such as beam search, often selects model structures with performance comparable to the model structures selected by a complete search, i.e., exhaustive enumeration.
+
+However, none of the aforementioned studies explore the performance of alternative strategies for combinatorial search or constraint satisfaction.
+
+PARAGRAPH
+
+The rightmost column of Table 7 includes the different approaches to knowledge-based equation discovery, exploring a biased, constrained space of model candidates.
+
+The table shows that the majority of these approaches rely upon using high-intensification and low-diversification search strategies, including exhaustive and greedy search.
+
+A line of work that uses a high-diversification, grammar-based, evolutionary search strategy for knowledge-based equation discovery is presented by Ratle and Sebag (2002).
+
+However, no attempt has been made to compare the performance of evolutionary-based search with alternative search strategies.
+
+PARAGRAPH
+
+The left-hand side column of Table 7 presents an overview of unbiased data-driven approaches to symbolic regression, where evolutionary-based search strategies prevail (Schmidt and Lipson, 2009).
+
+The equation structures are constructed from a generic, unbiased set of mathematical operators, functions, variables of the observed system and randomly initialized constant parameters.
+
+The corresponding expression trees are then manipulated by evolutionary operators (crossover and mutation) to implement various evolutionary strategies.
+
+These strategies can, in principle, generate arbitrary mathematical expressions leading to problems related to overfitting the measurements.
+
+To avoid this, recent symbolic regression methods employ sparse regression and regularization techniques (Gout et al., 2018; Brunton et al., 2016).
+
+PARAGRAPH
+
+In general, data-driven methods for symbolic regression rely upon high-diversification search strategies.
+
+Few exceptions include approaches based on gradient-based local optimization for sparse regression (Brunton et al., 2016) and greedy search in a constrained space of simpler arithmetical expression (de França, 2018).
+
+As was the case with the equation discovery studies, no attempt has been made to comparatively study different search strategies in the context of symbolic regression.
+
+PARAGRAPH
+
+The lack of domain-specific knowledge limits the applicability of symbolic regression methods in real-world modeling scenarios (Džeroski et al., 2007).
+
+First, they often lead to complex, cumbersome equations that are difficult to interpret by humans.
+
+Second, the obtained models are often unacceptable for use in the target domain.
+
+In other words, they are in conflict with the basic modeling principles followed by the domain experts.
+
+On the other hand, knowledge-based methods are limited to select among the model structures that comply with the domain-specific knowledge provided by the modeling expert.
+
+Thus, equation discovery methods are not capable of discovering novel, previously unknown, accurate model structures, that, in principle, are within reach of the data-driven, symbolic regression approaches.
+
+PARAGRAPH
+
+Approaches to automated modeling have recently gained traction in the field of systems biology.
+
+There, equation discovery and symbolic regression methods have been extensively used for automated modeling of metabolic and gene regulatory networks from time-series data (Dolatshahi and Voit, 2016; Lobo, 2015; Tanevski et al., 2015).
+
+This is the reason why we included four modeling tasks from systems biology in our empirical study.
+
+While most of the studies apply existing automated modeling methods, some introduce new methods for knowledge-based equation discovery.
+
+For example in a method proposed by Marino and Voit (2006), a greedy, local search algorithm is used to explore a constrained space of S-system models, similar to those used in our empirical study (Section 3.1).
+
+The search algorithm adds one variable at a time in the production or the degradation term of the ordinary differential equations following the S-system modeling framework.
+
+Thus, the method can be clustered to the group of knowledge-based equation discovery methods using high-intensification search strategies for selecting the model structure.
+
+PARAGRAPH
+
+Note, however, that the methods introduced in the field of system biology are fitted to the task of modeling biological networks.
+
+In particular, the GFS algorithm (Marino and Voit, 2006), for instance, allows for building a specific class of S-system models of metabolic networks.
+
+Conversely, an expert using a knowledge-based equation discovery method, such as process-based modeling, can specify a set of candidate models following a custom set of mathematical representations of the observed processes.
+
+By formalizing the set of template entities and processes in the library, the user can opt for modeling population dynamics following the Lotka–Volterra modeling principles, Michaelis–Menten and Hill functions for modeling biochemical kinetics, or any complex or simple variant (e.g., S-system) of the general framework of biochemical systems theory (Voit, 2017).
+
+PARAGRAPH
+
+The process-based modeling framework comes with its own set of limitations.
+
+First, its knowledge representation formalism is limited to modeling scenarios where the dynamics of the observed system can be decomposed into processes of interactions among the system entities.
+
+This is often true for models derived from mass-conservation principles, but might not be true for other types of models.
+
+Second, process-based modeling operates under a closed-world assumption that all plausible models are within the set of models that can be inferred from the provided library of entities and processes.
+
+Process-based modeling methods (e.g., ProBMoT) can only consider these model structures and select the one that fits the data best.
+
+When no accurate model can be found in this finite set, ProBMoT would recommend the model with the best fit to the measurements, that may still fail to provide an accurate approximation and an appropriate explanation of the observed system behavior.
+
+The user might then opt for an alternative knowledge library on a trial-and-error basis, but ProBMoT does not provide guidance towards what library to try next or how to generalize the candidate model structures to obtain an appropriate fit.
+
+PARAGRAPH
+
+Moreover, ProBMoT reports a list of model structures, ranked with respect to their fit to the measurements.
+
+When these measurements are scarce and noisy, many model structures may have comparable fit rendering the choice of a single, appropriate model structure non-trivial or even impossible.
+
+In such cases, the default ProBMoT suggestion of the top-ranked model structure is not appropriate, since the fit scores in a large set of structures can differ only slightly.
+
+In such cases, the user is left on his own to deal with further discriminating between the equally accurate models.
+
+Noisy measurements often require alternative model selection techniques that penalize for model complexity.
+
+To this end, ProBMoT can apply regularization techniques that introduce a preference towards simpler models.
+
+PARAGRAPH
+
+These limitations and issues of the process-based modeling framework have been addressed in various recent studies, an overview of which is provided by Tanevski et al. (2017).
+
+However, addressing these issues is out of scope of this paper.
+
+Here we have focused on a comparative analysis of the performance of various search strategies for selecting an appropriate model structure.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+The contributions of the presented work are twofold.
+
+First, we overcome the combinatorial explosion issue of ProBMoT, a method for process-based modeling that employs exhaustive search through the space of candidate model structures.
+
+We map the space of candidate model structures into a fixed-length vector representation that can be exploited by an arbitrary combinatorial search algorithm.
+
+With that, we also extend the scope and the scale of applications that can be addressed by process-based modeling.
+
+PARAGRAPH
+
+Second, we perform a comparative analysis of search strategies commonly used in equation discovery (often using greedy, high-intensification strategies) and symbolic regression (often using genetic, high-diversification strategies).
+
+The results of the analysis overcome the lack of comparison between the utility of different search algorithms for identifying and/or selecting the structure of mathematical models of dynamical systems.
+
+On eight tasks of reconstructing the structure of dynamical systems models, we show that using a combination of beam and tabu search algorithms or particle swarm optimization, achieves the best trade-off between speed of convergence and recall.
+
+Thus, search algorithms with moderate diversification are the algorithms best suited to biased equation discovery.
+
+While genetic algorithms are commonly used for unbiased, data-driven symbolic regression, its high diversification leads to inferior performance for knowledge-based equation discovery.
+
+PARAGRAPH
+
+The analysis of the relation of the performance of search algorithms to the properties of the search space provides further insights.
+
+The intensification component in the search algorithm works well for knowledge-based equation discovery, since the global optimum of the search space of candidate equation structures has a large attraction basin and a significant reach.
+
+PARAGRAPH
+
+Note however, that the presented empirical study focuses on the process-based modeling framework and the validity of its results is limited to the class of methods for knowledge-based equation discovery.
+
+In such context, the structure identification task is reduced to the task of selecting an appropriate model structure in a relatively small, finite set of candidates.
+
+Identifying the most appropriate search strategies for data-driven symbolic regression would require another empirical study with different modeling tasks and assumptions.
+
+PARAGRAPH
+
+Finally, we emphasize two potential extensions of our study to be addressed in further work.
+
+First, despite the fact that some of our tasks involve noisy measurements of input variables leading to noisy data, we do not include mechanisms for avoiding overfitting, such as regularization or preference for simpler models.
+
+This would probably improve the performance of the search algorithms, but might also influence the results of the comparative analysis.
+
+Performing further experiments with noisy data would also bring the results closer to real-world application scenarios.
+
+Second, we formalize the task of structure identification as a combinatorial search problem.
+
+While this formalization allows for the use of a number of search algorithms, it enforces deterministic model selection procedures.
+
+In future work, the structure identification problem in equation discovery might be formulated as a probabilistic inference problem.
+
+Relevant issues of proper priors over the space of candidate model structures and selection of inference methods should be addressed in this context.
+
+The frame for empirical comparison of search algorithms, used in this paper, can also be used to address those issues.

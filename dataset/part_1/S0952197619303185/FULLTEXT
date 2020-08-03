@@ -1,0 +1,1059 @@
+10.1016/j.engappai.2019.103405
+
+FULLTEXT
+
+TITLE
+
+Predicting customer absence for automobile 4S shops: A lifecycle perspective
+
+SECTION
+
+Introduction
+
+SECTION
+
+Background and motivation
+
+PARAGRAPH
+
+China’s automobile market has continued to flourish for more than 20 years.
+
+Up until 2017, the total number of vehicles in China reached 217 million, and the country’s vehicle sales ranked number one worldwide for eight years.
+
+In 2018, the estimated sales are 25.6 million passenger cars and 2 million commercial vehicles (Wouter et al., 2018).
+
+PARAGRAPH
+
+The large demand for vehicles not only yields financial gains to manufacturing and sales, but also brings profits to the vehicle aftermarket, such as repair and maintenance.
+
+According to experiences gained in the mature markets, such as those in the European Union and the United States, the aftermarket profit margin is 76% higher than that of vehicle sales.
+
+For 70% of automobile companies, the net profit of spare part sales can reach 25%, and some can even reach 40%; this makes the repair and maintenance services one of the most lucrative enterprises in the entire automobile business chain.
+
+In 1998, the first 4S shop (sales, spare parts, services, and surveys) was established in China by a joint venture company, GAC-Honda,1  followed by Buick and Audi.
+
+Thereafter, China’s fast-growing automobile market has attracted practically all brands in the world to establish businesses and 4S shops in the country.
+
+PARAGRAPH
+
+However, the repair and maintenance business has increasingly become extremely competitive.
+
+The local repair shops have not only improved services and provided lower prices to attract customers, but also stimulated the internet and online-to-offline business in China (Wang et al., 2016); it has vastly facilitated the comparison of service quality and prices of several shops for customers.
+
+In the past five years, customer churn has become the main reason for the decline or even bankruptcy of several 4S shops in China.
+
+PARAGRAPH
+
+Consider the 4S shop we surveyed as an example.
+
+The shop, established by a large American brand, sells passenger cars worth between 80,000 and 250,000 RMB (approximately between US$11,500 and US$35,700, respectively).
+
+It is located in a city that belongs to the rich Yangtze River Delta in East China.
+
+According to our investigation, there are significant drawbacks in the customer relationship management (CRM) of this 4S shop that are also common problems in practically all 4S shops in China.
+
+PARAGRAPH
+
+First, 4S shops are mainly established by overseas automobile companies; because of distance and cultural differences, communication gaps exist between the shops and the headquarters.
+
+These gaps delay and make it considerably difficult for 4S shops to alter their business activities to cope with the fast-changing market.
+
+PARAGRAPH
+
+Second, the management style is qualitative rather than quantitative.
+
+Although most 4S shop managers use conventional and lucrative 4S business models, their attention to data mining is extremely limited; customer records are simply stored in the IT system without any thorough investigation of possible opportunities for profit growth.
+
+PARAGRAPH
+
+Third, and the most interesting, customers generally have only three years of loyalty.
+
+This is because customers have to return to their 4S shops for maintenance during the warranty period, which is usually three years according to the warranty policy of most brands; otherwise, the warranty will become void.
+
+Consequently, more than 90% of customers leave 4S shops after the first three years of purchase.
+
+Accordingly, the aforementioned has motivated us to investigate the factors that affect customer churn in the automobile aftermarket.
+
+In particular, the objective is to fully exploit customer datasets and design personalized solutions to retain valuable clients who are potential churn customers.
+
+SECTION
+
+Problems
+
+PARAGRAPH
+
+Three problems are identified and listed as the following.
+
+PARAGRAPH
+
+First, the dataset contains records of customer visits to a shop; it is not known whether a particular customer has visited other shops that belong to other companies.
+
+Therefore, if we observe that a client does not return for car maintenance for a certain period of time, then the following are possible.
+
+(1) The customer has churned, will never come back, and therefore has been permanently lost.
+
+(2) The customer visited other shops for the recent maintenance, and may come back for the next maintenance; thus, only the profit from one maintenance is lost.
+
+(3) The customer did not go to any shop for maintenance, may come back soon; hence, potential profit from maintenance remains.
+
+In other words, we merely have the presence-only data; we do not know what transpired during the absence periods.
+
+In order to estimate the potential customer churn, a practical solution for data preprocessing using the presence-only data is required to facilitate its mathematical modeling.
+
+PARAGRAPH
+
+Second, in numerous CRM research works and models, customer churn is easy to detect because it usually occurs at the end of a contract, e.g., telephone contract (Huang et al., 2012) or banking (Mosavi and Afsar, 2018).
+
+The presence or end of a contract is critical for an analyst to determine whether or not a customer will churn.
+
+On the other hand, certain businesses do not have any contract, but the duration between each purchase is brief, e.g., supermarket transactions; customer churn can be identified easily based on purchase data.
+
+However, in 4S shops, there is no contract, and the duration between each maintenance is relatively long (usually more than six months).
+
+Consequently, it is overly late to implement any retention solution when the managers realize a customer has definitely churned; adjusting this problem to a CRM research framework is critical.
+
+PARAGRAPH
+
+Third, although numerous econometric and machine learning models are applied to the CRM, behavioral and business-related variables are only treated as input to the conventional model framework; no further exploration in model structure development is conducted.
+
+Moreover, the behavioral variables are only treated once (e.g., whether something has been done) or from an aggregative style (e.g., more than twice in the past six months).
+
+Limited studies have been expended to consider the totality of lifecycle behaviors in model development.
+
+In our case, each of the presence and absence transactions cannot be simply treated as a single observation.
+
+The behavioral pattern of each customer is unique and continuous; thus, a customer’s entire lifecycle (from the first to the last visit) should be considered as a whole and incorporated into the modeling.
+
+The full consideration of the behavior and business logic into the specification of conventional machine learning approaches is novel and crucial; it increases the predictive power and interpretation ability.
+
+PARAGRAPH
+
+The foregoing are the three problems presented in this paper, and the resolution of these problems is our contribution to the existing literature in terms of methodology.
+
+SECTION
+
+Paper structure
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+Section 2 presents a related literature review on the automobile industry, CRM, and possible solutions for mathematical modeling.
+
+Moreover, the motivations for proposing a new recurrent neural network (RNN) are discussed.
+
+Section 3 presents the cleaning of customer presence and absence data, the specification for a conventional recurrent neural network (RNN), and the proposed model.
+
+Section 4 presents the experiment to validate the new model; comparisons are also presented.
+
+Based on the developed model, the customized customer retention solutions for management in the surveyed 4S shop are discussed in Section 5.
+
+The last section summarizes the conclusions.
+
+SECTION
+
+Literature review
+
+SECTION
+
+Customer relationship management
+
+PARAGRAPH
+
+Bose (2002) defines CRM as an integration of technologies and business processes that is used to satisfy the requisites of a customer during any given interaction.
+
+More specifically, the CRM includes the acquisition of customer information and evaluation of customer knowledge in order to achieve a steady and long-term enterprise management.
+
+That is, it is endeavored to define the real requisites of the customer by having the enterprise integrate various processes and technologies; accordingly, improvements in internal products and services can be achieved in order to simulate efforts for enhancing customer satisfaction and loyalty (Pai and Tu, 2011).
+
+For most companies, the CRM has become an essential strategy to maximize customer value and company profit.
+
+PARAGRAPH
+
+The CRM system is composed of four dimensions: customer identification, customer attraction, customer retention, and customer development (Ngai et al., 2009).
+
+Among these dimensions, customer retention has an essential function in the whole system; this is because in most domains, retaining an old customer has a higher profitability than acquiring a new one (Larivière and Van den Poel, 2005).
+
+The accurate prediction of customer churn behavior and development of targeted market strategies are crucial to customer retention.
+
+PARAGRAPH
+
+Krishna and Ravi (2016) surveyed 78 papers where the application of evolutionary computing (EC) techniques to analytical CRM tasks to optimize the profitability.
+
+In these mathematical models, customer churn prediction is usually a classification problem that uses existing customer data; thereafter, it divides the customer’s next behavior into churn and non-churn based on a priori knowledge.
+
+Table 1 summarizes several typical and related papers regarding the CRM in various domains.
+
+In particular, it has been observed that machine learning approaches were widely used in the CRM where the IT system and data warehouse were applied for big data collection.
+
+PARAGRAPH
+
+In finance and banking, Larivière and Van den Poel (2005) and Farquad et al. (2014) applied the random forest (former), SVM, and naïve Bayes tree (latter) to predict whether or not a customer will switch to another bank.
+
+PARAGRAPH
+
+In the subscription services of conventional business, Coussement and Van den Poel (2008) employed 45,000 records of customer data from Belgium and the SVM to predict whether or not a contract will be renewed.
+
+Similarly, Huang et al. (2012) and Lu et al. (2014) studied the landline and mobile telecommunications; the former focused more on multiple machine learning comparisons, whereas the latter predicted the churn behavior and developed warning rules in advance to retain customers.
+
+PARAGRAPH
+
+Related studies are conducted worldwide as internet-based services flourish.
+
+Chiang (2012) analyzed the customer behaviors of three online shopping platforms and mined association rules for the CRM; their data were acquired through questionnaires.
+
+Social media, where usage frequency is closely associated with advertisement revenue, also value user loyalty.
+
+Ballings and Van Den Poel (2015) compared multiple machine learning models and discovered that AdaBoost is the best among them.
+
+Moreover, behavioral predictors are found to be crucial in CRM models.
+
+PARAGRAPH
+
+Bandaru et al. (2015) seems to be one of the very few recent papers that analyzed the CRM in the automobile company with warranty data.
+
+They developed a customer satisfaction index (CSI), and with which, they derived rules to classify customers of different satisfaction; besides, they also discussed how to identify critical field failures with the proposed index.
+
+In their paper, six variables including number of visits, days of repair, costs, days between visits, miles between visits, and problem severity are considered.
+
+The CSI is built based on an assumption that the distribution of CSI of all customers should be as narrow as possible, so that an optimization problem is solved to obtain the coefficients of the six variables in the CSI.
+
+PARAGRAPH
+
+Although the number of articles published in literature regarding the automobile aftermarket is limited, two papers, where the CRM in the transportation domain was studied, were found to be related.
+
+Chiang (2016) analyzed the CRM in airlines, where valuable travelers were selected by the airline company through the apriori algorithm.
+
+In the automobile business, Chan (2008) quantified the lifetime value of each customer in the retail campaign, and a genetic algorithm was employed for the selection of high-value customers.
+
+However, the features of customers largely differ between the automobile retail market and aftermarket; a purposive consideration of data analysis and mathematical modeling is required.
+
+PARAGRAPH
+
+PARAGRAPH
+
+(1) Customer churn modeling is usually regarded as a classification problem, where the binary status is to be predicted; for instance, whether a customer will churn, switch to another company, or usage will increase.
+
+Note that they all have a clear indicator (e.g., a contract) to identify the binary status; this differs from the case in our study.
+
+PARAGRAPH
+
+(2) For independent variables, socio-demographics, customer habits, and customer behaviors are the most employed variables.
+
+However, they are merely regarded as simple inputs for conventional model frameworks.
+
+Few attempts have been made to further exploit the usage of these variables; such use may be the development of a more behaviorally interpretable machine learning model.
+
+Moreover, the behaviors were used only once (e.g., whether something was done) or used in an aggregative way (e.g., something was done more than twice in the past three weeks).
+
+It seems to be a waste of effort because the lifecycles of customer behaviors are available.
+
+PARAGRAPH
+
+(3) Regarding the modeling approaches, the most employed and compared models include logistic regression, support vector machine, naïve Bayes, decision tree, random forest, apriori, multilayer perception neural network; all of these are merely conventional machine learning approaches.
+
+Nevertheless, first, note that the development of a customized model is scant; apparently, these frameworks cannot satisfy the necessity of fully exploiting the lifecycle of customer behaviors.
+
+In other words, all these models were somehow treated as black boxes, and few attempts were made to improve their interpretation ability.
+
+Second, with the development of deep learning, several model structures, such as the recurrent neural network and the long-short term memory model, were found to outperform these models (Choi et al., 2016; Fang et al., 2018).
+
+This aspect is further discussed in the next section.
+
+PARAGRAPH
+
+(4) Business insights and applications are intended for the CRM model development.
+
+However, existing literature either focuses on model comparison and feature selection (Huang et al., 2012; Ballings and Van Den Poel, 2015; Mosavi and Afsar, 2018) or the independent generation of warning rules from the prediction model (Farquad et al., 2014).
+
+Further investigations are necessary to fully use the developed prediction model, not only for customer retention, but also for profitability.
+
+SECTION
+
+Recurrent neural network
+
+PARAGRAPH
+
+As discussed above, the RNN has been found to outperform several conventional machine learning models, such as natural language process (Morchid, 2018) and computer vision (Pavel et al., 2017) in the prediction task (Morton et al., 2017).
+
+There have been attempts to employ the RNN to provide more reliable and practical customer management strategies for managers.
+
+Salehinejad and Rahnamayan (2016) proposed a customer behavior prediction model using recurrent neural networks (RNNs) based on client loyalty number, and recency, frequency, and monetary (RFM) variables.
+
+Results show that RNNs have competitive performance for the RFM recommender system.
+
+PARAGRAPH
+
+The long short-term memory (LSTM) (Hochreiter and Schmidhuber, 1997; Gers, 2001) is among the several variants of RNN.
+
+The basic architecture of LSTM is similar to the RNN; however, each unit in the hidden layer is associated with a cell, an input gate, a forget gate, and an output gate.
+
+This advance architecture accelerates the learning model to select few old information to forget while renew information in handle the data of long time, consequently, gradient vanishing and explosion problems are overcome.
+
+Moreover, the LSTM has the high universality of evolving into more suitable patterns under various practical situations; accordingly, variants of the LSTM were developed to be utilized in different studies.
+
+In the recent three years, increasing interest has been focused on the utilization of the LSTM not only for conventional pattern recognition but also for the further investigation of human behaviors, such as in passenger demand (Ke et al., 2017), education (Zhou et al., 2018), and consumer behavior (Gloor et al., 2019) analyses.
+
+In particular, these applications all have the temporal dependency feature, which significantly affects the endogenous variable; moreover, sequential relationships in the data cannot be ignored.
+
+However, in most of these studies, the RNN and LSTM specifications are mostly considered as “plug-in” tools, where the ability for more interpretation is rarely investigated.
+
+PARAGRAPH
+
+Although the applications of LSTM in marketing and CRM are scant, a recent practice provides interesting and insightful experiences.
+
+To our knowledge, the work of Yang et al. (2018) seems to be the first and only study to apply the LSTM structure in the CRM for Snapchat with the intent of developing a joint model that can simultaneously capture user types and churn.
+
+A parallel LSTM structure was applied; accordingly, an ensemble model style and an attention mechanism were employed.
+
+As they reported, they increased the interpretation ability of the LSTM model in behavior modeling; in particular, the increase in interpretation ability was mostly provided by the user type clustering.
+
+The paper of Yang et al. (2018) presents a possible solution to endow more behavioral meaning to black-box-like machine learning models; accordingly, this has motivated us to explore this field and direction further.
+
+PARAGRAPH
+
+In the current study, the automobile repair and maintenance behaviors have unique features, such as missing absence data, full lifecycle data, and three-year loyalty, as discussed above.
+
+A well-designed data-cleaning procedure, model selection, and specifications are required.
+
+Based on the multi-dimensional time series feature of customer lifecycle absence and presence behaviors, an RNN structure is applied.
+
+The customized specification of a new LSTM model is proposed to fully exploit the longitudinal six-year dataset of customer behaviors not only to increase the predictive power of the model, but also to improve the interpretation ability of black-box-like machine learning methods.
+
+SECTION
+
+Methodology
+
+PARAGRAPH
+
+The overall framework of the proposed methodology shown in Fig. 1 has three phases: data cleaning, modeling, and targeted CRM.
+
+PARAGRAPH
+
+(1) In the data cleaning phases, the raw data are firstly preprocessed into an available format suitable for further analysis; “customer absence” and “customer presence” are defined to mine absence records based on customer behaviors.
+
+Thereafter, the warranty and customer datasets are combined into a dataset for model training and testing.
+
+PARAGRAPH
+
+(2) In the modeling phase, a novel structure of RNN, namely RNN-2L, is proposed for customer behaviors modeling, where a substantial of computing time can be saved but the model performance is not sacrificed.
+
+10-fold cross-validation experiment is conducted, and the confusion matrix, receiver operating characteristic (ROC) curve, area under the curve (AUC), F1-score, and accuracy are presented.
+
+PARAGRAPH
+
+(3) In the last phase, a targeted CRM strategy is proposed, based on the novel RNN-2L, to identify potential churn but discount-sensitive customers from all customers, so that the profitability is optimized.
+
+PARAGRAPH
+
+The details of the framework are described in the following sections.
+
+SECTION
+
+PARAGRAPH
+
+Raw dataset and data cleansing
+
+PARAGRAPH
+
+The raw dataset consists of two parts: customer dataset and original warranty dataset stored in the database of 4S shops.
+
+The customer dataset contains customer socio-demographic features (e.g., age, sex, income, and educational background) and vehicle features (e.g., model type, model year, color, and selling price).
+
+The original warranty dataset, which corresponds to the customer dataset, is used to record each customer’s warranty or maintenance history, in which maintenance information details, such as total cost, hourly rate, warranty period status, maintenance time, and maintenance date, are recorded.
+
+Once a customer visits a 4S shop for vehicle maintenance, a customer vehicle maintenance record is added to the client’s vehicle maintenance history in the original warranty dataset.
+
+In other words, if a customer has visited the 4S shop 10 times for vehicle maintenance, then the customer will have 10 warranty records in the original warranty dataset.
+
+PARAGRAPH
+
+Data cleansing is conducted as follows.
+
+First, a simple feature selection method is implemented; a feature having more than 20% missing values and outliers is abandoned.
+
+Second, the missing values and outliers of a continuous feature are replaced by its mean, (e.g., a negative value in the total cost is considered as an outlier and is replaced by the mean of the total cost), and the missing values in the categorical feature are treated as a separate category.
+
+Third, in preprocessing the categorical and continuous features, it is evident that the direct use of the original features for model training may result in a biased model (Bandaru et al., 2015).
+
+Therefore, a normalization method that maps the continuous features to the range of [0, 1] using Eq. (1) and one-hot representation method that encodes the categorical features by dummy variables are used in this study.
+
+This technique creates k dummy variables, where k is the number of distinct values of the categorical feature (Coussement et al., 2017).
+
+A dummy is a binary variable that takes 1 or 0; this indicates the presence or absence of a particular category, respectively, as shown in Eq. (1). zj=xj−min(xj)max(xj)−min(xj),
+
+where xj is the jth feature, and zj is the normalization feature.
+
+It is necessary to emphasize that such a linear transformation does not affect the frequency distribution.
+
+SECTION
+
+Customer absence and presence
+
+PARAGRAPH
+
+In automobile maintenance, when a vehicle reaches the maintenance period (this term usually refers to either the time interval or mileage interval between two consecutive maintenance), the 4S shop will advise the owner to have the car undergo a preventive maintenance or check-up.
+
+However, for certain reasons (e.g., high cost and expired warranty period), some customers will not be present in the auto 4S shop during the aforementioned maintenance period; that is, they will be absent from the 4S shop in the next maintenance.
+
+According to the above description, customer absence and customer presence in the automobile maintenance industry are defined as follows.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Customer absence means that a customer is absent from the 4S shop when his/her vehicle reaches maintenance period.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Customer presence means that a customer is present in the 4S shop for maintenance when his/her vehicle reaches maintenance period.
+
+PARAGRAPH
+
+Having defined customer absence and presence, the following sections present the techniques for detecting these two customer behaviors.
+
+SECTION
+
+Absence records
+
+PARAGRAPH
+
+In Section 3.1, it is indicated that every warranty record in the original warranty dataset is used to record the detailed information of a particular maintenance.
+
+In other words, only when a customer is present in the 4S shop can it have a corresponding warranty record, i.e., there is no warranty record that corresponds to customer absence (named absence record) in the original warranty dataset.
+
+However, the fact is that customer absences are hidden in the dataset, e.g., if the time interval of two consecutive presences is greater than the two maintenance periods, then it can be concluded that a customer absence exists between the two presences.
+
+After locating the customer absence in the original warranty dataset, the absence records can be generated by some particular rules; the rules used for generating absence records are listed in the fifth column of Table 5, where the following can be noted.
+
+PARAGRAPH
+
+Although rules (1)–(5) are particularly defined for the surveyed 4S shops, it is easy to apply their concepts for defining the specific rules for other 4S shops.
+
+PARAGRAPH
+
+An example of generating absence records is shown in Table 3; for simplicity, maintenance period only refers to the time interval.
+
+In Panel a, customer i is present at times t1 and t2; thus, there are two presence records.
+
+Suppose that the latest date of the original warranty dataset is tL, and the customer’s habit for the maintenance period is tm.
+
+(1) If (2×tm≤t2−t1<3×tm), then it can be concluded that a customer absence exists at (t1+tm); if (3×tm≤t2−t1<4×tm), then two customer absences exist at (t1+tm) and (t1+2×tm), and so forth.
+
+(2) On the other hand, if the latest time, t2, satisfies (t2+tm<tL), then it can be concluded that there exists a customer absence at (t2+tm).
+
+SECTION
+
+Dataset for model training
+
+PARAGRAPH
+
+To obtain the dataset for training, first, add absence records to the original warranty dataset to extend it.
+
+The detailed process of generating absence records is shown by the pseudocode in Algorithm 1; the notations used in this paper are summarized in Table 2.
+
+SECTION
+
+Prediction/classification of customer lifecycle behaviors
+
+PARAGRAPH
+
+After data cleaning, the warranty dataset (consisting of presence records and absence records) and customer dataset are combined into a dataset for model training and testing.
+
+Our goal is to predict the future behaviors (absence or presence) of customers based on their historical warranty and customer features; one-step prediction is the most frequently used setting (Gers, 2001).
+
+PARAGRAPH
+
+In machine learning, several techniques have been proposed for classification problem.
+
+Deep learning is a type of machine learning method, which is developed to learn data representation with multiple levels of abstraction (Lecun et al., 2015).
+
+Among the various architectures of deep learning models, the RNN is designed for modeling sequential data, such as handwriting text (Graves et al., 2009), speech, or video (Graves, 2012).
+
+Among many variations of the RNN model, The LSTM is one of the most utilized one.
+
+The illustrations of the simple RNN (SRNN) is presented in the left panel of Fig. 2, and a LSTM unit is shown in the left-bottom of Fig. 3, respectively.
+
+PARAGRAPH
+
+As discussed above, after processing and constructing the absence and presence behavior data, the lifecycle behaviors of all customers are revealed.
+
+Naturally, these data are all sequence data, where the deep learning models such as RNNs are suitable in our case.
+
+PARAGRAPH
+
+SECTION
+
+Modeling lifecycle sequential behaviors
+
+PARAGRAPH
+
+The final churn behavior, which is also an absence behavior, is explained by the habits or behaviors of the past; it is regarded as an intuition.
+
+If a customer comes or goes rather freely and thus has several absence behaviors within the warranty period, then this suggests that this customer does not have a strong preference for availing vehicle maintenance in 4S shops; thus, it should be least expected that the client will be back for the next maintenance job.
+
+On the one hand, if a customer strictly follows the guidebook for vehicle maintenance and infrequently has absences, then it is considerably possible that he will be back for the next maintenance schedule.
+
+Although certain user-clustering methods can also provide similar outcomes, these somehow have less predictive power and hard cut-offs.
+
+In our approach, such customer habits are implicitly modeled in the RNN.
+
+Moreover, not only the final churn can be predicted, but also the next behaviors; these will be practical for monthly and quarterly profit estimations for managers.
+
+PARAGRAPH
+
+Mathematically, the sequential records of customers from date = 1 to date = t-1 are utilized to predict customer behavior at date = t.
+
+More specifically, we use xt−1(i) to predict yt(i), where (t≥2) (it is unnecessary and not possible to predict y1(i) because it denotes the first time that the customer visits the 4S shop, i.e., y1(i) identically equals to 1, and x0(i) does not exist).
+
+Therefore, in our model setting, a sample is denoted as (xt−1(i), yt(i)), where xt−1(i) are features and yt(i) is a label.
+
+The features, xt−1(i), should be reorganized into a suitable format so that they can be inputted to the RNN; specifically, xt−1(i) should be translated into a sequence format.
+
+Because xt−1(i)=[seqt−1(i),c(i)], where seqt−1(i) is a sequence but c(i) is not, it is necessary to remedy this situation by adding c(i) into each element of seqt−1(i); consequently, xt−1(i) is transformed into Eq. (2). xt−1(i)=[s1(i),s2(i),…,st−1(i)],
+
+where sj(i)=[warrj(i),c(i)] is the jth element in the sequence xt−1(i).
+
+Thus, at time step j, the input of RNN is sj(i).
+
+PARAGRAPH
+
+Note that in our dataset, there are not only sequence data; moreover, there are time-invariant data, such as customer socio-demographics.
+
+Therefore, the features xt−1(i) in each sample consist of a (t-1)-length sequence, seqt−1(i), and customer features, c(i).
+
+If we apply the conventional RNN framework, usually all features are repeatedly computed in the circles of the network and all considered as time dependent, as shown in the left panel of Fig. 2.
+
+In this regard, unnecessary consuming time is wasted, because computing these time-invariant features in the model for only once is sufficient.
+
+If the original RNN model is applied and long computational time is inevitable, it would considerably decrease the attractiveness of applying deep learning frameworks in industry with large dataset.
+
+To address this issue, we propose a novel approach for the heterogeneous input.
+
+SECTION
+
+Two layers for heterogeneous input
+
+PARAGRAPH
+
+In the customer dataset, each customer feature is recorded after registration; from then on, it is rarely changed.
+
+Hence, customer feature c(i) is considered as time-invariant; in other words, it is a time-independent feature.
+
+However, the traditional SRNN and LSTM introduced in the above subsection only have one input layer that is used to handle sequential input/time-variant input, as shown in the left panel of Fig. 2.
+
+To deal with c(i), the traditional RNN treats it as a part of the sequential input, as shown in Eq. (2).
+
+The disadvantage of this remedy is that it causes input redundancy because the time-invariant c(i) will be inputted to the network many times, which makes the training process more time consuming.
+
+PARAGRAPH
+
+To remove input redundancy in the traditional RNN, another input layer, which is solely used for time-invariant features c(i), is introduced into the RNN.
+
+Hence, there will be two input layers in the new RNN: one for sequence seqt−1(i) and the other for c(i), as shown in the right panel of Fig. 2.
+
+To differentiate the RNN with two input layers from the traditional, we named it RNN-2L.
+
+In RNN-2L, hT is calculated given the sequence (s1,s2,…,sT), where c is taken away from all si.
+
+Once hT is computed, c is inputted to calculate yˆ, as given by Eq. (7). h0=σ(o),h1=σ(s1U+h0W+bh),...hT=σ(sTU+hT−1W+bh),yˆ=softmax(hTV1+cV2+by),
+
+where σ(.) is a sigmoid function/logistic function, and softmax(.)
+
+is a softmax function; U, W, V1 and V2 are weightings; bh and by are bias terms.
+
+By this modification, we can expect a considerable time can be saved, since the time-invariant feature c is only computed once, instead of repeatedly.
+
+This is in fact a simplification of the model, and also a customization of the structure for the customer behaviors in our case.
+
+PARAGRAPH
+
+Similar, the new variant of LSTM, named as LSTM-2L, is developed with the same logic.
+
+As shown in Fig. 3, the time-invariant features c does not repeatedly go into all LSTM units, and thus a substantial amount of computational time can be saved.
+
+Regarding the LSTM unit, only time-variant features are processed.
+
+Let a, i, f, o, and g represent the input node, input gate, forget gate, output gate, and cell, respectively; moreover, let s̄t=[st,ht−1].
+
+At time step t, the calculation process in an LSTM unit can be expressed by Eqs. (8)–(13); Once hT is calculated, the final yˆ can be computed by Eq. (14). ft=σ(s̄tWf+bf),it=σ(s̄tWi+bi),at=2tanh(s̄tWa+ba),gt=ft⊙gt+it⊙at,ot=σ(s̄tWo+bo),ht=ot⊙tanh(gt),......yˆ=softmax(hTV1+cV2+by),
+
+where Wf, Wi, Wa, Wo, bf, bi, ba, and bo are the weights and bias terms; tanh(.) is a hyperbolic tangent function; ⊙ indicates element-wise multiplication.
+
+PARAGRAPH
+
+In such a new variant, the RNN structure is in fact utilized more economically.
+
+From a behavioral point of view, the time-invariant features have considerable stable effects on behaviors.
+
+In other words, the socio-demographics somehow define the characteristic behavior of each customer; however, they do not critically affect the exact presence and absence of each maintenance.
+
+It will be a computational burden if these features are repeatedly inputted into the model.
+
+Thus, the proposed 2L variant is practical and efficient to jointly handle time-variant lifecycle sequential behaviors and time-invariant habits as well as the predictors of socio-demographics in our case.
+
+Furthermore, similar scenarios that resemble our application can easily adopt the new model.
+
+PARAGRAPH
+
+It is easy to employ the proposed method when more detailed modeling is considered, such as considering different phases of customer.
+
+Like customers’ social-demographic features, in each phase, there are certain variables that are rather constant within its own phase, such as repair types (for a new car, there would be more maintenance than repair; while for an aged car, there would be more major repair and parts replacing).
+
+Such time-invariant variables within each phase do not need to be inputted in all circles of the RNN computation, just like how c is treated.
+
+Therefore, we can expect a substantial amount of time can be saved.
+
+With similar logic, a RNN model can be “divided” into several parts based on managerial experiences and insights.
+
+Alternatively, as a straightforward approach, different models can be built according to different phases of a customer.
+
+PARAGRAPH
+
+Readers may wonder whether such simplification of the model would substantially save computational time, or whether there is significant decrease in model performance.
+
+To answer these questions, in the next section, we provide more exercises, tests and discussions with our large customer dataset.2
+
+SECTION
+
+Experiment and results
+
+SECTION
+
+Experimental setup
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+The raw dataset provided by our surveyed 4S shops is composed of the customer dataset and original warranty dataset.
+
+In the customer dataset, there are 156,363 records of customer socio-demographic information.
+
+Corresponding to the customer dataset, the original warranty dataset has 119 183 presence records of 15,363 customers that were acquired between March 2, 2010 and March 9, 2016: a six-year dataset.
+
+Thereafter, data were cleansed; the descriptive statistics of each feature in the customer and warranty datasets are summarized in Tables 4 and 5, respectively.
+
+PARAGRAPH
+
+According to our surveyed 4S shop, it is suggested that the vehicle maintenance be every 3–6 months or 7500-km increase in mileage.
+
+Accordingly, the time and mileage intervals in the maintenance period are set as 6 months and 7500 km (i.e., tm = 180 days and mm = 7500 km), respectively.
+
+The latest date above in the warranty dataset is March 9, 2016; thus, we set tL = March 9, 2016.
+
+Thereafter, we run the procedure shown in Fig. 3 to generate the absence records.
+
+As a result, 26,640 customer absences are found in the original warranty dataset; hence, the number of absence and presence records in the resulting warranty dataset are 26,640 and 119,183, respectively.
+
+In other words, the dataset for model training and testing is composed of 26,640 negative (absence) samples and 119,183 positive (presence) samples; accordingly, the total number of records is 145,823.
+
+SECTION
+
+PARAGRAPH
+
+Models for comparison
+
+PARAGRAPH
+
+To validate the performance of RNN-2L, six models for customer absence prediction (including four models for comparison with RNN-2L) are implemented: two classical models (logistic regression and multilayer perceptron, two traditional RNNs (SRNN and LSTM), two RNN-2L models (SRNN-2L and LSTM-2L).
+
+Logistic regression (LR) and multi-layer perceptron (MLP) are also compared.
+
+To be consistent with the RNN, the MLP used in this study also has one hidden layer; moreover, the activation function is a sigmoid function.
+
+PARAGRAPH
+
+It is observed that the LR and MLP require each input, x(i), to have the same length; however, in our dataset, the length of each sample feature, xt−1(i), varies by t; x1(i)has the shortest length.
+
+In order to implement the LR and MLP, each sample’s feature should be truncated into the shortest length.
+
+Specifically, a particular sample, (xt−1(i),yt(i)), is translated to (xt−2(i),yt(i)), where xt−2,t−1(i) is given by Eq. (15). xt−2,t−1(i)=[warrt−1(i),c(i)],for t≥2.
+
+PARAGRAPH
+
+Actually, in using the truncation method of Eq. (15), only the last warranty features and customer features are utilized to make predictions.
+
+SECTION
+
+Evaluation criteria
+
+PARAGRAPH
+
+The confusion matrix used in the binary classification problem is a 2 × 2 matrix that allows the visualization of possible classifications of all samples in the test set.
+
+Typically, each row is the predicted class of model, whereas each column is the actual class.
+
+Table 6 is a confusion matrix, where the true positive (TP) represents the number of positive samples correctly classified; otherwise, it is regarded as false positive (FP).
+
+Analogous to negative samples, the true negative (TN) represents the number of negative samples correctly classified, as opposed to the false negative (FN) (Powers, 2011).
+
+Based on the confusion matrix, true positive rate (TPR), false positive rate (FPR), precision, recall and F1 score, and accuracy can be calculated using Eqs. (16)–(21).
+
+In Eqs. (10) and (11), when the precision of the positive samples are calculated, the “True predicted” value refers to “TP”, the “Predicted class” is equal to “TP+FP”, and the “Actual class” is equal to “TP+FN”.
+
+TPR=TPTP+FN,FPR=FPFP+TN,precision=TruepredictedPredictedclass,recall=TruepredictedActualclass,F1=2×precision×recallprecision+recall,Accuracy=TP+TNTP+FN+FP+TN,
+
+PARAGRAPH
+
+The ROC curve is used for visualizing, organizing, and selecting classifiers based on their performance (Fawcett, 2006).
+
+The ROC curve is a two-dimensional graph created by plotting several pairs of (FPR, TPR) obtained from various thresholds, in which the FPR serves as x-axis and the TPR as y-axis.
+
+Thus, the ROC curve can be used to find the expected pair of TPR and FPR based on different situations.
+
+Moreover, the area under the ROC curve is another commonly used criteria for model comparison and evaluation; by using the average of several trapezoidal approximations, it is easy to calculate (see Table 6).
+
+SECTION
+
+PARAGRAPH
+
+Ten-fold cross validation
+
+PARAGRAPH
+
+First, a 10-fold cross validation is used for training and testing; the dataset is randomly partitioned into 10 equal-sized subsets.
+
+Thereafter, a single subset is retained for model testing, whereas the remaining nine subsets are used for model training.
+
+These training and testing processes are repeated 10 times; each subset is only used once as a testing set.
+
+Second, each model’s 10 subset testing results are gathered as the overall testing result.
+
+Finally, the evaluation criteria, i.e., confusion matrix, ROC curve, and AUC are used to evaluate their performance in the overall testing results; the amount of time consumed is only used for RNN and RNN-2L in order to prove whether or not RNN-2L is able to reduce input redundancy.
+
+PARAGRAPH
+
+It is observed that in our six models, there are certain hyperparameters, such as number of epochs (nepoch) in the iteration, number of neurons (nh) in the hidden layer, and learning rate (α).
+
+Before the formal experiments, certain exploratory experiments are conducted to search for the suitable hyperparameters; it is found that when 0.01≤α≤0.05 and nh≤30, the models converge faster as the learning rate increases, and all converge before 3000 iterations.
+
+Therefore, we finally determine the following: nepoch=3000, nh = 30, and α=0.05.
+
+All experiments are implemented using MATLAB 2016 in a laptop with a 2.6-GHz i7 CPU and an 8-GB RAM.
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+The experimental results of the confusion matrix, precision, recall, F1, accuracy, and AUC are summarized in Table 7.
+
+The threshold used in the confusion matrix is prior to positive, i.e., the rate of customer presence in the dataset (0.82 ≈ 119,183/145,823).
+
+All ROC curves are shown in Fig. 4.
+
+The amounts of time consumed by RNN and RNN-2L in the “training/testing” process of the 10-fold cross validation are summarized in Table 8.
+
+PARAGRAPH
+
+The main results are as follows.
+
+PARAGRAPH
+
+(1) The results of F1, accuracy, and AUC have the same pattern: LSTM-2L ≈3  LSTM > SRNN-2L ≈4  SRNN > MLP > LR.
+
+To facilitate description, only the results of AUC are given in detail:
+
+PARAGRAPH
+
+(2) All models, including classical models and recurrent neural networks, exhibited better performance (precision, recall, and F1) on the positive samples than those on the negative; in particular, negative samples have the worst performance in terms of precision.
+
+As mentioned in Section 3.4, the ratio of positive to negative is approximately 4:1, which is class imbalance.
+
+Thus, our models are more focused on the positive samples in the training process.
+
+If it is desired to improve the performance on negative samples, certain strategies (such as undersampling, oversampling, or threshold-moving) can be used.
+
+PARAGRAPH
+
+(3) Amount of time consumed.
+
+According to and listed in Table 9, RNN-2L consumes a smaller amount of training time compared with the RNN.
+
+The t-test results of and are summarized in Table 9; the testing result is Δt1 and Δt2 are significantly different from 0 at a 95% confidence level.
+
+In other words, RNN-2L consumes a smaller amount of time for training than RNN; this is significant at a 95% confidence level.
+
+SECTION
+
+PARAGRAPH
+
+Retention solutions
+
+PARAGRAPH
+
+Providing management insights based on the new proposed method is among the main objectives of this study.
+
+Based on the experimental results above, LSTM-2L exhibited the best performance; accordingly, it is considered as the best model for predicting customer churn behavior in this study.
+
+The design of the application based on the proposed model is presented as follows.
+
+SECTION
+
+Management related factors
+
+PARAGRAPH
+
+Although various exogenous variables have been used in the model, only a few of these are related to management, e.g., prices and repair time.
+
+Thus, for customer retention, managers can only change these factors to improve their services.
+
+Because repair time is fixed to a certain extent, an effective solution would be to offer price discounts, particularly on spare parts, which are usually highly lucrative.
+
+PARAGRAPH
+
+However, there are certain problems that have to be considered.
+
+PARAGRAPH
+
+(1) Intuitively, a higher discount should result in fewer customer churns; however, the relationship may not be linear.
+
+Therefore, a sophisticated quantification analysis is required to find the most effective discount rate.
+
+PARAGRAPH
+
+(2) Offering a high discount may retain some customers; however, it is also accompanied by a corresponding profit decline.
+
+In other words, we should not only focus on the number of customers retained, but also consider the profitability of offering a discount; the latter is most important.
+
+PARAGRAPH
+
+In this regard, two experiments are designed accordingly.
+
+SECTION
+
+Identifying potential churn customers who are discount-sensitive
+
+PARAGRAPH
+
+As shown in Fig. 5, the prediction model is applied twice.
+
+In the first instance, the model predicts the potential churn customers (say set C), who are expected to be absent in the next maintenance period.
+
+However, even if discounts are offered to all customers in C, it is possible that certain customers will still choose to churn.
+
+Therefore, it is necessary to apply the model for a second time in order to identify from C a subset S composed of customers who will switch from churn to stay if discounts are provided; in other words, these customers are discount-sensitive.
+
+With this technique, losses resulting from offering useless discounts to customer i(i∈C,i∉S) can be avoided.
+
+SECTION
+
+PARAGRAPH
+
+When to offer discounts
+
+PARAGRAPH
+
+As discussed above, customers typically only have a three-year loyalty.
+
+Therefore, the discount can be offered if (1) the warranty has expired, and (2) the model predicts that the customer is a potential churn but is discount-sensitive.
+
+Formally, let SE={i|i∈S, customer i’s warranty has expired}.
+
+For instance, if our model predicts that a customer will churn at the tth maintenance, then we can offer a discount to the customer at the (t−1)th maintenance.
+
+PARAGRAPH
+
+Note that the discount is provided at the (t−1)th maintenance so that a profit decline is sustained at this period; however, because the customer will be retained at the tth maintenance, there will be a profit increase at the tth maintenance.
+
+Therefore, we should compute the total profit that can be gained between the (t−1)th and tth maintenance services to determine whether offering the discount is advantageous.
+
+SECTION
+
+Experiments
+
+PARAGRAPH
+
+Based on the discussions above, two experiments are conducted.
+
+PARAGRAPH
+
+(1) The number of churn and remaining number of customers are compared if discounts are not provided, or discounts are provided at different rates.
+
+Specifically, “Cost/Price” ratio is utilized as the indicator for discount, where “Cost” is the actual cost of a particular maintenance, and “Price” is the fee that the 4S shop charges the customer for that maintenance.
+
+Because the “Cost” of a particular maintenance is fixed, a lower value of “Cost/Price” represents a higher profit, whereas Cost/Price = 1 indicates zero profit.
+
+PARAGRAPH
+
+(2) The profits from customers provided with discounts are compared with different “Cost/Price” values.
+
+In particular, three profit curves are presented: profits of the (t−1)th maintenance, the tth maintenance, and the total ((t−1)th + tth).
+
+In reality, customers churn at different times.
+
+To facilitate computations and comparisons, in this experiment, we align the “churn” time and name it as “tth maintenance”, where the discount provision time is the “(t−1)th maintenance”.
+
+The calculation processes are shown in Eqs. (22) to (23). profitNo_discount=∑i∈A(pricei,t−1−pricei,t−1)+∑i∈(A−C)(pricei,t−pricei,t),profitDiscount=∑i∈(A−S)(pricei,t−1−pricei,t−1)+∑i∈S1ri,t−1−1costi,t−1+∑i∈(A−C+S)(pricei,t−costi,t),
+
+where A is the set of all customers, C is the set of potential churn customers; S is the set of discount-sensitive customers, who are potential churns and whose warranties are expired; ri,t−1 is the ratio of cost to price, i.e., ri,t−1=costi,t−1∕pricei,t−1; pricei,t is the fee that the 4S shop charges customer i at time t, and costi,t is the actual cost.
+
+SECTION
+
+Results and discussions
+
+PARAGRAPH
+
+Fig. 6 shows the variation in the number of remaining customers and churn customers at different Cost/Price values.
+
+As expected, increasing the Cost/Price value (which means less profit for the 4S shop) could effectively increase the number of remaining customers by 21%.
+
+Moreover, the higher the Cost/Price values, the steeper the slope of the curve; this suggests the higher sensitivity of customers to price.
+
+In such a case, the customers tend to visit the shop again when they deem that the 4S shop has a considerable cost performance.
+
+PARAGRAPH
+
+Although the foregoing discount strategy has a significant effect on retaining churn customers, it also introduces certain economic pressures if the managers adopt it for all customers.
+
+Nevertheless, finding an appropriate discount strategy is a rational method for reducing financial stress while working on retaining a considerable number of remaining customers.
+
+PARAGRAPH
+
+Another attribute that managers should consider is whether the discount strategy increased the total profit.
+
+As shown in Fig. 7, there is no evident change in the total when the Cost/Price value is adjusted to 0.6; possibly, the customers could not perceive the effect of this slight price adjustment.
+
+As the Cost/Price value is increased from 0.6 to 0.9, it is evident that the profit of the tth maintenance and the total profit all have a growing trend: they increase by 34% and 3.6%, respectively.
+
+However, if the Cost/Price value is 1 (the 4S shop profit is zero), then the profit growth in the tth maintenance is unable to compensate for the discount loss in the (t−1)th maintenance; consequently, the total profit declines.
+
+This means that blindly surrendering a certain amount of the profit in the (t−1)th maintenance cannot consistently accelerate the growth of the total profit.
+
+Briefly, finding an optimized discount rate is the key to effectively retain customers and improve management operations.
+
+PARAGRAPH
+
+Based on the predicted results above, we know that adjusting the spare part price is useful to retain customers.
+
+Compared with the current situation where no retention solution is utilized, the provision of discounts to the right customers with the Cost/Price of 0.9 can result in total savings of 85,333 RMB (approximately US$12,190).
+
+If the average monthly salary is 5,000 RMB per worker, this is equivalent to the costs of hiring 17 workers; a significant management improvement.
+
+PARAGRAPH
+
+Note that there are certain limitations in this application.
+
+First, providing all “potential churn but discount-sensitive” customers with an equal discount rate remains a considerably raw precision marketing strategy.
+
+Undoubtedly, some of them may be more discount-sensitive than others; thus, a customized discount plan can further enlarge the opportunity for profit increase.
+
+Second, more managerial insights can be obtained by changing other management-related variables, such as the Cost/Price for repair man-hour or repair time.
+
+Third, as summarized in Table 7, it is inevitable that each model (regardless of how high its accuracy is) will have false-negative predictions.
+
+In other words, the potential churn customers predicted by the model may include some who may not actually churn; however, it is impossible for us to identify them.
+
+Therefore, inevitably, some of the investments on discount are in fact a waste because discounts for no-churn customers are pointless.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+In this study, the customer relationship management in the automobile repair and maintenance business is analyzed for 4S shops.
+
+In particular, we focus on the customer churn and absence behaviors.
+
+A dataset of records obtained over a period of more than six years is employed and analyzed; it includes the lifecycles of more than 15 000 customer absence and presence behavior records.
+
+To our knowledge, this study seems to be the first to utilize such a large dataset to investigate the CRM in the 4S shop aftermarket.
+
+PARAGRAPH
+
+Unique features were discovered in the studied subjects, and a research framework is developed accordingly.
+
+The three contributions of this study are summarized as follows.
+
+PARAGRAPH
+
+First, unlike various CRM research targets where churn behaviors are explicitly defined with an identifier (e.g., a contract), our dataset does not indicate whether a customer will churn.
+
+Moreover, the duration between each visit is relatively long; thus, it will be extremely late for managers to provide retention solutions after they realize that a customer has already churned.
+
+Therefore, a customized data cleaning procedure is proposed where the absence and presence of customers are firstly defined in this paper.
+
+With this approach, the task can be easily transformed into a classification problem.
+
+PARAGRAPH
+
+Second, absence prediction is as important as churn forecasting; managers utilize this for monthly/quarterly revenue estimation.
+
+In this regard, our model can effectively provide the forecasting results of these two behaviors.
+
+In particular, the dataset of records obtained over more than six years contains rich behavioral data.
+
+Therefore, instead of directly applying a “plug-in” black-box-like machine learning model, such as those used in existing CRM practices, we intend to fully exploit a customer’s lifecycle and sequential absence and presence behavior data by means of model selection and specification.
+
+In this regard, a recurrent neural network structure, which is superior in the sequential data processes, such as natural language process and computer vision, is employed.
+
+The RNN framework is extremely suitable for representing customer lifecycle behaviors; we anticipate that its use in the CRM or consumer behavior analysis will be attempted.
+
+PARAGRAPH
+
+Third, the RNN, as one of the deep learning approaches, has a computational burden not present in simple model structures, such as logistic regression; this is one of its unwelcome factors.
+
+In this paper, the RNN-2L variant is proposed.
+
+In this variant model, the conventional RNN input mechanism can be adopted for the lifecycle and sequential absence and presence data.
+
+As for the time-invariant features, such as socio-demographics, we consider them important in identifying a customer’s habit but less important in determining the exact next time presence.
+
+Therefore, to reduce computational cost, a second input mechanism is utilized for the time-invariant features.
+
+This is particularly true in mechanisms where it is not necessary for these features to be repeatedly called and computed; accordingly, a significant amount of computational time can be saved.
+
+PARAGRAPH
+
+Comparison results suggest that the RNN structures outperform conventional models, such as logistic and MLP in terms of F1-score, AUC, and accuracy.
+
+Moreover, the proposed SRNN-2L model can still retain the superior performance of the original but with a reduced computational time, which can be attributed to the new specification.
+
+This is an obvious advantage if our model is applied to a larger dataset where customers’ lifecycles are much longer, e.g. supermarkets or e-commerce CRM.
+
+PARAGRAPH
+
+Managerial solutions for profit maximization are provided in the experiments conducted.
+
+Details, such as choosing a suitable operational factor, identifying the potential churn but discount-sensitive customers, and determining when to provide discounts, are discussed.
+
+With the suggested retention solutions, significant profit increase can be obtained in our studied 4S shop.
+
+Additional suggestions are provided to further enlarge the opportunity for management improvement.
+
+PARAGRAPH
+
+This study provides not only clarity to the CRM analysis of the lucrative automobile aftermarket, but also new perspectives for analysts regarding the utilization of “black-box-like” machine learning models for behavior modeling.
+
+Although we have observed the superior predictive power of various machine learning approaches, there remains a considerable opportunity for analysts to endow behavioral and business insights into the model development and specification.
+
+This can be done not only to increase its forecasting performance, but also to improve its interpretation ability; this can make modeling and its results more transparent and easier to elicit managerial insight.
+
+This paper only presents a simple first step pertaining to this contribution; future directions should include in-depth investigations, such as inside the model itself.
+
+A deeper investigation can be conducted to fully exploit and adopt all types of behavioral features, not just the two current types.
+
+From a model collection or an ensemble perspective, the development of joint models and full exploitation of the dataset and managerial insights are critical problems for both computer science and business societies.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Jiawen Wang: Conceptualization, Methodology, Validation, Investigation, Software, Writing — original draft.
+
+Xinjun Lai: Conceptualization, Methodology, Validation, Investigation, Writing — original draft, Writing — review & editing, Supervision, Funding acquisition.
+
+Sheng Zhang: Software, Investigation, Writing — original draft.
+
+W.M. Wang: Methodology, Supervision, Writing — original draft, Writing — review & editing.
+
+Jianghang Chen: Conceptualization, Resources, Writing — original draft, Writing — review & editing.

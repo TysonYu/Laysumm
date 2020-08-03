@@ -1,0 +1,487 @@
+10.1016/j.jhep.2018.12.037
+
+FULLTEXT
+
+TITLE
+
+Hepatic PPARα is critical in the metabolic adaptation to sepsis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Sepsis, the systemic inflammatory response to poorly controlled infection, causes significant morbidity/mortality.1
+
+Sepsis is often complicated by multiple organ failure, requiring intensive care.
+
+Recently, mortality in sepsis has decreased largely due to improved supportive strategies for critically ill patients, such as mechanical ventilation, renal replacement therapy and antibiotics.
+
+While current therapeutic strategies targeting the inflammatory response have been disappointing,1,2 metabolic interventions, such as intensive insulin therapy3 and controlled caloric deficit through delayed administration of parenteral nutrition,4 have shown some promise, suggesting that appropriate adaptation of energy metabolism contributes to proper defense against pathogens.5
+
+PARAGRAPH
+
+The early pro-inflammatory response to infection requires glycolysis and non-insulin-mediated glucose uptake to rapidly meet the high energy demand of innate immune cells.6
+
+In this phase, hepatic gluconeogenesis increases to maintain plasma glucose concentrations.7
+
+As sepsis sets in, plasma free fatty acid (FFA) and glycerol levels rise due to enhanced adipose tissue (AT) lipolysis.7
+
+In response, organs such as the liver, muscle and heart, shift from glucose to fatty acid utilization8 and enhance mitochondrial activity.9
+
+PARAGRAPH
+
+PPARα is a nuclear receptor activated by fatty acids (FAs) and derivatives regulating both metabolism and inflammation.10
+
+PPARα is highly expressed in metabolic tissues, such as the liver, heart, kidney and muscle, the vasculature (endothelial cells, smooth muscle cells) as well as in the immune system (monocytes/macrophages, neutrophils, etc.).11
+
+During the fed-to-fasted transition, hepatic PPARα expression increases12 and is activated by the influx of AT-released FFAs, orchestrating a shift from glucose to FA utilization driving ketone body and glucose production by the liver.12,13
+
+PARAGRAPH
+
+PPARα also exerts anti-inflammatory activities by inhibiting NFκB and AP1 signaling.10
+
+Consequently, Ppara-deficient mice display a prolonged inflammatory response upon sterile inflammation.14
+
+Conversely, upon polymicrobial infection, Ppara-deficient mice display decreased survival associated with a reduced pro-inflammatory immune response,15 through mechanisms involving non-hematopoietic PPARα.16
+
+Although cardiac PPARα contributes to sepsis survival by increasing cardiac performance and FA oxidation,17 the specific contribution of PPARα in the liver has not yet been addressed.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Mice
+
+PARAGRAPH
+
+Whole body Ppara knockout (KO) and wild-type (WT) littermate C57BL/6J mice (gift of F. Gonzalez18) were bred at the Institut Pasteur de Lille (IPL) transgenic rodent facility (SPF status).
+
+Hepatocyte-specific Ppara-deficient (Ppara fl/fl, Albumin-Cre+, PparahepKO) and corresponding littermate controls (Ppara fl/fl, Albumin-Cre−) mice were generated and bred at INRA’s rodent facility (conventional health status, Toxalim, Toulouse, France), as described.19
+
+In survival experiments comparing PparahepKO to whole body Ppara KO mice, all mice were bred at the INRA transgenic rodent facility.
+
+Infection experiments were conducted on female (8–12 weeks) mice fed a standard rodent diet (Safe 04 U8220G10R) at IPL facility.
+
+All animals were housed under temperature-controlled (at 22–24 °C), 12 h light/dark cycle conditions.
+
+Experimental procedures were approved by the Nord Pas-de-Calais Ethics committee (CEEA 75, APAFIS#7738-2015121713177853 v9).
+
+SECTION
+
+Bacterial cultures and infection
+
+PARAGRAPH
+
+DH5α Escherichia coli were grown in LB Broth at 37 °C to an OD600 of 0.6, equivalent to 4–5 × 108 live bacteria/ml, collected by centrifugation, washed once with sterile PBS, and resuspended in cold PBS at 4–7 × 108 live bacteria/ml.
+
+Concentration and viability were confirmed by plaque assay colony counting.
+
+Mice (10–15 mice/group) were injected intraperitoneally (i.p.) with 4–7 × 108 live bacteria/mouse in 1 ml PBS and survival rates were monitored every 6 h for a week.
+
+For biochemical characterization, mice were killed by cervical dislocation 16 h after infection and serum and livers collected.
+
+SECTION
+
+Human study
+
+PARAGRAPH
+
+Post-mortem liver biopsies were taken from patients in an intensive care unit (n = 46), who were enrolled in a randomized controlled trial.3
+
+All deaths occurred after multidisciplinary decision to restrict therapy when further treatment was judged to be futile.
+
+During this trial, for post-mortem tissue sampling for academic purposes, each patient or his/her legal representative consented upon admission, via a hospital-wide information and consent procedure that required active opting-out when not consenting.
+
+Opting-out remained possible until time of death.
+
+This strategy was approved by the Institutional Ethical Review Board.
+
+Liver samples were harvested within minutes after death.
+
+Control liver biopsies from 20 demographically matched patients (written informed consent obtained prior to the procedure) undergoing an elective restorative rectal resection were obtained.
+
+All protocol and consent forms were approved by the Institutional Ethical Review Board of the KU Leuven (ML1094, ML2707).
+
+Baseline and outcome variables are indicated in Table S1.
+
+Liver biopsies were taken from liver segment IVb, snap-frozen in liquid nitrogen, and stored at −80 °C until analysis (see supplementary information).
+
+SECTION
+
+Biochemical analysis
+
+PARAGRAPH
+
+Plasma aspartate aminotransferase (AST) and alanine aminotransferase (ALT) (Biolabo), FFA (Diasys), β-hydroxybutyrate (ketone bodies) (Thermo Fisher) were determined by colorimetic assays.
+
+Plasma TNFα, Kc/Cxcl1 and IL-6 protein levels were measured by ELISA (R&D Systems) and myeloperoxidase (MPO) activity as described.20
+
+Cytokine levels were quantified in serum of critically ill patients collected on the day of biopsy (last day alive in the intensive care unit).21
+
+SECTION
+
+Liver transcriptomic analysis
+
+PARAGRAPH
+
+RNA extraction and analysis are detailed in the supplementary information.
+
+RNA microarray analysis was performed using Mouse Gene 2.0ST arrays.
+
+Array data processing was performed using Bioconductor in the R-environment (r-project.org).
+
+Gene expression was calculated after normalizing signal using robust multichip averaging in the oligo package.22
+
+Differential gene expression between groups (Ppara WT uninfected, Ppara WT infected, Ppara KO uninfected and Ppara KO infected) was assessed using the limma package23 with a threshold of 5% false discovery rate.
+
+Differentially expressed genes were clustered using the hopach package24 with the cosine distance metric.
+
+Gene Ontology (GO) term enrichment of selected clusters was performed using the clusterProfiler package.25,26
+
+For KEGG pathway analysis, data were analyzed using Partek software.
+
+SECTION
+
+Mitochondrial respiration
+
+PARAGRAPH
+
+Liver samples (125 mg) were minced and dounce homogenized by 8–10 strokes in ice-cold MIR05 respiratory buffer (20 mM HEPES, 10 mM KH2PO4, 110 mM sucrose, 20 mM taurine, 60 mM K-lactobionate, 0.5 mM EGTA, 3 mM MgCl2·6H2O, 1 g/L BSA (fatty acid free)).
+
+Liver homogenates (50 µl) were introduced into O2K oxygraph chambers (Oroboros Instruments, Innsbruck, Austria) to assess oxygen consumption in presence of pyruvate (5 mM) and malate (2 mM) (state 2 respiration), followed by ADP (0.5 mM) (state 3 respiration).
+
+To measure β-oxidation, octanoylcarnitine (25 μM) and malate (2 mM) were added, followed by ADP (0.5 mM).
+
+The respiratory control ratio was calculated as the state 3:state 2 ratio.
+
+Finally, cytochrome c (10 µM) was added to measure mitochondrial integrity.
+
+SECTION
+
+Histological analysis
+
+PARAGRAPH
+
+Frozen liver samples were embedded in Frozen Section Medium (NEG-50, Richard-Allan Scientific), stained with anti-Moma2 (ab33451, abcam) or anti-Ly6G (1A8, BD Pharmingen) antibodies and counterstained with hematoxylin.
+
+Ly6G and Moma2 staining areas were determined by color detection using a Nikon Eclipse Ti microscope and a color video camera coupled to the NIS Elements software (Nikon).
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Groups were compared using the Log-rank (Mantel-Cox) Test (survival test), 2-way ANOVA, 2-tailed non-paired t tests or nonparametric Wilcoxon tests (mouse and human studies) and expressed as means ± SEM using the GraphPad Prism software.
+
+Significance of correlations between parameters was assessed by calculation of the Pearson (r) correlation coefficient using GraphPad Prism software.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Whole body and non-hematopoietic Ppara-deficiency aggravate mortality upon bacterial infection
+
+PARAGRAPH
+
+To evaluate the role of PPARα in sepsis, whole body Ppara-deficient (KO) and WT mice were inoculated with Gram-negative Escherichia coli.
+
+Three days after infection, mortality was 0% in Ppara WT compared to 75% in Ppara KO mice (Fig. 1A).
+
+As PPARα is expressed in immune cells and exerts anti-inflammatory actions, we assessed whether restoration of PPARα in the hematopoietic compartment conferred protection to infection.
+
+Chimeric mice were generated by transplanting lethally irradiated whole body Ppara KO and Ppara WT mice with Ppara WT bone marrow (WTbm->KO and WTbm->WT, respectively, see supplementary information).
+
+Surprisingly, Ppara-deficiency in non-hematopoietic cells was still associated with increased mortality in response to infection (20% Ppara WTbm->WT compared to 70% Ppara WTbm->KO mortality 3 days after infection; Fig. S1A), revealing a protective role for non-hematopoietic PPARα in response to sepsis.
+
+SECTION
+
+Whole body Ppara-deficiency results in impaired metabolic and inflammatory responses to bacterial sepsis
+
+PARAGRAPH
+
+To understand the mechanisms of increased mortality of Ppara KO mice in response to sepsis, the systemic metabolic and inflammatory response to bacterial infection was characterized.
+
+Plasma FFA levels significantly increased during sepsis to a similar extent in Ppara WT and KO mice at 16 h after infection (Fig. 1B), when maximal changes in metabolic parameters are observed (Fig. S2).
+
+Plasma AST and ALT levels were similar in Ppara WT and KO mice, suggesting comparable tissue damage (Fig. 1C,D).
+
+Conversely, plasma ketone body levels increased strongly upon infection in WT, but not in Ppara KO mice (Fig. 1E).
+
+In addition, infection-induced hypoglycemia was more pronounced in Ppara KO mice, suggesting defective glucose homeostasis (Fig. 1F).
+
+Interestingly, infected chimeric Ppara WTbm->KO mice also displayed lower plasma ketone body levels and more pronounced hypoglycemia compared to WTbm->WT controls (Fig. S1B,C).
+
+These results demonstrate that the metabolic response to sepsis depends on PPARα expression in non-hematopoietic derived cells.
+
+In line with previous observations,15 Ppara-deficiency resulted in decreased, rather than increased, inflammatory responses as illustrated by lower plasma tumor necrosis factor alpha (TNFα) and chemokine Kc/Cxcl1 levels 6 h after infection (Fig. 1G,H).
+
+Since hepatic PPARα contributes to systemic inflammation,27 histological analysis of livers from infected Ppara WT and KO mice was performed.
+
+Surprisingly, whole body Ppara-deficiency did not affect infection-induced neutrophil or monocyte/macrophage recruitment in livers as assessed by Ly6G and Moma2 stainings (Fig. S3).
+
+Plasma MPO activity (Fig. 1I) and bacterial dissemination into peritoneum and blood (Fig. 1J) were also unaffected by whole body Ppara-deficiency.
+
+SECTION
+
+Whole body Ppara-deficiency modulates the hepatic metabolic and inflammatory gene expression responses to bacterial sepsis
+
+PARAGRAPH
+
+To identify molecular pathways regulated by PPARα in response to sepsis, microarray analysis was performed on livers from whole body Ppara WT and KO mice 16 h after infection and from uninfected controls.
+
+In addition to inflammation-related pathways, the GO term “Oxidation-Reduction Process,” was altered by infection in Ppara WT mice, suggesting altered mitochondrial function (Fig. 2A).
+
+Unbiased clustering analysis of genes affected by sepsis in either whole body Ppara WT or KO mice revealed 3 gene clusters (Fig. 2B,C and Fig. S4).
+
+While cluster 1 (black) and cluster 3 (purple) contained genes whose response to infection (induced or suppressed, respectively) was largely maintained in whole body Ppara KO mice, genes in cluster 2 (green) were either unresponsive or responded in the opposite direction in Ppara KO mice despite strong regulation in Ppara WT mice upon infection.
+
+Cluster 1 was enriched in genes associated with inflammatory response and reactive oxygen species metabolism, and cluster 3 was enriched in genes involved in cellular glucuronidation and response to xenobiotics (Fig. S4).
+
+Interestingly, Cluster 2 contained many genes related to FA metabolism and circadian rhythm, many of which are bona fide PPARα targets.
+
+Indeed, carnitine palmitoyl transferase (Cpt)1a, acyl-Coenzyme A oxidase (Acox)1 and pyruvate dehydrogenase kinase (Pdk)4, were induced by sepsis in Ppara WT mice, but either reduced or unchanged by infection in Ppara KO mice (Fig. 2D).
+
+Together, these results demonstrate that the most profound transcriptional differences between whole body Ppara WT and KO mice in response to sepsis are related to regulation of PPARα’s metabolic targets, rather than to effects on inflammation or other pathways.
+
+SECTION
+
+Whole body Ppara-deficiency impairs the hepatic metabolic shift from glucose to lipid utilization during bacterial sepsis
+
+PARAGRAPH
+
+To further characterize the metabolic role of PPARα during sepsis, glucose and lipid metabolism gene expression was measured in livers of infected Ppara WT and KO mice (Fig. S5).
+
+Sepsis increased expression of genes involved in gluconeogenesis, such as phosphoenolpyruvate carboxykinase (Pck)1 and fructose-1,6-biphosphatase (Fbp)1, although the magnitude of response was lower in Ppara KO mice (Ppara WT vs. KO: Pck1: 3.00 vs. 1.67; Fbp1: 2.81 vs. 1.44-fold induction) (Fig. S5A).
+
+However, sepsis raised expression of Pdk4, which inhibits the final step of glycolysis, >100-fold in a PPARα-dependent manner (Fig. S5B).
+
+Similarly, sepsis strongly increased (>12-fold) hepatic adipose triglyceride lipase (Atgl/Pnpla2) expression in Ppara WT mice only (Fig. S5C).
+
+Moreover, sepsis increased several PPARα target genes involved in hepatic lipid metabolism such as FA uptake (e.g. Fatp1, Cd36), FA activation (e.g. Acsl1), peroxisomal FA β-oxidation (Acox1) and mitochondrial FA transport and β-oxidation (e.g. Cpt1a, Lcad) (Fig. S5D).
+
+Interestingly, except for Cpt1a, sepsis-mediated induction of these genes was PPARα-dependent.
+
+Moreover, expression of 3-hydroxy-3-methylglutaryl-Coenzyme A synthase (Hmgcs)2, the rate-limiting enzyme for β-hydroxybutyrate production, was lower in Ppara-deficient mice (Fig. S5E).
+
+Furthermore, infected chimeric Ppara WTbm->KO mice, expressing Ppara only in hematopoietic cells, also displayed lower hepatic expression of Pdk4, Cd36, Acox1, Lcad, Hmgcs2 and Atgl compared to WTbm->WT mice (Fig. S5F,G), demonstrating that the metabolic transcriptional response to sepsis in the liver depends on non-hematopoietic PPARα.
+
+PARAGRAPH
+
+Functional analysis of liver mitochondria also suggested impaired FA utilization in whole body Ppara KO mice.
+
+Unaltered citrate synthase activity indicated that Ppara-deficiency did not impact mitochondrial quantity (Fig. S5H).
+
+Uninfected whole body Ppara KO livers displayed lower respiratory control ratio values upon incubation with pyruvate and malate and, to a lesser extent, with octanoylcarnitine and malate compared to uninfected Ppara WT (Fig. 2E).
+
+However, bacterial infection shifted the respiration rate from pyruvate/malate to octanoylcarnitine/malate in Ppara WT, whereas this shift was less apparent in Ppara KO livers (Fig. 2E).
+
+Together, these data indicate that sepsis shifts the transcriptional and metabolic program from glucose to lipid utilization and this is impaired in whole body Ppara KO livers.
+
+SECTION
+
+Hepatocyte-specific PPARα expression is required for proper metabolic response and survival upon bacterial infection
+
+PARAGRAPH
+
+Because the results of both transcriptomic and metabolic analysis suggested that hepatic PPARα is activated upon sepsis, we postulated that hepatic PPARα may be critical to the organism’s response to infection.
+
+Therefore, hepatocyte-specific PparahepKO were subjected to bacterial infection and their response compared to PparahepWT and whole body Ppara KO mice.
+
+Similar to whole body Ppara KO mice, PparahepKO showed increased mortality compared to PparahepWT mice (Figs. 1A and 3A).
+
+Infected PparahepKO mice also displayed lower ketone body levels compared to PparahepWT, despite similar levels of plasma FFA, ALT and AST (Fig. 3B–D and Fig. S6).
+
+Liver triglyceride (TG) content increased more markedly upon bacterial infection in PparahepKO vs. PparahepWT mice (3.1 vs. 2.2-fold, Fig. 3F), suggesting defective hepatic lipid utilization.
+
+Surprisingly, infected PparahepKO mice displayed no significant differences in glycemia (Fig. 3E), nor plasma levels of inflammatory cytokines (TNF-α, Kc and IL-6) at both 5 h and 16 h after infection (Fig. 3G,H and Fig. S7) compared to PparahepWT.
+
+In addition, bacterial dissemination in peritoneum and blood did not differ between PparahepWT and PparahepKO mice (Fig. 3I).
+
+These data suggest that the increased mortality observed in whole body Ppara KO is unlikely caused by the different glycemic and systemic inflammatory responses.
+
+PARAGRAPH
+
+Similar to whole body Ppara KO mice, PparahepKO mice displayed major defects in sepsis-modulated regulation of several genes involved in hepatic glucose (i.e. Pdk4, Fig. 4A) and lipid metabolism (e.g. Cd36, Acox1, Vlcad and Lcad, Fig. 4B), as well as Ppara itself (Fig. 4C).
+
+Interestingly, the induction of hepatic Atgl and Cpt1a expression upon sepsis was independent of hepatocyte PPARα (Fig. 4B).
+
+Conversely, hepatic Hmgcs2 expression was virtually undetectable upon sepsis in PparahepKO mice (Fig. 4B).
+
+Bacterial infection increased Atgl, but not Hmgcs2 or Dgat1 expression at the protein level (Fig. S8).
+
+Moreover, Hmgcs2 protein levels were lower in PparahepKO mice both in uninfected and infected conditions.
+
+Whereas Atgl protein induction appeared less pronounced upon sepsis in PparahepKO mice, Dgat1 protein expression only increased in PparahepKO mice, both consistent with increased hepatic TG content.
+
+Together, these data indicate that hepatocyte-specific PPARα-deficiency profoundly affects the hepatic metabolic response to infection.
+
+SECTION
+
+Ppara-deficiency regulates the inflammatory response, but does not promote innate immune cell recruitment or inhibit autophagy in the liver upon bacterial sepsis
+
+PARAGRAPH
+
+To determine the contribution of non-hematopoietic PPARα to systemic inflammation in sepsis, expression of inflammatory genes was measured in livers and spleens from whole body Ppara KO, chimeric Ppara WTbm->KO mice and their respective controls.
+
+The induction of Tnfa, Mcp1, Il6 and Ifng upon sepsis was markedly attenuated in livers (Fig. 5A), and, to a lesser extent, in spleens (Fig. S9) of whole body Ppara KO mice compared to controls.
+
+Likewise, induction of the vascular inflammation markers Vcam1 and Icam1 (Fig. 5B) and the mitochondrial anti-oxidant enzyme Sod2 (Fig. 5C) was lower in livers of whole body Ppara KO mice than in their WT counterparts.
+
+By contrast, the hepatic and vascular inflammatory and anti-oxidant responses (Fig. 5D,E), as well as MPO activity (Fig. 5F) and immune cell recruitment (Fig. S10) were similar in chimeric Ppara WTbm->KO and WTbm->WT mice, despite differing survival outcomes (Fig. 1A and Fig. S1A).
+
+Interestingly, in PparahepKO mice, the induction of inflammatory genes (Fig. 6A) upon sepsis was either higher (Tnfa) or unchanged (Mcp1, Il6), whereas neutrophil and monocyte/macrophage recruitment was again similar (Ly6G and Moma2 stainings, Fig. 6C-E) upon infection.
+
+Altogether, these data indicate that the attenuated inflammatory response observed in livers of whole body Ppara KO mice depends on hematopoietic, but not hepatic Ppara expression.
+
+PARAGRAPH
+
+Because autophagy may play a protective role during sepsis28 and PPARα mediates fasting-induced autophagy,29 markers of autophagy were assessed in whole body and hepatocyte-specific Ppara-deficient mice.
+
+Whereas sepsis increased expression of certain autophagy genes, their regulation was not different in whole body Ppara KO mice (Fig. S11A).
+
+Moreover, hepatocyte-specific Ppara-deficiency (Fig. S11B-C) resulted in more pronounced induction of Ulk1, Atg5, Bnip3 and Becn1 gene expression and Lc3b-II/I protein ratio, suggestive of a compensatory induction of autophagy to combat the deleterious response to sepsis in PparahepKO mice.
+
+Altogether, these data indicate that hepatocyte PPARα expression contributes to protection against sepsis by controlling the systemic metabolic response.
+
+SECTION
+
+PPARα expression and activity is lower in livers of critically ill patients
+
+PARAGRAPH
+
+To determine whether hepatic PPARα expression is altered in critically ill humans, livers from non-surviving critically ill patients and healthy controls were analyzed for PPARA and its targets gene expression (Fig. 7A).
+
+Interestingly, PPARA expression was lower in livers of critically ill patients.
+
+Moreover, expression of genes involved in TG lipolysis (ATGL), glucose oxidation (PDK4), FA uptake and β-oxidation (CD36, LCAD) and ketogenesis (HMGCS2) were also lower and correlated with PPARA expression (Fig. 7A,B).
+
+Surprisingly, PPARA mRNA levels did not correlate with serum cytokine levels in these patients (Fig. 7B), suggesting a critical role for hepatic PPARα in the metabolic, but not in the inflammatory response to sepsis in critically ill human patients.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Our results demonstrate that PPARα protects against sepsis primarily by controlling the metabolic response in hepatocytes, by shifting its energy utilization from glucose to FAs and increasing ketogenesis.
+
+PARAGRAPH
+
+The host defense toward bacterial infection is a complex response involving resistance (to limit microbial burden) and tolerance (to limit tissue injury and organ dysfunction) mechanisms.
+
+These processes require metabolic reprogramming in immune and non-immune cells.30
+
+Resistance is characterized by a balance between local activation of pro-inflammatory pathways to restrain and eliminate invading pathogens and anti-inflammatory pathways required to prevent exaggerated systemic inflammation.31,32
+
+Our data show that whole body Ppara-deficiency attenuates organ and systemic inflammatory responses upon infection.
+
+This contrasts with previous observations in models of sterile chronic and acute inflammation in which Ppara-deficiency results in exacerbated inflammatory responses to endotoxemia in vascular, splenic and liver cells.33
+
+Accordingly, whole body Ppara-deficiency also resulted in a decreased pro-inflammatory response and survival in a cecal ligation sepsis model.15
+
+PARAGRAPH
+
+Interestingly, our data and that of others indicate that non-hematopoietic PPARα action is an important determinant of survival.
+
+Studies by Standage et al. suggest that heart PPARα expression contributes to survival during sepsis by increasing cardiac performance and FA oxidation.16,17
+
+In the present study, we demonstrate that PPARα expression and activation in hepatocytes, but not immune cells, contributes to protection against sepsis by promoting an appropriate metabolic response, hence improving survival.
+
+Sepsis activates hepatic PPARα, which results in activation of FA metabolism and ketogenesis-related target genes, elevating the level of ketone bodies in the plasma.
+
+Indeed, PparahepKO mice displayed higher hepatic TG accumulation, reduced plasma ketonemia, and lower hepatic expression of FA metabolism and ketogenesis genes.
+
+Decreased ketogenesis in septic Ppara-deficient mice was unlikely due to defective AT lipolysis, since plasma FFA levels were unaffected by whole body and hepatocyte-specific Ppara-deficiency.
+
+PARAGRAPH
+
+Defective FA oxidation and ketogenesis in septic Ppara-deficient mice may indirectly contribute to the aggravation of hypoglycemia and mortality.
+
+Mouse models displaying FA oxidation defects are often hypoglycemic upon lipopolysaccharide administration, e.g. Mcad-deficient mice34,35 and Tbp2-deficient mice.36
+
+Moreover, several lines of evidence indicate that PPARα plays an important role in glucose homeostasis.37
+
+Under septic conditions, the hypoglycemia in whole body Ppara-deficient mice may involve increased hepatic glucose utilization.
+
+Indeed, Ppara-deficiency impairs the induction of Pdk4 gene expression upon sepsis, whereas the expression of gluconeogenic genes was not affected.
+
+Still, assessment of mitochondrial respiration in Ppara-deficient livers suggests that infection does not increase pyruvate oxidation.
+
+Thus, the hypoglycemia might also result from increased peripheral glucose uptake by metabolic organs, such as the heart, muscle and brain, to compensate for both the inability to catabolize FA38,39 and reduced ketone body availability.
+
+In line, septic PparahepKO mice display less pronounced hypoglycemia than whole body Ppara deficient mice.
+
+However, it has been shown that decreased FA oxidation and ketogenesis as a result of Ppara or Fgf21-deficiency can lead to an inability to maintain tissue tolerance to bacterial sepsis leading to neuronal dysfunction and death.40
+
+Moreover, ketone body therapy protects against lipotoxicity and acute liver failure in Ppara-deficient mice.41
+
+Together with our data, these data suggest that the increased mortality during sepsis may be caused by a deficiency in beneficial energetic substrates produced by FA oxidation in hepatocytes, such as ketone bodies, to maintain tissue protection.
+
+PARAGRAPH
+
+Interestingly, in livers of non-surviving critically ill patients, PPARA mRNA levels are lower and correlate with the lower expression of genes involved in lipid and glucose metabolism, but not with plasma markers of inflammation.
+
+These data corroborate findings from a clinical metabolomic study showing that lactate, pyruvate, acetyl-carnitine and several citric acid cycle metabolites were higher in sepsis non-survivors compared to survivors, suggesting that a profound defect in FA β-oxidation, possibly as a result of mitochondrial dysfunction, is associated with the incidence of death in critical ill patients.42,43
+
+PARAGRAPH
+
+In conclusion, we have shown that during sepsis Ppara-deficiency in hepatocytes is deleterious, as it impairs the adaptive metabolic shift from glucose to FA utilization.
+
+While most current approaches to treat sepsis aim to harness the inflammatory response, our results might pave the way for strategies based on adaptive energy homeostasis.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by grants from European Genomic Institute for Diabetes (EGID, ANR-10-LABX-46), the Conseil régional Nord Pas-de-Calais and the Fonds européens de développement régional (FEDER).
+
+J. Haas was supported by the European Molecular Biology Organization (EMBO) Long-Term Fellowship (ALTF2014-277), Y. Deleye by a doctoral fellowship from the Nouvelle Société Française d’Athérosclérose, K. Wouters by European FP7 Postdoctoral fellowship (PIEF-GA-2009-235221), EFSD/GlaxoSmithKline Research and European Atherosclerosis Society grants.
+
+D. Mesotten is a senior clinical investigator for the Research Foundation – Flanders.
+
+G. Van den Berghe receives research financing through the Methusalem program (Flemish government) and holds an “ERC Advanced Grant”.
+
+W. Wahli was supported by the Lee Kong Chian School of Medicine, Nanyang Technological University Singapore Start-Up Grant and holds a Chaire d’Excellence Pierre de Fermat (Toulouse).
+
+H. Guillou is supported by grants from Région Occitanie and ANR “Hepatokind”.
+
+B. Staels holds an “ERC advanced Grant” (694717).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Contribution to conception and design, technical support: RP, JH, NH, EB, YD, JV, CC, SAH, VL, SL, SM, PG, EV, EB, BD, HD, CG, SF, FL, AT, AM, WW, BS.
+
+Data acquisition, data analysis and interpretation: RP, JH, NH, EB, YD, DM, LL, JV, KW, SM, PG, HG, DD, BS.
+
+Drafting of the manuscript, statistical analysis: RP, JH, NH, EB, YD, DM, LL, KW, HG, BS.
+
+Critical revision of the manuscript for intellectual content: RP, JH, DM, AT, WW, GVdB, HG, DD, BS.

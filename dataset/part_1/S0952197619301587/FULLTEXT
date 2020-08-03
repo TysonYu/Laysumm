@@ -1,0 +1,769 @@
+10.1016/j.engappai.2019.06.019
+
+FULLTEXT
+
+TITLE
+
+Accelerating decentralized reinforcement learning of complex individual behaviors
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Reinforcement Learning (RL) is increasingly being used to learn complex behaviors in robotics.
+
+Two of the main challenges to be solved for modeling RL systems acting in the real-world are: (i) the high dimensionality of the state and action spaces, and (ii) the large number of training trials required to learn most of complex behaviors.
+
+Many real-world applications have multi-dimensional action spaces (e.g., multiple actuators or effectors).
+
+In those cases, RL suffers from the combinatorial explosion of complexity which occurs when a single or centralized RL (CRL) scheme is used.
+
+It may turn infeasible to implement CRL systems in terms of computational resources or learning time due to the exponential increasing of dimensionality in both the state space and the action space as in Martín and de Lope Asiaín (2007) and Leottau et al. (2018).
+
+Instead, the use of Decentralized Reinforcement Learning (DRL) helps to alleviate this problem as it has been empirically evidenced by Buşoniu et al. (2006) and Leottau et al. (2017, 2018).
+
+In DRL, a problem is decomposed into several sub-problems, whose resources are managed separately while working toward a common goal, i.e. learning and performing a behavior.
+
+In the case of multidimensional action spaces, a sub-problem corresponds to control one particular variable.
+
+For instance, in mobile robotics, a common high-level motion command is the requested velocity vector (e.g., [vx,vy,vθ] for an omni-directional robot).
+
+Then, if each speed component of this vector is handled individually, a distributed control scheme can be applied.
+
+PARAGRAPH
+
+Most of the stochastic DRL systems implemented with independent learners also present two main drawbacks: non-stationary and non-Markovian issues.
+
+Laurent et al. (2011) indicate that these drawbacks could be mitigated by: (i) decaying the exploration rate, and (ii) using coordinated exploration techniques for shrinking the action space.
+
+Both mechanisms can be accomplished by using Knowledge Transfer (KT) approaches, as Knox and Stone (2010) and Bianchi et al. (2014) reported.
+
+KT has evidenced to be able to accelerate the training of Multi-Agent RL (MARL) problems (Vrancx et al., 2011; Boutsioukis et al., 2012; Taylor et al., 2013; Bianchi et al., 2014; Hu et al., 2015), alleviating the second aforementioned challenge: the large number of training trials.
+
+KT allows exploring in a subset of the action space limited by a source of knowledge (SoK), which has been previously learned or designed.
+
+A SoK for a DRL system should contain at least one branch per decentralized learning agent.
+
+If those branches are pre-coordinated, the SoK relieves at the same time the coordination problem, which must be solved in order to extend and take advantage of some potential benefits of Multi-Agent Systems (MAS) to DRL systems.
+
+PARAGRAPH
+
+In this work, we tackle the high dimensionality of the state and action spaces, and the large number of training trials by using two mechanisms: (i) DRL to alleviate the effects of the curse of dimensionality on the action space, and (ii) KT to reduce the training episodes so that asymptotic convergence can be achieved.
+
+The SARSA(λ) with radial basis functions (RBFs) is used as basis algorithm to implement a DRL system with no prior-coordination among agents.
+
+This is accelerated-coordinated by using a KT approach called Control Sharing (CoSh) introduced by Knox and Stone (2012), which is extended from the single-agent case to the DRL case.
+
+In addition, we introduce a CoSh-based variant called Nearby Action Sharing (NeASh), which is able to include a measure of uncertainty in the action sharing process.
+
+PARAGRAPH
+
+Since most of the MARL reported studies do not address or validate their proposed approaches with multi-state, stochastic, and real-world problems (Buşoniu et al., 2008), our preliminary goal is to show (empirically) that the benefits of MAS are also applicable to complex problems by using a DRL scheme.
+
+For such purpose, two challenging real-world problems for soccer robotics are modeled and implemented: the inwalk-kicking and the ball-dribbling behaviors, both performed by using an omni-directional biped robot.
+
+In the inwalk-kicking behavior, the robot must learn to push the ball toward a desired target only by using the inertia of its own gait (Lobos-Tsunekawa et al., 2017).
+
+In the ball-dribbling problem, the robot must learn to maneuver the ball in a very controlled way while moving towards a desired target (Leottau et al., 2015).
+
+In the case of biped robots, the complexity of these tasks is very high, as in each case the controller must take into account the physical interaction among the ball, the robot’s feet, the ground, and the robot’s gait inertia.
+
+Thus, the action is highly dynamic, non-linear, and influenced by several sources of uncertainty.
+
+PARAGRAPH
+
+Three DRL schemes are analyzed and compared for both test problems, the DRL with independent agents and no prior-coordination (DRL-Ind), the DRL accelerated with CoSh (DRL+CoSh), and the DRL accelerated with NeASh (DRL+NeASh).
+
+As it will be shown, DRL+CoSh and DRL+NeASh are able to transfer knowledge and accelerate the DRL-Ind.
+
+These three schemes are analyzed through an extensive empirical study carried out in a 3D realistic simulator and demonstrated with physical robots.
+
+It is worth mentioning that, to the best of our knowledge, we are the first applying an effective strategy for transferring knowledge and coordinating-accelerating DRL systems.
+
+PARAGRAPH
+
+This paper is structured as follows.
+
+Relevant background and related work are presented in Section 2.
+
+Section 3 describes the proposed DRL and KT schemes.
+
+The case studies, their description, experiments and results are presented in Section 4.
+
+Finally, conclusions are drawn in Section 5.
+
+SECTION
+
+Background
+
+PARAGRAPH
+
+RL is a family of machine learning techniques in which an agent learns a task by directly interacting with the environment.
+
+In the single-agent RL case, the environment of the agent is described by a Markov Decision Process (MDP), this is, a 4-tuple 〈S,A,T,R〉 where: S is the finite set of environment states, A is the finite set of agent actions, T:S×A×S→[0,1] is the state transition probability function, and R:S×A×S→R is the reward function.
+
+PARAGRAPH
+
+The generalization of the MDP to the MARL case is the stochastic game, defined by the tuple 〈S,A1,…,AM,T,R1…RM〉, where: M is the number of agents; S is the discrete set of environment states; Am,m=1,…,M, are the discrete sets of actions available to the agents, yielding the joint action set A=A1×⋯×AM; T:S×A×S→[0,1] is the state transition probability function, such that, ∀s∈S,∀a∈A,∑s′∈ST(s,a,s′)=1; and Rm:S×A×S→R,m=1,…,M, are the reward functions of the agents (Buşoniu et al., 2008; Laurent et al., 2011).
+
+SECTION
+
+Decentralized reinforcement learning
+
+PARAGRAPH
+
+Under the presence of multi-dimensional action spaces, RL solutions can be called CRL systems if each action subspace is discretized, combined, and computed as a single set of actions.
+
+In CRL, the number of possible actions grows exponentially with the dimensionality of the action space.
+
+Thus, a combinatorial explosion of both state and action spaces occurs, making hard exploring sufficiently the whole action–state space which causes a slow convergence and an exponential increasing of the execution time and memory consumption as Leottau et al. (2018) and Lobos-Tsunekawa et al. (2017) evidenced.
+
+These drawbacks can be overcome by addressing them from a decentralized perspective.
+
+PARAGRAPH
+
+A DRL system uses a single-entity which has several branches (e.g., a single robot with multiple actuators).
+
+In DRL, a problem is split into several sub-problems, and their individual information and resources are then managed in parallel as a collection of multiple separate learning agents, which are part of a single-entity.
+
+Under multi-dimensional action spaces, each separate agent acts in a different action space dimension, this allowing the design of independent state models, reward functions, and learning agents for each action dimension (Leottau et al., 2018).
+
+PARAGRAPH
+
+DRL helps to alleviate the high dimensionality of the state and action spaces, and the large number of training trials.
+
+The DRL’s multi-agent nature grants several potential advantages if the problem is approached with decentralized learners and the coordination issue is solved (Leottau et al., 2018):
+
+SECTION
+
+Challenges in DRL
+
+PARAGRAPH
+
+DRL systems also have several challenges which must be solved efficiently in order to take advantage of the MAS benefits already mentioned.
+
+Agents have to coordinate their individual behaviors toward a coherent-desired joint behavior.
+
+This is not a trivial issue since those single behaviors are correlated, and each individual decision modifies the joint environment.
+
+PARAGRAPH
+
+According to Claus and Boutilier (1998), two fundamental classes of agents in MAS can be defined: (i) joint-action learners, and (ii) independent learners (ILs).
+
+Joint-action learners are able to observe the other agents’ actions and rewards; these learners are easily generalized from standard single-agent RL algorithms as the process stays Markovian.
+
+On the other hand, ILs do not observe the rewards and actions of the other learners, and they interact with the environment as if no other agents exist (Laurent et al., 2011).
+
+PARAGRAPH
+
+Most multi-agent (MA) stochastic problems violate the Markov property and are non-stationary.
+
+A process is said non-stationary if its transition probabilities change with the time.
+
+A non-stationary process can be Markovian if the evolution of its transition and reward functions depends only on the time step, and not on the history of actions and states (Laurent et al., 2011).
+
+For ILs, which is the focus of the present paper, it is expected that the individual policies change as the learning progresses.
+
+A past action of an IL agent has influenced the past evolution of its learning process and the future evolution of its environment; thus, the learned behavior of other agents may also have changed.
+
+Therefore, the environment is non-stationary and non-Markovian, causing convergence issues.
+
+PARAGRAPH
+
+ILs equipped with single-agent algorithms are more likely to converge in the case of low-coupled distributed systems, because the effects of the non-stationarity of agents are less observable.
+
+However, achieving convergence for these low coupled systems requires to decay the exploration rate of new actions as the learning process goes along in order to avoid too much concurrent exploration.
+
+Another strategy for mitigating ILs convergence issues is to use coordinated exploration techniques; by excluding one or more actions from each independent action space in a coordinated way, the action selection mechanism explores in a shrinking and joint action space.
+
+Notice that both mentioned strategies reduce the exploration of new actions, the agents evolve slower, and the non-Markovian effects are reduced as Laurent et al. (2011) mention.
+
+SECTION
+
+Knowledge transfer and DRL
+
+PARAGRAPH
+
+KT is used to accelerate the rate at which one or more target tasks are learned from one or more sources of knowledge.
+
+Two reasonable goals of KT are: (i) to effectively reuse past knowledge in a novel task, and (ii) to reduce the overall time required to learn a complex task.
+
+In the context of DRL-Ind, we will consider a third goal: to address the coordination problem.
+
+PARAGRAPH
+
+KT has been widely studied and applied to accelerate single-agent RL (Taylor and Stone, 2009).
+
+To a lesser extent, KT has been used for MARL systems as well, and not only to accelerate but also to outperform and address large-scale problems as Vrancx et al. (2011) and Bianchi et al. (2014).
+
+In order to deal with non-stationary and non-Markovian issues in most of the stochastic IL problems, it is suggested to decay the exploration rate and use coordinated exploration techniques for excluding some actions (Laurent et al., 2011).
+
+Both considerations can be accomplished by using KT.
+
+In fact, decayed exploration and transfer rates are commonly considered parameters in some KT approaches like (Knox and Stone, 2010; Bianchi et al., 2014).
+
+KT also allows shrinking the action space based on a prior-coordinated source task, this simultaneously helping the coordination problem as Vrancx et al. (2011) report for the MARL case.
+
+PARAGRAPH
+
+Different cases of KT applied to DRL tasks can be identified: same tasks (source and target) and same problem-spaces; same tasks and different problem-spaces; different tasks and same problem-spaces; and different tasks and different problem-spaces.
+
+The problem-spaces refer to the source and target state variables and actions.
+
+In addition, DRL systems consider the case of homogeneous and heterogeneous agents, in which homogeneous agents have identical problem-spaces and goals.
+
+PARAGRAPH
+
+For this work, we consider the following cases:
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+Since this article considers two main methods, namely independent DRL and KT applied to MARL, this section presents some related work about these two approaches.
+
+SECTION
+
+Distributed and decentralized RL
+
+PARAGRAPH
+
+Leottau et al. (2018) introduce a MA methodology for DRL of individual behaviors in problems where multi-dimensional action spaces are involved.
+
+This modeling-design methodology consists of five stages: (i) determining if the problem is decentralizable; (ii) identifying common and individual goals; (iii) defining the reward functions; (iv) determining if the problem is fully decentralizable; and (iii) completing RL single modelings.
+
+This work also reports an experimental study which evidences the benefits of DRL implementations over their CRL counterparts.
+
+Some of those results can be seen in Fig. 1, which compares CRL vs. DRL learning evolution plots of three different problems: the well-known 3-Dimensional mountain car, the ball-pushing behavior performed with a differential drive robot, and the ball-dribbling tested with a simplified biped robot.
+
+PARAGRAPH
+
+As previous work to this paper, the DRL of the soccer Ball-Dribbling behavior is accelerated by using knowledge transfer in Leottau and Ruiz-Del-Solar (2015), where each component of the omni-directional biped walk (vx,vy,vθ) is learned in parallel with single-agents working on a MA task.
+
+This learning approach for the omni-directional velocity vector is also reported by Lobos-Tsunekawa et al. (2017), where the inwalk-kicking problem is proposed and tested in biped robots, using finite support basis functions for that purpose.
+
+Similarly, a MARL application for the multi-wheel control of a mobile robot is presented by Dziomin et al. (2013).
+
+There, the robot’s platform is separated into driving module agents that are trained independently, in order to provide energy consumption optimization.
+
+It is worth mentioning that to the best of our knowledge, only few works have reported applications in which the commanded velocity vector of a robot is controlled by a DRL system, such as we are proposing in this article.
+
+PARAGRAPH
+
+Some other works have been reported, which in contrast to our humanoid biped robot applications, apply DRL to multi-link robots and arms.
+
+Buşoniu et al. (2006) compare centralized and decentralized RL approaches for the case of controlling a 2-link manipulator, in which both learning strategies were tested and compared in terms of performance, convergence time and computational resources.
+
+Martín and de Lope Asiaín (2007) present a distributed RL architecture for generating a real-time trajectory of both a 3-link-planar robot and the SCARA robot; experimental results showed that it is not necessary for decentralized agents to perceive the whole state space in order to learn a good global policy.
+
+Troost et al. (2008) use a MA approach in which each output is controlled by an independent Q(λ)-learning agent.
+
+Both simulated robotic systems tested showed an almost identical performance and learning time between the single-agent and MA approaches, while the latter requires less memory and computation time.
+
+Some of these experiments and results were extended and presented by Schuitema (2012).
+
+A multi-agent influenced RL approach is presented by Kabysh et al. (2012), which uses agent’s influences to estimate learning error among all the agents.
+
+This method has been validated with a multi-joint robotic arm.
+
+SECTION
+
+KT applied to MARL
+
+PARAGRAPH
+
+To the best of our knowledge, the present paper is the first work reporting a DRL implementation accelerated-coordinated by using KT.
+
+Thus, this section briefly overviews relevant and similar works but in the context of KT applied to MARL.
+
+Hu et al. (2015) present the idea of equilibrium transfer based MARL, which outperforms and accelerates considerably its non-transfer counterpart, and scales significantly better than algorithms without equilibrium transfer when the state/action space grow and the number of agents increases.
+
+Compared to the KT methods used in our work, this method only has been validated on discrete domains, and several non-trivial considerations must be taken into account for implementing effectively the transfer approach.
+
+However this method seems an interesting alternative for future DRL implementations.
+
+Bianchi et al. (2014) present the heuristically accelerated MARL (HAMRL) algorithms, as a general framework for including heuristic functions to influence the action choice of the agents.
+
+This family of algorithms must be modified and adapted depending on the source and target MARL algorithm to be used; however, it is also an interesting approach for future implementations, since CoSh can be seen as a simplified version of HAMRL.
+
+Vrancx et al. (2011) apply transfer learning to the Coordinating Q-learning framework, which uses a statistical test to sample the immediate rewards received by the agent.
+
+This approach shows interesting results and it is worth considering it for future and more sophisticated DRL implementations.
+
+By contrast to the KT methods used in our work, this algorithm uses previously identified problem states as samples to train a rule based classifier, which makes somehow complex a fast implementation.
+
+Taylor et al. (2013) propose a parallel transfer learning for MAS which, unlike to the approach here-proposed, is able to learn simultaneously the source and target tasks, and share their current experience based on a set of rules and considerations somehow focused on the particular case studied, a smart grid.
+
+Boutsioukis et al. (2012) apply transfer learning in MARL domains, showing that the transfer method reduces the learning time and increases the asymptotic performance.
+
+Similar to the KT-DRL approaches used in our work, this method biases the initial action value function, but it is only validated in a discrete, deterministic and 2-agents competitive domain.
+
+SECTION
+
+Proposed DRL schemes
+
+SECTION
+
+Independent DRL
+
+PARAGRAPH
+
+The DRL-Ind scheme aims to apply single-agent RL methods to the MARL task, and does not consider any kind of cooperation or coordination among agents; there is neither adaptation to the other agents nor estimated models of their policies, nor special action-selection mechanisms (e.g., communication among agents, prior knowledge).
+
+The computational complexity of this DRL scheme is the same as that for a single-agent RL (e.g., a Q-Learner).
+
+PARAGRAPH
+
+Although the non-stationarity of the MARL problem invalidates most of the single-agent RL theoretical guarantees, this approach has been implemented in several multi-robot systems.
+
+An empirical study about DRL-Ind effectiveness can be found in Leottau et al. (2018).
+
+PARAGRAPH
+
+Algorithm 1 depicts an episodic multi-agent SARSA algorithm (Sutton and Barto, 1998) for continuous states with RBF approximation (Papierok et al., 2008), built following the DRL-Ind scheme.
+
+There, a learning system with an M-dimensional action space is modeled with M single SARSA learners acting in parallel.
+
+Every IL has individual Q-functions, action spaces, action selection mechanisms, and state vectors.
+
+Taking advantage of parallel computation of MAS, it is possible to update every Q-table by using M independent threads (Lines 1.20 to alg˙ind-threadE).
+
+A decayed and synchronized exploration rate is proposed, in order to avoid too much concurrent exploration and reduce the non-Markovian effects as was suggested in Section 2.1.1.
+
+In this way, each agent should find the best response to the behavior of the others.
+
+Thus, an ϵ-greedy action selection mechanism is implemented, which is exponentially decayed by using the dec factor as seen in Line 1.31; episode is the current episode index and maxEpisodes is the total number of trained episodes per run.
+
+PARAGRAPH
+
+Synchronizing the exploration–exploitation mechanism among all the agents is a variant that Algorithm 1 offers.
+
+It is possible just by declaring a unique random number for all the agents as in Line 1.16, instead of an individual random scalar per agent as in Line 1.18.
+
+Also note that the RL parameters could be defined separately per agent (e.g., αm,γm, ϵm), which is one of the DRL properties pointed out in Section 2.1.
+
+In Algorithm 1, those parameters are unified just for the sake of simplicity.
+
+SECTION
+
+Proposed KT-based DRL
+
+PARAGRAPH
+
+This work proposes to use KT to help DRL-Ind in coordinating the exploration during the early episodes.
+
+Under this approach, a subset of actions taken from a prior-coordinated SoK is used for guiding the agents to avoid unknown actions, while they evolve leniently and the non-Markovian effects are reduced.
+
+The SoK acts as an initial value function, and thereby endows the agent with an initial policy (Konidaris et al., 2012).
+
+If both decayed exploration rate and decayed probability of KT are used, the subset of actions from the SoK is progressively increased or modified over time, while concurrent exploration is reduced.
+
+In this way, each agent finds easily the best response to the behavior of the others.
+
+PARAGRAPH
+
+Several requirements are taking into account in order to choose the KT strategy used in this work.
+
+In general, we consider methods that are able to:
+
+PARAGRAPH
+
+Note that the CoSh approach (Knox and Stone, 2010) accomplishes all the listed considerations.
+
+In addition, CoSh also supports the KT case already indicated in Section 2.2: heterogeneous agents, different source and target tasks, and the same source and target problem-space.
+
+SECTION
+
+Control sharing (CoSh)
+
+PARAGRAPH
+
+Introduced by Knox and Stone (2010), CoSh acts only during action-selection, without affecting the updates of the Action-Value functions.
+
+This method effectively either lets the RL agent to choose its action or takes asrc, the action shared from the SoK.
+
+If an action is shared, the RL agent observes and updates it as if it were making the choice.
+
+The action a is chosen by SoK or source-policy (πsrc(s)=asrc) with probability β as P(a=asrc)=min(β,1),otherwise action  a is chosen using a base RL agent’s action-selection mechanism. β
+
+is decayed periodically by a predefined factor.
+
+PARAGRAPH
+
+CoSh was originally proposed for the single-agent RL case, but it can be easily extended to the DRL case if a SoK is available to each separate agent and if decayed and synchronized exploration rates are implemented as in Algorithm 1, as well as with the transfer probabilities are described as below.
+
+Note that CoSh is able to accomplish all the requirements previously mentioned precisely because its extreme simplicity.
+
+This is an advantage in order to quick implementations because only the decayed probability β must be set.
+
+However, in the next subsection, we are proposing the Nearby Action Sharing variant for continuous action spaces, which also fulfills those requirements and additionally is able to include a measure of uncertainty to the transferred action for noisy SoKs.
+
+SECTION
+
+Nearby action sharing (NeASh)
+
+PARAGRAPH
+
+Same as CoSh, NeASh also acts only during action-selection, transferring knowledge from continuous action spaces, when no information different to the suggested action in an observed state is available from the SoK.
+
+NeASh has applicability in cases where the sources of knowledge are standard controllers, hand-coded behaviors, rule inference systems, among other similar sources.
+
+NeASh is based on CoSh, but it takes advantage of continuous action spaces to compensate the lack of information or uncertainty about the quality of the source actions.
+
+It assumes that a measure of the quality of a state–action pair is related to its distance to the action asrc suggested by the SoK (e.g., a source policy πsrc(s)).
+
+In this way, a normal distribution along the universe of discourse centered in asrc is considered (see Fig. 2), and the resulting nearby action to share is asrc′=ξ(μ,σ), in which ξ(μ,σ) is a normally distributed random generator with mean μ=asrc and standard deviation σ=ϱ(1−β).
+
+Algorithm 2 depicts the procedure for a DRL system accelerated-coordinated by using NeASh, which has M single-agents.
+
+PARAGRAPH
+
+As in the CoSh case, the action is chosen by source-policy with probability β.
+
+Typically, the initial value of β is 1. β
+
+is decayed periodically as well as the standard deviation of ξ, which means that, at the beginning of the learning process, NeASh works similarly to CoSh in Eq. (1).
+
+However, while the learning process goes along, the probability of choosing an action asrc′ increasingly goes away from the action asrc as ϱ(1−β).
+
+Actually, NeASh turns into CoSh for the particular case of ϱ=0.
+
+PARAGRAPH
+
+If no KT is selected during a step, as in the case of line 2.22, then NeASh offers the option of using its own action-selection mechanism or just using a regular approach (e.g., ϵ-greedy) as depicted in line 2.28.
+
+The NeASh action-selection mechanism works similar to Softmax (Sutton and Barto, 1998), but taking advantage of the continuous action spaces, and uses a normal distribution instead of a Boltzmann one.
+
+In a very similar way to obtaining asrc′, the chosen action from the target policy atgt′ is obtained by using the best action from the current target policy (e.g., maxQm(sm)), but with σ=ϱ⋅β, and taking a nearby target action as in line 2.26.
+
+PARAGRAPH
+
+A synchronized transfer/exploration version of NeASh can be implemented by using a unique random number as in Lines 2.8–2.9, instead of M different random numbers for synchronizing transfer/exploration such as in Lines 2.11–2.13.
+
+Note that if normal distributions are used, it is necessary to bound asrc′ and atgt′ into the action space with module or clip functions.
+
+This issue can be solved by using other finite support kernels such as triangular, cosine or Epanechnikov (Lobos-Tsunekawa et al., 2017).
+
+SECTION
+
+PARAGRAPH
+
+Experimental validation
+
+PARAGRAPH
+
+In order to validate MAS benefits and properties of the DRL proposed approaches, two complex and real-world problems from soccer robotics have been selected: the inwalk-kicking and the ball-dribbling.
+
+Both behaviors are performed with humanoid biped robots, which results very challenging because their modeling must take into account the physical interaction between the ball, the ground, the robot’s feet, and the robot’s gait inertia.
+
+Thus, the action is highly dynamic, non-linear, and influenced by several sources of uncertainty.
+
+Moreover, these two behaviors are actually used by the UChile Robotics Team (Yáñez et al., 2016) in the RoboCup (Veloso and Stone, 2012) Standard Platform League (SPL) soccer competition, in which the team has been regular semifinalist in the recent world competitions.
+
+PARAGRAPH
+
+The inwalk-kicking and ball-dribbling are part of the inwalk-ball-pushing based behaviors proposed by Leottau and Ruiz-Del-Solar (2015).
+
+Similar to Leottau et al. (2015), the description of both problems use the following variables: [vx,vy,vθ], the velocity vector; γ, the robot-ball angle; ρ, the robot-ball distance; ψ, the ball-target distance; and ϕ, the robot-ball-target complementary angle.
+
+These variables are shown in Fig. 3, where the desired target ⊕ is the opponent’s goal, and a robot’s egocentric reference system is indicated with the x axis pointing forwards.
+
+Fig. 3 also shows the RoboCup SPL soccer environment where the NAO humanoid robot is used (Gouaillier et al., 2009).
+
+PARAGRAPH
+
+A description of each problem as well as the implementation and modeling details are presented in the next sub-sections.
+
+The experimental results are then discussed, for which we use the following terminology: DRL-Ind is an independent learners scheme implemented without any kind of MA coordination; DRL+CoSh and DRL+NeASh are DRL schemes accelerated using CoSh and NeASh transfer knowledge approaches, respectively; RL-FLC is an implementation reported by Leottau et al. (2015, 2016), which combines a Fuzzy Logic Controller (FLC) and an RL single agent.
+
+For the kicking problem, some extra experiment are carried out by using different sources of knowledge for CoSh and NeASh transfer methods, namely SrcHQ and SrcLQ, a high and a low quality sources, respectively.
+
+This is explained in Section 4.1.2.
+
+All the acronyms of the implemented methods and problems are listed in Table 1.
+
+SECTION
+
+PARAGRAPH
+
+Inwalk kicking
+
+PARAGRAPH
+
+In the inwalk-kicking behavior, a robot attempts to shoot and score a goal by performing an inwalk-ball-pushing (Lobos-Tsunekawa et al., 2017).
+
+A general version of this behavior was originally introduced and implemented by Röfer et al. (2011), in which the gait phases are modified to create kick motions.
+
+Our proposed implementation consists of inwalk kicks using only the inertia of the gait, without any specially designed kick motion.
+
+The robot just push the ball as hard as possible while it is walking toward the ball, as Lobos-Tsunekawa et al. (2017) propose.
+
+SECTION
+
+Decentralized modeling
+
+PARAGRAPH
+
+Since the velocity vector of the biped-robot walking-engine is [vx,vy,vθ], it is possible to decentralize this 3-Dimensional action space by using three separate agents, namely Agentx, Agenty, and Agentθ.
+
+Our expected common goal is to walk fast toward the ball, and pushing it aligned and hard enough for scoring a goal.
+
+That means: to maximize vx and minimize ρ,γ,ϕ,vy,vθ before pushing the ball; and to minimize ϕ,ψ once the ball is shoot.
+
+So, the proposed control signals are [vx,vy,vθ], and the proposed common reward is: r=K⋅exp−ψerror∕ψ0⋅exp−αerror∕α0,if ball is pushed,−ρ∕ρmax+|ϕ|∕ϕmax+|γ|∕γmax,otherwise,where [ρmax,γmax,ϕmax]=[2000mm,90°,90°], ψerror is the distance that the ball still needs to travel to reach the target in its current trajectory, αerror is the angle deviation of the ball’s trajectory from a straight line to the target, and the parameters K,ψ0 and α0 allow the design of rewards with more focus on kick strength or precision.
+
+The complete proposed modeling for learning the 3-Dimensional velocity vector from the joint observed state is detailed in Table 2.
+
+SECTION
+
+PARAGRAPH
+
+Experimental setup
+
+PARAGRAPH
+
+The inwalk-kicking RL procedure is carried out episodically.
+
+After a reset, the ball is set on a fixed position, 1.5 m in front of the opposite goal as shown in Fig. 4 (left).
+
+The robot is set on a random position, 1m around the ball and always facing it.
+
+This random initialization is designed so the learning agent can successfully learn many operation points, and thus achieve a general kick behavior.
+
+The episode’s termination criterion is given by the following conditions: episode timeout of 200 s, the robot or the ball leaves the field, or the ball is pushed by the robot.
+
+PARAGRAPH
+
+A SARSA(λ) RL algorithm with RBF approximation is implemented for these experiments.
+
+DRL-Ind and DRL+CoSh use ϵ-greedy decayed as ϵ=ϵ0⋅exp(decepisode∕maxEpisodes)where dec is a decayed factor, episode is the current episode index, and maxEpisodes=2000 trained episodes per run.
+
+DRL+CoSh also decay β in the same way.
+
+DRL+NeASh uses the same decay function, but applied for annealing β and managing the knowledge transfer and the NeASh action-selection mechanism depicted in Algorithm 2.
+
+PARAGRAPH
+
+The percentage of scored goals across the trained episodes is considered as the performance index ScoredGoalRate(%)=scoredGoals∕EpisodeWindowwhere scoredGoals are the number of scored goals during EpisodeWindow=200 episodes, a window of 10% of the 2000 total trained episodes.
+
+PARAGRAPH
+
+Two kinds of experiments are carried out: (i) an extensive experimental procedure carried out on a 2D simulator in which basic kinematics models are computed faster, allowing parameter optimizations and running several trials for more statistical significance; and (ii) experiments carried out in the SimRobot 3D simulator released by Röfer et al. (2011), which is very realistic but computationally expensive for the Intel(R)Core(TM)i7-4774CPU@3.40 GHz available on our lab (a run of 2000 episodes may take up to 12 h).
+
+The experimental procedure for both experiments is described below:
+
+PARAGRAPH
+
+PARAGRAPH
+
+3D Realistic Simulator Experiments:
+
+SECTION
+
+Results and analysis
+
+PARAGRAPH
+
+Fig. 5 shows learning plots for 2D simulator experiments.
+
+Table 3 presents their final performances and learning times for achieving a time to threshold of 40%.
+
+DRL+NeASh schemes show the best final performance and learning times (around 14% better and 43% faster than DRL-Ind) followed by DRL+CoSh schemes (around 10% better and 36% faster than DRL-Ind).
+
+DRL-Ind shows the lowest performance and slower learning times, which is expected taking into account the lack of prior-coordination, unlike NeASh and CoSh approaches which use linear controllers as SoK.
+
+PARAGRAPH
+
+Two different qualities of the SoK were tested for comparing NeASh and CoSh performances.
+
+Both transfer methods outperform the DRL-Ind even when a low quality source is used.
+
+However, note from Fig. 5 that the DRL+CoSh-SrcLQ learning plot shows lower performance during most of the learning procedure, evidencing that the quality of the SoK affects CoSh more than NeASh.
+
+From Table 3, DRL+NeASh-SrcHQ is about 21% faster than DRL+CoSh-SrcLQ, and 23% faster than DRL-Ind.
+
+This can be explained taking into account the nearby action effect, because while CoSh always shares the same action for a determined state, NeASh explores the neighborhood according ϱ and 1−β for sharing a nearby action, which eventually can have a better performance, but surely gives more experience and information to the target DRL agents.
+
+As a disadvantage, NeASh requires tuning the extra parameter ϱ.
+
+PARAGRAPH
+
+It is interesting analyzing the effect of those parameters on the knowledge transfer.
+
+From Table 1, note that CoSh uses a smaller decay factor to deal with the lower quality in the source (dec:19→13), which implies a slower learning.
+
+NeASh reacts similarly: it reduces dec from 29 to 12, but increases the nearby action deviation by reducing the scale factor ϱ from 25 to 16.
+
+This means, if the source is good, that NeASh trusts more in the SoK, but if the source is weak, that NeASh should explore more around the suggested action from the source.
+
+PARAGRAPH
+
+Fig. 6 presents learning evolution plots for the 3D simulator experiments, in which the high quality sources were used.
+
+These plots validate results from previous experiments: DRL-NeASh is again the best and fastest scheme (around 10% better and 27% faster than DRL-Ind) followed by DRL+CoSh schemes (around 9% better and 19% faster than DRL-Ind).
+
+From Table 1, note that ϱ and dec differ from 2D experiments due to the more challenging and realistic environment.
+
+For instance, DRL-NeASh now uses ϱ=10, which is a reduced value compared to the 2D experiment, in order to increase the exploration zone from the source actions.
+
+PARAGRAPH
+
+Finally, it is also interesting to compare numerically the computational benefits proper of the use of DRL instead of CRL.
+
+Table 4 presents both the computational speedup and the memory consumption reduction obtained for the case of inwalk-kicking.
+
+It is important to note that vanilla CRL produces impractical execution times even for relatively low-dimensional problems such as inwalk-kicking, whereas DRL is able to provide a considerable speedup, allowing its use in real-time applications.
+
+A similar phenomena is presented in the memory consumption.
+
+While the memory usage of the CRL approach for this problem is still feasible to nowadays computers, it still impossible to deploy such solutions to embedded systems.
+
+In this case, DRL also proves to address this issue, producing models which are able to be embedded in such platforms, due to a much reduced memory usage.
+
+A more detailed CRL vs. DRL comparison and analysis for this problem has been addressed by Lobos-Tsunekawa et al. (2017).
+
+SECTION
+
+PARAGRAPH
+
+Ball-dribbling
+
+PARAGRAPH
+
+Ball-dribbling is a complex behavior during which a robot player attempts to maneuver the ball in a very controlled way, while moving toward a desired target.
+
+Used variables are the same for the inwalk-kicking problem, described at the beginning of this section and shown in Fig. 3.
+
+SECTION
+
+Decentralized modeling
+
+PARAGRAPH
+
+As in the inwalk-kicking problem, the NAO robot is used.
+
+So, the same three separate agents Agentx, Agenty, and Agentθ are proposed.
+
+Our expected common goal is to walk fast toward the desired target while keeping possession of the ball.
+
+That means: to maintain ρ<ρth; to minimize γ,ϕ,vy,vθ; and to maximize vx.
+
+In this way, this ball-dribbling behavior can be separated into three tasks or individual goals, which have to be executed in parallel: ball-turning, which keeps the robot tracking the ball-angle (γ=0); alignment, which keeps the robot aligned to the ball-target line (ϕ=0); and ball-pushing, whose objective is for the robot to walk as fast as possible and hit the ball in order to change its speed, without losing possession of it.
+
+So, the proposed control signals are [vx,vy,vθ], respectively, involved with ball-pushing, alignment, and ball-turning.
+
+Thus, individual rewards are proposed for each learning agent: rx=1,if ρ<ρth∧γ<γth∧ϕ<ϕth∧vx<vx.max′,−1,otherwise,ry=1,if γ<γth∕3∧ϕ<ϕth∕3,−1,otherwise,rθ=1,if γ<γth∕3∧ϕ<ϕth∕3,−1,otherwise,where: [ρth,γth,ϕth] are desired thresholds at which the ball is considered to be controlled, otherwise a fault-state occurs; and vx.max′ reinforces walking forward at maximum speed.
+
+Fault-state thresholds are set as: [ρth,γth,ϕth]= [250mm,25°,25°], and vx.max′=0.9⋅vx.max.
+
+The complete proposed modeling for learning the 3-Dimensional velocity vector from the joint observed state is detailed in Table 2.
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+A SARSA(λ) RL algorithm with RBF approximation is also implemented for these experiments.
+
+Parameters and decayed functions are set and configured in the same way as for the kicking problem.
+
+All the parameter are detailed in Table 1 for each scheme implemented.
+
+PARAGRAPH
+
+The ball-dribbling RL procedure is carried out episodically and 1000 episodes are trained in the SimRobot 3D simulator.
+
+After a reset, the robot is set near to its own goal (Fig. 4, right), in a random position over the red arc around the ball, and the desired target is defined by ⊕.
+
+The terminal state is reached if the robot loses the ball, if the robot leaves the field, or if the robot reaches the target (which is the expected terminal state).
+
+The training field is 9 × 6 m.
+
+PARAGRAPH
+
+The evolution of the learning process is evaluated by measuring and averaging 10 runs.
+
+In this way, the following performance indices are considered to measure dribbling-speed and ball-control respectively:
+
+SECTION
+
+Results and analysis
+
+PARAGRAPH
+
+Fig. 7 shows the learning evolution plots and Table 5 shows the averaged final performances and learning times for achieving a performance of 30%.
+
+DRL+NeASh scheme shows the best final performance and learning times, around 7% better and 62% faster than DRL-Ind, followed by DRL+CoSh scheme which is around 6% better and 58% faster than DRL-Ind.
+
+DRL-Ind shows the lowest performance, slower learning times, and larger error bars with respect to the TK approaches.
+
+Same as in the inwalk-kicking problem, it is expected due to the lack of prior-coordination in the DRL-Ind scheme, contrary to the DRL+CoSh and DRL+NeASh schemes, which for this experiments used a SoK with a prior performance of around 45%.
+
+PARAGRAPH
+
+Since a previous implementation for the ball-dribbling problem has been already reported in the literature as RL-FLC (Leottau et al., 2015), we have included its performance indices in Table 5.
+
+The effectiveness and benefits of this hybrid RL and fuzzy approach have been pointed out by Leottau et al. (2015).
+
+However, a significant human effort and knowledge of the controller designer are required for implementing all the proposed stages.
+
+In that sense, our independent DRL approach is able to learn the whole ball-dribbling behavior autonomously, achieving best performances with respect to the RL-FLC with less human effort and less previous knowledge.
+
+An advantage that still remains from the RL-FLC method is the considerably lower RL training time, regarding the DRL scheme (51 episodes vs. 845 episodes approximately for achieving a performance of 30%).
+
+In that sense, the transfer knowledge strategies for DRL agents proposed in this work are able to reduce that learning time down up to 225 episodes, opening the door to make achievable future implementations for learning similar behaviors with physical robots.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions
+
+PARAGRAPH
+
+This paper presented a Decentralized Reinforcement Learning (DRL) architecture to alleviate the effects of the curse of dimensionality and the large number of training trials required to learn tasks in which multi-dimensional action spaces are involved.
+
+Three DRL schemes are considered and tested: DRL-Ind, implemented with independent learners and no prior-coordination; DRL+CoSh, accelerated-coordinated by using the Control Sharing (CoSh) knowledge transfer approach, which is extended from the single-agent case to the DRL proposed architecture; and DRL+NeASh, a knowledge transfer approach proposed for including a measure of uncertainty to the CoSh procedure.
+
+PARAGRAPH
+
+The proposed methods have been validated by implementing two real-world problems, the inwalk-kicking and the ball-dribbling behaviors, both performed with humanoid biped robots, where each component of the requested velocity vector [vx,vy,vθ] is learned in parallel with independent agents working in a multi-agent task.
+
+Results have shown empirically that benefits of MAS are also applicable to complex problems like robotic platforms, by using a DRL architecture.
+
+Results have also shown that even without prior-coordination, both asymptotic convergence and indirect coordination are achieved among DRL-Ind agents.
+
+They have shown that it is possible to reduce the training episodes and coordinate the DRL by using knowledge transfer from simple linear controllers, obtaining better performances and learning times with respect to the DRL-Ind scheme.
+
+PARAGRAPH
+
+DRL+NeASh schemes showed either better performances and learning times for the inwalk-kicking problem.
+
+By contrast, DRL+NeASh and DRL+CoSh approaches showed similar performances for the dribbling problem.
+
+This is an interesting point to be discussed taking into account the quality of the sources of knowledge used by each problem: the inwalk-kicking behavior used a source of knowledge with a performance of around 15% (being 100% the optimal), while the ball-dribbling used a source of knowledge of around 45% (being 0% the optimal).
+
+The DRL+NeASh scheme showed the best averaged performance for both problems: 58.53% for the inwalk-kicking, and 22.04% for the ball-dribbling.
+
+Note that the source performance for the dribbling case was closer to the optimal policy.
+
+Thus, we can empirically conclude that benefits of NeASh approach are more noticeable when the source of knowledge has poor performances or more uncertainty; otherwise, the CoSh approach could be more convenient due to its simplicity and easy parameter tuning, and also because of CoSh is able to deal with both, discrete and continuous action spaces.
+
+PARAGRAPH
+
+Video demonstrating the inwalk-kick and ball-dribbling learned policies performed with a real NAO robot can be found online at Lobos-Tsunekawa (2017).
+
+The policies are transferred directly to the physical robot, thus, the final performance is dependent on how realistic the simulation platform is.
+
+PARAGRAPH
+
+CoSh and NeASh were able to fulfill all the requirements indicated in Section 3.2: transferring on any RL algorithm that uses an action value function; transferring from different SoK types; including prior-coordination without more complexity than a single-agent RL method; and allowing heterogeneous agents with different source and target tasks but same source and target problem-space.
+
+Those considerations were accomplished precisely because of the NeASh and CoSh simplicity.
+
+However, since this work is one of the first approaches that address coordination or acceleration of DRL systems, our intention was to introduce basic and simple concepts and methods as a starting point, and as motivation for future researches on this field, in which more sophisticated methods can be used.

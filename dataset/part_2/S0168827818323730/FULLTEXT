@@ -1,0 +1,391 @@
+10.1016/j.jhep.2018.09.003
+
+FULLTEXT
+
+TITLE
+
+Intra-tumoral tertiary lymphoid structures are associated with a low risk of early recurrence of hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is the fifth most frequent cancer worldwide and the second leading cause of cancer-related deaths.1
+
+The vast majority of cases develop in patients with chronic liver diseases, the main risk factors being hepatitis B virus (HBV) and hepatitis C virus (HCV) infection, alcohol intake and metabolic syndrome.2,3
+
+Clinical outcomes remain poor, with only around one-third of patients eligible for potentially curative treatments such as surgical resection, radiofrequency ablation or liver transplantation.3
+
+The standard of care for advanced cases is the multikinase inhibitor sorafenib, which unfortunately has limited survival benefit.4
+
+PARAGRAPH
+
+The recent success of immunotherapy in various solid or hematological malignancies underscores the need to better understand the mechanisms that lead to effective anti-tumoral responses.5–7
+
+Intra-tumoral infiltration by cytotoxic CD8+ lymphocytes has been extensively investigated and is associated with improved survival in most tumors.7
+
+More recently, other studies have focused on the significance of tertiary lymphoid structures (TLSs).8–10
+
+TLSs are classically defined as lymphoid aggregates forming in non-hematopoietic organs in response to chronic and non-resolving inflammatory processes, such as infection, graft rejection, autoimmune disease and cancer.8
+
+They are thought to play a critical role in the anti-tumor specific immune responses by allowing the generation of effector and central memory T cells and plasma cells.
+
+Their presence is correlated with a reduced risk of recurrence and improved survival in virtually all solid tumors.7
+
+PARAGRAPH
+
+Their role in HCC, an inflammation-driven cancer, is however debated.
+
+Finkin et al. observed that the existence of TLSs in non-tumoral liver correlated with an increased risk for late recurrence and a trend toward decreased overall survival after surgical resection of HCC.11
+
+Moreover, using a mouse model of chronic NF-κB activation, they showed that TLSs constituted immunopathological microniches that favored the growth of malignant hepatocyte progenitors through the production of pro-tumoral cytokines.11
+
+Although this elegant work challenged the current dogma that TLSs coordinate anti-tumoral responses, the significance of intra-tumoral TLSs was not investigated and thus remains to be determined.
+
+PARAGRAPH
+
+Thus, we aimed to study, by means of morphological analysis, the prognostic significance of both intra-tumoral and non-tumoral TLS in a series of 273 patients with HCC treated by surgical resection.
+
+These findings were further validated by gene expression profiling using a public data set.
+
+SECTION
+
+Material and methods
+
+SECTION
+
+Patients and samples
+
+PARAGRAPH
+
+The discovery cohort (“HMN cohort”) consisted of 273 unselected patients who underwent surgical resection for HCC at Henri Mondor Hospital between 1995 and 2016.
+
+The following clinical and biological features were recorded: age, gender, alcohol intake (active or not at the time of surgery), HBV infection, HCV infection (eradicated or not at the time of surgery), metabolic syndrome, other etiologies, Barcelona Clinic of Liver Cancer (BCLC) stage, clinically significant portal hypertension (according to EASL-EORTC guidelines) and preoperative alpha-fetoprotein (AFP) serum level.12
+
+For a subset of HBV infected patients, viral genome quantification in the liver was performed in a previous study and available, and allowed us to identify patients with active replication using formerly described criteria.13
+
+Patients were followed using liver imaging (computerized tomography scan or magnetic resonance imaging).
+
+The study was approved by an institutional review board.
+
+PARAGRAPH
+
+For the validation cohort (“LCI cohort”), we extracted clinical, biological and gene expression data from a previously published study (Gene Expression Omnibus accession number GSE14520).14
+
+The 225 patients underwent surgical resection between 2002 and 2003 at the Liver Cancer Institute and Zhongshan Hospital (Fudan University).
+
+Almost all patients had HBV infection.
+
+Along with gene expression, the following clinical and biological variables were available and further included in our analysis: age, gender, BCLC disease stage, tumor size (> or ≤50 mm), HBV viral status, multinodularity, AFP serum level (> or ≤300 ng/ml), and disease recurrence.
+
+PARAGRAPH
+
+The main clinical endpoint for both cohorts was early tumor recurrence (recurrence occurring within 2 years after surgery), as it is considered to correspond to metastasis of the resected primary tumor rather than de novo carcinogenesis.15
+
+SECTION
+
+Pathological examination
+
+PARAGRAPH
+
+For each case of the discovery cohort, slides were reviewed by a pathologist specialized in liver disease (JC), and the following criteria were systematically recorded: tumor size, satellite nodules, macrovascular or microvascular invasion, multinodularity, tumor differentiation according to the World Health Organization, macrotrabecular-massive subtype and non-tumoral fibrosis according to the METAVIR staging system.16–18
+
+PARAGRAPH
+
+The existence of intra-tumoral TLSs was assessed morphologically on hematein-eosin-saffron stained slides, using a previously published scale.11,19
+
+Briefly, TLSs were classified as: i) Aggregates (Agg): vague, ill-defined clusters of lymphocytes; ii) Primary follicles (FL-I): round-shaped clusters of lymphocytes without germinal center formation and iii) Secondary follicles (FL-II): follicles with germinal center formation.
+
+PARAGRAPH
+
+During the reviewing of the first cases, we observed a low number of intra-tumoral TLSs, and decided to classify tumors with at least 1 intra-tumoral TLS as TLS+, and tumors without any TLSs as TLS−.
+
+PARAGRAPH
+
+Cases were also further scored according to TLS maturation stages: i) Agg HCC: tumors with only Agg and no FL-I or FL-II; ii) FL-I HCC: tumors with at least FL-I, with or without Agg and without FL-II and iii) FL-II HCC: tumors with at least 1 FL-II regardless of the presence of Agg and FL-I.
+
+PARAGRAPH
+
+Tumor sections had been immunohistochemically stained for programmed cell death 1 (PD-1) in a former study.
+
+These stains were already available for 160 cases.20
+
+Tumors were classified as PD-1 high or low, as previously reported.20
+
+PARAGRAPH
+
+For the non-tumoral liver, in which numerous TLSs are usually observed, we assessed the density of TLSs per mm2.
+
+Slides were scanned using a Nanozoomer scanner (Hamamatsu), and surfaces of tissue areas were calculated using the Nanozoomer Digital Pathology View software.
+
+PARAGRAPH
+
+Cases with a density superior to the median of the full series were classified as TLS NT+ (TLS Non Tumoral), and cases with a density under the median as TLS NT−.
+
+The maximum degree of TLS maturation was also recorded.
+
+Areas of non-tumoral liver located less than 2 mm from tumor margins were excluded from the analysis.
+
+SECTION
+
+Gene expression profiling
+
+PARAGRAPH
+
+The presence of TLS was assessed in the public data set of the LCI.14
+
+We retrieved the log2-scaled and RMA-normalized data from Gene Expression Omnibus (accession number GSE14520), measured with Affymetrix HT Human Genome U133A Array.
+
+Clinical annotations have also been downloaded.
+
+PARAGRAPH
+
+For each sample, we calculated the geometric mean of genes included in the gene signature related to the presence of TLSs (CCL2, CCL4, CCL5, CCL8, CCL18, CCL19, CCL21, CXCL9, CXCL10, CXCL11, and CXCL13; gene expression for CCL3 was not available in the array).21
+
+Cases with a geometric superior to the third quartile were further classified as TLS+, and cases with a geometric mean inferior to the third quartile as TLS−.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Statistical tests were performed using R open-source software (R Foundation for Statistical Computing, Vienna, Austria).
+
+Correlations between qualitative variables were investigated using chi-square tests, and correction for multiple hypothesis testing was performed with the Monte Carlo method.
+
+Survival analysis was performed using the R package survival.
+
+Kaplan Meier tumor recurrence and overall survival analyses were performed using the log-rank (MantelCox) test and Cox Proportional Hazard regressions.
+
+p <0.05 was considered statistically significant.
+
+SECTION
+
+Results
+
+SECTION
+
+Intra-tumoral TLS
+
+SECTION
+
+HMN cohort
+
+PARAGRAPH
+
+Patients were male and older than 60 years in 82% and 58% of the cases, respectively (Table 1).
+
+The main risk factors were alcohol intake (n = 72, 27%), HCV (n = 66, 25%) and HBV (n = 74, 29%) infection.
+
+Thirty-seven patients (14%) had several risk factors.
+
+BCLC disease stage was classified as very early (0, n = 24, 9%), early (A, n = 193, 71%), intermediate (B, n = 3, 1%) and advanced (C, n = 53, 19%).
+
+Elevated AFP serum levels were detected in 29% of patients (Table 1).
+
+PARAGRAPH
+
+Pathological examination identified TLS in 129 tumors (47%) (Table 1).
+
+Among TLS+ HCC, the maximum degree of TLS maturation was Agg, FL-I and FL-II in 72 (56%), 43 (33%) and 14 (11%) cases, respectively (Fig. 1).
+
+PARAGRAPH
+
+Apart from an association with small tumor size (≤50 mm, p = 0.02, chi-squared test), and lack of macrotrabecular-massive subtype (p <0.001), TLS+ HCC were not linked to any other clinical, biological, or pathological feature (Table 1).
+
+Interestingly, no differences were observed according to the status of alcohol consumption (active vs. non-active, p = 0.69), HCV infection (viral eradication vs. no viral eradication, p = 1) and HBV infection (active replication vs. non-active replication, p = 1) (Table S1).
+
+Altogether, these findings suggest that the underlying liver disease does not have an impact on the existence of intra-tumoral TLS.
+
+PARAGRAPH
+
+We recorded 113 recurrences, including 83 early recurrences.
+
+Median time-to-recurrence and 90-day mortality post-surgery were 12 months and 3%, respectively.
+
+Features associated with an increased risk of early recurrence in univariate analysis were BCLC B-C disease (p <0.001), AFP serum level (>300 ng/ml, p <0.001), HBV infection (p = 0.006), tumor size (>50 mm, p <0.001), satellite nodules (p <0.001), microvascular invasion (p <0.001), poor differentiation (p = 0.005), macrotrabecular-massive subtype (p <0.001) and positive surgical margin (p <0.001) (Table 2) (Table S2 with only pathological features included).
+
+TLS (hazard ratio [HR] = 0.50; p = 0.002), age (>60 years; HR = 0.61; p = 0.02), and non-alcoholic steatohepatitis (HR = 0.39; p = 0.02) were related to a decreased risk of early relapse (Table 2 and Fig. 2).
+
+The prognostic value of TLS was retained after multivariate analysis (HR = 0.46; p = 0.005) (Table 2 and Fig. 2).
+
+Interestingly, patients with either FL-I or FL-II had a lower risk of recurrence compared to patients with only Agg (p = 0.01) (Fig. 2), supporting the hypothesis that the degree of TLS maturation also has a prognostic impact.
+
+Clinical features associated with intra-tumoral FL-I or FL-II were female gender (p = 0.04) and BCLC disease stage 0-A (p = 0.01) (Table S3).
+
+PARAGRAPH
+
+Features associated with late recurrence were age (>60 years; p = 0.05) and HCV infection (p = 0.01) (Table 2 and Fig. 2).
+
+PARAGRAPH
+
+As expected, tumors with TLS were more frequently PD-1 high (45/78 vs. 19/82; p <0.001).
+
+PD-1 is indeed a marker of follicular helper T cells, that are required for germinal center formation and function.
+
+SECTION
+
+LCI cohort
+
+PARAGRAPH
+
+We further aimed to validate the prognostic significance of TLS in an independent cohort of patients.
+
+We analyzed data from the LCI cohort which consists of HBV infected patients with HCC treated by surgical resection.
+
+PARAGRAPH
+
+The vast majority of patients had established cirrhosis.
+
+BCLC disease stages were: 0 (n = 20, 9%), A (n = 148, 68%), B (n = 22, 10%) and C (n = 29, 13%).
+
+Baseline characteristics of the patients and the tumors are shown (Table 3).
+
+TLS+ tumors were not associated with any clinical or biological variables.
+
+Variables associated with an increased risk of early relapse on univariate analysis were male gender (HR 2.34; p = 0.04), BCLC disease stage B-C (HR 2.92; p <0.001), tumor size (>50 mm; HR 1.53; p = 0.05), cirrhosis (HR 8.68; p = 0.01) (Table 4).
+
+The TLS high signature was linked with a lower risk of early recurrence (HR 0.44; p = 0.006 and HR = 0.45; p = 0.01 in univariate and multivariate analysis, respectively) (Table 4 and Fig. 2).
+
+PARAGRAPH
+
+As observed in the HMN cohort (Table 2), TLS had no impact on late tumor recurrence (Table 4).
+
+SECTION
+
+TLS located in the non-tumoral liver
+
+PARAGRAPH
+
+We next assessed densities of TLS in the adjacent parenchyma in 217 cases of the HMN cohort where the non-tumoral liver could be analyzed.
+
+A median of 0.059 TLS (range 0–0.52) per mm2 was observed (Fig. 3), and a complete lack of TLS was identified in a minority of cases (11%, 23/217).
+
+The maximum degree of TLS maturation was Agg, FL-I and FL-II in 81% (157/194), 5% (10/194) and 14% (27/194) of the non-tumoral livers investigated, respectively.
+
+PARAGRAPH
+
+As expected (TLS are one of the typical histological features of HCV infection), patients with HCV infection as a risk factor were more frequently classified as TLS NT+ (Table S4).
+
+A higher degree of TLS maturation was also observed in HCV infected non-tumoral livers (p <0.001).
+
+PARAGRAPH
+
+No association between non-tumoral TLS and HCV eradication (p = 1), active alcohol consumption (p >0.05) or HBV active replication (p = 0.13) was identified (Table S5).
+
+PARAGRAPH
+
+Interestingly, we did not observe any association between the density of non-tumoral TLS and the presence of TLS within the tumors (p = 0.17), suggesting that the immune microenvironment of the surrounding liver does not have a major influence on its intra-tumoral counterpart.
+
+PARAGRAPH
+
+No association between the density of non-tumoral TLS and early or late HCC relapse was observed (Fig. 3).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The cancer stroma is composed of an extracellular matrix containing non-neoplastic cells of various lineages including immune cells.
+
+Due to the recent successes of PD-L1/PD-1 and CTLA-4 immune checkpoint inhibitors in various human malignancies, the role of the immune microenvironment in HCC development and progression is being extensively investigated.7,20,22–24
+
+TLSs provide an important local microenvironment for both cellular and humoral immune responses directed against neoplastic cells, and are considered an indicator of favorable clinical outcome in virtually all human solid tumors.7,8
+
+In HCC, this dogma has however recently been challenged, as Finkin and collaborators have reported that TLSs in non-tumor liver tissue were associated with an increased risk of late tumor recurrence.11
+
+They further showed, using mice models, that TLSs served as microniches favoring the growth of malignant hepatocyte progenitor cells that later egressed.
+
+These findings are consistent with previous studies demonstrating that the adjacent, non-tumoral liver parenchyma is a key determinant of tumor recurrence and patient survival after resection for HCC.25
+
+In a recent study, Nakagawa et al. also identified a particular gene expression signature associated with an increased risk of HCC development in cirrhotic, non-neoplastic liver tissue.26
+
+PARAGRAPH
+
+In the present work we show that intra-tumoral TLSs are associated with a lower risk of early recurrence after surgical resection for HCC.
+
+Early recurrence is thought to reflect metastasis from the resected tumor rather than de novo carcinogenesis, and we thus hypothesize that TLS located within the tumors may contribute to effective anti-tumoral immune responses by promoting local antigen presentation and lymphocyte differentiation.
+
+The fact that TLS maturation status correlates with the risk of relapse is also compatible with this hypothesis.27,28
+
+Notably, Kroeger et al. showed that plasma cells are associated with the most robust prognostically favorable immune responses in ovarian cancer, proposing that TLS organization facilitates the coordination of dual cellular and humoral anti-tumor responses.29
+
+In our work, the number of tumors with FL-II was limited, and additional studies will be necessary to determine their prognostic significance compared to FL-I.
+
+PARAGRAPH
+
+Sia et al. have recently identified an immune class of HCC based on gene expression profiling of an overall series of 956 HCCs.23
+
+This immune rich class represented approximately one-fourth of the cases investigated, and was further subdivided into HCC with either “active” or “exhausted” anti-tumor immunity.
+
+The “active” subgroup featured significant enrichment of T cells associated with upregulation of adaptive immune response genes such as interferon-γ and granzyme B, while the “immune exhausted” tumors exhibited enrichment of M2 macrophages and were associated with overexpression of immunosuppressive components including transforming growth factor-β.23
+
+Patients belonging to the “active” subgroup had a significantly improved overall survival.23
+
+Interestingly, the immune subclass was characterized by increased numbers of TLSs, and further analyses may help to determine if TLS of particular maturation stages may be used as a surrogate marker of the “immune active” subset of HCC.
+
+PARAGRAPH
+
+Recent studies have linked the genomic alterations of various human malignancies with the activation of effective anti-tumor immunity.30–32
+
+It is thought that by promoting the generation of tumor-specific neo-antigens, the overall mutational burden of tumors acts a major driver of adaptive T-cell responses.30–32
+
+For example, microsatellite instable carcinomas, characterized by high rates of somatic mutations, display a high degree of lymphocytic infiltration and show impressive response to PD-L1/PD-1 immune checkpoint blockade.30,33
+
+However, in HCC no correlation was observed between the rate of predicted neo-antigens and the immune class of HCC identified in a study by Sia and collaborators.23
+
+The mechanisms that underlie the development of effective anti-tumoral immunity in HCC remain to be identified, and may be related to host factors.
+
+PARAGRAPH
+
+In contrast to the previous work by Finkin and collaborators, we did not observe any relationship between non-tumoral TLSs and HCC recurrence.
+
+This discrepancy might be linked to differences in risk factors, as occurrence of TLSs is known to be linked to particular risk factors, such as HCV infection.
+
+Our series comprised a limited number of HCV infected patients, and further studies will have to determine if the role of non-tumoral TLSs on tumor recurrence might be related to the clinical context and the etiologies of the underlying liver disease.
+
+PARAGRAPH
+
+In conclusion, we have shown that intra-tumoral TLSs are associated with a lower risk of early relapse in patients with HCC treated by surgical resection.
+
+Therefore, our study suggests that they may reflect the existence an ongoing, effective anti-tumor immunity.
+
+Noticeably, the Food and Drug Administration has recently approved the use of an anti-PD-1 antibody, nivolumab, for the treatment of HCC in patients who have been previously treated with sorafenib.
+
+Intra-tumoral infiltration by immune cells is a well-known predictor of sensitivity to PDL-L1/PD-1 checkpoint inhibitors, as these drugs may enhance the in situ anti-tumor response and help overcome immune evasion mechanisms.
+
+Further studies will have to determine if tumors with intra-tumoral TLSs may be more sensitive to such immunomodulating therapeutic strategies.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by Cancéropôle Ile-de-France (Emergence), Institut National de la Santé et de la Recherche Médicale, University Paris-Descartes, University Pierre et Marie Curie, Labex Immuno-Oncology (LAXE62_9UMRS972 FRIDMAN) and Cancer Research for Personalized Medecine programmes (CARPEM T8), and a grant from Institut du Cancer (INCa) HTE Plan Cancer (C1608DS).
+
+FP and EB were supported by CARPEM doctorate fellowships.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Acquisition of data: JC, FP, EB, GA, AL, TZH, BR, JD, CC, AL; Statistical analysis: FP, JC; Interpretation of results: JC, FP, JZR, WHF, CSF; Manuscript drafting: JC, WFH, CSF; Study concept and design: JC, WHF, CSF; Approval of the manuscript: all authors.

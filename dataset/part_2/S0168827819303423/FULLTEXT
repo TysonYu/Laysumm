@@ -1,0 +1,493 @@
+10.1016/j.jhep.2019.05.027
+
+FULLTEXT
+
+TITLE
+
+Loss of Fbxw7 synergizes with activated Akt signaling to promote c-Myc dependent cholangiocarcinogenesis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Cholangiocarcinoma (CCA) is the second most common primary liver cancer.1,2
+
+Depending on the anatomical site, CCA is classified into intrahepatic (iCCA) and extrahepatic cholangiocarcinoma (eCCA).3
+
+iCCA incidence has been rising over the last decade, while that of eCCA slightly decreased.4
+
+For iCCA detected at early stage, curative surgical resection is the optimal treatment strategy.5,6
+
+However, less than one-third of patients achieves negative tumor margins, and recurrence rates are high.5,7
+
+Furthermore, in patients not meeting the narrow criteria for surgical treatment, therapeutic options are limited.8
+
+Therefore, substantial efforts should be devoted to unravelling the molecular mechanisms of iCCA development and progression.
+
+This would lead to novel and more effective therapeutic strategies against this pernicious disease.
+
+PARAGRAPH
+
+The E3 ubiquitin ligase F-box and WD repeat domain containing protein 7 (FBXW7) is a bona fide tumor suppressor gene.9,10
+
+Being a substrate recognition component of the Skp1-Cul1-F-box protein-type complex, FBXW7 is responsible for the binding to and the degradation of several oncogenes, including c-MYC,11,12 YAP,13 NOTCH1,14,15 mTOR,16 CCNE1,11 and CCND1.12
+
+Among them, YAP, NOTCH, and c-MYC proteins play a pivotal role in cholangiocarcinogenesis.
+
+PARAGRAPH
+
+In human CCA, ∼35% specimens were found to harbor FBXW7 mutations, resulting in failure of substrate recognition.17
+
+In addition, the FBXW7 gene is downregulated in human CCA cells when compared with intrahepatic biliary epithelial cells.18
+
+Also, FBXW7 mRNA expression negatively correlates with tumor stage, metastasis, and differentiation in human iCCA specimens.18,19
+
+Furthermore, low FBXW7 levels are associated with poorer prognosis and shorter survival in patients with CCA and hepatocellular carcinoma (HCC).19,20
+
+PARAGRAPH
+
+Inspired by these previous data, we analyzed a collection of human iCCA and confirmed the reduction of FBXW7 gene expression in this tumor type, which occurred in the absence of FBXW7 mutations.
+
+Moreover, to define the molecular mechanisms whereby FBXW7 disruption contributes to cholangiocarcinogenesis, we generated a new mouse model by hydrodynamic tail vein injection (HTVi) of myr-AKT (an activated/myristylated form of AKT) and Fbxw7ΔF (AKT/Fbxw7ΔF), a dominant negative form of Fbxw7.
+
+In this iCCA model, a robust induction of Yap, Notch2, and c-Myc oncoproteins occurred during tumorigenesis.
+
+Subsequent in vitro and in vivo studies identified c-MYC as the prominent FBXW7 target responsible for cholangiocarcinogenesis in experimental and human iCCA.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Constructs and reagents
+
+PARAGRAPH
+
+Constructs applied include PT3-EF1α, pT3-EF1α-HA-myr-AKT (human), pT3-EF5α-HA-Fbxw7ΔF (human), PT3-EF1α-MadMyc (human), pCMV, pCMV-Cre and pCMV-sleeping beauty (SB) transposase.
+
+SECTION
+
+Animals and hydrodynamic tail vein injection
+
+PARAGRAPH
+
+Mice were housed, fed, and monitored according to protocols approved by the Committee for Animal Research at the University of California, San Francisco (San Francisco, CA).
+
+Hydrodynamic tail vein injection was performed in 5.5- to 6.5-week-old mice, as described before.21,22
+
+SECTION
+
+Human tissue samples
+
+PARAGRAPH
+
+DNAs from 8 normal livers, 120 frozen iCCAs and corresponding non-tumorous surrounding livers were used for sequencing analysis of the FBXW7 gene as reported.23
+
+Among them, 82 iCCA specimens were available as frozen specimens and used for loss of heterozygosity (LOH) and promoter methylation analyses, as described.24,25
+
+The iCCA samples were collected at the Medical Universities of Greifswald (Greifswald, Germany) and Sassari (Sassari, Italy).
+
+Clinicopathological features of iCCA samples are reported in Table S1.
+
+Institutional Review Board approval was obtained at the local Ethical Committee of the Medical Universities of Greifswald and Sassari.
+
+Informed consent was obtained from all individuals.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+The Prism 7.0 software (GraphPad, San Diego, CA) was used to analyze the data, presented as Means ± SD.
+
+Comparisons between 2 groups were performed with 2-tailed unpaired t test when dataset achieve Gaussian distribution or non-parametric test when sample size was small.
+
+Welch correction was applied when necessary.
+
+P values <0.05 were considered statistically significant.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and Supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Low mutation rate but reduced mRNA expression of FBXW7 in human intrahepatic cholangiocarcinoma
+
+PARAGRAPH
+
+First, we determined the FBXW7 mutation frequency in a collection of human iCCA (n = 120) and corresponding non-tumorous livers.
+
+Unexpectedly and contrary to previous findings,17 FBXW7 was mutated only in 1 iCCA (0.8%).
+
+The mutation occurred in FBXW7 exon 8 and consisted of the previously reported R465H change26,27 (Fig. 1A).
+
+As FBXW7 gene downregulation can result from promoter hypermethylation and/or LOH at the FBXW7 locus,28,29 the promoter and locus status of FBXW7 were determined.
+
+While no FBXW7 promoter hypermethylation was detected (data not shown), LOH occurred in 20 of 120 iCCA (16.7%) with wild-type FBXW7 (Fig. 1B, C).
+
+Subsequently, mRNA levels of FBXW7 were investigated by quantitative reverse transcription PCR (qRT-PCR) using the iCCA samples from the collection whose RNA was available (n = 82).
+
+Strikingly, the vast majority of iCCA (71/82; 86.6%) exhibited lower FBXW7 mRNA levels when compared with corresponding non-tumorous livers (Fig. 1D), in agreement with previous reports19,30 and the FBXW7 data from The Cancer Genome Atlas (TCGA, Fig. S1A).
+
+In the TCGA dataset presented on cBioportal,31,32 containing mutation data from 35 patients, 1 patient (2.86%) harbored the R393Q mutation (Fig. S1B).
+
+Interestingly, this mutation and that found in our study (R465H) have been identified as significant hotspots and indicate oncogenic events.26,27
+
+Also, the mRNA level of FBXW7 correlates with its copy number values (Fig. S1C).
+
+No association between FBXW7 mRNA levels and clinicopathologic features of the patients, including age, gender, etiology, presence of cirrhosis, tumor size, and tumor differentiation, was detected (data not shown).
+
+Also, since survival data from our patient cohort were not available, the relation between FBXW7 expression and prognosis could not be determined.
+
+PARAGRAPH
+
+Altogether, the present data indicate that downregulation of wild-type FBXW7 gene is almost ubiquitous in human iCCA.
+
+SECTION
+
+Inactivation of Fbxw7 synergizes with activated AKT to induce hepatocyte-derived iCCA formation in mice
+
+PARAGRAPH
+
+Subsequently, we sought to address the role of FBXW7 along cholangiocarcinogenesis in vivo.
+
+Thus, we generated a mouse model harboring a dominant negative form of Fbxw7 (Fbxw7ΔF), which was injected into the mice hydrodynamically.
+
+Inactivation of Fbxw7 alone did not result in any tumor development or appearance of liver histologic abnormalities up to 36 weeks post-injection (Fig. S2), implying that loss of Fbxw7 does not suffice to drive carcinogenesis in the mouse liver.
+
+Subsequently, to increase the malignant potential, another oncogenic insult was added to Fbxw7 inactivation, namely the induction of AKT, frequently occurring in human iCCA,33 through hydrodynamic co-injection of activated/myristylated (myr-)AKT and Fbxw7ΔF (Fig. 2A).
+
+Previously, we showed that myr-AKT overexpression induces lipid-rich hepatocellular preneoplastic lesions in the mouse liver, ultimately leading to the development of HCC and, more rarely, iCCA34 (Fig. S3).
+
+In AKT/Fbxw7ΔF livers, similar clusters of clear-cell, lipid-rich preneoplastic hepatocytes with enlarged nuclei, were detected 3 weeks post-injection.
+
+These hepatocellular lesions, morphologically indistinguishable from those of myr-AKT mice, were progressively replaced by iCCA lesions, starting from 6 weeks post-injection (Fig. 2A; Fig. S4).
+
+Ten weeks post-injection, large iCCAs were detected in AKT/Fbxw7ΔF livers.
+
+Most iCCA exhibited large areas of necrosis in the tumor center (Fig. S4), suggesting vigorous proliferation, which was confirmed by Ki67 staining (Fig. 2A).
+
+By 12–15 weeks post-injection, livers were almost completely occupied by colliding iCCA and mice were moribund (Fig. 2A; Fig. S4).
+
+Liver weight and liver/body ratio gradually increased along cholangiocarcinogenesis (Fig. S5).
+
+Since AKT and Fbxw7ΔF were both HA-tagged, immunohistochemistry showed positive HA-tag immunoreactivity in both cytoplasm (for AKT) and nucleus (for Fbxw7ΔF) of tumor cells (Fig. 2B).
+
+PARAGRAPH
+
+To determine whether the observed iCCA lesions derive from hepatocytes or cholangiocytes, lineage tracing technology was applied.
+
+By breeding AlbCreERT2 mice with R26REYFP mice, AlbCreERT2;R26REYFP heterozygotes were generated.
+
+Subsequently, tamoxifen was injected into AlbCreERT2;R26REYFP mice 2 weeks before hydrodynamic injection to trigger specific EYFP expression in hepatocytes (Fig. S6A).
+
+Noticeably, immunofluorescence (IF) showed that iCCAs induced by AKT/Fbxw7ΔF co-expression originated from hepatocytes, as they exhibited positive staining for both EYFP and HA-tag (Fig. S6B).
+
+SECTION
+
+Activation of multiple oncogenic pathways in AKT/Fbxw7ΔF lesions
+
+PARAGRAPH
+
+Next, we investigated the signaling pathways activated in AKT/Fbxw7ΔF mouse lesions.
+
+Specifically, we focused on the oncogenic cascades that are physiologically inhibited by Fbxw7, including Hippo/Yap, Notch, and c-Myc.11,13,14
+
+Western blotting and immunohistochemistry showed the activation/induction of Yap, Notch2, and c-Myc proteins (Fig. 2C; Figs. S7 and S8).
+
+Yap was expressed at high level (Fig. 2C) and translocated in the nucleus (a sign of its activation; Fig. S7) of tumor cells.
+
+Consequently, Yap downstream targets, namely Ctgf and Cyr61, were significantly upregulated in the iCCA lesions when compared to the non-tumorous counterparts (Fig. 2D).
+
+Among the other Hippo pathway members, the Yap negative regulators Lats1/2 were downregulated (Fig. S8).
+
+Similarly, levels of Notch2 and its ligand Jag1 were remarkably increased in AKT/Fbxw7ΔF neoplastic lesions (Fig. 2C).
+
+Accordingly, the canonical downstream targets of Notch2 (Hey1 and Nrarp) were induced at transcriptional level in AKT/Fbxw7ΔF iCCAs (Fig. 2D).
+
+As for the downstream targets of c-Myc, genes involved in cell cycle and survival, such as Cdk4, Ccnd2, Skp2 and Tert, as well as energy metabolism, including Ldha, Ldhc, and Odc1, were uniformly upregulated in tumors (Fig. 2E).
+
+Importantly, elevated c-Myc expression was specific for AKT/Fbxw7ΔF iCCA lesions, as it was undetectable in un-injected normal liver, AKT- or Fbxw7ΔF-only injected liver tissues (Fig. S9).
+
+PARAGRAPH
+
+Since AKT/Fbxw7ΔF induced tumors derive from hepatocytes, we further confirmed our findings using the AML-12 mice normal hepatocyte cell line.35
+
+After transfection of myr-AKT, Fbxw7ΔF alone or together for 48 h, the protein levels of Yap, Notch2, and c-Myc were elevated in Fbxw7ΔF and AKT/Fbxw7ΔF transfected cells (Fig. S10A).
+
+Interestingly, Sox9, a biliary epithelium biomarker, was also induced in Fbxw7ΔF and AKT/Fbxw7ΔF transfected AML-12 cells.
+
+AKT/Fbxw7ΔF co-expression also triggered c-MYC upregulation in RBE, KMCH, and SNU1196 human CCA cell lines (Fig. S10B).
+
+SECTION
+
+Depletion of Yap delays but does not abolish AKT/Fbxw7ΔF tumorigenesis
+
+PARAGRAPH
+
+YAP activation occurs in over 90% of human CCA specimens36 as well as in the AKT/Fbxw7ΔF mouse model (this study).
+
+In addition, YAP was hypothesized as a target protein of FBXW7 in HCC13 and pancreatic cancer.37
+
+We therefore investigated the role of Yap in AKT/Fbxw7ΔF driven cholangiocarcinogenesis.
+
+Thus, hydrodynamic injection of AKT/Fbxw7ΔF/pCMV (as control) and AKT/Fbxw7ΔF/Cre plasmids was employed in Yapflox/flox mice (Fig. 3A).
+
+Ablation of the endogenous Yap significantly delayed tumor development in AKT/Fbxw7ΔF mice (Fig. 3B and 3C).
+
+By 7.7 weeks post-injection, while the control group mice developed iCCAs, no frankly malignant lesions occurred in AKT/Fbxw7ΔF/Cre livers, whereas small clusters of infiltrating lymphocytes (Fig. 3C) and scattered clusters of clear-cell, lipid-rich hepatocytes were detected (Fig. S11).
+
+Twenty weeks post-injection, several tumors were observed in AKT/Fbxw7ΔF/Cre livers, with a diameter of 1 mm–5 mm.
+
+They consisted of clear-cell hepatocellular lesions, containing small areas of cholangiocellular differentiation inside, and they were of mixed-type morphology at this time point (Fig. S11).
+
+Noticeably, by 34 weeks post-injection, most of the hepatocellular large tumors were replaced by pure cholangiocellular lesions (Fig. S11).
+
+Both CCA and HCC lesions were highly proliferative (Fig. 3C and Fig. S12).
+
+To determine whether these tumor cells were escapers (namely tumor cells retaining Yap expression), we performed immunohistochemistry with the anti-Yap antibody.
+
+Hepatocytes with no immuno-positivity for Yap expression were detectable as early as 7.7 weeks post-injection in AKT/Fbxw7ΔF/Cre livers.
+
+Importantly, all AKT/Fbxw7ΔF/Cre tumor cells were negative for Yap immunoreactivity, indicating effective Yap deletion (Fig. 3C and Fig. S12).
+
+Robust Yap immunolabeling was instead detected in tumor stromal cells, which displayed Vimentin immunoreactivity (Fig. S12), and in surrounding non-tumorous hepatocytes.
+
+The observation was corroborated by western blotting showing low Yap expression (Fig. 3D), and by qRT-PCR demonstrating decreased levels of Ctgf and Cry61 genes in AKT/Fbxw7ΔF/Cre tumors (Fig. 3E).
+
+Noticeably, phosphorylated/activated (p-)Akt was remarkably decreased following Yap ablation, together with profound downregulation of Jag1, a Yap target.38
+
+Interestingly, Notch2 levels were only mildly reduced, while c-Myc expression was decreased, in AKT/Fbxw7ΔF/Cre samples.
+
+PARAGRAPH
+
+Altogether, these data indicate that Yap ablation significantly slows, but does not suppress, AKT/Fbxw7ΔF induced tumorigenesis in mice.
+
+SECTION
+
+Notch2 activation is partially required for AKT/Fbxw7ΔF induced cholangiocarcinogenesis
+
+PARAGRAPH
+
+We previously discovered that Notch2, instead of Notch1, is the main contributor to hepatocyte-derived iCCA formation.39
+
+As the present data indicate elevated expression of Notch2 and its ligand Jag1 in AKT/Fbxw7ΔF iCCA lesions, we investigated whether Notch2 signaling is required for AKT/Fbxw7ΔF induced cholangiocarcinogenesis.
+
+Thus, we hydrodynamically injected AKT/Fbxw7ΔF/pCMV and AKT/Fbxw7ΔF/Cre plasmids in Notch2flox/flox conditional knockout mice (Fig. 4A).
+
+Although deletion of Notch2 delayed the fatal tumor development by 4–5 weeks (Fig. 4B), both cohorts, namely mice injected with AKT/Fbxw7ΔF/pCMV and AKT/Fbxw7ΔF/Cre, developed large tumors with positive Ck19 staining (Fig. 4B and 4C).
+
+As described in the AKT/Yap iCCA model,39 ablation of Notch2 significantly disrupted the biliary properties of tumor lesions, as indicated by the predominance of large clear-cell hepatocellular tumors over cholangiocellular lesions, and lower Ck19 and higher Hnf-4α immunoreactivity (Fig. 4C and 4D; Fig. S13).
+
+Interestingly, a trend of replacement of HCC lesions with cholangiocellular lesions was also observed in later stages of tumor development in this model (Fig. S13).
+
+Western blotting confirmed the efficient deletion of Notch2, which was paralleled by decreased Jag1 and Sox9 expression (Fig. 4E).
+
+Yap, the oncogenic effector of the Hippo pathway, was downregulated following Notch2 ablation (Fig. 4E), confirming the positive signal loop between Yap and Notch pathways.38
+
+Intriguingly, c-Myc expression was not affected by Notch2 ablation.
+
+PARAGRAPH
+
+Overall, the present data imply a relevant but dispensable role of Notch2 in AKT/Fbxw7ΔF dependent cholangiocarcinogenesis.
+
+SECTION
+
+c-Myc is necessary for cholangiocarcinogenesis in AKT/Fbxw7ΔF mice
+
+PARAGRAPH
+
+Subsequently, we investigated the role of c-Myc, another important target of FBXW7,11 in AKT/Fbxw7ΔF mice.
+
+Thus, MadMyc, a dominant negative form of c-Myc,40 and the AKT/Fbxw7ΔF plasmids, were simultaneously hydrodynamically delivered into the mouse liver and tumor development was monitored.
+
+Hydrodynamic injection of AKT/Fbxw7ΔF/pT3 construct was used as control (Fig. 5A).
+
+Strikingly, inhibition of c-Myc completely suppressed iCCA formation in AKT/Fbxw7ΔF mice (Fig. 5B and 5C).
+
+Indeed, mice were healthy with no gross liver tumors by 31 weeks post-injection.
+
+Consistently, histopathological evaluation revealed the absence of premalignant and malignant lesions in AKT/Fbxw7ΔF/MadMyc livers (Fig. 5C).
+
+Importantly, sporadic HA-positive cells were detected in AKT/Fbxw7ΔF/MadMyc livers (Fig. S14A), and Western blotting revealed the ectopically expressed HA-tagged AKT, Fbxw7ΔF and MadMyc, leading to the inhibition of c-Myc expression (Fig. S14B).
+
+In striking contrast, numerous highly proliferative iCCAs emerged in the liver parenchyma of AKT/Fbxw7ΔF/pT3 mice, with strong immunoreactivity for the biliary marker Ck19 and the proliferation marker Ki67 (Fig. 5C).
+
+All AKT/Fbxw7ΔF/pT3 mice had to be euthanized by 10–12 weeks post-injection (Fig. 5B).
+
+SECTION
+
+c-MYC is a pivotal player downstream of FBXW7 in human iCCA
+
+PARAGRAPH
+
+Next, we investigated the potential targets of FBXW7 in human iCCA.
+
+We transfected RBE, KMCH, and SNU1196 CCA cell lines with lentivirus particles encoding EGFP (as control), FBXW7 (wild-type), and FBXW7ΔF, and the expression of known canonical FBXW7 targets was analyzed.
+
+Protein levels of CCNA, CCND1, CCNE, GSK3β, HSF1, MCL-1, mTOR, NOTCH1, NOTCH2, PCNA, RICTOR and YAP did not show any consistent change following FBXW7 modulation (Fig. 6).
+
+Additional proteins involved in tumor development, including p-AKT, p-ERK, p21, etc. were also analyzed, and their levels were not consistently affected by the same approach in the 3 cell lines (Fig. S15).
+
+In striking contrast, c-MYC was consistently downregulated following FBXW7 wild-type overexpression and strongly induced by FBXW7 inhibition (via FBXW7ΔF transfection) in the 3 cell lines (Fig. 6).
+
+Accordingly, transcriptional activity of c-MYC exhibited the same pattern of modulation following transient transfection of control, FBXW7, and FBXW7ΔF plasmids in RBE cells and KMCH cells (Fig. S16).
+
+PARAGRAPH
+
+Finally, we investigated the relationship between FBXW7 and c-MYC in the collection of human iCCA specimens (n = 82).
+
+No significant correlation was detected between FBXW7 and c-MYC mRNA levels (Fig. 7A), whereas a strong, inverse correlation was found between FBXW7 mRNA levels and those of c-MYC transcriptional activity (Fig. 7B).
+
+Subsequently, we determined the protein levels of FBXW7 and c-MYC in the same sample collection using immunohistochemistry (Fig. 8).
+
+Upregulation of FBXW7 and c-MYC in iCCA when compared with non-tumorous surrounding livers occurred in 14 and 44 of 82 specimens (17.1% and 53.6%, respectively).
+
+FBXW7 and c-MYC were concomitantly upregulated in only 4 of 82 samples (4.9%).
+
+The remaining 10 iCCA specimens showing elevated levels of FBXW7 displayed c-MYC downregulation.
+
+On the other hand, 39 of 44 (88.6%) iCCA specimens showing high levels of c-MYC exhibited absent/weak immunoreactivity for FBXW7.
+
+PARAGRAPH
+
+Altogether, these findings support a central role played by c-MYC both in mouse and human cholangiocarcinogenesis driven by FBXW7 inactivation.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Here, we demonstrated that inactivation of Fbxw7 synergizes with activated AKT to induce hepatocyte-derived iCCA formation in mice.
+
+By conducting loss of function experiments using Yapflox/flox and Notch2flox/flox conditional knockout mice, we discovered that inhibition of each of the 2 oncogenic pathways delays, but does not suppress, AKT/Fbxw7ΔF-induced iCCA development.
+
+In particular, histopathological analysis revealed that hepatocellular lesions appear first in all models.
+
+Subsequently, cholangiocellular lesions emerge, co-existing with the hepatocellular ones.
+
+During tumor progression, the cholangiocellular lesions replace either completely (in the AKT/Fbxw7ΔF model) or partly (in AKT/Fbxw7ΔF depleted of Yap or Notch2) the hepatocellular lesions.
+
+These findings suggest that additional alterations are needed for cholangiocellular lesions to develop in these models, but, once these alterations are acquired, cholangiocellular lesions seem to have a growth advantage over hepatocellular lesions.
+
+PARAGRAPH
+
+By employing a comprehensive analysis of in vitro and in vivo approaches as well as validation in human iCCA specimens, we identified c-Myc as a crucial mediator of cholangiocarcinogenesis following downregulation of FBXW7.
+
+Although Yap and Notch are considered to be canonical Fbxw7 targets,13,14 our in vitro studies demonstrates that neither YAP nor NOTCH2 levels (nor related signaling cascades) are consistently influenced by FBXW7-mediated degradation in human iCCA cells.
+
+Similarly, several other FBXW7 targets, including mTOR, CCND1, and CCNE, were heterogeneously modulated following FBXW7 manipulation.
+
+The discrepancy between our findings and the literature requires further elucidation.
+
+Presumably, the recognition substrates for FBXW7 differ depending on the context and the tissue type as well as the genetic background/alterations present.
+
+This might also explain the reason why, besides c-MYC, most FBXW7 target proteins were heterogeneously affected by FBXW7 modulation in distinct CCA cell lines.
+
+Similarly, we found that c-MYC activation was AKT-independent both in vitro and in vivo models of iCCA, against the assumption that c-Myc is an AKT target.35
+
+Once again, tissue- and context-dependent mechanisms might be responsible for these unexpected results.
+
+PARAGRAPH
+
+c-MYC is a known substrate for FBXW7.11,41,42
+
+Alterations of FBXW7 leading to c-MYC accumulation have been detected in T-cell acute lymphoblastic leukemia (T-ALL),42 melanoma,15 skin carcinogenesis,43 prostate cancer,44 and HCC.45
+
+In CCA, one group reported that overexpression of FBXW7 in QBC-939 and MZ-CHA1 CCA cell lines decreased the expression of c-MYC.11
+
+The study also showed that FBXW7 overexpression inhibits xenograft CCA tumor growth in nude mice.11
+
+In our study, c-MYC levels were profoundly downregulated by FBXW7 overexpression in 3 human CCA cell lines.
+
+Conversely, when transfecting a dominant negative form of FBXW7, c-MYC expression was strongly upregulated in the same cells.
+
+Based on our analysis of various genes induced by c-Myc in mouse iCCA tissues, c-Myc most likely regulates multiple processes during cholangiocarcinogenesis, including tumor cell proliferation, survival and metabolism.
+
+Most importantly, we found that impairing c-Myc activity triggers inhibition of cholangiocarcinogenesis induced by inactivation of FBXW7 along with AKT activation in vivo.
+
+The results were validated in vitro using AML-12 normal mouse hepatocytes (Fig. S10A), indicating that c-Myc is required for iCCA initiation.
+
+To investigate the role of c-Myc in iCCA progression, we infected the 3 CCA cell lines with tetracycline (Tet) inducible MadMyc lentivirus.
+
+Upon Doxycycline treatment, MadMyc expression was induced and inhibited CCA cell proliferation and colony formation (Fig. S17).
+
+Thus, c-MYC is a pivotal player in iCCA initiation and progression.
+
+PARAGRAPH
+
+Another important finding of our study is that, although FBXW7 was almost ubiquitously downregulated in iCCA specimens, mutations in its coding region as well as LOH at the gene locus were rare, and no hypermethylation at the FBXW7 locus was detected.
+
+Thus, other molecular mechanisms are involved in the downregulation of FBXW7 in human iCCA.
+
+Previous studies have suggested that long non-coding RNAs and microRNAs as well as various oncogenes, such as Pin1, EZH2, CNS6, and Usp28 can downregulate FBXW7 in cancer.10,46
+
+Clearly, additional studies, which are beyond the scope of the present work, are required to identify the pivotal molecular mechanisms responsible for FBXW7 downregulation in human iCCAs.
+
+Nonetheless, additional events might limit FBXW7 activity in cholangiocellular tumors independent of FBXW7 transcription.
+
+Indeed, we recently identified alternative splicing forms of FBXW7 in 27/82 (32.9%) iCCA, which were not detected in corresponding non-tumorous livers (Fig. S18).
+
+The presence of these splicing forms has been shown to result in very low translational efficiency of the FBXW7 protein in prostate, bladder, and kidney tumors.47
+
+Although this issue should be more comprehensively addressed, the present findings imply the existence of several, distinct mechanisms by which FBXW7 expression and/or activity are suppressed in human iCCA.
+
+PARAGRAPH
+
+Finally, our data might possess relevant therapeutic implications.
+
+As loss of FBXW7 is extremely frequent in iCCA, targeting c-MYC might be highly detrimental for the growth of many of these tumors.
+
+Unfortunately, c-MYC is not easily druggable and no effective drugs against c-MYC are commercially available.
+
+Nonetheless, bromodomain and extra-terminal (BET) inhibitors recently provided encouraging results for the treatment of c-MYC driven tumors.48,49
+
+Thus, BET inhibitors (and similar small inhibitors) should be considered as potentially important drugs for innovative therapies against human iCCA.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This study is supported by NIH grants R01CA190606 to XC, P30DK026743 for UCSF Liver Center; grant from the Deutsche Forschungsgemeinschaft DFG (grant number RI2695/1-1) to SR, China Scholarship Council State Scholarship Fund No. 201606240132 to HW and Grants from National Natural Science Foundation of China (grant number 61006403) to YZ.
+
+Additional support was provided by the Helen Diller Family Comprehensive Cancer Center Director’s Fund.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Jingxiao Wang, Haichuan Wang, Ning Ding, Meng Xu, Xinyan Chen, Xinhua Song, Michele Peters, Silvia Ribback, Kirsten Utpatel, and Antonio Cigliano acquired experimental data.
+
+Li Che, Frank Dombrowski, Matthias Evert, and Antonio Cossu provided administrative, technical, or material support.
+
+John Gordan assisted in study design and interpretation.
+
+Jingxiao Wang and Haichuan Wang analyzed the data and drafted the manuscript.
+
+Yong Zeng, Xin Chen and Diego F. Calvisi were involved in study design, drafting of the manuscript, study supervision and obtaining funding.

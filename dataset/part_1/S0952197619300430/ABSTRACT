@@ -1,0 +1,37 @@
+10.1016/j.engappai.2019.02.019
+
+ABSTRACT
+
+TITLE
+
+A new hierarchical approach to requirement analysis of problems in automated planning
+
+PARAGRAPH
+
+The use of Knowledge Engineering (KE) processes to analyze and configure domains in automated planning is becoming more appealing since it was noticed that this issue could make a difference to solve real problems.
+
+The contrast between a generic domain independent approach, taken as canonical in AI, and alternative processes that include knowledge engineering – eventually adding specific knowledge – has been discussed by Computer and Engineering communities.
+
+A big impact has been noticed mainly in the early phase of requirement analysis when KE approach is normally introduced.
+
+Requirement analysis is responsible for carrying out the Knowledge modeling of both problem and work domains, which is a key issue to guide different planner algorithms to come out with efficient solutions.
+
+Also, there is the scalability issue that appear in most real problems.
+
+To face that, hierarchical methods played an important hole in the history of planning and inspired several solutions since the proposal of NONLIN in the 70’s.
+
+Since then, the idea of associating hierarchical relational nets with partial ordered actions has prevailed when large systems were considered.
+
+However, there is still a gap between the hierarchical approach and the state of art of requirements analysis to allow features anticipated by KE approach to really appear in the requirements of a planning process.
+
+This paper proposes a pathway to solve this gap starting with requirements elicitation represented first in the conventional semi-formal (diagrammatic) language – UML – that is translated to Hierarchical Petri Nets (HPNs) by a new enhanced algorithm.
+
+The proposed process was installed in a software tool – developed by one of the authors – that analyzes the performance of the KE planning model: itSIMPLE (Integrated Tools Software Interface for Modeling Planning Environment).
+
+This tool was initially designed to use classic Place/Transition nets and an old version of UML (2.1).
+
+It is now enhanced to use UML 2.4 and a hierarchical Petri Net extension, also developed by the authors.
+
+Realistic examples illustrate the process which is now being applied to larger problems related to the manufacturing of car sequencing domain, one of challenge of ROADEF 2005 (French Operations Research & Decision Support Society).
+
+Finally, we consider the possibility to introduce another approach to the KE process by using KAOS (Keep All Object Satisfied) to make the planning design more accurate.

@@ -1,0 +1,413 @@
+10.1016/j.jhep.2019.04.014
+
+FULLTEXT
+
+TITLE
+
+Declining hepatitis C virus-related liver disease burden in the direct-acting antiviral therapy era in New South Wales, Australia
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The advent of highly curative, tolerable, short-duration direct-acting antiviral (DAA) therapy for hepatitis C virus (HCV) infection has transformed clinical management, and provided great optimism for the global HCV response.1
+
+The World Health Organization (WHO) have developed a global health strategy on viral hepatitis that incorporates key service and impact targets, including declines in HCV-related mortality of 10% by 2020 and 65% by 2030.2
+
+PARAGRAPH
+
+Despite the clear benefits of DAA therapy through HCV infection cure, including improvements in quality of life,3 clinical trials were not designed to evaluate potential longer-term clinical benefits such as risk of decompensated cirrhosis, hepatocellular carcinoma (HCC), liver-related death, and all-cause mortality.
+
+The use of sustained virological response to define efficacy and clinical benefit was based on observational studies that demonstrated reductions in advanced liver disease complications and mortality in those achieving cure.4,5
+
+The recent Cochrane Collaboration review of DAA therapy6 and subsequent commentary by review authors7 including statements that “the clinical implications of achieving sustained virological response are unclear” and that “there is insufficient evidence to judge if DAAs reduce mortality or other liver related complications from chronic hepatitis C” have created considerable controversy,8–10 but also highlight the need to provide further clinical and population-level evidence of the impact of DAAs on morbidity and mortality.
+
+PARAGRAPH
+
+The Australian Government has provided unrestricted access to subsidized DAA therapy for adults with chronic HCV infection since March 2016.
+
+The program incorporates a broad prescriber population, including general practitioners, and has no restrictions based on liver disease stage, or drug and alcohol use.
+
+In Australia, around 54,110 patients were treated over the period March 2016 to December 2017, equivalent to 24% of the estimated population with chronic HCV infection (B. Hajarizadeh, personal communication, February 2019).
+
+Importantly, in relation to potential prevention of advanced liver disease complications, an estimated 70% of Australian people with HCV-related cirrhosis had received DAA therapy.11
+
+DAA uptake in New South Wales, where around one-third of the Australian population reside, is consistent with the overall Australian uptake; approximately 19,200 people were treated in 2016–2017, equivalent to 24% of the estimated population with chronic HCV infection (B. Hajarizadeh, personal communication, February 2019).
+
+PARAGRAPH
+
+The objective of this study was to utilise well established HCV data linkage mechanisms in New South Wales, Australia, a setting with high HCV diagnosis (estimated at 85% of the chronic HCV population),12 to evaluate trends in HCV-related hospitalisations for decompensated cirrhosis and HCC, and liver-related and all-cause mortality in the pre-DAA and DAA eras.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Data sources and record linkages
+
+PARAGRAPH
+
+The New South Wales Notifiable Conditions Information Management System (NCIMS) holds records of all individual with positive HCV and hepatitis B virus serology tests, notified of diagnoses via mandatory notification procedures, since 1991.
+
+New South Wales Admitted Patient Data Collection covers all inpatient admissions from all hospitals in New South Wales, since 2001.
+
+Each hospitalisation record includes demographic, administrative and diagnosis information coded at discharge according to ICD-10.
+
+Information on all deaths registered in New South Wales are held by the Registry of Births, Deaths and Marriages, since 1993.13
+
+Using demographic details (including full name, gender, date of birth, and address), probabilistic linkages of records between the NCIMS, hospitalisation, and mortality datasets were undertaken by the New South Wales Centre for Health Record Linkage.
+
+SECTION
+
+Study period
+
+PARAGRAPH
+
+HCV notifications were extracted for the study period between 1 January 1993 and 31 December 2016; linked hospitalisation records were extracted for the study period between 1 January 2001 and 31 December 2017; and linked mortality records were extracted for the study period between 1 January 1993 and 31 December 2017.
+
+SECTION
+
+Study outcomes
+
+PARAGRAPH
+
+The primary outcomes of interest were first-time hospitalisation due to decompensated cirrhosis and HCC, and liver-related and all-cause mortality.
+
+A hospital discharge diagnosis code (ICD-10) was used to infer diagnosis of decompensated cirrhosis and HCC; coded in either the principal or secondary diagnosis fields of a linked inpatient hospital record.
+
+The set of relevant codes for decompensated cirrhosis diagnosis included: ascites (R18), bleeding oesophageal varices (I85.0 and I98.3), chronic hepatic failure (including hepatic encephalopathy) (K72.1 and K72.9), alcoholic hepatic failure (K70.4), and hepatorenal syndrome (K76.7).
+
+The set of relevant codes for HCC diagnosis included: liver cell carcinoma (C22.0).
+
+Hereafter, a first-time decompensated cirrhosis and HCC hospital admission is referred to as decompensated cirrhosis diagnosis and HCC diagnosis, respectively.
+
+Liver-related mortality was defined by death following a decompensated cirrhosis and/or HCC diagnosis.
+
+SECTION
+
+Exclusion criteria
+
+PARAGRAPH
+
+Exclusion criteria were applied as follows: records where the date of HCV notification occurred after censoring, including post-mortem HCV notifications; HCV notifications prior to 1 January 1995, to reduce the number of people with an unrecorded initial infection pre-mandatory diagnosis notification; records where date of death was prior to 1 January 2001, given hospitalisation records were not available prior to this date; and records where date of decompensated cirrhosis diagnosis, HCC diagnosis, or liver-related and all-cause mortality occurred within 6 months of HCV notification, given potential for bias towards higher diagnosis of end-stage liver disease and mortality in people with major morbidity.14
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Among people with an HCV notification, trends in the numbers and age-standardised incidence rates of decompensated cirrhosis and HCC diagnoses, and liver-related and all-cause mortality were evaluated.
+
+Age-standardised incidence rates (per 100 person-years [PY]), and corresponding 95% CIs were calculated assuming a Poisson distribution.
+
+Among people with a decompensated cirrhosis diagnosis, diagnosis numbers and age-standardised rates were evaluated overall and stratified by history of alcohol-use disorder.
+
+The Australian Standard Population 2013 was used for standardisation.
+
+Segmented Poisson regression models, fitting a second time trend parameter using splines, were used to evaluate the effect of the DAA therapy era on the number of decompensated cirrhosis diagnoses, HCC diagnoses, and liver-related and all-cause mortality.15
+
+Time series approaches gave very similar results.
+
+However, Poisson regression was preferred given it allowed easy calculation of predicted counts if DAAs had not been available.
+
+The data were split into 6-monthly intervals and categorised as pre-DAA (1 January 2001 to 31 December 2014) or DAA (1 January 2015 to 31 December 2017).
+
+From late 2014 (prior to The Australian Government-funded DAA program launch in March 2016), access to DAAs was provided through pharmaceutical company compassionate access programs, clinical trials, and generic importation.16
+
+Factors associated with liver-related mortality were evaluated using unadjusted and adjusted Poisson regression analyses; covariates included year of birth, gender, hepatitis B virus co-infection, alcohol-use disorder, and DAA era.
+
+PARAGRAPH
+
+Alcohol-use disorder is a standard term used to define continued drinking despite adverse mental and physical consequences.17
+
+Liver-related consequences of alcohol use are not included in the definition of alcohol-use disorder.17
+
+A hospital discharge diagnosis code (ICD-10) at any point prior to or at the time of decompensated cirrhosis diagnosis and HCC diagnosis, or prior to liver-related and all-cause mortality was used to infer the presence of alcohol-use disorder; coded in either the principal or a secondary diagnosis field of a linked inpatient hospital record.
+
+The set of relevant codes included: alcohol-induced Pseudo-Cushing's syndrome (E24.4), mental and behavioural disorders due to use of alcohol (F10), degeneration of nervous system due to alcohol (G31.2), alcoholic polyneuropathy (G62.1), alcoholic cardiomyopathy (I42.6), alcoholic myopathy (G72.1), alcohol rehabilitation (Z50.2), and alcohol abuse counselling and surveillance (Z71.4).
+
+Hereafter, having a history of at least 1 alcohol-use disorder-related hospital admission is referred to as alcohol-use disorder.
+
+To calculate age-standardised incidence rates, and assess factors associated with liver-related mortality, person-time at risk was defined to start 6 months post the date of HCV notification, and to end at whichever occurred first; death, or end of follow-up, assigned by year.
+
+Given exclusion of records with decompensated cirrhosis and HCC diagnoses, or liver-related and all-cause mortality within 6 months of HCV notification, person-time at risk has been adjusted for all remaining records.
+
+Statistical analyses were carried out in Stata version 14.
+
+SECTION
+
+Results
+
+SECTION
+
+Study participants
+
+PARAGRAPH
+
+During 1995–2016, there were 99,910 people with an HCV notification in New South Wales.
+
+Median year of birth was 1967 (interquartile range 1959–1976), 64% were male, 19% had a history of alcohol-use disorder, and 11.3% (n = 11,388) died.
+
+During 2001–2017 (follow-up period), there were 4,433 (4.4%) people with hospitalisation for end-stage liver disease, including 3,850 (3.8%) with decompensated cirrhosis, and 1,771 (1.8%) with HCC.
+
+During follow-up, 3,278 people (3.3% of the study population, and 74% of individuals with end-stage liver disease) died following hospitalisation for end-stage liver disease and therefore were classified as liver-related deaths (Table 1, Table S1).
+
+PARAGRAPH
+
+People with end-stage liver disease were more likely to be male, older, and have a history of alcohol-use disorder, compared to those without end-stage liver disease (Table S1).
+
+Among people with end-stage liver disease, those with decompensated cirrhosis had higher proportions of alcohol-use disorder throughout the study period (59–66%).
+
+The proportion of people with HCC diagnosis and history of alcohol-use disorder was consistently lower but increased over the study period (23% in 2001–2003 to 46% in 2015–2017) (Table 1).
+
+PARAGRAPH
+
+During hospitalisation follow-up (2001–2017), 10.5% of the study population (n = 10,526) died.
+
+Among deceased individuals, median year of birth was 1959 (interquartile range 1951–1966) and 71% were male.
+
+Overall, 38% had a history of alcohol-use disorder; however, this proportion increased over time, from 17% in 2001–2003 to 44% in 2015–2017 (Table S2).
+
+SECTION
+
+Decompensated cirrhosis diagnosis numbers and rates, overall and by alcohol-use disorder
+
+PARAGRAPH
+
+Decompensated cirrhosis diagnosis numbers increased from 157 in 2004 to 274 in 2017 (p <0.001) (Fig. 1).
+
+Among people with a history of alcohol-use disorder, decompensated cirrhosis diagnosis numbers increased from 77 in 2004 to 171 in 2017 (p <0.001) (Fig. 2).
+
+Since 2004, overall age-standardised decompensated cirrhosis incidence rates have declined (Fig. S1).
+
+The decompensated cirrhosis incidence rate was consistently higher for those with a history of alcohol-use disorder compared to those without (Fig. 2).
+
+SECTION
+
+Hepatocellular carcinoma diagnosis, liver-related mortality, and all-cause mortality numbers and rates
+
+PARAGRAPH
+
+HCC diagnosis numbers increased from 35 in 2004 to 165 in 2017 (p <0.001).
+
+Since 2004, age-standardised HCC incidence rates have remained stable (Fig. 1, Fig. S1).
+
+Liver-related deaths increased from 98 in 2004 to 283 in 2017 (p <0.001).
+
+Since 2004, age-standardised liver-related mortality incidence rates have declined slightly.
+
+All-cause mortality numbers increased from 357 in 2004 to 1,001 in 2017 (p <0.001).
+
+Since 2004, age-standardised all-cause mortality incidence rates have increased (Fig. 3, Fig. S2).
+
+SECTION
+
+Impact of DAA era on decompensated cirrhosis and hepatocellular carcinoma diagnoses, liver-related deaths, and all-cause mortality
+
+PARAGRAPH
+
+In the pre-DAA era, decompensated cirrhosis and HCC diagnoses, liver-related deaths, and all-cause mortality consistently increased (incidence rate ratios 1.04 [95% CI 1.04–1.05], 1.08 [95% CI 1.07–1.08], 1.07 [95% CI 1.06–1.07], and 1.05 [95% CI 1.04–1.05], respectively) over each 6-monthly band.
+
+The DAA era had a substantial impact on trends in decompensated cirrhosis and HCC diagnoses and liver-related deaths, with slope changes of 0.93, 0.93, 0.90, and 0.97, respectively.
+
+This corresponds to declining incidence rate ratios for decompensated cirrhosis diagnoses and liver-related deaths during the DAA era (0.97 [95% CI 0.95–0.99] and 0.96 [95% CI 0.94–0.98] over each 6-monthly band, respectively), and a plateau in HCC diagnoses and all-cause mortality (incidence rate ratio over each 6-monthly band 1.00 [95% CI 0.97–1.03] and 1.01 [95% CI 1.00–1.02], respectively) (Table 2, Fig. 4, Fig. 5).
+
+Compared to model-projected diagnoses and mortality numbers, in the DAA era, an estimated 248 diagnoses of decompensated cirrhosis, 155 diagnoses of HCC, 434 liver-related deaths, and 372 all-cause deaths were prevented.
+
+The largest reduction of decompensated cirrhosis diagnoses was among older people (year of birth earlier than 1967) and those with no history of alcohol-use disorder.
+
+Females and older people (year of birth earlier than 1967) showed the highest relative reduction in liver-related mortality (Table S3).
+
+SECTION
+
+Factors associated with liver-related mortality
+
+PARAGRAPH
+
+In adjusted analyses, liver-related mortality was independently associated with older age (year of birth earlier than 1967– adjusted incidence rate ratio 4.52; 95% CI 4.06–5.03) and history of alcohol-use disorder (adjusted incidence rate ratio 3.35; 95% CI 3.14–3.58).
+
+The incidence of liver-related mortality significantly declined in the DAA era (adjusted incidence rate ratio 0.06; 95% CI 0.06–0.07) (Table 3).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Our study supports a major population-level impact of DAA therapy on HCV-related liver disease morbidity and mortality, and all-cause mortality.
+
+Over the decade prior to the introduction of DAA therapy in Australia, the numbers of people with HCV in New South Wales hospitalised for decompensated cirrhosis, HCC, or who died following these end-stage liver disease complications or all-cause mortality increased by 2- to 3-fold.
+
+Between 2015 and 2017, declines of 21% and 17% in decompensated cirrhosis diagnoses and liver-related deaths, respectively, and an 8% and 3% increase in HCC diagnoses and all-cause mortality (vs. an expected 34% and 19% increase without DAA therapy introduction, respectively) clearly demonstrate the impact of DAA therapy on advanced liver disease morbidity and mortality, and all-cause mortality.
+
+The decline in liver-related deaths is considerably more marked when compared to the expected continued upward trend from the interferon-based therapy era.
+
+The lower relative declines in liver-related morbidity and mortality among people with a history of alcohol-use disorder, and the increasing proportion of people with end-stage liver disease with a history of alcohol-use disorder, highlights the need to enhance efforts to reduce the impact of this major liver disease comorbidity.
+
+PARAGRAPH
+
+During the interferon-based therapy era, a very small proportion (1–2%) of Australians with chronic HCV infection received HCV therapy each year.11
+
+This low uptake, suboptimal HCV treatment outcomes, particularly in people with cirrhosis, and the inability to use these therapies in those with decompensated cirrhosis, meant the burden of advanced liver disease morbidity and mortality continued to rise with the ageing chronic HCV infection population.18
+
+Despite the limitations of the interferon-based therapy era, the age-standardised incidence rates for HCV-related decompensated cirrhosis had declined slightly over the period 2004 to 2015, although HCC incidence rates were stable.
+
+Some decline in trends in alcohol use in Australia is a potential explanation for a reduction in individual-level risk of decompensated cirrhosis.19,20
+
+PARAGRAPH
+
+The Government-funded DAA program has transformed HCV clinical management in Australia, with HCV treatment increasing from 1–2% per year in 2004–2015 to 24% over the 2016–2017 period, and cure rates rising to above 95%.11
+
+Major changes in HCV models of care have also been implemented, with a large proportion of people with chronic HCV now treated in primary care.11
+
+Although there have been no liver disease-based restrictions on DAA therapy access, there clearly has been some prioritisation, by patients, clinicians, or both, for treatment of those with more advanced liver disease, with an estimated 70% of people with HCV-related cirrhosis having received treatment by the end of 2017.11
+
+The Australian Government-funded DAA program commenced in March 2016.
+
+There was, however, DAA access for people with cirrhosis from late 2014 through 2015, via pharmaceutical company access programs, DAA clinical trials, and generic importation, providing treatment to 4,340 people in Australia, including 1,200 people in New South Wales.16
+
+Overall, an estimated 7,045 people with HCV-related cirrhosis in New South Wales received DAA therapy between 2015 through 2017 (B. Hajarizadeh, personal communication, February 2019).
+
+The estimated 434 liver-related deaths prevented in New South Wales in 2015–2017 could be largely attributed to treatment of this advanced liver disease population.
+
+PARAGRAPH
+
+Mathematical models of the Australian HCV epidemic and introduction of DAA therapy had predicted a decline in advanced liver disease morbidity and mortality, even with lower DAA treatment levels than experienced in 2016–2017.21
+
+More recent Australian mathematical modelling, incorporating known DAA treatment uptake in 2015–2017, predicted similar declines in liver-related mortality to those demonstrated in our study.22
+
+These models also predicted a relatively greater initial impact on decompensated cirrhosis burden compared to HCC.
+
+Despite some initial controversy around HCC risk following DAA therapy, our recent systematic review and meta-analysis estimated a 70% reduction in HCC risk among people with HCV-related cirrhosis following cure from either interferon-based or DAA therapy.23
+
+Among people with compensated cirrhosis and DAA-based cure, the risk reduction for decompensated cirrhosis would appear to be even greater, resulting in a more marked decline in disease burden.
+
+PARAGRAPH
+
+Of clinical and public health importance, those with hospitalisations for alcohol-use disorder had a markedly higher risk of decompensated cirrhosis and a less marked decline in the DAA therapy era.
+
+This lower relative decline could relate to lower DAA uptake, continued disease progression despite DAA therapy, or both.
+
+Further, compared to liver-related mortality, the impact of DAA therapy on all-cause mortality has been lower.
+
+These findings highlight the importance of more effective management of alcohol dependency and other liver disease comorbidities.
+
+A recent study estimated that at least half of excess mortality for people with chronic HCV in the United States was related to health risk behaviours including alcohol use, cigarette smoking, physical inactivity, unhealthy diet, and illicit drug use.24
+
+PARAGRAPH
+
+The impact of the DAA therapy era on liver disease burden has been demonstrated in a few other studies, including European and North American evidence for liver disease regression and delisting of HCV-related liver transplant candidates.25,26
+
+A recent study of death certificate data in the United States also demonstrated a decline in HCV-related mortality in the DAA era.27
+
+The age-standardised HCV-related mortality increased 2.0% per year over the period 2007 to 2013, followed by a 6.4% per year decline over the period 2014 to 2016.27
+
+The study did not link diagnoses or notifications of HCV to death registries, but relied on reporting of HCV and liver disease as primary or secondary causes of death.
+
+PARAGRAPH
+
+There are several limitations to our study that should be considered.
+
+First, HCV notifications in New South Wales are largely laboratory-based following anti-HCV antibody diagnosis.
+
+Thus, at least 25% of HCV notifications are likely to have had undetectable HCV RNA at diagnosis, consistent with spontaneous clearance.
+
+Second, decompensated cirrhosis and HCC events are based on coding for first hospitalisations, and predisposed to misclassification bias.
+
+A Canadian validation study of administrative data (based on ICD-10 codes) versus tertiary care hepatology clinic has demonstrated 90% sensitivity and 88% specificity for diagnosis of decompensated cirrhosis and 78% sensitivity and 99% specificity for diagnosis of HCC through administrative data.28
+
+In New South Wales, our previous linkage studies have included validation of HCC events with the New South Wales cancer Registry with 89% concordance.29
+
+Validation with clinic-based cohorts for diagnosis of decompensated cirrhosis or HCC was not undertaken.
+
+Third, our liver-related mortality was based on deaths following hospitalisations for decompensated cirrhosis or HCC, and therefore excludes liver-related deaths which occurred without a prior hospitalisation.
+
+Information on cause-specific mortality from death certificates will be available in the future, but there are also limitations with cause of death ascertainment.
+
+Fourth, the definition of alcohol-use disorder relying on administrative data has clear limitations.
+
+A previous validation study of administrative data (based on ICD codes) versus chart notations has demonstrated 68% sensitivity and 97% specificity for diagnosis of heavy alcohol intake.30
+
+Given high specificity of the definition using administrative data, the estimated impact of alcohol-use disorder on liver-related morbidity and mortality is thought to be robust;31 nevertheless, the current study has potential under-ascertainment of alcohol-use disorder diagnosis.
+
+Finally, individual-level data on antiviral therapy was not available.
+
+In New South Wales, between 1997 and 2017, an estimated 37,000 people with HCV infection received antiviral therapy (B. Hajarizadeh, personal communication, February 2019).
+
+The specific impact of interferon-based and DAA therapies on morbidity and mortality will be further evaluated when individual-level data is available for linkage.
+
+Further, this will allow evaluation of DAA uptake among those with and without a history of alcohol-use disorder.
+
+PARAGRAPH
+
+In conclusion, we have demonstrated a major DAA era population-level impact on liver disease morbidity and mortality, and all-cause mortality among a large population with diagnosed HCV in New South Wales, Australia.
+
+Enhanced efforts are required to continue DAA scale-up, if the WHO target of 65% HCV-mortality reduction is to be achieved by 2030.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The Kirby Institute is funded by the Australian Government Department of Health, under the agreement ID number 2-D3X513.
+
+This publication is part of the Bloodborne viruses and sexually transmissible infections Research, Strategic Interventions and Evaluation (BRISE) program, funded by the New South Wales Ministry of Health.
+
+This publication has received funding from Cancer Council New South Wales (CCNSW ID number RG17-06).
+
+J Grebely is supported by a National Health and Medical Research Council (NHMRC) of Australia Career Development Fellowship.
+
+BH is supported by an NHMRC of Australia Early Career Fellowship.
+
+J George is supported by an NHMRC of Australia Program Grant (1053206), project grants (632630, 1049857), a NHMRC Practitioner Fellowship, a Sydney West Translational Cancer Research Centre grant funded by the Cancer Institute New South Wales, and the Robert W. Storr Bequest to the Sydney Medical Foundation, University of Sydney.
+
+GD is supported through an NHMRC of Australia Practitioner Fellowships.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+ML has received research support from Merck, Bristol-Myers Squibb, Boehringer Ingelheim, Janssen-Cilag, Gilead Sciences, and ViiV HealthCare.
+
+ML has received consultancy and workshop fees from Gilead Sciences.
+
+ML has received Data Safety Monitoring Board Committee fees from Sirtex Pty Ltd.
+
+J Grebely has received research support and is a consultant for AbbVie, Cepheid, Gilead Sciences and Merck.
+
+J George is on the speaker’s bureau for Gilead Sciences, Merck, Janssen, Roche, and Pharmaxis.
+
+J George is a member of advisory board for Gilead Sciences, Merck, Janssen, Bristol-Myers Squibb, AbbVie, Roche, GlaxoSmithKline, Pharmaxis and Pfizer.
+
+J George has received travel support from Gilead Sciences, Merck, Bristol-Myers Squibb, AbbVie, and Roche.
+
+GD has received research support and is a consultant for Gilead Sciences, Merck, and AbbVie.
+
+GD has received research support from Gilead Sciences, Merck, Bristol-Myers Squibb, and AbbVie.
+
+GD is on the speaker’s bureau for Gilead Sciences, Merck, and AbbVie.
+
+GD is a member of advisory board for Gilead Sciences, Merck, and AbbVie.
+
+GD has received travel support from Gilead Sciences, Merck, and AbbVie.
+
+Other authors have no commercial relationships that might pose a conflict of interest in connection with this manuscript.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+MA, ML, and GD contributed to study conception and design, data acquisition and analysis, interpretation of findings, and drafting of the manuscript; and HV, J Grebely, JA, BH, CS, and J George contributed to data acquisition and analysis and interpretation of findings.

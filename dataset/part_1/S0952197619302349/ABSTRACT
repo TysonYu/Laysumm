@@ -1,0 +1,23 @@
+10.1016/j.engappai.2019.103262
+
+ABSTRACT
+
+TITLE
+
+fierClass: A multi-signal, cepstrum-based, time series classifier
+
+PARAGRAPH
+
+The task of learning behaviors of dynamical systems heavily involves time series analysis.
+
+Most often, to set up a classification problem, the analysis in time is seen as the main and most natural option.
+
+In general, working in the time domain entails a manual, time-consuming phase dealing with signal processing, features engineering and selection processes.
+
+Extracted features may also lead to a final result that is heavily dependent of subjective choices, making it hard to state whether the current solution is optimal under any perspective.
+
+In this work, leveraging a recent proposal to use the cepstrum as a frequency-based learning framework for time series analysis, we show how such an approach can handle classification with multiple input signals, combining them to yield very accurate results.
+
+Notably, the approach makes the whole design flow automatic, freeing it from the cumbersome and subjective step of handcrafting and selecting the most effective features.
+
+The method is validated on experimental data addressing the automatic classification of whether a car driver is using the smartphone while driving.

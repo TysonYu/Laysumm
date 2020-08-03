@@ -1,0 +1,943 @@
+10.1016/j.engappai.2019.07.006
+
+FULLTEXT
+
+TITLE
+
+Combining dynamic finite state machines and text-based similarities to represent human behavior
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Human behavior has traditionally been one of the most interesting fields of study for the scientific community (Skinner, 1953) be addressed by several domains of application.
+
+The main idea behind these approaches is to obtain knowledge from different tasks achieved by individuals.
+
+For instance, this knowledge can indicate which are the human needs (i.e., motivations) (Deci and Ryan, 2000), how they establish relationships with the surrounding environment (e.g., other individuals) (Zastrow and Kirst-Ashman, 2006), which are the most common problems detected (Bonanno, 2004), or how to influence over them in order to modify undesirable behaviors (i.e., persuade individuals) (Cialdini and Cialdini, 2007).
+
+PARAGRAPH
+
+In order to analyze human behavior, two different perspectives can be differentiated.
+
+The first perspective is focused on gathering data from humans through sensors in order to analyze different parameters.
+
+Thus, specific patterns could be detected during the analyzed task and used to predict future behavior.
+
+The second perspective is focused on developing models that encompass several previously identified traits in human behavior.
+
+These models could also be used to elaborate profiles according to the values of these traits, or they can be included in simulations to check their viability for real situations.
+
+PARAGRAPH
+
+These approaches present similar problems related to the amount of data and their understandability (Cooper et al., 2007).
+
+Moreover, the human behavior changes over time, being irregular and presenting fluctuations (Baldwin and Baird, 2001).
+
+The elaboration of models and the analysis of data become a very demanding task (Strauss, 2017).
+
+The visualization of the gathered information (Marcengo and Rapp, 2016) and the use of techniques to simplify data (e.g., Fuzzy Logic Eciolaza et al., 2011) try to mitigate this situation.
+
+It leads to the development of systems that address these issues including assistants to guide users and process a significant amount of data making dynamic visualizations of human behavior.
+
+PARAGRAPH
+
+This work presents the VISUal VERifying (VISUVER) framework proposed to ease the analysis of human behavior and its evolution over time.
+
+It uses finite state machines to represent human behavior, making visual the decisions and tasks achieved by an individual during a certain period of time.
+
+It includes a specific module for profiling purposes.
+
+This module is able to summarize visual state machines in order to obtain the most important information provided by them.
+
+VISUVER can use different similarity metrics to detect behavior patterns.
+
+It can also obtain the widest portion of time where human behaviors look similar or correspond to repetitive patterns.
+
+PARAGRAPH
+
+In order to validate the proposed approach, the Intelligent Transportation Systems (ITS) domain (Dimitrakopoulos and Demestichas, 2010) is considered.
+
+In this area, the drivers’ behavior when performing the driving tasks is a common issue to be studied (Chhabra et al., 2017).
+
+As part of the CABINTEC (Intelligent Cabin Truck for Road Transportation) project (Brazalez et al., 2006), a database from a set of driving sessions performed by six professional drivers on a very realistic truck simulator was collected.
+
+This project is focused on the study of human factor relevant for the improvement of traffic safety.
+
+The driving sessions include different environments: interurban, mountain and urban.
+
+PARAGRAPH
+
+Several experiments have been considered to demonstrate the potential of VISUVER.
+
+The first one is a test experiment that evidences the functionalities of the framework.
+
+The second compares using the similarity metrics provided by VISUVER standard (i.e., non aggressive behavior respecting traffic signals) and unusual behaviors of drivers (i.e., aggressive behavior, possible accidents or risky situations).
+
+The third experiment illustrates how the summarization and simplification tasks produce understandable visual representations with low loss of information.
+
+This experiment also includes a detailed analysis to make detections related to standard and distractive behaviors.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+Section 2 situates the framework in the context and describes related approaches in the domain.
+
+Section 3 introduces the framework architecture, while Section 4 details the main processes of the system.
+
+Section 5 proposes the experiments to illustrate the viability of the proposal.
+
+Finally, Section 6 concludes and provides future research directions.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+The analysis of human behavior is a widespread field where the different interactions, relationships and tasks performed by the human subjects are gathered and analyzed (Zastrow and Kirst-Ashman, 2006).
+
+This leads to elaborate approaches that are compliant with the captured traits.
+
+These approaches can be used in simulations in order to obtain knowledge from simplified environments (Cacciabue, 2013).
+
+Profiles can be generated from the captured traits to establish possible classifications or groups of individuals (Kosinski et al., 2013).
+
+PARAGRAPH
+
+There are several approaches that consider human behavior and motivations (see, for instance Stoyanov, 2017).
+
+These proposals can be classified into direct or indirect according to the used perspective.
+
+The first type is focused on evaluating human behavior directly using specific sensors (Mukhopadhyay, 2015), recording their actions and analyzing the empirical data obtained.
+
+They are able to detect specific situations (i.e., possible patterns or actions) and provide conclusions (Patel et al., 2011).
+
+The second type generates models in order to analyze the behavior (Strauss, 2017) or simulate it (Gilbert and Doran, 2018) considering some specific parameters.
+
+These parameters are usually selected from the results obtained by direct approaches, or by psychological and social researches.
+
+PARAGRAPH
+
+Direct approaches can be decomposed into intrusive and not intrusive.
+
+Intrusive approaches use detection techniques based on physiological data like brain waves, heart rate, pulse rate and respiration (Healey and Picard, 2000).
+
+These techniques affect the comfort of individuals and can consequently lead to produce biased observations (Saradadevi and Bajaj, 2008).
+
+Not intrusive approaches try to mitigate these issues by considering sensing modalities that do not influence the achieved tasks, being transparent to the individual in most of the cases (Rodrigues et al., 2010).
+
+The most typical examples of direct approaches (both intrusive and not intrusive) are usually focused on measuring the pressure exerted over the vehicle pedals (Sathyanarayana et al., 2008) or monitoring daily activities on smart phones (Debes et al., 2016).
+
+PARAGRAPH
+
+Indirect approaches are usually based on theoretical models (Rodríguez et al., 2014).
+
+Notice that these models can be used to produce hierarchical structures or to emulate the behaviors of individuals.
+
+These models can be organized into microscopic, macroscopic (see, for instance, Li and Chen, 2017), and hybrid (e.g., mesoscopic) (Ferrara et al., 2018) depending on their granularity.
+
+Analogously, they can be organized into taxonomic models and functional models according to their architecture.
+
+The first ones generate descriptive classifications of certain elements based on a context.
+
+They can be also decomposed into task-analysis models (Fastenmeier and Gstalter, 2007) and features-based models (Bone and Mowen, 2006).
+
+The second ones can be organized into mechanical models, adaptive control models and cognitive models.
+
+PARAGRAPH
+
+Both direct and indirect approaches can be oriented to detect possible profiles according to the specific evaluated traits (see, for instance, Srivastava et al., 2017).
+
+Thus, individuals can be organized into multiple groups regarding the exhibited behavior or data gathered from previous evaluations.
+
+An example of these approaches is Wang et al. (2017) where different Machine Learning (ML) techniques (as Support Vector Machines (SVM) Steinwart and Christmann, 2008 and K-means clustering Ding and He, 2004) are used in order to group individuals.
+
+PARAGRAPH
+
+Once the profiles are obtained, they can be compared in order to find possible patterns in the behavior of the individuals (Strayer et al., 2006).
+
+These patterns might be used to detect strange punctual actions or decisions performed by individuals.
+
+In turn, this could lead to the detection of possible deviations from the expected behavior caused by distractions or difficulties on performing the task.
+
+PARAGRAPH
+
+Other proposals use models (mainly cognitive models) to produce simulations in order to generate simplified abstractions from reality (Doniec et al., 2008).
+
+In the ITS domain, these models are applied in road traffic platforms (e.g., MATSim Horni et al., 2016) allowing to consider only specific sets of variables (real environments present several variables which are difficult to evaluate or filter in order to obtain conclusions).
+
+These approaches are also mainly focused on drivers but they usually include other roles of subjects like pedestrians and passengers involved in road traffic.
+
+This leads to evaluate the different real world interactions produced among individuals (Fernández-Isabel and Fuentes-Fernández, 2015).
+
+These interactions are governed by complex social rules.
+
+Therefore, simplified models of these interactions (e.g., using Fuzzy Logic Gobi and Kumar, 2018 to discretize the information) can produce a well defined application context that allow to perform simulations.
+
+Common instances of approaches that use these models are intelligent agents, which act as abstractions of the individuals (Teodorovic, 2003), and cellular automata models (Chai et al., 2017).
+
+PARAGRAPH
+
+Approaches that provide a visual representation of the behaviors exhibited by individuals are very useful in several domains (Liu et al., 2014).
+
+They can graphically illustrate possible patterns evidenced by individuals when performing a certain task.
+
+In the ITS domain, they are able to show possible distractions or problems detected in a specific point of the route (Liu et al., 2017).
+
+These approaches are usually related to direct models (where data produced by drivers are gathered and analyzed) acting as an extension, and to simulations being the graphical interface where the individuals and their actions are represented.
+
+PARAGRAPH
+
+Several mathematical models have been proposed to recognize human behavior (Atzmueller et al., 2018; Langensiepen et al., 2014).
+
+A specific kind of these approaches use the finite state machines theory to model the behavior of individuals (Alvarez-Alvarez et al., 2012b) and to recognize human activities (Fernández-Caballero et al., 2012).
+
+Finite state machines are lightweight, human-readable and easy to parse (see, for instance, Mohmed et al., 2018; Noorit and Suvonvorn, 2014; Trinh et al., 2011).
+
+In the ITS domain, these state machines are used to represent the steps achieved during the route (Alvarez-Alvarez et al., 2012a).
+
+These proposals are focused on simplifying each behavior applying Fuzzy Logic, and introducing possible metrics (e.g., based on texts) to measure the similarity between behaviors (Eciolaza et al., 2011).
+
+In the driving context, this allows to elaborate the drivers’ profiles of them through comparison of driving patterns or detect possible problems during the driving task.
+
+PARAGRAPH
+
+The VISUVER framework has been designed to be a general-purpose system able to adapt itself to data collected from different individuals, playing different roles.
+
+In the case of ITS, it is possible to analyze data from real environments or from simulations that mimic real behaviors.
+
+VISUVER uses dynamic finite state machines that evolve over time.
+
+These machines allow to make visual representations of the exhibited behavior of the individuals involved in road traffic.
+
+It also includes similarity measures based on text to detect anomalous situations or classify the behavior of drivers.
+
+Data to evaluate the viability of the proposal has been collected from a real simulator where test subjects drove in three different types of scenarios.
+
+The scenarios and the remaining individuals (i.e., pedestrians and other drivers) were simulated.
+
+Notice that data used for the experiments presented in this paper were obtained from professional drivers using typical instruments of intrusive approaches.
+
+SECTION
+
+Visual framework architecture
+
+PARAGRAPH
+
+This work proposes a framework called VISUVER.
+
+It is a general purpose system focused on dynamically visualizing human behaviors and detecting similarities between them.
+
+In order to achieve this task, VISUVER extracts and processes the implicit knowledge from behavioral data.
+
+It is able to evaluate information from real observations or from simulation platforms.
+
+PARAGRAPH
+
+The system presents a graphical interface to allow an interaction with users (see Fig. 1).
+
+It includes several assistants to provide flexibility (i.e., the assistants can alter the input data by applying filters or modifications) and guide users until the visualization of the gathered behavior is achieved.
+
+Notice that, the only prerequisite of the system to work properly is related to the structure of the data: a dataframe where the information is organized in discretized time steps, being each row of the dataset an observation in a specific instant of time and being the columns the collected features.
+
+PARAGRAPH
+
+Regarding the architecture of the system, it is organized into three main modules: the State Machine Generator, the Similarity Producer, and the Visualization Interface (see Fig. 2).
+
+The State Machine Generator module is in charge of receiving data gathered in order to process them.
+
+Data, called Sequential Behavior of Individuals, is imputed using a file where all the gathered information is stored.
+
+This module also produces the dynamic finite state machine according to the provided parameters.
+
+The proposed dynamic finite state machine mitigates one of the main limitations of finite state machines, the need of the complete representation of the set of states and transitions.
+
+This can lead to producing computational problems as memory bottlenecks and overflows.
+
+Thus, the proposal mitigates this issue by considering only the reached states in each step of time, avoiding the unreachable ones.
+
+Notice that the state machines are generated step by step, so they evolve visually over time.
+
+The modifications over time are the size of the state (it is incremented each time a state is visited), and the dynamic apparition of new states and transitions when they are first visited.
+
+The Similarity Producer module is connected to the previous module.
+
+It addresses the quantification of the similarity measures, finding the most similar portions among different state machines previously generated.
+
+The Visualization Interface module is responsible for the visualization of the state machines and for the generation of plots that show the evolution of those states, step by step.
+
+PARAGRAPH
+
+Section 3.1 describes the State Machine Generator module, illustrating the different components used to process data and to generate the dynamic state machines.
+
+Section 3.2 presents the Similarity Producer module, describing the components associated to the calculation of similarities.
+
+PARAGRAPH
+
+SECTION
+
+State machine generator module
+
+PARAGRAPH
+
+The primary purpose of this module is the development of the dynamic state machines (i.e., the evolution of the state machine).
+
+The input is a sequential dataset where data are sorted over time.
+
+PARAGRAPH
+
+The architecture of the module consists of four components (see Fig. 3): the Data Processor, the Data Filter, the Complete States Generator, and the State Machine Builder.
+
+These components are organized sequentially, where the produced outputs are the inputs for the next one.
+
+The initial input is the Sequential Behavior of Individuals dataset.
+
+The user selects the dataset which contains the information about the human behavior sequentially sorted over time.
+
+The outcome of the module is the Finite State Machine.
+
+As it was introduced above, it is dynamic and incremental (i.e., the states increment their size when they are revisited, and new states appear when needed).
+
+PARAGRAPH
+
+The Data Processor processes the dataset provided as input.
+
+It analyzes the different types of data to detect categorical or numeric variables.
+
+PARAGRAPH
+
+The Data Filter is in charge of transforming data according to the instructions provided by the user.
+
+Given a set of variables, several transformations could be considered.
+
+It is possible to define the initial point in time (i.e., initial row) in order to discard initial observations when needed.
+
+The range of any variable under consideration can be defined.
+
+It is possible to deal with discretization of continuous numerical variables, by selecting the number of categories to consider.
+
+The percentiles are used to create the desired number of categories.
+
+Thus, there should be approximately an equal number of observations in each category.
+
+PARAGRAPH
+
+The Complete States Generator produces the vocabulary of the state machine (i.e., all the possible states that can occur) according to the obtained discrete information.
+
+PARAGRAPH
+
+The State Machine Builder generates the dynamic state machine.
+
+The component selects only the states that encode the values of the different selected variables and establishes the time-line This leads to producing a state machine that evolves dynamically over time creating new states or returning to a previous one visited earlier.
+
+Notice that the outcome of this module consists of a set of states machines (one per time step) and the graphical interface is able to show it depending on the instant of time.
+
+Only the last one is the complete state machine (also called the final state machine) associated to the evolution of the behavior of the current individual (i.e., from the starting point until the last instant of time).
+
+This component is also in charge of the improvement of the visualization of the state machine easing its study.
+
+For this task, two compression operations are considered: summarization and simplification.
+
+The first one reduces the number of states (i.e., deleting the nodes with fewer occurrences in the graph), while the second one discards the transitions less used (i.e., deleting the edges with fewer occurrences in the graph and the unconnected nodes).
+
+Both cases are supported by graphical assistants that allow selecting the compression threshold values.
+
+SECTION
+
+Similarity producer module
+
+PARAGRAPH
+
+PARAGRAPH
+
+The main purpose of this module is to evaluate the possible patterns that appear in the state machine representations produced by the State machine generator module.
+
+It compares two different final state machines and obtains the total similarity among them.
+
+In addition, this module can detect the widest portion of time with similar states between two state machines being compared.
+
+PARAGRAPH
+
+The architecture of the module comprehends three components (see Fig. 4): the Vocabulary Generator, the Complete Similarity Processor, and the Similarity Portions Processor.
+
+As input, the module accepts two dynamic finite state machines and their evolutions over time (i.e., the final state machines).
+
+As outcomes, the module provides the total similarity through the last evolution of the state machines, the percentage of similarity over a portion of time (i.e., the proportional similarity), and the highest number of steps (i.e., initial row and the end row of the dataset) that are shared between both state machines.
+
+Notice that the metric used to establish the comparisons is the Levenshtein distance (Yujian and Bo, 2007), which is normalized to obtain a similarity between 0 and 1.
+
+PARAGRAPH
+
+The Vocabulary Generator component processes the two selected state machines and converts the states into characters.
+
+Notice that this component uses the final state machines that contains the total evolution over time.
+
+Thus, a vocabulary is produced from the different states for each state machine.
+
+PARAGRAPH
+
+The Complete Similarity Processor component is in charge of applying Levenshtein distance to both sets of characters produced in the previous component.
+
+A similarity is obtained from this distance.
+
+Although other metrics could be used to quantify the similarity, the Levenshtein distance fits perfectly since it takes into account the order of the characters and, as a consequence, the order of tasks achieved by the human under evaluation.
+
+PARAGRAPH
+
+The Similarity Portions Processor component also evaluates the selected state machines.
+
+It uses a sliding window mechanism (see Algorithm 1) to find the longest sequence of states which are common in both state machines.
+
+This allows finding similar patterns of behavior in different time instances.
+
+The similarity is calculated by dividing the length of the longest set of characters by the length of the smallest set of characters that represent one of the state machine selected.
+
+SECTION
+
+Visualization and evaluation process
+
+PARAGRAPH
+
+The VISUVER framework has been designed to build a dynamic representation of human behavior.
+
+It includes metrics to detect similarities between different behaviors in order to recognize common motion patterns.
+
+In order to achieve these tasks, two processes have been developed.
+
+They are related to the modules of the framework (i.e., the State Machine Generator module and the Similarity Producer module).
+
+PARAGRAPH
+
+Section 4.1 addresses the work flow to produce the visualization of the behavior of individuals.
+
+Section 4.2 describes the process to produce the similarity metrics.
+
+SECTION
+
+Visualization process
+
+PARAGRAPH
+
+This process provides general guidelines to describe the pipeline to generate a dynamic state machine and its corresponding visualization.
+
+It includes the different steps achieved by the components of the State Machine Generator module and the graphical assistants included in VISUVER.
+
+Regarding the steps of the work flow, they are five mandatory steps and also five decision flows with their associated steps (see Fig. 5).
+
+PARAGRAPH
+
+The work flow starts with the Load Data step.
+
+Here, the dataset selected by the user is loaded through a dataframe structure.
+
+The Data Processor (see Section 3.1) component is in charge of achieving this task.
+
+Once the system stores data, the user can, if necessary, selects the variables of interest (i.e., the columns of the dataframe).
+
+The Column Selection decision step addresses this issue through the Select Columns of Interest step.
+
+The component in charge of this task is the Data Filter.
+
+Then, the resulting data is processed, creating a new dataframe that contains only the selected columns (or all the columns if no selection is made).
+
+The step involved in this task is Processing Data.
+
+After that, the Ranges Selection decision step can be used to modify the variables ranges by selecting the maximum and minimum limits to consider.
+
+The associated Modify Data Ranges step implements this functionality.
+
+Next, the user is able to modify the starting point (i.e., the first observation to be visualized) and the number of categories made in data in order to discretize continuous numerical variables.
+
+The Filters Selection decision step considers this issue.
+
+The Select Step and Starting Position steps are in charge of achieving the corresponding operations.
+
+From here on, the user does not have to make new decisions.
+
+Thus, the discretization task is achieved by the Generate Data Partitions step.
+
+Once the discretization is completed, the possible states of the state machine are produced by the Generate Possible States step.
+
+The component which addresses this task is the Complete States Generator.
+
+In the Generate State Machine step, the State Machine Builder component selects the set of states that match the data values presented in the chosen variables.
+
+Then, the dynamic state machine is generated.
+
+It consists of multiple state machines that encode the information for each instant of time.
+
+This state machine can be compressed reducing the number of nodes in the Summarize State Machine step or simplified deleting the number of edges according to their occurrence in the Simplify State Machine step.
+
+Finally, the process concludes with the visualization of the dynamic state machine via the graphical interface of VISUVER in the Visualize State Machine step.
+
+SECTION
+
+Evaluation process
+
+PARAGRAPH
+
+This process describes the pipeline that addresses the tasks related to the similarity measures implemented by the components of the Similarity Producer module.
+
+It consists of six steps (see Fig. 6).
+
+PARAGRAPH
+
+The Select Two State Machines step starts the work flow.
+
+This step is achieved by a graphical assistant that enables the selection of two state machines to be compared.
+
+Once the state machines are selected, the entire vocabulary is produced during the Produce Vocabularies step.
+
+These vocabularies are generated using the Unicode standard list of characters (Consortium et al., 1997).
+
+The size of the generated list of characters is the number of different states included in both state machines.
+
+Next, in the Convert States to Characters step, the states are encoded to the corresponding characters.
+
+This task is implemented in the Vocabulary Generator component (see Section 3.2).
+
+Notice that both selected state machines must be encode datasets with the same structure in terms of variables (i.e., columns) to allow a reasonable comparison.
+
+Once the encoding of the states is finished, the Levenshtein distance (Yujian and Bo, 2007) is calculated in the Obtain Similarity step.
+
+In order to achieve this task, both sets of characters are compared one by one.
+
+It is desirable, but not mandatory, that both sets have the same length.
+
+If they are different, the smaller set is augmented with special characters to match the length of the bigger set.
+
+Notice that these special characters do not match with the rest of the characters of the vocabulary, which penalizes the final distance value.
+
+The final result of the step is a normalized similarity between 0 and 1 calculated from the obtained distance.
+
+The component in charge of this task is the Complete Similarity Processor.
+
+Finally, the Obtain Highest Similar Portion and the Obtain Proportional Similarity steps address the sliding window generation and the proportional similarity calculation respectively.
+
+For the first task, the previous vocabularies are used in order to find out the longest amount of matches between both sets of characters.
+
+In the second task, the previously computed results are converted to percentages.
+
+The Similarity Portions Processor is the component that implements this functionality.
+
+SECTION
+
+PARAGRAPH
+
+Experiments
+
+PARAGRAPH
+
+This section presents a set of experiments designed to illustrate the viability of the VISUVER framework.
+
+These experiments make use of practical use cases collected from a set of driving sessions executed by professional drivers in a truck simulator.
+
+The simulator is located at the Centre of Studies and Technical Research of Gipuzkoa (CEIT).
+
+It consists of a real truck cockpit mounted over a Gough–Stewart platform (Dasgupta and Mruthyunjaya, 2000).
+
+This platform provides a natural driving sensation.
+
+The visualization of the environment is a 3D scene with a rear projection onto three related screens (see Fig. 7).
+
+PARAGRAPH
+
+In order to implement the experiments, the information from six different professional drivers has been collected.
+
+These drivers have been evaluated driving through three different scenarios: interurban, mountain and urban.
+
+The variables collected during the experiments are presented in Table 1.
+
+PARAGRAPH
+
+In the experiments, the visualization was made assuming summarizations or simplifications in the state machines (see Section 3.1).
+
+The threshold applied for the summarization goes from 5 to 10 states.
+
+On the other hand, the threshold used for the simplification task has been fixed to delete edges with less than three occurrences.
+
+The states that become unconnected have been discarded.
+
+The number of quantization levels considered for the discretization of numerical variables varies between 2 and 6 depending on the experiment.
+
+PARAGRAPH
+
+Section 5.1 presents a test experiment.
+
+Its purpose is to illustrate the visualization of the behavior of a driver using information regarding the speed in km/h and the revolutions per minute of the truck engine in each moment of time.
+
+Section 5.2 presents an experiment to detect anomalous behaviors comparing the state machines of the same driver in two different driving sessions: control and distractive sessions.
+
+The variables of interest are the current speed in km/h and the pressure exerted over the brake pedal.
+
+Section 5.3 presents an experiment to calculate similarity between control and distracted sessions of a set of drivers.
+
+It uses the current speed, the pressure exerted over the throttle pedal, the pressure exerted over the brake pedal, the revolutions per minute of the truck engine, and the variations in the movement of the steering wheel.
+
+These variables provide enough information about the actions performed by the drivers during the driving task.
+
+PARAGRAPH
+
+SECTION
+
+Testing the state machines to simulate the behavior of drivers
+
+PARAGRAPH
+
+The purpose of this experiment is to show how the state machines represent the behavior of drivers.
+
+The experiment also illustrates how the summarization and simplification tasks can preserve most of the gathered information.
+
+Notice that these tasks are oriented to avoid possible visualization problems due to accumulated states and the transitions between them (see Section 3.1).
+
+PARAGRAPH
+
+The experiment is focused on the behavior obtained and its evolution over time (i.e., elapsed time) according to two variables of interest: the speed and the rpm.
+
+The experiment uses standard sessions of two drivers at random in a road scenario.
+
+PARAGRAPH
+
+The first session consists of a basic exercise where the driver only accelerates the truck during the process until reaching the desired speed (i.e., a fitting session).
+
+Thus, the speed increases over time (see Fig. 8(a)) while the rpm is modified according to the gear changes made by the driver during the acceleration (see Fig. 8(b)).
+
+The duration of the session is 100 s providing 100 observations (i.e., one row of information per second).
+
+PARAGRAPH
+
+Regarding the complete state machine generated for this experiment, it has been considered three quantization levels for the discretization of the first variable of interest (i.e., speed) and four quantization levels for the discretization of the second variable of interest (i.e., rpm).
+
+The motivation of these quantization levels are based on the progressive evolution of the speed variable in the first case, and the oscillating pattern of the rpm variable.
+
+PARAGRAPH
+
+For the speed variable, the generated quantization levels are: ‘lower than 12’, ‘from 12 to 25’, and ‘higher than 25’.
+
+For the rpm variable, the quantization levels are: ‘lower than 533.1’, ‘from 533.1 to 718.57’, ‘from 718,57 to 1072.67’, and ‘higher than 1072.67’.
+
+This information is shown in the legend of the state machine (see Fig. 9) in order to facilitate the visualization to users.
+
+Notice that these intervals are produced based on the percentiles of each variable.
+
+As it was explained above, the rpm variable presents multiple inflection points which have been grouped into one interval, while the rest of these variations are detected only at the beginning of the analyzed period and grouped into several ones.
+
+PARAGRAPH
+
+The final state machine (i.e., the state machine that shows the complete evolution of the driver over time) consists of 8 states.
+
+The initial state includes a special symbol (>) (see Fig. 9) and the work flow goes from left to right.
+
+Notice that there are 100 steps (one per observation) in the dynamic state machine that illustrates the evolution of the driver until the final state machine (the complete behavior achieved by the driver over time).
+
+The final state machine is shown in Fig. 9.
+
+The most visited state is: speed ‘from 12 to 25’, and rpm ‘higher than 1072.67’.
+
+This makes sense because the truck started the session stopped and the session ended when the driver reached 38 km/h approx.
+
+The next more common state is: speed ‘higher than 25’, and rpm ‘higher than 1072.67’.
+
+This implies the truck was accelerated progressively, modifying the rpm of the engine only when a new gear was changed.
+
+This matches the tendency which is observable in the plots of the evolution of the speed (see Fig. 8(a)) and the rpm (see Fig. 8(b)) variables.
+
+PARAGRAPH
+
+The second session consists of a complete exercise of 580 seconds where the only one driver interacts with the environment until reaching a predefined destination.
+
+Thus, the speed increases and decreased according to the maneuvers performed (see Fig. 10(a)) while the rpm vary according to the gear changes made by the driver (see Fig. 10(b)).
+
+At the end of this session the truck was stopped (speed equals 0).
+
+PARAGRAPH
+
+Once more, the state machine has been developed using three quantization levels for both numerical variables (speed and rpm).
+
+For the speed variable, the generated quantization levels are: ‘lower than 31.13’, ‘from 31.13 to 63.89’, and ‘higher than 63.89’.
+
+For the rpm variable, the quantization levels are: ‘lower than 535.32’, ‘from 535.32 to 1066.56’, and ‘higher than 1066.56’.
+
+PARAGRAPH
+
+The resulting final state machine presents six states that cover all the possibilities according to the considered quantization levels (see Fig. 11).
+
+The most visited state is defined by: speed in the interval ‘from 31.13 to 63.89’, and rpm ‘higher than 1066.56’.
+
+Notice that the order of the transitions in the state machine between the states reflects correctly the evolution of the achieved driving task.
+
+PARAGRAPH
+
+In this experiment, it was also evaluated the performance of the VISUVER framework to summarize and simplify the state machines (see Table 2).
+
+For this evaluation, several number of quantization levels (from 3 to 6) have been considered.
+
+The summarization procedure was set to reduce the state machine from 5 to 10 states.
+
+In the case of the simplification procedure (where the edges less relevant are deleted), only transitions with two or fewer occurrences have been omitted.
+
+As shown before, six states were needed to build the state machine when 3 quantization levels were considered.
+
+As the number of quantization levels increases, more states are required.
+
+The percentage of information represented for the state machine in any summarization configuration is presented.
+
+Notice that in the case of 6 quantization levels, when ten states are selected to summarize the state machine, the information gathered is 87.9% which is acceptable to allow simplified visualizations of the final state machine.
+
+In the case of simplification, no significant loss of information occurs in any of the configurations.
+
+PARAGRAPH
+
+Analyzing this first experiment, it can be concluded that the state machines properly represent data collected from both driving sessions.
+
+The state machines illustrate the evolution of the behavior of drivers, generating wider states in the most common quantization levels covered by them.
+
+The system also produces appropriated summarization and simplification tasks over the final state machines.
+
+In the next experiments, more complex state machines are analyzed in order to evaluate if the summarization and simplification tasks are capable of effectively preserve most of the information.
+
+SECTION
+
+Comparing different behaviors to detect unusual situations
+
+PARAGRAPH
+
+The purpose of this experiment is to show how the state machines are able to detect anomalous behaviors.
+
+To achieve this goal, two different sessions of the same driver in the same mountain scenario have been performed.
+
+The sessions consist of 580 and 760 seconds, respectively.
+
+In both sessions, one observation per second was collected.
+
+PARAGRAPH
+
+In this experiment two variables of interest have been selected: the speed and the brake pedal alongside their evolution over time (i.e., elapsed time).
+
+The brake pedal variable is in charge of detecting the pressure exerted over the brake pedal (Deepa et al., 2018).
+
+This could lead to detect possible aggressive behaviors or actions correlated with difficulties encountered on the route.
+
+PARAGRAPH
+
+The values of the two variables of interest in the first session are presented in Fig. 12.
+
+There are several and abrupt variations in the speed which are typical of mountain scenarios.
+
+Notice that from the second 400 the speed is reduced, being less than 40 km/h most of the time until the end of the session.
+
+The brake pedal ratio presents several peaks indicating short braking tasks (see Fig. 12(b)).
+
+It is interesting to consider the second 500 where the brake pedal is practically unused, but the speed value is close to 40 km/h.
+
+It leads to thinking in two possible situations: the driver is driving in a very safe mode, or the environment has uphill roads with smooth curves.
+
+The values of the two variables of interest in the second session are presented in Fig. 13.
+
+At the end of this session the speed value is reduced considerably (see Fig. 13(a)).
+
+It is due to incidents produced by the driver with other vehicles and a final rollover of the truck.
+
+This issue can be confirmed through the pressure exerted in the brake pedal.
+
+Thus, in the last part of the session, it can be observed that the brake pedal is used several times (see Fig. 13(b)).
+
+PARAGRAPH
+
+To construct the state machines, three quantization levels have been considered.
+
+The number of states in the final state machine for the first session is 8 (see Fig. 14).
+
+The most visited state is: speed ‘lower than 34.51’ and brake pedal ‘lower than 44.43’.
+
+The second most visited state is: speed ‘from 34.51 to 68.68’ and brake pedal ‘lower than 47.63’.
+
+The final state machine fits well with the assumption made above (the driver could be driven in a very safe mode, or the scenario has uphill roads with smooth curves).
+
+On the other hand, looking at the transitions between states, it could be observed the evolution of the performed driving task.
+
+For instance, it could be seem that there are transitions among states where the brake pedal variable increases its value, while the value of the speed variable is reduced.
+
+The opposite also occurs when the brake pedal variable decreases and the speed variable increases.
+
+This evidences the expected relationship between both variables.
+
+PARAGRAPH
+
+The final state machine of the second session also presents eight states (see Fig. 15).
+
+Similar ranges of values in the variables of interest appear in the most visited state.
+
+This was expected since the scenario is the same for both sessions.
+
+The critical issue in this case is the apparition of states with very high values of the brake pedal variable and very low values of the speed variable.
+
+This leads to thinking that they are related to the rollover and to possible incidents produced during the route.
+
+Focusing on the transitions, the evolution of driving tasks can be identified by observing the variations in the values represented by the different states.
+
+PARAGRAPH
+
+Finally, in order to detect possible behavior similarities, a comparison between the two state machines has been achieved.
+
+Thus, four state machines resulting from considering different number of quantization levels (from 2 to 5) of the original variables have been constructed for each session (see Table 3).
+
+It can be concluded that the complete similarity (Total Sim.)
+
+among both state machines is close to 60%–70%.
+
+Nevertheless, the proportional similarity (Prop.
+
+Sim.),
+
+which represents the longest portion of the same steps found in both state machines, is too low.
+
+It is mainly due to the high pressure exerted by the driver in the second session and the variations in the speed detected at the end of this session (the rollover and the incidents provoked by the driver).
+
+SECTION
+
+Testing summarization, simplification and finding similar behaviors
+
+PARAGRAPH
+
+This experiment has two main purposes.
+
+The first purpose is to illustrate the viability of the summarization and simplification tasks.
+
+Notice that these tasks are focused on improving the visualization reducing the number of transitions and states that are less representative.
+
+The second purpose is related to the detection and classification of the human behavior based on the similarity between different state machines.
+
+PARAGRAPH
+
+Six drivers were involved in this experiment.
+
+Each driver performed two sessions, a control session (C) and a distractive session (D).
+
+During the control session, the driver carries out the driving tasks exhibiting a normal behavior (i.e., with no aggressiveness and respecting the traffic signals).
+
+During the distractive session, multiple distractions have been introduced in order to alter the drivers’ behavior.
+
+All the session were recorded using the same interurban scenario with the same pattern in the vehicle flow.
+
+This leads to reducing the possible effects related to the environment (i.e., the risk situations and the difficulty of the road will be the same for every driver).
+
+PARAGRAPH
+
+Delving into the sessions, they have different duration and number of observations (see Table 4).
+
+Notice that they present several differences related to the duration and the number of observations.
+
+It is due to the different distractions and incidents produced in the distractive sessions.
+
+Nevertheless, the same distractions were produced to the drivers in the same point of the route.
+
+PARAGRAPH
+
+To construct the state machines, all the variables of interest acquired by the simulator have been used for this experiment.
+
+Moreover, the number of quantization levels of data have been fixed to 3 for all variables.
+
+This leads to a moderate increase in the number of states for each machine.
+
+As a consequence of this fact, the summarization and simplification tasks were used to reduce the number of states and transitions.
+
+PARAGRAPH
+
+Table 5 shows a summary of the summarization, and simplification.
+
+For the summarization procedure, the loss of information is acceptable for the 12 sessions when considering just five states.
+
+The amount of information stored is close to 50% in most cases.
+
+For machines with 6 to 9 states, the amount of information conserved is between 50% and 80%, in most cases.
+
+Using ten states, the information conserved is between 70% and 85%.
+
+PARAGRAPH
+
+In the case of the simplification task, the selected threshold has been adjusted to less than 3.
+
+The simplification applied to the 12 sessions has obtained high values of information conserved with a significant reduction of the state machine complexity.
+
+PARAGRAPH
+
+Regarding the second purpose of the experiment, the final states machines of the 12 sessions (6 control sessions and their complimentary 6 distractive sessions) have been compared using the total similarity.
+
+This similarity is based on the Levenshtein distance (see Section 3.2) to illustrate the relationships among the behaviors represented by the final state machines.
+
+PARAGRAPH
+
+The similarity matrix obtained by the VISUVER framework for the 12 sessions is shown in Table 6.
+
+Fig. 16 represents the first two coordinates obtained from the Multidimensional Scaling (Groenen F. and Velden, 2014) for this similarity matrix.
+
+The Euclidean distance between points is inversely related to the similarity between those points.
+
+For instance, the behavior of driver number 1 was very similar in both driving sessions (C1 and D1 in the figure).
+
+In this particular case, the distractions induced in the second session do not affect the driving behavior.
+
+Thus, this individual could be labeled as a “good” driver.
+
+However, the behavior of drivers 3, 4 and 5, was very different in both driving sessions (C3, C4, and C5 versus D3, D4, and D5, respectively).
+
+That is, the induced distractions in the distractive sessions strongly affected the behavior of these drivers.
+
+They could be labeled as “bad” drivers.
+
+Therefore, this kind of similarity matrix can be used to identify good and bad drivers.
+
+Using a higher number of samples, a distance-based classifier could be trained in order to determine whether a driving session should be classified as control or as distractive.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+This paper presents a novel framework called VISUVER which is able to analyze and represent human behavior over time using finite state machines.
+
+In order to achieve these goals, it accepts a set of observable variables as input data where each one of the observations is an instant of time.
+
+PARAGRAPH
+
+VISUVER includes a module to detect similarities between different states machines.
+
+This module is able to obtain the complete similarity (i.e., the similarity among two state machines), the proportional similarity (i.e., the longest segment of the final states machines that is shared) and the number of steps where this proportional similarity has been detected using a sliding window.
+
+The Levenshtein distance has been used to compute the similarities, transforming the sequence of states over time in a vector of characters.
+
+PARAGRAPH
+
+Several experiments in the ITS domain have been addressed in order to show the viability of the proposal.
+
+Thus, the behavior of drivers associated with driving tasks have been studied.
+
+Data have been collected from a set of driving sessions executed by professional drivers in a truck simulator.
+
+The first experiment addresses a test in order to show the functionalities of the framework.
+
+The second makes comparisons between a standard behavior and an unusual one.
+
+The produced state machines have been able to detect possible anomalous situations using specific variables provided by the simulator.
+
+The third experiment shows the usefulness of making summarizations and simplifications over the state machines in order to produce more understandable visualizations with low loss of information.
+
+This experiment illustrates the viability of the Levenshtein distance as a measure of similarity to distinguish between standard and distractive driving behaviors.
+
+PARAGRAPH
+
+Finally, it could be considered to improve the similarity calculation between state machines.
+
+The Smith–Waterman algorithm (Su et al., 2008) and other similar methodologies oriented to obtain the best local alignment through dynamic programming in DNA sequences could be evaluated.
+
+In the same line, techniques related to word embedding (Kusner et al., 2015) could provide other useful similarities that will be explored.
+
+It could also be considered the inclusion of an automatic classifier in the tool to discriminate between standard and distractive behaviors.
+
+In future, alternative mathematical models of computation such as Turing machines (Diaz, 2017) will be also considered and tested.

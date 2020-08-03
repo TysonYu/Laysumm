@@ -1,0 +1,667 @@
+10.1016/j.engappai.2019.103271
+
+FULLTEXT
+
+TITLE
+
+Semantic versus instance segmentation in microscopic algae detection
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The automatic identification of diatoms in water samples is a challenging problem that has a high impact on water quality assessment.
+
+Diatoms are a type of plankton called phytoplankton, a type of microscopic algae that live in water areas like oceans, rivers or lakes and which are used as a bioindicator of its quality (Blanco and Bécares, 2010).
+
+Diatom identification and quantification in water samples are currently done manually, which is a time consuming task.
+
+PARAGRAPH
+
+In order to assess the quality of a water sample, as per the standard workflow, diatoms on 40 field of views (FoV) must be quantified.
+
+The implementation of automatic tools based on computer vision and machine learning techniques to perform this task is needed.
+
+A number of recent works have dealt with automatic diatom classification, that is, from an image sample containing a single diatom the model tries to predict the correct taxon name.
+
+Some classifiers, based on general handcrafted features, have provided good results, around 95% (Schulze et al., 2013) and 98% of accuracy (Bueno et al., 2017).
+
+However, approaches based on convolutional neural networks (CNN) obtain better results, above 99% accuracy (Pedraza et al., 2017).
+
+PARAGRAPH
+
+Although automatic classification results are very promising, in practice the taxonomist will handle full size microscopic images containing several taxon shells from different taxa in the same FoV.
+
+Thus, it is common that in a single FoV, several diatoms of different species, sizes and shapes appear, along with debris, fragments and dust specks, as shown in Fig. 1a).
+
+PARAGRAPH
+
+Therefore, segmentation methods or region of interest (ROI) detection algorithms are needed to locate all the diatoms present in the image.
+
+Once the diatom is detected, by generating a bounding box and/or mask for each instance a classification may be performed for all ROI detected.
+
+PARAGRAPH
+
+A recent review of phytoplankton image segmentation methods is presented in Tang et al. (2018).
+
+Most of the methods are based on classical methods such region based segmentation (Jalba et al., 2004; Verikas et al., 2012; Zheng et al., 2014, 2017b) and active contours (AC) (Gelzinis et al., 2015).
+
+As far as the authors know, there are only two works using deep neural network based segmentation methods (Tang et al., 2018 and Pedraza et al., 2018).
+
+PARAGRAPH
+
+The performance of previous classical methods ranges from 88% to 95%.
+
+The main drawbacks are that they are sensitive to noise, like those based on region segmentation, or they need to manually set the initial curve, in the case of AC.
+
+Moreover, all of them have been demonstrated only on a single taxon and on images containing a single diatom shell.
+
+Only the work of Zheng et al. (2017a) was demonstrated on images with multiple diatom shells but for a single taxon with an average precision of 91% and a sensitivity of 81%.
+
+PARAGRAPH
+
+Segmentation techniques based on deep learning may be divided into two approaches: (i) object detection and (ii) pixel-wise binary classification, i.e., into two classes (ROI or background).
+
+In (i) all the instances of the ROI can be located within the image using a bounding box and classified.
+
+In (ii) a mask with exactly the pixels that belong to each ROI is inferred.
+
+PARAGRAPH
+
+The object detection algorithms have been tested on diatoms, in previous work by the authors (Pedraza et al., 2018), using a Region-based Convolutional Neural Network (R-CNN) (Uijlings et al., 2013; Girshick, 2015) and a framework called Redmon (2013–2016) with YOLO method (Redmon et al., 2016).
+
+In R-CNN the first step is to provide region proposals and based on these proposals a CNN extracts image features to be classified by a Support Vector Machine (SVM).
+
+In YOLO, a single neural network is applied to the whole image.
+
+The network divides the image into regions and predicts the class and the bounding box probabilities.
+
+PARAGRAPH
+
+YOLO gives better results than R-CNN in the evaluation carried out with 10 taxa in full microscopic images with multiple diatom shells (Pedraza et al., 2018).
+
+This is due to the fact that the model has information about the global context since the network is fed with the full image.
+
+Thus, an average F1-measure value of 0.37 with 29% precision and 68% sensitivity is obtained by the R-CNN against an average F1-measure value of 0.78 with 75% precision and 84% sensitivity obtained with YOLO.
+
+The main problem with these methods is that they do not separate properly the ROIs when overlap occurs.
+
+Therefore, the quantification of diatoms is limited.
+
+PARAGRAPH
+
+Segmentation methods based on pixel-wise classification can be roughly divided into two families: (i) semantic segmentation and (ii) instance segmentation.
+
+PARAGRAPH
+
+Semantic segmentation for diatoms is used by Tang et al. (2018) but it is applied to a single taxon on images containing a single diatom shell.
+
+Although the authors claim an improvement compared to similar previous studies for the same taxon, with a balanced result between precision and recall, the F1-measure remains low with a value of 0.69.
+
+PARAGRAPH
+
+In this work, we present for the first time the application of instance segmentation applied to diatom segmentation and quantification.
+
+Instance segmentation is compared to semantic segmentation.
+
+Furthermore, the robustness of the method in noise conditions is analyzed.
+
+An average value of 0.85 for F1-measure is obtained with instance segmentation against 0.71 obtained with semantic segmentation applied to images containing multiple diatoms of 10 taxa.
+
+All overlapped diatoms were separated and correctly quantified.
+
+PARAGRAPH
+
+The paper is organized as follows.
+
+In Section 2, image acquisition, image labeling and dataset preparation are described.
+
+The techniques and experiments carried out are presented in Section 3 and the results obtained together with the evaluation metrics used are summarized in Section 4.
+
+Finally, conclusions and future work are given in Section 6.
+
+SECTION
+
+Materials
+
+PARAGRAPH
+
+The development of an image segmentation model needs a dataset with samples to train the network effectively.
+
+This is a very important step in order to obtain good results, so the dataset selection, image acquisition and labeling tasks have to be done carefully.
+
+SECTION
+
+Image acquisition
+
+PARAGRAPH
+
+For this step, it is essential to recruit diatom experts.
+
+In this case, the taxonomist Dr. Saúl Blanco Lanza and his team from the Institute of Environment (University of León, Spain) were responsible for collecting a large number of microscopic diatom images, from the same real samples used for the manual identification task.
+
+PARAGRAPH
+
+The typical workflow is as follows.
+
+Once the diatom samples is collected from rivers or lakes, a chemical treatment is carried out in a laboratory.
+
+First, the samples are processed with hydrogen peroxide to remove organic matter, leaving only the inorganic components like diatom frustules and valves, which are necessary to perform each taxon identification.
+
+Then, a few drops are taken in a microscope cover-objects and, after evaporation of water, using a synthetic resin, diatoms are fixed to the glass slide for further classification using microscopes.
+
+PARAGRAPH
+
+For this comparative study, 126 diatom images of 10 taxa are used, with variety in terms of diatom features (length, internal and external shape) and concentration.
+
+All the images are taken with a Brunel SP30 microscope, using a 60x objective and an image resolution of 2592 × 1944 pixels.
+
+In Fig. 2 an individual specimen for each selected species is shown and, in Table 1, the number of images per class is presented.
+
+PARAGRAPH
+
+As mentioned before, deep CNNs need many images for training and 126 images may not be enough.
+
+However, a commonly used technique in deep learning to alleviate this is fine-tuning, that is based on taking CNNs pre-trained with larger labeled datasets of common objects, like COCO or ImageNet.
+
+In this way, useful image features are learned and the specific dataset is then applied to adapt the network weights to our problem.
+
+PARAGRAPH
+
+Another common technique in deep learning to enhance the size and quality of the dataset used is data augmentation.
+
+It is based on applying different image processing algorithms to the original dataset, like image rotations, translations, crops, mirror effects, Gaussian noise, contrast enhancements, etc.
+
+PARAGRAPH
+
+In the evaluated segmentation approaches, both data augmentation techniques and pre-trained networks are used.
+
+The data augmentation done is based on applying random operations such as rotation, mirror and contrast enhancement for each input image for each epoch.
+
+In this way, the total number of different images used for training is Ne∗NimagesTraining, that is the total number of epochs configured for the training by the size of the training dataset.
+
+In Fig. 1 an example of a modified version of an original training image through the data augmentation procedure is shown.
+
+SECTION
+
+PARAGRAPH
+
+Image labeling and dataset preparation
+
+PARAGRAPH
+
+The next step is to manually label the images that will be used later to train the segmentation models.
+
+Again, this work has to be carried out by the group of taxonomists due to the difficulty of correctly identifying the ROIs (diatom specimens) present in the images.
+
+In Table 1 the number of ROIs labeled per taxon in all images is presented, i.e., the entire ground truth is composed of 1446 diatoms.
+
+PARAGRAPH
+
+There are many free labeling tools widely used to help in this task.
+
+VGG Image Annotator (VIA) (Dutta et al., 2016) was selected in our case.
+
+VIA is just a single HTML file that can be opened in any standard web browser, without installing anything else.
+
+The graphical user interface is friendly and easy to use, so once the images are imported, the user only has to select the region shape (polygon in this case) and mark the points around the diatom shape.
+
+Finally, all the information can be stored in a JSON file, which is a standard format.
+
+PARAGRAPH
+
+To prepare the dataset, all images are divided into two different subsets, one for training (105 images), and the remaining 21 images for validation purposes.
+
+The validation subset is formed by images of all the 10 classes, different from the training subset.
+
+SECTION
+
+Methods: Deep learning diatom segmentation
+
+PARAGRAPH
+
+As mentioned in Section 1, an image segmentation algorithm aims to generate a mask indicating exactly which pixels belong to each class, that is, performing a pixel-wise classification into ROI (diatom) or background.
+
+There are several architectures or frameworks, which are generally grouped as semantic segmentation or instance segmentation.
+
+The main difference is that in semantic segmentation a pixel-level classification is performed directly, while in instance segmentation approaches an additional object detection step is needed to obtain the individual instances of all classes in an image.
+
+In Fig. 3 an output mask example for each method is represented.
+
+The semantic segmentation approaches perform a pixel-level classification, so only one mask for the whole image is generated and individual instances of each class cannot be differentiated.
+
+On the other hand, instance segmentation frameworks yield an individual mask for each ROI so that individual instances can be processed separately.
+
+PARAGRAPH
+
+In this work, a comparison of these techniques is carried out.
+
+SECTION
+
+Semantic segmentation
+
+PARAGRAPH
+
+Some of the first deep learning semantic segmentation models tried to directly apply the deep neural network architectures designed for image classification to pixel-level classification.
+
+However, the results obtained were not good enough.
+
+Convolution, pooling and sub-sampling operations performed by CNNs cause a reduction of the feature map resolution, losing spatial information which is essential for good boundary delimitation, and, therefore, for a good segmentation accuracy.
+
+To solve this, novel approaches emerged, such as Fully Convolutional Networks (FCNs) (Long et al., 2015), DeconvNet (Noh et al., 2015), U-Net (Ronneberger et al., 2015) or SegNet (Badrinarayanan et al., 2015).
+
+These models share a similar architecture, with slight differences.
+
+In this paper, SegNet is selected due to the good accuracy and efficiency in terms of memory and computational time.
+
+PARAGRAPH
+
+SegNet is an architecture originally designed for scene understanding applications, such as autonomous driving.
+
+For this reason, efficiency and speed at inference time are crucial.
+
+The architecture of SegNet is formed by an encoder network, a corresponding decoder network and a final pixel-level classification layer.
+
+The encoder network is formed by the first 13 layers of the popular VGG16 network (Simonyan and Zisserman, 2014), pretrained on a large image classification dataset, like ImageNet or COCO.
+
+These layers are a combination of convolution, batch normalization, ReLU and max-pooling operations which generate the feature maps.
+
+As aforementioned, convolution and pooling operations performed cause a reduction of the feature map resolution, affecting the final segmentation accuracy.
+
+In SegNet, the fully connected layers of VGG16 are replaced by a decoder network (one decoder for each encoder), which is responsible for upsampling the input feature maps to a higher resolution.
+
+To achieve this, the indices of each max-pooling layer (position of the maximum feature value) at encoding stage are stored to capture the spatial information, and, at decoding stage, these indices are used to perform the upsampling.
+
+Finally, the output of this decoding stage (the high resolution feature maps) is the input of a softmax layer, which carries out a pixel-level classification.
+
+These steps are graphically summarized in Fig. 4.
+
+In deep neural networks it is important to select a loss or cost function that allows a good estimate of class probability, especially in this kind of multiclass classification problems.
+
+In Cid-Sueiro et al. (1999), a depth study about the necessary and sufficient conditions that a cost function must satisfy to provide estimates of the probabilities of the classes.
+
+The well-known cross entropy loss is the cost function used in the SegNet architecture, which satisfies these established conditions.
+
+There are another interesting cost functions based on the estimation of the conditional density functions of the different classes (Arribas et al., 1999a, b), which may be useful in several situations, but are beyond the scope of this work.
+
+PARAGRAPH
+
+The other mentioned alternatives, like FCNs, DeconvNet or U-Net, differ mainly at the decoding stage.
+
+FCNs only have one decoder layer and uses bilinear interpolation for upsampling instead of multiple decoding layers and learnable weight filters.
+
+DeconvNet has a larger number of parameters and needs more computational resources and in U-Net the upsampling is done by taking the entire feature map at the encoding stage.
+
+SECTION
+
+Instance segmentation
+
+PARAGRAPH
+
+Instance segmentation models can be defined as a combination of object detection and semantic segmentation methods.
+
+Instance segmentation relies on object detection algorithms to obtain the individual instances of all classes present in an image.
+
+Then, each individual ROI is classified at pixel-level to generate the output mask.
+
+These approaches have several advantages, like segmentation accuracy and overlapping object differentiation.
+
+In the first case, as only individual ROIs are taken into account (instead of the whole image), the segmentation accuracy improves.
+
+Also, overlapping objects of the same class are easily separated, unlike in semantic segmentation techniques (which only have pixel-level classification).
+
+This is important in applications like diatom identification, in which it is essential to count the number of specimens of each class.
+
+However, instance segmentation has an important drawback.
+
+As they trust in object detection methods to find the individual instances, only the detected ones will be segmented, so its performance depends on the performance of the object detection technique used.
+
+PARAGRAPH
+
+In the literature, several approaches have appeared recently related to instance segmentation.
+
+Some of them are based on segment proposals (Pinheiro et al., 2015; Dai et al., 2016), which first propose segment candidates and then each candidate is classified.
+
+Another group of methods, using the output masks of semantic segmentation models, tries to separate the pixels of the same classes to create instances (Kirillov et al., 2017; Bai and Urtasun, 2017).
+
+Finally, other approaches follow a different strategy, like FCIS (Li et al., 2017) and Mask-RCNN (He et al., 2017), which first generate instances and then perform the segmentation and classification in parallel.
+
+In this paper, due to the good results achieved, outperforming COCO 2015 and COCO 2016 segmentation challenge winners, the Mask-RCNN method is applied to the diatom segmentation problem.
+
+PARAGRAPH
+
+Mask-RCNN is a modified version of the Faster-RCNN object detection framework with an additional branch to perform the segmentation of the detected ROIs.
+
+The first step of the framework is to create a feature map from a given image, using a CNN.
+
+Then, a Region Proposal Network (RPN) proposes candidate object bounding boxes.
+
+The RPN takes the input feature map and, using a sliding window, several anchor boxes (of multiples scales and aspect ratios) are tested.
+
+As an output, RPN gives both the box coordinates and an object probability.
+
+PARAGRAPH
+
+Until this point, the architecture is the same as that of the Faster-RCNN framework, although next, we describe some important differences.
+
+RoiPool is the Faster-RCNN layer that obtains the individual ROI feature maps using the bounding box proposals of the RPN.
+
+The way this operation is done introduces misalignments between the ROI and the feature maps.
+
+In segmentation tasks, an exact spatial location is crucial to predict pixel accurate masks, so in Mask-RCNN this layer is changed to a RoiAlign layer, which properly aligns the feature maps with the bounding boxes.
+
+RoiAlign, instead of using quantized bins in RoiPool, uses continuous bins and bilinear interpolation to preserve the spatial correspondence better.
+
+A fully connected branch predicts at the same time both the class (using a softmax layer) and the object bounds (bounding box regression).
+
+Also, Mask-RCNN adds a parallel mask prediction branch to perform ROI segmentation.
+
+In this stage, a FCN performs a pixel-level classification for each ROI and for each class, that is, a mask is generated for each class, so there is no competition between classes.
+
+In this way, the total loss function of the framework, L, is calculated as the sum of the individual loss functions of classification Lcls, bounding box regression Lbox and segmentation Lmask, as defined in Eq. (1).
+
+L=Lcls+Lbox+Lmask
+
+PARAGRAPH
+
+Common semantic segmentation networks, as SegNet, use a per-pixel softmax and multiclass cross entropy loss function.
+
+However, the FCN of the Mask-RCNN framework uses a per-pixel sigmoid binary cross entropy loss, so, as stated before, there is no competition between classes.
+
+PARAGRAPH
+
+In Fig. 5 the main architectural components of the Mask-RCNN framework are presented.
+
+SECTION
+
+Experiments and results
+
+PARAGRAPH
+
+In this Section, all the experiments and their results are presented.
+
+First, the validation metrics used for this study are reviewed.
+
+Then, the implementation details of the tested frameworks and the results obtained are summarized.
+
+Finally, an image quality assessment of the images and the performance analysis of the methods with respect to different types of noise is carried out.
+
+SECTION
+
+Validation metrics
+
+PARAGRAPH
+
+The metrics used to measure the performance of segmentation methods are (Csurka et al., 2013):
+
+SECTION
+
+SegNet
+
+PARAGRAPH
+
+The SegNet implementation used for this experimentation is based on a VGG16 network pretrained with the ImageNet dataset for the feature extraction stage.
+
+Then, a decoder network upsamples the input feature maps to a higher resolution to preserve the spatial information using the max-pooling indices.
+
+As the classes are unbalanced (there are more background pixels than diatom pixels), a class weighting is performed in the classification layer.
+
+PARAGRAPH
+
+The training procedure was configured with a learning rate of 0.05 and 100 epochs.
+
+The selected optimizer was Stochastic Gradient Descent with a 0.9 of momentum coefficient.
+
+The images were resized to 480 × 360, preserving the aspect ratio to allow a mini-batch size of 4 images.
+
+After the training stage, the model performance was evaluated using the validation dataset and the ground truth masks.
+
+PARAGRAPH
+
+In Table 2 the values of the evaluation metrics are presented.
+
+These metrics were calculated both for individual species and the whole validation dataset.
+
+As the classes are unbalanced (there are more background pixels than diatom pixels), the evaluation was performed using a bounding box around each diatom of the ground truth image.
+
+That is, only the pixels inside each bounding box were taken into account, so the results are more representative (taking the whole image means a higher number of TN).
+
+PARAGRAPH
+
+To graphically visualize the effectiveness of the trained model a plot was generated.
+
+The performance is evaluated in terms of True Positive Rate (TPR) or sensitivity and True Negative Rate (TNR), which is calculated as (1 - specificity).
+
+A good model should have a high TPR and low TNR.
+
+In Fig. 6, the performance plot for all the validation images is presented.
+
+The SegNet model gives a high TPR, that is, the number of FN is very low compared with the TP.
+
+However, the TNR is also too high, which means that the model predicts a high number of FP.
+
+PARAGRAPH
+
+SECTION
+
+Mask-RCNN
+
+PARAGRAPH
+
+The Mask-RCNN implementation employed in this study is built by Matterpot (Abdulla, 2017), based on the Keras and TensorFlow frameworks.
+
+As feature extraction CNN, a ResNet101 (He et al., 2016) pretrained with the COCO dataset was used.
+
+Also, this implementation uses a modified version of ResNet with Feature Pyramid Network (FPN) architecture (Lin et al., 2017), which is a top-down approach that allows extracting features at different scales and gives better results in both accuracy and speed.
+
+PARAGRAPH
+
+The training procedure was configured with a learning rate of 0.001 and 30 epochs.
+
+The selected optimizer was Stochastic Gradient Descent with a 0.9 of momentum coefficient and the mini-batch size was fixed to 2 images.
+
+After the training stage, the model performance was evaluated using the validation dataset and the ground truth masks.
+
+In Table 3 the values of the evaluation metrics are presented.
+
+These metrics were calculated both for individual species and the whole validation dataset.
+
+In the same way, as in SegNet, the evaluation was done using a bounding box around each diatom of the ground truth image.
+
+PARAGRAPH
+
+The performance plot for the Mask-RCNN trained model is shown in Fig. 7.
+
+In this case, the TPR is lower compared to the SegNet model, that is, there are TPs that are not predicted correctly.
+
+However, the TNR is lower too, which means that the model predicts a low number of FPs.
+
+PARAGRAPH
+
+In Fig. 8 a pair of diatom images of the validation set with their corresponding predicted mask for the SegNet and Mask-RCNN models is illustrated.
+
+The green pixels indicate true positives, false negatives are marked in blue and false positives in red, taking into account the ground truth mask.
+
+As can be seen from the figure, the number of false negatives is smaller in SegNet mask images, although the number of false positives is higher.
+
+PARAGRAPH
+
+In addition to global differences at pixel-level classification, the biggest difference between SegNet and Mask-RCNN is the way in which the final masks are generated.
+
+As previously mentioned, SegNet generates a single mask, which makes it impossible to distinguish directly the different instances of the same class present in the image.
+
+To approximate this, it is necessary to carry out a mask post-processing to separate and locate the different objects.
+
+The Mask-RCNN framework gives, for each located object, the class probability, a bounding box and the predicted mask, among others.
+
+In Figs. 9 and 10 a comparison between SegNet and Mask-RCNN in terms of individual diatom localization is performed using 10 diatom images (one for each class).
+
+The differences are more remarkable in cases of overlapping or closer diatoms, which are difficult to separate in the SegNet masks.
+
+On the other hand, in Mask-RCNN the individual bounding boxes are obtained directly.
+
+PARAGRAPH
+
+Counting the number of diatoms present in an image is essential for water quality assessment.
+
+The final output of SegNet and Mask-RCNN aimed to quantified all diatoms per images from the predicted masks is illustrated in Figs. 9–11).
+
+The images represented a FoV where most of the diatoms belong to one of the taxa considered.
+
+PARAGRAPH
+
+It is possible to see in Table 4 how the count for Mask-RCNN masks is closer to the ground truth.
+
+SegNet cannot separate properly the diatoms and counts debris as diatoms.
+
+These errors lead to a higher value of FPs when counting individual diatoms.
+
+Mask-RCNN detects properly most of the diatoms and some FN errors happen.
+
+SECTION
+
+PARAGRAPH
+
+Image quality assessment and performance of segmentation
+
+PARAGRAPH
+
+Nowadays, there are metrics that can objectively approximate image quality using image features like color, contrast, entropy, luminance or texture (Jiménez et al., 2016; Ruiz-Santaquiteria et al., 2018).
+
+In this study, quality is evaluated in terms of defocusing and granular noise using anisotropy and Sum of Modified Laplace transform (SML) metrics.
+
+PARAGRAPH
+
+Anisotropy is measured as the variance of the entropy in several directions and is based on the fact that degradation in the image damages the directional information.
+
+For that reason, anisotropy decreases as more distortions are added to the image and it is sensitive to blurriness.
+
+The complete description of the method is presented in Gabarda and Cristóbal (2007).
+
+PARAGRAPH
+
+SML is a derivative-based metric which uses the Laplacian operator (▽2I(x,y)) to evaluate the sharpness in an image (I(x,y)), as defined in Eq. (7), where Lx(x,y) and Ly(x,y) are the images after convolution with the Laplacian operator.
+
+FSML=∑x∑y|Lx(x,y)|+|Ly(x,y)|
+
+PARAGRAPH
+
+SML can be used to measure granular noise in an image.
+
+This metric also decrease if the image quality decrease.
+
+In Fig. 12, the anisotropy and SML averaged results are presented for each class.
+
+The best average quality is provided by taxon 4, that is Gomphonema rhombicum and the worst by taxon 8, Nitzschia palea var palea and 10,Staurosira venter.
+
+These metrics show that, under standard conditions, there is no relationship between image quality and segmentation performance for each class (Table 2 and Table 3).
+
+PARAGRAPH
+
+A deeper study is done to analyze if the presence of noise can modify the performance of the trained models.
+
+To this end, new datasets are created using modified versions of the original images, with different noise types and intensities.
+
+The first dataset is formed by several blurred images, using the Gaussian function over the original dataset.
+
+In this case, for each image, a set of 40 blurred images was generated varying the standard deviation of the Gaussian function, from 0.5 to 20 with a 0.5 step.
+
+For the second dataset, Speckle noise was selected, which is a synthetic granular noise.
+
+Similarly, as in the previous dataset, 40 noisy images were generated changing the variance of the Speckle function from 0.125 to 5 with a 0.125 step.
+
+Anisotropy and SML metrics present worse results as noise increases, so the image quality decreases.
+
+PARAGRAPH
+
+In Fig. 13 an example of the two types of added noise compared to the original image is presented.
+
+PARAGRAPH
+
+The predicted masks for the two generated datasets were obtained for both Mask-RCNN and SegNet trained models, with the corresponding evaluation metrics for the segmentation, in the same way as in the original dataset.
+
+The results are graphically summarized in a plot that shows the performance in terms of TPR and TNR.
+
+For clarity purposes, the total images are divided into 5 groups, one for the original images and the rest for different noise intervals, represented in different colors.
+
+In Fig. 14, the graph for the Mask-RCNN model performance with Gaussian noise images is presented.
+
+As the standard deviation of the Gaussian function increases, the TPR decreases too and the FPR remains low.
+
+The SegNet model performance for Gaussian noise images is shown in Fig. 16.
+
+In this case, similarly to Mask-RCNN model, the TPR and FPR decreases as the standard deviation of the Gaussian function increases.
+
+Also, ROC representations for each class are provided in Fig. 15 and Fig. 17.
+
+PARAGRAPH
+
+The same procedure was applied for Speckle noise dataset.
+
+In Figs. 18 and 20 the performance results are presented for Mask-RCNN and SegNet models, respectively.
+
+The Mask-RCNN model behaves similarly for both Gaussian and Speckle noise, when noise increases, TPR decreases too.
+
+However, for the SegNet model, the behavior is different when Speckle noise increases the FPR also increases, that is, most pixels are marked as positives.
+
+Finally, ROC representations for each class are also provided in Figs. 19 and 21.
+
+PARAGRAPH
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Mask-RCNN and SegNet models are capable of segment diatoms from the same raw images used for manual identification, without any cropping or preprocessing step.
+
+However, the Mask-RCNN model obtains better results because the model has information about the global context.
+
+Mask-RCNN first extracts the individual ROIs from the whole image and then performs the segmentation for each one.
+
+This approach has two main advantages.
+
+The first one is that an individual mask for each ROI is obtained, and so, unlike semantic segmentation approaches, all instances from the same class can be differentiated and quantified.
+
+The second one is that the segmentation quality is better in the Mask-RCNN model than in the SegNet model, that is, the border alignment between the ground truth and the predicted mask is more accurate, as the IoU and F1-measure scores show.
+
+PARAGRAPH
+
+The robustness of the trained models was evaluated with modified datasets.
+
+These datasets were created adding Gaussian and speckle noise of different intensities to the original images, obtaining 80 new images for each FoV.
+
+For the Gaussian noise dataset, in both Mask-RCNN and SegNet models when the noise intensity increases, the TPR decreases and less diatoms are segmented correctly.
+
+For the speckle noise dataset, the Mask-RCNN behavior is similar to the Gaussian noise dataset.
+
+However, for the SegNet model, the FPR increases as noise intensity increases, predicting as positive a large number of pixels in the image.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+A comparison between semantic segmentation and instance segmentation is carried out to detect and quantify microscopic algae (diatoms) of 10 different taxa.
+
+This is the first time that the use of deep learning approaches is demonstrated for the identification and quantification of diatoms in images with multiple diatom shells and for more than one taxon.
+
+PARAGRAPH
+
+Instance segmentation with Mask-RCNN achieved an average precision of 85% with 86% sensitivity and 91% specificity, and up to 92% precision for taxon Gomphonema rhombicum with 98%, specificity.
+
+This taxon obtained the best image quality measured with the anisotropy and sum of modified Laplace transform metrics.
+
+PARAGRAPH
+
+Regarding future work, the promising results of the Mask-RCNN model encourage us to continue working on instance segmentation approaches, especially with object detection techniques to extract the individual ROIs to be segmented.
+
+The main drawback of Mask-RCNN is that the performance of the detection step limits the performance of the segmentation.
+
+This fact explains why some diatoms are not segmented in the Mask-RCNN model, resulting in a lower sensitivity score than the SegNet model.
+
+Therefore, there is still room to improve this step of the Mask-RCNN procedure.

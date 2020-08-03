@@ -1,0 +1,153 @@
+10.1016/j.ebcr.2017.09.002
+
+FULLTEXT
+
+TITLE
+
+Train of four stimulation artifact mimicking a seizure during computerized automated ICU EEG monitoring
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Since the introduction of digital electroencephalogram (EEG) and computer-based microprocessing, methods of EEG recording have evolved from paper records to dedicated EEG digital servers that can be accessed remotely, similar to telemedicine in the intensive care unit (ICU) [1,2].
+
+Further, raw EEG data can now be processed via computerized software by Fast Fourier transform techniques into condensed quantitative EEG (QEEG) displays with numerous mathematical derivatives for seizure detection and even surrogate cerebral blood flow inferences.
+
+The technology for EEG data analysis has advanced rapidly in the last decade, using an array of sophisticated software and artificial intelligence algorithms for seizure detection based on the EEG waveform morphology (i.e., spike detection) combined with spike frequency (> 2–3 Hz), or on a combination of amplitude, morphology, and frequency (seizure detection and artifact rejection).
+
+PARAGRAPH
+
+EEG with QEEG trend analysis panels are increasingly used in the ICU setting to remotely monitor for nonconvulsive seizures and status epilepticus, as well as to provide potential prognostic information after brain injury (e.g., cardiac arrest) and monitor vasospasm in subarachnoid hemorrhage [3].
+
+Remote monitoring technological advancements can now send encrypted electronic alerts via email to a subspecialist's mobile phone (iPhone or Android platforms) for near-real-time ICU monitoring.
+
+Despite these advances in computer technology, they are not immune to numerous ICU artifacts.
+
+This is because they sample various frequencies, amplitudes, and sharp/spike morphology, which can generate erroneous “artifacts” in attempts to detect seizure.
+
+The ICU also has many types of electrical interference and 60 Hz artifact from mechanical ventilators and enteral feeding machines, which contaminate the EEG recording [4].
+
+Therefore, ICU EEG monitoring still requires human review of the raw EEG, despite automated technology alerts, to distinguish clinically significant seizures from other ICU-generated artifacts.
+
+PARAGRAPH
+
+We report a patient undergoing EEG monitoring with automated seizure detection who had peripheral nerve stimulation (PNS) artifact detected by QEEG algorithms that lead to an immediate bedside ICU management change.
+
+This change involved a location change of the stimulator applied over the facial nerve region to the limb in addition to reduction in neuromuscular blockade (NMB) dosing.
+
+This case provides insight into future remote ICU monitoring techniques in the digital age.
+
+SECTION
+
+Case report
+
+PARAGRAPH
+
+A 54-year-old man suffered an aneurysmal subarachnoid hemorrhage (Fisher 4, Hunt Hess 5) with coma from a ruptured anterior communicating artery aneurysm.
+
+He subsequently underwent continuous 21-channel ICU EEG monitoring with artificial seizure detection and quantitative fast-Fourier transform algorithms (QEEG) to make inferences about cerebral blood flow (alpha-delta ratio) (Persyst 11 software, Persyst Development Corporation, San Diego, CA) [3].
+
+The ICU EEG data is monitored on a bedside EEG machine, which is hardwired via an Ethernet data jack to the hospital's EEG network and secure servers.
+
+The ICU EEG machine also has different programmable software thresholds that can send an automated email alert via an encrypted and de-identified message through an internal network.
+
+Essentially, the message is a screen shot of the raw EEG pattern (10 second epoch) as well as the QEEG image.
+
+This technology is also compliant with the Health Insurance Portability and Accountability Act because there are no patient identifiers.
+
+An on-call neurologist receives the message and has to decode which EEG machine sent the alert based on an internal key-code system.
+
+PARAGRAPH
+
+The patient developed refractory elevated intracranial pressure (ICP) despite external ventricular drainage of cerebrospinal fluid, sedation with propofol, and mild induced hypothermia (34 °C) and required NMB with cis-atracurium infusion.
+
+Later, the patient underwent a right hemicraniectomy for refractory ICP.
+
+PNS was used to assess the degree of NMB with a goal of two out of four train of four (TOF) responses at the ulnar nerve wrist location.
+
+On ICU day 5, PNS at the ulnar and tibial nerves was absent, and the facial nerve near the craniectomy site was subsequently stimulated.
+
+Stimulation at the facial nerve did not result in observable or palpable facial muscle twitch.
+
+Electrical stimulation using a PNS, model 100A (Anesthesia Associates, Inc., San Marcos, CA, USA) was used to deliver the TOF.
+
+This monitor has both 2/second and tetanic stimulation (100/50 Hz) options.
+
+An automated alert was sent to the iPhone of the reading faculty on call (WDF).
+
+The regular EEG clip and QEEG color display immediately and then formally reviewed the EEG and QEEG on a dedicated EEG workstation using Microsoft Remote Desktop™ (Microsoft Corp., Redmond, WA).
+
+This pattern was interpreted as a potential seizure alert by the machine due to the frequency, amplitude and morphology shown.
+
+Upon review, it was identified as an artifact generated by tetanic stimulation followed by a 2/second stimulation for 2.5 s (Figs. 1 and 2) and not a true electrographic seizure.
+
+While facial nerve stimulation is an accepted form of TOF monitoring in the critical care unit, we called the nurse and asked to move this away from the facial nerve and craniectomy site due to a theoretical risk of intracranial electrical transduction causing seizures.
+
+No seizures were observed on the EEG in this case.
+
+Therefore, this “artifact” led to repositioning of the PNS.
+
+Since there was no visible or palpable twitch with PNS, we decreased the dose of NMB agent and had them move the stimulator to the ulnar nerve site for future TOF monitoring.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+PNS was introduced in the early 1970s [5].
+
+It is used to monitor the depth of NMB and adjust the dosage of blocking agent.
+
+NMB is used in the ICU for intubation, ventilator synchrony, acute respiratory distress syndrome management, ICP reduction, for decreasing oxygen consumption, and during therapeutic hypothermia.
+
+There are case reports and open-label studies showing the effectiveness of NMB on ICP control, and it has been traditionally adjusted to maintain 1–2 twitches upon TOF stimulation [6].
+
+PARAGRAPH
+
+The most common nerves used in monitoring PNS stimulation are the ulnar, facial, and posterior tibial nerves.
+
+In order to get supramaximal stimulation, current varying from 10 mA to 50 mA is usually delivered in variable bursts.
+
+To our knowledge, there is no published data on the safety of facial nerve PNS stimulation for patients who have bifrontal or low temporal hemicraniotomy and for patients who are on continuous ICU EEG monitoring.
+
+PARAGRAPH
+
+ICU EEG monitoring results in enormous amounts of EEG data, especially with continuous video, which is inspected visually by experienced EEG technologists or neurophysiologist in order to identify seizures or otherwise abnormal patterns.
+
+Offline reviewing is time consuming and tedious, and binds resources of the medical staff [7].
+
+At the same time, the ability to obtain near-real-time interpretation of EEG data is typically reserved to academic centers or specialized centers with sufficient neurophysiological monitoring support, especially during the off hours (nights and weekends).
+
+The aforementioned case, however, validates the feasibility of remote monitoring by neurophysiologists regardless of physical location and could provide a potential monitoring solution to underserved hospitals and ICUs.
+
+PARAGRAPH
+
+The visual inspection of the raw EEG data, which is considered the gold-standard by specialists, also limits its practical application [8] for the ICU.
+
+Therefore, the advent of the digital age of computerized software detection algorithms and artificial intelligence has led to the rapidly expanding field of remote ICU monitoring.
+
+Long-term, near-real-time EEG monitoring is a realistic goal for most advanced Neurological ICUs [9], given the incidence and prevalence of seizures and nonconvulsive status epilepticus.
+
+Computerized artifact rejection and seizure-noise differentiation has improved dramatically in the past five to 10 years due to software refinements and artifact rejection methodology.
+
+However, QEEG technology is still not sufficient for 100% sensitivity and specificity for seizure detection compared to a skilled interpreter reading the ICU EEG.
+
+Although most of the ICU artifacts are mechanical or electrical noise, some of the seizure-detected events are actually “artifacts” because and not true seizures, but they can still have physiological importance.
+
+This case exemplifies the sophistication of remote monitoring, which will become more important in the future due to a predicted shortage of intensivists and specialists [1,2,10,11].
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+The use of ICU EEG has grown significantly and has received attention as a method to detect seizures in critically ill patients.
+
+Despite monitoring for a primary reason such as seizure recognition, near-real-time feedback generated by EEG analysis software can on occasion result in alternative benefits that change patient management.
+
+This patient's case highlights a new means of identifying PNS artifact using computerized ICU EEG algorithms with subsequent changes in the site of stimulation and decrease in NMB dose.

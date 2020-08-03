@@ -1,0 +1,1151 @@
+10.1016/j.engappai.2019.05.005
+
+FULLTEXT
+
+TITLE
+
+A harmony search variant and a useful constraint handling method for the dynamic economic emission dispatch problems considering transmission loss
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Dynamic economic emission dispatch (DEED) is a hot issue in power systems, and it is a multi-objective constrained optimization problem.
+
+DEED has two objectives including the fuel cost and pollutant emission minimizations.
+
+The former serves to realize considerable cost savings, and the latter serves to reduce the effect of pollutants from the point of view of environmental protection.
+
+Both objectives are subjected to several constraints, such as the generator capacity constraints, power balance constraints and generating unit ramp-rate constraints.
+
+Furthermore, the goal of DEED is to simultaneously minimize its two objective functions while satisfying all the equality and inequality constraints, which can be realized by scheduling the power outputs of generating units according to the predicted customer load demands over a certain number of time intervals.
+
+Mathematically, to appropriately characterize the DEED problem, it is necessary to establish a comprehensive and accurate evaluation model from the two aspects of multi-objective decision making and constraints handling.
+
+PARAGRAPH
+
+DEED is known as an intractable dynamic programming problem because of its large dimensionality, multiple local optima, high nonlinearity, non-differentiability, non-convexity, competing objectives and strong constraints.
+
+Hundreds and even thousands of problem variables will inevitably bring a large amount of calculation, and the inherent nonlinearity and non-convexity of the objective functions and constraints will result in narrow and uneven solution space where a number of local optima may lure the search to diverge from the global optimum.
+
+Therefore, there is an urgent need to develop fast and accurate algorithms in order to meet the challenges brought by the large calculation and high complexity of the DEED problem.
+
+Traditional numerical optimization methods are heavily reliant on problem gradients and are therefore unable to deal with the DEED problem with the characteristic of non-differentiability.
+
+Although these methods can employ approximations to achieve the solvability of DEED, their computation accuracies cannot be guaranteed.
+
+Moreover, their high sensitivities to the initial guesses of the solutions will exert significant influence on the quality of the final solutions, which is harmful to their stabilities in solving DEED.
+
+PARAGRAPH
+
+Recently there has been a surge of interest in heuristic algorithms deriving from natural phenomena and social behaviors.
+
+Because of the simplicity and high efficiency, these algorithms have a broad range of potential applications in many fields (Kadri and Boctor, 2018; Sedghizadeh and Beheshti, 2018; Li et al., 2016; Haddar et al., 2016; Mason et al., 2018; Balaji et al., 2016; Biswas et al., 2018; Ali et al., 2014; Kadhar et al., 2015; Akbari et al., 2017; Basu, 2016; Hadidi, 2017).
+
+Many heuristic algorithms such as genetic algorithm (GA) (Holl, 1975), simulated annealing (SA) (Kirpatrick et al., 1983), particle swarm optimization (PSO) (Kennedy and Eberhart, 1995), differential evolution (DE) (Storn and Price, 1995), harmony search (HS) (Geem et al., 2001), bacterial foraging optimization (BFO) (Passino, 2002), group search optimizer (GSO) (He et al., 2009), and chemical reaction optimization (CRO) (Lam and Li, 2010) have been improved to suit the DEED problem without using any approximation of its fuel cost and emission functions.
+
+These improved algorithms utilize various probabilistic rules to update their candidate solutions in the search space, and can yield reasonable solutions of several DEED instances within an acceptable period of time.
+
+The related work can be described as follows:
+
+PARAGRAPH
+
+Basu (2006) handled DEED by combining goal attainment method and PSO.
+
+The former converts the multi-objective problem into a single-objective one, and the latter is employed as an optimization tool to minimize the single-objective problem.
+
+The method is able to determine optimal noninferior solution in accordance with the decision maker’s requirement, and does not require differentiability and convexity for the generating unit characteristics, hence it provides a more flexible operation on generating units.
+
+PARAGRAPH
+
+Elaiwa et al. (2013) proposed two hybrid approaches to handle DEED.
+
+The first approach integrates DE and sequential quadratic programming (SQP), and the second one integrates PSO and SQP.
+
+DE (or PSO) is employed to perform global search, and the obtained best solution is taken as the initial one of SQP.
+
+With the assistance of DE (or PSO), SQP is employed to further perform local search in order to obtain the final optimal solution.
+
+By integrating DE (or PSO) and SQP, either hybrid approach can achieve a good compromise between the global search and local search.
+
+PARAGRAPH
+
+Zhang et al. (2015) devised a multi-objective hybrid differential evolution with simulated annealing technique (MOHDE-SAT) for DEED.
+
+In population initialization, MOHDE-SAT employs the orthogonal initialization method (Wang et al., 2007) to increase the population diversity.
+
+In mutation, the scaling parameter is formulated as a monotonically decreasing function to improve MOHDE-SAT’s convergence speed.
+
+In crossover, SA is used to increase the acceptable probability of the produced solutions.
+
+Additionally, entropy diversity method (Wu and Wang, 2010) is employed to measure the population diversity in real time, which ensures that the Pareto front is evenly distributed.
+
+PARAGRAPH
+
+Niu et al. (2014) introduced an efficient harmony search approach based on a new pitch adjustment rule (NPAHS) to solve the DEED problem.
+
+NPAHS relies on the perturbation information and the mean value of the harmony memory to establish a new pitch adjustment rule, which contributes to the improvements of solution quality and convergence speed.
+
+In addition, a boundary limit handling strategy is used to ensure that the problem variables are within their boundaries, and a power balance constraint handling strategy is used to facilitate the satisfactions of the power balance constraints and generating unit ramp-rate constraints.
+
+PARAGRAPH
+
+Basu (2007) combined an interactive fuzzy satisfying method and evolutionary programming to solve the DEED problem where fuel cost and pollutant emission are conflicting objectives.
+
+Suppose that the decision maker has a fuzzy and imprecise goal for either objective function, then the goal can be quantified by the corresponding membership function, which contributes to the form of a minimax problem.
+
+Moreover, an evolutionary programming method is used to solve the minimax problem.
+
+With this configuration, a good compromise solution can be determined in an objective manner for DEED.
+
+PARAGRAPH
+
+Alsumait et al. applied a pattern search (PS) optimization (Alsumait et al., 2010; Lewis et al., 2000; Alsumait et al., 2007, 2008) to the dynamic economic dispatch and DEED problems.
+
+PS proceeds by establishing a sequence of points called a mesh, around the current point.
+
+Before the PS process starts, the initial starting point determined by the user is chosen as the current point.
+
+In the following generations, the previous step of PS is utilized to compute the current point.
+
+Additionally, the mesh is constructed by adding the current point to a scalar multiple of a series of vectors called a pattern.
+
+In case that a point in the mesh is better than the current point, the new point will take the place of the current one for the next generation.
+
+PARAGRAPH
+
+Guo et al. (2012) proposed a group search optimization with multiple producers (GSOMP) to solve the DEED problem.
+
+Group search optimization (GSO) originates from animal foraging behavior (He et al., 2009), and it is based on the assumption that group members search either for “finding“ (producer) or for “joining” (scrounger) opportunities.
+
+Accordingly, the animal foraging mechanisms are adopted to make searching strategies for complex optimization problems.
+
+With respect to the constraint handling aspect of DEED, a scheme consisting of the constrained tournament method (Deb et al., 2000) and Lamarckian method (Deb, 2001) is integrated into GSOMP in order to satisfy the inequality and equality constraints.
+
+With respect to the multi-objective optimization aspect of DEED, the technique for order preference by similarity to an ideal solution (TOPSIS) (Hwang and Yoon, 1981; Olson, 2004) is employed to determine the final solution from the Pareto-optimal solutions based on a decision maker’s preference.
+
+PARAGRAPH
+
+Roy and Bhui (2016) developed a hybrid differential evolution-based chemical reaction optimization (HCRO) algorithm to deal with the DEED problem.
+
+CRO (Lam and Li, 2010) mimics the interactions of molecules in a chemical reaction in order to achieve a low energy stable state.
+
+The mutation operation of DE is incorporated into CRO to enhance its convergence and heighten the solution quality.
+
+Experimental results show that the hybrid algorithm is capable of obtaining desirable DEED solutions in a short period of time.
+
+PARAGRAPH
+
+Jiang et al. (2013) devised a modified adaptive multiobjective differential evolution algorithm (MAMODE) to solve the DEED problem.
+
+Expanded double selection and adaptive random restart operators are incorporated into DE to overcome premature convergence.
+
+Furthermore, a dynamic heuristic constraint handling (DHCH) strategy with moderate approximation is specifically proposed to handle the equality constraints.
+
+In addition, the fuzzy-based mechanism (Dhillon et al., 1993; Abido, 2003) is employed to extract the best compromise solution from the final external archive (Ziztler et al., 2002).
+
+PARAGRAPH
+
+Bacterial foraging optimization (BFO) (Passino, 2002) is enlightened by the theory of natural selection which is inclined to exclude the animals using ineffective foraging strategies and retain the ones using successful strategies.
+
+To further improve it performance, an improved bacterial foraging algorithm (IBFA) (Pandit et al., 2012) was proposed in 2012.
+
+IBFA utilizes a small number of bacteria to search solution space, adopts crossover operation to avoid saturation of the swarm, and employs a dynamic chemotactic step size to promote exploration and exploitation.
+
+PARAGRAPH
+
+Basu (2008b) used a nondominated sorting genetic algorithm-II (NSGA-II) to solve the DEED problem, and it is implemented by using real-coded genetic algorithm (RCGA) (Deb and Agrawal, 1995; Herrera et al., 1998; Deb, 2000).
+
+This algorithm involves fast nondominated sorting procedure, fast crowded distance estimation procedure, simple crowded-comparison operator, tournament selection, simulated binary crossover and polynomial mutation (Deb and Agrawal, 1995).
+
+In addition, NSGA-II handles DEED as a multi-objective optimization with conflicting objectives, and it is able to obtain a diverse set of well-distributed pareto-optimal solutions for DEED.
+
+PARAGRAPH
+
+Zhu et al. (2016) developed a modified non-dominated sorting genetic algorithm-II (MNSGA-II) to solve the DEED problem.
+
+This algorithm adopts the selection based on dynamic crowding distance and new controlled elitism, which facilitates the diversity maintenance of population under the premise of elitism of population.
+
+Furthermore, a modified heuristic operation based on forward search operator is introduced to handle constraints, and a new membership function is used to evaluate the superiority–inferiority of the candidate solutions in the Pareto set, from which the best compromise solution can be determined.
+
+PARAGRAPH
+
+Researchers have also studied the other economic dispatch issues using various metaheuristics, such as particle swarm approach (Coelho and Mariani, 2008), orthogonal learning competitive swarm optimizer (Xiong and Shi, 2018), hybrid grey wolf optimizer (Jayabarathi et al., 2016), cuckoo search method (Nazari-Heris et al., 2018), bee colony optimization (Nazari-Heris et al., 2018), and harmony search algorithm (Karthigeyan et al., 2015; Al-Betar et al., 2016a; Coelho and Mariani, 2009; Ma et al., 2017).
+
+These metaheuristics can obtain good solutions for the economic dispatch problems with different demands such as combined heat and power dispatch, plug-in electric vehicles charging etc.
+
+PARAGRAPH
+
+The DEED problem is more intractable than the EED and DED problems (Zou et al., 2017, 2018), since it adds both the generating unit ramp-rate constraints and the emission function to the original economic load dispatch problem.
+
+Moreover, all the power outputs should be suitably determined so as to achieve the best compromise solution while keeping all the constraints satisfied.
+
+To obtain high-quality DEED solutions, both the performance improvement of heuristic algorithm and the design of constraint handling strategy are involved in this paper.
+
+In summary, the main contribution of our work can be stated as follows: First, a new enhanced harmony search (NEHS) algorithm is proposed to improve the optimization performance of the HS algorithm, which is beneficial for conducting global exploration and searching potential DEED solutions in the solution space.
+
+Second, a repair technique is designed to further refine the solutions of NEHS, which is helpful to the feasibility maintenances and quality improvements of the obtained solutions.
+
+PARAGRAPH
+
+The remainder of this paper is organized as follows: Section 2 describes the problem formulation of DEED, and gives an efficient constraint handling method.
+
+Section 3 involves six HSs among which our proposed new enhanced harmony search algorithm is explained in sufficient details.
+
+Section 4 analyzes the experimental results of five improved HSs and those from the literatures.
+
+Finally, the conclusions are given in Section 5.
+
+SECTION
+
+Dynamic economic emission dispatch
+
+PARAGRAPH
+
+The DEED problem has two objectives: to minimize fuel cost and emission of atmospheric pollutants.
+
+Furthermore it is heavily restricted by several kinds of performance requirements based on practical considerations, such as the generator capacity constraints, power balance constraints and generating unit ramp-rate constraints.
+
+Unlike the economic emission dispatch (EED) problem (Zou et al., 2017), the DEED problem aims to dispatch the power outputs of all generating units in a number of time periods.
+
+It incorporates the generating unit ramp-rate constraints into the EED problem, and involves more variables than the EED problem with the same number of generating units.
+
+In addition, the DEED problem adds the emission function to the dynamic economic dispatch (DED) problem (Zou et al., 2018), and it has to handle the multi-objective optimization issue which is more difficult than the single-objective optimization one.
+
+The formulation of the DEED problem can be elaborated as follows.
+
+SECTION
+
+Fuel cost and pollutant emission functions
+
+PARAGRAPH
+
+The first objective function of the DEED problem is related to the power outputs of NG generating units during T intervals (Basu, 2006), and it is expressed as follows: minC=∑t=1T∑i=1NGCi,t(Pi,t)where C stands for the total fuel cost.
+
+NG stands for the number of generating units, and T stands for the number of hours in the time horizon.
+
+Ci,t stands for the fuel cost of the ith (i=1,2,…,NG) generating unit in the tth (t=1,2,⋯,T) interval, and Pi,t stands for the power output of the ith generating unit in the tth interval.
+
+Mathematically, the function value of Ci,t(Pi,t) involved with valve point loading effects is calculated by: Ci,t(Pi,t)=ai+biPi,t+ciPi,t2+|eisin(fi(Pimin−Pi,t))|where ai, bi, ci, ei and fi stand for the fuel cost coefficients of the ith generating unit.
+
+The first three coefficients constitute a smooth quadratic function, and the last two coefficients constitute a non-differentiable and non-convex function related to sinusoids.
+
+Due to the non-differentiable and non-convex nature of the cost function, traditional numerical optimization algorithms would not be appropriate for this optimization problem.
+
+However, it can be solved by heuristic algorithms which are good at using a variety of stochastic searching strategies instead of complex operations associated with the mathematical properties of the problem models.
+
+PARAGRAPH
+
+The second objective function of the DEED problem is also related to the power outputs of NG generating units during T intervals (Basu, 2006), and it is expressed as follows: minE=∑t=1T∑i=1NGEi,t(Pi,t) E stands for the total pollutant emissions of NG generating units over T dispatch intervals, and Ei,t stands for the pollutant emission of the ith (i=1,2,…,NG) generating unit in the tth (t=1,2,…,T) interval.
+
+Mathematically, the function value of Ei,t(Pi,t) can be calculated by: Ei,t(Pi,t)=αi+βiPi,t+γiPi,t2+ηiexp(δiPi,t)where αi, βi, γi, ηi and δi stand for the emission coefficients of the ith generating unit.
+
+The first three coefficients constitute a smooth quadratic function, and the last two coefficients constitute a exponential function.
+
+PARAGRAPH
+
+For the DEED problem, both the fuel cost and pollutant emission functions need to be minimized.
+
+To give consideration to both fairness and efficiency to realize the integrative evaluation of a solution obtained for this kind of multi-objective optimization problem, a normalized function (Zou et al., 2017) is employed to merge the fuel cost and pollutant emission functions, and it is stated as follows: fm=ω1×[C(xm)∕∑m=1MC(xm)]+ω2×[E(xm)∕∑m=1ME(xm)] xm denotes the mth (m=1,2,…,M) solution in the population of a heuristic approach, and C(xm) and E(xm) denote, respectively, the corresponding fuel cost and pollutant emission values. ω1
+
+denotes the weight of fuel cost, and ω1∈[0,1].
+
+In the meantime, ω2 denotes the weight of emission, and ω2=1−ω1.
+
+Since there is no evidence that one objective is more important than another, ω1 and ω2 share the same value 0.5 in this paper.
+
+With the conversion from Eq. (5), both function values of xm are normalized, which contributes to the form of a simple and direct single objective function fm.
+
+SECTION
+
+Constraints
+
+PARAGRAPH
+
+Three kinds of constraints are considered for the DEED problem in this paper, and they are explicitly defined as follows.
+
+PARAGRAPH
+
+(1) Generator capacity constraints
+
+PARAGRAPH
+
+Due to the limitation of physical characteristic of power system, the power output of each generating unit is finite in capacity, and is confined in the following range: Pimin≤Pi,t≤Pimaxwhere Pimin and Pimax represent, respectively, the lower and upper bounds of Pi,t.
+
+All the power outputs of NG generating units over T time intervals must obey Eq. (6), hence there are totally 2×T×NG inequality constraints associated with generator capacity.
+
+PARAGRAPH
+
+(2) Power balance constraints
+
+PARAGRAPH
+
+The total power outputs of all generating units should be matched with the consumers’ load demand and transmission line loss at each time interval over the scheduling horizon (Rani and Kothari, 2012).
+
+Mathematically, the corresponding equality constraint can be expressed by: ∑i=1NGPi,t=PDt+PLt PDt (t=1,2,…,T) is the load demand at the tth time interval, and its volume mainly depends on consumers’ practical needs such as industrial and household consumption of electricity.
+
+PLt is the transmission loss at the tth time interval, and its volume mainly depends on the units power production and the topology of the network.
+
+Here, PLt is determined by the Kron’s loss formula, and hence it can be computed by: PLt=∑i=1NG∑j=1NGPi,tBijPj,t+∑i=1NGBi0Pi,t+B00where Bij, Bi0 and B00 are the transmission loss coefficients.
+
+To some extent, the transmission loss PLt was relatively small compared to the load demand PDt, and it was not included in the power balance constraint for the purpose of simplicity in some studies on the DEED problem.
+
+An approximation of Eq. (7) can be rewritten as: ∑i=1NGPi,t=PDt
+
+PARAGRAPH
+
+The total power outputs of NG generating units in each time interval must obey Eq. (7) (or Eq. (9)), hence there are totally T equality constraints regarding power balance.
+
+PARAGRAPH
+
+(3) Generating unit ramp-rate constraints
+
+PARAGRAPH
+
+Unlike economic load dispatch problem (Qin et al., 2017; Al-Betar et al., 2016b; Ghasemi et al., 2016; Nguyen and Vo, 2015), the DEED problem has to meet the generating unit ramp-rate constraints.
+
+For the ith (i=1,2,⋯,NG) generating unit at the tth (t=2,3,…,T) time interval, it is essential to confine the change rate of its output power within an acceptable range to protect the boiler and combustion equipments from excessive stresses.
+
+Therefore, the corresponding inequality constraints can be given by: Pi,t−Pi,t−1≤URi Pi,t−1−Pi,t≤DRiwhere URi and DRi denote, respectively, the ramp-up and ramp-down limits of the ith generating unit.
+
+All the power outputs of NG generating units over T−1 time intervals (t=1 is neglected) must obey Eqs. (10) and (11), hence there are totally 2×NG×(T−1) inequality constraints considering generating unit ramp-rate.
+
+SECTION
+
+Constraints handling
+
+PARAGRAPH
+
+In a heuristic approach used for the DEED problem, some updated candidate solutions are usually infeasible in the early optimization stage, and they can hardly satisfy all the constraints, which is unfavorable to explore and exploit the feasible domains.
+
+To overcome this dilemma, a repair technique is used to repair the updated candidate solutions in order to facilitate them to get into the feasible domains.
+
+Let P represents an updated candidate solution by a heuristic approach, and it is given by: P=[P1,1,…,PNG,1︸NG,⋯,P1,t,…,PNG,t︸NG,⋯,P1,T,…,PNG,T︸NG]where P1,t,…,PNG,t represent the power outputs of NG generating units at the tth (t=1,2,…,T) time interval.
+
+Obviously, there are totally NGT components (variables) in the updated candidate solution vector P.
+
+The steps of corresponding repair technique are detailed as follows:
+
+PARAGRAPH
+
+Step 1: The repair process starts from the first time interval, and thus set t=1.
+
+PARAGRAPH
+
+Step 2: To satisfy both the generator capacity and generating unit ramp-rate constraints, two bounds are needed for each of the NG components Pi,t (i=1,2,…,NG) in the tth time interval, and they are given by: Pi,tL=Pimin,If t=1;max{Pimin,Pi,t−1−DRi},Otherwise. Pi,tU=Pimax,If t=1;min{Pimax,Pi,t−1+URi},Otherwise.where Pi,tL and Pi,tU are the dynamic lower and upper bounds of Pi,t, respectively.
+
+They are determined by the intersection of the domains [Pimin,Pimax] (As Eq. (6)) and [Pi,t−1−DRi,Pi,t−1+URi] (As Eqs. (10) and (11)).
+
+PARAGRAPH
+
+Step 3: For the tth time interval, all the NG values of Pi,t (i=1,2,…,NG) are regulated by: Pi,t=Pi,tL,If Pi,t<Pi,tL;Pi,tU,If Pi,t>Pi,tU;Pi,t,Otherwise.
+
+PARAGRAPH
+
+By using Eqs. (13), (14) and (15), the solution vector P can always meet the requirements of the generator capacity and generating unit ramp-rate constraints.
+
+PARAGRAPH
+
+Step 4: Establish two sets S={s|1,2,…,NG} and U={i|1,2,…,NG}.
+
+Initially, each of them stores the indexes of the NG generating units in the tth time interval.
+
+As the repair process advances (as Steps 5–7), the set S may be dynamically decreased while the set U remains unchanged.
+
+PARAGRAPH
+
+Step 5: Randomly choose an index s from the set S, and compute the power output of the sth generating unit Ps,t in terms of those of the other NG−1 generating units.
+
+Moreover, there exist two cases with respect to the calculation of Ps,t, and they are detailed as follows:
+
+PARAGRAPH
+
+Case 1: For the power balance constraints that include the transmission losses, Eq. (7) can be rewritten as a quadratic equation with one unknown (Zou et al., 2017): BssPs,t2+(2∑i∈U¯sBsiPi,t+B0s−1)Ps,t+(PDt+∑i∈U¯s∑j∈U¯sPi,tBijPj,t+∑i∈U¯sB0iPi,t−∑i∈U¯sPi,t+B00)=0 Us denotes the set that only contains the element s, and U¯s denotes the set that contains all the elements of the set U except s.
+
+Let the coefficients of the quadric, linear and constant terms be X=Bss, Y=2∑i∈U¯sBsiPi,t+B0s−1 and Z=PD+∑i∈U¯s∑j∈U¯sPi,tBijPj,t+∑i∈U¯sB0iPi,t−∑i∈U¯sPi,t+B00, respectively, then the two roots can be computed by root1=−Y+Y2−4XZ2X and root2=−Y−Y2−4XZ2X.
+
+Either root1 or root2 is selected for Ps,t, and the detailed selecting rule on the two resultant roots is made by:
+
+PARAGRAPH
+
+(a) In case that both roots lie in the range [Ps,tL,Ps,tU], a random one from the two candidates will be assigned to Ps,t.
+
+Let ξt be the symbol that indicates whether the power balance constraint is satisfied, and ξt=0 and ξt=1 represent, respectively, the satisfaction and violation of the power balance constraint.
+
+Since the variable Ps,t and the other NG−1 ones can completely satisfy the equality constraint with power balance for the tth time interval, set ξt=0, and go to Step 7.
+
+PARAGRAPH
+
+(b) In case that only one root out of the two lies in the range [Ps,tL,Ps,tU], the one without overflow will be assigned to Ps,t.
+
+Since Ps,t and the other NG−1 variables can satisfy the equality constraint with power balance corresponding to the tth time interval, set ξt=0, and go to Step 7.
+
+PARAGRAPH
+
+(c) In case that neither of the two roots lies in the range [Ps,tL,Ps,tU], the one with smaller overflow of [Ps,tL,Ps,tU] will be regulated by Eq. (15) and the regulated value will be assigned to Ps,t.
+
+Since Ps,t has been truncated, it has not been the root of Eq. (16) yet, indicating that the NG variables composed of Ps,t and Pi,t (i∈U and i≠s) cannot satisfy the equality constraint related to power balance for the tth time interval.
+
+Set ξt=1, and go to Step 6.
+
+PARAGRAPH
+
+Case 2: For the power balance constraints that exclude the transmission losses, Eq. (9) can be rewritten as a linear equation with one unknown: Ps,t=PDt−∑i∈S¯sPi,t Ps,t can be computed by using Eq. (17), and it will be finally determined by:
+
+PARAGRAPH
+
+(a) In case that Ps,t is in the range [Ps,tL,Ps,tU], it will be reserved.
+
+Since the equality constraint associated with power balance has been satisfied for the tth time interval, set ξt=0, and go to Step 7.
+
+PARAGRAPH
+
+(b) In case that Ps,t is out of the range [Ps,tL,Ps,tU], it will be truncated by Eq. (15).
+
+Since the truncated Ps,t leads to the violation of the equality constraint with power balance for the tth time interval, set ξt=1, and go to Step 6.
+
+PARAGRAPH
+
+It should be noted that Step 5 cannot guarantee the satisfaction of power balance constraints since the generator capacity and generating unit ramp-rate constraints are considered with a higher priority in this step.
+
+However, it adds the chance of approaching or entering the feasible regions, which provides a potential exploration direction for a heuristic approach.
+
+PARAGRAPH
+
+Step 6: Exclude the element s from the set S. Go to Step 5 if S is nonempty.
+
+Otherwise, Go to Step 7.
+
+PARAGRAPH
+
+Step 7: Set t=t+1.
+
+Go to Step 2 if t≤T.
+
+Otherwise, stop the repair process.
+
+PARAGRAPH
+
+The above seven steps are very helpful for an infeasible solution to rapidly enter the feasible domains.
+
+Furthermore, Steps 2 and 3 can guarantee that the inequality constraints associated with generator capacity and generating unit ramp-rate are completely satisfied.
+
+Steps 4–6 can further decrease or completely eliminate the violation of the equality constraint associated with power balance.
+
+SECTION
+
+Penalty function method
+
+PARAGRAPH
+
+Since the generator capacity and generating unit ramp-rate constraints can be always guaranteed by means of the Steps 2 and 3 of the repair technique, we only evaluate the total constraint violation with respect to power balance, and it is given by: VPT=∑t=1Tξt⋅(|∑i=1NGPit−PDt−PLt|) VPT corresponds to the constraint violation considering transmission losses.
+
+As aforementioned, ξt is a binary symbol, and ξt=0 indicates that there is no violation of power balance constraint for the tth interval and vice versa.
+
+After computing VPT (or VP), a most frequently used penalty method is employed to formulate a penalty function.
+
+This is expressed as follows: fˆm=fm+λ⋅VPT fˆm denotes the penalty function, and it gives considerations to both the normalized function fm (as Eq. (5)) and the constraint violation VPT (as Eq. (18)). λ
+
+denotes penalty coefficient.
+
+If it is set to a small positive constant, the effect of constraints will be limited, and the penalty function fˆm will mainly depend on the normalized function fm.
+
+Since both cost and emission functions are strictly subject to all constraints, λ should be set to a large positive constant to sufficiently penalize the infeasible solutions, contributing to the reductions of constraint violations.
+
+In this paper, the coefficient λ is fixed at 1010.
+
+In case that the power balance constraints neglect the transmission losses, Eq. (18) and Eq. (19) can be replaced, respectively, with Eq. (20) and Eq. (21): VP=∑t=1Tξt⋅(|∑i=1NGPit−PDt|) fˆm=fm+λ⋅VPwhere VP corresponds to the constraint violation neglecting transmission losses.
+
+SECTION
+
+Harmony search algorithm and its five improved versions
+
+PARAGRAPH
+
+Six harmony search algorithms will be introduced in this section, and they are, respectively, the original harmony search algorithm (Geem et al., 2001; Lee and Geem, 2005), improved harmony search algorithm (Mahdavi et al., 2007), differential harmony search algorithm (Dash et al., 2015), harmony search with a novel parameter setting approach (Askarzadeh and Zebarjadi, 2014), modified harmony search algorithm (Lee and Mun, 2014), and our proposed new enhanced harmony search algorithm.
+
+To begin with, a short history of harmony search algorithm is provided.
+
+Then, the steps of this algorithm are simply described.
+
+Finally, the improvements from the other five algorithms are explained separately.
+
+SECTION
+
+Original harmony search algorithm and its four improved versions from literature
+
+PARAGRAPH
+
+Harmonizing is a process of playing sounds involving different frequencies rhythmically and steadily, and it pursues a wonderful music performance from the aesthetic points of view.
+
+On the other hand, optimization is a process of adjusting suitable variables with different values step by step, and it pursues desirable optimization performance measured by mathematics and engineering.
+
+Both aspects share similarities in operating mechanism and evaluation criteria.
+
+Enlightened by the similarities, Geem et al. proposed a new heuristic approach namely harmony search (HS) (Geem et al., 2001; Lee and Geem, 2005).
+
+Owning to its strong adaptability, easy application, low computation burden, fine accuracy and high efficiency, HS has drawn much attention from researchers, and it has been widely used in many kinds of fields, such as integrated production and transportation scheduling in MTO manufacturing (Guo et al., 2017), Feature selection for high dimensional imbalanced class data (Moayedikia et al., 2017), ANN optimization and water-quality prediction (Jaddi and Abdullah, 2017), the resource leveling problem with minimal lags (Ponz-Tienda et al., 2017), renewable energy charging with energy storage system (Geem and Yoon, 2017) and optimum design of aircraft panels (Keshtegar et al., 2017).
+
+The steps of HS are as follows: (1) Initialize the problem and algorithm parameters.
+
+(2) Initialize a harmony memory HM.
+
+(3) Improvise a new harmony.
+
+(4) Update the worst harmony vector of HM.
+
+(5) Check the stopping criterion.
+
+PARAGRAPH
+
+The improved harmony search (IHS) algorithm (Mahdavi et al., 2007) was proposed in 2007, and it improves the original HS from two aspects.
+
+First, it increases the pitch adjusting rate PAR linearly.
+
+Second, it decreases the arbitrary distance bandwidth bw exponentially.
+
+PARAGRAPH
+
+The differential harmony search (DHS) algorithm (Dash et al., 2015) was proposed in 2015, and it modifies the improvision step of HS by using the mutation operator of differential evolutionary (DE) algorithm (Storn and Price, 1995).
+
+PARAGRAPH
+
+The harmony search with a novel parameter setting approach (HS-NPSA) (Askarzadeh and Zebarjadi, 2014) was proposed in 2014, and it skilfully adjusts its control parameters to develop its optimizing potential.
+
+PARAGRAPH
+
+The modified harmony search (MHS) algorithm (Lee and Mun, 2014) was proposed in 2014.
+
+It modifies the pitch adjustment of HS, and combines the global best harmony vector and the dynamically adjusted arbitrary distance bandwidth to update the new harmony vector.
+
+SECTION
+
+A new enhanced harmony search (NEHS) algorithm
+
+PARAGRAPH
+
+In HS, all the harmony components from HM can be considered by harmony memory considering (HMC), which enables HS to sufficiently mine the potential information combination of these components.
+
+The HMC operation is helpful for HS to conduct global search, however it will inevitably decrease the local search ability of HS, which may affect the convergence of HS, especially in the late optimization stage.
+
+In addition, a constant bandwidth bw is used to realize the fine tuning of the components for the PA operation.
+
+If bw is set to a large value, the local search cannot be guaranteed in the late optimization stage.
+
+If bw is set to a small value, the global search cannot be guaranteed in the early optimization stage.
+
+PARAGRAPH
+
+In this section, a new enhanced harmony search (NEHS) algorithm is proposed to suit the EELD problems.
+
+NEHS and HS are different in two aspects.
+
+First, NEHS utilizes the global best and the global worst harmony vectors to update the new harmony vectors in the second half of generations for the HMC operation.
+
+Second, NEHS uses three levels of bandwidths to realize the fine tuning of the components for the PA operation.
+
+More concretely, the two main improvements of NEHS can be described as follows:
+
+PARAGRAPH
+
+(1) Modified harmony memory considering.
+
+PARAGRAPH
+
+In the first half of generations, a randomly chosen component xjir (ir=1,2,…,HMS) from HM will be assigned to xj′ for HMC.
+
+In the second half of generations, only two candidate components can be considered for the update of xj′ in HMC, and they are the best harmony component xjibest and the worst harmony component xjiworst, respectively.
+
+Furthermore, either xjibest or xjiworst is assigned to xj′ in HMC, and the corresponding updating formula of xj′ is given by: xj′=xjiworst,If r1<0.5;xjibest,Otherwise.where r1 denotes a uniformly distributed random number in the range [0,1].
+
+Obviously, the components xjiworst and xjibest have the same chance of being chosen. xjibest
+
+is very helpful in accelerating the convergence rate of NEHS, but it may also leads to the premature convergence of NEHS.
+
+For this purpose, xjiworst is used to suitably alleviate the convergence rate of NEHS, which is beneficial for decreasing the risk of being trapped into local optima.
+
+In summary, in the first half of generations, the population diversity of HM is maintained at a high level, which is very beneficial for global search.
+
+In the second half of generations, the harmony vectors in HM gradually approach the best harmony vector.
+
+As a result, the population diversity of HM is maintained at a low level, and the local search ability of HS is reinforced.
+
+PARAGRAPH
+
+(2) Three levels of bandwidths
+
+PARAGRAPH
+
+As aforementioned, a fixed value of bandwidth can hardly reach a compromise between global search and local search for HS, which will more or less affect its convergence, especially in the late generations.
+
+To over this disadvantage, an arbitrary distance bandwidth with three levels is designed by: bwk=bw1,If 1≤k≤K∕4;bw2,If K∕4+1≤k≤K∕2;bw3,If K∕2+1≤k≤K.where bw1, bw2 and bw3 denote three different levels of bandwidths. bw1
+
+is kept at a high level (such as bw1=0.05) in the early optimization stage, and it enables NEHS to search in a wide range of solution space and improve the harmony vectors of HM rapidly. bw2
+
+is kept at a moderate level (such as bw2=bw1∕4) in the middle optimization stage, and it narrows the search range suitably and improve the harmony vectors of HM gradually. bw3
+
+is kept at a low level (such as bw3=bw1∕16) in the late optimization stage, and it assists in the fine tuning of the harmony vectors of HM and the improvement of solution quality.
+
+By combining the three levels of bandwidths in a flexible way, NEHS is able to better handle the conflict caused by the needs of global search and local search.
+
+PARAGRAPH
+
+The detailed steps of NEHS are shown in Table 1, and some comments are also provided to ensure the readability and reproducibility of NEHS. r2, r3, r4, r5, r6
+
+and r7 are six uniformly distributed random numbers in the range [0,1].
+
+SECTION
+
+Experimental results and analysis
+
+SECTION
+
+Test cases
+
+PARAGRAPH
+
+Five test cases with different mathematical features are used to verify the performance of NEHS and the other four improved HSs on solving the DEED problem.
+
+Moreover, the best results of the five DEED problems obtained by NEHS are compared with those from the literatures.
+
+The five test cases include the 5-unit (Basu, 2006), 6-unit (Wu et al., 2010; Guo et al., 2012), 10-unit (Basu, 2008a), 14-unit (Wu et al., 2010; Guo et al., 2012) and 30-unit (Roy and Bhui, 2016; Attaviriyanupap et al., 2002; Yuan et al., 2009) systems.
+
+The first three cases take into account the transmission losses in the power balance constraints, and the last two cases neglect them.
+
+The 6-unit system neglects the sinusoidal term (valve-point effects) of the cost function, and the 14-unit system neglects the sinusoidal term of cost function and the exponential term of emission function.
+
+Furthermore, both the 6-unit system and 14-unit system use the same cost function as Eq. (24).
+
+The emission functions of the 6-unit system and 14-unit system are given by Eqs. (25) and (26), respectively.
+
+Ci,t(Pi,t)=ai+biPi,t+ciPi,t2 Ei,t(Pi,t)=10−2(αi+βiPi,t+γiPi,t2)+ηiexp(δiPi,t) Ei,t(Pi,t)=10−2(αi+βiPi,t+γiPi,t2)
+
+PARAGRAPH
+
+For both the 6-unit system and 14-unit system, all the units related to the active power, i.e., PDt, PLt, Pi,t, Pi,min, Pi,max, URi and DRi are p.u., and the base value is 100 MW.
+
+For the other three cases, all the units related to the active power, i.e., PDt, PLt, Pi,t, Pi,min, Pi,max, URi and DRi are MW.
+
+The fuel cost coefficients, emission coefficients, generation limits and ramp limits of the first four cases are obtained from Basu (2006), Wu et al. (2010), Guo et al. (2012) and Basu (2008a).
+
+The fuel cost coefficients, emission coefficients, generation limits and ramp limits of the last case are obtained from Roy and Bhui (2016), Attaviriyanupap et al. (2002) and Yuan et al. (2009).
+
+The B-matrix loss coefficients of the first three cases are obtained from Basu (2006), Wang and Singh (2008) and Basu (2008a).
+
+The load demands of the five cases are obtained from Basu (2006), Guo et al. (2012), Basu (2008a) and Roy and Bhui (2016).
+
+PARAGRAPH
+
+SECTION
+
+Parameter settings of five improved harmony search algorithms
+
+PARAGRAPH
+
+Five improved harmony search algorithms are used to solve the aforementioned five test cases, and a set of parameter settings are assigned as follows: For IHS (Mahdavi et al., 2007), the harmony memory considering rate HMCR=0.95, the maximum and minimum pitch adjusting rates PARmax=0.99, PARmin=0.35, the maximum and minimum arbitrary distance bandwidths bwmax=0.1, bwmin=0.0001.
+
+For DHS (Dash et al., 2015), the maximum and minimum harmony memory considering rates HMCRmax=0.95, HMCRmin=0.8, the maximum and minimum pitch adjusting rates PARmax=0.5, PARmin=0.2, the maximum and minimum arbitrary distance bandwidths bwmax=0.55, bwmin=0.15.
+
+For HS-NPSA (Askarzadeh and Zebarjadi, 2014), the three parameters HMCR, PAR and bw are uniformly produced, respectively, in the ranges [0.9,1], [0,0.5] and [0,1] at each generation.
+
+For MHS (Lee and Mun, 2014), the two parameters HMCR and PAR are set to 0.9 and 0.4, respectively, and the maximum and minimum arbitrary distance bandwidths bwmax=20, bwmin=0.0001.
+
+For NEHS, harmony memory considering rate is determined by HMCR=1−1∕N where N is the number of problem variables, pitch adjusting rate PAR=0.3, and the initial arbitrary distance bandwidth bw1=0.05.
+
+Since N is a large integer (120≤N≤720) in this paper, HMCR=1−1∕N is close to 1.
+
+As a result, the RUD operation is involved in the update of new harmony vector with a low but moderate probability 1∕N, and it reaches a good compromise between convergence and premature.
+
+PAR=0.3 determines the probability of the PA operation, and it allows NEHS to search in the neighborhoods of the chosen harmony components from the HM, which is helpful to the exploration and exploitation of solution space.
+
+After setting the initial arbitrary distance bandwidth bw1=0.05, the other two ones have also been determined, and they are bw2=0.0125 and bw3=0.003125, respectively.
+
+These three levels of arbitrary distance bandwidths enable NEHS to carry out global search and local search in a phased manner.
+
+In addition, the common parameters of the five HSs include the harmony memory size HMS and maximum generation number Gmax.
+
+HMS is set to 10 for all five test cases, and Gmax is set to 50 000, 50 000, 100 000, 100 000 and 400 000, respectively, for the 5-unit, 6-unit, 10-unit, 14-unit and 30-unit systems.
+
+SECTION
+
+Comparison among five improved harmony search algorithms
+
+PARAGRAPH
+
+In this section, three groups of simulations are carried out separately to testify the performance of NEHS on solving the dynamic economic dispatch (DED), dynamic emission dispatch (DEmD) and DEED problems.
+
+In all simulations, five improved harmony search algorithms are programmed in MATLAB on a computer with Intel(R) Core(TM) i7-6700 processor (3.40 GHz) and 16 GB of memory.
+
+A set of criteria are utilized to make a fair and comprehensive comparison among the five improved harmony search algorithms.
+
+For the DED problems, the criteria include ART, Cmin, Cmax, Cmean, Cmedian, Cstd, and t-test (Rakshit et al., 2013; Ouyang et al., 2015).
+
+ART denotes average running time, Cmin, Cmax, Cmean, Cmedian and Cstd denote, respectively, the minimum, maximum, mean, median and standard deviation of cost values using each HS over fifty independent runs.
+
+For the DEmD problems, the criteria include ART, Emin, Emax, Emean, Emedian, Estd, and t-test.
+
+Emin, Emax, Emean, Emedian and Estd denote, respectively, the minimum, maximum, mean, median and standard deviation of emission values using each HS over fifty independent runs.
+
+For the DEED problems, the criteria include ART, Cmean, Emean, total normalized ratio ρmean, and t-test obtained in fifty independent runs.
+
+The DED, DEmD and DEED results of five algorithms are shown, respectively, in Tables 2, 3 and 4.
+
+PARAGRAPH
+
+The best results are marked in bold for the corresponding evaluation criteria. t-
+
+test is a common statistical method for comparing different samples, and we employ this method to compare the results of our proposed NEHS algorithm and those of the other four HSs.
+
+For NEHS and any of the other four HSs, the statistical significance level of the difference of the means obtained by the two algorithms are reported in the last column of Table 2.
+
+Here three abbreviations “SBT”, “SWT” and “NSS” are used, respectively, to denote “statistically better than”, “statistically worse than” and “not statistically significant” for t-test.
+
+To be more specific, “SBT” indicates that NEHS is statistically better than another algorithm at a 0.05 level of significance by two tailed test, “SWT” indicates that NEHS is statistically worse than another algorithm at a 0.05 level of significance by two tailed test, and “NSS” indicates that the difference of means obtained by NEHS and another algorithm is not statistically significant.
+
+According to Table 2, all the t-tests are marked with “SBT” in the last column, indicating that NEHS appears statistically better than any of the other four HSs for solving any of the five DED problems.
+
+According to the term ART, NEHS uses less average running time than the other four HSs for every test case.
+
+With regard to the DED of the 10-unit system, NEHS achieves 30.77%, 36.42%, 29.16% and 34.12% time savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+With regard to the DED of the 30-unit system, NEHS achieves 37.02%, 48.89%, 39.22% and 37.19% time savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+According to the term Cmin, NEHS can always obtain the lowest fuel costs for the DEDs of all five cases.
+
+Meanwhile, IHS can obtain the second lowest fuel costs for the DEDs of four cases including the 6-unit, 10-unit, 14-unit and 30-unit systems, and thus it is the second most effective algorithm of producing the best DED solutions.
+
+In addition, the Cmax, Cmean and Cmedian of NEHS are smaller than those of the other four HSs for every case.
+
+With respect to the term Cstd, NEHS can obtain the lowest standard deviations for the DEDs of the first four cases, and HS-NPSA can obtain the lowest standard deviation for the DED of the last case.
+
+Based on the analysis presented above, NEHS has achieved considerable time savings compared to the other four HSs, and exhibited strong convergence and stability on solving the DEDs of five cases.
+
+Besides, NEHS can beat the other four HSs in a statistical way, namely t-test.
+
+PARAGRAPH
+
+According to the criterion ART in Table 2, the average running times of NEHS are less than those of the other algorithms under the same iterations.
+
+The reasons are as follows: NEHS updates each harmony variable by conditionally selecting one of two candidate strategies in the harmony memory considering step instead of simultaneously adopting these two strategies.
+
+In other words, if one strategy is adopted in a generation, the other will not be considered in this generation.
+
+Therefore, our proposed harmony memory considering strategy is essentially as simple as that of the original HS in computing complexity.
+
+Furthermore, NEHS only updates arbitrary distance in each generation, but most of the other algorithms update more control parameters, which will introduce more running time.
+
+For example, IHS updates pitch adjusting rate and arbitrary distance, DHS updates harmony memory considering rate, pitch adjusting rate and arbitrary distance, HS-NPSA updates harmony memory considering rate, pitch adjusting rate and arbitrary distance.
+
+PARAGRAPH
+
+Fig. 1 depicts the average evolutionary curves of five HSs over fifty runs for five DED problems.
+
+NEHS has the fastest convergence speeds for all five problems.
+
+In the early optimization stage, the NEHS curves descend dramatically, and they have reached relatively low levels of fuel costs, especially for the first four problems.
+
+For the DEDs of the 5-unit, 6-unit and 10-unit systems, the NEHS curves descend smoothly through the middle and late optimization stages.
+
+For the DED of the 14-unit system, the NEHS curve descend gradually through the middle and late optimization stages, and it finally converges to a level which is slightly higher than 1.08×105.
+
+For the DED of the 30-unit system, the NEHS curve descend rapidly in the late optimization stage, and there is a distinctive decreasing trend even in the last generation.
+
+Based on the above observations, NEHS can obtain very low levels of fuel costs for small-scale DED problems by using a relatively small number of generations, but it has to resort to a larger number of generations to obtain low levels of fuel costs for large-scale DED problems.
+
+PARAGRAPH
+
+A close scrutiny of the last column of Table 3 reveals that NEHS performs better than the other four competitor HSs for solving any of the five DEmD problems in a statistically significant fashion.
+
+In the light of the term ART, NEHS spends less average running time than the other four HSs on solving every DEmD case.
+
+For the DEmD of the 10-unit system, NEHS brings about 28.33%, 39.97%, 34.24% and 43.99% time savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+For the DEmD of the 14-unit system, NEHS brings about 44.94%, 55.43%, 49.52% and 55.16% time savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+For the DEmD of the 30-unit system, NEHS brings about 34.50%, 45.80%, 32.49% and 37.74% time savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+In the light of the term Emin, NEHS achieves the lowest pollutant emissions for the DEmDs of all five cases, and it significantly reduces the pollutant emissions of the 14-unit and 30-unit systems compared with the other four HSs.
+
+IHS achieves the second lowest pollutant emissions for all cases except the 14-unit system.
+
+On the contrary, the other three HSs fail to achieve low pollutant emissions for most cases, which indicates their poor efficiency in producing the best DEmD solutions.
+
+In addition to ART and Emin, NEHS can obtain the smallest Emax, Emean, Emedian and Estd for every DEmD case.
+
+Therefore, NEHS takes a overwhelming advantage over the other four HSs in running efficiency and computation accuracy.
+
+The average evolutionary curves of five HSs over fifty runs for five DEmD problems are similar to those of five HSs over fifty runs for five DED problems, and they are not included for the length saving of this paper.
+
+PARAGRAPH
+
+Table 4 provides the optimization results of five HSs over fifty runs for five DEED problems. ρmean
+
+is defined as total normalized ratio.
+
+For the ith (i=1,2,3,4,5) algorithm, its total normalized ratio is computed by: ρmeani=Cmeani∑i=15Cmeani+Emeani∑i=15Emeaniwhere i=1, i=2, i=3, i=4 and i=5 denote, respectively, the indexes of the IHS, DHS, HS-NPSA, MHS and NEHS algorithms.
+
+According to Table 4, NEHS can obtain the smallest ρmean values for all five cases, and hence it is capable of reaching a good compromise between the fuel cost and pollutant emission.
+
+For every DEED problem, the normalized function values of all solutions obtained by five HSs are computed by using Eq. (5).
+
+Because each algorithm has produced 50 solutions, there are totally 250 solutions involved in the computations, and the normalized values of these solutions are considered as the samples of t-test.
+
+According to the last column, all the t-tests are marked with “SBT”, suggesting that NEHS exhibits a statistically better performance than the other four HSs for solving the DEED problems.
+
+According to the term ART, NEHS spends the least average running time for each DEED problem.
+
+In addition, NEHS obtains four out of five lowest average fuel costs for Cmean, and it also obtains four out of five lowest average pollutant emissions for Emean.
+
+Compared with IHS, DHS, HS-NPSA and MHS, NEHS is able to obtain better compromise solutions in less time for all five DEED problems.
+
+Therefore, NEHS is very effective on simultaneously minimizing the fuel cost and pollutant emission.
+
+SECTION
+
+The detailed best results obtained by NEHS
+
+PARAGRAPH
+
+In this section, we provide the best results of NEHS for three kinds of problems including DEDs, DEmDs and DEEDs, and compare the results with those of the other algorithms.
+
+The best results are mainly composed of three parts: the solutions, constraints violations and objective function values.
+
+More concretely, to ensure the verifiability of the NEHS results, the best solutions of all DED, DEmD and DEED problems will be provided in the following.
+
+In some literatures, objective function values are usually the most concerned criteria for evaluating the quality of a solution while the importance of constraints tends to be neglected.
+
+In fact, the constraints are extremely important factors that determine the quality of a solution.
+
+Under the premise that all the constraints are satisfied, the quality of a solution can be effectively evaluated according to its objective function(s).
+
+However, it is observed that some reported solutions from the literatures are not strictly feasible, since they cannot satisfy all constraints.
+
+Unfortunately, there are rarely strict checks on the constraints violations which directly determine the feasibility of the solutions obtained.
+
+To fill this gap, we formulate four constraints violations to judge whether a solution is completely feasible, and they are given in Table 5.
+
+PARAGRAPH
+
+VG represents the constraint violation associated with generator capacities, VPT (VP) represents the constraint violation associated with power balance considering (neglecting) transmission losses, and VR represent the constraint violation associated with ramp rate limits.
+
+It is known that the equality constraints are allowed to be approximately met with relatively small error tolerances for most constrained optimization problems.
+
+Let ε represent the error tolerance for the power balance constraint, and set it to 0.01.
+
+In case that the violation term VP,T (or VP) is less than or equal to the error tolerance ε, the power balance constraint will be judged to be met, and vice versa.
+
+Unlike equality constraints, the inequality constraints need to be met rigorously.
+
+In case that the violation term VG is equal to zero, the generator capacity constraint will be judged to be met, and vice versa.
+
+In case that the violation term VR is equal to zero, the constraint with ramp rate limits will be judged to be met, and vice versa.
+
+PARAGRAPH
+
+Let C and E represent fuel cost and emission, respectively.
+
+It is observed that there exist calculation errors of C and (or) E in the minority of reported results from the literatures.
+
+For the sake of fair comparison, we amend the inaccurate results according to the reported solutions.
+
+Accordingly, the terms Ca and Ea represent the amended fuel cost and emission, respectively.
+
+Besides, fm represents the normalized function value of the mth (m=1,2,…,M) solution, and it is utilized to measure and compare all the solutions obtained for the DEED problems.
+
+PARAGRAPH
+
+Table 6 shows the best DED, DEmD and DEED results of the competitor algorithms for the 5-unit system.
+
+NA stands for “not available”.
+
+The lowest fuel cost, pollutant emission and normalized function value are marked in bold, respectively, for the DED, DEmD and DEED of the 5-unit system.
+
+For the DED of the 5-unit system, fourteen algorithms have been used to solve this problem.
+
+Because the solutions of PSO, MODE, MOHDE-SAT, EP and SA are not available in their literatures, the corresponding constraints violations cannot be computed and verified.
+
+In the mean time, the VG and VR values of the other night algorithms are equal to zero, indicating that they can easily satisfy two inequality constraints with regard to generator capacities and ramp rate limits.
+
+According to the error tolerance ε=0.01, the majority of the algorithms can satisfy the equality constraint with regard to power balance while NPAHS and PS fail.
+
+According to the term C, NEHS achieves the lowest fuel cost, and it is equal to 43 066.07313.
+
+For the DEmD of the 5-unit system, eleven algorithms have been used to handle this problem.
+
+Because the solutions of PSO, MODE, MOHDE-SAT, EP and PS are not available in their literatures, the corresponding constraints violations cannot be computed and verified.
+
+In addition, the VG and VR values of the other six algorithms are equal to zero, indicating that they can easily satisfy two inequality constraints with regard to generator capacities and ramp rate limits.
+
+According to the terms E and Ea, NEHS achieves the lowest pollutant emission, and it is equal to 17 853.00294.
+
+Despite yielding the second lowest pollutant emission which is marginally higher than that of NEHS, NPAHS fails to find feasible solution for the DEmD of the 5-unit system in terms of the error tolerance ε=0.01.
+
+For the DEED of the 5-unit system, fourteen algorithms have been used to simultaneously minimize its two objective functions.
+
+Because the solutions obtained by MODE, EP and SA are ignored in their literatures, all related constraints violations cannot be computed and verified.
+
+Additionally, the VG and VR values of the other eleven algorithms are equal to zero, suggesting that they can completely met two inequality constraints concerning generator capacities and ramp rate limits.
+
+In the light of the error tolerance ε=0.01, MOHDE-SAT and PS cannot met the equality constraint concerning power balance, since their VPT values are larger than ε.
+
+Although NEHS only achieves the fourth lowest fuel cost and the six lowest pollutant emission among fourteen algorithms, the corresponding normalized objective function value is the lowest, suggesting that it can find better compromise between fuel cost and pollutant emission than the other thirteen algorithms.
+
+PARAGRAPH
+
+Table 7 lists the best DED, DEmD and DEED results of NEHS for the 6-unit system, and the best results of the other algorithms are also included for comparing purposes.
+
+For the DED of the 6-unit system, nine algorithms have been used to minimize the corresponding fuel cost.
+
+Five HSs can obtain the same VG and VR values equal to zero, thus they can completely satisfy two inequality constraints on generator capacities and ramp rate limits.
+
+According to the error tolerance ε=0.01, all five HSs succeed in satisfying the equality constraint on power balance, since their VPT values are smaller than ε.
+
+According to the criterion C, NEHS can obtain the lowest fuel cost equal to 25 446.22882.
+
+GSOMP can obtain the second lowest fuel cost equal to 25 493.0 which is slightly larger than that of NEHS.
+
+For the DEmD of the 6-unit system, nine algorithms have been used to minimize the corresponding pollutant emission.
+
+Five HSs are able to obtain the same VG and VR values equal to zero, hence they manage to met two inequality constraints on generator capacities and ramp rate limits.
+
+Furthermore, the VPT values of five HSs are all smaller than ε, hence they manage to satisfy the equality constraint on power balance.
+
+According to the criterion C, NEHS can obtain the lowest pollutant emission equal to 5.67961.
+
+On the contrary, HS-NPSA performs worst and obtain the highest pollutant emission equal to 6.09354 which is noticeably larger than that of NEHS.
+
+For the DEED of the 6-unit system, seven algorithms have been used to simultaneously minimize its fuel cost and pollutant emission.
+
+All the seven algorithms can obtain the same VG and VR values equal to zero, hence they are in accordance with the requirements of two inequality constraints on generator capacities and ramp rate limits.
+
+Furthermore, the VPT values of the seven algorithms are all smaller than ε, hence they are also in accordance with the requirements of the equality constraint on power balance.
+
+In addition, NEHS can obtain the third lowest fuel cost (C=26295.93182) and the lowest pollutant emission (E=5.72755), and the corresponding normalized function value is the lowest (fm=0.140176).
+
+As a consequence, NEHS can better equalize fuel cost and pollutant emission as the multi-objective functions.
+
+PARAGRAPH
+
+Table 8 records the best DED, DEmD and DEED results of the constant algorithms for the 10-unit system.
+
+For the DED of the 10-unit system, thirteen algorithms have been applied to the fuel cost minimization.
+
+The VG and VPT values attained by IBFA are equal to 37.9288 and 43.360406, respectively, suggesting that the IBFA solution cannot satisfy the constraints related to generator capacities and power balance.
+
+The VPT and VR values attained by CRO are equal to 16.966488 and 70.9961, respectively, suggesting that the CRO solution cannot satisfy the constraints related to power balance and ramp rate limits.
+
+The VPT values of HCRO and PSO-SQP are larger than the error tolerance ε, thus the solutions of HCRO and PSO-SQP cannot satisfy the constraint related to power balance.
+
+The solutions of MAMODE and MRGA are not available in their literatures, thus the constraints violations cannot be computed and the feasibilities of these two solutions cannot be verified.
+
+Therefore, there are totally seven algorithms that can yield feasible solutions for the DED of the 10-unit system.
+
+On the basis of the criteria C and Ca, NEHS can obtain the lowest fuel cost equal to 246 3500.84048.
+
+Also in this case, DE-SQP can obtain the second lowest fuel cost equal to 2 465 911 which is slightly larger than that of NEHS.
+
+For the DEmD of the 10-unit system, eleven algorithms have been applied to the pollutant emission minimization.
+
+The VG and VR values of CRO are equal to 0.3205 and 0.0615, respectively, suggesting that the CRO solution cannot satisfy the constraints on generator capacities and ramp rate limits.
+
+The VG and VR values of HCRO are equal to 2.3976 and 10.7834, respectively, hence the HCRO solution fail to satisfy the constraints on generator capacities and ramp rate limits.
+
+The VPT value of IBFA is equal to 14.21132, hence the IBFA solution cannot satisfy the constraints associated with power balance.
+
+The solutions of MAMODE and MRGA are ignored in their literatures, thus the constraints violations cannot be computed and the feasibilities of these two solutions cannot be confirmed.
+
+Based on the aforementioned judgments, there are totally six algorithms that can yield feasible solutions for the DEmD of the 10-unit system.
+
+According to the terms E and Ea, the pollutant emission of NEHS is equal to 291 849.46863, which is lower than those of the other algorithms.
+
+For the DEED of the 10-unit system, fifteen algorithms have been utilized to simultaneously minimize its fuel cost and pollutant emission.
+
+The VR value of CRO is much larger than 0, thus the CRO solution has violated the constraint on ramp rate limits.
+
+The VG and VR values of HCRO are not equal to 0, and the VPT value of HCRO exceeds the error tolerance ε, hence the HCRO solution has violated all constraints.
+
+The VPT values of MAMODE, RCGA, MRGA and MNSGA-II exceed the error tolerance ε, hence their corresponding solutions have violated the power balance constraint.
+
+Unlike the aforementioned six algorithms, the remaining nine algorithms are able to yield feasible solutions which meet all constraints.
+
+With respect to the objective function values, although the C value of NEHS is higher than those of most other algorithms, the E value of NEHS is apparently lower than those of the other fourteen algorithms.
+
+As a result, NEHS achieves the lowest normalized function value (fm=0.065709), indicating that NEHS can provide the best balance between fuel cost and pollutant emission.
+
+PARAGRAPH
+
+A close scrutiny of Table 9 reveals that NEHS outperforms the other competitor algorithms for the DED, DEmD and DEED of the 14-unit system.
+
+For the DED of the 14-unit system, five HSs have been applied to the fuel cost minimization.
+
+The solutions of the five HSs are all feasible since they can meet all constraints.
+
+Furthermore, these solutions can still be judged as feasible even if a more strict requirement is imposed on the error tolerance, i.e. ε=0.001.
+
+With respective to the criterion C, NEHS can obtain the lowest fuel cost equal to 108 282.56844, and it brings about 2.02%, 3.68%, 2.98% and 3.70% cost savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+For the DEmD of the 14-unit system, five HSs have been applied to the pollutant emission minimization.
+
+The solutions of the five HSs are all feasible since they can satisfy all inequality and equality constraints.
+
+With respective to the criterion E, NEHS can obtain the lowest pollutant emission equal to 67.85561, and it achieves 8.57%, 8.50%, 10.60% and 11.26% emission reductions, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+For the DEED of the 14-unit system, nine algorithms have been used to simultaneously minimize fuel cost and pollutant emission.
+
+The solutions of GSOMP, MOPSO, NSGA-II and MAMODE are ignored in their literatures, and thus their feasibilities cannot be confirmed.
+
+On the other hand, the solutions of the five HSs can be safely judged as feasible, since there exist no violations of inequality constraints and the violations of equality constraints are all smaller than ε.
+
+Additionally, we take into account not only fuel cost but also pollutant emission for the DEED of the 14-unit system, since both terms play important roles in this kind of multi-objective optimization problem.
+
+Furthermore, NEHS can attain the third lowest fuel cost and the lowest pollutant emission for this case, and it also brings about the lowest normalized function value equal to 0.074950.
+
+PARAGRAPH
+
+It is clear from Table 10 that NEHS exhibits better performance than the other competitor algorithms on solving the DED, DEmD and DEED problems of the 30-unit system.
+
+For the DED of the 30-unit system, seven algorithms have been utilized to minimize its fuel cost.
+
+The solution of CRO is not available in its literature, thus the feasibility of this solution cannot be verified.
+
+The VP value of HCRO is far from ε, thus its reported solution cannot met the power balance constraint.
+
+In the mean time, the VR value of HCRO is much larger than 0, thus its reported solution also cannot met the constraint considering ramp rate limits.
+
+The solutions of the remaining five HSs are feasible, since they can adequately meet the needs of the inequality and equality constraints.
+
+Furthermore, owning to its strong convergence, NEHS is able to achieve the lowest fuel cost equal to 3053606.87070, and it achieves 2.27%, 3.52%, 2.37% and 2.87% cost savings, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+For the DEmD of the 30-unit system, seven algorithms have been utilized to minimize its pollutant emission.
+
+The feasibility and quality of the CRO solution cannot be effectively evaluated because of its absence in literature.
+
+It is noted that the HCRO solution violates two constraints related to power balance and ramp rate limits, thus this solution cannot be considered as a feasible one.
+
+The solutions of the remaining five HSs are feasible because they can fulfill the requirements of the inequality and equality constraints.
+
+Among five improved HSs, NEHS manages to obtain the lowest pollutant emission equal to 808671.50091, and it achieves 5.09%, 7.41%, 5.27% and 8.98% emission reductions, respectively, for IHS, DHS, HS-NPSA and MHS.
+
+For the DEED of the 10-unit system, seven algorithms have been utilized to minimize its two objectives consisting of fuel cost and pollutant emission.
+
+Unfortunately, the feasibilities of the solutions using CRO and HCRO cannot be effectively assessed due to their absence in literatures.
+
+In addition, the VG, VP and VR values of five improved HSs can be determined in terms of their corresponding solutions.
+
+To be more specific, the VG and VR values of all five HSs are equal to 0, thus their solutions are successful in satisfying inequality constraints.
+
+The VP values of all five HSs achieve comparable levels lower than ε, thus their solutions are also successful in satisfying equality constraint.
+
+From the point of view of objective function values, NEHS can obtain the third lowest fuel cost and the lowest pollutant emission.
+
+Most importantly, the corresponding normalized function value achieves the lowest level equal to 0.136254, indicating that NEHS is more efficient in finding a balance between fuel cost minimization and pollutant emission minimization compared to the other algorithms.
+
+PARAGRAPH
+
+For the sake of continuity and integrity, the best solutions of NEHS for the DED, DEmD and DEED problems of the first four systems are shown in Figs. 2, 3, 4, 5, 6, 7, 8, 9 and 10, respectively.
+
+These results can be used for related studies, comparisons and analyses.
+
+Take Fig. 2 for example, the data under the term DED represent the ones related to the DED of the 5-unit system.
+
+For Hour = 2 and Pi=P3, the corresponding number is equal to 65.92299, suggesting that the power output of the third generating unit is 65.92299 MW in the second time interval.
+
+Moreover, the cost of the DED problem is equal to 43066.07313 $.
+
+In addition, the data under the term DEmD represent the ones related to the DEmD of the 5-unit system.
+
+For Hour = 17 and Pi=P5, the corresponding number is equal to 105.22061, suggesting that the power output of the fifth generating unit is 105.22061 MW in the seventeen time interval.
+
+Moreover, the emission of the DEmD problem is equal to 17853.00294 t. Regarding the fifth system, the lowest cost using NEHS is 3053606.87070 for the DED problem, the lowest emission using NEHS is 808671.50091 for the DEmD problem, and the best compromise cost and emission using NEHS are 3171730.95661 and 815139.93053, respectively, for the DEED problem.
+
+The corresponding DED, DEmD and DEED solutions of the fifth system are not included for the length saving of this paper.
+
+SECTION
+
+The Pareto front based on the normalized method
+
+PARAGRAPH
+
+Let ω1(0≤ω1≤1) and ω2=1−ω1(0≤ω2≤1) be the weights of the normalized fuel cost and emission, respectively (As Eq. (5)), then the sum of the two weights is equal to 1.
+
+Furthermore, ω1 is decreased from 1 to 0, taking 0.02 as the length of step, and ω2 is increased from 0 to 1, taking 0.02 as the length of step.
+
+For five DEEDs, all solutions in the 2-D objective space in fifty-one runs of each algorithm are shown in Fig. 11.
+
+PARAGRAPH
+
+For each algorithm, the fuel cost appears an increasing trend as the weight w1 decreases, since its importance is gradually reduced.
+
+On the contrary, the emission appears a decreasing trend as the weight w2 increases.
+
+Obviously, the fuel cost and emission are in conflict with each other for the DEED problem, and one objective is usually improved at the expense of worsening the other.
+
+By adopting the normalized method, the distribution of the solutions using each algorithm is sparse in the 2-D objective space, which can provide good alternatives for designers’ various needs.
+
+In summary, the Pareto fronts of NEHS are closer to the origin (0,0) than those of the other four algorithms for all five cases, suggesting that NEHS outperforms these algorithms in producing desirable compromise solutions.
+
+SECTION
+
+The dynamic economic dispatch problem with spinning reserve requirements
+
+PARAGRAPH
+
+A real-life power system encounters some unexpected events, such as unit faults and demand changes.
+
+As a countermeasure, a spinning reserve (SR) is usually maintained in scheduling to increase system reliability (Zaman et al., 2016).
+
+Here, we modify the DED of the 10-unit system by incorporating spinning reserve requirements.
+
+Three kinds of constraints are involved in the spinning reserve requirements, and they are stated as follows. ∑i=1NGPimax−(PDt+PLt+SRt)≥0,t∈T ∑i=1NGmin(Pimax−Pi,t,URi)−SRt≥0,t∈T ∑i=1NGmin(Pimax−Pi,t,URi∕6)−SRtm≥0,t∈T
+
+PARAGRAPH
+
+Constraints (28) and (29) are used to meet the 1-h reserve requirements and constraint (30) is used to meet the 10-min ones.
+
+SRt and SRtm represent the spinning reserves for 1 h and 10 min, respectively.
+
+Moreover, SRt is set to 5% of the load demand and SRtm is set to 1∕3×5% of the load demand.
+
+Five improved HS algorithms are used to solve this problem, and their parameters settings are the same as those in Section 4.2.
+
+The results of fifty runs using each algorithm are recorded in Table 11.
+
+PARAGRAPH
+
+Each term of NEHS is lower than those of IHS, DHS, HS-NPSA and MHS.
+
+Moreover, the highest costs of NEHS are even lower than the lowest ones of the other four HSs, indicating that NEHS is significantly better than the other four HSs in minimizing the fuel cost of the 10-unit system with spinning reserve requirements.
+
+PARAGRAPH
+
+Our results are better than those of the literatures in most cases, indicating that NEHS is very efficient in achieving low costs and (or) emissions for the DED, DEmD and DEED problems.
+
+Furthermore, our obtained solutions can satisfy all the constraints, such as the generator capacity constraints, power balance constraints and ramp rate limits.
+
+Thus, the proposed repair technique has played a significant role in guiding NEHS to explore feasible regions.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+In this paper, a new enhanced harmony search (NEHS) algorithm has been proposed for dispatching the power outputs of different generating units over twenty-four time intervals, and its main goal is to find compromise solutions for the fuel cost and emission minimizations of the DEED problems.
+
+Moreover, a normalized objective function considering both objectives is employed to evaluate the solutions obtained by NEHS.
+
+In NEHS, the harmony memory considering and pitch adjusting operations are modified to improve the entire quality of HM.
+
+On the other hand, a repair technique is developed to help the newly generated harmony vector to get into the feasible solution space.
+
+Empowered by this repair technique, NEHS is capable of obtaining the solutions with the characteristics of strict feasibility and high quality.
+
+To demonstrate the superiority of NEHS on solving the DEED problems, another four algorithms including IHS, DHS, HS-NPSA and MHS are employed to compare with it from different points of view such as objective function value and average running time.
+
+These HSs are tested on five different instances consist of the 5-unit, 6-unit, 10-unit, 14-unit and 30-unit systems.
+
+The first three instances consider the transmission losses in the power balance constraints, and the last two instances neglect them.
+
+Experimental results show that NEHS is more efficient than the other four HSs for the DED, DEmD and DEED problems and has the potential to find desirable solutions in less running time.

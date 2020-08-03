@@ -1,0 +1,411 @@
+10.1016/j.jhep.2019.04.007
+
+FULLTEXT
+
+TITLE
+
+Glycolytic activation of peritumoral monocytes fosters immune privilege via the PFKFB3-PD-L1 axis in human hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Monocytes/macrophages constitute a major component of most solid tumors and exhibit great plasticity and diversity according to different environmental cues.1–3
+
+Instead of inducing anti-tumor immune responses, monocytes/macrophages can be educated by the tumor microenvironment and facilitate disease progression via diverse mechanisms.4,5
+
+For example, we and others have found that the peritumoral stroma of human hepatocellular carcinoma (HCC) is highly infiltrated by monocytes with activated phenotypes.6,7
+
+These activated monocytes attenuate the T cell response by expressing programmed cell death 1 ligand 1 (PD-L1) but retain their proinflammatory properties to induce angiogenesis and tissue remodeling by inducing interleukin (IL)-17A-producing cell expansion and neutrophil recruitment, thus rerouting the inflammatory response in a tumor-promoting direction.8,9
+
+The specific phenotype and functions of these tumor-infiltrating monocytes/macrophages are generally thought to be induced and maintained by local environmental factors, but the underlying mechanisms are still not well understood.
+
+PARAGRAPH
+
+Cellular metabolic changes occur not only as passive consequences of environmental cues but also as active regulators in many physiological and pathological conditions.10–12
+
+For example, lymphocytes employ distinct metabolic substrates and pathways to fuel their different effector functions in naive, activated, and memory states.13–15
+
+Cancer cells preferentially upregulate the glycolytic pathway to support and satisfy their distinct functional needs in tissue microenvironments, a phenomenon known as the Warburg effect.16
+
+To date, little is known about whether and how metabolic changes might occur and regulate the phenotypes and functions of monocytes/macrophages in specific tumor microenvironments.
+
+PARAGRAPH
+
+On the one hand, cellular metabolism provides the energy and material basis for the process of signaling transduction.
+
+On the other hand, many metabolic intermediates or enzymes can directly interact with signaling pathways to regulate downstream cellular functions.17
+
+As has been reported, it is not only the process of glycolysis itself that supports cellular growth and proliferation, but its key enzymes and byproducts can also actively regulate the phenotype and functions of immune cells by regulating downstream signaling pathways.18–20
+
+For example, glycolytic enzyme pyruvate kinase M2 (PKM2) can mediate both the glycolytic switch and IL-1β production via hypoxia inducible factor 1 α (HIF1α) stabilization in lipopolysaccharide (LPS)-activated murine macrophages,21 suggesting that in addition to canonical roles in anabolism or catabolism, key metabolic enzymes play direct roles in modulating immune responses.
+
+However, currently, the enzymes or intermediates that might be involved in regulating the phenotypes and functions of human monocytes/macrophages in specific tumor microenvironments, as well as the underlying signaling mechanisms, are not well understood.
+
+PARAGRAPH
+
+The present study provides evidence for the glycolytic switch in HCC peritumorally-infiltrating monocytes.
+
+Instead of PKM2, the upregulated glycolytic enzyme PFKFB3 induces PD-L1 expression on monocytes via nuclear factor kappa B (NF-κB) activation, thus leading to immune evasion and disease progression in human HCC.
+
+Therefore, PFKFB3 might represent itself as a therapeutic target in both tumor-associated monocytes and cancer cells.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Patients and specimens
+
+PARAGRAPH
+
+Liver tissues were obtained from 141 untreated patients with pathologically confirmed HCC from the Cancer Center of Sun Yat-sen University between 2008 and 2017.
+
+Among these patients, 94 (cohort 1) who had complete follow-up data were used for immunohistochemical analysis and assessments of overall survival (OS).
+
+Another 47 (cohort 2) were used for the isolation of fresh blood-, tumor- and non-tumor-infiltrating leukocytes.
+
+Non-tumor sites were defined as areas at least 3 cm away from the tumor sites.
+
+The clinical characteristics of all patients are summarized in Table S1.
+
+Blood samples were obtained from 40 healthy donors attending the Guangzhou Blood Center.
+
+All samples were anonymously coded in accordance with local ethical guidelines (as stipulated by the Declaration of Helsinki).
+
+Written informed consent was obtained from each patient, and the study protocol was approved by the Review Board of Sun Yat-Sen University Cancer Center (reference number for local ethical review study: GZR2017-015).
+
+Heparin tubes (367884, BD Biosciences) were used to collect blood samples, and all blood assays were performed using fresh cells.
+
+SECTION
+
+Isolation of leukocytes from peripheral blood and tissues
+
+PARAGRAPH
+
+Peripheral leukocytes were isolated by Ficoll density gradient centrifugation.6
+
+Tumor- and non-tumor-infiltrating leukocytes were obtained from paired fresh tissue samples, as described previously.7
+
+CD14+ monocytes and autologous T lymphocytes were isolated using magnetic beads (130-050-201/130-095-130, Miltenyi Biotec) for use in subsequent in vitro experiments.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Statistical tests used are indicated in the figure legends.
+
+The results are expressed as the means ± SEMs.
+
+Correlations between parameters were measured by Pearson correlation.
+
+Statistical analysis was performed with GraphPad Prism 6 (GraphPad Software, La Jolla, CA, USA), and p <0.05 was considered statistically significant.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Monocytes in the peritumoral region of HCC preferentially enhance glycolysis levels
+
+PARAGRAPH
+
+To determine the levels of glycolysis in tumor-infiltrating monocytes/macrophages, we purified CD14+ cells from the peripheral blood and tumor tissues of patients with HCC and examined the expression levels of glycolytic enzymes by quantitative real-time PCR (qPCR).
+
+As shown in Fig. 1A, CD14+ cells derived from tumor tissues had significantly increased expression levels of key glycolytic enzymes (GLUT1 [or SLC2A1], HK2, PFKFB3, PKM2, LDHA, PDK1, ALDOA, GAPDH, and PGK1) compared to CD14+ cells isolated from paired peripheral blood.
+
+Consistently, tumor-derived monocytes exhibited markedly higher hexokinase, phosphofructokinase, pyruvate kinase and lactate dehydrogenase enzyme activity than their blood or remote non-tumor tissue-derived counterparts (Fig. 1B).
+
+Moreover, increased lactate production and fluorescent 2-NBD-glucose consumption, as well as upregulation of Glut1 expression, were observed in monocytes purified from tumor tissues compared with monocytes isolated from the paired blood or non-tumor tissues of patients with HCC (Fig. 1C–E).
+
+PARAGRAPH
+
+To further confirm the upregulation of glycolysis in tumor-infiltrating monocytes in situ in the tumors, we double-stained sections of HCC samples with an anti-CD68 antibody (a marker for monocytes/macrophages) and anti-Glut1 antibody.
+
+Interestingly, the results showed that while the tumor-infiltrating CD68+ cells had significantly increased levels of Glut1 expression compared to their non-tumor-derived counterparts, these glycolysis active cells were predominantly enriched in the peritumoral area of HCC (Fig. 1F).
+
+Consistently, seahorse extracellular flux analysis showed that monocytes purified from the peritumoral tissues exhibited significantly higher glycolytic capacity than those purified from the non-tumor or intratumoral tissues (Fig. 1G).
+
+These data suggest that monocytes preferentially increase the levels of glycolysis in specific areas of human HCC.
+
+PARAGRAPH
+
+We then use CD163/CD206 and HLA-DR/CD86 to further characterize the phenotype of glycolytically active monocytes purified from HCC tumor tissues.
+
+As shown in Fig. S1, the levels of CD163 and CD206 were similar between Glut1+ and Glut1- monocytes.
+
+However, expression of both HLA-DR and CD86 were significantly higher in Glut1+ monocytes than in Glut1- cells, indicating that the peritumoral infiltrated, glycolytically active monocytes exhibited features more similar to inflammatory phenotypes.
+
+SECTION
+
+Glycolysis mediates tumor-induced PD-L1 expression on monocytes
+
+PARAGRAPH
+
+The selective enhanced glycolytic activity of peritumorally-infiltrating monocytes was reminiscent of our previous finding that monocytes upregulate PD-L1 expression via autocrine tumor necrosis factor α (TNF-α) and IL-10 and subsequently attenuate CD8+ T cell activity in the peritumoral areas of HCC.22
+
+To explore the possible link between enhanced glycolysis and PD-L1 upregulation, we cultured healthy peripheral blood-derived monocytes with hepatoma HepG2 cell supernatants (tumor-culture supernatant [TSN]) to induce tumor-associated monocytes in vitro that had phenotypes similar to those found for peritumoral monocytes in situ, including the upregulation of PD-L1 expression.
+
+As expected, the TSN-exposed monocytes had increased mRNA expression levels of key glycolytic enzymes (HK2, PFKFB3, ALDOA, GAPDH, PGK1, PKM1, PKM2, and LDHA) and increased levels of lactate production compared to the medium-treated monocytes (Fig. 2A, B), and their enhanced glycolytic capacity was confirmed through seahorse extracellular flux analysis (Fig. 2C).
+
+Notably, TSNs from primary HCC cells (primary) and Huh7 cells, could also trigger an upregulation of glycolysis in peripheral monocytes (Fig. S2A).
+
+PARAGRAPH
+
+Thereafter, normal blood-derived monocytes were incubated with medium or HepG2 TSN in the presence or absence of glycolysis inhibitor 2-Deoxy-D-glucose (2DG).23
+
+As shown in Fig. 2D and E, while TSN could induce significant upregulation of TNF-α, IL-10, and IL-1β production, as well as PD-L1 expression in/on monocytes, 2DG treatment efficiently antagonized the induction effects of TSN.
+
+In contrast, the IL-6 induction effects of TSN were only marginally affected by 2DG treatment.
+
+Consistently, tumor-exposed monocytes could suppress interferon γ (IFN-γ) and TNF-α production by autologous CD8+ T lymphocytes, and such effects could be markedly abolished by 2DG treatment of monocytes (Fig. 2F).
+
+Similarly, 2DG could attenuate PD-L1 expression on monocytes induced by TSNs from primary HCC cells (primary) and HuH7 cells (Fig. S2B).
+
+Together, the above results indicate that upregulation of glycolysis might induce PD-L1 expression via autocrine cytokines in tumor-associated monocytes, thus inducing CD8+ T cell suppression in specific tumor microenvironments.
+
+SECTION
+
+PKM2 and HIF1α are not involved in the glycolysis-mediated upregulation of PD-L1 on monocytes
+
+PARAGRAPH
+
+A recent report as indicated that the glycolytic enzyme PKM2 can translocate into the nucleus and induce downstream cytokine production via HIF1α stabilization in LPS-activated murine macrophages.21,24
+
+Therefore, we set out to determine whether such mechanisms were also involved in glycolysis-induced PD-L1 expression in peritumoral monocytes.
+
+As shown in Fig. 3A and B, monocytes exhibited a significant increase in PKM2 nuclear translocation and PD-L1 expression upon TSN treatment.
+
+However, while TEPP (a molecule promoting PKM2 tetramer assembly) could effectively antagonize TSN-induced PKM2 translocation in monocytes, TEPP had no effects on TSN-triggered PD-L1 upregulation in these cells (Fig. 3B).
+
+Similarly, while TSN-exposed monocytes showed markedly increased levels of HIF1α expression compared to the medium control, their PD-L1 upregulation was only marginally affected by the HIF1α inhibitor α-ketoglutarate (Fig. 3C, D).
+
+These results suggested that activation of glycolysis could induce PD-L1 expression via mechanisms other than PKM2/HIF1α in peritumoral monocytes.
+
+SECTION
+
+PFKFB3 mediates glycolysis-induced PD-L1 expression on monocytes
+
+PARAGRAPH
+
+Among the key glycolytic enzymes upregulated in tumor-infiltrating or TSN-exposed monocytes, PFKFB3 exhibited the most significant increase in mRNA expression levels (Figs. 1A, 2A).
+
+Consistently, exposure of monocytes to HepG2 TSN resulted in a rapid increase in the expression of PFKFB3 protein, and PFKFB3 expression peaked at approximately 24 h after the treatment (Fig. 4A).
+
+To determine whether PFKFB3 mediated the upregulation of PD-L1 expression by activating glycolysis, we incubated normal blood-derived monocytes with TSN in the presence or absence of 3PO, a PFKFB3 inhibitor.
+
+We observed that both 2DG and 3PO abrogated the induction of PFKFB3 expression in TSN-exposed monocytes (Fig. 4B).
+
+Intriguingly, while 3PO did not affect IL-6 production in TSN-treated monocytes, this inhibitor could effectively antagonize TNF-α, IL-10, IL-1β, and PD-L1 production/expression in/on TSN-treated monocytes (Fig. 4C–E).
+
+Furthermore, while TSN-exposed monocytes significantly suppressed IFN-γ and TNF-α production, cytotoxity against tumor cells, as well as the in vivo tumor inhibiting effects of autologous CD8+ T lymphocytes, such suppression could all be efficiently attenuated by the treatment of monocytes with 3PO (Figs. 4F, S3A–C).
+
+Notably, the effect of 3PO in attenuating PD-L1 expression was also confirmed in monocytes exposed to culture supernatant from primary HCC cells (primary) and HuH7 cells (Fig. S3D).
+
+To further verify the role of PFKFB3, we downregulated PFKFB3 expression via siRNA.
+
+As shown in Fig. 4G and H, compared with the NC control, siPFKFB3 markedly abrogated the induction of PFKFB3 expression in TSN-exposed monocytes, resulting in the reduction of PD-L1 expression on these cells.
+
+PARAGRAPH
+
+We next investigated the expression of PFKFB3 in human HCC clinical samples.
+
+As shown in Fig. 4I and J, we observed a positive correlation between the mRNA levels of PD-L1 and PFKFB3 in the tumor tissue-derived monocytes (n = 13; p = 0.0081) and negative correlations between the mRNA levels of PFKFB3 in the tumor tissue-derived monocytes and the levels of IFN-γ+ and TNF-α+CD8+ T lymphocyte infiltration in the HCC tumor tissues (n = 9; p = 0.0016 and n = 9; p = 0.0117, respectively).
+
+We also stained paraffin-embedded serial sections of human HCC samples with different combinations of antibodies (anti-CD68, anti-Glut1 and anti-CD8, or anti-CD68, anti-PFKFB3 and anti-PD-L1, or anti-CD8 and anti-programmed cell death 1 [anti-PD-1]), and analyzed the distribution and correlation between different cells.
+
+As shown in Fig. S4, CD68+Glut1+ cells were in close contact with CD8+ T cells in the peritumoral areas of HCC, and the densities of these 2 leukocytes exhibited some positive correlation, although not statistically significant.
+
+Similarly, CD68+PFKFB3+PD-L1+ cells were closely located at the same areas with CD8+PD-1+ cells, but no significant correlation was found between these 2 populations in HCC.
+
+These results suggest that glycolytically active monocytes might mainly regulate the functions, instead of the infiltration, of CD8+ T cells via the PD-L1-PD-1 axis.
+
+PARAGRAPH
+
+Additionally, immunofluorescence staining confirmed that a significant proportion of CD68+ cells were positive for both PFKFB3 and PD-L1 in the peritumoral tissues of HCC (Fig. S3E).
+
+Together, these data suggested that PFKFB3 could mediate the effects of TSN-induced glycolysis activation on PD-L1 expression and immunosuppression in peritumoral monocytes of HCC.
+
+SECTION
+
+PFKFB3 induces PD-L1 upregulation on monocytes via the NF-κB signaling pathway
+
+PARAGRAPH
+
+To further explore the mechanisms regulating PD-L1 induction by PFKFB3 activation, we analyzed key signaling pathways that could possibly be influenced in TSN-treated monocytes.
+
+As shown in Fig. 5A, gene enrichment analysis of the transcriptome profiles of TSN-treated or untreated monocytes showed that the NF-κB (p = 0.007), mitogen-activated protein kinase (p = 0.118), and JAK-STAT (p = 0.000) signaling pathways were preferentially activated in TSN-exposed monocytes.25,26
+
+Accordingly, the protein levels of p-IκBα, p-p65, p-p38, p-Erk, p-JNK, and p-STAT3 were markedly increased in monocytes treated with TSN (Fig. 5B).
+
+However, of the above observed signaling molecule changes, only the upregulation of p-IκBα and p-p65 by TSN could be antagonized by siPFKFB3 treatment in comparison to the non-coding (NC) control (Fig. 5B), indicating that the NF-κB signaling pathway might be involved in regulating the downstream functions of PFKFB3.
+
+PARAGRAPH
+
+To test this hypothesis, we analyzed p65 nuclear translocation in monocytes transfected with siNC or siPFKFB3 in the presence or absence of TSN.
+
+As shown in Fig. 5C and D, while TSN exposure significantly induced p65 translocation from the cytoplasm to the nucleus in monocytes, this induction was effectively abrogated in the siPFKFB3 group.
+
+Moreover, similar to siPFKFB3, both BAY and JSH-23, which are inhibitors that abolish the activation of the NF-κB signaling pathway, could antagonize the upregulation of PD-L1 expression in TSN-treated monocytes (Fig. 5E).
+
+The correlation between PFKFB3 and the NF-κB pathway was further verified in situ in tumors.
+
+When the patients with HCC were divided into 2 groups according to the median values of their PFKFB3 mRNA expression levels in peritumoral monocytes, the PFKFB3high group showed significantly higher levels of p-p65 expression than the PFKFB3low group (Fig. 5F).
+
+These data suggest that the NF-κB signaling pathway is involved in regulating the upregulation of PD-L1 expression by PFKFB3 activation in peritumoral monocytes of HCC.
+
+SECTION
+
+Monocyte glycolysis that is activated by tumor-derived hyaluronan facilitates human HCC disease progression
+
+PARAGRAPH
+
+In light of the above findings, we further explored tumor microenvironmental components that regulate glycolytic activation in peritumoral monocytes.
+
+TSN was either boiled to denature the protein components or ultracentrifuged to exclude the microvesicular components before being used to treat monocytes.27
+
+As shown in Fig. S5A, none of these treatments showed significant effects on the upregulation of PFKFB3 expression in TSN-exposed monocytes.
+
+Similarly, treatment with lactate,28 which was found to have accumulated in HCC tumor tissues or hepatoma TSN, showed only marginal effects on the activation of PFKFB3 and upregulation of PD-L1 in/on monocytes compared to those stimulated with TSN (Fig. S5B–D).
+
+Because our previous results showed that tumor-derived hyaluronan (HA) fragments could regulate the phenotypes of tumor-infiltrating monocytes,6 we next set out to determine whether this component was responsible for the glycolytic activation of tumor-associated monocytes.
+
+As shown in Fig. 6A and B, the HA fragments dose-dependently induced the upregulation of glycolytic capacity, PFKFB3 expression and PD-L1 expression in/on normal blood-derived monocytes.
+
+Conversely, Pep-1, an HA antagonist, markedly abolished the increases in glycolytic capacity, PFKFB3 expression, and PD-L1 expression in/on TSN-exposed monocytes in comparison to the control peptide (Fig. 6C, D).
+
+PARAGRAPH
+
+To confirm the clinical significance of the glycolytic activation in the peritumoral monocytes, we stained sections of HCC tumor samples with an anti-PFKFB3 antibody and an anti-CD68 antibody.
+
+Consistent with the above results, CD68+ cells with high levels of PFKFB3 expression preferentially accumulated in the peritumoral regions of HCC (Fig. 6E).
+
+The patients, who received curative resection with follow-up data, were then divided into 2 groups according to the median value of the PFKFB3+CD68+ cell density in the peritumoral region (low, ≤45 cells [n = 48]; high, >46 cells [n = 46]).
+
+As shown in Fig. 6F, more PFKFB3+CD68+ cells in peritumoral tissues indicated worse OS for patients with HCC (p = 0.015).
+
+Moreover, the density of PFKFB3+CD68+ cells in the peritumoral regions was positively associated with TNM (tumor-node-metastasis) stage (p = 0.036; Table 1) and could serve as an independent prognostic factor for the OS of patients with HCC (p <0.001; Table 2).
+
+The above results suggested that glycolysis in peritumoral monocytes was activated by tumor-derived HA and could thereafter facilitate the disease progression of human HCC.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+PD-L1 expression on antigen-presenting cells (APCs) is essential for T cell impairment, and PD-L1-expressing dendritic cells and macrophages may mechanistically shape and therapeutically predict the clinical efficacy of PD-L1/PD-1 blockade.29
+
+Our present study provides evidence that cellular glycolysis mediates the activation of monocytes by tumor microenvironmental cues, which lead to the induction of PD-L1 expression on these cells and subsequent autologous CD8+ T cell suppression in peritumoral tissues of human HCC.
+
+Notably, a key glycolytic enzyme, PFKFB3, has been identified as an important mediator regulating PD-L1 expression on peritumoral monocytes by inducing the activation of the NF-κB signaling pathway.
+
+PARAGRAPH
+
+The roles of oxidative phosphorylation in sustaining anti-inflammatory M2 phenotype and glycolysis in regulating proinflammatory M1 polarization have been well documented for monocytes/macrophages in different experimental models.21,30–33
+
+Glycolysis has been found to be downregulated in macrophages of some tumor types, and their switch to glycolysis has been reported to contribute to the repolarization of these cells into anti-tumor phenotypes.10,12,34
+
+However, the role of glycolysis in monocytes might be more complicated than previously thought,35 particularly in human tumors with distinct compositions, since the current study provided evidence that glycolysis induced PD-L1 expression in HCC tumor-activated monocytes, thus rerouting the proinflammatory response into an immunosuppressive direction, which might represent an important mechanism by which tumors can regulate immune components to favor tumor progression.
+
+PARAGRAPH
+
+Human HCC tumor tissue can often be anatomically classified into distinct areas, namely, the cancer nest, invading edge, and peritumoral stroma, each with a distinct structure and cellular and nutrient composition.7–9
+
+In particularly, the peritumoral regions are highly enriched with not only CD8+ T lymphocytes but also abundant PD-L1-expressing monocytes, which are in close proximity to cancer cells at the invading edge regions.8
+
+The current study provides evidence that metabolic switching in monocytes intricately regulates the interactions between cancer cells and immune components in these important areas.
+
+PARAGRAPH
+
+It has been reported that PKM2 and/or HIF1α could mediate effects of LPS stimulation on cytokine production in macrophages,21,24 but our current results suggested that such mechanisms might not be involved in the regulation of PD-L1 expression in peritumor-infiltrating monocytes of HCC, since blockage of PKM2 nucleus translocation or HIF1α stabilization exhibited no significant effects on PD-L1 induction in tumor-activated monocytes.
+
+Instead, PFKFB3, a key glycolytic enzyme that is poorly characterized beyond its role in regulating glycolysis, was shown to be important in inducing the expression of PD-L1 in glycolytically activated monocytes.
+
+The role of PFKFB3 is supported by several lines of evidence.
+
+First, a positive correlation between the mRNA levels of PD-L1 and PFKFB3 is evident in tumor tissue-purified monocytes, and negative correlations are evident between the mRNA levels of PFKFB3 in tumor tissue-purified monocytes and the levels of IFN-γ+ or TNF-α+CD8+ T cell infiltration in HCC tumor tissues.
+
+Second, the PFKFB3 inhibitor 3PO can antagonize the upregulation of TNF-α, IL-10, and IL-1β, as well as PD-L1 production/expression in/on TSN-treated monocytes.
+
+This inhibitor also effectively reverses the suppression of IFN-γ and TNF-α production in CD8+ T lymphocytes cocultured with tumor-activated monocytes.
+
+Third, compared with the NC control, siPFKFB3 efficiently abrogates the upregulation of PD-L1 expression on TSN-exposed monocytes.
+
+According to the immunofluorescence staining analysis, a significant proportion of CD68+ cells in the peritumoral tissues are positive for both PFKFB3 and PD-L1 expression, and more PFKFB3+CD68+ cells in these areas indicate worse OS for patients with HCC.
+
+PARAGRAPH
+
+The molecular link between PFKFB3 and NF-κB is currently unclear.
+
+Indeed, although PFKFB3 is a glycolytic enzyme, emerging evidence has indicated its role beyond catabolism.
+
+For example, it has been reported that PFKFB3 could regulate downstream signaling molecules by modulating their ubiquitination, or via the reactive oxygen species pathway,36–38 but whether such mechanisms might be involved in the regulation of NF-κB by PFKFB3 in tumor-activated monocytes remains to be defined.
+
+PARAGRAPH
+
+Cancer cells produce large amounts of HA fragments,6,39 which might play a role in regulating disease progression via mechanisms that are not fully understood.
+
+The current study provides evidence that the HA fragment can activate the glycolysis pathway in tumor-activated monocytes and might subsequently induce PD-L1 expression on these cells.
+
+Nevertheless, the network that regulates glycolysis activation in tumor-infiltrating monocytes is much more complex than we have ascertained so far, as the HA antagonist Pep-1 can only partially attenuate the upregulation of glycolytic capacity in TSN-exposed monocytes in comparison to the control peptide.
+
+Moreover, the overwhelming cohort of patients enrolled in this study have hepatitis B-related HCC, and further work would be needed to assess if the current findings are relevant in HCC arising in other etiologies.
+
+PARAGRAPH
+
+PD-L1 expressed in APCs, rather than on tumor cells, has been reported to play an essential role in checkpoint blockade therapy.40,41
+
+Therefore, a fundamental understanding of the mechanisms that regulate the expression of PD-L1 on the monocytes/macrophages of patients with cancer and the identification of the underlying molecular pathways will undoubtedly lead to the possibility of developing novel PD-L1 blockade strategies with high specificity and efficiency.
+
+Given the role of PFKFB3 in regulating PD-L1 expression on tumor-associated monocytes, it is tempting to assume that a PFKFB3 inhibitor, alone or in combination with PD-L1 blockage, would improve the efficacy of current therapeutics targeting cancer checkpoints, especially for patients with high PD-L1 levels on tissue-infiltrating monocytes.
+
+Inhibitors that attenuate PFKFB3 activation would target not only the immune checkpoint PD-L1 but also the cancer cells with high glycolytic rates, thus providing suitable microenvironments for more effective cytotoxic T cell responses.
+
+Together, the data in our study have unveiled a mechanism by which activation of the glycolytic pathway in monocytes at specific tumor areas facilitates disease progression via PD-L1 upregulation, thus representing a novel tumor immune editing strategy and indicating efficient targets for future immune-based anti-cancer therapies.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by project grants from the National 135 Major Project of China (2017YFA0505803, 2018ZX10302205), the National Natural Science Foundation of China (81773054, 81730044, and 91842308), the National Postdoctoral Program for Innovative Talents (BⅩ20180398), the China Postdoctoral Science Foundation (2019M653169), and the Fundamental Research Funds for the Central Universities (171gjc32).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+D.P.C. designed the experiments, processed tissues, performed flow cytometry and western blotting, collected the data, and wrote the paper.
+
+W.R.N. and Z.P.Z. did immunohistochemical staining and analyzed the data.
+
+Z.P.Z. and Z.Z.J. helped and performed enzyme activity and lactate production detections.
+
+L.Z., S.Z. and D.M.K advised and consulted on analyzing human data, and/or supported the project.
+
+L.Z. and Y.W. planned and supported the project, analyzed data, and wrote the paper.

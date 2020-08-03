@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.103255
+
+ABSTRACT
+
+TITLE
+
+Therapy-driven Deep Glucose Forecasting
+
+PARAGRAPH
+
+The automatic regulation of blood glucose for Type 1 diabetes patients is the main goal of the artificial pancreas, a closed-loop system that exploits continue glucose monitoring data to define an optimal insulin therapy.
+
+One of the most successful approaches for developing the artificial pancreas is the model predictive control, which exhibits promising results on both virtual and real patients.
+
+The performance of such controller is highly dependent on the reliability of the glucose–insulin model used for prediction purpose, which is usually implemented with classic mathematical models.
+
+The main limitation of these models consists in the difficulties of modeling the physiological nonlinear dynamics typical of this system.
+
+The availability of big amount of in silico and in vivo data moved the attention to new data-driven methods which are able to easily overcome this problem.
+
+In this paper we propose Deep Glucose Forecasting, a deep learning approach for forecasting glucose levels, based on a novel, two-headed Long-Short Term Memory implementation.
+
+It takes in input the previous values obtained through continue glucose monitoring, the carbohydrate intake, the suggested insulin therapy and forecasts the interstitial glucose level of the patient.
+
+The proposed architecture has been trained on 100 virtual adult patients of the UVA/Padova simulator, and tested on both virtual and real patients.
+
+The proposed solution is able to generalize to new unseen data, outperforms classical population models and reaches performance comparable to classical personalized models when fine-tuning is exploited on real patients.

@@ -1,0 +1,19 @@
+10.1016/j.engappai.2019.103309
+
+ABSTRACT
+
+TITLE
+
+Optimizing speed/accuracy trade-off for person re-identification via knowledge distillation
+
+PARAGRAPH
+
+Finding a person across a camera network plays an important role in video surveillance.
+
+For a real-world person re-identification application, in order to guarantee an optimal time response, it is crucial to find the balance between accuracy and speed.
+
+We analyse this trade-off, comparing a classical method, that comprises hand-crafted feature description and metric learning, in particular, LOMO and XQDA, to deep learning based techniques, using image classification networks, ResNet and MobileNets.
+
+Additionally, we propose and analyse network distillation as a learning strategy to reduce the computational cost of the deep learning approach at test time.
+
+We evaluate both methods on the Market-1501 and DukeMTMC-reID large-scale datasets, showing that distillation helps reducing the computational cost at inference time while even increasing the accuracy performance.

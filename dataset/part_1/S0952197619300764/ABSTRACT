@@ -1,0 +1,31 @@
+10.1016/j.engappai.2019.03.026
+
+ABSTRACT
+
+TITLE
+
+Magnetic Resonance Imaging, texture analysis and regression techniques to non-destructively predict the quality characteristics of meat pieces
+
+PARAGRAPH
+
+The quality of meat products is traditionally assessed by chemical or sensorial analysis, which are time consuming, need specialized technicians and destroy the products.
+
+The development of new technologies to monitor meat pieces using non-destructive methods in order to establish their quality is earning importance in the last years.
+
+An increasing number of studies have been carried out on meat pieces combining Magnetic Resonance Imaging (MRI), texture descriptors and regression techniques to predict several physico-chemical or sensorial attributes of the meat, mainly different types of pig ham and loins.
+
+In spite of the importance of the problem, the conclusions of these works are still preliminary because they only use the most classical texture descriptors and regressors instead of stronger methods, and because the methodology used to measure the performance is optimistic.
+
+In this work, we test a wide range of texture analysis techniques and regression methods using a realistic methodology to predict several physico-chemical and sensorial attributes of different meat pieces of Iberian pigs.
+
+The texture descriptors include statistical techniques, like Haralick descriptors, local binary patterns, fractal features and frequential descriptors, like Gabor or wavelet features.
+
+The regression techniques include linear regressors, neural networks, deep learning, support vector machines, regression trees, ensembles, boosting machines and random forests, among others.
+
+We developed experiments using 15 texture feature vectors, 28 regressors over 4 datasets of Iberian pig meat pieces to predict 39 physico-chemical and sensorial attributes, summarizing16,380 experiments.
+
+There is not any combination of texture vector and regressor which provides the best result for all attributes tested.
+
+Nevertheless, all these experiments provided the following conclusions: (1) the regressor performance, measured using the squared correlation (R2), is from good to excellent (above 0.5625) for 29 out of 39 attributes tested; (2) the WAPE (Weighted Absolute Percent Error) is lower than 2% for 32 out of 37 attributes; (3) the dispersion in computer predictions around the true attributes is lower or similar than the dispersion in the labeling expert’s for the majority of attributes (85%); and (4) differences between predicted and true values are not statistically significant for 29 out of 37 attributes using the Wilcoxon ranksum statistical test.
+
+We can conclude that these results provide a high reliability for an automatic system to predict the quality of meat pieces, which may operate on-line in the meat industries in the future.

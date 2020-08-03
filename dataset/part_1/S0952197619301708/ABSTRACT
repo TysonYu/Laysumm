@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.07.006
+
+ABSTRACT
+
+TITLE
+
+Combining dynamic finite state machines and text-based similarities to represent human behavior
+
+PARAGRAPH
+
+The analysis of human behavior is a popular topic of research since it allows obtaining specific information about individuals, their motivations, and the problems and difficulties they can encounter.
+
+Human behavior can be grouped to elaborate profiles that would enable the classification of individuals.
+
+Nevertheless, the elaboration of profiles related to human behaviors presents some difficulties associated with the volume of data and the number of parameters typically considered.
+
+Thus, the development of software able to automatize the manipulation of data through graphical assistants to produce understandable visualizations of the human behaviors is crucial.
+
+In this paper, the VISUVER framework is presented.
+
+It uses finite state machines to represent and visualize the dynamic human behavior automatically.
+
+This behavior could be provided by real data collected by specific sensors or simulated data.
+
+The state machines are built in sequential steps in order to illustrate the dynamic evolution of the behavior over time.
+
+VISUVER also includes similarity metrics based on text mining techniques to establish possible profiles among the analyzed behaviors.
+
+The Intelligent Transportation Systems (ITS) domain has been considered in order to validate the proposal.

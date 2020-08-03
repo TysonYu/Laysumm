@@ -1,0 +1,483 @@
+10.1016/j.jhep.2019.08.019
+
+FULLTEXT
+
+TITLE
+
+Transient elastography for screening of liver fibrosis: Cost-effectiveness analysis from six prospective cohorts in Europe and Asia
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Alcohol-related liver disease (ALD) and non-alcoholic fatty liver disease (NAFLD) are leading causes of chronic liver diseases, hepatocellular carcinoma (HCC) and liver-related deaths worldwide.1,2
+
+While the causes, consequences and treatment strategies for ALD and NAFLD are being studied and developed,3–5 the majority of patients are still diagnosed at an advanced stage of disease.6
+
+Consequently, the course of action towards early disease detection from a public health perspective remains a grey area in hepatology.7
+
+PARAGRAPH
+
+Severe fibrosis and cirrhosis is the major predictor of excess mortality, liver transplantation and liver-related events in patients with NAFLD and ALD.8,9
+
+Consequently, early detection before progression to advanced fibrosis might be more beneficial and cost-effective, as it allows for timely lifestyle interventions, patient guidance, and disease monitoring.
+
+PARAGRAPH
+
+The high prevalence of ALD and NAFLD, in combination with the slow, asymptomatic disease progression, quickly translate into pressure on our healthcare systems, specifically on general practitioners and primary healthcare specialists.
+
+The search for optimal patient management and care pathways is thus of utmost importance, including preventive screening programmes.10
+
+PARAGRAPH
+
+The search for non-invasive diagnostic tools for the staging of liver fibrosis in NAFLD and ALD has widened.
+
+Transient elastography (TE) has been shown to be a reliable diagnostic tool for fibrosis assessment.11,12
+
+Use of TE could lead to highly cost-effective care pathways as compared to magnetic resonance elastography due to significantly lower cost per test. 13,14,15
+
+Other alternatives, mostly based on serum biomarkers such as the Fibrosis-4 score (FIB-4) or the NAFLD Fibrosis Score (NFS), have also been developed and validated.16
+
+PARAGRAPH
+
+Recently, there have been individual attempts in the literature to assess prevalence rates, diagnostic accuracy and potential algorithms to stratify patients at risk of severe fibrosis.17–22
+
+However, mainly due to the limited sample size and the heterogeneity of populations and healthcare systems, a broader assessment of the technology implementation, encompassing both health and economic outcomes is lacking.
+
+PARAGRAPH
+
+The aim of the present study is to assess the cost-effectiveness of a liver screening program and surveillance intervention based on individual risk factors, using a TE screening algorithm confirmed by percutaneous liver biopsy into a broad spectrum of populations without known liver disease, communities, and healthcare systems.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Study populations
+
+PARAGRAPH
+
+Patients from 7 previous independent prospective studies that have used TE (FibroScan) as a screening method for liver fibrosis detection were included in the study.
+
+The final cohort includes 6,295 patients from 6 different countries: France (FR), Spain (ES), Denmark (DK), the United Kingdom (UK), Germany (DE), and Hong Kong (HK).23–29
+
+For the analysis we have considered the 2 studies from Spain as the same cohort, and have defined 6 cohorts, one from each country.
+
+The cohorts from ES, DE and HK include patients from the general population above 18 years, the cohort from France includes patients from the general population above 45 years, the cohort from UK includes patients above 18 years with risk factors for chronic liver disease (with hazardous alcohol use or diabetes), and the cohort from Denmark comprised only patients above 18 years at risk for hazardous alcohol consumption.
+
+Hazardous alcohol use was defined as an alcohol consumption >14 units per week for women and >21 units per week for men.5
+
+Data on demographics, physical exam, clinical and laboratory parameters were included alongside comorbidities.
+
+PARAGRAPH
+
+The cohorts from Denmark, Spain, France and the UK were designed to obtain liver biopsies to confirm liver fibrosis.
+
+All patients from Denmark were invited to undergo liver biopsy due to a history of, either prior or ongoing, excessive drinking.
+
+The Spanish patients (general population cohort) were invited to undergo liver biopsy if they had a liver stiffness measurement (LSM) >6.8 kPa (n = 299), but only a third of these patients accepted.
+
+French patients were referred for biopsy if they had an LSM >8.0 kPa, and UK patients were if they had an LSM >8.2 kPa and at least 1 risk factor, either for alcohol or metabolic syndrome.
+
+PARAGRAPH
+
+Finally, data from 352 patients with successful liver biopsy were included (199 from Denmark, 101 from Spain, 27 from France, 25 from the UK).
+
+Liver fibrosis was classified using the Kleiner scoring system.30
+
+FIB-4 and NFS scores31 were also computed for each biopsied patient in order to assess the comparative diagnostic accuracy of these screening instruments.
+
+PARAGRAPH
+
+Fig. 1 presents the flowchart of enrolment, eligibility, analysis and available liver biopsies of each cohort.
+
+Inference regarding fibrosis staging is constrained by the 5.5% of patients who underwent liver biopsy.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Databases were merged and analysed with conditional inference trees (CTREE)32 to explore the relationships between socio-demographics, comorbidities, LSM, and hepatic fibrosis, as assessed by liver biopsy.
+
+The CTREE was fitted to the liver biopsied group to obtain the optimal cut-off points for which the distribution of fibrosis stage classification has highest diagnostic accuracy.
+
+Model’s discriminatory accuracy was assessed by means of the area under the receiver-operating-characteristics curve (ROC) for binary outcome [≥F2], and 3-class [F0-F1, F2-F3, F4] accuracy was used to test the accuracy of the CTREE model.33
+
+PARAGRAPH
+
+In the development sample, values were missing in 6% of the data fields.
+
+They were imputed with a multiple imputation random forest, obtaining a normalized root mean squared error of 0.0626 for numeric variables and a proportion of falsely classified entries of 0.0136.
+
+In order to avoid overfitting of the diagnostic model, a 5-fold cross-validation procedure with 5 repeats was undertaken.
+
+Class balance across fibrosis stages was ensured using the synthetic minority oversampling technique.34
+
+Calibration between observed and predicted probabilities was performed by visual inspection of calibration plots.
+
+Fibrosis stages F2, F3 and F4 were grouped in order to assess binary discrimination performance.
+
+PARAGRAPH
+
+Best-subset analysis35 was performed for the covariates other than LSM in order to achieve a theoretical reduction in unnecessary testing.
+
+The predictive models included all available predictors as potential candidates to enter the diagnostic pathway: gender, age, active alcohol consumption, active smoking, viral hepatitis, weight, height, BMI, abdominal perimeter, systolic blood pressure, diastolic blood pressure, diabetes mellitus, obesity, hypertension, glucose level, creatinine, total cholesterol, low-density lipoprotein cholesterol, high-density lipoprotein cholesterol, triglycerides, aspartate aminotransferase, alanine aminotransferase, gamma-glutamyltransferase (GGT), albumin, ferritin, leukocytes, haemoglobin, platelets, TE probe (M or XL), TE LSM value and TE IQR.
+
+Because of the population unobserved heterogeneity, fixed effects were pre-specified in all models.
+
+The numbers needed to screen (NNS) in order to diagnose one case with significant fibrosis were computed for each country and risk factor, including general population, obesity, diabetes mellitus, and high-risk alcohol consumption.
+
+All statistical analysis were performed with R 3.4.1.36
+
+SECTION
+
+Economic modelling
+
+PARAGRAPH
+
+The results of the 6 screening program cohorts were used in the parameter tuning of a previously published cost-effectiveness model37 to assess the cost-effectiveness of screening in the general population as well as in populations with risk factors for chronic liver diseases such as diabetes mellitus, obesity, or alcohol consumption.
+
+This economic model compares 2 different pathways of detection and risk stratification for advanced chronic liver disease (significant fibrosis) in adults with suspicion of NAFLD or ALD in a primary care setting.
+
+One pathway uses TE and the other pathway uses aminotransferase activities (as standard of care) to detect patients with chronic liver disease.
+
+The model considers the prevalence of each fibrosis stage in a given population diagnosed by TE and aminotransferase activities.
+
+It also considers the misclassification of diagnosis, the natural disease progression rate in each stage, the quality of life measured as quality-adjusted life years (QALYs), the annual costs of each stage of the disease, and the diagnostic costs.
+
+PARAGRAPH
+
+The perspective of the economic model was generated with provider-direct costs only, with a 30-year time horizon and a 3% discount rate both on health outcomes and costs.
+
+Health outcomes were measured as QALYs.
+
+No assumptions regarding willingness to pay thresholds were made due to the multiplicity of healthcare systems, however, following WHO recommendations38 for international thresholds, we define “highly cost-effective interventions” as those below one gross domestic product (GDP) per capita of the country per QALY gained.
+
+Costs are in 2017 euros, purchasing power parity (PPP) was adjusted for all 6 countries.
+
+The target population was a cohort of patients who were 45 years old on average and who had either a history of alcohol consumption, diabetes, metabolic syndrome, or a combination thereof.
+
+Both failure rates for TE and liver biopsy and adverse events associated with liver biopsy were considered.39
+
+PARAGRAPH
+
+Incremental cost-effectiveness ratios (ICERs)40 were defined as the principal outcome of the economic model.
+
+ICER expresses the economic value of an intervention with respect to a comparator, in this case screening with TE compared to standard of care.
+
+Using differences in QALYs as an incremental cost-effectiveness measure allowed us to compare value across interventions and pathologies.
+
+PARAGRAPH
+
+To be able to apply the model to different healthcare systems, several assumptions had to be made, mostly regarding care and cost structure, rate of fibrosis progression, and treatment effectiveness in different fibrosis stages.
+
+Hence, probabilistic sensitivity analysis was performed for these parameters to account for the level of uncertainty associated with the estimates.
+
+PARAGRAPH
+
+The only difference applied to the modelling setting was in the elastography testing cost structure, which is described in the Appendix; details of the assumptions, states and transition probabilities of the present study are also presented there.
+
+All modelling analyses was performed in Microsoft Excel 2016 and are available in the Appendix for further non-commercial use.
+
+SECTION
+
+Results
+
+SECTION
+
+Patient demographics
+
+PARAGRAPH
+
+Out of the 6,295 patients, LSM was performed successfully with FibroScan devices in 6,199 (1.5% failure rate) patients who were included in the subsequent analysis.
+
+Table 1 shows the baseline characteristics of the 6 cohorts.
+
+Patients had a mean age of 54.7 years (±12.2), BMI of 27.1 kg/m2 (±4.9) and abdominal perimeter of 91 cm (±11.5); 52% were women, 18% smoked, 33% were obese, and 13% had type 2 diabetes.
+
+In total, 3,223 patients (52%) were from Southern Europe, 1,984 (32%) were from Northern Europe, and 992 (16%) were from Asia.
+
+SECTION
+
+Liver stiffness measurements (LSM)
+
+PARAGRAPH
+
+The majority of LSMs were performed with an M probe (92.3%), whereas the others were performed with an XL probe (7.7%).
+
+Mean LSM was 5.6 kPa (±5.0).
+
+Fig. 2 presents the non-parametric density distributions in kPa of LSM in each of the included cohorts.
+
+It can be observed that in the Asian population (HK), the LSM distribution is significantly shifted to the left compared to European populations, and only the German cohort was comparable in terms of LSM distribution.
+
+Within the European populations, British (UK) and Danish (DK) patients present similarly skewed to the right LSM distributions, whereas the Spanish (ES), German (DE) and French (FR) cohorts were less skewed.
+
+SECTION
+
+Fibrosis stages in liver biopsy and LSM cut-offs for significant fibrosis in general and at-risk populations
+
+PARAGRAPH
+
+Out of the 299 patients from the Spanish studies who were invited to perform liver biopsy, 101 underwent successful liver biopsy.
+
+In this group, 88 had NAFLD and 7 were diagnosed with ALD; the remaining patients had no major histopathological abnormalities.
+
+The distribution of fibrosis stages (according to Kleiner scores) were 57% for F0, 15% for F1, 21% for F2, 3% for F3, and 4% for F4.
+
+With respect to the Danish cohort, we included 199 with successful liver biopsy.
+
+Fibrosis distribution was 6% F0, 52% F1, 18% F2, 7% F3, and 18% F4.
+
+Regarding the French cohort, 89 patients presented with an LSM >8.0 kPa and 27 underwent liver biopsy with a fibrosis distribution of 4% F0, 30% F1, 33% F2, 0% F3, and 33% F4.
+
+Finally, 25 biopsies were performed in the UK cohort out of 98 with an LSM >8.2 kPa, with a fibrosis distribution of 32% F0, 24% F1, 12% F2, 24% F3, and 8% F4.
+
+PARAGRAPH
+
+Fig. 3 presents the LSM distribution in kPa of biopsied cohorts according to fibrosis stages.
+
+The distribution of fibrosis staging in the general population (ES and FR cohorts), risk population for both NAFLD/ALD (UK cohort) and risk population for ALD (DK cohort) differs significantly (p <0.001).
+
+Patients in the DK and UK cohorts showed more advanced liver fibrosis.
+
+Table 2 summarizes the clinical, demographic and analytical characteristics of the cohorts.
+
+In comparison to the DK cohort, patients from the ES and UK cohorts more frequently presented with characteristics of the metabolic syndrome and had a higher prevalence of obesity (72–76% vs. 28%), arterial hypertension (42–60% vs. 28%), and diabetes (28–84% vs. 2%).
+
+On the other hand, patients from the DK cohort displayed higher serum GGT activities, probably related to alcohol consumption, and significantly lower serum albumin concentrations, corresponding to the higher prevalence of significant fibrosis in this cohort.
+
+However, it is worth noting that the small UK biopsied cohort has a high prevalence of concomitant risk factors for both NAFLD and ALD (76% obesity, 84% diabetes, 76% hazardous alcohol use).
+
+PARAGRAPH
+
+Next, we evaluated the best cut-off for significant fibrosis (stage ≥F2) in the set of patients with liver biopsies (n = 352).
+
+Through CTREE, an LSM cut-off greater than 19.1 kPa was shown to exhibit a conditional probability of 87.3% for fibrosis stage ≥F2 and 57.1% for stage F4 (cirrhosis) regardless of the sampled population.
+
+For LSM values below 19.1 kPa, distinct optimal cut-offs were identified, which depended upon the sampled populations: For general population sampling (ES cohort), an LSM threshold of >9.1 kPa was found to provide the best diagnostic accuracy with an average negative predictive value of 88.1% for finding fibrosis stage ≥F2 in patients below this threshold and a probability of 57.6% for finding it in patients above this cut-off.
+
+Table 3 presents the complete diagnostic yield of the CTREE model.
+
+PARAGRAPH
+
+In cohorts with patients who had a history of hazardous alcohol use and/or metabolic syndrome (FR, DK and UK cohorts), a slightly higher optimal threshold for fibrosis staging was obtained: With LSM lower than 9.5 kPa, the probability of fibrosis stage ≥F2 was only 9.7%; with LSM higher than 9.5 kPa, the probability increased to 52.4% for this at-risk population.
+
+PARAGRAPH
+
+According to the developed predictive model, a total of 3.9% (n = 238) of patients from general population samples were predicted to have ≥F2 fibrosis, whereas 28.8% (n = 157) of at-risk patients were predicted to have developed at least fibrosis stage F2.
+
+PARAGRAPH
+
+Fig. 4 presents the detailed cut-off values alongside the tree structure and the distributions of fibrosis stages.
+
+The fibrosis CTREE had an average 5-fold 5-repeat cross-validated 3-class diagnostic balanced accuracy of 70.8% (95% CI 68.9–72.7%), i.e. compared to a random model, CTREE presented an increase of 30.7% (p <0.001, accuracy > no information rate).
+
+PARAGRAPH
+
+The other 2 serum surrogate fibrosis markers had the following 3-class accuracies: FIB-4 59.4% (95% CI 57.1–61.5%) and NFS 55.5% (95% CI 53.3–57.6%).
+
+Thus, compared to CTREE, FIB-4 and NFS had 11.4% and 15.3% lower accuracy, respectively (both p <0.001).
+
+The statistical supplementary information presents the distributions of these markers (Fig. S17-S18) alongside the comparative diagnostic performance (Fig. S19, S21–23), and the calibration plot across the models (Fig. S22).
+
+PARAGRAPH
+
+Table 4 presents the NNS for each cohort and population sampling method.
+
+The average NNS to detect a patient with fibrosis stage ≥F2 by general population sampling was 34.5 individuals, compared to 8.5 for obese patients, 7.0 for patients with diabetes, and 12.5 for at-risk patients with alcohol consumption.
+
+However, caution must be taken in interpreting these numbers, given the population sampling heterogeneity across studies.
+
+SECTION
+
+Cost-effectiveness results
+
+PARAGRAPH
+
+The optimal cut-offs defined in our set of biopsied patients were used to infer the predicted fibrosis prevalence rates in each of the heterogeneous cohorts.
+
+This real data was introduced into the economic model and given the assumptions of the cost-effectiveness model, we found that the mean ICER of the risk-stratification strategy with TE ranged from 2,570 €/QALY (95% CI 2,456–2,683) in Spain for a population at risk of ALD (age ≥45 years) to 6,217 €/QALY (95% CI 5,832–6,601) in the Hong Kong general population setting.
+
+While there were significant differences in the results across countries and targeted populations, all results were highly cost-effective below the one gross domestic product per capita/QALY threshold.
+
+PARAGRAPH
+
+Fig. 5 presents the survival curves derived from the state-transition probabilities.
+
+The model estimates the difference in quality-adjusted survival between patients diagnosed and undiagnosed for each fibrosis stage.
+
+The area between diagnosed and undiagnosed curves is the average effectiveness in terms of QALYs of the screening program.
+
+Fig. 5 illustrates that, in terms of QALYs, patients benefit from being diagnosed at all stages, but this benefit is higher in stages ≥F2 compared to F0-1 or F4.
+
+PARAGRAPH
+
+Fig. 6 presents the results of the sensitivity analyses in terms of cost-effectiveness acceptability curves depending upon patient selection either based on risk factors (obese, diabetes, alcohol) or in the general population setting by country.
+
+All targeted populations present an average probability of being cost saving of 12%, highlighting the potential savings associated with the intervention.
+
+PARAGRAPH
+
+With respect to ICER estimates across sampling strategies, obese or diabetic populations require 93.2% (95% CI 91.2–95.3%) and 85.6% (95% CI 83.7–87.4%) of resources, respectively, compared to the general population, to obtain the same value in terms of QALYs.
+
+Of note, in a population at risk of ALD, only 65.3% (95% CI 64.1–66.5%) of resources are needed in comparison to general population screening, highlighting the efficiency and feasibility of targeted interventions, which are highly dependent on the prevalence in the targeted population.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The results of the present study demonstrate that non-invasive screening for liver fibrosis with TE among the general population, and among patients with risk factors for chronic liver disease, is cost effective.
+
+We have availed of individual data from 7 previous prospective studies that performed screening of liver fibrosis with TE in the general population and in patients with risk factors for chronic liver disease.
+
+In our study, data from the subset of patients who had undergone liver biopsy was used to define the diagnostic cut-offs for significant liver fibrosis.
+
+Having defined the best cut-offs, we applied them to our 6 different cohorts to assess the prevalence rates of significant fibrosis.
+
+This real-life data was then used to tune an economic model that compares 2 distinct pathways to detect significant fibrosis, i.e. the TE detection pathway compared to the standard of care pathway (based on increased serum liver enzyme activities).
+
+The rationale for using non-invasive fibrosis detection by TE as a public health intervention was to achieve earlier and more reliable patient identification, timely referral to specialist care, adequate treatment, and enrolment into surveillance programmes.
+
+PARAGRAPH
+
+Our study shows that, irrespective of the targeted population, screening for liver fibrosis with optimized algorithms is a highly cost-effective public health intervention, with a 12% average probability of being cost saving.
+
+As might be expected, when we focus on patients with risk factors for chronic liver disease, including patients with diabetes, obesity or hazardous alcohol consumption, the screening program is even more cost effective.
+
+Differences across risk factor targeting represent cost reductions of around 8.3–48.9% to achieve the same value.
+
+PARAGRAPH
+
+Liver fibrosis is, among all the histopathological changes that occur in chronic liver diseases, the major factor that predicts the long-term outcome of patients with chronic liver diseases.
+
+Fibrosis stage determines disease progression to cirrhosis and the development of liver-related complications and mortality, irrespective of the aetiology of the disease.9,41
+
+Liver fibrosis can regress if effective treatment to control or cure the underlying disease is implemented, which is more feasible at early stages.42,43
+
+Therefore, under the prism of public health strategies, the goal of a screening program should be the timely detection of patients with significant fibrosis or cirrhosis, at high risk of liver-related decompensation or death, in order to promote liver fibrosis regression and improve survival.
+
+In fact, our results confirm that a screening program based on the detection of liver fibrosis by TE is cost-effective, especially in early fibrosis stages ≥F2 and unsurprisingly somewhat less in patients with advanced liver disease (≥F4).
+
+PARAGRAPH
+
+In our study, we used TE as a non-invasive screening method to diagnose liver fibrosis.
+
+The efficacy of TE to detect liver fibrosis has been demonstrated during the past decade,44 however, most studies have been performed in patients with already known chronic liver diseases, such as HBV or HCV infections and, lately, NAFLD.45
+
+Data to establish the best cut-offs for the diagnosis of fibrosis in the primary care setting are scarce.46
+
+In our study, the best cut-off for the diagnosis of significant fibrosis among patients from the general population was 9.1 kPa.
+
+Interestingly, the subset of patients with liver biopsy from the general population had a high prevalence of components of the metabolic syndrome, the majority were obese, and almost one-third presented with diabetes, known risk factors for NAFLD.
+
+Moreover, the predominant aetiology, according to liver biopsy, in this subset of patients was NAFLD.
+
+Therefore, we can presume that the best cut-off for the diagnosis of significant fibrosis in the context of patients with metabolic risk factors for NAFLD among the general population is 9.1 kPa.
+
+On the other hand, the cut-off for significant fibrosis among patients with high-risk alcohol consumption was slightly higher (9.5 kPa).
+
+However, for clinical practice we can assume that any value above 9–9.5 kPa may indicate the presence of significant liver fibrosis in patients with risk factors for NAFLD or ALD in the general population setting.
+
+Notwithstanding that the TE-based tree model appears to be the best calibrated model in comparison to serum biomarkers (FIB-4, NFS) in the biopsied patients, it is by no means perfect.
+
+The calibration plot across the 3 algorithms indicates the potential risk of underestimation at higher probabilities of events, when looking at significant fibrosis stages.
+
+Here, the impact on cost-effectiveness results comes in the form of a lower bound.
+
+This is analogous to faecal tests for colorectal cancer screening, which generally underestimate the probability of precancerous lesions, while at the same time reducing the number of necessary invasive tests.
+
+Future research in preventive hepatology should focus on the definition of such decision thresholds and their consequences in real-world settings.
+
+PARAGRAPH
+
+One of the main strengths of our project is that it refines parameter tuning of the economic model for target populations and diagnostic accuracy in a wide set of populations and healthcare systems.
+
+The cost-effectiveness analysis showed that the screening program targeting patients at risk of ALD and obese or diabetic populations is highly cost-effective.
+
+When implementing liver screening, we would need to invest between 2,500 (at-risk population) to 6,500 (general population) purchasing power parity-adjusted euros to gain an extra year of life, adjusted for quality of life.
+
+From a public health point of view, anything below one GDP per capita is deemed highly cost-effective.38
+
+One of the sensitive issues around the cost-effectiveness estimates is the cost structure of the testing.
+
+A constant marginal cost per test is assumed, whereas in real-world settings, amortization through usage and labour imputation might result in decreasing marginal cost, hence biasing upwards our cost estimates.
+
+Our data highlights the specific diagnostic and economic consequences of targeted populations for such a public health intervention in hepatology.
+
+PARAGRAPH
+
+Although the implementation in itself is not the objective of this study, in public settings, budgetary impact and difficulties in provision of public services have to be considered, as observed in preventive screening interventions in other fields of medicine.46–52
+
+Interestingly, compared to screening in later stages of chronic liver disease for HCC,53 screening for significant liver fibrosis (≥F2) results in a 10-fold improvement in terms of efficiency, highlighting the relevance of early identification, referral, and surveillance of these patients.
+
+In the present scenario of a growing epidemic of NAFLD, the implementation of screening programs to detect the patients with significant fibrosis is essential.
+
+The implementation of TE in the primary care setting enables the involvement of community-based resources, including nurses and primary care physicians, to maximize the value of interventions.24
+
+PARAGRAPH
+
+The current study has some limitations that should be acknowledged.
+
+First, only 5.5% of patients included in the analysis underwent liver biopsy.
+
+However, we performed analysis to evaluate the potential sample selection bias and uncertainty around parameter estimates of the economic model, and both analyses were robust to exclude bias and uncertainty.
+
+Secondly, our economic model had several assumptions, mostly regarding care and cost structure, fibrosis progression rate, and treatment effectiveness.
+
+To account for the level of uncertainty associated with the estimates, probabilistic sensitivity analysis was performed for these parameters.
+
+Finally, it has been proposed that serum biomarkers should be used as a first step for liver fibrosis detection in the general population, leaving TE as a second step.10,16,44
+
+Our results show that TE performed better than serum biomarkers for fibrosis detection in terms of both discriminatory accuracy and calibration of observed by predicted diagnosis.
+
+Whether a 2-step approach using serum biomarkers followed by TE is more cost effective and cost saving in population screening should be tested in future studies.
+
+PARAGRAPH
+
+In summary, a screening program for the detection of liver fibrosis, by transient elastography, at primary care centres is a highly cost-effective intervention and potentially cost saving.
+
+This screening approach could represent a valuable public health strategy in the era of NAFLD epidemics.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+EIT Health project 2018, project number EIT 18258; BMBF Liver Systems Medicine, project number LiSyM 031L005; the Danish study was funded by Innovation Fund Denmark, the European Union’s Horizon 2020 Research and Innovation Program (grant agreement number 668031).
+
+This study was funded by a grant awarded to PG (PI16/00043), integrated in the Plan Nacional I + D + I and co-funded by ISCIII-Subdirección General de Evaluación and European Regional Development Fund FEDER.
+
+SECTION
+
+Conflicts of interest
+
+PARAGRAPH
+
+MS, IG, LC, MT, DR, WS, NG, NF, RH, GW, SM, AK, PA, AA, PT, LC and FL have no conflicts of interests.
+
+IG has received lecture fees from Gilead and Novartis.
+
+P. Ginès reports grants and personal fees from Grifols, grants and personal fees from Gilead, grants from Mallinckrodt, personal fees from Promethera, personal fees from Martin Pharmaceuticals, grants from Ferring Pharmaceuticals, grants and personal fees from Sequana.
+
+V. Wong has served as a consultant or advisory board member for AbbVie, Allergan, Echosens, Gilead Sciences, Janssen, Perspectum Diagnostics, Pfizer and Terns; he has also received lecture fees from Bristol-Myers Squibb, Echosens, Gilead Sciences and Merck.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+MS: Study concept and design, analysis and interpretation of data, statistical analysis, and writing of manuscript; IG: Study concept and design, analysis and interpretation of data, statistical analysis, and writing of manuscript; PT: analysis and interpretation of data, critical revision of the manuscript for intellectual content; MT: writing of manuscript and critical revision of the manuscript for intellectual content; DR: critical revision of the manuscript for intellectual content; VW: critical revision of the manuscript for intellectual content; WS: critical revision of the manuscript for intellectual content; DH: critical revision of the manuscript for intellectual content; SDM: critical revision of the manuscript for intellectual content; AK: critical revision of the manuscript for intellectual content; GP: critical revision of the manuscript for intellectual content; PA: critical revision of the manuscript for intellectual content; PG: critical revision of the manuscript for intellectual content; AG: critical revision of the manuscript for intellectual content; LC: critical revision of the manuscript for intellectual content; LC: critical revision of the manuscript for intellectual content; PGines: Study concept and design and critical revision of the manuscript for intellectual content; FL: Study concept and design, interpretation of data, writing of manuscript, and critical revision of the manuscript for intellectual content.

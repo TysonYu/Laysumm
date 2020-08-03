@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.03.017
+
+ABSTRACT
+
+TITLE
+
+Extended pheromone-based short-term traffic forecasting models for vehicular systems
+
+PARAGRAPH
+
+An accurate short-term traffic forecasting model serves as an integral part to enhance the efficiency of vehicle rerouting and traffic light control strategies.
+
+The information exchange (pheromone) behavior of ants has been applied to forecast traffic conditions in existing pheromone models.
+
+These models were developed to forecast congestion on roads with signalized intersections by considering only green and red phases.
+
+Motivated by this issue, three short-term traffic forecasting models are proposed: (i) Extended Pheromone Model (EPM), (ii) Extended Pheromone Model with epsilon-Support Vector Regression (εSVR-EPM), and (iii) Extended Pheromone Model with Artificial Neural Network and Particle Swarm Optimization (ANNPSO-EPM).
+
+It is worth noticing that EPM is an algorithmic model whereas the other two are machine learning models.
+
+In all proposed models, a new color pheromone concept is proposed with two significant contributions.
+
+First, the color pheromone concept is developed to capture stochastic traffic conditions on the roads with non-signalized intersections.
+
+Second, the proposed concept is further extended to include all three color phases (red, yellow and green) to forecast dynamic changing traffic behaviors for roads with signalized intersections.
+
+The proposed color pheromone concept in EPM, εSVR-EPM, and ANNPSO-EPM is different from the existing models as it dynamically switches its computation techniques based on traffic light phases.
+
+All three proposed models can be realized through a Pheromone-based Multi-Agent System composed of Vehicle Agents and Intersection Agents coordinating locally with one another To promote practicality, Singapore City Hall map is employed in a microscopic simulator of Simulation of Urban Mobility (SUMO), showing that all proposed models outperform the other existing pheromone models.

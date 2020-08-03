@@ -1,0 +1,987 @@
+10.1016/j.engappai.2020.103481
+
+FULLTEXT
+
+TITLE
+
+Safe energy savings through context-aware hot water demand prediction
+
+SECTION
+
+Motivation and opportunity
+
+PARAGRAPH
+
+Hot water is a high-priority utility (Pipattanasomporn et al., 2012) critical to safety and comfort, though overheated or underutilized hot water wastes energy.
+
+Water heating consumes 15% of electricity and 25% of natural gas in the U.S., Wenzel et al. (1997) and in excess of 22% of energy in Canadian households (Aguilar et al., 0000; Ueno et al., 2006).
+
+Low prices drive adoption of inefficient tank-style systems (97% of the U.S. market Energy Star, 2009), with a New Zealand study finding 34% losses for electric and 27% for gas systems.
+
+Plumbing design also impacts standby and distribution losses, which may reach 1200 kWh/home/yr (Aguilar et al., 0000), driving economic and environmental costs.
+
+PARAGRAPH
+
+Proactive shutdown during low-use periods reduces energy expenditure and cost, but accelerates the formation of malignant Legionella bacteria.
+
+Legionella can harm residents of a single home, with risk amplified within industrial water distribution systems and communal living environments including hospitals or nursing facilities (Borella et al., 2004).
+
+PARAGRAPH
+
+Excess energy use, insufficient hot water, and tainted plumbing pose significant problems in low to upper-middle-income economies.
+
+Storage-type water heaters could be improved with a model-predictive, health-conscious controller capable of anticipating hot water demand or identifying bacterial growth conditions and modulating the supply to match predicted demand or to create a bactericidal environment.
+
+Accurate matching could eliminate the need for costly mixing valves, while designing the algorithm to operate on low-cost controllers could unlock access to emerging markets with less-abundant energy and heightened cost sensitivity in addition to augmenting the controllers on the substantial installed base of tank-style heaters in upper middle-income countries.
+
+PARAGRAPH
+
+In this article, we develop a self-learning water heater control algorithm capable of anticipating flow demand and efficiently and proactively heating water while remaining sensitive to Legionella formation.
+
+We create a home-specific water consumption model to accurately predict hot water flow, helping ensure water is optimally heated to maximize comfort with a minimum of excess energy expenditure.
+
+We further envision a context-aware watchdog sensitive to bacterial growth conditions and pair this system with the demand prediction model to form a “cognitive supervisor”, using Legionella growth patterns and long-timescale predictions to identify where the minimum input energy elevates the water temperature beyond the critical heating point required for curbing or reversing bacterial formation.
+
+PARAGRAPH
+
+We begin with an exploration of prior art in Section 2, detail our proposed solution in Section 3 and describe our data collection system and potential heater controller in Section 4.
+
+The control algorithm comprising predictive and supervisory elements is proposed in Section 6, with an implementation tested for various hyperparameters in Section 7.
+
+Empirical results are evaluated and the best-performing model is selected as the basis for testing long-term predictive performance.
+
+SECTION
+
+Prior art
+
+PARAGRAPH
+
+This section examines a sample of approaches to modulating water heater temperature to minimize energy use and efforts made to improve the safety of such systems, particularly related to bacterial growth.
+
+PARAGRAPH
+
+Energy may be conserved by reducing water temperature during low use (Scott, 1979) or through electronic demand projection (Stettin and Sterber, 2001).
+
+Another solution is manual heat modulation, though individuals often inaccurately estimate their consumption and continue to over-heat water (cold showers cause more immediate suffering than slow-accruing energy bills).
+
+PARAGRAPH
+
+On-demand tankless heaters provide a hardware solution for energy reduction without compromising comfort, Hoeschele and Springer (2008) though these systems are costly and poorly-suited to low-income economies.
+
+While low-cost, localized heating has been envisioned to provide on-demand hot water for showers in these regions, power requirements limit adoption (Prado and Gonçalves, 1998).
+
+In contrast, there is a large addressable base of inexpensive storage water heaters around the world.
+
+PARAGRAPH
+
+Studies have found water consumption to be varied across geographies but repeatable at a local (home) scale, suggesting that personalized energy management could yield savings (Roux and Booysen, 2017).
+
+Schedule automation saves energy (Marthinus et al., 2013), though sudden demand spikes may go unmet due to water’s high heat capacity.
+
+Theoretical savings suggest a 14.7% energy reduction using a timed system (Marthinus et al., 2013).
+
+Heaters may use real-world data for optimization (López-de Armentia et al., 2014) or predictive load scheduling (Du and Lu, 2011; Sepulveda et al., 2010).
+
+Utility-level control has also been proposed to reduce peak energy demand, Gustafson et al. (1993) along with centralized heater demand management and direct-load control programs (Bischke and Sella, 1985; Pipattanasomporn et al., 2012).
+
+PARAGRAPH
+
+Though approaches to water heat control have proven effective at saving energy, temperature modulation alone may result in negative health consequences.
+
+Heat is a factor in the growth of Legionella bacteria, with temperatures near 25 °C accelerating growth (Van der Kooij et al., 2005) and temperatures >60 °C decreasing Legionella formation (Borella et al., 2004).
+
+Setting a water temperature floor of 60 °C imposes a high minimum energy cost, while intratank temperature variability means the outlet temperature may be higher (Lévesque et al., 2004), increasing scalding risk.
+
+Conventional scheduling struggles to balance energy savings with comfort, adapts poorly to unexpected use, and neglects bacterial development considerations.
+
+PARAGRAPH
+
+Partially addressing this need, predictive models have been implemented and studied (Roux and Booysen, 2017), including models using date/time aware filter-based models to forecast demand (Bischke and Sella, 1985).
+
+However, these approaches neglect to consider the growth conditions for Legionella and are therefore not recommended for those with compromised health (Energy.gov, 2018).
+
+A solution considering both the energetic and health-related implications of a predictive system and taking growth conditions into consideration would provide a more comprehensive solution.
+
+PARAGRAPH
+
+Recently, Booysen, et al. proposed techniques to modulate water heater energy input based on temperature matching, energy matching, and energy matching subject to bacterial growth constraints.
+
+Energy Matching with Legionella (EML) prevention matches tank outlet energy with demanded hot water energy by varying water temperature and flow rate.
+
+In this approach, water is heated to 60 °C for 11 min at least once per day, just before the largest predicted hot water usage event (Booysen et al., 2019).
+
+Results for Energy Matching (EM) show a median energy reduction of 17.8%, whereas the EML with sterilization heating yielded 13.1% savings, both with no increase in perceptible “cold events”, or insufficient hot water noticeable to consumers.
+
+The EML approach attains minimum energy expenditure in cases where large outflow events are directly correlated to the most significant water energy use, but this may not be optimal when large outflows of hot water are mixed to reduce the temperature (e.g. a tepid bath).
+
+A system capable of predicting true, at-the-tap energy demand may further reduce energy consumption and improve efficiency by precisely timing the sterilization event for systems with and without output mixing.
+
+PARAGRAPH
+
+A context-aware, energy demand-based scheduler for existing tank-style water heaters has the potential to save energy without compromising safety or comfort.
+
+Such a system would anticipate demand for hot water, and predict far enough into the future to identify whether the demand would intrinsically cause the system to exceed the sterilization temperature for Legionalla, and if not, where the smallest additional of extrinsic input energy will cause the system to exceed that limit, assuring the safety of the water stored in the tank.
+
+Section 3 describes our approach to creating such a system using a novel predictive architecture, a protective supervisory element, and low-cost hardware to simultaneously conserve energy and prevent bacterial growth.
+
+SECTION
+
+Proposed solution
+
+PARAGRAPH
+
+Individuals are good at identifying water flow events but poorly estimate events’ volume and duration (Kempton, 1988).
+
+Using real-world sensor data, it may be possible to predict future demand for both water flow rate and desired temperature.
+
+PARAGRAPH
+
+A data-driven model could enable a hot water control system capable of anticipating outflows to efficiently and proactively modulate stored water energy to meet demand.
+
+Such a system could replace incumbent data-blind controllers that over- or under-heat water, and with the use of a proportional integral derivative (PID) control, further address inefficiencies inherent in these imprecise “bang–bang” hysteresis controllers (Pipattanasomporn et al., 2012).
+
+By integrating a predictive algorithm and improved control hardware into existing heating systems, a more advanced controller could imbue incumbent infrastructure with machine intelligence at minimal cost.
+
+This approach would improve energy efficiency by matching hot water supply to demand, but would do little to ameliorate the safety concerns resulting from under-heated stagnant water.
+
+PARAGRAPH
+
+Contextual rules could help to address the issue of bacterial growth to assure the safety of heated water.
+
+Rules known to the controller could identify conditions where bacteria formation is likely and trigger actions proactively to mitigate and reverse formation of bacteria.
+
+For example, the system might identify that water has recently exceeded the sterilization temperature for Legionella bacteria, and that it is safe to cool down to ambient temperatures as scheduled.
+
+In another scenario, the system might identify that the system is projected to idle with cold, stagnant water long enough for Legionella to grow, and as a result might explore opportunities for bacterial growth reformation (release of a treatment agent, or the addition of extrinsic heat to cease further formation).
+
+PARAGRAPH
+
+Combining the elements of data-driven demand prediction, proportional heat control, and context-aware safety, we propose a learning, demand-responsive, Internet-connected energy control system for low-cost storage water heaters.
+
+Learned models anticipate demand to proactively heat water, as suggested in Mozer (1998).
+
+Atop this model, a “Cognitive Supervisor” (Siegel et al., 2018a; Siegel and Sarma, 2019; Siegel, 2018) understands the water heater’s purpose (hot water delivery on demand) and its constraints (human susceptibility to and growth factors for Legionella bacteria) in context.
+
+This Supervisor is part of a Cognitive Protection System capable of monitoring system states to ensure adequate performance, and is uses similar models to a “Cognitive Firewall” capable of testing commands received over the Internet for benignness prior to execution (Siegel et al., 2018a; Siegel and Sarma, 2019; Siegel, 2018).
+
+PARAGRAPH
+
+The proposed heater control system uses real world data to learn demand models, and projects demand forward in time in order to make schedule modifications minimizing energy consumption while meeting demand requirements and obeying safety rules.
+
+This approach utilizes embedded intelligence to improve system efficiency and safety, building upon the efficiency and safety benefits realized by prior pervasive infrastructure computing implementations (López-de Armentia et al., 2014; Siegel et al., 2018b).
+
+PARAGRAPH
+
+Wi-Fi connectivity allows homeowners to view realtime consumption data over the Internet, as 9% of energy conservation stems from energy awareness, Kempton (1988), López-de Armentia et al. (2014), Ueno et al. (2006) and idle energy use may go unnoticed if not brought to the consumer’s attention.
+
+Networking further allows the same controller replacement to be used for remote Internet control, for example, for a utility to manage resource consumption to reduce peak grid load, or for a homeowner to increase water temperature when freezing conditions are expected.
+
+The aforementioned Cognitive Firewall may be used to not only monitor locally-issued commands, but also to address resultant security concerns, simulating commands in context to assure their safety prior to execution on physical hardware.
+
+PARAGRAPH
+
+With Internet connectivity, automated water heating may be controlled by models learned from home-specific data, stored online and combined with weather data, student athletic schedules, or coupled with other external sources useful for improving predictor performance.
+
+PARAGRAPH
+
+Our demand-responsive hot water heater builds upon established technologies and consumer desire to create an efficient and safe solution to making water heating demand-predictive.
+
+Consumers will appreciate the cost savings and environmental benefit of energy efficient devices, and the concept of adaptive, demand-based home heating has been widely adopted (e.g. the Nest thermostat) with other demand-based appliances in testing (Ventura et al., 2014; López-de Armentia et al., 2014).
+
+PARAGRAPH
+
+What differentiates this concept from the earlier-described utility- and demand-side proactive heating systems is direct connectivity, adaptive home preference models, and context awareness which improves system energy savings without compromising safety.
+
+Further differentiating this from the proposed concept of EML (Booysen et al., 2019) is that with an appropriate energy-sensing system or high-fidelity flow-to-energy model, the sterilization event may be timed precisely to minimize energy consumption.
+
+This is in contrast with Booysen’s proactive heating in advance of the largest water usage event, which may not match the peak energy demand — particularly after mixing.
+
+PARAGRAPH
+
+Section 4 follows, describing the hardware solution used to capture model training data, and that may be used in the future to replace existing water heater controllers.
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+Hot water demand varies with mitigating factors including temporal, climate, regional, and cultural differences (Kempton, 1988), but demand is largely predictable within a single home.
+
+We therefore developed a proof-of-concept system capturing hot water flow data from, and modeling behavior within, a single home.
+
+In this article, we consider flow as a surrogate for hot water energy in part to simplify the experimental design, and in part because energy modeling and matching is already well described in Booysen et al. (2019).
+
+The primary contribution of this article is the combination of the demand predictive model with the context-aware safety elements and Internet connectivity rather than the creation of a highly-precise energy model.
+
+PARAGRAPH
+
+To capture flow data, we built an Internet of Things flow-metering system using a low-cost Raspberry Pi 3B microcomputer which serves as a data logger and web interface.
+
+Our sensing system employs inexpensive Hall-effect flow meters to capture consumption data useful for creating demand models.
+
+PARAGRAPH
+
+Though the Pi 3B was used primarily to capture training data for demand modeling, the microcomputer was chosen also for its ability to serve as a replacement hot water controller able to locally operate the predictive model.
+
+The Pi 3B offers analog and digital outputs capable of triggering solid-state relays or variable solenoid valves, which can directly modulate electric and gas water heaters as envisioned in Section 3.
+
+The Pi 3B also outputs SPI, I2C, PWM, and analog signals, which easily interface with the power electronics or control systems found in most other existing heater controllers.
+
+PARAGRAPH
+
+Though the Pi 3B is a low-cost, low-power computer, it features multiple cores and can learn new or adapt existing neural network models locally as a background process.
+
+While the system is designed to meet stringent cost and power requirements, it also has sufficient processing to run pre-trained Deep Learning models onboard.
+
+The Pi 3B has already been shown to be an effective endpoint device for running deep learning models for embedded intelligence (Siegel et al., 2018b).
+
+PARAGRAPH
+
+Local operation allows lower latency for the controller, improving energy efficiency relative to delayed commands received from a remote Cloud or Edge solution.
+
+Alternatively, the Pi can share data with a remote server in order to more rapidly learn individual and aggregate home’s models, with the server returning pretrained binaries to each end device.
+
+PARAGRAPH
+
+The data collection and control system is shown in Figs. 1–3.
+
+Fig. 1 shows the multiple flow sensors installed within the home to instrument its hot- and cold-water plumbing, which provide rich usage information that can be used in the future to understand occupant habits.
+
+The sensors are sized according to the peak flow expected in each pipe, and are of a pass-through form-factor wherein water flows through the pipe, turns an impeller, and generates a current perceptible to a hall-effect sensor.
+
+These sensors were chosen for their strong performance relative to their pricepoint, for the ease of interfacing the sensor with typical embedded systems, and for the limited backpressure and constriction they apply when installed inline with plumbing figures.
+
+PARAGRAPH
+
+While we designed the data collection system to incorporate data from multiple hall-effect flow sensors to collect data for broader water consumption studies, the models developed in Section 6 consider only the data from the hot water tank’s outflow rate sensor.
+
+PARAGRAPH
+
+We elected to use single-outlet measurement from the sensor at location F1 because multi-outlet instrumentation would be more costly (Kempton, 1988), and using fewer sensors is better representative of systems suitable for low-income countries.
+
+Further, the U.S. market has demonstrated a willingness to purchase and install single-point flow sensors (Moen Flo devices) that may be leveraged as input to a predictive system.
+
+In this way, the hot water predictive system may provide additional value to incumbent flow monitoring systems, or a hot water predictive system may similarly support secondary applications including consumption monitoring or leak detection.
+
+PARAGRAPH
+
+In Fig. 2, we show that each sensor is connected with three wires to the Raspberry Pi computer, with a common voltage supply and ground and a dedicated signal wire for each sensor.
+
+The signal wire is a digital output that “pulses” as the impeller rotates due to a changing magnetic field, and pulses may be counted over time to determine the flow through the sensor.
+
+As the pulses counted are measured at the outflow of the hot water tank, they may be seen as a surrogate for the water’s embodied energy.
+
+Each sensor may be sampled by the microcontroller, or for more accurate counting, be tied to an interrupt to minimize the likelihood of missed counts.
+
+PARAGRAPH
+
+Fig. 3 shows the system as-installed in the instrumented home.
+
+The system could be placed inside a waterproof enclosure with modular connectors in future versions to simplify installation, though the current solution is better-suited to lower-income economies.
+
+The hardware used in the system is low cost and scalable to support individual homes, multi-family dwellings, and commercial water distribution systems.
+
+PARAGRAPH
+
+Flow data are captured to the Pi as the impeller turns and are recorded to a file once per minute.
+
+While low-flowrate events might be missed with infrequent sampling, larger events driving demand for hot water such as bathing, laundry, and cooking, which compromise the largest outflow in most homes, show up clearly in the data.
+
+Bathing leads by volume (40% of total water usage) and cooking leads by number of discrete events.
+
+Kempton (1988) The low flow rate reduces controller energy consumption, data storage, and network bandwidth requirements relative to faster sampling.
+
+PARAGRAPH
+
+As noted at the beginning of this section, this experimental setup considers flow as a surrogate for water temperature, which itself is integrated over time and used as a surrogate for energy.
+
+While this is an abstraction, it stands to reason that water must be heated only in advance of an outflow event.
+
+This is consistent with the collection methodology in Kempton (1988).
+
+In future iterations, the addition of data from cold water flow sensors and/or temperature sensors may develop a more accurate, heater-specific relationship between flow, temperature, and energy at all points in the system, similar to the temperature, flow, and system models proposed in Pipattanasomporn et al. (2012), Shao et al. (2013) and Aguilar et al. (0000).
+
+With an improved heater model, it may be possible to build predictive models capable of meeting hot water demands even more efficiently.
+
+PARAGRAPH
+
+The data collection process and sample plots are shown in Section 5.
+
+SECTION
+
+Sample data
+
+PARAGRAPH
+
+Data were collected from the experimental setup once per minute from January 18, 2018 to August 15, 2018.
+
+Once per minute was selected as being an appropriate window size to allow for the capture of small outflow events (≥2 m) while remaining resilience to timing jitter during data capture and keeping storage, computation, and networking requirements reasonable for the Raspberry Pi 3.
+
+Due to intermittent device inaccessibility due to power or network interruptions, there were sporadic data outages as might be present in a real-world system.
+
+PARAGRAPH
+
+To validate the data collection system’s performance, we plotted hot water consumption by day (Fig. 4) and by hour (Fig. 5).
+
+PARAGRAPH
+
+In the data, we notice weekly and hourly trends that agree with the family’s behavior.
+
+For example, water consumption increases on Tuesday, Wednesday, and Saturday due to the family’s exercise-related showering, while consumption drops on Thursday as the family eats dinner away from home.
+
+PARAGRAPH
+
+While additional data would be desirable to develop a commercial product, with seven months of information, there were sufficient data to begin developing a house-specific heating model considering weekly and seasonal variation.
+
+Further, the predictive element of this model has been proven effective for water heaters, thermostats, and other utility controls.
+
+These data are therefore sufficient to develop a simple predictive model in order to test the novel contribution of a context-aware supervisory system to limit bacterial growth.
+
+PARAGRAPH
+
+With the home occupants’ consent, the described data have been made available for research purposes on the Harvard Dataverse (Siegel, 2019).
+
+PARAGRAPH
+
+The prediction model and safety-centric Cognitive Supervisor are described in Section 6.
+
+SECTION
+
+PARAGRAPH
+
+Control algorithm
+
+PARAGRAPH
+
+The control algorithm has two elements: a predictive model to anticipate future outflow events (as a surrogate for energy demand) and a Cognitive Supervisor considering Legionella risk and adapting the tank’s commanded temperature to reduce bacteria formation with the minimum increase in energy consumption.
+
+It is the combination of these two elements (anticipatory demand modeling and context-aware, energy-minimizing safety systems) that makes our proposed solution unique.
+
+PARAGRAPH
+
+The following subsections describe the design and development of each of these elements.
+
+SECTION
+
+Prediction model
+
+PARAGRAPH
+
+The prediction model’s purpose is to anticipate water outflow events.
+
+The proposed algorithm is structured in the form of a regression model, using data from a single home’s hot water tank outflow history as input to estimate future outflows.
+
+While the described model in this section considers the rate and volume of outflow events rather than temperature or energy considerations at the heater, flow is a reasonable surrogate metric to prove model feasibility and to test the incorporation of the “Cognitive Supervisor”.
+
+Future variations of this model may incorporate relationships between energy input and thermal properties, with thermodynamic models learned from water heating systems and relating heater energy consumption with flow rate and temperature potentially enabling more precise control and system-wide energy optimization.
+
+SECTION
+
+Problem formulation
+
+PARAGRAPH
+
+The goal of the proposed model is to predict the water flow rate for the upcoming 24 h such that the minimum variation in input energy necessary to curb or reform bacterial growth may be identified.
+
+We do so using time-series water flow data as input.
+
+PARAGRAPH
+
+From previous studies which identify trends in habitual water use, we anticipate that future flow values will be highly correlated to recently-preceding flow values and/or flow values from similar times on previous days.
+
+Therefore, a critical first step is to transform the data into a format better-suited to capturing this potential correlation than conventional, less-structured time series.
+
+By changing the data representation, we may subsequently develop a more accurate model capable of capturing patterns and predicting future flow values dependent on time of day, day of weak, and seasonal effects.
+
+PARAGRAPH
+
+To convert the data to a more robust representation, we take the time series data points and construct an m×n matrix where m is the number of days considered and n is the number of flow samples per day.
+
+Only the most recent data fitting into this space is used and data extending further back in time than (m⋅n−1) samples is excluded.
+
+These time-series water flow data are the basis from which we predict future flow.
+
+PARAGRAPH
+
+Transforming single-value time-series into a geometric data representation creates opportunities to use more advanced predictive networks, and is a form of feature-engineering that supports extraction and learning of periodic data trends.
+
+SECTION
+
+Predictive operation
+
+PARAGRAPH
+
+To predict future water flow given past flow data, we developed an autoregressive Deep Learning framework (Akaike, 1969).
+
+PARAGRAPH
+
+Our autoregressive approach utilizes past time-series observations as input for a regression equation in order to predict subsequent timesteps’ values.
+
+The sequential nature of our input data and desired output lends itself well towards this approach.
+
+PARAGRAPH
+
+Autoregressive models have found success in sequential prediction and generation problems with notable examples including PixelCNN (Van den Oord et al., 2016) and WaveNet (van den Oord et al., 2016).
+
+Our implementation draws inspiration from these methods.
+
+PARAGRAPH
+
+To best support an autoregressive pipeline, we extract embedded features from historical data and use these to make future predictions.
+
+We note that data points formatted within our selected m×n matrix representation are tightly correlated (e.g. with relationships between one data point and the immediately preceding data on the same day or from similar times on previous days).
+
+PARAGRAPH
+
+Because convolution is well-suited to data where all points are likely to be a linear combination of the preceding points, we considered a convolutional operation as the basis of the predictive function.
+
+The latent periodicities suggest 2D convolution kernels may learn potential correlations in the context of Convolution Neural Networks (CNNs) (Kim, 0000).
+
+Convolutional filters allow us to track small windows of time relative to the entire time history, making it easier to capture the relationship between semi-local datapoints and future values.
+
+CNNs are well-suited to capture subtle correlations among, and repeatable patterns within, data points related e.g. by time (and, in our transformed representation, space) than might be extracted from a single-value time-series (Krizhevsky et al., 2012).
+
+Filters representing patterns within the data may help to forecast future values (Borovykh et al., 0000).
+
+PARAGRAPH
+
+Other models do not necessarily capture parallel periodicities in data, for example, a Long-Short-Term Memory (LSTM) (Sundermeyer et al., 2012) approach may identify a daily periodicity but not identify a seasonal dependence.
+
+Convolution kernels detect such patterns more effectively with only hyperparameter changes, rather than sweeping architectural redesign.
+
+Additionally, CNN models are more easily implemented in parallel, reducing training and inference time.
+
+PARAGRAPH
+
+To ensure that the convolution operation does not look at the “future” values, the convolution operation performed was masked (Fig. 7) to avoid contamination of the training process with future data.
+
+When obtaining predictions for the desired time, we take an input time series and convert it into the m×n matrix format.
+
+This matrix is then passed through the network to predict the next value.
+
+We obtain this predicted value by reading the value returned in the timestamp of interest in the final 1×N×1 tensor (as noted in Fig. 6).
+
+We then iterate through the data, using this predicted value in conjunction with the initial input time series (minus the single oldest data point, to maintain the m×n of the input data) to make the next prediction in the sequence.
+
+This process is continued until we have predicted to the desired temporal distance into the future.
+
+PARAGRAPH
+
+The performance of the model depends strongly on the dimensions of the m×n matrix and relatedly, the dimensions of the convolutional kernel.
+
+The height of the kernel is always equal to m so that we can look at datapoints from all the preceding days.
+
+However, the kernel width can vary for the same value of m.
+
+The kernel generally acts as a receptive field and the width influences how many samples before and after the timestamp of interest are we looking at (e.g. a kernel width of 61 will look at 30 timestamps before and after the timestamp of interest).
+
+This dependence is explored in depth when considering the predictive model’s results in Section 7, helping to illustrate the design tradeoffs concerning model computational and predictive performance.
+
+SECTION
+
+Training process
+
+PARAGRAPH
+
+The data were split into training, testing, and validation sets to avoid cross-contamination and overfitting.
+
+The most recent 20% of data were kept as outsample data for testing.
+
+The data were split sequentially, rather than randomly, to capture the inherent time-dependence of the data.
+
+Of the remaining 80%, 10% of the data were used for validation, while the remainder were used for training.
+
+PARAGRAPH
+
+The data were magnitude-normalized by dividing the training, testing and validation set by the highest value in the training set (51.5864).
+
+Normalization leads to more stable training dynamics and allows backpropagation to arrive at an optimum more easily, resulting in faster training of the model.
+
+The mean of the normalized training data were 0.001253, with this low value for flow indicating that water remains stagnant the majority of the time.
+
+PARAGRAPH
+
+Due to data unavailability and sparsity resulting from sensor, network, or computing outages, there were discontinuities within the data i.e. regions in the data set where two consecutive samples were collected at times separated by hours, days, or even weeks.
+
+In the sample house data, we found three such discontinuous sections.
+
+In analysis, these sections of data are treated as disparate segments in an effort to not confuse the model with data that may be less-well-correlated than might be expected by the model (a likely consequence of considering all data as contiguous regardless of the existence of gaps in the time series).
+
+PARAGRAPH
+
+Unlike heating or cooling which are often active even when homeowners are away, water is often stagnant within a home due to the occupants being away or otherwise not engaging with plumbing.
+
+In the case of our sample home, most of the data points in the hot water flow time series were 0.
+
+As a result, feeding data sequentially into most predictive models would result in batches comprising solely of zero values as input.
+
+Predicting future values from long periods of no-flow, typical models would resort to the null solution of expecting 0.0 or very small values for the entire predicted time series.
+
+In the case of our sample home, there were so many sequential 0 values that early attempts at modeling the data would output only minuscule values for predicted flow independent of the input series.
+
+While these highly-invariant models may work for thermostats, they are less useful for anticipating water demand, which is by nature “spikier” than other utilities.
+
+PARAGRAPH
+
+To mitigate this challenge, when generating a batch of training data, we select a segment with probability proportional to the length of that segment.
+
+Then, a predefined constant determines the percentage of “positive samples” (samples with non-zero water demand at the timestamp to be predicted) from that segment that will be included in the batch sent to the model as input.
+
+We randomly sample this percentage of non-zero samples from the selected segment and fill the remaining samples required for the batch labels/outputs with zero-valued samples.
+
+The corresponding inputs that the model should approximate the function for are created by taking the preceding min(p,m⋅n−1) (where p is the number of values available before the sampled point) values of each of the sampled points and performing the aforementioned input transformation to create the corresponding m×n matrices for each sample.
+
+These transformed m×n matrices are passed to the model as batch inputs (Fig. 6).
+
+This constructed batch with the sampled outputs and corresponding created inputs is then fed to the model for training, with the model attempting to minimize the mean-squared error (MSE) between the predicted time series and the ground-truth time series.
+
+PARAGRAPH
+
+For a concrete example, assume the training data contain three segments of length 50, 1000 and 20,000.
+
+When we generate a training batch of size 32 from these raw data, we are probabilistically most likely to pick the segment of length 20,000.
+
+Assuming the segment of length 20,000 is chosen and the predefined constant is set to 15%, we first sample five points within the segment that have non-zero values and then sample the remaining 27 points from the zero-valued elements in the segment to create a vector 32 elements long.
+
+The combination of these sampled values comprise our training input paired with the segment’s known output label.
+
+Assuming that the model uses m=7, and one of the points sampled was at index 50 of the segment, we take the previous 50 points and input transform them into the m×n matrix format.
+
+Similarly, if one of the points was sampled at index 15,000 but our model can only look back in time by 7⋅1,440−1=10,079 timesteps, we take the most recent 10,079 points and convert these into the m×n matrix format.
+
+These matrices are fed to the model together with their corresponding output labels.
+
+PARAGRAPH
+
+Fig. 8 illustrates this subselection process by showing sample matrices of dimensions m×n=8×1,440 generated from synthetic data.
+
+PARAGRAPH
+
+During training, in the case where all preceding demand values are zero, we construct the training batch labels by randomly sampling from these zero values and feed the samples into the model as outlined earlier.
+
+In the sample house data, ∼12% of the water demand was non-zero valued and therefore, given at least one day of historic demand data, we never encountered a situation where we only fed zero-valued batches to the model resulting in the prediction of a trivial solution.
+
+PARAGRAPH
+
+Note: The constant determining the percentage of non-zero ground truth values to be included in a batch was empirically determined to perform best as 15% non-zero values, when tested using our sample data set.
+
+This value struck a balance between predicting the trivial solution and accurately following the trends in the real data, and was the value used to train the models in all subsequent experimentation.
+
+PARAGRAPH
+
+While the model is training, the optimal heater behavior is to remain in an “always heating” stage to ensure safety and comfort.
+
+Once the model is learned, we retain the most recent flow values for at least the last week even if this is in excess of the model’s desired input window.
+
+Doing so allows the model to be resistant to possible data unavailability, allowing the retained values to help back-fill values in the event that data is missing.
+
+While this is all that is required for m≤7, we will need to store up to (m−7)⋅n−1 further values as history to utilize the models complete lookback capabilities.
+
+Therefore, we will have to maintain a buffer of size b such that b takes on values as denoted by Eq. (1). b=7⋅nm≤7m⋅n−1m>7
+
+SECTION
+
+Cognitive supervisor
+
+PARAGRAPH
+
+In conjunction with the predictive model, a Cognitive Supervisor considers the context of the water heater with regards to Legionella formation, human safety, and energy demands.
+
+PARAGRAPH
+
+The Cognitive Supervisor is a model-based simulator anticipating demand for hot water over the next 24 h at every time step and computing the risk of cultivating Legionella.
+
+The Supervisor, described in Siegel et al. (2018a), Siegel and Sarma (2019) and Siegel (2018), uses context information (in this case, rules about acceptable levels of Legionella formation and a priori knowledge of growth conditions) to identify and mitigate the risk of bacterial growth.
+
+The Supervisor does this by commanding the water tank to heat standing water, even if there is no anticipated demand in excess of the sterilization temperature within the next day.
+
+It further integrates with the predictive model’s anticipated future demand and coupled energy input to identify the period in the coming day during which the smallest delta in input energy would cause the water to exceed the critical bactericidal temperature for the duration necessary to assure safety.
+
+PARAGRAPH
+
+The proposed anti-bacterial Supervisor uses a “watchdog” timer with a sliding 24-h window, setting a safety flag to “true” if the temperature exceeds a predefined bactericidal limit for a known duration, and resetting that flag to “false” after water sits for 24 h with temperatures below the target.
+
+If heat in excess of the Legionella-lethal limit is not expected in the coming day, the watchdog selects an optimal point to increase the temperature exceeding the sterilization limit based upon predicted demand and the heater’s energy model (e.g. choosing the tank temperature minimizing the delta in energy between the anticipated demand and the lowest-energy “safe” state).
+
+The model may improve as new information is learned about Legionella growth, for example to incorporate ambient temperature, water supply quality and chemical treatments, pipe materials, or system flow rates known local to the system or captured from remote network resources.
+
+PARAGRAPH
+
+Eventually, variational techniques may be used to permute the expected heating schedule in search of the minimum energy difference between that required to meet household needs and that meeting Legionella safety requirements, rather than timing sterilization in advance of the largest water usage event as in Booysen et al. (2019).
+
+This approach is ideally suited to use cases including typical home or industrial use, or more complex cases such as those with intermittent demand (e.g. vacation homes or offices that close on the weekend).
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+In this section, we test the envisioned model for various hyperparameter configurations to identify those with the best performance.
+
+For the resulting model, we visualize the predicted results and provide quantitative analysis of the model’s performance in predicting hot water outflows.
+
+PARAGRAPH
+
+Section 7.1 considers the input region’s hyperparameters (width and height), and multiple permutations are tested and compared.
+
+In Sections 7.1.1–7.3 using the identified optimal hyperparameters for patch dimensions to compute their results.
+
+Sections 7.1–7.3 compute anticipated water flow for a period of 24 h in advance of the present, which is the length of the window required for the Cognitive Supervisor to identify the need for and optimal location of sterilization heating, while Section 7.3 considers the model’s ability to predict farther into the future, which could be more useful for long-term demand projections, e.g. those used for utilities to schedule power generation or fuel ordering.
+
+SECTION
+
+Ablation study on input region dimension
+
+PARAGRAPH
+
+The developed predictive model takes as input the dimensions of a local region patch to be examined.
+
+The size of this patch determines model performance and is a hyperparameter that must be tuned based on each home’s sample data and the desired applications’ characteristics.
+
+PARAGRAPH
+
+In this subsection, we therefore present multiple design options for the local region patch.
+
+Specifically, we consider the width of input region, which defines the range of correlated time steps across different days, and the height of input region.
+
+The input region height determines the length of previous days our model takes into consideration when making future predictions.
+
+PARAGRAPH
+
+We consider different values for both width and height, and then visually compare the results before continuing on to quantitative evaluation.
+
+PARAGRAPH
+
+SECTION
+
+Study on the range of time steps
+
+PARAGRAPH
+
+To identify the optimal kernel width, the sample data were considered and future flow was predicted forward in time using the training data as input and the results were compared against testing data as ground truth.
+
+Fig. 9 shows results comparing the ground truth (blue) and predicted (orange) flow rate for various receptive fields, where the kernel width (number of days, m) is permuted.
+
+Examining Fig. 9, we see that as the kernel width increases, the predicted data appears to better capture the correlation between the datapoints and makes predictions more in-line with the ground truth values.
+
+Intuitively, it makes sense that additional time history would improve the model’s predictive performance.
+
+PARAGRAPH
+
+The models with smaller receptive fields generally output a running mean but fail to capture the extent of the variability of the data whereas those models with larger receptive fields output results better tracking daily, hourly, and minute-by-minute variability.
+
+PARAGRAPH
+
+This is likely a result of the nature of the data.
+
+As water demand need not occur at the same time everyday, having a larger kernel width allows the model to see more of the data from the past, and make better predictions of the future.
+
+The models with smaller kernel widths are more likely to miss the water demand if there is large variability in the timing of the demand whereas those with larger kernel widths will still be able to see and use the past demand.
+
+PARAGRAPH
+
+However, the downside to constantly increasing the kernel width is the large subsequent increase in the number of trainable parameters (model with the kernel width of 15 had ≈28,000 parameters compared to ≈136,500 of the model with the width of 121) which causes the model to become slower to train, more complex to run on the constrained computing environment of the Raspberry Pi 3, and increases the risk of overfitting.
+
+PARAGRAPH
+
+Before examining the performance results quantitatively, note that due to the high heat capacity of water, it is more critical to track water demand on a longer (hourly) time-scale rather than minute-by-minute.
+
+This is because water in a tank takes a very long time to heat and cool off.
+
+In essence, the water tank stores heat energy sufficiently long that we do not need to consider events consuming hot water for a period on the order of minutes.
+
+Instead, we must consider longer-duration events and the related volume (a Riemann sum or integral of flow over time).
+
+The length of time considered is a function of tank size, since a bigger tank takes longer to heat up but also longer to draw down.
+
+As a result, even though we minimized MSE in training, we will use a different metric to evaluate model performance at runtime.
+
+PARAGRAPH
+
+This metric is computed by looking at the points within a window and computing the MSE inside that window after best aligning the predictions to the ground truth values.
+
+This acts as a form of similarity score between the shapes and magnitudes of the two sets of values under the window.
+
+PARAGRAPH
+
+The reported score is the value that results from summing over all the similarity scores between the predictions and the ground truth at each possible window position as the window slides across the data.
+
+We consider each datapoint within a window only once (i.e. the sliding window strides at intervals equal to its length), and divide this sum by the number of days in the future being predicting.
+
+This acts as a better measure of performance for our purposes than simply using the MSE across the entire length of the predictions and the ground truth.
+
+Similar to MSE, smaller values indicate improved performance.
+
+PARAGRAPH
+
+Using this metric as shown in Table 1, we see that the model with kernel width of 121 had the best performance overall.
+
+Notably, the model attained good results with much smaller receptive fields (15) and comparatively poor performance with kernel width of 91, despite results that qualitatively appear reasonable.
+
+PARAGRAPH
+
+The model performs well using the similarity metric with a smaller receptive field due to the contents of the training home’s input data.
+
+As mentioned in Section 6.1.3, most of the flow data are 0, and from Fig. 9, we see that the outputs from most learned models tends to be conservative.
+
+These models report small values resulting in small MSE for most future prediction regions.
+
+This behavior illustrates precisely why an improved similarity metric was necessary.
+
+PARAGRAPH
+
+However, the model with the kernel width of 91 likely underperformed quantitatively due in part to some outputs being large.
+
+In Fig. 9, the y-limits were kept constant to maintain uniformity and aid easier comparative analysis.
+
+Points that went beyond the limits were truncated visually, but these points were still used in calculation of the error metric which resulted in the inconsistencies (Test #2) in the quantitative results.
+
+SECTION
+
+Sensitivity to inclusion of previous days
+
+PARAGRAPH
+
+The results in this subsection consider the optimal input patch dimensions identified in Section 7.1.1.
+
+We identified the optimal kernel width as being 121, and will keep the width constant as we study the effect of varying the number of days included in the reference time history.
+
+PARAGRAPH
+
+Observing Fig. 10, we see that for smaller kernel heights (one and two), the graphical results poorly capture the data trend as the model lacks significant contextual information.
+
+However, once we start considering reference data ≥  one week prior, the model begins to successfully learn the trends in the data and make predictions that better-mirror the ground truth values.
+
+PARAGRAPH
+
+While looking at data more than one week back does improve predictor performance, it does not improve results significantly compared to the increasing the number of learnable parameters (Models with kernel height of 1, 2, 8, 22 and 29 have ≈28,000,43,500,136,500,353,345 and 461,700 parameters respectively).
+
+Increasing the learnable parameter count results in an increased tendency to overfit to the data and a related increase in time to train the model (the model with the kernel height of 29 took ≈2.5× the amount of time to train compared with the model having a height of 8).
+
+PARAGRAPH
+
+Looking at the results in Table 2, we notice that as the kernel heights increased beyond one week, the models begin to outperform those models with the smaller receptive fields both qualitatively and quantitatively.
+
+The best results come from the model that looked back the furthest (the model with the kernel height of 29, considering just over four weeks of prior data, which balances data volume, predictive performance, and computational complexity).
+
+Here again, the smallest kernel heights (one and two) again perform impressively.
+
+This behavior occurs for the same reasons identified in Section 7.1.1.
+
+SECTION
+
+Evaluation on the whole day prediction
+
+PARAGRAPH
+
+In this subsection, we evaluate the quality of the data projected one day into the future, the length of prediction necessary to support the Cognitive Supervisor’s Legionella watchdog.
+
+PARAGRAPH
+
+We begin by taking the water demand data we have and finding the mean water demand for each day and minute of the week.
+
+We then use these computed means to find the corresponding standard deviations of the water demand on each of the days and minutes.
+
+The resultant values are expressed as vectors in Fig. 11
+
+PARAGRAPH
+
+The resulting vectors help determine whether the model is performing well by considering how closely the model’s predictions match the output mean vectors (Fig. 11).
+
+Additionally, it will also give us a sense of what the models predictions will look like for unseen data.
+
+PARAGRAPH
+
+For each set of predicted outputs, we generate a corresponding set of mean vectors to help visualize how the model makes its predictions.
+
+Additionally, we compute whether each prediction that the model made was within two standard deviations of the mean demand on that day and time, and return the percentage of such inliers.
+
+PARAGRAPH
+
+The model with the kernel height, width of 29 and 121 respectively had the highest percentage of inliers at 93.32%.
+
+In addition to its generated mean vectors we also show the generated mean vectors for models with kernel dimensions of 1 × 121 and 8 × 15 as examples of poorer predictions (Fig. 12).
+
+PARAGRAPH
+
+Examining Fig. 12, we see that the predictions generated by the model with an input kernel of dimension 29 × 121 most closely resemble the ground truth mean vectors both in range and configuration.
+
+We note that the predictions generated by the model with kernel dimensions of 1 × 121 poorly track the ground truth vectors’ behavior, often maintaining the same conservatively small value throughout.
+
+PARAGRAPH
+
+For the model with kernel dimensions of 8 × 15, the generated mean prediction vectors appear more reasonable, however, its percentage of inliers is a low 74.62%.
+
+Understanding why requires further inspection of the image.
+
+Note that the predictions are consistently higher than those expected in the mean vectors, with the color bar indicating a non-zero minimum value and a maximum value nearly twice the mean vector.
+
+These results also align with the models corresponding results shown in Fig. 9.
+
+SECTION
+
+Capability for long-term future data prediction
+
+PARAGRAPH
+
+To enable long-term scheduling and demand prediction useful for utility-scale optimization, we are interested in determining how far ahead in time the proposed model can predict while remaining useful.
+
+In this subsection, we predict data for multiple days into the future and evaluate their performance.
+
+PARAGRAPH
+
+To obtain these long-term predictions, we use the best model discovered in Section 7.1, i.e. the model with the receptive field height and width of 29 and 121, respectively.
+
+The data that we will be conditioning on to make predictions is the same as the data that was used for Test #3 in Figs. 9 and 10, but the prediction length now extends up to two weeks forward from the simulated “present” date.
+
+The results of this experimentation are shown in Fig. 13
+
+PARAGRAPH
+
+In Fig. 13, we see that the model behaves as expected and diverges over time.
+
+The graph showing the progression of the error metric mentioned in Section 7.1.1 over time.
+
+We note an upward trend, indicating that the model’s predictions become progressively less accurate as we predict further into the future.
+
+PARAGRAPH
+
+This behavior is expected, and is common to many autoregressive models.
+
+Since we are making predictions for future values based on all the past data (in this case, up to 29⋅1440 datapoints), as we predict further into the future, we are increasingly basing our predicted values off of other predicted datapoints.
+
+As the quality of predicted data is inherently going to be less than that of the observed data, the slight differences tend to add up and the error accumulates over time.
+
+PARAGRAPH
+
+We can see this reflected qualitatively in Fig. 13, where the error metric is small for several days with a small, pseudo-linear increase at the outset.
+
+The sudden increase in the error metric on the 8th day is a result of multiple spikes in water demand that the model was unable to predict, likely as a result of the size of the input kernel which must make decisions based on ≥7 days of predicted data concatenated with the original data.
+
+As the time projected forward increases, the relative ratio of known-good data to predicted and uncertain data decreases, leading to poorer performance.
+
+By the 14th day, the model misses significant periods of demand and/or underestimates the degree of demand at that time.
+
+PARAGRAPH
+
+From this result, we find strong initial performance and a plateau allowing for reasonable flow (and by association heat energy) prediction for the first projected week after the current time.
+
+This significant duration suggests that it is feasible for a heater to proactively vary the upcoming temperature profile to stave off Legionella formation with a minimal change in input energy, thereby saving natural resources and money without exposing humans to risk unnecessarily.
+
+The performance up to one week in advance without significant divergence also indicates that it may be possible for utilities to predict future demand in order to better match supply with demand.
+
+SECTION
+
+Conclusion and future work
+
+PARAGRAPH
+
+We successfully demonstrated a predictive model for anticipating water outflow events based on historic data within a single home and proposed a Cognitive Supervisor capable of using these predicted values to stave off or reverse the formation of malignant Legionella bacteria with a minimal increase in tank heating energy.
+
+We also recommended the use of a low-cost connected hot water tank heater controller based on a Raspberry Pi microcomputer to instrument and modulate the power to incumbent water heating systems, thereby providing a cost-effective solution for increasing the energy efficiency of hot water delivery without compromising comfort or safety.
+
+PARAGRAPH
+
+Unlike traditional predictive systems, which optimize solely for energy use, this work demonstrates the potential for predictive models to anticipate water heating demand in order to comfortably and safely reduce energy expenditure.
+
+The described control algorithm may be used to optimize energy consumption for low-cost systems without costly mixing valves, subject to health constraints imposed by Legionella bacteria.
+
+Extension from flow-based models to energy-driven models (considering tank heating dynamics and temperature/flow relationships) will lend this predictive model further utility in emerging and developed markets.
+
+PARAGRAPH
+
+The impact of safety-conscious energy demand modeling is significant.
+
+While the health benefits are impossible to quantify, economic savings will vary based on the individual heater, the learned model, and use case.
+
+Though we are unable to collect precise energy savings relative to business-as-usual because we chose to instrument flow as an energy use surrogate in order to keep costs low, we anticipate that our solution’s savings should fall between the savings for the best-available technologies today, Booysen’s EM and EML schemes (17.8% and 13.1%, respectively) (Booysen et al., 2019).
+
+PARAGRAPH
+
+Booysen is the most-appropriate comparison for our system’s projected energy savings, as the EM model predicts energy usage reliably while the EML model builds upon EM to address both energy prediction as well as health.
+
+Other techniques described in Section 2 and in Table 1 of Booysen et al. (2019) (which provides empirical savings measures in addition to model shortcomings) may save more energy, but will also increase the risk of exposure to malignant bacteria by allowing unconstrained growth.
+
+PARAGRAPH
+
+In cases where water use is predictable and there are few idle periods, performance similar to Booysen’s EM scheme’s 17.8% median energy savings should be attainable.
+
+In cases where water utilization is repeatable and where the highest outflow volume corresponds to the highest energy event, but where stored water may stagnate for periods, our proposed model and Booysen’s EML should perform similarly (13.1% savings over conventional heating).
+
+Note that these figures are approximate, as we did not have the access to true baseline energy data, and instead estimate performance based on the predictor’s ability to track future flow demand compared to ground truth.
+
+PARAGRAPH
+
+For use cases where demand is intermittent, conventional predictive modeling tends to be less effective and long idle periods require additional tank sterilization energy.
+
+This is true, for example, in vacation homes or offices that shut down for >24h on the weekend.
+
+It is in these scenarios, or situations in which the largest outflow event of the day is not necessary the most energetic event, that our proposed Cognitive approach will yield savings falling between the EM and EML models.
+
+This scenario may occur where there exist high-energy, limited-outflow events, e.g. due to hot and cold water mixing for bathing.
+
+Our ability to project demand well into the future and to monitor the expected energetics of the tank output will help us minimize the delta in energy required to exceed the Legionella sterilization temperature, balancing input energy and water safety.
+
+PARAGRAPH
+
+We can compute rough, first-order economic, energetic, and environmental savings enabled by a proactive water heating model responsive to bacterial growth.
+
+To compute potential savings within the United States, we first estimate the number of buildings by type, including 5.8M commercial buildings (Anon, 2019b), of which ≈4.6M (Eia.gov, 2019) have one or more days where there is low- to no-water demand.
+
+We further estimate there to be 128M households (Statista.com, 2019) and 9M vacation homes (Hostfully.com, 2019).
+
+Lastly, we approximate 8.143M households in poverty (Anon, 2019a) that cannot use hot water or maintain low temperatures.
+
+From these data, we estimate the percentage of regularly-occupied homes and offices and conclude that ≈85% of the buildings are regularly occupied.
+
+If the regularly-occupied buildings save 17.8% using our model (assuming similar performance to the EM model), and the under-utilized buildings save 14.4% (assuming our Cognitive Supervisor approach can gain 10% efficiency over the EML model by more-optimally timing the sterilization event), we find a 17.3% potential savings relative to business as usual.
+
+PARAGRAPH
+
+The average occupied household uses 64 gallons of hot water per day (Energy.gov, 2019b) and the average office utilizes 112 gallons of hot water per day (calculated using the average daily hot water consumption of a person in an office and the average number of people per office from Engineeringtoolbox.com, 2019; Anon, 2019b; Bureau of Labor Statistics, 2019).
+
+PARAGRAPH
+
+Using Energy.gov’s “Energy Cost Calculator for Electric and Gas Water Heaters” (Energy.gov, 2019a), we see that a representative home and office using heaters with Federal Energy Management Program (FEMP) recommended performance levels have annual hot water energy costs of 4750 kWh (428$ at 0.09$ per kWh) and 8313 kWh (748$ at 0.09$ per kWh) respectively.
+
+With energy savings of 17.3% we save 821.8 kWh or 73.96$ per representative house and 1438.15 kWh or 129.43$ per representative office annually.
+
+In addition to the energy expenditures, our carbon footprint also decreases by 1.56lb per kilowatt-hour saved (Epa.gov, 2019).
+
+PARAGRAPH
+
+In the U.S. alone, homeowners would save over $10B annually in water heating costs, and save almost 80MMT of CO2 from being released into the atmosphere.
+
+For commercial buildings, the savings are over $750M.
+
+PARAGRAPH
+
+At a global scale, the savings and impact of proactive water heating adds up.
+
+The use of predictive models will have the most impact at scale, where Cloud-aggregated data may be used to control aspects of energy management systems (Evins and David, 2017).
+
+Connectivity amplifies these potential savings.
+
+For example, when water must be heated in excess of user tap demand to prevent bacterial growth, other connected devices (dish washers or washing machines) may be scheduled to run, taking advantage of energy that would otherwise be lost to cooling.
+
+PARAGRAPH
+
+We know that mean performance is more critical to predict than high-frequency demand spikes and troughs, so future work will consider the optimal balance of tracking highly-variable data at different timescales (minute-by-minute or hour-by-hour) with computational complexity, as the high latent heat of water means that water takes a long time to heat and cool.
+
+Capturing data from multiple homes and over a longer period will allow us to explore repeatability of model performance across homes, and the impact of seasonal effects on model performance.
+
+With these data borne out, we may continue to consider the implications of utility-scale demand prediction and Internet-enabled water heater control using Cognitive Supervisor enabled safety models.
+
+PARAGRAPH
+
+Additional work will also consider controller generalizability and model transferability (using a common pre-trained model and adapting the model’s output layers for specific homes) as well as architectures for connectivity allowing models to be trained and shared remotely but used locally.
+
+Federated learning may be a reasonable technique to train networks using distributed compute hardware and sensor samples.
+
+PARAGRAPH
+
+The techniques described in this manuscript have the potential to save energy not only in hot water heating, but for other utilities and appliances.
+
+The combination of accurate predictive demand modeling and context-aware systems is a unique enabler of safe and efficient infrastructure with the potential to save energy and reduce disease globally.

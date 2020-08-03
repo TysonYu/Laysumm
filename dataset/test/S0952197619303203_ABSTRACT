@@ -1,0 +1,31 @@
+10.1016/j.engappai.2019.103409
+
+ABSTRACT
+
+TITLE
+
+Photo-voltaic power daily predictions using expanding PDE sum models of polynomial networks based on Operational Calculus
+
+PARAGRAPH
+
+Photo-Voltaic (PV) power production is subject to the current local weather situation which result in the amount of solar radiation components possible to convert by PV modules.
+
+Numerical Weather Prediction (NWP) systems are usually run every 6 h to provide course local 24–48-hour forecasts.
+
+Statistical models, developed with spatial historical data, can convert or post-process these NWP data to predict PV power for a plant specific situation.
+
+Statistical predictions are more precise if rely on the latest weather observations and power measurements as the accuracy of NWP cloudiness is mostly inadequate for PV plant operation and the forecast errors are only magnified.
+
+Differential Polynomial Neural Network (D-PNN) is a novel neuro-computing technique based on analogies with brain pulse signal processing.
+
+It can model complex patterns without reducing significantly the data dimensionality as regression and soft-computing methods do.
+
+D-PNN decomposes the general Partial Differential Equation (PDE), being able to describe the local atmospheric dynamics, into node specific 2nd order sub-PDEs.
+
+These are converted using adapted procedures of Operational Calculus to obtain the Laplace images of unknown node functions, which are inverse transformed to obtain the originals.
+
+D-PNN can select from dozens of input variables to produce applicable sum PDE components which can extend, step by step, its composite models towards the optima.
+
+The PDE models are developed with historical spatial data from the estimated optimal lengths of daily training periods to process the last day input data and predict Clear Sky Index 24-hours ahead.
+
+They obtain a better prediction accuracy than simplified statistical solutions which allow to predict in horizon of a few hours only.

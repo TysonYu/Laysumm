@@ -1,0 +1,17 @@
+10.1016/j.engappai.2019.103303
+
+LAYSUMM
+
+TITLE
+
+SECUR-AMA: Active Malware Analysis Based on Monte Carlo Tree Search for Android Systems
+
+PARAGRAPH
+
+Malware analysis is fundamental to create and maintain reliable cyber-security systems capable of countering different threats.
+
+In the context of dynamic analysis, malware often remain hidden until a specific triggering action is performed by the user.
+
+SECUR-AMA is an Active Malware Analysis (AMA) framework for Android that mimics what a security expert does when analyzing a malware: it performs actions on the system, triggering malicious responses to generate a behavioral model of the application.
+
+SECUR-AMA learns from past interactions to guide the analysis aiming at maximizing the information that can be acquired on the malware while minimizing the number of triggering actions.

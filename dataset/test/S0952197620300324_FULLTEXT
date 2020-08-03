@@ -1,0 +1,761 @@
+10.1016/j.engappai.2020.103525
+
+FULLTEXT
+
+TITLE
+
+A novel policy gradient algorithm with PSO-based parameter exploration for continuous control
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Physical control is a crucial issue in both theory and engineering.
+
+However, many real-world control tasks are difficult to be explicitly modeled, and also high cost is usually consumed to carry out trial and error experiments in practice, especially the continuous control tasks.
+
+In contrast, the model-free reinforcement learning (RL) becomes flexible to address physical control tasks on the level of robot control policy (Heess et al., 2015; Yan et al., 2016).
+
+With the model-free RL methods, the decision-making policy can be learned from the data obtained by interacting with unknown dynamic environments without task modeling and priori knowledge of the dynamics (Sutton and Barto, 1998).
+
+Among the model-free RL methods, the value-based RL method has been proved to converge to optimal policy for tabular case and has been applied to address classical control tasks with discrete actions (Al-Tamimi et al., 2007; Zolfpourarokhlo et al., 2014).
+
+Although it successfully deals with tasks with continuous states by function approximators (Mnih et al., 2015; Hessel et al., 2017), it cannot handle those with continuous actions owing to the great challenge in finding optimal function among entire action space.
+
+PARAGRAPH
+
+To overcome this limitation, the policy-based RL method directly learns the control policy to maximize cumulative rewards by various algorithms (Williams, 1992; Dayan and Hinton, 1997; Kakade, 2001).
+
+For example, since the control policy can be parameterized by both linear and nonlinear function approximators, the policy gradient algorithm (PG) (Williams, 1992) has been extensively studied as a reliable solution for continuous control issues (Peters and Schaal, 2007; Deisenroth et al., 2013).
+
+With the normal PG, the gradients of policy can be unbiasedly estimated by sampling multiple interactive trajectories (Sutton and Barto, 1998).
+
+However, it cannot collect sufficient trajectories over entire state space to estimate gradient, resulting in a high variance in gradient direction estimation and slow convergence (Zhao et al., 2012).
+
+PARAGRAPH
+
+Some researchers (Weaver and Tao, 2001; Greensmith et al., 2018) have proposed to subtract the optimal baseline so as to improve the convergence speed of the PG. Yet there is considerable upgrade space in reduction of gradient estimation variance due to the fact that the baseline is difficult to be determined and sometimes misleading.
+
+Furthermore, an actor–critic framework (Bhatnagar et al., 2009; Wang et al., 2016) based on the PG is developed to obtain variance reduction by combining with the value-based methods, but at the cost of introducing bias.
+
+Besides, by using deep networks with rich representation, the PG-based RL methods are able to be performed effectively in continuous control tasks such as robot controlling (Silver et al., 2014; Lillicrap et al., 2015; Schulman et al., 2015; Gu et al., 2016; Mnih et al., 2016; Schulman et al., 2017; Zhao et al., 2018).
+
+However, all above methods are subjected to the high variance and slow convergence rate.
+
+To deal with the variance problem in the deep RL methods above, a variety of techniques have been proposed (Greensmith et al., 2018; Romoff et al., 2018).
+
+There still exists some difficulties, such as instability caused by embedding multiple deep neural networks into the PG. Meanwhile, the deep RL methods are sensitive to hyperparameter setting and exhibit high sample complexity to achieve anticipated performance (Henderson et al., 2017; Islam et al., 2017).
+
+Although the sample is efficient and stable (Gu et al., 2016), large computing resources and long running time are required to perform back propagation for updating numerous parameters.
+
+The existing PG variants are successful in many continuous RL problems and accelerate the convergence of the PG to some extent.
+
+However, they are time consuming due to the backpropagation operation over multiple layers.
+
+Moreover, the variance of gradient estimation still exists and thereby inevitably leads to slow convergence due to that they make sure exploration by adding noises to resulting actions.
+
+PARAGRAPH
+
+To further reduce aforementioned estimation variance to accelerate convergence of PG based algorithms, a parameter-exploring policy gradients (PGPE) algorithm proposed by Sehnke et al. (2010) can be considered.
+
+Unlike those explore in action space, PGPE directly conducts exploration in parameters.
+
+Specially, the PGPE replace the probabilistic policy with probabilistic distributions over parameters of controller, providing an alternative to reduce the variance generated from noise introduced by repeatedly sampling from probabilistic policy.
+
+Whereas, sampling enough trajectories to obtain unbiased gradient estimation is time consuming.
+
+The symmetric sampling (Sehnke, 2013) alleviates the problems above, but it is restricted to simple tasks, and it is hard to find the optimal baseline.
+
+Other parameter exploration means in RL domain have been proposed (Plappert et al., 2017; Fortunato et al., 2017; Salimans et al., 2017).
+
+They ensure exploration by adding parametric noises to parameters of policy model and obtain a policy that exhibits richer behaviors than those explore on action space.
+
+However, the gradient estimation and the multiple deep networks are still required in these means.
+
+PARAGRAPH
+
+Inspired by the idea of parameter exploration, in this work we investigate a new exploration way to improve the convergence of the PG. Importantly, we transfer the training of policy in RL into a continuous optimization issue on policy parameters.
+
+It is quite difficult for the traditional optimization methods as specific policy model is unknown.
+
+As an alternative, the evolution strategies (ES) and the genetic algorithm (GA) are introduced into the deep RL issues (Such et al., 2017; Sehgal et al., 2019).
+
+However, there is upgrade space in reducing complexity of computation and framework since complicated genetic operations and multiple networks are necessary in both methods.
+
+In contrast, the particle swarm optimization algorithm (PSO) is much easier in computation and fewer parameters are involved.
+
+To date, it has been successfully used in many continuous optimization problems (Valle et al., 2008; Wang et al., 2015; Cheng and Jin, 2015).
+
+Besides, its unique memory function and information sharing mechanism help to dynamically learn the control policy from the interactive data.
+
+Therefore, we introduce the PSO into the policy parameters optimization for avoiding gradient estimation variance.
+
+PARAGRAPH
+
+To further improve the convergence of the PG-based RL algorithms, we propose a novel policy gradient algorithm with a new PSO based parameter exploration (PG-PSOPE), which provides a simple but efficient RL framework for the continuous control issues.
+
+To well resolve a series of continuous control tasks, we preserve the representation method of control policy from the original PG and dynamically obtain training data by the interaction between agents and unknown environments.
+
+To reduce the gradient estimation variance and improve the convergence rate of the PG, we propose a unique gradient-free integrative framework without complicated backpropagation to solve continuous control tasks.
+
+Unlike others available, we completely replace the gradient estimation by exploring parameters directly related to policy model, making the exploration more efficient and avoiding the limitation of differentiability in policy controller.
+
+Furthermore, to simplify the computation, the PSO and the original PG are combined for the first time to explore parameters in our proposed framework.
+
+Additional mutation operation eases the dilemma of local optima.
+
+The remainder of this paper is structured as follows.
+
+In Section 2, the description of the RL problem and the framework of the policy gradient algorithm are reviewed.
+
+Section 3 introduces our proposed PG-PSOPE in detail.
+
+The experimental details are presented in Section 4.
+
+The results and discussion are shown in Section 5.
+
+Finally, the conclusion is given in Section 6.
+
+SECTION
+
+Policy gradient framework
+
+PARAGRAPH
+
+Since the PG-PSOPE is an improvement of the PG algorithm in RL, here we introduce the problem formulation of RL and the framework of the normal PG.
+
+SECTION
+
+Problem formulation
+
+PARAGRAPH
+
+Physical control tasks can be considered as continuous RL problems.
+
+To maximize cumulative return, an agent in RL framework learns the control policy by continuously interacting with dynamic environment.
+
+Given a state st, an agent chooses the action at based on policy π which maps the states to the actions, resulting in a new state st+1 according to the transition probability p(st+1|  st, at) under the assumption that the environment is Markovian.
+
+Meanwhile, an immediate reward signal rt is returned from the environment.
+
+Above process continues until reaching the final state or the termination condition.
+
+Associating the return R of each trajectory with the sum of the reward of each step (Sutton and Barto, 1998), the goal for the agent is to learn an optimal policy π for the sake of maximization of expected return denoted as J(π), given in Eq. (1) as follow.
+
+J(π)=Eτ∼π[R(τ)],in which, τ is called as trajectory or roll-out, a sequence (s0, a0, r0…, sT−1, aT−1, rT−1, sT) generated from interaction with environment.
+
+SECTION
+
+Policy gradient framework
+
+PARAGRAPH
+
+For the RL issues with continuous actions, the PG is a solution carried out by parameterizing policy and updating parameters through the gradient estimation.
+
+Generally, considering that the policy πθ is realized as a function with parameters vector θ and the objective function is J(θ), an agent aims to find an optimal parameter vector θ to maximize the expected reward.
+
+Thus, Eq. (1) can be expanded as J(θ)=∫τ∼πθ(τ)πθ(τ)R(τ)dτ,where πθ  (τ) represents the probability of encountering trajectory τ based on the policy π.
+
+To optimize J(θ), we can adjust parameter θ by computing ∇θJ(θ) according to the gradient ascent theory.
+
+Since cumulative return R(τ) is independent of θ and the standard identity can be conducted to ease computation, then the final form of ∇θJ(θ) is obtained, as shown in Formulation (3).
+
+In this setting, the expectation form of Eq. (3) is shown in Eq. (4). ∇θJ(θ)=∫τ∼πθ(τ)πθ(τ)∇θlogπθ(τ)R(τ)dτ,∇θJ(θ)=Eτ∼πθ(τ)[∇θlogπθ(τ)R(τ)].
+
+PARAGRAPH
+
+Assuming that T is the length of trajectory τ, πθ  (τ) can be expressed as p(s0)∏t=0Tπθ(at|st)p(st+1|st,at), where πθ  (at|  st) represents the probability of choosing at under state st.
+
+Hence ∇θ logπθ  (τ) is given as Eq. (5) because only the policy π is dependent on θ. ∇θlogπθ(τ)=∑t=0T∇θlogπθ(at|st)
+
+PARAGRAPH
+
+As a result, the reward maximization problem can be converted into logarithmic likelihood maximization.
+
+Considering that integrating over entire historical space is time consuming, we can approximate the expectation in Eq. (4) by means of Monte Carlo sampling.
+
+In this setting, a gradient estimating rule of episodic PG (Williams, 1992) can be obtained by the following equation ∇θJ(θ)≈1N∑n=1N∑t=0T∇θlogπθ(atn|stn)R(τn),in which, N denotes the number of real sampled interactive trajectories.
+
+Accordingly, the gradients of the parametric policy can be unbiasedly estimated.
+
+In practice, the Gaussian policy, shown in Eq. (7), is carried out at each step to realize the exploration and avoid falling into local optimum. πθ(st,at)=12piexp(−(at−μθ,t)22σt2)
+
+PARAGRAPH
+
+Hence, for ease of argument, considering there is a set of means {μi} as output of parameterized policy and a set of constant standard deviations {σi}, the derivation of logarithmic policy in Eq. (5) is shown as Eq. (8).
+
+Consequently, the policy parameters can be updated by gradient ascent as shown in Eq. (9), where β is the learning rate. ∇θlogπθ(st,at)=−((at−μθ,t)∇θ(μθ,t))∕σt2,θ=θ+β∇θJ(θ).
+
+SECTION
+
+PG-PSOPE method
+
+PARAGRAPH
+
+To improve the convergence of the policy gradient algorithm, we introduce the PSO into the PG to explore policy parameters.
+
+In this section, we make a detailed description of the proposed PG-PSOPE algorithm.
+
+The representation of control policy, namely, the mapping from states to actions, is firstly introduced.
+
+Subsequently, exploring and updating rules, including the mutation probability developed to avoid local optima, are illustrated in details.
+
+SECTION
+
+Policy representation
+
+PARAGRAPH
+
+As the probabilistic policy πθ  (at|  st) in Eq. (5) is critical to the result of model training, we adopt a deep neural network with high fitting ability as a function approximator of decision-making policy.
+
+Thus, the control policy is parameterized by a set of weight vectors {wi} of neural network, and the input of policy network is the observation of environment, while the output is the corresponding action.
+
+According to the aforementioned statement, given the state st, the output action at is determined by the following equation at=πw(st)=fL(fL−1(…f2(f1(st,w1),w2)…,wL−1),wL).
+
+PARAGRAPH
+
+Assuming Da as the dimension of action, then the action at is constructed as a set {at,1,…,at,Da}, where at,i denotes the value of the i th dimension of the action.
+
+In Eq. (10), the notation L denotes the number of layers and fl  (⋅), l=1,2…L, is the activation function used in the lth layer, such as hyperbolic tangent function to improve the expression ability of policy network.
+
+Fig. 1 illustrates an example of policy network architecture with one hidden layer designed for classical cart–pole balancing task.
+
+The input is the observation of environment, including the position and the velocity of the cart, the angle and the angular velocity of the pole.
+
+Correspondingly, the output is the action, namely, the force applied to the cart.
+
+Noticeably, the tanh nonlinearity is used in hidden layer.
+
+In practice, specific structure of the policy network is determined by the complexity of the task to be solved, generally the dimension of state and action space.
+
+SECTION
+
+PARAGRAPH
+
+PSO-based parameter exploration
+
+PARAGRAPH
+
+In fact, the typical policy gradient algorithms, such as on-policy PG and off-policy deep deterministic policy gradients (DDPG) (Lillicrap et al., 2015), merely execute exploration on action space.
+
+The former realizes the exploration by sampling action with Gaussian function whose mean is the output of policy network.
+
+The latter directly adds sampled noises to the resulting action.
+
+However, they encounter a high gradient estimation variance and thereby cause slow convergence (Wang et al., 2016).
+
+Therefore, our proposed PG-PSOPE performs the exploration on the parameter space instead of the action space.
+
+Since the PSO has been demonstrated to obtain appealing performance on optimization problems in various domains, we optimize the parameters of the deep policy network by the PSO without any gradient estimating.
+
+Thus, the proposed PG-PSOPE can avoid the high variance aroused by the gradient estimation.
+
+The integrative framework of the PG-PSOPE, including policy initialization of each agent in a group, parameter exploration mechanism and updating process of parameters, is presented in Fig. 2.
+
+SECTION
+
+PARAGRAPH
+
+Policy initialization
+
+PARAGRAPH
+
+The control policy in our method is represented by a forward neural network, aiming to find a set of weights {wi} for reward maximization.
+
+Since the PSO is a parallel intelligent computation technique based upon the social behavior metaphor, multiple particles with different initial positions and velocities are constructed to find various solutions.
+
+Similarly, we define an agent group of agents with different initial control policies and different updated velocities of parameters for policy optimization.
+
+The control policy of each agent differs in the weights of their policy networks.
+
+Thus, the velocities determine the update speed of weights.
+
+Considering that an agent group consists of M agents, we denote the weights and velocities of the whole group with W {w1, w2, …, wM} and V {v1, v2, …, vM}, respectively.
+
+Each weights and velocities vector with the same dimension are initialized by the following Gaussian distributions wi,k∼N(μw,σw),vi,k∼N(μv,σv), in which, wi,k and vi,k denote the kth element of the agent i in each weights and velocities vector, respectively.
+
+SECTION
+
+Parameter exploration
+
+PARAGRAPH
+
+Normally, to ensure a trade-off between exploitation and exploration, the Gaussian policy is adopted by the PG. However, due to the noise added in each time step to resulting actions, it leads to a high variance at gradient estimates and thereby slows down the convergence.
+
+To this end, we realize the exploration by directly perturbing on parameters of control policy with the PSO algorithm.
+
+With this operation, the action taken at each step is deterministic and an interactive trajectory is generated from a single parameter sample, avoiding the variance of gradient estimation in the PG, which is caused by the noise added in actions.
+
+PARAGRAPH
+
+The PSO generally works by iteratively searching in various regions within the problem space to locate a good optimum, hopefully the global one (Valle et al., 2008).
+
+We apply the similar idea to the PG, making it a gradient-free method by using the PSO to execute exploration on the parameters of constructed policy model for continuous control issues.
+
+In the standard PSO algorithm, each particle tries to obtain the individual extreme as well as the global extreme by computing respective fitness value of objective function (Valle et al., 2008).
+
+Similarly, the control policy model we established is optimized by a group of agents with different RL brains, namely, the policy networks with different weights, which is different to the existing optimization issues addressed by the PSO.
+
+Importantly, agents interact with environment continuously to obtain cumulative returns as their fitness values, and thus decide whether to update their individual and global best policies.
+
+PARAGRAPH
+
+In each episode, agents contact with dynamic environments with random initial states without disturbing each other.
+
+They respectively react to the encountered states each step according to their own policies until obtaining the final state or the task is failed.
+
+Thereafter, they receive the corresponding immediate rewards at each step to obtain cumulative returns at the end of each interactive episode, which is critical to the PG-PSOPE.
+
+The individual and global extremes of agent group are updated by comparing with their previous values.
+
+And then the velocities and the weights of each agent will be evolved according to the updating rules.
+
+To evaluate the performance of our proposed PG-PSOPE, we also test the policy model with the weights corresponding to the global extreme.
+
+Meanwhile, the maximum return among agents is recorded every episode.
+
+The procedure above continues until the average return over last several episodes reaches the value designed for a particular problem.
+
+SECTION
+
+Updates of parameters
+
+PARAGRAPH
+
+Suppose there are M agents in a group, G and K are used to denote the total number of iterations called ‘episode’ instead and maximum interactive steps in an iteration, respectively.
+
+The set of weights and velocities vector of agents are represented via vector W =  (w1, w2, …, wM) and V =  (v1, v2, …, vM).
+
+Let wie and vie  (i=1, 2, …, M) indicate the weights and velocities vector of agent i at episode e (e=1, 2, …, G), respectively.
+
+At the end of episode e, when each agent finishes the interaction with environment, the weights and velocities vectors of the agent i are updated according to the following law v⃗ie+1=ω∗v⃗ie+c1∗rand1∗(w⃗pbest,ie−w⃗ie)+c2∗rand2∗(w⃗gbeste−w⃗ie),w⃗ie+1=w⃗ie+ξ∗v⃗ie+1, where the symbol ‘−’ and ‘+’ respectively denote element-by-element vector subtraction and addition.
+
+Significantly, to make reasonable use of the individual optimum as well as the social optimum among agents, the velocities vector vie is updated, depending on both its current value and a term which determines the strength of attraction towards the best individual and the global weights found so far.
+
+Among them, the last term in Eq. (13) indicates a sharing mechanism among agents, promoting the convergence of the whole agent group.
+
+Additionally, ω (0≤  ω  ≤1) is inertia weight deciding how much to keep the original velocity, which can be a fixed or dynamic value in practice.
+
+For instance, Eq. (15) shows an updating rule of dynamic linear decreasing inertia weight ω, where G, e, ωmax and ωmin stand for the maximum and current number of iterations, maximum and minimum value of inertia weight, respectively, and c1, c2 are the weight coefficients in the range [0, 4] for each agent to track the individual optimum and the global optimum.
+
+Thus, to make a trade-off between local and global optimal weights, coefficients c1 and c2 ought to be set up appropriately.
+
+As shown in Eq. (16), rand1 and rand2, useful for parameter exploration, are uniform random numbers selected in the range [0,1].
+
+The weights vector wie of agent i is evolved via its current weights and the latest velocities, affected by the constraint factor ξ which limits the update range.
+
+As a result, the control policy of each agent is updated without any back propagation, which saves the computing resource and accelerates the convergence. ω=((ωmax−ωmin)∗(G−e))∕G+ωminrand1,rand2∈uniform[0,1]
+
+SECTION
+
+Mutation probability
+
+PARAGRAPH
+
+Addressing the continuous control tasks, especially the locomotion tasks, is complicated owing to the high dimensions of both states and actions space.
+
+Since their states and actions are all continuous values, optimizing the control policies only by the normal PSO is inefficient, and will lead to a slow convergence.
+
+Moreover, it is easy to fall into local optima.
+
+Therefore, inspired by the mutation operator of the genetic algorithm, we introduce a mutation probability into the proposed PG-PSOPE to enhance the exploration ability of agents.
+
+At each episode, we give a probabilistic chance for the weights of the policy network belonging to each agent to change suddenly when the random number α  (α  ∈[0,1]) is lower than the given mutation probability ‘MP’.
+
+In this way, it is possible for agents to break out from the local optimal solution.
+
+The pseudo-code of the PG-PSOPE is provided in Algorithm 1.
+
+SECTION
+
+PARAGRAPH
+
+Experimental details
+
+PARAGRAPH
+
+To evaluate the performance of the PG-PSOPE, we test it on a set of simulated continuous control environments from OpenAI Gym benchmark (Yan et al., 2016), including classical cart–pole balancing task, continuous inverted pendulum controlling as well as locomotion tasks such as walker.
+
+These tasks, except cart–pole balancing, are simulated on MuJoCo physics engine (Todorov et al., 2012) which is designed for modeling, simulation and visualization of multi-joint dynamic with contact, as shown in Fig. 3.
+
+In this section, the tasks involved in our experiments are introduced, and the experimental settings of the proposed PG-PSOPE and typical compared algorithms, namely on-policy PG and off-policy DDPG, are illustrated in details.
+
+SECTION
+
+PARAGRAPH
+
+Tasks
+
+PARAGRAPH
+
+Classical RL control task.
+
+To investigate the effectiveness of the PG-PSOPE on classical RL control issues, the experiment on typical cart–pole balancing task of OpenAI Gym is conducted.
+
+Considering that the action of which is discretized into two values, we redesign it as continuous case by modifying source code.
+
+As one of the typical control theory problems in the classical RL, agents need to balance the pole attached to a cart by applying a reasonable force to the cart at each time step.
+
+PARAGRAPH
+
+Physical motor control tasks.
+
+Two typical continuous motor control issues simulated with MuJoCo physical engine, include the control of inverted pendulum and second order inverted pendulum, both of them need to be brought to the upright position and maintain balanced.
+
+Among them, the latter is more sophisticated to cope with due to the high dimensionality of observation space.
+
+Therefore, we construct networks with different sizes for each as shown in Table 1 to appropriately represent control strategy.
+
+PARAGRAPH
+
+Challenging robotic locomotion tasks.
+
+To further investigate the performance of PG-PSOPE on continuous control domain, we also experiment on a set of challenging locomotion tasks shown in Fig. 3c–f with high dimensional observation and action spaces.
+
+Notice that we use the physical state as input of policy network for all tasks, which consists of the positions as well as the velocities of robot joints as suggested by Mnih et al. (2016).
+
+SECTION
+
+Experiment setup
+
+PARAGRAPH
+
+Policy network architecture.
+
+For the DDPG used in our comparison experiment, its policy network architectures are set according to the previous literature (Lillicrap et al., 2015), that a fully-connected network with two hidden layers of size 100 × 50 for those with low dimensional actions and size 400 × 300 for another complicated ones.
+
+The tanh nonlinearities are used at each hidden layer.
+
+For the PG with the Gaussian policy, there is one hidden layer with 10 units for the classical cart–pole balancing task, two hidden layers with 64 × 64 or 128 × 64 for remaining control tasks shown in Fig. 3.
+
+For the PG-PSOPE proposed in this paper, we generally construct a forward policy network πw  (st) with only one hidden layer, outputting the determined action.
+
+This counts for the variance reduction of the PG when compared with those perturb merely on action space.
+
+Importantly, for all aforementioned algorithms, whether the nonlinear activation is added to the output layer depends on the complexity of the tackled specific problem.
+
+PARAGRAPH
+
+Hyper parameters related to PSO-based exploration.
+
+For the hyper parameters of the PSO in the proposed PG-PSOPE, we set each parameter according to both the complexity of tasks and the pre experimental results with different setting values.
+
+In this way, the appropriate number of agents constructed for different tasks is determined according to the complexity of the task, the number of policy parameters, especially the pre experimental results with different numbers of agents.
+
+Its specific configuration is shown in Table 1.
+
+According to our pre experimental results, we set the coefficients c1 and c2 of Eq. (13) as a constant 2, which also has been demonstrated to exhibit the better exploration (Cheng and Jin, 2015; Wang et al., 2015).
+
+Similarly, the inertia weight ω is set as 0.6 or 0.75 for physical control tasks and locomotion tasks by means of the same strategy.
+
+It is a dynamic value for the classical RL control.
+
+Besides, to make full use of the exploration results of the agents, we set ξ of Eq. (14) as a constant 1.
+
+PARAGRAPH
+
+Training details.
+
+Hyperparameters of the DDPG are set according to the literature available (Lillicrap et al., 2015).
+
+To obtain an optimal or near-optimal strategy, it is necessary to set the maximum episode to avoid over fitting.
+
+Table 1 illustrates the detailed configuration of the PG-PSOPE on each task.
+
+Noticeably, to save training time and provide uniform criteria for comparison, the upper limit of the interactive steps per episode is set as a specific value.
+
+Since those tasks differ in the dimensionality of observations and actions, it is necessary to set different maximum steps for them.
+
+Furthermore, to perform the exploration on the parameters by the PG-PSOPE effectively, it is essential to set a reasonable number of agents for the sake of the global optima, making trade-off between training time and final performance.
+
+Most importantly, all plots are the results of multiple independent runs, where both the parameters of policy networks and the environment are randomly initialized in each running.
+
+SECTION
+
+PARAGRAPH
+
+Results and discussion
+
+PARAGRAPH
+
+In this section, we depict the comparing results of the PG-PSOPE with the PG and the DDPG on each continuous control task mentioned in the last section, and then analyze them.
+
+Note that we evaluate the performance of the proposed algorithm through plotting learning curves as well as recording running time of convergence.
+
+Hence, the learning curves of each algorithm on different tasks are demonstrated and analyzed.
+
+To highlight the superiority of the PG-PSOPE in convergence speed, we also compare the running time that satisfies specific average reward of each algorithm.
+
+SECTION
+
+Cart–pole
+
+PARAGRAPH
+
+Interestingly, we only construct 15 agents with the policy networks of different random initialized weights to represent different initial solutions, as there is only one hidden layer with 10 units for each network.
+
+With the PG-PSOPE, agents can obtain a maximum reward after interacting with environment for only dozens of episodes, as shown in Fig. 4.
+
+Whereas, more episodes are demanded by the DDPG to obtain enough interactive samples for experience replaying.
+
+Furthermore, the PG-PSOPE converges faster than the PG despite the fact that the convergence speed of the PG is considerable higher than that of the DDPG according to Fig. 4.
+
+Moreover, the optimal control policy is finally learned by the PG-PSOPE to make the pole maintain upright quickly with slight movement of the car, displaying the stability in each validation.
+
+By contrast, relying on the policy learned by the PG, the pole can also keep balance but sometimes at the cost of unstable movement of the cart.
+
+Therefore, the PG-PSOPE outperforms other methods on both convergence rate and final performance for this benchmark.
+
+In this sense, the policy learned by our algorithm is relatively reliable for the migration to the actual control.
+
+SECTION
+
+Inverted pendulum
+
+PARAGRAPH
+
+For this scenario, there are four inputs and one output in policy network.
+
+To avoid falling down, agents must learn a policy to control an inverted pendulum by interacting with simulated physical environment.
+
+For the sake of the optimal policy, 20 agents are constructed to search on parameters space according to their policies.
+
+Consequently, they find a solution after several updates of weights correlated to their policy networks through interacting with dynamic environment, quickly making the pendulum balance without obvious swing.
+
+Fig. 5 illustrates the average return per training episode of each algorithm.
+
+It is clear that all methods can finally learn to control the pendulum to obtain a highest reward at final stage of training.
+
+By contrast, the PG-PSOPE outperforms other algorithms in learning speed, yet the DDPG needs further more episodes to collect enough samples to replay experience for training both actor and critic networks.
+
+Moreover, the PG-PSOPE is superior to the PG in the speed of finding a feasible solution, since there are multiple agents exploring parameters with different initial cases to generate the global best policy every episode.
+
+Evidently, exploring on parameter space with the PG-PSOPE achieves a more reliable performance in terms of trust regions shown in Fig. 5.
+
+PARAGRAPH
+
+SECTION
+
+Inverted double pendulum
+
+PARAGRAPH
+
+Unlike inverted pendulum, the simulated physical environment of inverted double pendulum contains 11 dimensions and all are continuous values.
+
+The high-order nonlinearity of the control system of this task makes it a great challenge.
+
+To deal with this problem, we construct 1000 agents with different random initialized policy networks to interact with randomly initialized environments and share the exploration results with each other.
+
+Their policy parameters are updated per episode, depending on the respective individual extremes and the global best solution generated among agents.
+
+The experimental results are presented in Fig. 6.
+
+Obviously, the PG-PSOPE quickly achieves the highest reward and thereafter keeps stable performance, while the task fails to be addressed by the PG. As shown in Fig. 6, it significantly outperforms other gradient-based algorithms from the early stage of the training.
+
+Whereas, the DDPG, sensitive to both quality and quantity of samples, takes a lot of episodes to enrich its experience replay buffer.
+
+Even though the DDPG eventually obtains the same reward as the PG-PSOPE, it is much more time consumption.
+
+Furthermore, in terms of the final performance, both of them are able to learn a control policy that keeps inverted double pendulum upright after several oscillations.
+
+However, the DDPG takes more time to achieve the same performance, owing to the complicated back propagation for policy updating.
+
+Therefore, the superiority of the PG-PSOPE in both the convergence and the effectiveness in solving continuous control problems can be clearly seen from the learning curves and the average returns in late training period of Fig. 6.
+
+SECTION
+
+Half cheetah
+
+PARAGRAPH
+
+The goal for this task is to control a cheetah robot constrained to the plane to run forward as fast as possible.
+
+Although the dimensionality of its action is higher than the inverted double pendulum, similar network is established to be a nonlinear function approximator of control policy since the tanh activation aids in improving its expression ability.
+
+The comparing result of average return is shown in Fig. 7.
+
+Evidently, from the start position of each learning curve, one can clearly see that the average return of the PG-PSOPE to find a solution is higher than those of the DDPG and the PG after first iteration based on the exploring results of the constructed agent group.
+
+Theoretically, the more agents with different initial weights of policy networks are set, the greater probability to find the global optima, which has been confirmed by our experimental result.
+
+Interestingly, the trend of the curves indicates that all the algorithms are able to gradually obtain the better parameters of policy receiving more rewards.
+
+However, after substantial episodes of training, the PG-PSOPE achieves a more considerable reward, which is twice and six times over the DDPG and the PG, respectively.
+
+Furthermore, the testing results prove that the policy learned by the PG-PSOPE can make the robot run forward quickly without any accident.
+
+In contrast, based on the policy learned by the DDPG, the robot tends to turn itself upside down first as shown in Fig. 8 and then runs forward fast.
+
+With the policy learned by the PG, cheetah robot either keeps standing without movements or fails completely.
+
+On this account, the PG-PSOPE is more effective on this locomotion task.
+
+PARAGRAPH
+
+SECTION
+
+Hopper
+
+PARAGRAPH
+
+For this task, agents should balance a monopod with multiple degrees of freedom so that it can hop forward as fast as possible without falling to the ground, which is called as ‘hopper’.
+
+As shown in Fig. 9, the PG-PSOPE can quickly find a solution with relatively high return from the early stage of the training.
+
+According to the rendering result, one can see that the monopod robot relying on the policy learned by the PG prefers to maintain standing.
+
+In contrast, it is likely for agents to learn a feasible policy by the PG-PSOPE to obtain a highest reward (see Fig. 9).
+
+However, one can obviously see that there is a long sample collection process required by the DDPG to obtain a highest final reward and keep stable all the way, even though it finally succeeds in controlling the robot to hop forward.
+
+In this sense, the PG-PSOPE proposed in this paper, quickly achieving a more reliable solution, is more suitable for this task because it accelerates the convergence at the beginning of training.
+
+SECTION
+
+Walker
+
+PARAGRAPH
+
+Agents must learn a policy to make a bipedal walker with multiple degrees of freedom constrained to the plane move forward as quickly as possible without falling down or overturning.
+
+Although the dimensionality of its state and action is the same as previous half cheetah locomotion task, to address this task is more complicated because of the difficulty in learning a normal gait to walk forward quickly.
+
+Fig. 10 illustrates the experimental result of each algorithm.
+
+Evidently, after the first episode of interaction, a solution with a considerable reward is found among the global best exploring result of the constructed agents.
+
+Indeed, according to the policy learned by the PG-PSOPE after only tens of training, the robot is able to walk forward fast and receive the relatively high reward per episode.
+
+Whereas, according to the decision-making policy learned by the DDPG, the robot can neither move forward nor keep standing in the first several thousand training episodes while the PG completely fails to find a feasible solution.
+
+Even though we cannot deny that the robot is able to walk with humanoid gaits eventually based on the policy learned by the DDPG, it costs large computational resources (see Fig. 10).
+
+PARAGRAPH
+
+SECTION
+
+Ant
+
+PARAGRAPH
+
+We have to formulate a policy network and train it to finally control a 3D four-legged robot to crawl in a certain direction quickly.
+
+The state and the action of this task consists of 111 dimensions and 8 dimensions, respectively.
+
+To find the better parameters of policy network within a wide range of solution, we tune the mutation probability higher than classical RL control tasks for each agent.
+
+The experimental results are presented in Fig. 11.
+
+It can be seen from this figure that both the PG-PSOPE and the DDPG obtain a reward much higher than the PG. However, the policy trained by the PG for about 6000 episodes does not work at all.
+
+Subsequently, the reward of the PG goes up towards the negative direction, resulting in a random backward movement of the robot.
+
+By contrast, the variation tendencies of average return, obtained by both the PG-PSOPE and the DDPG, are what we expect.
+
+However, only the PG-PSOPE can eventually converge in a relatively high average score about 16,000 in less than 200 episodes of parameter exploration and evolution, yet the DDPG receives a score about 8500 on the whole.
+
+Furthermore, according to the rendering frames during model validation, we observe that the robot kept moving forward at a rather fast speed and exceeded the reserved motion area within seconds.
+
+Conversely, relying on the policy evolved by the DDPG, the robot tends to move slowly without a specific direction in a limited area.
+
+Therefore, both the convergence speed and the final performance confirm the reliable convergence property of the proposed PG-PSOPE on such challenging robot locomotion task.
+
+SECTION
+
+PARAGRAPH
+
+Training time comparison
+
+PARAGRAPH
+
+To further verify the superiority of the proposed PG-PSOPE in convergence intuitively, we record the training time required by each algorithm mentioned above.
+
+To guarantee the effective comparison, they all run on the same computer with Intel (R) Core (TM) i7-8565U CPU.
+
+The training time of each independent running we count is defined as the running time required to continuously achieve a specified average reward for specific episodes.
+
+Importantly, to make the results more convincing, we independently run each algorithm for 10 times on every task.
+
+PARAGRAPH
+
+The results on typical RL control task are summarized in Table 2, including the maximum, minimum and average time required by each algorithm to continuously obtain the reward threshold for 10 episodes.
+
+Obviously, the PG-PSOPE requires the training time about 2.7 times less than the PG to solve the task, although we only construct 15 agents to interact with simulated environment.
+
+Surprisingly, the running time demanded by our proposed algorithm to achieve the same average reward is reduced by 58 times than that required by the DDPG.
+
+PARAGRAPH
+
+Table 3 illustrates the comparing results on motor control tasks.
+
+For inverted pendulum control task, one can see that the PG-PSOPE takes about 31 times shorter than the DDPG to continuously attain the reward threshold for 20 episodes.
+
+Besides, compared to the PG, the average training time of our algorithm is reduced by 3.7 times, despite the fact that the PG has shown us a superior running speed than the DDPG.
+
+For another task, it can be clearly observed that the training time taken by our algorithm is reduced by 3.19 times than the DDPG, while the task completely fails to be solved by the PG. Actually, we have tried many times to use the PG and the actor–critic algorithm with the Gaussian policy to balance inverted double pendulum.
+
+However, neither of them works out on this task.
+
+In conclusion, our proposed PG-PSOPE provides a simple but efficient alternative to address this control task.
+
+PARAGRAPH
+
+The statistical results of running time on challenging robotic locomotion tasks are shown in Table 4.
+
+Training time demanded by agents to continuously reach the reward threshold for 20 episodes is the averaging result of 10 independent runs.
+
+Obviously, since there is no gradient computation and backpropagation, the training time required by the PG-PSOPE mainly depends on the interaction between agents and dynamic environments.
+
+As is expected, the training time demanded by the PG-PSOPE is less than the DDPG on all tasks, accelerating the training process about 5.5, 10.5, 3.0 and 0.9 times for corresponding tasks, respectively.
+
+Noticeably, the PG fails to meet the reward thresholds of these tasks and therefore does not participate in the comparison.
+
+The overall results of average training time on above continuous control tasks are demonstrated in Fig. 12.
+
+PARAGRAPH
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The general observation of this work is the superior convergence performance of the PG-PSOPE when compared with the policy gradient methods, especially on motor control tasks.
+
+Another observation is that the training process of the PG-PSOPE is much simpler than the existing PG based RL algorithms, accounting for the less training time and low computational requirement.
+
+It is likely for the PG-PSOPE to find a policy for achieving richer behavior of robots.
+
+Additional observation is that the more agents constructed the higher final reward can be obtained but at the cost of time for interaction with environments.
+
+Thus, to further make a trade-off of the final performance and the training time, an adaptive adjust mechanism of the number of agents should be made appropriately.
+
+Furthermore, considering that the training result of our proposed algorithm can be applied to the network initialization of policy gradient algorithms, an unknown question is that whether the PG-PSOPE can obtain better final performance on robot locomotion tasks when further combined with the gradient-based algorithms.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+In this paper, an improved policy gradient algorithm with PSO-based parameter exploration (PG-PSOPE) is proposed, providing a simple gradient-free framework of reinforcement learning to solve continuous control issues.
+
+Comparative experiments with the original PG and associated typical variants illustrate that the proposed PG-PSOPE method exhibits unique efficiency and convergence improvement, especially the considerable computational expense saving.
+
+Our proposed method can obtain a feasible solution quickly at the beginning of the training, which is generally the optima in classical and motor control tasks.
+
+Importantly, the training result such as movement track in the simulated environment with physics engine can be directly migrated to corresponding real control objects.
+
+Thereby it overcomes the expense problem caused by carrying out trial and error experiments in practice to some degree.
+
+PARAGRAPH
+
+The limitation of the proposed algorithm is that the policies quickly obtained on challenging robot locomotion tasks are not all the best ones but feasible and acceptable.
+
+From another perspective, the preliminary training results of the proposed PG-PSOPE method could be further applied to policy initialization for deep RL algorithms so as to overcome the divergence of initial stage of training due to the useless samples generated by the randomly initialized policy.
+
+Besides, the combination of the PG based deep RL algorithms and the proposed PG-PSOPE may be an alternative to resolve the sophisticated robotic grasp tasks.
+
+Our further study will focus on improving the proposed method to tackle robot grasp tasks on both simulation and real mechanical gripper, in which the integrated control of dexterous hand is one of the key researches of our laboratory.

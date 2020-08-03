@@ -1,0 +1,569 @@
+10.1016/j.jasrep.2018.10.035
+
+FULLTEXT
+
+TITLE
+
+A comparison of automated object extraction methods for mound and shell-ring identification in coastal South Carolina
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+At the time of European arrival into Eastern North America, the archaeological record included thousands of intact earth and shell mound structures (Anderson, 2012; Howe, 2014; Thomas, 1894).
+
+Beginning in the 19th century, these deposits became the focus of archaeological research due to their ability to produce artifacts that shed light on cultural affinity and chronology (Lyman et al., 1997; e.g., Claflin, 1931; Fairbanks, 1942; Ford and Willey, 1941; Jones et al., 1933; Moore, 1894a, 1894b, 1899; Moorehead, 1891; Putnam, 1875; Squire and Davis, 1848; Swallow, 1858; Wauchope, 1948; Willey, 1939).
+
+Over time, archaeological interest in mounds has grown to include studies of pre-contact technology, diet, social behavior, trade, exchange, interaction, and settlement (e.g., Anderson, 2004; Caldwell, 1952; Calmes, 1967; Claassen, 1986, 1991, 2010; Crusoe and DePratter, 1976; Marquardt, 2010; Matteson, 1960; Russo, 2004, 2006; Thompson et al., 2011; Trinkley, 1985).
+
+PARAGRAPH
+
+Our knowledge of the distribution of mound features, however, tends to be biased towards some areas more than others.
+
+These areas may come from regions that have seen a greater number of field studies (e.g., Michie's (1980) survey of the coastal plains of the Port Royal Sound) but also include those that are easier to survey due to a lack of substantial ground cover such as in areas of beaches and shallow intertidal zones (South, 1960) as well as piedmonts and coastal plains (House and Ballinger, 1976).
+
+Specifically, environments that are dominated by heavy vegetation (e.g., woodlands, bayous, and coastal marshes) are often missing from our knowledge of the record as they are difficult to evaluate using systematic pedestrian tactics.
+
+The most recent example of this lapse in knowledge is the discovery of thousands of monumental complexes in the dense forests of Guatemala (Canuto et al., 2018).
+
+Prior to the use of LiDAR survey, these archaeological features were unknown, and their discovery may rewrite the history of this area.
+
+PARAGRAPH
+
+This aspect of past archaeological surveys raises the possibility that our knowledge of the record is biased towards features that appear in the best cleared and most visible landscapes (Banning et al., 2017; Bintliff, 2000; Bintliff et al., 1999; Hirth, 1978; Nance, 1979; Stark and Garraty, 2008).
+
+The potential for increasing our understanding of the archaeological record is likely greatest in the exploration of areas that have seen little systematic observation.
+
+Given that unknown deposits are often least visited and impacted, those that remain hidden in vegetation potentially hold some of the most promising opportunities for new archaeological discovery.
+
+To address the challenges of large-scale documentation presented by heavily-vegetated landscapes, and to aid in the study of these poorly studied regions, new kinds of techniques are required.
+
+PARAGRAPH
+
+Remote sensing using computational algorithms for automatic feature detection offers one promising solution.
+
+High-resolution aerial imagery provides detailed information about the structure of landscapes.
+
+Multispectral imagery expands the wavelengths that can be used for sensing to include bands that are sensitive to vegetation and sediment composition (Jensen, 2007).
+
+Active sensors, such as light detecting and ranging (LiDAR), provide a mapping technique that permits direct measurements of surface topography that is faster, more systematic, and more accurate than other forms of manual mapping (Chase et al., 2017; Evans et al., 2013).
+
+New computational methods greatly facilitate the use of these many classes of data as they can be configured to automatically identify features of interest (Freeland et al., 2016; Magnini et al., 2016; Sevara et al., 2016; Trier et al., 2015).
+
+Object-based image analysis (OBIA) covers a broad array of promising algorithms for archaeological prospection (Sevara et al., 2016).
+
+These compositional techniques include shape templates (Kvamme, 2013; Trier et al., 2008), machine learning algorithms (Wu et al., 2015, 2016), and image segmentation (Witharana et al., 2018).
+
+PARAGRAPH
+
+Here, we evaluate an application of four OBIA methods – multiresolution segmentation, inverse depression analysis, template matching, and a method combining segmentation and template matching – as tools for identifying artificial mounds and rings.
+
+In our example applications, we make use of LiDAR data from coastal South Carolina.
+
+Our goal is to compare the results obtained by implementing these methods on a single shared set of data.
+
+In this way, the results can provide suggestions for the best practices in the use of these remote sensing tools for documenting the archaeological record.
+
+SECTION
+
+Study area
+
+PARAGRAPH
+
+The coastal plains of South Carolina contain a rich archaeological record but have been subjected to only limited ground surveys due to the prominence of forests and bayous (Anderson et al., 2017).
+
+Beaufort County, South Carolina, in particular, contains one of the largest numbers of recognized archaeological deposits in the state, a significant number of which are mound features (Frierson, 2000; Stephenson, 1971).
+
+A majority of the area, however, is densely vegetated and only limited systematic surface surveys having been conducted (e.g., Michie, 1980; South, 1960, 1973).
+
+PARAGRAPH
+
+The lack of systematic surveys in the region is more than an academic issue.
+
+By 2040, warming due to climate change will result in the submergence of 30,000 acres of presently dry land in this area (NOAA, 2015; see also Anderson et al., 2017).
+
+The effects of sea-level change, combined with recent urban development and population increases will potentially result in the loss of many archaeological deposits before they can be recognized.
+
+In this way, the application of new approaches for rapid assessment of the otherwise hidden landscape of Beaufort County is particularly urgent.
+
+PARAGRAPH
+
+To evaluate the potential of new remote sensing approaches, we chose three study areas in Beaufort County (Fig. 1).
+
+Areas 1 (Victoria Bluff Heritage Preserve) and 2 (Pinckney Island Wildlife Refuge) consist of a total of 25 km2 of forested land.
+
+Area 3 is composed of 3 km2 of land on Hilton Head Island.
+
+These areas were chosen for evaluation based on the presence of known features, public access, and the availability of high resolution remote sensing data.
+
+SECTION
+
+Object-based image analysis (OBIA)
+
+PARAGRAPH
+
+Aerial imagery has long provided archaeologists a source of information for studying archaeological features across landscapes in an efficient and cost-effective fashion (e.g., Agache, 1968; Bradford, 1956; Buettner-Januch, 1954; Campbell, 1981; Capper, 1907; Drager, 1983; Engelbach, 1929; Harp, 1966; Lindbergh, 1929a, 1929b; Madry and Crumley, 1990; McKinley, 1921; Parrington, 1983; Schaedel, 1951; Williams-Hunt, 1950).
+
+While visible light cameras were the first sensors used by archaeologists on aerial platforms, new instruments have expanded the ability of researchers to remotely sense landscapes using wavelengths across the electromagnetic spectrum.
+
+These new sensors can be passive – as in the case of multispectral cameras – or active – as in the case of light detecting and ranging (LiDAR) data.
+
+PARAGRAPH
+
+LiDAR data are produced using a laser and sensor that records the return speeds of pulses of light that are reflected off of distant surfaces.
+
+LiDAR data often contain responses from multiple surfaces and can therefore provide information about feature elevations that are otherwise obscured by vegetative canopies.
+
+Consequently, LiDAR has proven to be particularly useful for detecting architectural structures (Eskew, 2008; Freeland et al., 2016; Johnson and Ouimet, 2014; Krasinski et al., 2016; Magnini et al., 2016; Prufer et al., 2015; Riley, 2009; Thompson and Prufer, 2015; Trier and Pilø, 2012; Trier and Zortea, 2012).
+
+Similar to the pioneering work in Guatemala (Canuto et al., 2018), there has been over a decade of productive studies using LiDAR that have taken place around the world (e.g., Inomata et al., 2018; Chase et al., 2014; Evans et al., 2013; Johnson and Ouimet, 2018; Weishampel et al., 2011; Witharana et al., 2018).
+
+PARAGRAPH
+
+Two general classes of automated detection algorithms exist for analyzing remote sensing data: pixel- and object-based approaches.
+
+Pixel-based algorithms rely on spectral values encoded in raster data.
+
+These approaches identify regions of data that match specific spectral values associated with targets of interest.
+
+Object-based image algorithms (OBIA), in contrast, use morphological characteristics such as texture, shape, and size – in addition to spectral values – to divide images into recognizable components with similar qualities.
+
+This feature of OBIA allows archaeologists to use attributes for identification that are often distinctive of cultural forms: shape, size, and spatial organization.
+
+With this ability, research over the past 15 years has demonstrated the potential of OBIA to efficiently identify anthropogenic structures from remote sensing data (e.g., De Laet et al., 2007; Larsen et al., 2008; Riley, 2009; Trier et al., 2015; Sevara et al., 2016; also see Davis, 2018 for a review of this literature).
+
+SECTION
+
+Segmentation
+
+PARAGRAPH
+
+Segmentation is a process that groups pixels into spectrally-similar segments.
+
+Software algorithms can then characterize these segments in terms of their geometric and textural properties.
+
+In the case of LiDAR data, these objects represent distinct topographic land forms on the ground.
+
+There are many forms of segmentation, but one of the most common processes used by archaeologists is multiresolution segmentation.
+
+Multiresolution segmentation adds to this process by iteratively dividing data into segments based on additional morphological differences such as shape, size, and texture (Magnini et al., 2016).
+
+For this reason, multiresolution segmentation provides greater ability to discriminate features of interest than segmentation methods that rely on just one set of criteria (Mao and Jain, 1992).
+
+SECTION
+
+Inverse depression analysis
+
+PARAGRAPH
+
+OBIA methods can focus on the use of hydrological depression algorithms (Lindsay and Creed, 2006; Wu et al., 2015, 2016) to identify archaeological mound features (Freeland et al., 2016).
+
+This process requires the creation of an “inverse raster” in which a DEM is inverted so that mounds are represented as depressions.
+
+Freeland et al. (2016) has demonstrated this method in a study of a landscape in Tonga, revealing thousands of mounded features.
+
+PARAGRAPH
+
+Stochastic depression analysis (SDA) is one algorithm that uses Monte Carlo simulation to map topographic depressions by evaluating morphological uncertainty (Lindsay and Creed, 2006).
+
+The method works by estimating the likelihood that a given area contains an elevation change based on variability in topography.
+
+The benefit of SDA is that it highlights small elevation changes due to its sensitivity to topographic differences in elevation data.
+
+Here, we utilize an inversed version of SDA to identify mounded features in South Carolina.
+
+We initially process LiDAR data following Freeland et al. (2016) by creating an inversed DEM.
+
+We then apply an SDA algorithm and classify the results using morphological parameters such as compactness and mound size.
+
+This approach allows us to co-opt algorithms traditionally reserved for hydrological modeling for the detection of archaeological deposits.
+
+SECTION
+
+Template matching
+
+PARAGRAPH
+
+OBIA methods that employ template matching (TM) use statistical probabilities generated from aggregated examples of features that are characterized by pattern, texture, and shape.
+
+These probabilities form templates that are systematically and statistically used as comparisons to sub-sections of image data.
+
+Matches with templates are determined by identifying patterns in data that fall within specified statistical limits established by the template.
+
+PARAGRAPH
+
+The archaeological utility of template matching is well-demonstrated (e.g., Kvamme, 2013; Schneider et al., 2015; Trier et al., 2008, 2015; Trier and Zortea, 2012; Trier and Pilø, 2012).
+
+One problem with template matching based approaches, however, is its tendency to produce false positive and negative results.
+
+Reducing false positives requires careful construction of templates that narrowly define anthropogenic features.
+
+However, this step comes at the expense of an increased number of false negatives.
+
+The advantage of template matching, however, is that the statistical classifiers provide confidence intervals for detected objects, allowing one to quantitatively assess degrees of matching.
+
+SECTION
+
+Materials and methods
+
+PARAGRAPH
+
+In our evaluation of OBIA approaches for detecting mound features in heavily forested regions, we analyzed the same set of LiDAR data for each of the three study areas.
+
+These data come from the National Oceanic and Atmospheric Administration (NOAA)1 and were created to plan for flood control and monitor coastal erosion.
+
+The raw data are available as processed Digital Elevation Models (DEMs) that have a spatial resolution of 1.2 m, a resolution suitable for architecture-scaled feature analysis (see Beck et al., 2007).
+
+Using these data, we conducted analyses using (1) multiresolution segmentation, (2) Inverse Depression Analysis (IDA), (3) Template matching (TM), and (4) a combined segmentation and TM approach.
+
+All of our analyses were conducted using a combination of eCognition (Trimble, 2016), WhiteBox GAT (Lindsay, 2016) and ArcGIS (ESRI, 2017).
+
+SECTION
+
+Multiresolution segmentation analysis
+
+PARAGRAPH
+
+Following Magnini et al. (2016), we utilized a multiresolution segmentation process and selected segments of the LiDAR data that met circularity, asymmetry and compactness criteria stipulated by our summary of known features for the study area (Table 1).
+
+Asymmetry is particularly effective for isolating archaeological features, as it is generally low in anthropogenic structures and high in naturally occurring landforms (Kvamme, 2013:55).
+
+PARAGRAPH
+
+To minimize false positive identifications, we compared the location of potential features with United States Geological Survey (USGS) land-use maps2 and roadway shapefiles produced by the South Carolina Department of Transportation (DOT).3
+
+We eliminated those locations that appeared on “developed” or “disturbed” areas and within 10 m of a roadway.4
+
+Next, we created a raster that represented the differences between local elevation and maximum neighborhood values calculated as focal statistics.
+
+Focal statistics help to highlight local elevation changes that would signify a mound feature.
+
+We then restricted our results to those features have a local positive elevation difference of half a meter or greater.
+
+Based on a review of known features in the area, topographic rises that are less than half-a-meter of relief are rarely associated with anthropogenic mounds or rings (Russo, 2006).
+
+Our process resulted in the identification of 2490 potential features.
+
+Among these detections was a previously undocumented shell ring and earthen mound.
+
+SECTION
+
+Inverse stochastic depression analysis (IDA)
+
+PARAGRAPH
+
+Here, we followed a strategy developed by Freeland et al. (2016) who demonstrated that depression analysis combined with morphometric criteria (size, shape, area, elevation and neighborhood) is effective in isolating mound structures.
+
+We created an inverse DEM using the equationInverse=r−Zmax×−1+Zminwhere r = DEM raster, Zmax = maximum elevation, and Zmin = minimum elevation.
+
+The results of the SDA analyses depend on the number of iterations that are used to process the data.
+
+In each iteration the assumption for topographic uncertainty is changed slightly to produce slightly different outcomes, and as the number of iterations increases, the algorithm produces more refined and consistent results.
+
+Using the SDA tool in Whitebox GAT (Lindsay, 2016) we compared the results of our analyses using 100, 200, and 300 iterations.5
+
+We filtered the result by then selecting only those features that were >15 m and <250 m in diameter, the range known for rings and mounds in the region (Gibson, 1994; Russo, 2006; Walker, 2016).
+
+Finally, we excluded features that appeared on USGS land-use maps in areas that were designated as “disturbed”, “developed”, or “open water”, and those that were within 10 m of a roadway and 20 m of a major highway.
+
+This process produced 5422 potential features.
+
+SECTION
+
+Template matching (TM)
+
+PARAGRAPH
+
+In our evaluation of template matching we followed steps in Fig. 2.
+
+We created templates using a selection of 29 mound and ring features using characteristics of elevation, slope, focal statistics, and openness.
+
+Slope has been shown to be one of the most effective methods for identifying mound features as it shows a strong contrast between flat and uneven surfaces, highlighting the outlines of mounds (e.g., Larsen et al., 2017; Podobnikar, 2012; Prufer et al., 2015; Riley, 2009; Thompson and Prufer, 2015).
+
+We used focal statistics to highlight major changes in elevation that suggest the presence of topographic anomalies, similarly to the processes mentioned above.
+
+Openness is a parameter that measures “topographic dominance” of landforms (Yokoyama et al., 2002) and provides shade-free visualization for smaller topographic anomalies.6
+
+Openness comes in two forms: positive and negative.
+
+Positive openness measures the degree of concavity and negative openness measures the degree of convexity of a feature on a landscape.
+
+PARAGRAPH
+
+To create the templates, we used a sample of six known mound features that are recorded in the South Carolina Archaeological Archives and 23 suspected features that were identified manually using existing LiDAR data.
+
+These examples served as the basis for setting the statistical limits for each of our templates.7
+
+Our use of multiple classes of data (elevation, slope, openness, and focal statistics) to create templates enables us to compare results using different characteristics.
+
+Following this process, we created 15 templates.8
+
+PARAGRAPH
+
+We also created 20 negative templates to represent those features that are topographically distinct but are not pre-contact mounds.
+
+Recent land disturbance, for example, might produce topographic features that could be confused as a prehistoric mound.
+
+To create these negative templates, we used 393 topographically distinct features that are not archaeological in their origin (e.g., linear contemporary features, building imprints, and river boundaries).
+
+PARAGRAPH
+
+Once created, we used eCognition to apply the templates to the LiDAR data.
+
+This step produced over 10,000 potential identifications.
+
+Like the other two algorithms, we eliminated results that fell on land identified by USGS land-use maps as “developed” or “disturbed”, those that were located within waterbodies, and those that fell within 10 m of roadways and 20 m of major highways.
+
+We also rejected all results that the algorithm calculated as at least 75% likely to be a false positive based on their similarity to our negative templates.
+
+The final results included only those detections that were calculated by the algorithm to be at least 60% “most statistically likely.”
+
+The final template matching process produced 10 potential features.
+
+SECTION
+
+Combined TM and segmentation method
+
+PARAGRAPH
+
+In order to evaluate the degree to which the strengths of each OBIA method can be combined to produce superior results, we also developed a multidimensional algorithm that includes segmentation and template matching steps (see Davis et al., 2018).
+
+This algorithm begins with template matching to create correlation-coefficient maps of potential features.
+
+Then, we used multiresolution segmentation on these results.
+
+We subsequently isolated those features that had a local elevation difference of between 0.5 and 5 m from the surrounding area (Russo, 2006).
+
+We calculated neighborhood changes in elevation using the focal statistics tool (shape = circle, height and width = 5) in ArcMap 10.5 (ESRI, 2017).
+
+We rejected all results that occur on developed land, that are located in areas close to roadways, and that have slopes that are less than five or >50°.
+
+PARAGRAPH
+
+Next, we superimposed the remaining results with the correlation rasters that we produced during the template matching process.
+
+As the templates are used to iteratively scan sections of the LiDAR data, each section examined is assigned a positive and negative correlation coefficient value that corresponds to the overall match of a location to the positive and negative templates.
+
+We used the negative correlation raster to eliminate results that were identified as at least 75% likely to be false positives.
+
+Lastly, we created a new raster by subtracting the negative correlation coefficient from the positive correlation coefficient.
+
+Areas of this raster containing negative values indicate strong likelihoods of false identifications, as they closely correlate with non-mound features in the negative template.
+
+As such, we rejected any results that overlap a portion of this raster containing negative values.
+
+This process left 10 potential features.
+
+SECTION
+
+Ground survey
+
+PARAGRAPH
+
+Following our OBIA analyses, we chose 22 locations to visit on the ground to evaluate the degree to which the algorithmic detection correctly identified anthropogenic features (Fig. 3).
+
+All of these features are located on public land and were accessible for pedestrian survey.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+The results of each OBIA analysis shows that there are distinct differences in the yield of potential features depending on the approach used (Tables 2 and 3).
+
+Areas 1 and 2 (see Fig. 1) provide useful environments within which to test each OBIA method.
+
+Within Area 2, the combined method did not identify any features, indicating that it cannot identify midden structures effectively, as many archaeological middens are present on Pinckney Island (Charles, 1984; Kanaski, 1997; Trinkley, 1981).
+
+Area 3 (Fig. 1) encompasses publicly available land on Hilton Head Island, some of which is highly developed.
+
+The number of features identified is substantial given its small size (~3 km2) and indicates a high level of false positive identifications in developed locations.
+
+The template matching and combined approaches only identify a handful of potential sites, suggesting their capability of reducing false identifications.
+
+PARAGRAPH
+
+The segmentation approach was particularly effective in identifying mounds, yet also produced many results that are likely false positives (Fig. 4).
+
+Using shapefiles provided by the South Carolina SHPO, we determined that 384 detections made by segmentation are located on 84 previously surveyed archaeological sites on Pinckney Island (Supplemental Table 1).
+
+Significantly, the segmentation analysis identified a new mound feature that is previously unrecorded (this feature was also identified by TM and IDA but was missed by the combined method).
+
+PARAGRAPH
+
+The segmentation approach was particularly effective in identifying mounds, yet also produced many results that are likely false positives (Fig. 4).
+
+Using shapefiles provided by the South Carolina SHPO, we determined that 384 detections made by segmentation are located on 84 previously surveyed archaeological sites on Pinckney Island (Supplemental Table 1).
+
+Significantly, the segmentation analysis identified a new mound feature that is previously unrecorded (this feature was also identified by TM and IDA but was missed by the combined method).
+
+PARAGRAPH
+
+IDA proved successful in identifying pre-contact mounds, including shell rings (Fig. 5).
+
+Nonetheless, a common issue with this method is the plethora of false positive results that occur due to natural topographic changes.
+
+Some of the limitations of IDA in feature detection, however, are likely due to resolution limits of the LiDAR DEM that we used, and the number of iterations performed on the analysis.
+
+Using higher-resolution LiDAR as well as greater processing hardware may improve the relative effectiveness of IDA in detecting features.
+
+PARAGRAPH
+
+To evaluate the degree to which the amount of processing can improve our results, we conducted our IDA analyses with 200, and 300 iterations.
+
+In all instances, the increase in iterations correlates with an improvement in archaeological feature detection (Tables 4 and 5).
+
+In all three study areas, false positive results identified using 100 iterations and surveyed were not reidentified using 300 iterations (Table 5).
+
+PARAGRAPH
+
+Looking at Area 2 (Pinckney Island), we compared identified results to known archaeological sites in this area in order to gauge the accuracy of IDA in identifying previously detected archaeological deposits (Table 4; also see Supplemental Table 1).
+
+We chose this area because of its history of extensive archaeological surveys.
+
+In addition to increased iterations, it is possible that with higher resolution DEMs better discrimination of topographic features can be obtained (Vaze et al., 2010).
+
+PARAGRAPH
+
+Looking at Area 2 (Pinckney Island), we compared identified results to known archaeological sites in this area in order to gauge the accuracy of IDA in identifying previously detected archaeological deposits (Table 4; also see Supplemental Table 1).
+
+We chose this area because of its history of extensive archaeological surveys.
+
+In addition to increased iterations, it is possible that with higher resolution DEMs better discrimination of topographic features can be obtained (Vaze et al., 2010).
+
+PARAGRAPH
+
+In contrast to segmentation and IDA, template matching only identified features that were anthropogenic in origin, though the method missed a shell-ring that was located by segmentation (Fig. 6).
+
+Finally, our combined approach that includes template matching and segmentation improved on all of these results by retaining only the positively identified features (see Fig. 7).
+
+SECTION
+
+Method results and comparisons
+
+PARAGRAPH
+
+Study Area 3 proved to be problematic for the detection of archaeological deposits due to the extensive recent land disturbance activity.
+
+In general, any use of automated techniques such as OBIA is going to be hampered in areas that have been subject to development.
+
+One can expect considerably more manual labor will be required to filter false positives from total results.
+
+The combined approach, however, was the most effective in these conditions and did not falsely identify the hundreds of features that were identified by the other methods (Fig. 7).
+
+This result further emphasizes the benefits of using a combined approach for archaeological prospection.
+
+PARAGRAPH
+
+Numerically, segmentation and IDA were the most successful OBIA methods for identifying mounded features, as they detected the most archaeological sites compared to the other methods (Table 2).
+
+They yield, however, the highest number of false positives.
+
+Using a greater number of iterations appears to alleviate this issue and makes IDA far more successful than a pure segmentation procedure.
+
+The use of template matching produced no false positives related to natural phenomena but failed to discriminate between prehistoric and historic features.
+
+Our new combined approach that includes template matching and segmentation provided the greatest consistency in correctly identifying archaeological features (also see Davis et al., 2018) (Table 6).
+
+SECTION
+
+Discussion and conclusion
+
+PARAGRAPH
+
+While each OBIA method that we evaluated yields positive identifications, our results show that a combination of approaches produces the most reliable information for archaeological prospection.
+
+Of course, some of the differences we note in our analyses depend on the quality of the data we used: the effectiveness of methods depends to some degree on the resolution and quality of the data.
+
+The difference between segmentation and IDA in our study of Beaufort County, for example, was likely due to the limits of the resolution of our LiDAR data.
+
+Improved resolution of the LiDAR data will address the deficiency observed in this study.
+
+By tripling the number of iterations, IDA yielded more accurate results than segmentation, as opposed to slightly less accurate results using only 100 iterations.
+
+The processing requirements, however, make IDA less useful for large-scale landscape studies, as the amount of computing power required makes the process extremely time consuming.
+
+PARAGRAPH
+
+The results here are promising but it should be noted that a single universal algorithm is unlikely to be developed.
+
+In the case of OBIA, the analyst must always establish the definition for classes of objects to be identified in advance.
+
+These definitions must be based on specific hypotheses about the necessary and sufficient conditions needed for the algorithm to identify a feature of interest.
+
+The parameters for these conditions can be derived using regionally-specific parameters, but doing so means that the conditions will be contingency-bound generalizations and will be incapable of detecting previously unknown features with morphologies other than those described in reference samples.
+
+For this reason, analyses must be repeated by varying the parameters to test new hypotheses and as new knowledge of the local archaeological is developed.
+
+PARAGRAPH
+
+Ultimately, the identification of new aspects of the archaeological record in the American Southeast will permit for researchers to re-evaluate our current notions about pre-contact settlement patterns, as well as the significance of features like shell rings.
+
+The shell ring identified by this study (also see Davis et al., 2018) is significantly smaller than most known shell rings in this area.
+
+The methods and datasets used here permit for the detection of features as small as a few meters across and about half-a-meter tall.
+
+The average diameter of known ring plazas in South Carolina is 32 m (Russo, 2006:25).
+
+The ring discovered here has a plaza diameter of approximately 16 m, half that of the size of known rings.
+
+Additionally, the maximum diameter of the ring is only 36 m. Compared to the average in South Carolina of 64 m (Russo, 2006:25), this ring is considerably smaller than those previously studied.
+
+As such, new discoveries may reveal new information about the range of feature structure and composition, challenging previous notions of prehistoric activity (e.g., Russo, 2004; Saunders, 2004; Trinkley, 1985).
+
+PARAGRAPH
+
+This substantial difference in size of this new ring feature compared to previously surveyed rings in this area also speaks to a bias in archaeological knowledge towards monumental structures compared to smaller ones.
+
+This requires high resolution datasets, as the higher the spatial resolution, the smaller the objects that are detectable.
+
+A future avenue of research must focus on the potential for remote sensing surveys in alleviating human error in traditional surveying, where visibility becomes a considerable issue in detection in heavily vegetated environments (Hirth, 1978; Nance, 1979; Schiffer et al., 1978).
+
+PARAGRAPH
+
+The results of our new approach show several new features that were undetected by previous manual surveys (see Davis et al., 2018).
+
+These features include previously unrecorded deposits such the new shell ring in Study Area 1 and a pre-contact mound in Study Area 2.
+
+As such, the use of automated methods is successful in picking out features that manual approaches overlook, and ensures full, systematic coverage of areas being surveyed.
+
+Nevertheless, it should be stressed that manual evaluation is also an essential step in analyzing remote sensing data, as it often provides the first step in building robust datasets that can be used as training data for more complex automated methods.
+
+PARAGRAPH
+
+Urbanization and climate related sea level changes pose imminent threats to cultural resources in areas such as Beaufort County, but also across the American Southeast.
+
+The use of remote sensing technologies such as LiDAR and computational algorithms offer new means for addressing existing deficiencies in our knowledge of the archaeological record.
+
+While no single algorithm offers a universal solution, the use of LiDAR data and OBIA can yield accurate identifications of mound features that lay under tree canopies and across large areas.
+
+While preliminary, this study demonstrates the potential for OBIA and remote sensing to greatly assist in archaeological landscape survey efforts.
+
+Given the urgency to document our extant archaeological record before it is lost, such an approach promises to greatly contribute to our knowledge of the archaeological record.
+
+PARAGRAPH
+
+The following are the supplementary data related to this article.
+
+List of Sites on Pinckney Island (Study Area 2) identified by IDA and Segmentation.
+
+Template matching and the combined method did not identify any pre-identified archaeological deposits.
+
+An I indicates that the method identified that site.
+
+If a method did not identify a site, the column is left blank.
+
+PARAGRAPH
+
+Supplementary data to this article can be found online at https://doi.org/10.1016/j.jasrep.2018.10.035.
+
+SECTION
+
+Funding
+
+PARAGRAPH
+
+This work was supported by the National Geographic Grant Reward Number HJ-107R-17; and Binghamton University.

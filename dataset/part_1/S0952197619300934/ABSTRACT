@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.04.008
+
+ABSTRACT
+
+TITLE
+
+A bounded actor–critic reinforcement learning algorithm applied to airline revenue management
+
+PARAGRAPH
+
+Reinforcement Learning (RL) is an artificial intelligence technique used to solve Markov and semi-Markov decision processes.
+
+Actor critics form a major class of RL algorithms that suffer from a critical deficiency, which is that the values of the so-called actor in these algorithms can become very large causing computer overflow.
+
+In practice, hence, one has to artificially constrain these values, via a projection, and at times further use temperature-reduction tuning parameters in the popular Boltzmann action-selection schemes to make the algorithm deliver acceptable results.
+
+This artificial bounding and temperature reduction, however, do not allow for full exploration of the state space, which often leads to sub-optimal solutions on large-scale problems.
+
+We propose a new actor–critic algorithm in which (i) the actor’s values remain bounded without any projection and (ii) no temperature-reduction tuning parameter is needed.
+
+The algorithm also represents a significant improvement over a recent version in the literature, where although the values remain bounded they usually become very large in magnitude, necessitating the use of a temperature-reduction parameter.
+
+Our new algorithm is tested on an important problem in an area of management science known as airline revenue management, where the state-space is very large.
+
+The algorithm delivers encouraging computational behavior, outperforming a well-known industrial heuristic called EMSR-b on industrial data.

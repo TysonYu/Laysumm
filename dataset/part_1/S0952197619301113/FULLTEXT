@@ -1,0 +1,755 @@
+10.1016/j.engappai.2019.05.011
+
+FULLTEXT
+
+TITLE
+
+IRESE: An intelligent rare-event detection system using unsupervised learning on the IoT edge
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Improved cost-effectiveness and miniaturization of sensing devices have increased their utility in various domains of daily human life such as healthcare, transport, education, agriculture, and security.
+
+In a typical IoT environment, these sensing devices are connected to the Internet and responsible to continuously sense their surroundings and then transmit data to a cloud station for further processing.
+
+In the past few years, an exponential growth in IoT devices have been observed in the form of smart products.
+
+Based on the context, these devices of various varieties produce a huge amount of data at varying rates.
+
+According to an estimate by Cisco Global Cloud Index, the data produced by a variety of data sources will reach to around 500 ZB by 2019, whereas the internet infrastructure will be capable to handle 10.4 ZB by that time (Cisco, 2016).
+
+Similarly, according to CISCO Internet Business Solutions Group the number of devices connected to the internet will reach around 50 Billion by 2020 (Evans, 2011).
+
+These factors (variety, amount of data, and variable data rate) have raised serious concerns in an IoT environment, which mainly relates to data transportation, data storage, data processing, and security.
+
+The first concern, transportation of data, needs a high-speed Internet, which can quickly and efficiently transmit data to the destination.
+
+The second concern, storing huge amount of data, needs cloud services and other necessary networking infrastructure.
+
+The third concern, data processing, is important to be handled because raw data is not meaningful and it is required to transform raw data into meaningful information (Ackoff, 1989).
+
+The fourth concern, security must be addressed for critical applications in which IoT data can be stolen or intruders can attack the system.
+
+Cloud-based paradigms are widely used in IoT systems, in which the data is pushed to the cloud and after computations, the outcome is delivered back to the local system.
+
+However, due to the proliferation of IoT, an increased amount of data is produced at the edge of the network.
+
+The limited network bandwidth is unable to meet the requirements of low-latency transportation of data coming at a high speed.
+
+Therefore, one can conclude that Cloud Computing alone is not efficient enough to handle the IoT generated data in the coming years (Antonini et al., 2018).
+
+Since data production at the edge of a network is increasing, an adequate choice is to perform the necessary processing on an edge device; near the source.
+
+The edge devices are becoming more powerful and resource friendly with optimal utilization of resources such as memory and energy.
+
+PARAGRAPH
+
+Formally, in Edge Computing nomenclature, an edge device (e.g., a gateway) is used to perform computation over data.
+
+In fact, Edge Computing approaches aims at performing data processing as close as possible to its source.
+
+Moreover, it is an effort to involve decentralized agents to perform necessary processing, which can reduce the burden on centralized processing units (Shi and Dustdar, 2016).
+
+Edge Computing is particularity useful in time-critical applications, in which quick data processing is required with prompt response in a particular situation.
+
+For example, Boeing 787 generates around 5 GB of data in each second and it needs a large bandwidth to transmit this data, which is not realistic (Shi et al., 2016).
+
+In such scenarios computing at the edge is crucial, as users may need very fast responses from the system.
+
+PARAGRAPH
+
+Edge Computing has gained much attention in the recent years due to improved resources and increased processing power of an edge device.
+
+Today, Edge Computing is widely used in various applications such as smart home, smart city, smart health, and smart transportation.
+
+In these applications, data is processed by an edge device such as a gateway to extract meaningful information from it and take necessary actions.
+
+IoT generate a data stream which contains patterns indicating several events of interest.
+
+Data stream analytics is done to discover interesting patterns hidden in a disorganized and unbounded data stream.
+
+In this work, we will present a model which relies on the edge device to perform data stream analytics for discovering interesting patterns.
+
+In fact, our objective is to detect those patterns which reflect the occurrence of a rare-event or outlier in an IoT data stream.
+
+We have used the term rare-event instead of outlier or anomaly due to our use-case, which we will introduce later while discussing the contributions of this work.
+
+In the following subsections, we will define the problem in the context of IoT data stream containing rare-events, afterward, we highlight the contributions of our work.
+
+SECTION
+
+Problem formulation
+
+PARAGRAPH
+
+In the context of data stream analytics, the most demanding task is to discover patterns reflecting short duration abrupt changes in a data stream which may indicate an unusual situation or event (Rana et al., 2016).
+
+In literature, different terms are used for such short duration abrupt changes including rare-event, anomaly, or outlier.
+
+Summarizing various definitions of these terms given in the literature (Hawkins, 1980; Barnett and Lewis, 1974; Moore et al., 2009), we can formally define a rare-event as follows.
+
+PARAGRAPH
+
+PARAGRAPH
+
+A rare-event, or outlier, is as an observation (or set of few observations) which occurs infrequently and deviates or inconsistent with respect to other observations so much that it becomes suspicious to indicate an irregularity or an anomaly in the given set of observations.
+
+PARAGRAPH
+
+It is important to detect rare-events occurring in a data stream, as it may be helpful in detecting a potentially hazardous situation.
+
+For example, a microphone is deployed in an outdoor environment, receiving typical city-related sounds (e.g., cars, horns, birds, etc.).
+
+All of a sudden, a siren is heard; this sound is very different from the background audio, and for this reason, it is considered as a rare-event with respect to its background environment.
+
+Consider another example, a vibration sensor is deployed on a machine located in an industrial plant to continuously measure the vibrations generated by its motor(s); when the machine will start malfunctioning, an abnormal vibration pattern may be registered by the attached sensor, representing this a rare-event in the context of normal working conditions of that machine.
+
+PARAGRAPH
+
+Due to the network bandwidth vs. data production rate bottleneck, Cloud Computing has limitations in rare-event detection.
+
+Particularly, in time-critical applications, cloud-based paradigms may not be able to generate timely alerts for users.
+
+On the other hand, in Edge Computing, IoT data can be locally processed by an intelligent gateway.
+
+Hence an edge device may be able to quickly detect rare-events occurring in a data stream, directly generating prompter warnings/alerts and reducing network traffic.
+
+In this work, our primary focus is to use an edge device to analyze digitized data streams produced by IoT devices, to detect rare-events there occurring.
+
+For this purpose, we propose an intelligent rare-event detection system suitable for the IoT Edge, which we called IRESE.
+
+The system uses machine learning techniques to detect rare-events occurring in the incoming data streams.
+
+Fig. 1 illustrates the overall concept of IRESE: the IoT devices continuously sense the environment, while an edge device (intelligent gateway) processes the incoming data streams with the goal of detecting rare-event instances and then transmit it to a cloud-based storage.
+
+SECTION
+
+PARAGRAPH
+
+Contributions
+
+PARAGRAPH
+
+Rare-event detection has been widely studied, resulting in a well-covered research area.
+
+However, IRESE strictly focuses on edge device based rare-event detection for IoT data streams.
+
+In Section 2, we will compare in detail the proposed approach with the most recent state-of-the-art research happening in this field.
+
+Briefly, the main contributions of this work can be summarized as following:
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+Several Anomaly Detection (AD) techniques have been proposed in the literature using different machine learning approaches based on supervised, unsupervised, and semi-supervised training algorithms.
+
+Generally speaking, supervised learning techniques use training algorithms that require datasets with a sufficiently large number of instances.
+
+Then, in order to discriminate between normal events and anomalous ones, these datasets have to be labeled either manually or automatically.
+
+In this context, widely applied algorithms are multi-class Support Vector Machines (SVMs) (Hilal et al., 2018), Bayesian classifiers (Koc et al., 2012), Neural Networks and Deep Neural Networks, Extreme Learning Machines (Bose et al., 2019), Gaussian Mixture Models (GMM) (Montalvão et al., 2010; Socoró et al., 2017), and Decision Trees (Kevric et al., 2016).
+
+PARAGRAPH
+
+Focusing on audio anomaly and rare event detection, several novel techniques have been proposed within the Task 2 of the DCASE 2017 Challenge (Mesaros et al., 2017).
+
+Many submitted techniques adopt deep neural network architectures (Lim et al., 2017; Cakir and Virtanen, 2017; Kaiwu et al., 2017; Vesperini et al., 2017) to create classifiers able to detect the on-set time instant of rare-events (e.g., gunshots, glass breaks, baby cries) over a background audio.
+
+However, supervised algorithms can be adopted if and only if a labeled dataset is available.
+
+Usually, these datasets are manually generated (i.e., labeled) by researchers, but this is an arduous and tedious work.
+
+Apart from being not affordable from time and money perspectives, this approach is not always feasible because some events are either extremely rare or unknown.
+
+For this reason, wherever possible, unsupervised approaches (e.g., learning algorithms that can be trained using unlabeled datasets, because they are able to identify, extract, and learn patterns directly from data) are always advisable.
+
+PARAGRAPH
+
+Oh and Yun (2018) propose an AD strategy based on an auto-encoder to detect audio anomalies produced by a Surface-Mounted Device (SMD) machine that places components on top of a Printed Circuit Board (PCB).
+
+The algorithm creates an auto-encoding manifold able to measure differences among instances and the manifold, signaling an anomaly if such distances are too large.
+
+Koizumi et al. (2019) propose a similar AD approach based on an auto-encoder.
+
+They trained the unsupervised algorithm by optimizing an objective function formulated by starting from the Neyman–Pearson lemma.
+
+In order to pursue this way, they assumed that the AD task was a statistical hypothesis test.
+
+PARAGRAPH
+
+Recently, Bose et al. (2019) proposed a novel approach to Anomaly Detection on the IoT Edge.
+
+There, the authors describe a new computing schema, called Anomaly Detection based Power Saving (ADEPOS), to adaptively update an anomaly detector, through time, without losing detection accuracy.
+
+The authors validated their approach by implementing a system to detect anomalies and failures of rotating bearing equipments by analyzing some time-based features extracted from vibrations.
+
+This technique consists in a group of one-class classifiers, which detect if an anomaly happened or not, followed by a majority voting strategy.
+
+ADEPOS is used to vary the number of detectors in the ensemble.
+
+Moreover, they evaluated the power saving of ADEPOS by simulating it in a Very Large Scale Integration (VLSI) hardware architecture.
+
+However, ADEPOS and IRESE have two different targets: the former aims to create adaptive anomaly detection systems, based on edge devices, that requires a small amount of energy.
+
+IRESE aims to create an Audio Rare-Event Detection system (Audio Anomaly Detection system), based on unsupervised machine learning, that runs on an IoT Gateway.
+
+PARAGRAPH
+
+Another class of techniques that allow anomaly detection in audio streams are the semi-supervised learning algorithms.
+
+Aurino et al. (2014) propose a 1-SVM approach within an automatic surveillance framework to detect burst-like audio events, namely screams, gunshots, and glass breaks.
+
+Such an approach uses a two-stage classification scheme: the first stage classifies short audio segments (200 ms) through an ensemble of 1-SVM classifiers, while the second stage composes and re-classifies the first stage’s decisions using a majority strategy, in order to take one decision per second.
+
+Elizalde et al. (2017) present a framework to train audio event detectors using a semi-supervised self-training approach.
+
+Audio Event Detectors have to be firstly trained on the UrbanSound8K dataset (Salamon et al., 2014), then have to run on unlabeled audio streams extracted from YouTube videos.
+
+If the detector recognizes a known sound with an high level of confidence, it is uses that sound to re-train the model.
+
+This approach helps to train models with acoustic diversity even if the original dataset is relatively small.
+
+SECTION
+
+Audio anomaly detection in IoT contexts
+
+PARAGRAPH
+
+AD algorithms have been adopted also in IoT contexts, by creating more intelligent, reactive and secure environments.
+
+Hilal et al. (2018) present and describe a Sensor Management framework called IntelliSurv.
+
+It realize an acoustic surveillance system that follows the pervasive IoT paradigm, being it able to detect and localize anomalous audio events using different kinds of distributed devices: smart sensors for environmental monitoring, and delegate sensors devoted to sensor management, localization and identification of anomalous events.
+
+Moreover, all the smart sensors have enough computing capabilities to locally execute the abnormality detection.
+
+At the classification stage of events, authors adopted SVM and LDA models.
+
+PARAGRAPH
+
+Socoró et al. (2017) propose an Anomalous Noise Event Detector (ANED) algorithm to map the traffic noise in urban and sub-urban areas using low-cost wireless sensor networks.
+
+These networks are composed of smart devices that perform simple signal pre-processing, then execute event detection using machine learning algorithms and finally they send labels to a central server that updates and draw noise maps.
+
+The authors there adopted a two-class classification scheme to distinguish the anomalous traffic noise (e.g., jammed or semi-jammed traffic) from the normal traffic noise.
+
+They discovered that this approach performs better than the one using the one-class classifier, but they had to manually annotate the dataset.
+
+This system has been conceived using some outcomes from the European Project called DYNAMAP (The DYNAMAP project web site, 2019).
+
+PARAGRAPH
+
+Alsina-Pagès et al. (2017) present an Ambient Assisted Living (AAL) system, called homesound, that is able to detect and recognize different audio rare events happening in an everyday environment.
+
+This system uses a wireless sensor network to record audio from the environment; then the sensors forward the sampled audio streams to a GPU-based central device, which has two roles: first, it performs feature extraction from the raw audio stream, by computing 48 Mel Frequency Cepstral Coefficients (MFCC) and considering only the first 13 coefficients; then, it executes the inference of data using the trained model that is based on a classification algorithm (SVM) and clustering algorithm.
+
+The model response is finally sent to a remote system, where the medical staff can monitor the patient status.
+
+SECTION
+
+Framework
+
+PARAGRAPH
+
+In principle, the proposed model involves IoT devices which are deployed in an environment to measure signal energy through its transducer.
+
+An environment could be indoor or outdoor which has uniform characteristics and does not suppose to have frequent abrupt changes.
+
+We considered sensors which can produce a continuous waveform for the measured quantities such as acoustic events, vibrations, and acceleration.
+
+It is important that measured quantities are represented as a waveform as IRESE performs complex spectrum analysis to detect a rare-event.
+
+Fig. 2 shows the overall architecture of the rare-event detection system which is deployed on an edge device.
+
+IoT devices (for example, sensing devices) generate a data stream D[n] sampled at sampling frequency fs, where fs satisfies Nyquist–Shannon sampling theorem: fs≥2fmax, fmax represents the maximum frequency occurs in the signal.
+
+An unbounded time series data stream is represented as a discrete signal: D[n]=xn,xn−1,…,xn−t,…, where xn is the current sample, and xn−t is the first recorded sample.
+
+Since the data stream is unbounded, we need to buffer it to hold it for a small duration for further processing.
+
+SECTION
+
+Data buffering
+
+PARAGRAPH
+
+The incoming data stream D[n] is periodically buffered in the local memory of an edge device.
+
+Each cycle is of fixed duration, in which data is buffered during a short interval of η seconds, for example, 60 or 120 s.
+
+The data is buffered because it is continuously generated at a high speed, and buffering time allows IRESE to apply detection method on the buffered data.
+
+The buffering time η could vary according to the type of data generated by IoT devices, however, it remains fixed for a particular setup.
+
+The buffered data is further supplied to a Data Framing module, which breaks it into even smaller frames which are suitable for feature extraction techniques.
+
+SECTION
+
+Data framing
+
+PARAGRAPH
+
+The data framing module takes buffered data and breaks it into smaller frames of duration Δ seconds, where Δ≪η, for example Δ is 1 s when η is 60 s. For data framing, we defined a fixed length rectangular window of Δ seconds.
+
+The rectangular window function is represented in (1).
+
+It is a tumbling window, which moves over the buffered data stream in a way that two consecutive windows do not overlap with each other.
+
+For example, the buffer holds data for 60 s then data framing module breaks this buffered data into 60 equal sized frames by using a fixed window of size Δ=1 s. ω(n)=1if 0≤n≤Δ⋅fs0otherwise
+
+PARAGRAPH
+
+By multiplying the data stream D[n] with the rectangular window function of (1), we obtain an individual frame Fi[n], also represented as: Fi[n]=D[n]⋅ω(n)where, Fi[n]=xn,xn−1,…,xn−Δ⋅fs is the ith individual frame of buffered data, containing a sequence of samples selected during the interval starting at n−Δ⋅fs and ending at nth time instant.
+
+SECTION
+
+Feature extraction
+
+PARAGRAPH
+
+We have considered both time and frequency domain features to effectively and accurately detect abrupt changes visible in time or frequency domain.
+
+In order to preserve the time-domain envelope of the signal, we have used Linear Predictive Coding (LPC) (O’Shaughnessy, 1988), which is a well known technique used for feature extraction for audio and speech signals (Markel and Gray, 2013).
+
+For the frequency domain analysis, we selected Mel-frequency cepstral coefficients (MFCCs) (Bansal et al., 2015; Davis and Mermelstein, 1980) and Gammatone frequency cepstral coefficients (GFCC) (Valero and Alias, 2012).
+
+MFCC and GFCC filter banks uniquely characterize the input signal to detect a rare-event.
+
+Thus, the feature vector ν is a tuple which is composed of subset features: Lp(LPC), Mf(MFCC), and Gf(GFCC), which can be represented as ν={Lp1,Lp2,…,Lpi,Mf1,Mf2,…,Mfj,Gf1,Gf2,…,Gfk}.
+
+In the following paragraphs, we will briefly explain these three types of feature extraction methods and also explain how we have used them in our model.
+
+SECTION
+
+Linear Predictive Coding (LPC)
+
+PARAGRAPH
+
+LPC (O’Shaughnessy, 1988) is a method which linearly combines past samples of a signal to predict its current sample.
+
+Exploiting the fact that speech and audio signals have redundancy, LPC is frequently used in such systems to detect various events.
+
+The algorithm is simple in which past samples are modulated as the weighted sum of ρ previous values to minimize an error function.
+
+The error is actually the difference between actual samples and predicted samples.
+
+The weighted sum is estimated using coefficients of the error function.
+
+LPC algorithm recursively computes coefficients for each frame Fi[n] in which the objective is to minimize the error ei[n] given in Eq. (3).
+
+We have used auto-correlation (Makhoul, 1975; Markel and Gray, 2013) method to compute LPC coefficients. ei[n]=Fi[n]−Fiˆ[n]
+
+where, Fiˆ[n] is the predicted frame and ei[n] is the error.
+
+SECTION
+
+Mel-frequency cepstral coefficients (MFCCs)
+
+PARAGRAPH
+
+In order to include spectral analysis, we extracted MFCC (Bansal et al., 2015; Davis and Mermelstein, 1980) for each frame Fi[n].
+
+MFCCs has been widely used in various audio and speech recognition applications.
+
+The technique involves a series of steps: windowing (sub-framing), Discrete Fourier Transform (DFT), computing Mel spectrum, computing log of Mel spectrum, and finally Discrete Cosine Transform (DCT) is computed to get Mel Frequency Cepstrum Coefficients (MFCCs).
+
+An individual frame Fi[n] will be the input of MFCC feature extraction block.
+
+The windowing function in MFCC technique breaks each frame into equal sized smaller sub-frames sr[n] of few milliseconds.
+
+In the end, mean value of all MFCCs is computed which are obtained from each sub-frame sr[n].
+
+SECTION
+
+Gammatone Frequency Cepstral Coefficients (GFCC)
+
+PARAGRAPH
+
+Although MFCC has been widely used for audio classification applications, it shows some limitations for signals having strong temporal domain signatures (Valero and Alias, 2012).
+
+In Umapathy et al. (2005), Chu et al. (2009), authors have discussed such limitations of MFCC in time–frequency domain parameterization and feature selection methods.
+
+Considering such limitations, another biologically inspired technique has been proposed which is based on Gammatone (GT) filters (Valero and Alias, 2012).
+
+The process of computing GFCC is more or less the same as of MFCC with the difference of using GT filter bank in GFCC.
+
+The GT filter bank is based on Gammatone function which is inspired from human auditory filter response (Glasberg and Moore, 1990).
+
+The impulse response g(t) of a GT filter is the product of Gamma distribution function and a sinusoidal tone having fc central frequency as given in Eq. (4) (Valero and Alias, 2012). g(t)=Kt(n−1)e−2πBtcos(2πfct+φ)t>0
+
+where K is the filter amplitude; n is the filter order; fc is the central frequency in Hertz; φ is the phase shift; and B is the duration of impulse response.
+
+We have computed GTCC for each sub-frame sr[n].
+
+Like MFCC, an individual frame Fi[n] is the input to GFCC block, which further divided into sub-frames sr[n].
+
+The GTCC is computed for each sub-frame sr[n] and, afterward, a mean is computed for all the GTCCs obtained from each sub-frames.
+
+SECTION
+
+Unsupervised machine learning
+
+PARAGRAPH
+
+In Section 2, we have discussed in detail the application of machine learning in anomaly detection.
+
+However, in this work, our emphasis is to automatically extract patterns of rare-events occurring in an IoT data stream using an edge device.
+
+In case of supervised machine learning, we need to individually label patterns of rare-events exhibited by extracted features.
+
+Data labeling is a difficult and time consuming task as it requires an expert who closely observes incoming instances and assign them meaningful labels (Shalev-Shwartz and Ben-David, 2014)
+
+PARAGRAPH
+
+In order to avoid the effort involved in data labeling and to automatically find the patterns of rare-events hidden in a data stream, we have used a two-stage rare-event detection strategy which relies on a combination of state-of-the-art unsupervised machine learning techniques.
+
+As shown in Fig. 2, the unsupervised machine learning module takes stacked feature instances as input and process it in two stages to detect the occurrence of a rare-event.
+
+Here it is important to highlight the working of an unsupervised machine learning technique, which basically aims to partition data instances in a way that similar instances are grouped in same cluster (Ghahramani, 2004).
+
+Hence, dissimilar instances belong to different clusters.
+
+Exploiting the fact that the patterns of rare-events are reasonably different from the normal events, IRESE tries to find two separate clusters in the incoming data stream.
+
+Eventually, in these two clusters, one cluster contains instances of normal events where as the other cluster contains instances of rare-events.
+
+PARAGRAPH
+
+The two-stage strategy is used due to the one-pass constraint of a high speed incoming data stream (Guha et al., 2003).
+
+It is not possible to store such high speed data stream due to lack of resources and amount of data produced.
+
+The incoming data stream is processed in two-stages: online micro-clustering, and offline macro-clustering (Aggarwal et al., 2003; Carnein et al., 2017).
+
+In the first stage, online micro-clustering, the high speed data stream is processed in real-time to quickly extract statistical information from it in the from of micro-clusters.
+
+Micro-clusters could indicate the presence of rare-event patterns in the data steam.
+
+Therefore, it is further processed in the second stage i.e., offline macro-clustering, which in an offline phase and extracts rare-events from the incoming data stream.
+
+As mentioned earlier, the final output is in the form of two clusters: cluster A is dense and containing data points reflecting normal behavior, whereas cluster B containing a rare-event (if it exists) which is an outlier and different from other events occurring in that specific interval of buffered data.
+
+A further detail of both stages is described in the following subsections.
+
+SECTION
+
+Micro-clustering
+
+PARAGRAPH
+
+Since data streams are unbounded and having large amount of data, an efficient method is required to extract important statistics from the data in real-time.
+
+An online micro-clustering (Aggarwal et al., 2003; Carnein et al., 2017) technique considers one pass nature of streaming data and attempts to quickly and efficiently collect the useful summary of data.
+
+One pass means that it is not suitable to store raw data and it must be efficiently processed in first attempt to get meaningful information from it.
+
+The outcome of micro-clustering is several small clusters having unique properties due to the similarity between instances observed during the small time duration.
+
+There are several stream clustering techniques available for online micro-clustering which are compared in Carnein et al. (2017).
+
+We have used the BIRCH (acronym of Balanced Iterative Reducing and Clustering using Hierarchies) algorithm, that is a tree-based stream clustering algorithm proposed in Zhang et al. (1996).
+
+The algorithm constructs a clustering feature (CF) tree for incoming data instances, in which leaf nodes are micro-clusters.
+
+BIRCH is a fast and memory efficient algorithm and these characteristics make it suitable to be used in an edge device.
+
+SECTION
+
+Macro-clustering
+
+PARAGRAPH
+
+In the offline macro-clustering phase (Aggarwal et al., 2003; Carnein et al., 2017), micro-clusters are further processed and merged together to produce bigger clusters.
+
+The merging of clusters is based on the distance between the cluster centroids.
+
+Hence, the clusters having centroids close to each other are merged together to form a single cluster.
+
+Keeping in mind the fact that a rare-event has distinctive features, which keeps it in a separate cluster.
+
+We have used Agglomerative Clustering (Guha et al., 2003; Rokach and Maimon, 2005) and used Ward method (Murtagh and Legendre, 2014) to recursively merge micro-clusters by minimizing variance between them.
+
+PARAGRAPH
+
+Fig. 3 shows the overall process of cluster merging.
+
+Following Ward algorithm, note that d is the squared Euclidean distance between the centroids of any two given micro-clusters.
+
+A low value of d shows that two micro-clusters are close to each other having similar characteristics, whereas a high values of d means that two clusters are far from each other due to their varying characteristics.
+
+The algorithm recursively merges any two given micro-clusters at each step while optimizing the objective function which is based on minimizing the total with-in cluster variance.
+
+The algorithm continuous the merging process until only two clusters left indicating the normal events and rare-events, if exist.
+
+The objective function considers a threshold value Th, which decides whether two micro-clusters are close enough to be merged together or not.
+
+Theoretically, increasing the value of Th expands the size of a recursively merged cluster while reducing the detection rate of a rare-event, whereas decreasing the value of Th results in recognizing a normal event as a rare-event.
+
+The Th value varies from one environment to another and it is selected after empirical analysis of received data.
+
+SECTION
+
+PARAGRAPH
+
+Experimentation
+
+PARAGRAPH
+
+In order to quantitatively assess the proposed approach, we have conducted experiments with a typical use case involving the processing of audio data containing rare-events.
+
+In fact, we can safely extend our hypothesis that IRESE is also valid for other similar use cases which involve data streams from IoT devices having similar temporal and spectral characteristics.
+
+For example, another suitable scenario is the detection of faults in the machines using vibration and acoustic sensors.
+
+This section explains experiments conducted to detect various types of rare-events.
+
+Continuing the discussion from previous sections, the experiments validate the following claims in the context of rare-event detection: (i) Detection of rare-events with high precision is the core objective of this work, as lower precision values generate more false alarms; (ii) IRESE should independently detect rare-events, without considering the type of an event; (iii) rare-events should be detected without having any prior knowledge since, as already mentioned, it is often difficult to develop prior knowledge on rare-events in the form of labels or experts’ advice; (iv) the whole process should be automated and scalable while considering the same features for other similar use cases; (v) IRESE cannot be arbitrarily complex, as it is supposed to be executed by tiny edge devices.
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+Connected devices and IoT technologies are spreading in all the application domains (e.g., health-care, smart homes, wearable devices, etc.) and they are changing how humans interact with the surrounding environment.
+
+Typically, these devices have constrained computing and networking capabilities in order to reduce costs and energy consumption since are often battery-powered.
+
+In many scenarios, devices need an external entity, called gateway, that is deployed close to devices and it is able to execute computing- and networking-intensive operations, e.g., bridging different networking worlds like Bluetooth and Wi-Fi.
+
+One of the players in the open-source landscape is the Adaptive Gateway for dIverse muLtiple Environment (AGILE) (AGILE consortium, 2019).
+
+AGILE is a modular software framework for IoT gateways with a wide support for many network stacks and devices.
+
+Moreover, AGILE has been designed by following the micro-service paradigm that was initially conceived for distributed systems.
+
+This paradigm defines that all modules of the system are independently designed and implemented and they are able to interact among them using a well-defined set of Application Programming Interfaces (APIs).
+
+This enables strong modularity, resiliency against failures, scalability, reliability and simpler maintenance.
+
+The paradigm has been successfully applied to different domains (e.g., Cloud Computing).
+
+PARAGRAPH
+
+AGILE follows this paradigm in order to implement modules and services: all modules expose a set of APIs, via DBus1  or RESTful interfaces, that enable interactions and data exchange.
+
+In this way, the gateway is more resilient against failures since, in the worst case, if a module crashes the system remains alive maybe with a limited set of capabilities.
+
+Finally, AGILE runs on x86 and ARM-based platforms like Raspberry Pi.2
+
+PARAGRAPH
+
+The framework for audio rare-event detection presented in this work has been implemented as an independent micro-service within the AGILE gateway framework.
+
+Since this module requires a raw audio stream in order to extract features, the AGILE gateway board, i.e., a Raspberry Pi, is powered with a USB microphone.
+
+This microphone is recognized as a classic microphone by the gateway operating system.
+
+The micro-service records the audio stream from the microphone, then it performs data buffering and windowing.
+
+Thus, it extracts features over a temporal frame by computing MFCC, LPC and GFCC coefficients.
+
+Consequently, the module feeds the algorithm with the feature vector and finally verifies if the anomaly happened or not by checking which cluster, normality or anomaly, contains the audio frame.
+
+PARAGRAPH
+
+This module can be used with two different data source: recorded (from microphone) audio stream and evaluation audio stream.
+
+Fig. 4 shows how it is possible to choose the data source.
+
+If we select the recorded audio stream, the system behaves as presented above.
+
+If we choose the latter stream, the module loads the audio stream from WAV files stored in the SD card of the gateway.
+
+Using this mode, we can evaluate the system performances as will be described in Section 4.
+
+SECTION
+
+Software tools
+
+PARAGRAPH
+
+The overall system is implemented in Python.
+
+Three types of features are extracted using three python libraries: (1) LPC features are extracted using audiolazy3  python library; (2) MFCC are extracted using librosa4 ; (3) GFCC are extracted using gammatone python library.5
+
+We have used scikit-learn6  to apply unsupervised machine learning techniques Birch and Agglomerative Clustering.
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+There are several datasets available for various audio events — UrbanSound8K (Salamon et al., 2014), TUT Sound Events (TUT, 2019), and Audio set by Google (Google, 2019) to name a few.
+
+In Heittola (2019), author has provided a resourceful compilation of various audio datasets which include tagged and mixed audio events.
+
+Since we are using unsupervised machine learning to detect rare-events, we needed a dataset having labeled time stamps of various rare-events with normal background audio signals.
+
+In DCASE 2017 Challenge, authors produced a dataset with various backgrounds for three events: gunshot, glass break, and baby cry.
+
+However, in our understanding, their mixture model is not suitable for our case study, as we are looking for relatively more prominent rare-events from different sources and having varying characteristics which could highlight the seriousness of the situation.
+
+For this purpose, we produced a dataset by mixing various rare-events, from multiple sources, with different backgrounds.
+
+In order to ensure the relatedness of this work with the state-of-the-art research happening in the domain, we rely on already published datasets to produce our mixture models.
+
+Therefore, we collected background sounds from DCASE 2017 Challenge dataset, and collected a subset, containing several variations, of rare-events from UrbanSound8K or downloaded directly from Freesound search engine.
+
+In particular, we have considered four types of rare-events: gunshot, glass break, scream, and siren.
+
+Furthermore, the sounds in each type of rare-event are also different from each other.
+
+We created in total 160 samples of each type of adding a rare-event at a random time instant in a background sound.
+
+We used Pydub,7  python library, for mixing rare-events with background sounds.
+
+Each sound clip randomly contains exactly one rare-event.
+
+The sound is sampled at 44.1 kHz, which meets the standard audio sampling rate.
+
+Since we are simulating an IoT environment, we can safely assume that these sounds are similar as received by a microphone deployed in the environment.
+
+As illustrated in Fig. 2, the data received from the IoT devices is temporarily stored in a buffer for few seconds.
+
+The buffer size is variable, however, it remains fixed for a particular environment.
+
+In these experiments, we have considered the buffer size equals to 30 s, which is simulated by taking 30 s sound clip each time.
+
+The 30 s sound is further split into frames, and for each frame features are extracted.
+
+We already discussed in detail the feature extraction method in Section 3.
+
+However, here it is important to mention the number of coefficients, we have considered for each of three types of features extraction methods: LPC, MFCC, and GFCC.
+
+We have taken 10 coefficients of LPC, 40 MFCCs, and 40 GFCCs.
+
+Thus, in total, the length of the feature vector is 90 in which each value is a floating point.
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+In this section, we will explain empirical results obtained while conducting experiments using IRESE on the dataset described above.
+
+The two-staged unsupervised machine learning strategy of IRESE ultimately produces two clusters: a cluster of normal events, and a separate cluster of rare-event, if it exists.
+
+As mentioned in the previous section, we have synthetically constructed the dataset, in which we have added a rare-event sound at a random time instant in a background sound of relatively longer duration.
+
+For the sake of evaluation, we recorded the time instant at which we added a rare-sound in a background sound clip.
+
+The recorded information is used to evaluate the performance of IRESE by comparing the time instant, called “On-Set”, at which IRESE detects a rare-event to the real time instant when the rare-event actually occurred according to records.
+
+PARAGRAPH
+
+In order to evaluate the model, we have used matching matrix values: True positive (TP), False positive (FP), and False Negative (FN).
+
+In these experiments, a TP occurs when IRESE correctly separates a rare-event observation from the rest of the observations.
+
+A FP occurs when IRESE wrongly detects a background sound or a normal event as a rare-event, whereas a FN occurs when IRESE fails to distinguish between a rare-event and background sounds.
+
+Additionally, we have also calculated precision (P), recall (R), and f-measure (F1) values, where P gives us the positive predictive value, R gives us true positive rate, and F1 score gives us the harmonic mean of P and R values.
+
+In conclusion, the value of P decreases with an increase in number of FP and, similarly, the value of R decreases as number of FN increases.
+
+Following equations are used to calculate these measures: P=TPTP+FP R=TPTP+FN F1=2⋅P⋅RP+R
+
+PARAGRAPH
+
+Fig. 5 shows a plot of P, R, and F1 values against the threshold (Th) values discussed in Section 3.4.2 using a specific window size.
+
+It is clearly observable that as Th value increases the precision increases and recall decreases.
+
+It confirms the trend that rare-event detection rate decreases with the increase in Th value, whereas more false predictions are produced with low values of Th.
+
+The reason is that the boundary of the cluster defining normal events grows with the value of Th.
+
+Consequently, at a certain point, the size of the normal cluster grows so much that even an anomalous observation (occurring at a relatively larger distance) becomes part of normal cluster which increases the number of FN.
+
+We have selected an optimum value of Th, which could be observed in the graphs, where the combination of all three values (P, R, and F1) is highest.
+
+Thus, for gunshot the optimum value of Th is 0.4 by using a window size of 0.5 s, for glass break the optimum value of Th is 0.45 by using a window size of 1 s, for siren the optimum value of Th is 0.3 by using a window size of 1.25, and for scream event the optimum value of Th is 0.4
+
+PARAGRAPH
+
+Table 1 shows the values of TP, FN, and FP measures for the four types of events.
+
+Each row in the table represents the results obtained for a particular window size.
+
+Notice that window size is the size of an individual frame, as defined in (1).
+
+We can observe a trend in values that TP decreases as window size increases, and it is true for all the cases.
+
+Consequently, FN increases as the window size increases, whereas FP does not follow a specific trend; it is probably due to using different background sounds which may contain some sounds similar to the rare-events.
+
+PARAGRAPH
+
+While looking at Table 2, we can estimate a suitable window size to detect a particular type of rare event and using an optimum value of Th.
+
+The precision increases as the number of FP decreases, whereas recall increases as number of FN decreases.
+
+In general, we can observe that suitable window size vary from one event to another and it depends on the duration of occurrence of a particular event.
+
+In summary, window size 0.5 s show the optimum detection performance with precision=0.93, recall=0.92, and F-measure=0.93.
+
+For the glass break, the optimum window size is 1 s with a precision=0.92, recall=0.93, and F-measure=0.92.
+
+Detection of sirens performs better with a window size of 1.25 s with all precision, recall, and F-measure equals to 0.96.
+
+The highest suitable window size is observed for scream which is 1.5 s with a precision=0.9, recall=0.94, and F-Measure=0.92.
+
+PARAGRAPH
+
+In our understanding, this variation in optimum window sizes is due to the duration of rare-events.
+
+For example, a gunshot sound is sudden and exists for a very short duration such as between 0.5 s to 1 s. On the other hand, the sound of scream normally last longer (up to few seconds) such as 1.5 s or 2 s, which is also obvious from the results.
+
+PARAGRAPH
+
+In order to prove the significance of IRESE, we have also calculated the results of rare-event detection using only Agglomerative Clustering technique (i.e., macro-clustering stage).
+
+Note that two-stage strategy, micro-clustering followed by macro-clustering, improves the rare-event detection rate, which is obvious by comparing the results presented in Tables 2 and 3.
+
+While using IRESE, we can see an improvement in all three calculated (P, R, and F1 ) values for different rare-events with different window sizes.
+
+Besides this improvement, the major benefit we achieve with IRESE is its suitability for deploying it in an edge device.
+
+The micro-clustering stage of IRESE is able to quickly extract the statistical information from an incoming high speed data stream, without storing the data.
+
+Later on, this statistical information is further processed to make macro-clusters, which eventually indicates the presence of rare-events in the incoming data stream.
+
+Hence, IRESE is an effort to provide a solution to detect rare-events without storing incoming data on an edge device and it also empowers an edge device with artificial intelligence to reduce the burden on a cloud; sending only the patterns of interest to the cloud.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Edge Computing is becoming crucial with the increase in theamount of data produced from various IoT devices.
+
+Due to the limited amount of network resources, data processing near the source is highly required, especially for time critical applications.
+
+Moreover, the data stream generated by multiple sources always contain interesting patterns, which must be discovered to take important decisions.
+
+In this context, rare-event detection using an edge device is a promising research area, in which the objective is to detect critical events quickly and near the source, so that necessary actions can be taken accordingly.
+
+The proposed system, IRESE, has shown a significant performance to detect various types of rare-events: gunshot, glass break, siren, and scream.
+
+Moreover, we have used two-staged unsupervised machine learning strategy, which enable the system to detect interesting patterns in the form of rare-events without having any prior knowledge.
+
+The two-tier architecture considers one-pass nature of data streams and quickly extracts statistical information using micro-clustering and, afterward, micro-clusters are recursively merged to separate rare-events from the normal events.
+
+We have practically implemented and tested the whole system using an AGILE-based IoT gateway, which allowed us to fine tune IRESE’s parameters based on the actual hardware limitations.
+
+In conclusion, IRESE is a lightweight and portable system, which could be quickly and easily deployed in various environments and start detecting rare-events with initiating any training session.

@@ -1,0 +1,35 @@
+10.1016/j.engappai.2019.103419
+
+ABSTRACT
+
+TITLE
+
+DFNet: Discriminative feature extraction and integration network for salient object detection
+
+PARAGRAPH
+
+Despite the powerful feature extraction capability of Convolutional Neural Networks, there are still some challenges in saliency detection.
+
+In this paper, we focus on two aspects of challenges: i) Since salient objects appear in various sizes, using single-scale convolution would not capture the right size.
+
+Moreover, using multi-scale convolutions without considering their importance may confuse the model.
+
+ii) Employing multi-level features helps the model use both local and global context.
+
+However, treating all features equally results in information redundancy.
+
+Therefore, there needs to be a mechanism to intelligently select which features in different levels are useful.
+
+To address the first challenge, we propose a Multi-scale Attention Guided Module.
+
+This module not only extracts multi-scale features effectively but also gives more attention to more discriminative feature maps corresponding to the scale of the salient object.
+
+To address the second challenge, we propose an Attention-based Multi-level Integrator Module to give the model the ability to assign different weights to multi-level feature maps.
+
+Furthermore, our Sharpening Loss function guides our network to output saliency maps with higher certainty and less blurry salient objects, and it has far better performance than the Cross-entropy loss.
+
+For the first time, we adopt four different backbones to show the generalization of our method.
+
+Experiments on five challenging datasets prove that our method achieves the state-of-the-art performance.
+
+Our approach is fast as well and can run at a real-time speed.

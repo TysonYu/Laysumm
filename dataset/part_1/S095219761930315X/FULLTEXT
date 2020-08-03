@@ -1,0 +1,629 @@
+10.1016/j.engappai.2019.103399
+
+FULLTEXT
+
+TITLE
+
+A segmentation-based approach for polyp counting in the wild
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Jellyfish (Scyphozoa) blooms have attracted significant interest of researchers over the recent years (Kogovšek et al., 2018; Brotz et al., 2012; Condon et al., 2013).
+
+During blooming, the jellyfish population rapidly increases in a relatively small geographical area, which importantly affects the local ecosystem.
+
+Bloom and jellyfish population dynamics prediction can be established by analyzing the population dynamics of polyps, which are one of the many forms in the jellyfish complex life cycle.
+
+PARAGRAPH
+
+(Widmer et al., 2016) analyzed polyp populations and experimentally established relation between the water temperature and salinity and the bloom magnitude.
+
+But their study was restricted to in vitro studies and the polyp density was manually estimated.
+
+Only a fraction of works focus on in situ studies.
+
+Polyp attachment substrates are scarce in natural environments, thus they usually cluster on small regions, like oyster shells.
+
+Using such regions, several studies (Hočevar et al., 2018; Vodopivec et al., 2018) have established important relations between polyp numbers in nature and the resulting jellyfish population dynamics.
+
+Most of these studies, however, rely on manual polyp counts.
+
+PARAGRAPH
+
+Manual polyp density estimation requires counting polyps in underwater images.
+
+These images might contain over a thousand polyps, which makes manual counting a time-consuming and laborious task.
+
+Furthermore, the annotation requires a high degree of expert knowledge to accurately classify ambiguous regions/objects as a polyp or a background structure (see Fig. 1).
+
+This calls for automated polyp detection methods.
+
+The methods have to be particularly robust to deal with a large appearance variability of polyps and the various conditions under which the photographs are taken.
+
+These include lighting, camera focus, motion blur and background color.
+
+PARAGRAPH
+
+Recently, an automated polyp counter was proposed by Vodopivec et al. (2018).
+
+The approach is based on the classical object detection architecture: a weak fast detector proposes potential polyp boxes and then computation-intensive features are extracted and classified.
+
+The approach suffers from several drawbacks.
+
+Polyps vary in size significantly within a single image, which requires a greedy search over several scales.
+
+This increases the computational cost as well as the potential for false positives.
+
+Application of non-maxima suppression to the detections that passed the final classifier results in missed detections in densely populated regions.
+
+The detection pipeline is composed of algorithmically non-homogeneous modules.
+
+Thus the opportunity to improve robustness by end-to-end training is lost.
+
+For practical applications, a streamlined end-to-end trainable detector is required that would address scale variability, retain a high detection rate, and allow re-training on alternative datasets obtained by different hardware.
+
+PARAGRAPH
+
+Our main contribution is a new streamlined automated polyp counter.
+
+To deal with clutter and high appearance and scale diversity, we cast polyp detection as a semantic instance segmentation problem that capitalizes on approximate circular symmetry of the polyps (Fig. 2).
+
+A convolutional neural network is designed to segment all pixels in the image into polyp and background pixels.
+
+The network is trained such to enhance the circular symmetry in the segmentation mask.
+
+A detector is then designed to extract approximately circular structures from the mask, using an approach based on distance transform.
+
+The detector simultaneously localizes polyps at several scales without explicit enumeration of the scales and naturally handles clustered polyps that partially overlap in the image.
+
+The approach is easily trainable, robust and fast.
+
+PARAGRAPH
+
+The proposed segmentation-based polyp counter, SegCo, is evaluated on the recent challenging dataset of polyps in the wild proposed by Vodopivec et al. (2018).
+
+Results show that the approach is highly robust, it outperforms a slow but general state-of-the-art object detector RetinaNet (Lin et al., 2017), by 2% in F-1 measure and outperforms the currently best method for polyp detection, PoCo (Vodopivec et al., 2018), by 24% in F-1 measure.
+
+A license-free Python implementation of SegCo will be made publicly available.
+
+We believe this will substantially contribute to the marine biology community as a trainable toolbox for polyp counting and similar applications, allowing to accurately process large datasets.
+
+PARAGRAPH
+
+As an additional contribution we improve the annotations of the currently largest annotated polyp counting dataset (Vodopivec et al., 2018) to allow a more accurate benchmarking of polyp counting methods.
+
+The revised PoCo dataset will be made publicly available as well.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+The field of object detection and segmentation has been very active in recent years.
+
+Current state of the art object detection methods (Ren et al., 2015; Lin et al., 2017; He et al., 2017) are often based on convolutional neural networks and achieve excellent results on object detection benchmarks such as (Lin et al., 2014; Russakovsky et al., 2015).
+
+These benchmarks strive to evaluate performance on general object detection problems but often do not accurately represent domain-specific problems such as polyp counting, that require detection of an extremely large number of densely positioned objects.
+
+PARAGRAPH
+
+We focus on works that address counting of highly cluttered, overlapping objects.
+
+For an extensive overview of general object counting methods, we refer the reader to Heinrich et al. (2019).
+
+Polyp counting shares many characteristics with dense detection problems like nuclei segmentation (LaTorre et al., 2013), phytoplankton detection (Verikas et al., 2012), cell counting and detection (Xie et al., 2018).
+
+LaTorre et al. (2013) addressed segmentation of overlapping nuclei by finding concave regions in the segmentation mask.
+
+This method enables separation of near-by objects, but is not robust to significant overlaps between the objects.
+
+Ferrari et al. (2017) segment groups of bacterial colonies and then infer the number of colonies in each connected component using a convolutional neural network regressor.
+
+Schoening et al. (2012) estimate deep sea megafaunal densities by a confidence map obtained by per-pixel application of an SVM (Cortes and Vapnik, 1995) trained MPEG7 features.
+
+The approach is restricted to uniform backgrounds with little or no overlap between the objects.
+
+PARAGRAPH
+
+Several approaches avoid explicit object detection by estimating the object density by numerically integrating over an object density map (Xie et al., 2018; Lempitsky and Zisserman, 2010).
+
+Perko et al. (2013) adapted this approach for counting people in crowds from aerial images.
+
+Their method estimates the object density map by learning feature importance from dense feature maps of object detection responses and SIFT features (Lowe, 2004).
+
+Foroughi et al. (2015) apply sparse representation classification in conjunction with dimensionality reduction to estimate the object density.
+
+These approaches, however, are impractical in many applications since count accuracy cannot be easily validated by a human supervisor.
+
+PARAGRAPH
+
+The most closely related work to our own is the recent polyp counting method proposed by Vodopivec et al. (2016, 2018).
+
+They propose a two-stage detection method that first generates candidate regions using aggregated channel features (Dollár et al., 2010) and extracts region feature vectors using the AlexNet (Krizhevsky et al., 2012) neural network, pretrained on ImageNet (Russakovsky et al., 2015).
+
+The method uses an SVM (Cortes and Vapnik, 1995) classifier to classify the extracted feature vectors as polyp or background regions.
+
+The method is algorithmically non-homogeneous and does not allow end-to-end training.
+
+SECTION
+
+Segmentation-based polyp counter
+
+PARAGRAPH
+
+We propose a semantic-segmentation-based polyp counting method SegCo (Fig. 2).
+
+A segmentation convolutional neural network (Section 3.1) is applied to classify each pixel into a foreground (polyp) or background.
+
+The network is trained to produce locally circular segmentation masks on polyp images.
+
+The generated segmentation mask is then interpreted by a scale-invariant polyp localization method (Section 3.3).
+
+The steps of the method are detailed in the following subsections.
+
+SECTION
+
+The polyp segmentation network architecture
+
+PARAGRAPH
+
+An encoder–decoder network with a U-Net (Ronneberger et al., 2015) architecture is used in our segmentation network.
+
+The encoder is constructed from convolutional blocks.
+
+We define a convolutional block as two convolutional layers followed by a max-pooling layer (Fig. 3).
+
+In many commonly used convolutional neural networks the number of filters in the convolutional layers doubles after each reduction in the spatial dimensions as in Ronneberger et al. (2015), He et al. (2016), Simonyan and Zisserman (2014).
+
+We define the base number of filters as the number of filters used on the first layer.
+
+As in Ronneberger et al. (2015), He et al. (2016), Simonyan and Zisserman (2014) the number of filters is doubled after each max pooling layer (Fig. 3).
+
+The final convolutional block in the encoder is followed by a bottleneck block, which is composed of a dropout layer followed by two convolutional layers.
+
+The dropout layer serves as a regularizer to prevent overfitting.
+
+PARAGRAPH
+
+The decoder uses the same number of blocks as the encoder, however, the decoder convolutional blocks are composed of an upsampling layer and two convolutional layers.
+
+A ReLu activation is applied on the output of each convolutional layer with the exception of the final layer where a sigmoid activation is applied instead.
+
+Skip connections are inserted between the encoder and decoder convolutional blocks.
+
+These are implemented as a channel-wise concatenation of the output of the last convolutional layer of a convolutional block and the output of the upsampling layer of the decoder convolutional block.
+
+The combined features are the input to the first convolutional layer of the decoder convolutional block.
+
+We denote the model constructed from k blocks and n base layers as SegCo(k,n).
+
+SECTION
+
+PARAGRAPH
+
+Enforcing circularity in segmentation masks
+
+PARAGRAPH
+
+An accurate representation of the object shape and position is critical for training the polyp segmentation network.
+
+But manual per-pixel segmentation mask annotation is often infeasible in practice as segmenting polyp images requires annotation of several hundred individual polyps.
+
+The polyps are therefore usually annotated by bounding boxes (xi,yi,wi,hi), where (xi,yi) is the position and (wi,hi) are the width and height of the bounding box.
+
+PARAGRAPH
+
+To facilitate polyp detection by detection of circularly symmetric regions, we convert the ground truth annotations into circles (xi,yi,ri).
+
+The bounding box center is taken as the circle center, while the radius is estimated conservatively by half of the smaller rectangle edge, i.e., ri=⌊min(wi,hi)2⌋.In this approximation, the pixels immediately outside of the circle may also correspond to the polyp.
+
+Therefore an additional ignore label ld is used to annotate pixels between radius ri and a larger radius r̃i during learning (r̃i=max(wi,hi)).
+
+Example of the automatically generated ground truth labels is shown in Fig. 4.
+
+PARAGRAPH
+
+The network is trained using a binary cross-entropy loss (Lbce), which is modified to account for the ignore labels: Lbce(pj,lj)=−log(pj),if lj=10,if lj=ld−log(1−pj),otherwise,where lj denotes the training mask value assigned to each pixel j and pj denotes the predicted probability of the pixel j belonging to the polyp class.
+
+The pixels located within radius ri surrounding the location (xi,yi) of polyp i are assigned a label lj=1, meaning they represent a polyp, while those between radius ri and r̃i are assigned a label lj=ld, which ensures these pixels are ignored.
+
+In our experiments the ignore label was set to ld=0.5.
+
+PARAGRAPH
+
+With circular polyp masks, we intentionally introduce a bias for circular symmetry, while reducing the amount of noise by removing the surrounding area from the loss calculation.
+
+This encourages the network to infer circularly symmetrical regions at polyp locations.
+
+SECTION
+
+PARAGRAPH
+
+Distance consensus point detection
+
+PARAGRAPH
+
+The segmentation network from Section 3.1 assigns a probability of polyp location at each pixel.
+
+By thresholding this probability map at a threshold Θth, a binary segmentation mask is obtained.
+
+Polyp locations and sizes are then determined from the segmentation mask.
+
+In densely populated regions, polyps may touch or mildly overlap, thus individual connected components in the mask image may potentially correspond to several polyps.
+
+The segmentation network is trained to produce locally circular segmentations on the polyps (see Section 3.2 for details).
+
+Thus we can exploit this property to detect polyps by identifying locations of local circular symmetry in the segmentation mask.
+
+PARAGRAPH
+
+The centers of approximately circular objects may be determined by distance consensus points, i.e., points equally distant from the local mask edges.
+
+The inferred segmentation mask is thus first inverted (i.e., subtracted from 1) and a distance transform is computed according to Rosenfeld and Pfaltz (1968).
+
+Distance consensus points are identified as local maxima on the distance transform map.
+
+The polyp size can then be simply estimated as the value of the distance transform map at the detected polyp center, since this value is by definition the distance to the local edge in the binary mask.
+
+The polyp localization is thus scale-invariant in that it avoids the need for greedy search over a number of scales.
+
+PARAGRAPH
+
+The proposed method allows accurate detection even when polyps are touching or overlapping.
+
+Fig. 5 shows an idealized mask generated by a large polyp overlapping with a small one.
+
+The distance transform computed on this mask contains two clear local maxima corresponding to the smaller and the larger polyp centers.
+
+The value of the distance transform at the detected centers identifies the size accurately despite the significant overlap.
+
+PARAGRAPH
+
+Example of the detection pipeline is shown in Fig. 6.
+
+Even though some of the polyps are non-circular, they appear circular in the inferred segmentation mask, thus facilitating detection through circularity interpretation.
+
+Note that polyps are well localized even under substantial overlaps with other polyps and a large diversity in polyp size.
+
+PARAGRAPH
+
+SECTION
+
+Evaluation
+
+SECTION
+
+Implementation details
+
+PARAGRAPH
+
+The experiments were run on a PC with a Intel(R) Core(TM) i7-6700 K @ 4.00 GHz (8 CPUs) processor, 32 GB RAM and NVIDIA GeForce GTX 1070 graphics card.
+
+The network was trained by Adam with a 10−4 learning rate.
+
+The original images are too large to fit into our GPU memory.
+
+We thus divide them into 512 × 512 overlapping blocks and process each block individually.
+
+SECTION
+
+Dataset and evaluation measures
+
+PARAGRAPH
+
+The recent polyp counting dataset from Vodopivec et al. (2018) was used to analyze the proposed segmentation-based polyp counter (SegCo).
+
+The images are recorded with resolution of 4288 × 2844 pixels and contain oysters with attached polyps (Fig. 7).
+
+An oyster occupies a large central part of the image.
+
+Polyps are annotated only within a selected region on the oyster, thus a region of interest (ROI) polygon is defined for each image as well.
+
+PARAGRAPH
+
+The training set was created from 30 images of oysters with polyps from Dataset B and other supplementary datasets from Vodopivec et al. (2018).
+
+These images were originally annotated in one pass by a single annotator which means some of the polyps might have been missed (Vodopivec et al., 2018).
+
+The training dataset thus contains 32.685 polyp annotations.
+
+See Fig. 7 for an example of the annotated image.
+
+PARAGRAPH
+
+The test set was created from the Dataset A published in Vodopivec et al. (2018).
+
+This is a carefully curated set of 7 images for accurate evaluation of polyp detection methods.
+
+Individual images of the test set are selected to include a variety of polyp appearances.
+
+Each image was annotated by several expert annotators multiple times in Vodopivec et al. (2018) to minimize the annotation errors.
+
+In the following we refer to this data set as the PoCo test set.
+
+PARAGRAPH
+
+We apply the polyp detection evaluation protocol from (Vodopivec et al., 2018) in our experiments.
+
+The protocol pairs the detections with ground truth annotations by globally minimizing the distance between the pairs centers using the LAPJV pairing algorithm from Jonker and Volgenant (1987).
+
+An individual detection can only be paired with a ground truth annotation (and classified as a correct detection), if their centers are separated by less than a pre-defined distance threshold τd.
+
+This threshold is set in Vodopivec et al. (2018) as the median of the annotation rectangle diagonals computed on the training set.
+
+PARAGRAPH
+
+Detection performance is evaluated by the average recall (AR), average precision (AP) and F-1 measures.
+
+The count accuracy is evaluated by the count relative error (Rel.
+
+err.)
+
+and the ratio (Ratio) between the number of detections and the number of ground truth annotations as defined by Vodopivec et al. (2018).
+
+SECTION
+
+Parameter robustness analysis
+
+PARAGRAPH
+
+We first analyzed the impact of the segmentation network depth and the number of filters used in each layer on the overall success of SegCo.
+
+In particular, the number of convolutional blocks and the base filter number was analyzed.
+
+PARAGRAPH
+
+The results for the varying number of convolutional blocks and filters are shown in Table 1.
+
+We see that the performance generally improves with increasing the number of blocks and filters, but we also observe that similar results can be achieved with less complex networks.
+
+A partial loss in performance in networks with only k=2 blocks could be explained by a smaller effective receptive field caused by the lack of pooling operations.
+
+This may be partially compensated by increasing the number of filters n as SegCo(2,64) performs significantly better than SegCo(2,8).
+
+PARAGRAPH
+
+Next, we evaluated the inference time with respect to the number of convolutional blocks and filters.
+
+The time required for polyp detection on an single image is shown in Table 2.
+
+Inference speed is less affected by the increase in the number of blocks than the number of base filters since the pooling operation makes each successive block less computationally expensive.
+
+When compared to the number of parameters in Table 3, the inference times vastly varies between networks of similar complexities.
+
+We can see that the achieved detection performance measures of SegCo(4,16) and SegCo(4,64) are comparable even though the former has a significantly lower number of parameters (Table 3) and is consequently faster (Table 2).
+
+PARAGRAPH
+
+An important parameter of the segmentation mask interpretation component of SegCo is the binarization threshold Θth.
+
+Fig. 8 shows SegCo detection performance with respect to the parameter Θth.
+
+Results show that SegCo is largely robust to Θth, however F-1 measures start to decrease at very high or low Θth values.
+
+The performance is very stable for the interval Θth=(0.4,0.6).
+
+In our experiments we use the threshold value Θth=0.44.
+
+SECTION
+
+Influence of data augmentation
+
+PARAGRAPH
+
+We examined the impact of two types of data augmentation: (i) standard augmentation and (ii) extended augmentation.
+
+In standard augmentation horizontal and vertical image flipping and scale augmentation is applied to training data, where we increased or decreased the size of the image by 20%.
+
+The extended augmentation applies the standard augmentation and adds blurring by a Gaussian filter with a randomly chosen standard deviation from a uniform distribution on the interval (12,70), which corresponds to (0.2μdiag,1.2μdiag), where μdiag is the average diagonal length of polyp annotations.
+
+PARAGRAPH
+
+The influence of data augmentation is quantified in Table 4.
+
+Standard augmentation improves detection on the majority of test images in comparison to not using the augmentation.
+
+It improves the AR measure by 4%.
+
+Extended augmentation further improves the performance on blurred regions which are poorly represented in the training set and often poorly annotated due to an increased level of ambiguity.
+
+Extended augmentation improves the AR measure by an additional 1% percent in comparison to standard augmentation.
+
+SECTION
+
+PARAGRAPH
+
+Influence of the training set size
+
+PARAGRAPH
+
+Since manual annotation is time consuming and error prone, achieving good results using a smaller data set is preferential.
+
+While each annotated image provides several hundred polyp learning examples, different images may not contribute to increasing the visual diversity of the dataset and might be redundant in this respect.
+
+In this experiment we measured the influence of the training set size to the overall detection performance.
+
+PARAGRAPH
+
+We trained SegCo several times using a varying number of images in the training set.
+
+Fig. 9 shows AR, AP and F-1 measures achieved by SegCo on the PoCo dataset with respect to the number of training images used in SegCo training.
+
+We can see that SegCo already performs reasonably well with a small number of images in the training set, provided that the variability of polyp visual features is well represented.
+
+We observe a slight trend of improving results with respect to the increasing number of images.
+
+SECTION
+
+PARAGRAPH
+
+Comparison to the state-of-the-art
+
+PARAGRAPH
+
+The proposed polyp counter SegCo was compared to the most recent state of the art polyp detector, PoCo (Vodopivec et al., 2018), and a state of the art method general object detector RetinaNet (Lin et al., 2017).
+
+PARAGRAPH
+
+We used a ResNet-50 (He et al., 2016) pretrained on ImageNet (Russakovsky et al., 2015) as the backbone network for RetinaNet, which we then fine-tuned for polyp detection on our training set using the Adam optimizer and a learning rate of 10−4.
+
+We use the same data augmentation protocol for all networks.
+
+PARAGRAPH
+
+To ensure a fair comparison to PoCo results from Vodopivec et al. (2018), we evaluate our method using the median based threshold τd (median of bounding box diagonals) as proposed in Vodopivec et al. (2018).
+
+We compare two versions of our method SegCo(4,16) and SegCo(4,64) with the other methods.
+
+The results are reported in Table 5.
+
+SegCo(4,16) achieves a higher AP but a lower AR when compared to SegCo(4,64).
+
+SegCo achieves a 16% higher AR than PoCo and a 3% higher AR than RetinaNet, however it achieves a lower AP.
+
+RetinaNet achieves a lower overall polyp count error, since it achieves approximately the same AP and AR measures (i.e., false negatives are compensated by false positives).
+
+PARAGRAPH
+
+Compensation of false negatives by false positives may cause better results in terms of Ratio and Relative error in some cases, but it is otherwise undesirable in counting by detection, since the number of false positives and negatives are unpredictable.
+
+This reduces the reliability of the object counting method.
+
+PARAGRAPH
+
+Note that the threshold τd from Vodopivec et al. (2018) is rather large and is well suited for counting performance evaluation, but does not reflect the localization accuracy.
+
+In fact, this threshold compensates for missed detections by nearby false positives.
+
+SECTION
+
+PARAGRAPH
+
+PoCo Dataset A revisited
+
+PARAGRAPH
+
+Vodopivec et al. (2018), manual annotation is error-prone even for experts, who achieve a relatively low recall (87%) and usually miss a portion of the polyps in an image.
+
+In fact, our inspection of the false positive detections of the evaluated detection methods revealed a non negligible number of missing annotations in the test set.
+
+See Fig. 10 for examples of missing annotations.
+
+Due to high precision of human annotators, missing annotations are much more common than incorrectly annotated background regions, however ambiguous regions are also sometimes annotated as polyps (see Fig. 11).
+
+PARAGRAPH
+
+To more accurately evaluate the polyp detection methods, we revised the test dataset by manually inspecting each false positive detection of SegCo(4,16), SegCo(4,64), PoCo and RetinaNet and improved the dataset by adding detections that were marked as false positives but contained a polyp (i.e., were true positives).
+
+A significant portion of false positive detections are in regions where region (polyp) classification is highly ambiguous due to significant blurring or poor lighting.
+
+We only expand the dataset with detections where we could tell with a high certainty whether the detected region contains a polyp or not.
+
+The regions which cannot be easily classified remain false positives, even though we cannot claim with certainty that they do not contain a polyp.
+
+PARAGRAPH
+
+Table 6 lists the changes in the revised test set.
+
+We can see that each image in the test set was missing 10% of polyp annotations on average, which demonstrates how unreliable the manual annotation process can be, even with multiple manual re-annotations.
+
+A larger percentage of annotations were added in images #4 and #5 as they contain a high level of inter polyp occlusion, which seems to be a problem area for human annotators.
+
+On the other hand, very few annotations were added to image #7, due to poor lighting and camera focus, which increased the ambiguity of the image and made manual classification of false positives difficult.
+
+SECTION
+
+PARAGRAPH
+
+Performance on the revised PoCo dataset
+
+PARAGRAPH
+
+SegCo4,16, SegCo4,64, PoCo and RetinaNet were evaluated on the revised PoCo dataset from Section 4.7 using a fixed τd.
+
+As argued in Section 4.6, the median bounding box diagonal length based τd value used in Vodopivec et al. (2018) is too permissive to accurately evaluate the localization ability of detection methods and allows false positive detections in crowded regions to compensate for false negatives.
+
+We have therefore applied a stricter threshold τs=30 pixels, which is approximately half of τd and is in the order of the smallest polyp diagonals in the dataset.
+
+The results are shown in Table 7.
+
+PARAGRAPH
+
+The dataset correction gives the evaluated methods a healthy performance boost in precision due to the addition of missing polyps.
+
+This shows that AP is not very informative on the un-revised PoCo test set due to the relatively large amount of missing annotations.
+
+The results in Table 7 show that in comparison to the original PoCo test set results obtained using a stricter τd (Table 8), all evaluated methods suffer a slight drop in AR due to the additional annotations in the revised test set that they are not able to detect.
+
+We also see the drops in AR are not equal across the methods as RetinaNet suffers a 2% drop in AR, which is higher than the drop for SegCo with an AR drop of 1%.
+
+SegCo also has the lowest polyp count relative error on the revised PoCo test set, achieving an almost perfect polyp count ratio (Ratio=0.99).
+
+One of the reasons for the RetinaNet performance drop could be due to the increased density of added annotations in already cluttered regions.
+
+RetinaNet suppresses non maximal detections which might be problematic in cluttered regions where the detection overlap is generally high.
+
+Another reason might be that the deep backbone of RetinaNet overfits the training set which could reduce its generalization ability and therefore render it unable to detect the additional polyps that are usually not well represented in the training set.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+We addressed the problem of polyp counting in underwater images captured in the wild and proposed a segmentation-based detection method, SegCo, that achieves state-of-the-art results.
+
+A segmentation net is designed to infer a binary segmentation mask and the approximate circular symmetry of polyps is utilized to accurately interpret the generated segmentation mask.
+
+This is achieved by detecting distance consensus points, which simultaneously yield polyp centers as well as their sizes.
+
+PARAGRAPH
+
+Several experiments were conducted to analyze the performance of SegCo.
+
+Results show that SegCo(4,16) which uses a shallow segmentation network with a low number of parameters, achieves similar polyp detection performance as SegCo(4,64), even though the latter is more complex and computationally more expensive.
+
+We identified additional difficulties in manual annotation by discovering a non negligible amount of errors in the PoCo test set (Dataset A) (Vodopivec et al., 2018).
+
+The test set was revised and missing ground truth annotation were added.
+
+On average, 10% of annotations were added to each image.
+
+PARAGRAPH
+
+We compared the proposed method SegCo with the state-of-the-art in polyp detection (PoCo Vodopivec et al., 2018) and general object detection (RetinaNet Lin et al., 2017).
+
+The evaluation results on the revised dataset show that SegCo outperforms both methods.
+
+The F-1 measure is improved by 24% in comparison to the PoCo detector (Vodopivec et al., 2018) and by 2% in comparison to RetinaNet (Lin et al., 2017).
+
+PARAGRAPH
+
+Recently the use of hyperspectral imaging has gained popularity in biological image processing (Turra et al., 2015; Yoon et al., 2015; Arrigoni et al., 2017; Masschelein et al., 2012; Dumke et al., 2018).
+
+Although SegCo achieves a high accuracy on RGB images, inclusion of additional spectra is expected to increase the robustness of foreground–background distinction.
+
+Hyperspectral imaging thus presents an exciting new avenues for future work.
+
+PARAGRAPH
+
+An easy-to-use Python application of SegCo is made publicly available.1
+
+We hope this will facilitate research in jellyfish bloom analysis by allowing to process vast amounts of image data, which has not been possible with the prior technology and manual annotations.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Vitjan Zavrtanik: Conceptualization, Writing - review & editing, Writing - original draft, Software, Data curation, Methodology.
+
+Martin Vodopivec: Data curation, Resources, Writing - original draft.
+
+Matej Kristan: Conceptualization, Writing - review & editing, Writing - original draft, Supervision.

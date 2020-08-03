@@ -1,0 +1,1073 @@
+10.1016/j.engappai.2019.103279
+
+FULLTEXT
+
+TITLE
+
+Extracting and tracking hot topics of micro-blogs based on improved Latent Dirichlet Allocation
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+With rapid development of communication technologies and popularization of smartphones, more and more people begin to use mobile Internet.
+
+On December 2017, the number of Internet users in China reached 731 million, among which 695 million are mobile Internet users.
+
+This proportion increases from 90.1% (the end of 2015) to 95.1% (Anon., 2019).
+
+The high-speed development of the mobile Internet network rapidly rise development of social network platforms, such as Sina Micro-blog.
+
+PARAGRAPH
+
+The registered users in Sina Micro-blog share videos, images, and text messages of 140 words to other users.
+
+Micro-blog platforms have hundreds of millions of data flows every day.
+
+The data can cover all aspects of human life and contain abundant amounts of valuable information.
+
+PARAGRAPH
+
+Micro-blog hot topics usually refer to some sudden public events and important published information that can cause resonance and intense discussion among the public.
+
+In current Micro-blog posts, some texts embed between two “♯” labels, such as “♯ 9.3 anti-war victory parade ♯”.
+
+We define the texts of this format as explicit topics.
+
+However, when people publish their Micro-blog posts, they rarely and initiatively add “♯” labels to mark a topic that is widely discussed.
+
+We refer to these topics as implicit topics that are hidden in Micro-blog posts.
+
+Thus, we easily and artificially extract these topics from Micro-blog posts.
+
+The traditional technologies extracting and tracking topics focus on long text.
+
+The text contents of Micro-blogs are short and have messy formats.
+
+Applying the technologies for Micro-blog posts generates poor results because of the high sparsity of the data.
+
+Nowadays, more researches accelerate developments of technologies extracting hot topics for emerging social platforms.
+
+To extract hot topics, term frequency–inverse document frequency (TF–IDF) produces statistics of the words included in the document (Li et al., 2018).
+
+However, these techniques do not take into account the semantic meanings of these documents.
+
+Some works about probabilistic topic models for extracting hot topic from long texts achieve favorable results (Zhou and Chen, 2014).
+
+However, these models are not suitable to extract hot topic from short texts (such as Micro-blog, QQ, etc.).
+
+On the other hand, once we find interest hot topics on social networks, we always want to know whether they will evolve into public opinions or not.
+
+At present, there are lots of research works which they pay close attention to hot topic evolution, such as event-based information organization approaches (Allan, 2002), grey system theory approaches (Wang et al., 2014b).
+
+However, these methods are difficult to track the evolution of the hot topics of short texts (Wan et al., 2019).
+
+In this paper, we focus on extracting hot topics from these short texts about Micro-blog posts and tracking their evolution on Micro-blog social networks.
+
+SECTION
+
+Related works
+
+PARAGRAPH
+
+Extracting and tracking topic (ETT) is an information technology to help people cope with the growing amount of Internet information.
+
+This technology identify new topics in the news media information flow and keep track of unknown topics.
+
+ETT includes five specific subtasks (Allan, 2002), namely, story segmentation, topic tracking, topic detecting, first-story detecting, and link detecting.
+
+These methods solving these tasks mainly consider the probability distribution of the topic words in the text or the features of the text itself.
+
+Few researches integrate them into a model.
+
+And so, we classify the Micro-blog hot topic extraction algorithms into two main categories, which one is based on probabilistic topic models and the other is based on Micro-blog features.
+
+PARAGRAPH
+
+The main task of topic tracking is to track the later tendency of the known topics.
+
+The current topic tracking methods are mainly divided into two categories, namely, traditional topic tracking (TTT) and adaptive topic tracking (ATT).
+
+The TTT methods combine the existed knowledge and the probability distribution feature words to predict topic evolution trends.
+
+While ATT methods are the unsupervised adaptive learning methods.
+
+To adapt different topic changes and solve the topic drift phenomenon, they dynamically and automatically adjust the parameters.
+
+These methods never explore the quantitative features of different topic evolution stages.
+
+SECTION
+
+Based on probabilistic topic models
+
+PARAGRAPH
+
+Probabilistic topic models mine the hidden topics on a large-scale document set.
+
+Some probabilistic topic models, such as Latent Semantic Analysis (LSA) (Deerwester, 1990), output topics of the probability distributions of each document.
+
+Probabilistic LSA (PLSA) (Hofmann, 1999) and Latent Dirichlet Allocation (LDA) (Blei et al., 2003; Bicalho et al., 2017) are some of the widely used topic models.
+
+The LSA model constructs a document matrix under the TF–IDF framework, and then uses singular value decomposition to capture latent semantic information in the concept space.
+
+This model builds on hypotheses, namely, which topics of a document take on a multinomial distribution, and which words in a topic take on a multinomial distribution.
+
+The PLSA model generates a variety of documents through the two-layer distribution model.
+
+The LDA model is based on the PLSA.
+
+Under this model, a text is composed of a plurality of different themes, while a topic contains different words.
+
+The LDA model is also superior to the aforementioned two topic models.
+
+PARAGRAPH
+
+In 2012, Zhang and Sun (2012) proposed a new probabilistic generative model called Micro-blog LDA, which considers not only the relevance between texts but also the correlations among users.
+
+In 2012, Huang et al. (2012) proposed an emerging topic detection technique.
+
+They adopted a single-pass clustering technology and the LDA model to replace the traditional vector space model.
+
+In 2013, Yan and Zhao (2013) proposed a new topic detection algorithm that combines the LSA model and the structural features of Micro-blog posts.
+
+According to the properties of Micro-blog posts, this algorithm initially creates a semantic space based on Micro-blog reviews in order to solve the sparsity of Micro-blog posts.
+
+In 2014, Wang et al. (2014a) proposed a new model hashtag-graph-based topic model (HGTM) to deal with semi-structured Twitter information.
+
+They constructed a hashtag graph according to the hashtags in tweets, and enhanced the dependencies between words and hashtags by using the HGTM model.
+
+In 2015, Wang et al. (2015) added time and hashtag attributes to the LDA model to form the multi-attribute LDA model (MA-LDA).
+
+By adding time attribute, the MA-LDA model decides whether a word appear on the hot topic.
+
+The MA-LDA model can also extract the topics better than the traditional LDA model.
+
+In 2016, Xu et al. (2016) proposed the time-user sentiment/topic LDA model (TUS-LDA).
+
+To form a separate document, the TUS-LDA model first solves the problem of data sparsity, adds themes and emotions to form joint emotional topic models, and fuses a priori emotion knowledge to estimate the optimal parameters.
+
+In 2018, Kang et al. (2018) explored latent semantic dimensions as contextual information to learn the knowledge of emotion expressions by using a Bayesian inference.
+
+In 2019, Yu et al. (Yu and Qiu, 2019) proposed ULW-DMM model for extracting hot topic on short text.
+
+They combined the Dirichlet multinomial mixture (DMM) with the user-LDA topic model by using internal data expansion and the potential feature vector representation of words.
+
+SECTION
+
+Based on micro-blog features
+
+PARAGRAPH
+
+In 2010, Cataldi et al. (2010) proposed a new topic technology to extract the latest topics from Twitter in real time.
+
+This technology extracts content from tweets and constructs life cycle model of words.
+
+They defined those words that appear frequently at a certain time and appear rarely before into new word features of their model.
+
+In 2011, Zhang et al. (2011) designed the temporal-author-topic (TAT) model, which divided into two stages.
+
+In the first stage, the TAT model filters out the spam comments; while in the second stage, the TAT model merges the Micro-blog text and all of its comments into one text, before extracting the topic information.
+
+In 2012, Guo et al. (2012) used the frequent flow pattern mining algorithm to extract topics in Twitter.
+
+They consider the Twitter text as a transaction and each word in each transaction as an entry.
+
+The twitter topic detection is equivalent to twitter stream in mining frequent pattern.
+
+They use the frequently appearing words in the result set to identify a hot topic in Twitter.
+
+In 2013, Huang et al. (2013) proposed hierarchical clustering on the constructed concept graph (HCCG) for detecting topics.
+
+They refined the word concepts and behavior curve concepts by using the sequence diagram in which vertices pose by the concept, edges and vertices share the same concepts.
+
+They obtain the topics by combing conceptual curve with a high correlation.
+
+PARAGRAPH
+
+In 2015, Zheng et al. (2015) proposed a new short-text-oriented analysis method for clustering short texts and for extracting hot topics from each class.
+
+To extract the hot topics, they obtain a complete high-dimensional vector space model (Each dimension is word or phrase in the short texts), use singular value decomposition to reduce dimension to cluster the samples in the low-dimensional matrix.
+
+In 2016,  Cigarr et al. (2016) proposed a topic extraction method based on formal concept analysis.
+
+Every Micro-blogs and their words construct formal context.
+
+Then, they use the FCA-clustering-based algorithm or similarity-based algorithm to extract the topics related to Micro-blogs.
+
+SECTION
+
+Hot topic tracking
+
+PARAGRAPH
+
+In 2011, Watanabe et al. (2011) proposed a topic tracking model called topic language tracking language model (TTLM) based on the current text information and the previous topic estimation model.
+
+The TTLM model adopts to the topic changes in the tracking process.
+
+In 2012, Liu et al. (2012) proposed LETD method for detecting topic evolution.
+
+At the same time, they design a technique for extracting events from the topic and for inferring the evolution of these events.
+
+In 2014, Han et al. (2014) proposed a new time series model to predict the social influence of topic.
+
+In 2015, Kalyanam et al. (2015) used the original and current social context information in Twitter to form a unified framework for modeling topic evolution.
+
+In 2016, Yeh et al. (2016) proposed conceptual dynamic LDA model (CDLDA) for detecting and tracking topics in conversations.
+
+The CDLDA model uses proportion of nouns and verbs to analyze the similarity between conversational content.
+
+Unlike traditional LDA, and CDLDA models can dynamically extract and track the topics.
+
+In 2018, Liu et al. (2018) inspired by universal gravitation law among micro-blog users, and proposed Micro-blog topic detection algorithm by combining gravitational relationship with community structure in social networks.
+
+PARAGRAPH
+
+In this paper, our main contributions are listed as follows:
+
+SECTION
+
+Micro-blog hot topic extraction
+
+SECTION
+
+Micro-blog features
+
+PARAGRAPH
+
+The LDA model shows an excellent performance in extracting topics with long texts such as web pages and news.
+
+Micro-blog posts are only in short text format.
+
+If the LDA model directly used to extract topics for Micro-blog posts, then the model is limited by sparse data of Micro-blog text, and is unable to achieve a good performance.
+
+In addition, some features (such as praises, post users, forwarding numbers, etc.) of Micro-blog text are not available in traditional long texts.
+
+The LDA model cannot use such valuable information directly to improve its accuracy.
+
+In this paper, we propose Micro-blog features latent dirichlet allocation model (MF-LDA).
+
+Apart from their short text features, Micro-blogs have other unique features that differentiate them from traditional news pages.
+
+Fig. 1 shows the forms and contents of a typical Micro-blogs published in Sina Micro-blog.
+
+PARAGRAPH
+
+A Micro-blog post contains the following information (Ye et al., 2016):
+
+PARAGRAPH
+
+We mainly use the publisher, release time, number of shares, number of comments, and number of likes to construct the eigenvectors.
+
+Among them, we use the forwarding numbers, comment numbers, and praise numbers to compute attention values of Micro-blog posts; the release time to compute time series of Micro-blog posts, and the number of following and followers to compute the authority values of Micro-blog posts.
+
+PARAGRAPH
+
+Hot topics are usually hidden in Micro-blog posts with a large number of shares, comments, and likes.
+
+When Micro-blog posts are shared by a user, all fans of the sharing users browse the same Micro-blog posts, and the interested followings can transmit forward the same posts to their own followers.
+
+A Micro-blog post can be transmitted forward exponentially.
+
+Meanwhile, the number of comments and likes indicate the number of users who are concerned about the contents of the Micro-blog posts.
+
+However, unlike the number of shares, these two numbers are different from the forwarding number which it is influenced by those users who transmit forward the Micro-blog posts.
+
+Therefore, the number of comments and likes has a weaker impact than the number of shares.
+
+Based on the analysis, we calculate the attention values of each Micro-blog posts, and then remove the Micro-blog posts with attention values below the given threshold.
+
+PARAGRAPH
+
+Attention Value
+
+PARAGRAPH
+
+Let Mi(i=1,2,…) represent Micro-blog posts which public attention values are influenced by the number of shares, comments, and likes.
+
+Attention Values of these Micro-blog posts are computed as Eq. (1): at(Mi)=μFi+(1−μ)(Ci+Pi),where, at(Mi) is attention value of Micro-blog post Mi; Fi, Ci, and Pi denote number of likes, shares, and comments for Micro-blog post Mi; μ is a weight factor between 0 and 1.
+
+PARAGRAPH
+
+The number of shares, comments, and likes (Fi, Ci and Pi) can be normalized as Eq. (2).
+
+Ri=Ri−Min(Ri)Max(Ri)−Min(Ri),where, feature Ri replaces with Fi, Ci, and Pi.
+
+In other words, if Ri is Fi, then Ri indicates the number of shares.
+
+Min(Fi) is the minimum number of shares for all Micro-blog posts, while Max(Ri) is the maximum number of shares for all Micro-blog posts.
+
+PARAGRAPH
+
+The numbers of following and followers of Micro-blog users are two important factors for measuring the authority of Micro-blog posts.
+
+Each Micro-blog user has a unique set of following and followers.
+
+The more followings a user has, the more attention his/her published Micro-blog posts receive, and the greater impaction these Micro-blog posts generate.
+
+Those Micro-blog posts published by the users with a large number of followings are more convincing than those published by users with a low number of following.
+
+Some unexpected events have incited violent reactions from the public, because they attract the concern of users with a large number of followings.
+
+PageRank (Page et al., 1999) is a famous algorithm for computing the importance of web pages.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Authority Value
+
+PARAGRAPH
+
+Let Ui(i=1,2,…) denote the Micro-blog users.
+
+We consider the Micro-blog users as nodes in a Micro-blog community, and treat their relations with their followings and followers as edges.
+
+We use these nodes and edges to construct a graph of the Micro-blog community.
+
+The authority value of these Micro-blog users is influenced by their number of followings and followers.
+
+The Attention Value (denoted by au) of Ui is computed as Eq. (3): au(Ui)=1−qN+q∑j∈Fans(i)au(Uj)Idols(Uj),where, Fans(i) represents the following set of the ith Micro-blog user; Idols(Uj) is the number of the followers of jth Micro-blog user; N is the number of Micro-blog users; q∈[0,1] is a damping factor.
+
+PARAGRAPH
+
+Time window is used to split time into different segments.
+
+If we only process specific Micro-blog posts for the content analysis, then the severe data sparseness lead to undesired results.
+
+Therefore, we merge all Micro-blog posts of a user into a single document in a given time window.
+
+We divide a time sequence with a topic into t time windows.
+
+A Micro-blog user has t documents (denoted Di as (i=1,2,…,Dt)).
+
+We calculate word frequency fw for each word in each document as follows: fw=∑i=1t∑w∈DinwV,where, nw is the frequency of word w in document Di; V indicates total number of words for all t documents.
+
+SECTION
+
+MF-LDA model
+
+PARAGRAPH
+
+To extract hot topics from Micro-blog posts, we design MF-LDA model (Fig. 2) to recognizing and tracking hot topics.
+
+The MF-LDA model calculates three eigenvalues (Attention Value, Authority Value, and Time Window) to construct a feature vector for Micro-blog posts in a given time window.
+
+We feed the feature vector to the MF-LDA model, sample and train the model parameters, and obtain topic probability matrix.
+
+This matrix shows probability of finding certain words in the topics.
+
+The same words in the matrix can have different probabilities to appear in different topics.
+
+Those words with a higher probability to appear in the topics are well suited for describing such topics.
+
+PARAGRAPH
+
+Fig. 3 shows how to generate the topic probability matrix of a document by using At, Au, and time window fw of the MF-LDA model.
+
+The blue line and circle parts constitute the original LDA model.
+
+Other parts show our improvements and new researches based on LDA model.
+
+This topic comprises all Micro-blog posts in a given time window.
+
+The specific parameters in the MF-LDA model are shown in Table 1.
+
+The MF-LDA model is also composed of M+K independent Dirichlet-Multinomial conjugate structure, and can be divided into two physical processes.
+
+In processing β → φk → wm,n|k=zm,n, the MF-LDA model incorporates Micro-blog feature vector χm,n= (χm,nau, χm,nat, χm,nf), which considers not only internal factor, but also influence of external factors on the model.
+
+In this way, the topic can be extracted accurately.
+
+The known parameters in the MF-LDA model include α,β, and χ, while unknown parameter variables are θm,zm,n,wm,n, and φk.
+
+From the direction of the arrow in Fig. 3, we derive the relationship between each unknown variable and the known parameter.
+
+For example, α→θm indicates that we can derive condition probability of the unknown variables θm in α (denoted as P(θm|a)).
+
+And then, we can derive the joint probability distribution P(w⃗,z⃗) of all words and topics by using the Eq. (5).
+
+PARAGRAPH
+
+PARAGRAPH
+
+After obtaining the joint probability distribution P(w⃗,z⃗) of the MF-LDA model, the Gibbs sampling algorithm (Heinrich, 2008; Griths, 2002) is used to obtain the sample for the joint distribution.
+
+Based on the Dirichlet-Multinomial conjugation, the Gibbs Sampling formula is deduced.
+
+We only know the words w⃗ of Micro-blog posts and their corresponding eigenvector χ⃗.
+
+The corresponding topics z⃗ of these Micro-blog posts are treated as implicit variables.
+
+Therefore, we calculate the z⃗ condition probability in conditions w⃗ and χ⃗.
+
+We denote the corresponding topic of the ith word in the corpus z⃗ as zi. i=(m,n)
+
+represents the nth word in the mth Micro-blog posts.
+
+while ¬i represents all words except for word wi.
+
+According to Gibbs sampling rules, we need to obtain the condition distribution P(zi=k|Z⃗¬i).
+
+Assuming the known word wi=t, according to the Bayesian law, we can derive the conditional probability P(zi=k|Z⃗¬i) by using Eq. (6).
+
+P(zi=k|z⃗¬i,w⃗,χ⃗)∝P(zi=k,wi=t|z⃗¬i,w⃗¬i)⋅P(χi).
+
+PARAGRAPH
+
+Given that zi=k,wi=t, we only consider kth topic and mth Micro-blog post, and conditional probability obtained by Eq. (6) is only equivalent to the following Dirichlet-Multinomial conjugate structures:
+
+PARAGRAPH
+
+As mentioned earlier, the MF-LDA model, and LDA model are composed of M+K independent Dirichlet-Multinomial conjugate structures.
+
+After removing the two conjugate structures, the residual Dirichlet-Multinomial conjugate structures, zi=k, and wi=t become independent.
+
+Even if the ith word corresponding to the corpus (zi, wi) is removed, the M+K conjugate structure will not be changed.
+
+However, the calculating times are reduced because of the following feature of Dirichlet distribution: Dirichlet prior distribution＋ polynomial distribution→Dirichlet posterior distribution.
+
+Dir(p⃗|α⃗)+Mult(n⃗)→Dir(P⃗|α⃗+n⃗), Fig. 3 and the two conjugate structures indicate that the topic distribution θ⃗m and word distribution φ⃗k are composed of a Dirichlet prior distribution and a polynomial distribution.
+
+Therefore, these distributions fit the Dirichlet distribution property, and the posterior distribution of topic distribution θ⃗m and word distribution φ⃗k are treated as a Dirichlet distribution.
+
+These distributions are expressed as Eqs. (8) and (9): P(θ⃗m|z⃗¬i,w⃗¬i,χ⃗¬i)=Dir(θ⃗m|n⃗m,¬i+α⃗).P(φ⃗k|z⃗¬i,w⃗¬i,χ⃗¬i)=Dir(φ⃗k|n⃗k,¬i+β⃗+χ⃗k,¬i).
+
+PARAGRAPH
+
+In the above equations, n⃗m,¬i indicates that the number of topics including the words i are removed in the mth Micro-blog posts. n⃗k,¬i
+
+indicates that the number of words is are removed from the kth topic.
+
+By combining these equations, we formulate the Gibbs Sampling as Eq. (10).
+
+P(zi=k|z⃗¬i,w⃗,χ⃗)∝P(zi=k,wi=t|z⃗¬i,w⃗¬i)⋅P(χi)=θ̂m,k⋅φ̂k,t.
+
+PARAGRAPH
+
+Given that the probabilities zk=i, and wi=t are only related to the two Dirichlet-Multinomial conjugate structures, the final results θ⃗m,k, and φ⃗k,t are two corresponding Dirichlet posterior distributions in the Bayesian framework of the parameter estimation.
+
+In above derivation process, we also apply the Dirichlet distribution expectations E(θm,k) and E(φk,t).
+
+The Dirichlet distribution expectation equation is formulated as Eq. (11): E(Pi)=∫01Pi⋅Dir(P⃗|α⃗)dp=αi∑kKαk.
+
+PARAGRAPH
+
+By combining the Eq. (11), the MF-LDA model is finally obtained and the specific parameters θ̂m,k and φ̂k,t are computed as follows: θ̂m,k=nm,¬ik+α∑k=1Knm,¬ik+αφ̂k,t=nk,¬it+β+χk,t∑t=1Vnk,¬it+β+χk,t. Combining Eq. (12) yields the following Gibbs sampling for the MF-LDA model (Eq. (13)): P(zi=k|z⃗¬i,w⃗,χ⃗)∝θ̂m,k⋅φ̂k,t=nm,¬ik+α∑k=1Knm,¬ik+α⋅nk,¬it+β+χk,t∑t=1Vnk,¬it+β+χk,t.
+
+SECTION
+
+MF-LDA model training and inference
+
+PARAGRAPH
+
+After obtaining the MF-LDA model, the following tasks must be achieved:
+
+PARAGRAPH
+
+We train the MF-LDA model on the corpus and use it to analyze topic semantics of the new Micro-blog post.
+
+The training process applies Gibbs sampling to obtain samples (z,w) in the corpus.
+
+We can estimate all the parameters in the model based on the final samples.
+
+The specific training process is shown in Algorithm 1.
+
+PARAGRAPH
+
+In the training process of the MF-LDA model, we obtain a topic-word frequency matrix.
+
+By using this matrix, we calculate each P(word|topic) probability, and parameters φ⃗1,…,φ⃗K.
+
+After Gibbs sampling convergence, we record some statistics on the frequency distribution of each topic, and calculate θ⃗1,…,θ⃗M.
+
+In the training process, to improve quality of the MF-LDA model, the Gibbs sampling is treated as the result of the nth iteration.
+
+The θ⃗new of a new Micro-blog post Docnew can be calculated by using Algorithm 2.
+
+PARAGRAPH
+
+When dealing with Docnew, we assume that the topic-word distribution φ̂k,t in the Gibbs sampling equation does not change.
+
+Given that this distribution is obtained in the training set, the sampling process simply estimates the topic distribution θ⃗new of Docnew.
+
+SECTION
+
+Micro-blog hot topic tracking
+
+PARAGRAPH
+
+In this section, we divide the MF-LDA model into five stages.
+
+Our main tasks are to build a life cycle model for each hot topic.
+
+We continuously revise the parameters by integrating life cycle models of each hot topic, and propose a new algorithm named Hot Topic Tracking (HTT) by combining the MF-LDA model.
+
+This algorithm not only tracks hot topic but also pre-identifies new topics from new Micro-blog posts and determines whether these topics become hot topics.
+
+SECTION
+
+Hot topic life cycle model
+
+PARAGRAPH
+
+To analyze intuitively the development trend and evolution process of hot topics, we build a life cycle model for each hot topic.
+
+The evolution processes of a lot of hot topics are similar.
+
+Fig. 4 shows the evolution process of hot topic: hit female driver(ChengDu).
+
+The number of Microblog posts (one-tenth of all media reviews (Antsoftware, 2019)) changes with times.
+
+Obviously, there are five peaks in the evolution process of the hot topics.
+
+The five peaks indicate the different meanings.
+
+And so, we divide the life cycle model into the following stages:
+
+PARAGRAPH
+
+A hot topic will evolve into different sub-topics in its development process.
+
+Although their keywords are not the same, the reviews with these keywords are all concerned about the same topics.
+
+The topic post number (Eq. (14)) of a hot topic is divided into two parts, namely, the number (Num(Topic)) of Micro-blog posts related to the topic and the number (Num(SubTopic)) of Micro-blog posts related to its subtopics.
+
+TN=Num(Topic)+∑Num(SubTopic).
+
+PARAGRAPH
+
+The total number of hot topics changes every time unit.
+
+However, the slope of the broken line graph (number of hot topic posts and times) can differ each time unit.
+
+A larger slope indicates a larger increase in the number of topics, and vice versa.
+
+The topic growth rate GR can reflect intuitively the changing speed of topic posts in each time period.
+
+GR (Eq. (15)) can also be used to analyze the development laws of the topic.
+
+GRΔt=TNti+1−TNtiTNti,where Δt=ti+1−ti, TNti+1 indicates that the total number of topic posts in ti+1 while TNti indicates the total number of topic posts in ti.
+
+PARAGRAPH
+
+Topic Increasing Rate (IR)
+
+Topic Increasing Rate (IR)
+
+PARAGRAPH
+
+IR reflects ratio of the newly increased number of Micro-blog posts of topics in two sequent times t and t+1.
+
+The more the newly increased number is, the more people focus on the topics.
+
+On the contrary, it means that the hot topic posts reduce, the public no longer concern about the topic.
+
+IRΔt=TNti+1−TNtiti+1−ti.
+
+PARAGRAPH
+
+Transition Region (TR)
+
+PARAGRAPH
+
+TR represents intersection region among two sequent times t and t+1.
+
+LC1→LC2→LC3→LC4→LC5 denote the progressive process.
+
+TR represents the intersection region from one stage to another.
+
+PARAGRAPH
+
+The following four TRs are presented in a life cycle model:
+
+Birth→ Growth(LC1→LC2, TR1): TR1 is intersection region between birth and growth stages.
+
+Let Topic Post Number be ξTN1, Topic Growth Rate be ξGR1, and Topic Increasing Rate be ξIR1.
+
+Growth→ Maturity(LC2→LC3, TR2): TR2 is intersection region between growth and maturity stages.
+
+Let Topic Post Number be ξTN2, Topic Growth Rate be ξGR2 and Topic Increasing Rate be ξIR2.
+
+Maturity→ Recession(LC3→LC4, TR3): TR3 is intersection region between maturity and recession stages.
+
+Let Topic Post Number be ξTN3, Topic Growth Rate be ξGR3 and Topic Increasing Rate be ξIR3.
+
+Recession→ Disappearance(LC4→LC5, TR4): TR4 is intersection region between recession and disappearance stages.
+
+Let Topic Post Number be ξTN4, Topic Growth Rate be ξGR4 and Topic Increasing Rate be ξIR4.
+
+PARAGRAPH
+
+Obviously, these parameters ξTN1, ξTN2, ξTN3, ξTN4, ξGR1, ξGR2, ξGR3, ξGR4, and ξIR1, ξIR2, ξIR3, ξIR4 take on interval values in every transition regions.
+
+Because it is meaningful for us to control the evolution of hot topics at the peak of each stage.
+
+And so, the head and end of TR1, TR2, TR3, TR4 may not be accurate enough.
+
+It does not affect the judgment of evolution stages of hot topics.
+
+To take reasonable values for ξTN1, ξTN2, ξTN3, ξTN4, ξGR1, ξGR2, ξGR3, ξGR4 and ξIR1, ξIR2, ξIR3, ξIR4, we give two parameters for the hot topic life cycle model: confidence degree α and stage segmentation topic number β.
+
+For convenience of discussion, we replace interval values of ξTN, ξGR, ξIR with the average TN, GR, IR for four transition regions.
+
+In Fig. 4, we mark TR1, TR2, TR3, TR4 for the hot topic: Hit Female Driver (Chengdu).
+
+The stage segmentation topic number β is different under confidence degree α.
+
+These parameters ξTN1, ξTN2, ξTN3, ξTN4, ξGR1, ξGR2, ξGR3, ξGR4 and ξIR1, ξIR2, ξIR3, ξIR4 are different under the different stage segmentation topic number β.
+
+The different stages in the topic life cycle model take on the following characteristics of TN, GR, and IR:
+
+Birth (LC1): The topic emerges, but does not attract the concerns of the majority of the Micro-blog users.
+
+The number of Micro-blog posts slowly increases, and these posts have a weak influence. 0<TN≤ξTN1, 0<GR≤ξGR1, 0<IR≤ξIR1.
+
+Growth (LC2): The topic suddenly causes a wide public discussion.
+
+The number of relevant Micro-blog posts rapidly increases.
+
+The growth rate of the topic reaches its maximum. 0<TN≤ξTN2, ξGR1<GR≤ξGR2,
+
+and ξIR1<IR≤ξIR2.
+
+Maturity (LC3): The Topic Growth Rate and Topic Increasing Rate in this stage are lower than those in the growth periods.
+
+However, the growth rate of the topic declines slowly, and the Micro-blog posts related to such topic receive attention from many people. ξGR3<GR≤ξGR2, ξIR3<IR≤ξIR2
+
+;
+
+Recession (LC4): The Topic Growth Rate and Topic Increasing Rate are the smaller and smaller while the number of Micro-blog posts related to the topic tends to be stable and does not show much increase.
+
+The topic has attracted the attention of only a few Micro-blog users, while its influence continues to decrease. 0<TN≤ξTN4, ξGR4<GR≤ξGR3, ξIR4<IR≤ξIR3.
+
+Disappearance (LC5): The Topic Growth Rate and Topic Increasing Rate are close to 0, and the number of Micro-blog posts related to the topics does not change.
+
+Very few to no Micro-blog users pay attention to the hot topic, which means that this topic has become a thing of the past and has completely died out.
+
+TN≤ξTN4, GR≈0, and IR≈0.
+
+PARAGRAPH
+
+A certain amount of known hot topics can be found in a Micro-blog platform.
+
+We can judge the evolution stage of the hot topics.
+
+In micro-blog platform, because the α and β of similar topics are almost the similar values.
+
+We can use the Micro-blog posts related with the topics to train the topic life cycle model to obtain the two parameters.
+
+Further, we obtain the other parameters, including ξTN1, ξTN2, ξTN3, ξTN4, ξGR1, ξGR2, ξGR3, ξGR4 and ξIR1, ξIR2, ξIR3, ξIR4.
+
+For example, in Fig. 4, we give α=0.95, β=125.
+
+It means that the stage segmentation topic number 125 divides five different stages under 95% confidence degree.
+
+The red solid line indicates that TN cumulative increase over time unit (1 h).
+
+The other parameters are as follows: ξTN1=217.54, ξTN2=290.76, ξTN3=518.77, ξTN4=513.78, ξGR1=392%, ξGR2=721%, ξGR3=248%, ξGR4=220% and ξIR1=77.81, ξIR2=88.30, ξIR3=119, ξIR4=82.
+
+By integrating the topic life cycle models, we forecast the stage LC(?) of the new topic.
+
+Fig. 5 shows the entire process, which is known as a successive learning process.
+
+Each new topic is modified by the hot topic life cycle model (HTLCM).
+
+Fig. 5 shows the various thresholds of the topic at different stages of the life cycle model.
+
+The thresholds, which are mentioned in the definition of transition region, are obtained by training the HTLCM machine and correcting parameters.
+
+Ultimately, these thresholds determine the stages of the new topics in the life cycle model.
+
+SECTION
+
+Pre-identified candidate hot topics
+
+PARAGRAPH
+
+The candidate hot topics have not yet attracted public concern.
+
+We use the topic life cycle model to identify these candidate hot topics.
+
+If a new topic will become a hot topic, then the number of reviews and Micro-blog posts related to this topic grows rapidly in a short period and then attracts social concern.
+
+This topic must meet the following conditions:
+
+PARAGRAPH
+
+If the new topic satisfies the above conditions, then we can mark this topic as a candidate hot topic.
+
+SECTION
+
+Hot topic tracking algorithm
+
+PARAGRAPH
+
+The amount of discussion related to a topic may stride across various periods.
+
+For example, the topic ♯2016 Rio Olympic Games♯ received the greatest amount of attention during its opening ceremony.
+
+However, after the end of the opening ceremony, the related Micro-blog posts mostly concerned a specific game or the list of medalists.
+
+However, after the Olympic Games, most Micro-blog posts focus on the closing ceremony.
+
+Afterward, the topic immediately disappeared from these Micro-blog posts.
+
+The amount of attention varies along with its evolution and development.
+
+To track hot topics, we propose the HTT algorithm based on the MF-LDA model and HTLCM model.
+
+The detailed steps of this algorithm are listed as follows:
+
+PARAGRAPH
+
+These keywords represent content that the majority of Micro-blog users are talking about in a certain period.
+
+By comparing these keywords, we can track the development of a topic at the content level.
+
+We then develop the HTT algorithm 3.
+
+SECTION
+
+Experiment
+
+SECTION
+
+MF-LDA model experiment and analysis
+
+PARAGRAPH
+
+To extract hot topics of Micro-blog posts published in a certain period, we compute Micro-blog post eigenvectors χ⃗au, χ⃗at, and χ⃗f and input them into the MF-LDA model.
+
+SECTION
+
+Experimental data
+
+PARAGRAPH
+
+The MF-LDA experimental data include approximately 500,000 Sina Micro-blog posts collected from May 2016 to December 2016.
+
+We select some sequences of Micro-blog posts in an experimental training set and include the other Micro-blog posts in a test set.
+
+After pre-processing the training dataset, we classify the Micro-blog posts into different times and store them in the form of text files.
+
+We also assign uniform specification filenames for the subsequent Micro-blog posts according to their release time.
+
+SECTION
+
+Evaluation criterion
+
+PARAGRAPH
+
+Perplexity is generally used to measure the quality of the trained model in natural language processing.
+
+Blei et al. (2003) used to evaluate LDA model.
+
+A lower perplexity corresponds to a better effect of the model.
+
+Perplexity generally declines as the number of potential topics increases.
+
+We define perplexity as Eq. (17): Perplexity=exp{−∑d=1D∑w∈dlnP(w)∑d=1DNd},where D represents a dataset that contains the number of the documents in the dataset; Nd represents the total number of words in the dth document, and P(w) indicates the probability of word w appearing in the dth document.
+
+PARAGRAPH
+
+CR (Chen et al., 2007) (Eq. (18)) shows how many topics are extracted in a specific time period.
+
+A higher CR corresponds to a better performance of the topic model.
+
+CR=ETNATN×100%,where ETN indicates the number of topics extracted by the model during a certain period, ATN indicates the number of all hot topics that are true during the period.
+
+SECTION
+
+Analysis of experiment results
+
+PARAGRAPH
+
+To verify validity and feasibility of the MF-LDA model and the influence of Micro-blog features on the model, the MF-LDA model is mainly improved by adding the three feature vectors χ⃗au, χ⃗at, χ⃗f, and their combinations into the MF-LDA model.
+
+It forms MF-LDA, MF-LDA1, MF-LDA2, MF-LDA3 four models, respectively.
+
+To demonstrate the performance of MF-LDA, we compare the above four models and with the original LDA model.
+
+The features of the four models and LDA model are listed in Table 2.
+
+PARAGRAPH
+
+In the experiment, we set the model of the Dirichlet superparameters α=0.5 and β=0.1 according to Steyvers and Griffiths (2007).
+
+Afterward, we set the iteration times of the model to 100.
+
+The experimental results are shown in Fig. 6, Table 3.
+
+PARAGRAPH
+
+We intuitively see that the MF-LDA model is the lowest perplexity among all models under the same experimental conditions.
+
+The average perplexities of the LDA, MF-LDA1, MF-LDA2,MF-LDA3, MF-LDA are 1428, 1041, 1141, 1175, and 923, respectively.
+
+The perplexities of MF-LDA1, MF-LDA2, MF-LDA3 models are higher than the MF-LDA model.
+
+The original LDA model shows the highest perplexity.
+
+It proves that our proposed MF-LDA with three χ⃗at, χ⃗au, χ⃗f features is feasible and effective for extracting the hot topics.
+
+The perplexities of the topic models are reduced by adding different Micro-blog eigenvectors.
+
+By comparing the three models MF-LDA1, MF-LDA2, and MF-LDA3, we can derive the influence of the three eigenvectors constructed by five eigenvalues (Fi, Ci, Pi, auUi, fw) on the improvement topic model.
+
+The MF-LDA3 with χ⃗f shows the greatest perplexity, followed by the MF-LDA2 with χ⃗au, and the MF-LDA1 with χ⃗at.
+
+Fig. 6 shows that the perplexities of all models begin to converge when the number of topics is 20.
+
+PARAGRAPH
+
+Fig. 7 and Table 4 show the relations between perplexities and iteration times.
+
+We set the iteration times to 50, 100, 150, 200, and 250.
+
+The average perplexities of the LDA, MF-LDA1, MF-LDA2,MF-LDA3, MF-LDA with different iteration times are 1228, 1015, 1100, 1121, and 915, respectively.
+
+It shows that the perplexity of the original LDA model remains higher than several other models.
+
+Thereby, the three Micro-blog features (three χ⃗at, χ⃗au, χ⃗f) reduce the perplexity of the topic model.
+
+The MF-LDA model, which has all the features, remains the best of all models; and has a lower perplexity compared with the original LDA model.
+
+The MF-LDA model is not greatly affected by iteration times.
+
+All models show the lowest perplexity at an iteration time of 100.
+
+PARAGRAPH
+
+After determining the number of topics and iteration times, the perplexity of the MF-LDA model has reached an optimal state.
+
+To verify the accuracy of the extracted hot topic, we use CR to evaluate the above models.
+
+First, we select the TOP-N keywords of the hot topics to represent these topics.
+
+Fig. 7 and Table 5 show CRs calculated according to the N keywords.
+
+(See Fig. 8.)
+
+PARAGRAPH
+
+The CRs of all models generally increase along with TOP-10, TOP-20, TOP-30, TOP-40, and TOP-50 keywords.
+
+The average CRs of the LDA, MF-LDA1, MF-LDA2,MF-LDA3,MF-LDA with different Top-N keywords are 0.675, 0.793, 0.752, 0.694, and 0.824, respectively.
+
+The original LDA model has a lower CR than the models with Micro-blog features.
+
+The MF-LDA model with χ⃗at, χ⃗au, χ⃗f features has the highest CR, followed by MF-LDA1, MF-LDA2, MF-LDA3, LDA.
+
+The CRs of different models have an influence order of χ⃗at>χ⃗au>χ⃗f.
+
+PARAGRAPH
+
+The reason, why to get this argument, mainly lies that the χ⃗at reflects the degree of public attention.
+
+The greater the χ⃗at is, the more the Micro-blog users concern about the topics.
+
+Accordingly, the topics in Micro-blog posts have higher chances of becoming hot topics.
+
+A higher χ⃗at indicates that the Micro-blog posts can be seen by more people.
+
+However, the amount of Micro-blog posts depends on the number of followings of the publishing user and their released time.
+
+Therefore, these two features are internal factors, while χ⃗au indicates an external factor.
+
+SECTION
+
+Experiment and analysis of the HTT algorithm
+
+PARAGRAPH
+
+To track the evolution and the development trend of hot topics, we construct life cycle models of the known hot topics.
+
+Afterward, we track the changes in these hot topics during their development process.
+
+We propose the HTT algorithm by combining the MF-LDA model with time window.
+
+To verify reasonability and feasibility of the HTT algorithm, we validate whether this algorithm can classify accurately the hot topics from the test dataset.
+
+SECTION
+
+Experimental data
+
+PARAGRAPH
+
+We retrieve approximately 300,000 Micro-blog posts related to nearly 100 hot topics from the Sina Micro-blog platform.
+
+We select two-thirds of all hot topics as training set, and use the remaining one-third of the hot topics as test set.
+
+SECTION
+
+Evaluation criterion
+
+PARAGRAPH
+
+We use two indices to verify the algorithm, namely, misdetection rate (MR, Eq. (19)) and wrong ratio (FR, Eq. (20)).
+
+PARAGRAPH
+
+MR indicates whether a candidate hot topic has been marked as a non-candidate hot topic.
+
+MR=NmissTotalc×100%,where, Nmiss indicates that the number of candidate hot topics have been marked as non-candidate hot topics, while Totalc indicates the total number of candidate hot topics in the test dataset.
+
+PARAGRAPH
+
+Meanwhile, FR indicates that a non-candidate hot topic has been marked as a candidate hot topic.
+
+FR=NfaultTotal¬c×100%,where, Nfault indicates the number of non-candidate hot topics that have been marked as candidate hot topics, while Total¬c indicates the total number of non-candidate hot topics in the test dataset.
+
+SECTION
+
+Analysis of experiment results
+
+PARAGRAPH
+
+To construct the HTLCM, we analyze the four known hot topics (Table 6) in the training set and calculate the parameters ξGR1, ξGR2, ξGR3, ξGR4 and ξIR1, ξIR2, ξIR3, ξIR4, ξTN1, ξTN2, ξTN3, ξTN4 of the transition regions.
+
+Table 6 lists the ξTN1, the required time T1 from the birth stage to the growth stage, ξGR2, ξIR2.
+
+PARAGRAPH
+
+By analyzing the number of topics, their growth rates, and their increasing rates at different times, we fully understand the whole development of these topics.
+
+We use these parameters to construct the HTCMs of the topics in the test set.
+
+These models not only analyze the current stage of development of the topics, but also the life cycle model of the sub-topics in the test set.
+
+We identify whether the emerging topic is a candidate hot topic or not.
+
+A group of known hot topic datasets are used to test MR.
+
+The other group is a messy Micro-blog post set that consist of non-hot topics.
+
+We use these Micro-blog posts to test WR.
+
+We divide the experiment results into four categories:
+
+PARAGRAPH
+
+According to these four categories, we can calculate the MR and WR, that is, Nmiss=fn, Nfault=fp, and Totalc=tp+fn, Total¬c=fp+tn.
+
+The average MR and FR of the above four topics are shown in Fig. 9.
+
+The MR and WR under different topic numbers do not exceed 19%.
+
+The four indices tp, tn, fp, and fn are used to construct the confusion matrix in Table 7.
+
+We calculate the accurate rate (Precision, P), recall rate (Recall, R), and F value (F-measure, F) of the HTLCM for identifying hot topics by Eqs. (21), (22), and (23), respectively.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The average P is about 85.60%, while the average R and F are around 84.96%, and 85.67%, respectively.
+
+Table 8 shows that our proposed HTLCM is feasible and efficient in identifying the candidate hot topics.
+
+The HTLCM is a continuous learning and iterating model.
+
+Whenever a new hot topic is to be recognized, the new hot topic will be taken automatically into the HTLCM to adjust the related parameters of different intersection points.
+
+The continuous optimization enables the model to accurately identify candidate hot topics and judge the development stage of a topic.
+
+PARAGRAPH
+
+Our proposed HTLCM is a part of the HTT algorithm.
+
+This model can trace the changes of a hot topic, understand the development process of a specific topic, and its influence.
+
+Our proposed HTT algorithm can consider a time window by adding a sequence and calculates the probability in each time window.
+
+Afterward, we sort the keywords in a descending order based on their probability.
+
+We take the TOP-N keywords in each time window to analyze and represent each topic.
+
+To extract accurately the effective keywords, we remove the shared Micro-blog posts and retain only the original Micro-blog contents.
+
+We eventually retrieve the TOP-N keywords in this process.
+
+For example, we extract the TOP20 keywords of all Micro-blog posts related to “ (Female driver beats male driver in chengdu)” in sina Micro-blog platform.
+
+The TOP20 keywords extracted by our proposed HTLCM and HTT change from May 3, 2018 to May 6, 2018 are listed in Table 9.
+
+It indicate that some new key words are found by our proposed HTLCM and HTT algorithm.
+
+PARAGRAPH
+
+The emergence of these new key words also suggests that viewpoints of Micro-blog users about the topic are changing.
+
+At beginning of the event, the Micro-blog users believe that “the male driver beat the female driver”.
+
+However, after three days, several important new keywords have emerged, including “recorder” and “right”.
+
+Thereby, it suggests that car recorder has disclosed the truth to the public.
+
+Accordingly, the public opinion changes to “attack instead of sympathize with the female driver”.
+
+On the fourth day, the key word “hit” has emerged.
+
+Public opinion has changed to “from sympathizing with the female driver to blaming the driver”.
+
+To verify the above analysis, we compare our conclusion with the real situation of the incident (Antsoftware, 2019).
+
+The public opinion shows three peak changes.
+
+First, on May 3, the female driver force to stop her car.
+
+Second, on May 4, the male driver of the other car releases a video to the public.
+
+Third, on May 6, the public blames the female driver for the accident because females usually break traffic laws.
+
+These changes are consistent with conclusion of our proposed HTLCM model and HTT algorithm.
+
+SECTION
+
+Conclusion and future work
+
+PARAGRAPH
+
+In this paper, we focus on extracting and tracking the hot topic of Micro-blog posts.
+
+We propose an improved topic extraction model (MF-LDA, Microblog Features Latent Dirichlet Allocation) to extract hot topics in micro-blog posts.
+
+The MF-LDA model has improved the traditional LDA (Latent Dirichlet Allocation) model by combining five features: the number of praises, the number of comments, the number of forwardings, release times and user authority.
+
+Some new features, such as Attention Value at(Mi), Authority Value au(Ui) and fw, are extracted from these five features.
+
+We add these new features to the original LDA model for Gibbs sampling, get the optimal parameters of the MF-LDA model, and then get the probability of each words of hot topic.
+
+The average perplexities of the LDA, MF-LDA with different topic numbers are 1428 and 923, respectively.
+
+The average perplexities of the LDA, MF-LDA with different iteration times are 1228 and 915, respectively.
+
+The average CRs of the LDA, MF-LDA with different Top-N keywords are 0.675 and 0.824, respectively.
+
+The experimental results show that our proposed MF-LDA model outperforms better with lower Perplexity and higher CR than the LDA model.
+
+PARAGRAPH
+
+Considering structure and content of Micro-blog posts, we construct a hot topics evolution model that mainly include a hot topic life cycle model (named HTLCM) and a hot topic tracking algorithm (called HTT).
+
+The HTLCM includes five stages, namely, birth, growth, maturity, decline, and disappearance.
+
+HTLCM determine whether a topic is the candidate hot topic and estimate hot topic developing stages.
+
+To track changes in hot topic contents, we propose the HTT algorithm which integrates MF-LDA and HTLCM.
+
+The MR, FR of our proposed HTLCM model are lower than 18%.
+
+The average P, R, F of the HTT algorithm are 85.64%, 84.97%, 85.66%, respectively.
+
+The experimental results show that the HTLCM model and HTT algorithm not only keep track of hot topics but also find potential hot topics.
+
+PARAGRAPH
+
+In our future works, we improve our MF-LDA and HTT algorithm from three aspects: (1) We should build HTLCM model more elaborately according to different topic classification; (2) We can also analyze the semantic tendency and emotional tendency of hot words on Micro-blog post contents, so that we improve deeply the performance of the HTT algorithm; (3) The hot topic evolution has gone through five stages.
+
+However, some non hot topics cannot go through all stages.
+
+The evolving stage division and quantitative features of every evolving stages for these non-hot topics are important research works.

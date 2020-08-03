@@ -1,0 +1,893 @@
+10.1016/j.engappai.2019.103312
+
+FULLTEXT
+
+TITLE
+
+The application of machine learning techniques for driving behavior analysis: A conceptual framework and a systematic literature review
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The phenomenon concerning road traffic crashes has become a major concern worldwide.
+
+According to the global status report on road safety conducted by the World Health Organization (WHO) in 2015, 1.25 million traffic-related fatalities occur annually worldwide, with millions more sustaining serious injuries and living with long-term adverse health consequences; road traffic injuries are currently estimated to be the leading cause of death among young people, and the main cause of death among those aged 15–29 years.
+
+(“WHO | Global status report on road safety 2015”, 2015).
+
+Road safety perception cannot be detached from the analysis of the driver behavior (DB) as the major part of traffic accidents is caused by human factors as it was inferred that they took part in the manifestation of 95% of all accidents (Evans, 1991, 1996).
+
+For these purposes, analyzing DB can aid assessing driver performance, enhance traffic safety and, furthermore, endorse the development of intelligent and resilient transportation systems.
+
+PARAGRAPH
+
+Human driving behavior is a complex concept that, in general terms, delineate how the driver manipulates the vehicle in the context of the driving scene and surrounding environment (Martinez et al., 2017).
+
+In recent years, DB has become a topic of interest among the public and researchers; it is generally considered to be one of the most important factors in crash occurrence, yet due to the stochastic nature of driving, measuring and modeling, driving behavior continues to be a challenging topic today (Sagberg et al., 2015).
+
+For instance, many researchers have studied the effects of driver’s physiological and psychological characteristics on DB from different standpoints (Ariën et al., 2013; Faure et al., 2016; Dahlen and White, 2006; Li et al., 2017a; Jacobé de Naurois et al., 2017a).
+
+On the other hand, taking driver’s operational maneuvers as the research objective, some scholars explored various behaviors such as lane change, acceleration and turning events (Ghasemzadeh and Ahmed, 2018; Kim et al., 2017; Paefgen, Kehr, Zhai, & Michahelles, 2012); Within this context, significant correlations were found between driving performance and the driver’s profile (e.g. gender, age and experience amongst others).
+
+PARAGRAPH
+
+While the number of traffic accidents and their outcomes, mainly human injuries and fatalities emphasize the prominence of investigating the factors which contribute to their occurrence; principal factors in accidents include human, vehicle, and environment factors.
+
+From this perspective, DB has been considered a direct outcome of the impulse encountered from the road infrastructure, surrounding environment and atmosphere inside the vehicle (Waard, 1996).
+
+As such, in order to conduct a more reliable analysis of the DB, diverse types of parameters have been taken into account; The Driver–Vehicle–Environment (DVE) is based on the concept of the “joint” cognitive system, where the dynamic interactions between driver, vehicle and environment are represented in a harmonized and integrated way (Hollnagel, 2005).
+
+We have adopted an approach with the purpose of investigating a set of parameters needed for estimation of the DB, consequently, various DVE characteristics have been considered in an effort to analyze DB to improve driver safety and reduce accident rates.
+
+Although it is generally assumed that the characterization of the DB is related to the aforementioned triptych: the DVE philosophy, there has been only limited investigation focusing on the details of this relationship and how the DVE characteristics influence the evaluation of the DB.
+
+However, perhaps most importantly, there is still a lack of a common underlying conceptual framework to guide this research and clearly distinguish the relationship between the different dimensions of the DB and the DVE model, as well as a commonly accepted scheme to instruct future implementations of DB assessment strategies.
+
+PARAGRAPH
+
+As the DB field evolved, researchers studied the use of algorithms from Machine Learning (ML), an area of artificial intelligence (AI) that has been studied since the late 1950s (Martens, 1959); numerous ML-based models were proposed to recognize or predict the DB in an attempt to improve the safety and comfort of drivers, as well as other road users.
+
+ML addresses the question of how to build a computer system that improves automatically through experience (Jordan and Mitchell, 2015).
+
+ML techniques have been characterized by (i) their autonomously surmounting major non-linear problems using data sets from multiple sources; and (ii) their ability to easily incorporate newly data in an attempt to improve estimation performance (Begg and Kamruzzaman, 2005; Chlingaryan et al., 2018).
+
+They are being used in the context of studying DB to provide users with better recommendations and help constructing powerful ML models.
+
+However, the ML discipline does not have a definite classification scheme for its algorithms, mostly due to the number of paradigms and the uncertainties introduced in the literature (Lv and Tang, 2011).
+
+Subsequently, it becomes difficult and confusing to choose an ML algorithm that fits one’s need when developing a DB computational model.
+
+PARAGRAPH
+
+Since the volume of research in the field of DB is expanding constantly, researchers may find it challenging to track the use and the trends of ML algorithms in analyzing DB.
+
+In addition, it is becoming more and more difficult to evaluate critically and to provide an overview of the related empirical studies.
+
+One way to assist academics and practitioners in using ML techniques in the assessment of the DB is to lay the foundations for grasping the major contributions and shortcomings in the state-of-the-art research.
+
+Existing literature reviews of DB investigation can be divided into two categories: traditional literature reviews (TLR) and systematic literature reviews (SLR).
+
+The traditional literature reviews (Halim et al., 2016b; Meiring and Myburgh, 2015); mainly cover the state-of-the-art and contemporary beliefs, whereas more methodologically explicit approaches (Vilac et al., 2017) aim to answer various research questions pertaining to the addressed problem.
+
+To the best of authors’ knowledge, there is no existing SLR that focuses on ML models for DB analysis, which motivates our work in this paper.
+
+Further to this, little to no research has directly constructed a thorough treatment of the DB concept accounting for the variety of its dimensions within the DVE structure.
+
+This article provides a systematic literature review (SLR) to identify the applications of ML techniques in DB assessment domain.
+
+In the first phase, A framework for conceptualizing DB is outlined, which illustrates a holistic approach of the different facets in perceiving DB as well as a scheme to instruct future development and implementation of the DB assessment strategies.
+
+It is expected that more information can be obtained about the investigation of the DB in the context of the DVE approach, and make better implementation or research decisions.
+
+In the second phase, an overview of the literature on ML is designed, revealing a premier and unbiased survey of the existing empirical research of ML techniques that have been applied to DB evaluation.
+
+Specifically, we performed an SLR on ML models published during the last decade (2009–2019).
+
+We further provide future guidelines to DB analysis practitioners and researchers regarding the application of the ML techniques in the field.
+
+PARAGRAPH
+
+The work presented on this paper is an extension of our conference paper originally presented at the International Conference on Advanced Intelligent Systems for Sustainable Development - AI2SD’ 2018 (Elamrani Abou Elassad and Mousannif, 2019) which proposed unconventional taxonomies based on the nature of the conducted study, measurement patterns and supervision motives underlying the assessment models of driving behavior.
+
+Additional material has been included in order to create a more in-depth research paper.
+
+In comparison to our original work, progress has been made regarding the following aspects:
+
+PARAGRAPH
+
+The rest of this paper is organized as follows: Section 2 summarizes the features of related work.
+
+Section 3 the DB conceptual framework is presented, followed by Section 4 which presents our results, while Section 5 serves the conclusion and discusses research implications, limitations and suggestions for future research.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+In the past few years, substantive research has been conducted regarding the DB examination.
+
+Conventionally a driver-centric approach has been applied to understand the precise individual features that contribute to the increased risk experienced by drivers, with a particular focus on their DB.
+
+Level in the physiological state of the driver, Bergasa and Nuevo (2005), Karkouch et al. (2018), Lee and Chung (2012) and Lee et al. (2015) developed a flexible alertness monitoring system to capture driver physiological condition and driving aptitude under real-time situations.
+
+Different physiological metrics have been collected to detect stress responses or predict its upcoming values (Ge et al., 2014; Kaiseler et al., 2015; Munoz-Organero and Corcoba-Magana, 2017).
+
+Other characteristics such as motion sickness (Domeyer et al., 2013) and different psychological disorders namely Autism Spectrum Disorders (Reimer et al., 2013), Attention-Deficit/Hyperactivity Disorder (Zheng et al., 2014) and Parkinson’s Disease (Ranchet et al., 2013) were assessed to elucidate their impact on driving safety.
+
+Drivers’ psychology is a widespread and perplexing topic as it is considered be a key to an effective perception and right judgments making; road safety practitioners have begun to consider the nature and breadth of the driver’s psychosocial characteristics including the personality traits to better comprehend the risky behavior which takes part in the crash involvement and offenses.
+
+That is, the relationship between anxiety and fear has been developed substantially in an attempt to provide interesting implications for how they differentially impact DB (Taylor, 2018).
+
+On the other hand, a research of Lu et al. (2013) explores how and why anger and fear influence driving risk perception; the findings highlight the necessity to differentiate anger and fear in road safety management.
+
+Another study that explores the self-reported risky DB of the young novice in the frame of their sensation seeking , reward sensitivity, depression, and anxiety in a longitudinal methodology have been performed; the research does not, however, examine why the novice who is depressed and/or anxious drives in a different manner (Scott-parker et al., 2013).
+
+PARAGRAPH
+
+Studying DB also means analyzing driving profiles such as age, gender and other demographic traits.
+
+Much attention has been paid to older drivers in research on DB and safety particularly in the countries that knows an increased aging of population.
+
+Relevant scholars aimed to better understand the contributions of readily measurable age-related factors that may provide a basis for developing evaluations and interventions in order to mitigate driving impairments (Blanchard et al., 2010; Dawson et al., 2010; Lucidi et al., 2014; Molnar et al., 2018).
+
+Conversely, an overarching emphasis has been placed on investigating young drivers’ risky behavior (Gheorghiu et al., 2015; Zicat et al., 2018).
+
+Another aspect relatively frequently studied in driving profiles is the impact of texting while driving; A meta-analysis was conducted to synthesize the effects of text messaging on driving performance and to provide convergent evidence that such attitude compromises the safety of the driver, passengers and other road users (Caird et al., 2014).
+
+Various demographics and personality traits have been examined in Ben-ari and Yehiel (2012) adopting a multi-dimensional approach to integrate sociodemographic and motivational factors in order to provide a fuller picture of DB.
+
+Several efforts have also been made to examine the driver’s operational decisions that could result in unintended risky behaviors such as errors in vehicle handling or in traffic maneuvering.
+
+A driver foot gesture modeling and prediction framework was proposed based on vision sensors; despite the fact that embedded vehicle sensor parameters from the Controller Area Network (CAN-bus) like brake or acceleration pedal states tell us something about the foot behaviors, the foot movement before and after a pedal press detected from vision-based sensors can provide valuable information for better semantic understanding of the driver states and to predict when a pedal is pressed before it actually happens (Tran et al., 2012).
+
+A substantial amount of research has been dedicated to evaluate the driver behavior in dilemma zones as they become very skeptical and may take improper decision might lead to right angle collision or rear end collision (Lavrenz et al., 2014; Pathivada and Perumal, 2017).
+
+PARAGRAPH
+
+Research consistently demonstrates the contributions provided by the traditional driver-centric approach in improving road safety that emerges from the driver and their immediate driving environment.
+
+Within this context, the work presented by Amditis et al. (2010) investigated the formulations of the DVE three parameters, namely the driver, the vehicle and the environment model in order to design an inserted driver–vehicle interface with the purpose of increasing the effectiveness and the safety gains of advanced driver assistance systems and to reduce the level of workload and omission inflicted by in-vehicle information systems and nomad devices.
+
+Many estimation methods have been proposed in the driver behavior domain based on the DVE measures comprising the driver’s characteristics (voice activity, head movement, gazing direction, etc.), the vehicle parameters (throttle position, steering angle, etc.) and the environment features (rainy weather, road type, etc.).
+
+With the growing data quantity and the boosted computational power, ML modeling is more efficient and accurate than ever before.
+
+PARAGRAPH
+
+Driver characteristics such as head, eye and hand cues were leveraged to detect the driver’s activity state using Support Vector Machine (SVM) classifier to evaluate the driver’s performance in on-road settings (Ohn-bar et al., 2014).
+
+The drowsiness recognition research has examined a variation of methods including: Artificial Neural Networks (Correa et al., 2013; Jacobé de Naurois et al., 2017a), Logistic regression (Murata, 2016) and Dynamic Bayesian Networks (McDonald et al., 2018).
+
+Drivers’ gaze behavior was measured prior to and during the execution of different driving maneuvers performed in a dynamic driving simulator using (ANNs), Bayesian Networks (BNs), and Naive Bayes Classifiers (NBCs) (Lethaus et al., 2013).
+
+Driving events like acceleration/deceleration, breaking, lane change and turning amongst others have been assessed using different ML models combining various sets of DVE parameters.
+
+Wang et al. (2010) evaluated three types of sequential supervised learning algorithms for the aforementioned events, the Hidden Markov model (HMM), the Conditional Random Field (CRF), and the Reinforcement Learning (RL).
+
+There are also studies where the driver behavior profiling was examined based on smartphones; Tchankue et al. (2013) discussed how the driving context with the distraction level of the driver can be predicted using mobile phone sensors, many ML algorithms have been applied to determine which one is the most effective.
+
+PARAGRAPH
+
+With the many studies already done on DB and notwithstanding the importance of these findings and their contribution to the literature, what appears to be lacking is an effort to present a fuller and more holistic picture of the harnessed ML techniques, and the measures accounted for DB evaluation.
+
+We retain that this kind of work is the most essential to be explored as it outlines a conceptual framework incorporating multiple dimensions influencing the driver’s conduct, in an attempt to achieve a comprehensive understanding of the DB within the DVE system in which the drivers operate.
+
+SECTION
+
+A driving behavior conceptual framework
+
+PARAGRAPH
+
+Theoretical or conceptual frameworks are essential contributions in grasping insight about the mechanisms influencing behavior, and in the development of interventions to enhance safety outcomes (Newnam and Watson, 2011).
+
+In order to structure the present review, there is a need for a more precise conceptualization of the DB analysis within the broader organizational context pertaining to the different influencing factors; therefore, a theoretical framework is outlined to guide this research and clearly distinguish the relationship between the different dimensions of the DB and the DVE model.
+
+Accordingly, practitioners and researchers will be better directed in the future development of intervention strategies designed to improve safety outcomes with regard to the driving conduct.
+
+Based on this initial analysis, the following research questions are detailed (see Table 1).
+
+SECTION
+
+PARAGRAPH
+
+Driving behavior concept
+
+PARAGRAPH
+
+In spite of the agreement on the prominence of traffic-specific human factors in understanding the complex concept of DB, there is little agreement on their conceptualization due to the influencing factors which complicates its description (Martinez et al., 2017; Taubman-ben ari et al., 2004; Yanagihara et al., 2015).
+
+However, the present section along with the DVE triptych (Section 3.2) are believed to explain a large portion of the concept and provide elucidation regarding how the DB should best be modeled and measured.
+
+PARAGRAPH
+
+Relying on whether driving data is context relevant, DB can be deemed as contextual or non-contextual.
+
+Analyzing DB based on the vehicle kinematics such as speed and acceleration/deceleration or the driver’s state namely the physiological and psychological conditions could be acknowledged as non-contextual DB since it does not consider the surrounding environment of the driver that may contribute to crash risk such as road and weather conditions.
+
+Research adopting non-contextual DB approach has its limitation.
+
+For instance, if a driver depicts stop-and-go or abrupt accelerate/decelerate behavior, without additional information on traffic conditions, it is usually difficult to tell if this is simply due to the driver’s behavior, or caused by heavy traffic conditions.
+
+Conversely, context-aware models can improve the driver’s conduct by augmenting the awareness of the vehicle’s state (e.g. headway distance), the environment (e.g. weather conditions) and the physiological and psychological status of the driver (e.g. available alertness level) (Rakotonirainy, 2005).
+
+PARAGRAPH
+
+Following Elander et al. (1993) and Taubman-ben ari et al. (2004), DB is composed of two separate components, driving skills and driving styles.
+
+Driving skills concern attitudes and characters of the driver, therefore constitute a driver’s maximum level of performance on elements of the driving task.
+
+Driving styles, on the other hand, referring to the style in which individuals choose to drive or habitually drive.
+
+Although driving styles and driving skills are argued to be independent and to have different mechanism of development, they sometimes interact with each other (Zhang et al., 2018).
+
+While drivers with better vehicle maneuvering skills have been reported to be more likely to adopt a careless driving style by involving in risky and distracting activities (Pöysti et al., 2005); it has been depicted that driving styles interact with driving skills by influencing their acquisition as well as their actual execution (Catherine et al., 2016).
+
+SECTION
+
+The driver–vehicle–environment model
+
+PARAGRAPH
+
+The ostensible driver, vehicle and environment model (i.e. DVE model) is based on the concept of the “joint” cognitive system, where the dynamic interactions between the driver, vehicle and environment are represented in a harmonized and integrated way (Hollnagel, 2005); such a model can be seen as a closed loop system in which the perception of a given driving scenario and its impact on the driver and other road users is observed.
+
+Martinez et al. (2017) and Waard (1996) presented DB as a direct consequence of the stimuli received from the road infrastructure, surrounding environment and atmosphere inside the vehicle; therefore, a realistic illustration of the DB must take into considerations the interactions of the driver within the DVE model.
+
+In our framework, information about the characteristics of the vehicle (e.g. velocity, acceleration, action on steering wheel, etc.), the driving environment (e.g. weather and road conditions, etc.) and the driver’s properties (e.g. HRV, head movement and voice activity, etc.) are captured.
+
+As such, the DB is established as a transference system between the states of the vehicle operated by the driver and the surrounding environment.
+
+On this basis, we make an attempt to capture most of the common elements in the DVE system in an effort to describe and analyze its facets’ modeling to efficiently investigate DB.
+
+SECTION
+
+Driver module
+
+PARAGRAPH
+
+In the DVE system, the driver basically performs a set of actions on the vehicle commands and controls and makes decisions based on the perceived environment.
+
+Of all the factors influencing traffic safety, the driver is a main factor and the vehicle–road–environment influences traffic through drivers (Cai and Lin, 2011).
+
+As reported by Sayer et al. (2018) and Wen et al. (2011), the driver state can be psychological or physiological which can be correlated to environmental conditions.
+
+Cacciabue and Carsten (2010) selected five major categories of factors influencing driver capability, performance and behavior within the DVE system:
+
+PARAGRAPH
+
+The driver’s module has been developed taking into account some of the aforementioned parameters (directly or indirectly), and focused on a certain number of basic components affecting variability in driver’s conduct and performance identified and listed as follows:
+
+PARAGRAPH
+
+Physiological State: Refers to the condition or state of a body or bodily function of a driver when driving the vehicle such as fatigue, stress, position amongst others (Sayer et al., 2018).
+
+The physiological status can be detected or predicted by supervising driver’s positions and actions; for instance, eyes activity, facial expressions, head nodding, body sagging posture and others are often reasoned to be vital signs of the driver’s perception and concentration.
+
+Lanata et al. (2015) have presented meaningful results on the relationship between the physiological changes in drivers and their driving behaviors, such as steering-wheel angle corrections, velocity changes, and time responses under incremental stress conditions.
+
+Moreover, physiological characteristics are deemed to be the essential material that underlies the psychological factors, which are ultimately reflected in driver’s psychological load (Wang et al., 2018b).
+
+According to international and national research, driver’s physiological and psychological characteristics are closely related to traffic safety, and psychological characteristics that arise from physiological characteristics are important factors influencing DB (Scott-Parker et al., 2015).
+
+PARAGRAPH
+
+Psychological State: Refers to the mental or emotional state of the driver such as being happy, angry, sad, distracted and so on (Sayer et al., 2018).
+
+The driver’s psychological situation can be known by monitoring the heart rate, breathing rate and other physiological parameters and when it changes drastically, the driver cannot control his thinking activity and the aptitude to judge (Zhang et al., 2014).
+
+The different psychological properties have been characterized as driving tendencies or propensities; these latter refer to the car driver’s psychological experience of actual traffic conditions and the preference of decision-making under dynamic influence of various factors, they also depict the emotional state of automobile operators in time-varying dynamic environment (Wang et al., 2018a).
+
+To capture the affective factors which are used to describe a state in which people deeply involved in an activity that nothing else seems to matter (e.g. speeding behavior), the psychological flow theory was outlined (Chen and Chen, 2011).
+
+It is a complex concept and researchers often measure it through multiple dimensions, such as perceived enjoyment, concentration, perceived control, and curiosity (Ghani and Deshpande, 1994; Koufaris, 2008; Lu et al., 2009; Moon and Kim, 2001).
+
+PARAGRAPH
+
+Driver profile: According to the present study, driver profile is affiliated to the driver’s demographic characteristics (e.g. gender, age, education, income) and driving history (e.g. years on the road, record of violations).
+
+Accumulate research (Aberg and Rimmo, 1998; Blockey and Hartley, 1995; Parker et al., 2000; Reason et al., 1990) reported that men and young drivers have a tendency to commit violations repeatedly comparing to women and older drivers, and the more time spent on the road by drivers the more they violate traffic regulations.
+
+Conversely, female and older drivers committed more errors than male and young drivers.
+
+Increased annual mileage has been proved to increase crash risk (Davey et al., 2007; Lourens et al., 1999).
+
+Furthermore, educational level and marital status have been proved to imperil indirectly driving performance and driving safety (Mehdizadeh et al., 2018).
+
+PARAGRAPH
+
+Driving events: Pertain to fundamental driving operations performed by the driver while controlling the vehicle and leading to changes in the car motion/state (e.g. turning, tailgating, flashing headlights).
+
+Undesirable events frequency (EF) is a useful safety surrogate as such events were found to be related to crash involvement and driver safety (Musicant et al., 2010).
+
+For instance, over 2.5 million rear-end collisions are reported every year, making them the most common type of automobile crash (42%) (Center for Disease Control, 2009).
+
+Also, it has been reported, based on traffic police data for 2010, that in 85% of cases, accidents are caused by violations of traffic rules by vehicle drivers; from them, 25% of road accidents are caused by the non-observation of speed regulations by drivers on roads; 15%, by violations of the rules of passage through a crossroad; 10%, by moving into an oncoming traffic lane (Prokhorov and Shmakov, 2013).
+
+It is important to detect these typical driving events as they are fundamental to the evaluation of driver behavior and it would be highly beneficial to many application domains in the road safety perspective such as an automated advanced warning system (Saiprasert et al., 2017).
+
+SECTION
+
+Vehicle module
+
+PARAGRAPH
+
+The driver of a vehicle generally executes a variety of tasks comprising those that directly involve driving and those that do not.
+
+Typically, the primary task is to steer the vehicle and to avoid potential road hazards.
+
+Secondary tasks refer to those in-vehicle functions that require from the driver a separate attention to perform.
+
+These latter include visual-related tasks, such as using vehicle displays or looking for items, auditory-related tasks like listening to radio or a passenger, and haptic-related tasks namely eating/drinking or using a cell phone.
+
+Naturalistic driving studies have found that both complex visual-haptic tasks and looking away from the road for more than two seconds in a six-second window increase crash and near-crash risk (Klauer et al., 2006; Olson et al., 2009).
+
+Moreover, Ranney et al. (2001) highlighted that visual, auditory and haptic distractions can have individual or joint effects on drivers’ performance.
+
+Secondary tasks have been considered the reason for 30% of the traffic collisions caused by driver distraction (Nevile and Haddington, 2010); they will affect the driver’s response time to danger, braking time and will lead to higher acceleration (Nowosielski et al., 2018).
+
+Thus, further investigation of the synergy between the driver and the vehicle can offer fundamental guidance for a safer DB, and as Koo et al. (2015) stated, “By running controlled studies of driver response to vehicle interactions, we are better able to predict user behavior”.
+
+SECTION
+
+Environment module
+
+PARAGRAPH
+
+The environmental conditions have been identified to hold a substantial impact on the assessment of the DB (Derbel and Landry, 2017; Hamdar et al., 2016).
+
+Most scholars investigating the environmental effects are directly assessing performance and are pursuing appropriate metrics which represents the adjustments attached to imposed behavior (Hancock, 1997).
+
+With regard the environment context, many characteristics influence the performance of the vehicle and the driver, thus, the complexity of the module raises rapidly with the number of factors considered.
+
+These characteristics cover the detailed information relating to road geometry (e.g. curvature, gradient, lane width, shoulder width), road condition (e.g. dry, wet, snowy, icy), road type (e.g. asphalt, concrete, gravel, earth), weather condition (e.g. clear, rain, fog/snow/severe wind), light condition (e.g. daylight, night time) and traffic condition (traffic lights, traffic flow, traffic disturbance).
+
+Road geometry is often correlated to risky driving; Kantowitz and Simsek (2001) considered that odd road geometry contributes to driver workload, while road condition was proven to cause nervous and cautious behavior (Hamdar et al., 2016).
+
+As for road type, even though some scholars concluded that the pavement nature indicator becomes statistically insignificant comparing to different safety attributes (Anastasopoulos et al., 2008); other authors found that road type factors are strongly related to the accidents rate (Lee et al., 2008).
+
+Empirical evidence suggests that the likelihood of unsafe conduct increases during abnormal weather conditions (Hamdar et al., 2016) and driving during midnight and rush hours (Zhang et al., 2016).
+
+On the account of the above studies, it is demonstrated that different driving environments being uncontrollable, continuously impose different changes to the DB of an individual which involves transformations in the DVE system.
+
+SECTION
+
+Modeling metrics
+
+PARAGRAPH
+
+Numerous metrics are used for estimating DB which can be assorted into intrusive and non-intrusive categories as presented in our original work (Elamrani Abou Elassad & Mousannif, in press).
+
+Defining these variables could be a sensitive process since they affect the robustness of the ML model.
+
+Still, there is no common agreement of a suggested set of metrics in the literature (Ericsson, 2000; Taubman-ben ari et al., 2004).
+
+Vehicle-based, behavioral, physiological and subjective metrics are the most common groups of measures used in assessing DB described as follows:
+
+PARAGRAPH
+
+Vehicle-based measures: mainly provide an analysis of driving performance by examining the capabilities of the driver while operating the vehicle, they include vehicle speed, acceleration, steering wheel movement, lane position deviation, gear changes and others (Hori et al., 2016; Kim et al., 2017).
+
+These metrics are easy to obtain as they only require the vehicle to be equipped with necessary sensors, yet they are strongly dependent on the type of vehicle, the conduct capability of drivers and surrounding environment (Chen et al., 2017a; Sahayadhas et al., 2012).
+
+The vehicle-based measures have been categorized into three major classes summarizing some of the recent findings regarding their potential relationship with driver’s rendering level (Aghaei et al., 2016): (i) driver input to the vehicle (e.g. steering, braking), (ii) vehicle response to driver input (e.g. Velocity/acceleration, jerk) and (iii) vehicle state relative to the environment (e.g. Headway distance, time to lane change); the first two categories can be directly measured by sensors mounted inside the vehicle, whereas the third category requires information regarding the driving environment.
+
+These metrics have the advantage to be real-time, continuous, non-intrusive and reliable (Li et al., 2017b).
+
+However, they manifest only after the driver state changes which is often too late to prevent an accident.
+
+PARAGRAPH
+
+Physiological-based measures: record the driver’s physiological state during the drive and considered being a fundamental material that underlies the psychological factors reflected in driver’s psychological status as described earlier.
+
+Physiological signals such as Electrocardiogram (ECG), electroencephalogram (EEG), galvanic skin response (GSR), Electrooculogram (EOG), respiration, electromyogram (EMG) and Heart Rate Variability and others, display relatively high recognition accuracy and offer a reliable insight of the operator functional state (Healey and Picard, 2005; Jacobé de Naurois et al., 2017a; Jinjun et al., 2010; Nilsson et al., 2018; Vicente et al., 2016).
+
+Some of these metrics require sensors and cables attached on the body, which constrains the behavior of drivers in some extent, despite that, due to miniaturization of the measurement equipment, many physiological measures can be collected continuously and relatively unobtrusively (Waard, 1996).
+
+Albeit the physiological-based measures are largely used by practitioners, they often increase the complexity of the experimental setup and require costly and particular sensors to capture the signals.
+
+Additionally, environmental factors or motion artifact noises could extremely affect the sensor readings which would imply the use of sophisticated signal conditioning and filtering operations.
+
+PARAGRAPH
+
+Behavioral-based measures: mostly identified by image and audio processing techniques.
+
+They examine the drivers’ attitude and visual alertness in order to detect behaviors such as head movements, facial expression, voice activity and so on (Hori et al., 2016; Jacobé de Naurois et al., 2017a; Lee and Chung, 2012).
+
+These metrics are not only technically hard to get as they demand more processing steps, but also because the required computer methods are computationally expensive.
+
+The driver behavioral measures are non-intrusive, real-time and fast at detecting the onset of abnormal driver states.
+
+It is perceived that image processing techniques by watching driver’s facial expressions have reached quite a high level of sophistication, especially used of deep learning techniques (Schmidhuber, 2015).
+
+Nevertheless, behavioral-based measures have been found to return unreliable results because their detection capabilities are strongly affected by variations in environmental factors and driving conditions (Chen et al., 2017a).
+
+Therefore, they cannot always return reliable results especially in the changes of lighting conditions inside or outside the vehicle during the day/night and while wearing glasses.
+
+In addition, driver facial signs are susceptible to false interpretation when the driver’s perception is influenced by certain self-contained aspects during the process of driving.
+
+PARAGRAPH
+
+Subjective-based measures: In which drivers themselves delineate their own assessment of DB using questionnaires and self-reports, which are easy to use in most work environments.
+
+Some of the frequently used examples are the Karolinska Sleepiness Scale (KSS) (Akerstedt and Gillberg, 1990), the NASA Task Load Index (NASA-TLX) (Hart and Staveland, 1988), the Manchester Driving Behavior Questionnaire (DBQ) (Reason et al., 1990), the Aggressive Driving Behavior Scale (Houston et al., 2003) and others which have been widely utilized and validated in various application domains.
+
+Subjective-based measures have been deemed to perform well in simulated environments (Mittal et al., 2016).
+
+They are also provided directly by the driver, assembled before or after the task is done, and are relatively inexpensive to obtain.
+
+Although much useful information can be collected by the use of subjective-based measures, these metrics have their limitations; there have been some concerns with this type of measurements as they may be subjects to errors of recall and reporting like social desirability bias (Hatfield et al., 2017).
+
+Furthermore, subjective measures are missing the potential to record in real-time and to continuously monitor the DB in order detect sudden changes.
+
+SECTION
+
+PARAGRAPH
+
+Framework design
+
+PARAGRAPH
+
+Theoretical development in the field of DB has been difficult to pin down.
+
+As previously mentioned, there is only a little agreement on the DB analytical scheme which complicates its description.
+
+Sagberg et al. (2015) presented a tentative framework to distinguish the concept of driving style from other constructs and to discuss key terms and definitions commonly used in this research area.
+
+However, it was inferred that further research is clearly needed to understand more precisely how the influencing factors shape driving style and how they may interact.
+
+Sarma et al. (2013) considered that the majority of studies that have examined attitudes towards driving have done so through the lens of the Theory of Planned Behavior (TPB; Ajzen, 1985), which is a theoretical framework offering a model of human behavior that integrates beliefs, attitudes and intentions.
+
+Other notable research within this scope have predominantly adopted theoretical frameworks based on the tenets of social-cognitive theory, which emphasize self-efficacy and psychometric experience as prerequisites for adaptive behavior change (Vetter et al., 2018; Windsor and Anstey, 2006).
+
+In terms of ML models, Morris et al. (2011) addressed the problem of perceiving driver’s intention to change lanes seconds before it occurs using a real-time intent detection framework.
+
+To build a consistent stochastic model of driver’s interactions with the environment, the road network and other traffic participants, Gindele et al. (2015) designed a probabilistic framework for context-sensitive state estimation and prediction describing driver’s behaviors and plans based on unlabeled traffic observations.
+
+Bahram et al. (2016) examined the motion intention of highway drivers regarding the modeled interaction with the driver’s surrounding road users in a traffic scene, combined with a supervised maneuver-based classifier.
+
+The developed framework achieves a robust prediction against possibly improper model assumptions in the case of unusual style of driving.
+
+PARAGRAPH
+
+Although all of these research papers provide a significant contribution to furthering our understanding of the DB concept, there is still a lack of broad overviews based on relevant theoretical frameworks.
+
+In particular those that conceptualize DB within the broader organizational context, providing an overview of the mechanisms thought to be involved.
+
+The structure of the proposed framework is illustrated in Fig. 1.
+
+SECTION
+
+PARAGRAPH
+
+Machine learning techniques for driving behavior analysis
+
+PARAGRAPH
+
+Machine Learning models use computers to simulate human learning process in order to improve the performance of specific tasks based on the knowledge identified and acquired from the real world.
+
+They operate by building algorithms that are guided by data, rather than relying on human programmers to provide hard-coded instructions and can initially be classified as supervised, semi-supervised, unsupervised, or reinforcement learning.
+
+With the major influx of attention devoted to the ML-based analysis of driving behavior and the high activity of progress in this field, remaining knowledgeable of the existing progress can be a considerable work.
+
+SECTION
+
+Methodology
+
+PARAGRAPH
+
+In this review, an overview of the literature on ML is designed, revealing a premier and unbiased survey of the existing empirical research of ML techniques that have been applied to DB evaluation.
+
+In order to stimulate this work and guarantee its integrity, Table 2 highlights the adopted research questions that are better suited for the remainder of this review.
+
+PARAGRAPH
+
+The steps involved in conducting this SLR include the identification of resources and selection of studies, along with data extraction and synthesis.
+
+The improper identification of the reviewed articles might lead to inconsistent and inaccurate conclusions.
+
+Therefore, recognizing the relevant keywords plays a pivotal role in identifying the proper resources.
+
+Thus, an extensive search using all possible permutations of the ML techniques and the driver behavior keywords which derived from the conceptual framework formerly established were performed within the most prominent scientific digital libraries.
+
+The search is filtered to show only the articles that were written in English and published during the last decade in a reliable peer-reviewed journal or conference.
+
+In order to select the relevant studies, we excluded the duplicate articles or the articles that were not clearly related to the research questions.
+
+Then, the remaining articles were subjected to a quality screening to evaluate their reliability, integrity and pertinence.
+
+PARAGRAPH
+
+We identified 82 studies (Table A.5 in Appendix A) in the field of ML based driving behavior analysis which were published during the time period 2010–2019.
+
+Among them, 68 (83%) papers were published in journals, 14 (17%) papers appeared in conference proceedings.
+
+The publication venues and distribution of the selected studies along with the journals’ impact factors are shown in Table 3.
+
+PARAGRAPH
+
+From the selected studies, we categorized the ML techniques used for DB estimation as follows:
+
+PARAGRAPH
+
+Overall, SVM, NN, BL and EL are the four most frequently used ones; they together were adopted by 72% of the selected studies, as illustrated in Fig. 2 presenting the amount of research attention that each type of ML technique received during the last decade; in addition to Fig. 2.
+
+The identified ML techniques were used to evaluate DB usually in two forms: (1) studies comparing ML techniques (2) studies comparing statistical and ML techniques; Fig. 3 is plotted to further outline the distribution of research interest in each publication year.
+
+As can be seen, the activity of publications in this field is growing at an explosive rate.
+
+Note that some studies contain more than one ML technique.
+
+PARAGRAPH
+
+As shown in Fig. 3, for one thing, an apparent publication peak is shown around the years 2017 and 2018; Moreover, compared to other ML techniques, SVM, NN, BL and EL seem to have received dominant research attention in many years.
+
+It is noteworthy that in neural network studies, both traditional Artificial Neural Networks (ANNs) and Deep Neural Networks (DNNs) have been considered for this review.
+
+Deep learning methods can be seen as an improved extension of the classic ANNs consisting of more layers that enable higher degrees of abstraction and enhanced assessment from data.
+
+Of all the selected research that adopted NN for DB analysis, about 57% employed DNNs whereas 43% used classical ANNs.
+
+PARAGRAPH
+
+SECTION
+
+Performance estimation of ML models
+
+PARAGRAPH
+
+One of the main goals of this SLR is to give insight into the scope of using of ML algorithms in DB evaluation that can pave the way for future researchers and practitioners in their studies.
+
+An in-depth examination has been considered to perceive how the algorithms are being applied to every DB dimension by inspecting the performance measures that researchers adopt to describe ML techniques as the reliability of a method needs of its performance assessment in order to validate the stability of the developed ML models and examine their efficiency in practical applications.
+
+With respect to validation methods, K-fold Cross-Validation, Holdout and Leave-One-Out Cross-Validation (LOOCV) are the three dominant ones used in the selected studies.
+
+Specifically, the numbers of the studies that used these three validation methods are 30 for k-fold Cross-Validation, 31 for Holdout and 18 for LOOCV.
+
+PARAGRAPH
+
+Beside validation methods a number of metrics are used for gauging the performance of ML approaches in DB analysis.
+
+These performance metrics are used for comparing and evaluating models developed using various ML and statistical techniques.
+
+Note that an algorithm may use one or more metrics to describe its performance.
+
+Thus, it is crucial to adopt appropriate accuracy metrics in evaluating estimation accuracy.
+
+Table 4 presents the performance metrics that were employed and the studies in which they are used.
+
+An overview of the number and the proportion of studies using each performance metric is illustrated in Fig. 4.
+
+According to the figure, it is found that Accuracy, Recall and Specificity, are among the most popular performance metrics considered in the selected studies as 65.85% of them adopted Accuracy, while about 35.36% and 32.92% used Recall and specificity respectively; followed by Precision, F1 measure, FPR, AUC, Confusion Matrix and MSE measures.
+
+OOB Error, RMSE, MAPE, Kappa, G-mean are other typically adopted metrics.
+
+Some less commonly measures are grouped in the miscellaneous category namely MAE, NMSE, MPE, Youden’s Index and Hausdorff Distance.
+
+PARAGRAPH
+
+Developing a more in-depth analysis requires a characterization of ML models on the basis of each of the DB dimensions previously defined (see Fig. 1).
+
+Among the three DB domains beforehand, Driving events have been actively investigated when assessing DB using ML techniques, followed by the Physiological and Psychological states.
+
+Fig. 5 shows the amount of research attention that each of the DB dimensions received in the selected studies.
+
+PARAGRAPH
+
+The occurrence analysis of the evaluation measures depicts their popularity and presents other metrics to researchers.
+
+However, in view of the dominance of Accuracy, Recall and Specificity metrics, we adopted them in this review to evaluate the performance of ML models.
+
+The higher values of the selected performance measures indicate more accurate estimate.
+
+We have used box plots to gain insight about the distributions of these metrics’ values of ML techniques.
+
+Considering the small number of observations of the three chosen metrics for some ML categories, we did not plot them in the figures to avoid the insignificant presentation of insufficient points in a box plot.
+
+The following sub-sections provide a comprehensive analysis of the use of ML techniques for each of the DB dimensions.
+
+SECTION
+
+Driving events performance estimation
+
+PARAGRAPH
+
+On the performance of ML models for Driving events’ analysis measured in Recall and Specificity (see Fig. 6a and b), DT and IB are the most accurate one (with median around 0.97).
+
+For Recall, NN came next (with median around 0.92), followed by BL and SVM (with median around 0.88).
+
+With regard to Specificity, DT and BL were followed by BL (with median around 0.95) then lastly NN (with median around 0.82).
+
+In terms of Accuracy, NN performed the best with value 0.97, IB, BL and SVM came next (with median around 0.91), followed by EL then DT.
+
+NF models performed the worst with 0.73 value of accuracy.
+
+In addition to the aforementioned observations, according to Fig. 6, the NN, DT models for Specificity along with SVM for recall and DT with BL for Accuracy all have their median nearly in the centers of the boxes, which implies that the values of these models are symmetrically distributed around the medians; conversely, apart from IB and NF for accuracy which indicate a positive skewness, all the others depict lopsided boxplots skewed to the left.
+
+Moreover, the Specificity values in general have less variation than Recall and Accuracy, since they have proportionately shorter boxes and tighter ranges of values.
+
+PARAGRAPH
+
+Further, we also aimed to deeply investigate the estimation accuracy for Driving events; we provided in Table B.6 (Appendix B) the detailed statistics of Recall, Specificity and Accuracy for each type of ML model.
+
+Note that the outliers identified in Fig. 6 were eliminated before computing the statistics.
+
+It can be observed that all the ML models for all the metrics, except for NF, have their means approximately ranging from 0.82 to 0.96.
+
+This reflects that the ML techniques have reasonable estimation capability as the values of the selected metrics indicate acceptable levels.
+
+SECTION
+
+PARAGRAPH
+
+Physiological state performance estimation
+
+PARAGRAPH
+
+As can be seen in Fig. 7, the Physiological state assessment for Recall demonstrates higher values of performance in terms of NN and IB (with median around 0.91), followed by SVM and EL with 0.89 value, while BL was the least performant with 0.76 value.
+
+As for specificity, approximately all the four models (SVM, NN, EL and IB) have their medians around 90%.
+
+With regard to Accuracy, NN is more accurate with 0.9 value, followed by SVM and EL (with median around 0.85) next IB and CL with 0.82 and 0.79 values respectively, then lastly BL with a median around 0.74.
+
+In addition to the aforementioned observations, (EL, BL, IB) for Recall and (SVM, NN, EL) for accuracy all have their median nearly in the centers of the boxes, which implies that the values of these models are symmetrically distributed around the medians.
+
+Additionally, once again the Specificity values typically have less variation than Recall and Accuracy, since they have relatively smaller boxes.
+
+PARAGRAPH
+
+More performance statistics for the DB Physiological state can be found in Table B.7.
+
+As shown, apart from the BL model that has a mean around 0.76, all the other ML models have their means ranging from 0.8 to 0.91 which indicates an adequate effectiveness in evaluating the Physiological state.
+
+SECTION
+
+PARAGRAPH
+
+Psychological state performance estimation
+
+PARAGRAPH
+
+As concerns the Psychological state, Fig. 8 depicts that for Recall and Specificity SVM and NN are more efficient (with median around 0.87 for Recall and 0.94 for Specificity), followed by EL with 0.77 and 0.9 values for Recall and Specificity respectively, whereas BL was last for specificity with 0.84 value.
+
+In reference to Accuracy, EL achieved the highest performance with value 0.83, followed by NN, DT and SVM (with median around 0.88).
+
+BL and IB represented the worst accuracy with 0.66 value.
+
+On top of that, only EL for all the three metrics and BL for Accuracy have their median closely to the middle of the boxes, and both Recall with Specificity have less deviation displaying fairly smaller boxes.
+
+PARAGRAPH
+
+In the same way, Table B.8 presents detailed statistics of Recall, Specificity and Accuracy for analyzing psychological-based ML models.
+
+As can be seen, SVM, NN and EL for Accuracy and Recall achieved good capability by having their means higher than 0.85, while the rest of results reflect acceptable estimation ability by having their means between 67% and 77%.
+
+SECTION
+
+PARAGRAPH
+
+Modeling metrics modalities for DB dimensions
+
+PARAGRAPH
+
+In addition to the detailed ML performance analysis for each of the DB dimensions, here we highlight the characterization of the adopted modeling measures in evaluating these dimensions as we provide a deeper insight into capturing their main underlying patterns.
+
+Fig. 9 presents the focus of research activity, based on the DB dimensions, that each type of modeling measures received in the selected studies.
+
+First, we can notice that all of the publications covered more than one type of modeling metrics.
+
+It can be observed that subjective-based measures are used in different aspects of analyzing DB since they have been known to solely delineate the driver’s own assessment, thus they are being reasonably acquired by the three DB dimensions.
+
+Clearly, the vast majority of the studies that analyzed the Driving events employed vehicle-based measures in the process.
+
+Followed by environmental-based and subjective-based measures.
+
+whereas behavioral and physiological input have not been actively adopted in studying Driving events.
+
+Indeed, such a behavior could be highly examined by considering the impact of driver inputs to the vehicle and its responses to these actions taking into account the influence of the surroundings.
+
+This may be one explanation for endorsing these metrics in evaluating the most investigated DB dimension in the selected publications.
+
+Not surprisingly, the physiological-based measures are considerably used in examining the driver’s Physiological state.
+
+Environmental and vehicle based measures came next, whereas behavioral measures were last.
+
+Finally, we have the Psychological state inspection that counted for an acceptable level of these metrics considering that this DB dimension is the least explored in the selected studies.
+
+Strangely enough, we can see that environmental-based inputs are not intensively engaged in the examining of the Psychological behavior.
+
+This is probably due to the fact that the adoption and use of these metrics in this processing is at its early stages.
+
+SECTION
+
+PARAGRAPH
+
+ML models vs. non-ML models
+
+PARAGRAPH
+
+The ML models have been compared with three conventional non-ML models: Regression model, Discriminant Analysis (DA), AFVD(Gong et al., 2008).
+
+One model is alleged to outperform another in an experiment if the Accuracy value of the first model achieves at least 2% improvement comparing to the second one.
+
+The authors of S5 and S14 employed error metrics to measure the accuracy of the adopted models and thus we have decided to include them in the analysis.
+
+Most of the ML techniques have been compared to the Regression model which is considered to be the most widely used statistical technique in the literature (Malhotra, 2015).
+
+The details of the comparisons between ML models and non-ML models are provided in Table C.9 in Appendix C.
+
+PARAGRAPH
+
+Fig. 10 indicates the overall results of the comparisons between ML models and non-ML models, where all the comparisons were in terms of Accuracy metric.
+
+The bars above zero line indicate that ML models are more accurate, whereas the bars below zero line indicate that non-ML models are more accurate.
+
+Every bar is comprised of three proportions representing the distribution of the three DB dimensions.
+
+As can be seen in Fig. 10, the majority of the experiments indicate that ML models outperform non-ML models.
+
+The results show that 74% (92 of 124) of experiment results reveal the superiority of ML models whereas only 26% (32 of 79) of experiment results exhibit the superiority of non-ML models (note that some studies carry out more than one trial).
+
+Furthermore, the larger part of the studies comparing these two model types depicts the analysis of the Driving events dimension.
+
+The comparison results show that NN, SVM and BL outperform the Regression model (Reg) in 96%, 94% and 83% of experiments respectively, and these observations are sustained by a number of experiments, followed by EL in 80% of trials.
+
+NN and SVM are more accurate than Regression model in the investigation of all the three DB dimensions while Regression model outperforms BL and EL in the analysis of the Physiological state and Psychological state respectively.
+
+PARAGRAPH
+
+For IB, NF and DT, no more than three evaluations reported the comparisons with Regression model indicating higher accuracy for the IB and NF in terms of assessing the Driving events behavior, as for DT, it is difficult to determine whether it is more accurate than regression model or not, since the number of experiments reporting that DT outperformed Regression model is identical to the ones depicting the opposite results.
+
+In addition to Regression model, other non-ML models have also been compared with some ML models; EL, SVM and DT outperformed Discriminant Analysis in the experiments where the most part was the evaluation of Driving events, whilst DA provided better overall results than NN and BL and similar accuracy comparing to IB in both Psychological state and Driving events behaviors, but in smaller number of observations.
+
+With regard to the AFVD model, although there are seven experiments in total which include four trails showing that AFVD is less accurate than NN model in examining Driving events, these evaluations actually come from an identical study (S14).
+
+PARAGRAPH
+
+In compliance with the above-mentioned results and analysis, we may conclude that even though non-ML models show a slight upper hand in analyzing the Physiological state over some ML models, in general, the ML models outperform the non-ML.
+
+However, there is a threat to the validity to this conclusion as this argument holds only for the three ML models (NN, SVM and BL) vs. Regression and (SVM and EL) vs. DA, which have been supported by a sufficient number of experiments; while it is difficult to fully validate and generalize the conclusions for the other evaluations due the small number of experiments comparing the performance of ML models with the non-ML models.
+
+Thus, more number of studies comparing ML models and other models for DB estimation should be conducted in order to procure satisfactory and generalized results.
+
+PARAGRAPH
+
+SECTION
+
+ML models vs. ML models
+
+PARAGRAPH
+
+With the aim of comparing the results of ML models with respect to other ML models we adopted the same methodology as the one used in the comparisons between ML models and non-ML models.
+
+That is, the comparisons were conducted on the same experiments in terms of Accuracy metric on the basis of each of the DB dimensions.
+
+Fig. 11 shows the overall results of the comparisons between different ML models as well as the distribution of the DB dimensions and the corresponding number of supporting experiments; the bars on top of zero line display that models in horizontal axis are more accurate, whereas the bars below zero line indicate that models in horizontal axis are less accurate.
+
+On top of that, for every comparison between two models, DB dimensions are illustrated to display the performance of ML model by dimension.
+
+More details of the comparison results can be found in Table C.10 in Appendix B.
+
+PARAGRAPH
+
+Several significant comparison results can be found in Fig. 11.
+
+First, NN, EL and DT are more accurate than SVM for the investigation of all the three DB dimensions, and this is supported by an adequate number of experiments.
+
+On the other hand, SVM, EL, DT and IB are more accurate than BL.
+
+More precisely, SVM and EL are highly performant than BL for the assessment of all DB dimensions.
+
+Further, EL is more efficient than IB and NN, while NN was found to perform equally to BL on every DB dimension.
+
+However, some of these findings are inconsistent with what we have found in (Sections: 4.2.1, 4.2.2, 4.2.3), where SVM was found to perform better than EL in evaluating Driving events and BL was shown to outperform SVM for the same DB dimension.
+
+Also, NN was proven to outperform EL in the examination of the Physiological state and NN was found to outperform BL in all DB dimensions.
+
+These contradictions may be resulting from: (1) all the experiments demonstrating (i) the superiority of EL over SVM and SVM over BL in the analysis of Driving events, (ii) the advantage of DT over SVM in the Psychological state and (iii) the upper hand of EL over NN and over BL in the analysis of the Physiological state and Driving events respectively, come from studies that are likely to have a bias towards the superior models; (2) these studies barely performed trials to compare the superior models and the inferior ones, so that the majority of their studies depicting high estimation accuracy contribute nothing to this comparison; and (3) the number of experiments in these comparisons is higher in favor of the superior models’ studies comparing to the inferior ones.
+
+Second, other results such as the advantage of SVM over IB and CL, the performance of EL and SVM is nearly the same in investigating the physiological state, also DT was found to outperform IB in assessing psychological state while IB outperformed DT in the driving events, these findings, amongst others, are coherent with the results of Section 4.2.
+
+Third, for the comparisons between the other ML models, the number of evaluations is relatively insufficient, particularly when dealing with every dimension separately, and some comparisons are even found to be inconsistent.
+
+Thus, it is hard to decide which ML model is more accurate.
+
+PARAGRAPH
+
+SECTION
+
+Strengths and weaknesses of ML models
+
+PARAGRAPH
+
+Selecting the appropriate ML models for the DB estimation contexts can be addressed by investigating the candidate ML models from their characteristics, which are generally outlined by the strengths and weaknesses of the ML techniques as recorded by researchers.
+
+Hence, the strengths and weaknesses of the ML techniques supported by more than one study are introduced in this section.
+
+The SVM has been applauded for its excellent ability to deal with redundant features, non-linear, high-dimensional and small samples, this makes the SVM suitable for classification problems with redundant data sets.
+
+NN works reliably with noisy data and has been proven to hold strong generalization and learning ability as well as adaptability.
+
+BL are capable of explicitly modeling the time-dependent nature of driver state and allow the inclusion of contextual factors that influence DB, they can also infer the state of an unobserved variable given the state of observed variables.
+
+Moreover, the reviewed research have proven that BL can be more analytically demanding when augmented-density attributes are involved, but still tractable and frugal when using flexible inputs; in the author’s view, models such as Naïve Bayes and Baseline Bayesian are computationally efficient, while other, more elaborate methods such as Bayesian Networks and Tree Augmented Bayesian Networks can be more computationally expensive for high-dimensional data.
+
+EL is extensively used in behavioral modeling because they can model any time series, they are also robust against overfitting and relatively robust to outliers and noise.
+
+DT have been acclaimed for their effectiveness to construct classifications of DB through segmenting the data set into smaller and more homogeneous groups and can avoid overfitting by pruning.
+
+The detailed information on the synthesized strengths and weaknesses of different ML techniques is presented in Table D.11 in Appendix D.
+
+PARAGRAPH
+
+Although ML techniques have been proved in some studies to be efficient for DB estimation, they do not always perform well on all DB tasks.
+
+For that matter, an utterly “supreme” estimation method does not seem to exist, and the ML model performance relies profoundly on the contexts it applies to.
+
+Therefore, researchers need to comprehend not only the characteristics of the candidate ML techniques, but also the DB contexts in order to choose ML techniques properly and apply them to real-world DB tasks efficiently.
+
+SECTION
+
+Conclusion, research implications and limitations
+
+PARAGRAPH
+
+This paper presents the findings of a systematic review that academics and practitioners can use to unlock the immense potential of understanding driving behavior analysis in reference to its dimensions along the cross cutting themes identified in the study.
+
+Although our work cannot claim to be all-embracing, we believe that it will prove a beneficial resource for anyone interested in driving behavior research, and will help induce further interest in the field.
+
+The first section of the paper presented a conceptual framework to outline the relationship between the different dimensions of the DB and the Driver–Vehicle–Environment system.
+
+Conceptual frameworks have been proven to be important contributions in understanding the mechanisms influencing behavior, and in the development of interventions to improve safety outcomes (Newnam and Watson, 2011).
+
+Therefore, a crucial part of our research is the construction of a broader theoretical framework that provides a direction for the future development and implementation of DB intervention strategies along with the designation of a reference collection of relevant literature.
+
+The second section introduced an extensive overview of academic articles in the sense of evaluating the performance of various ML techniques amongst themselves and with the non-ML techniques used for DB analysis.
+
+Although the importance of ML techniques in assessment of DB has been recognized, a systematic literature review of their application in DB research studies is lacking.
+
+We have within the confines of the formulated research questions completed a rigorous analysis by following a systematic series of steps and analyzing the quality of the studies we identified 82 primary studies published in the last decade (2009–2019).
+
+However, with the dynamic nature of DB research, we cannot fully guarantee to have taken into account all the available studies in this research domain.
+
+The investigation of ML based DB estimation was conducted following four standpoints: the type of ML techniques, the estimation accuracy of ML models, the comparison between different models (including ML model vs. non-ML model and ML model vs. other ML model), and the strengths and weaknesses of the ML models.
+
+The main findings obtained from the selected primary studies are:
+
+PARAGRAPH
+
+When interpreting the results of this SLR, some limitations should be captured.
+
+Of note, only about 24% of the primary studies compare ML techniques with non-ML techniques.
+
+Thus, the results of these comparisons are not definitely conclusive.
+
+Also, while comparing ML techniques, various experimental settings are likely to be used by each study, which include data sets to construct model, validation methods, feature selection methods and pre-processing methods to remove outliers Wen et al. (2012).
+
+Furthermore, this review considered only the metrics of Accuracy, Recall and Specificity when evaluating the performance of ML models or comparing ML models with other models as they are among the most important ones and were used by most of the studies.
+
+However, considering other performance metrics such Precision and Classification Errors, which were ignored in this review, could be a valuable addition to the analysis strategy.
+
+Generally, academics will exclude a model which does not accomplish the minimum accuracy threshold (Mair et al., 2000).
+
+Moreover, some inconsistencies have been displayed throughout the comparisons between ML models and non-ML models and between different ML models is assessing each of the DB dimension, despite the fact these incompatibilities were addressed, it is difficult to determine which model outperform the other due to the insufficient amount of the studies relating the desired comparisons that could have been the cause for such inconsistencies.
+
+PARAGRAPH
+
+We have presumed that all the selected studies are unbiased, however, this is regarded as threat if that is not the case.
+
+Also, this review does not include any work in progress, unpublished or non-peer reviewed publications which may be able to answer any of the research questions.
+
+Lastly, the strengths and weaknesses of ML techniques were extracted directly from the selected studies.
+
+That is, some of them may just stand for the authors’ opinions and then prove to be unreliable.
+
+For that reason, we only considered the ones that are supported by two or more selected studies.
+
+Notwithstanding that these strengths and weaknesses are in general trustworthy coming from studies proven to be with acceptable quality throughout quality assessment process, it is recommended to further validate the veracity of the summarized strengths and weaknesses of ML techniques in this review.
+
+PARAGRAPH
+
+This review provides recommendations for researchers as well as guidelines for practitioner to carry out future research on DB analysis using the ML techniques:

@@ -1,0 +1,545 @@
+10.1016/j.jhep.2019.11.007
+
+FULLTEXT
+
+TITLE
+
+The Phosphatidylethanolamine Biosynthesis Pathway Provides a New Target for Cancer Chemotherapy
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Organoids have provided a very powerful model system for analyzing organogenesis and disease pathophysiology (1, 2).
+
+We recently developed a novel method to direct the differentiation of induced pluripotent stem cells (iPSCs) into 3-dimensional human hepatic organoids (HOs), which consist of sheets of hepatocytes, and cholangiocytes that are organized into epithelia that surround the lumina of duct-like structures.
+
+The HOs have biosynthetic, and functional capabilities of human liver; and HOs with engineered mutations provide a unique model for studying human disease-causing genetic mutations (3).
+
+In response to changes in the growth factors added to the media, HOs develop through stages that resemble human liver during embryonic development.
+
+Because of these properties, HOs could be used to identify pathways regulating discrete stages in liver development and disease pathogenesis.
+
+PARAGRAPH
+
+However, at each differentiation stage, HO cultures contain different types of cells, and sub-populations of each cell type can be in various stages of differentiation; which makes it very difficult to identify critical transcriptional changes through analyses performed on the bulk population (4).
+
+To deal with the cellular complexity within dynamically changing organoid cultures at different developmental stages, single cell RNA sequencing (scRNA-Seq) can be used to simultaneously analyze global changes in the transcriptome of many individual cells.
+
+This analytic methodology (5) has dramatically advanced our ability to analyze cellular fate determination (4, 6), cell ontogeny (7), and cell heterogeneity in various tissues (8-11), including liver (12).
+
+However, when any ‘omic’ methodology is used in isolation, it can be very difficult to determine which of many measured gene expression changes are critical for even a single differentiation step.
+
+To identify the key pathways for early liver development, we simultaneously characterized metabolomic and transcriptomic changes that occur during an early stage of HO formation.
+
+Our reasoning was that a change in the level of mRNA expression for a gene within a metabolic pathway with an altered metabolite is likely to be of importance.
+
+This integrative analysis identified a biosynthetic pathway that plays an important role in early liver development.
+
+Based upon this finding and an independently performed study of mitochondrial drug effect (13), we discovered that a commonly used over the counter medication targeting this pathway could be used as one component of a new combination treatment for primary liver cancer.
+
+Systemic therapies that are effective and well-tolerated are critically needed for primary liver cancer because it is one of the few cancers whose incidence has continued to rise in the US and worldwide (14, 15), it has a dismal 5-year survival with little improvement in recent times (12.2% in 2001-2003 and 14.8% in 2004-2009) (16); and limited treatment options are available (17).
+
+SECTION
+
+Materials and Methods
+
+PARAGRAPH
+
+Hepatic organoid (HO) preparation.
+
+The three control (C1, C2, C3) and two ALGS (ALGS1, ALGS2) iPSC lines used in this study, and the methods for directing their differentiation into HOs are fully described in (3).
+
+PARAGRAPH
+
+scRNA-seq data generation.
+
+Single cells from iPSC (day 0), day 9 HB, and day 30 HO cultures, and PHHs were prepared using the C1 Single-Cell Auto Prep System (Fluidigm, South San Francisco, CA).
+
+The captured cells across the 96 wells were manually inspected as a quality control measure to remove empty wells, doublets or debris-containing wells.
+
+For quality control (normalization and estimation of technical noise), 0.05 μl of 1:200,000 dilution of External RNA Controls Consortium (ERCC) RNA spike-in Mix1 (Ambion, AM1780) was added to lysis buffer.
+
+High-quality cDNA libraries for single cell transcriptome analysis were prepared using the SMART-Seq v4 Ultra Low RNA Kit for the Fluidigm C1 System (Takara Bio USA, 635025) according to (18).
+
+The size distribution and the concentration of single-cell cDNA were assessed using a Agilent 2100 Bioanalyzer with the high sensitivity DNA Kit (Agilent Technologies, Santa Clara, CA, 5067).
+
+Sequencing libraries were constructed in 96-well plates using the Nextera XT DNA Sample Preparation kit according to the manufacturer’s protocol (Illumina, San Diego, CA, FC-131-1096) with 96 dual barcoded indices (Illumina; FC-131-1002).
+
+Library cleanup and pooling was performed using AMPure XP beads (Agencourt Biosciences; A63880).
+
+Up to 200 quantified single-cell libraries were pooled, and these were sequenced 150 bp paired-end on one lane of Illumina HiSeq 2000 to a depth of 2.1 million reads per cell.
+
+The methods used for scRNA-Seq data analysis are described in the supplemental methods.
+
+The raw and processed scRNA-Seq data are deposited in the GEO database (GSE139382).
+
+PARAGRAPH
+
+Metabolomic Analysis.
+
+The semi-targeted metabolomic method (STMM) uses Dansyl [5-(dimethylamino)-1-napthalene sulfonamide] derivatization coupled with LC/MS analysis, which is the method that we have previously successfully used to analyze metabolomic changes in other systems (19-21).
+
+Dansylation increases metabolite detection sensitivity by 10-1000 fold, which enables changes in many metabolites with primary or secondary amino (and other) groups to be evaluated in an unbiased fashion (22).
+
+LCMS grade acetonitrile; methanol and water were purchased from Honeywell Burdick and Jackson (Muskegon).
+
+High purity formic acid was purchased from Thermo Scientific (Rockford, IL).
+
+A Folch extraction was performed on three independent samples of iPSC and hepatoblast cultures, each containing about 1 million cells.
+
+An aliquot of the aqueous layer containing the polar compounds were labeled with Dansyl [5-(dimethylamino)-1-napthalene sulfonamide], and the LCMS analysis was performed using our previously described methods (19).
+
+The identity of phosphoethanolamine was confirmed by its retention time and LC/MS/MS pattern relative to that of a chemical standard (Sigma).
+
+Of note, the abundance of phosphoethanolamine in iPSCs was below the minimal Signal to Noise ratio of 10; so its abundance was set to a baseline abundance of 1000 that was used for the fold abundance calculation.
+
+PARAGRAPH
+
+Since we were searching for metabolic differences at an early stage of liver development, broad-spectrum metabolomic profiling was used to compare the levels of many different metabolites (>500) in iPSC and HBs.
+
+Because of this, the metabolomic results are reported as a ratio (i.e. fold change of the hepatoblast over the iPSC value), of what was actually measured.
+
+It is now is an accepted practice to report fold-changes and significance levels for this type of analysis (23).
+
+PARAGRAPH
+
+PCYT2 gene knockout experiments.
+
+The sequences of three site-specific guide RNAs (sgRNAs) that target exons 8 and 12 of the PCYT2 gene, which were determined using the CRISPR Design Tool (24), are: (i) gccctggtgggcggaacccc, (ii) gatgactgtctcccctggct, and (iii) ggacgatgaggtctgtggtg.
+
+Oligonucleotides with these sequences were cloned into the lentiCRISPR v2 vector (Addgene #52961, Cambridge, MA), which uses the Puromycin selection to enrich for cells with a PCYT2 KO.
+
+Control iPSCs (C1, C2 and C3) were pelleted and mixed with 5∼10 μg CRISPR sgRNA expression vectors in 100 μl of human ES cell solution 1 (Lonza), and nucleofection program A23 was applied.
+
+On day 3, puromycin was added to select for cells with a PCYT2 KO; and after 48 hrs, the iPSCs lines were split and placed into media to direct their differentiation into HB for 3 days, and the cells were transferred into another media to direct their differentiation into HBs (using previously described methods (3)).
+
+On day 4, we noted that the PCYT2 KO cells were dying, and the Trypan Blue dye exclusion assay was performed to assess cell viability.
+
+In brief, 100 μl of the cell suspension was mixed with 100 μl 0.4% Trypan Blue stock solution (T8154 Sigma), and cell counts were performed immediately under bright field microscopy.
+
+PARAGRAPH
+
+Animal studies.
+
+The Stanford University Administrative Panel on Laboratory Animal Care (APLAC) approved the animal protocol and the experimental procedures.
+
+For these studies, highly immunocompromised NOG mice (25) were housed in a specific pathogen-free room, which was equipped with a HEPA filter system with 12 hours light/dark cycle.
+
+The methods used in performing the animal studies are described in the supplemental methods.
+
+PARAGRAPH
+
+Patient samples and human ethics approval.
+
+The primary peripheral blood samples were obtained from subjects with acute myeloid leukemia prior to treatment, and after informed consents were obtained.
+
+The study was performed according to institutional guidelines that were approved by the Stanford University Institutional Review Board No. 6453.
+
+Patient details are provided in Supplemental Table 1.
+
+PARAGRAPH
+
+Culture of primary AML cells.
+
+The methods for AML blast culture were previously described (26).
+
+In brief, vials containing > 95% AML blasts were thawed in 20% fetal bovine serum + IMDM with DNAse; and plated at 1 x 105 - 1 x 106 cells /ml in IMDM with 0.5% serum and 20 ng/ml stem cell factor, Flt3L, thrombopoietin, interleukin-6, and interleukin-3.
+
+Various concentrations of meclizine and/or PFK148 were also added to the culture medium.
+
+After 96 hours in culture, the number of live cells was determined by flow cytometry using bead:cell ratios to count absolute numbers of propidium iodide-negative CD45 mid/side scatter blast gate cells as described (26).
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+scRNA-Seq Analyses of developing HOs.
+
+To characterize the dynamic changes that occur as a control iPSC line (C1) differentiates into an organoid, scRNA-Seq was performed on the iPSC, day 9 hepatoblasts (HB), and day 21 HO cultures; and scRNA-Seq was also performed on primary human hepatocytes (PHHs) for comparison purposes.
+
+The t-Distributed Stochastic Neighbor Embedding (t-SNE) method was used to visualize this high dimensional data, which enables the relationships across each developmental stage to be evaluated.
+
+This analysis shows the developmental path as the iPSCs differentiate into hepatoblasts (HBs) and then into primary human organoids; and the transcriptome profile of many cells within the HO was similar to that of PHHs (Fig. 1A).
+
+Unexpectedly, this analysis identified two clusters of HBs: (i) early HBs whose expression profile was close to that of iPSC; and (ii) late HBs whose expression profile was similar to that of PHHs and HO.
+
+This finding is consistent with prior gene expression results, which indicated that there is a ‘resonant state’ between pluripotent cells and their progeny when the cells are in an early stage of differentiation (27).
+
+The early HBs express more pluripotency-related genes, which are lost as the cells are further differentiated.
+
+PARAGRAPH
+
+Additional transcriptomic analyses revealed that HOs contain cells that are similar to hepatocytes, and others that are similar to cholangiocytes (Figs. 1B-E).
+
+The validity of the scRNA-Seq data is confirmed by the fact that mRNAs-which are characteristically expressed in iPSC (NANOG, OCT4), PHHs (A1AT, ALB), or cholangiocytes (CFTR)-were expressed in the appropriate cell type (Fig. S1).
+
+Analysis of this data (and from organoids formed from other iPSC lines) with another statistical method confirmed that cells within the different groupings were clustered, and the same developmental relationships were apparent (supplemental comments, (FigS1 S2)
+
+PARAGRAPH
+
+To better characterize the maturity of cells in HOs, we compared their transcriptome with previously obtained transcriptomic data for hepatocytes present in one fetal (gestation age 17.5 weeks) and three adult (ages 21-65) livers (28) using t-SNE visualization.
+
+As expected, the transcriptomes of hepatocytes in adult liver and PHHs were tightly clustered; while the transcriptomes of hepatocytes in fetal liver were separated from that of the adult liver hepatocytes/PHH cluster (Fig. 2A).
+
+Of importance, the transcriptome of HOs cells was more closely related to adult hepatocytes/PHH than to fetal hepatocytes.
+
+The SLICER method (29) was also used to computationally infer a developmental trajectory for the cells starting from iPSC.
+
+As with the t-SNE visualization, this method generated a developmental path from iPSC to HB, and then to HO, and then to adult hepatocytes/PHH (Fig. 2B).
+
+However, a small proportion of HB cells (∼15 out of 149) diverged from the main path, which indicates that a subset of the HBs could have a different developmental fate.
+
+Of importance, most HO cells are located farther away from iPSCs, and are closer to adult hepatocytes/PHH than to fetal hepatocytes (Fig. 2B).
+
+Also, HBs were located closer to fetal hepatocytes, and were far away from the adult hepatocytes.
+
+These results indicate that the transcriptomic profile of HO cells resembled that of mature hepatocytes, while HBs had a closer resemblance to fetal hepatocytes.
+
+This analysis also identified many genes that were expressed at specific stages of HO development, and several were also associated with liver or liver cancer development (see supplemental comments, Table S1; Figs. S3-S4
+
+PARAGRAPH
+
+A phosphatidylethanolamine (PE) biosynthesis pathway is essential for HB differentiation.
+
+To identify changes in mRNA levels that are essential for early liver development, a semi-targeted metabolomic method (22), which we have previously used to analyze other systems in an un-biased manner (19-21), was used to characterize metabolomic changes occurring when iPSC differentiate into HBs.
+
+Of the 494 metabolites evaluated, only eleven had a >3-fold abundance difference (P<0.05); and only three had a >10-fold difference in abundance between iPSC and HBs (Fig. 3A).
+
+Of these metabolites, phosphoethanolamine (P-Etn) had the greatest differential abundance; its abundance was >170-fold increased in HBs (p=0.018) relative to that in iPSCs.
+
+In contrast, there was no difference in ethanolamine abundance in iPSC vs. hepatoblasts (Fig. 3B).
+
+The marked increase in phosphoethanolamine abundance in HBs was of interest, since it is required for the biosynthesis of phosphatidylethanolamine (PE), which accounts for 25% of all cellular phospholipids and is critical for cellular membrane formation (30).
+
+Although it can be produced via four different biosynthetic pathways, the CDP-ethanolamine pathway is one of the major PE biosynthetic pathways (PEBP) in the liver (31-34).
+
+Analysis of bulk sample RNA-Seq data indicated that mRNAs encoding all three enzymes in this pathway (ENTK1, PCYT2 and SELENOI) (30) were increased in HBs (75, 58 and 41 fold, respectively) (Fig. 3B).
+
+PCYT2 encodes the rate-limiting second enzymatic step in the PEBP pathway (30, 35) (Fig. 3B).
+
+Consistent with our metabolomic results, it was previously observed that when physiologic ethanolamine concentrations are present, increased ENTK1 expression in cell lines produces a marked increase in cellular phosphoethanolamine, but not an increase in CDP-ethanolamine (36).
+
+Taken together, the transcriptomic and metabolomic changes indicate that the mRNAs for the enzymes and a key metabolite in the PEBP are coordinately increased at an early stage of liver development.
+
+PARAGRAPH
+
+To determine if the PEBP is essential for early liver development, three different sgRNAs were used to prepare iPSCs with a CRISPR-mediated PCYT2 gene knockout from control iPSC lines (KO1-3).
+
+Two control iPSC (C1, C2) and three PCYT2 KO lines were differentiated into endoderm on day 3, and then transferred into the media that directs their differentiation into HBs.
+
+When the cultures were examined on day 4, the control iPSC lines could differentiate into endoderm, and remained viable in the HB media.
+
+While each of three PCYT2 KO cells could differentiate into endoderm, >95% of these cells were dead within 24 hrs after transfer to the HB media (Fig. 4A).
+
+This unexpected result is consistent with the fact that a homozygous Pcyt2 KO is embryonic lethal in mice (37).
+
+While mice with a hepatocyte-specific conditional Pcyt2 gene deletion had liver abnormalities, they were viable and fertile (38); which is probably due to the fact that the conditional knockout occurs after the liver has developed.
+
+PARAGRAPH
+
+Early HBs are selectively sensitive to PEBP inhibition.
+
+Meclizine is an over the counter anti-histamine that is widely used for the treatment of motion sickness and vertigo (39, 40), and it was recently found to be a non-competitive inhibitor of PCYT2 enzyme activity (41).
+
+Therefore, we examined whether meclizine would have the same effect on early HBs as a CRISPR-mediated PCYT2 KO.
+
+Within 24 hrs after exposure to meclizine, virtually all cells in the day 4 cultures, which were in the early stage of differentiating toward HBs, were killed (Fig. 4B).
+
+Growth factor (FGF10 or HGF) addition did not reduce their sensitivity to meclizine-induced cell death.
+
+We previously demonstrated that HOs contained a population of SOX9+CK7+ cells that resemble liver progenitor cells; and that after HOs were formed, they could be dissociated into single cells, which could re-form hepatic organoids when placed in growth medium (3).
+
+Therefore, we examined whether meclizine could inhibit organoid re-formation.
+
+Meclizine was a potent inhibitor of organoid reformation; 4 μM meclizine inhibited organoid regeneration by 50% (Fig. 4C).
+
+PARAGRAPH
+
+To better define the time period for sensitivity to meclizine-induced cell death, cell survival was examined after meclizine was added to iPSC cultures (day 0); or when it was added to early (day 4), mid (day 7) or fully differentiated HB (day 10) cultures.
+
+Only the early HBs (day 4) were sensitive to meclizine-induced cell death; 4 μM meclizine killed 50% of the cells at this stage.
+
+In contrast, the day 7 and day 10 HB cultures were relatively insensitive to meclizine-induced cell death (Fig. 4D).
+
+Human iPSCs were far less susceptible (LD50 ∼60 μM), and human fibroblasts (LD50 >80 uM) and adult PHHs (LD50 >80 μM) were resistant to meclizine-induced cell death.
+
+Unlike the early HBs, human iPSC in the early stage of differentiating into cardiomyocytes (day 5) were no more sensitive to meclizine-induced cell death than were iPSCs; and fully differentiated induced cardiomyocytes (day 20) were not sensitive to meclizine-induced cell death (Fig. 4E).
+
+Moreover, HUH7 (42) and Hep G2 (43, 44) cell lines, which represent well differentiated hepatocellular carcinomas, were also relatively resistant to meclizine-induced cell death (Fig. 4E).
+
+It was possible that the hepatoblast differentiation media could increase the susceptibility of differentiating cells to meclizine-induced cytotoxicity.
+
+However, the susceptibility of iPSC, which were not differentiated into endoderm, to meclizine-induced cytotoxicity was not increased when they were cultured in the hepatoblast differentiation media (Fig. 4F).
+
+Thus, susceptibility to meclizine-induced cytotoxicity required that the iPSC were differentiated into endodermal cells.
+
+Taken together, these results indicate that there is a time window when cells in the early stage of organoid formation (which is reflective of early liver development) are extremely sensitive to PEBP inhibition.
+
+PARAGRAPH
+
+PEBP in hepatocellular cancer.
+
+iPSCs express high levels of mRNAs encoding CD24, CD90, PROM1 (CD133) and EPCAM (Fig. S3).
+
+Based upon expression within a subset of cells within tumor samples that will form tumors in xenotransplantation models; CD133 (45, 46), EpCAM (47), CD24 and CD90 (48-51) have been identified as markers for cells contributing to the growth and maintenance of primary liver cancer.
+
+Moreover, DLK1, which is expressed in HBs (Fig. S3), has been identified as a potential therapeutic target liver cancer (52).
+
+To investigate the possibility that the PEBP could be a therapeutic target for liver cancer, two gene expression datasets in the Cancer Gene Atlas (53) were examined.
+
+One contained 374 primary (HCC1) or recurrent hepatocellular carcinomas (HCC2) and 50 normal liver samples (N1), and the other had 31 cholangiocarcinomas (CC) and 8 normal liver samples (N2).
+
+The SLICER method (29) was used to examine the relationship between the transcriptomes of HCC, normal liver tissue, and cells in developing HO cultures.
+
+This analysis revealed that the transcriptome of HCC clusters with that of HO and HB cells; and was distinct from that in normal liver tissue (Fig. 5A and supplemental comments,).
+
+We also compared the expression level for mRNAs encoding PEBP pathway genes (ETNK1, ETNK2, PCYT2, and SELENOI) in the HCC, CC and normal liver samples.
+
+Of importance, PCYT2 mRNA was significantly increased in primary HCC (1.7-fold, p value 1x10-7), and its expression was further increased in recurrent HCC (3.3-fold, p value 7x10-9) relative to normal liver (Fig. S5, Table S2).
+
+PARAGRAPH
+
+Many types of cancer cells have very high rates of glycolysis, which results from oncogene-induced increases in glucose uptake and in the enzymes involved in glucose metabolism (54).
+
+Rapidly growing hepatoma cell lines are metabolically adapted to grow in high glucose media, and they derive the bulk of their energy from glycolysis (55) (Fig. 5B).
+
+Although this pathway produces only 5% of the potential energy that could be generated from a glucose substrate by mitochondrial oxidative phosphorylation (OXPHOS), the flux through this pathway can be greatly accelerated when glucose is abundant.
+
+Since conversion of galactose to pyruvate generates no net ATP, when mammalian cells are switched to a media where galactose is the sole sugar source, they use OXPHOS as their energy source.
+
+Also, cancer cells use glutamine metabolism via the tricarboxylic acid cycle as the major pathway for producing the molecules required for proliferation (56, 57).
+
+Since HCC may exist within a metabolically constrained environment in the liver, we examined the effect of meclizine on the growth of two hepatoma cell lines (Hep G2 and HuH7) in media containing galactose and glutamine.
+
+In this media, 40 μM meclizine inhibited the growth of both hepatoma lines at 24 and 48 hrs (Fig. 5C).
+
+These results indicate that meclizine could inhibit the hepatocarcinoma cell line growth when they are dependent upon mitochondrial OXPHOS for energy production.
+
+Studies were then performed to characterize the mechanism of action of meclizine-induced cytotoxicity.
+
+After HepG2 cells were incubated with 40 uM meclizine for 24 hrs, cellular phosphoethanolamine was significantly increased (3.7-fold, p=0.004), while the ethanolamine level was not changed (Fig. 5D).
+
+Meclizine also induced a decrease in both the basal (p=0.001) and maximal (p=0.001) oxygen consumption rates in the hepatocellular carcinoma line (Fig. 5E).
+
+These effects are all consistent with the previously proposed mechanism of action for meclizine (41).
+
+PARAGRAPH
+
+Recently, 6-phosphofructo-2-kinase/fructose-2,6-biphosphatase 3 (PFKFB3) inhibitors have been produced (58-60), and a third generation inhibitor (PFK158) is now in clinical testing as an anti-cancer agent (61-64).
+
+PFKFB3 stimulates glycolysis because the product of its enzymatic activity (fructose-2,6-bisphosphate F2,6P2) is an allosteric activator of the rate-limiting enzyme (phosphofructokinase-1, PFK-1) in the glycolysis pathway (Fig. 5B).
+
+PFKFB3 expression is induced by hypoxia (65), and it is overexpressed (66) and highly phosphorylated (67) in many different types of cancer.
+
+Therefore, it was possible that PFKFB3 inhibition, which would increase cellular dependence upon mitochondrial OXPHOS, could inhibit the growth of HCC when used in combination with meclizine.
+
+Consistent with this possibility, the combination of meclizine and PFK158 inhibited the growth of both hepatoma cell lines (Fig. 5C).
+
+Although meclizine alone did not inhibit their growth in the glucose media, the mitochondrial membrane potential of the HepG2 hepatocellular carcinoma line in the glucose media (and also in the galactose/glutamine media) was altered by meclizine (Fig. S6).
+
+This effect is consistent with meclizine’s known mechanism of action (discussed below).
+
+To more fully characterize the effect of this drug combination, we examined the effect of exposure to 24 different combinations of meclizine and PFK158 concentrations for 24 and 48 hrs on HepG2 viability (Fig. S7).
+
+This data indicates that there is a very significant interaction between the two drugs, which appeared at both time points (p < 2.2 x10-16 for both exposure periods).
+
+Specifically, in the presence of a high dose of Meclizine (40 μm) and PFK158 (2 or 5 μm), a significant synergistic effect on cell growth appeared at both time points: this drug combination reduced cell viability by 1.4-fold more than expected by simply adding the effect of each individual drug at the same dose.
+
+A lesser, but consistent effect on cell viability, was also observed with the combination of 20 uM Meclizine and 2 (or 5) μm PFK158.
+
+The synergistic effect of this drug combination was also observed at lower drug concentrations; this effect was especially apparent at 48 hr time point: 5 μM concentrations of both drugs induced an additional 1.5-fold decrease in cell viability relative to total additive effect of each of the two drugs (Fig. S7).
+
+Additional studies were also performed to characterize the mechanism of action of meclizine-induced cytotoxicity.
+
+Low concentrations of meclizine (2 or 5 μM) altered the mitochondrial membrane potential of HepG2 cells (Fig. S8).
+
+The effect on the mitochondrial membrane potential, which is a very sensitive assay for cellular perturbation, is consistent with the synergistic effect that low meclizine concentrations had when combined with PFK158.
+
+Also, after HepG2 cells were incubated with 40 uM meclizine for 24 hrs, cellular phosphoethanolamine was significantly increased (3.7-fold, p=0.004), while the ethanolamine level was not changed (Fig. 5D).
+
+Meclizine also induced a decrease in both the basal and the maximal oxygen consumption rate in the hepatocellular carcinoma line (Fig. 5E).
+
+These effects on mitochondrial respiration are consistent with the previously characterized mechanism for the inhibitory effect of meclizine on cell growth (41).
+
+PARAGRAPH
+
+Because of these results, we investigated whether mRNA levels for PEBP pathway mRNAs or PFKFBK3 could predict survival risk after HCC diagnosis.
+
+Kaplan-Meier survival curves showing the survival time after primary HCC diagnosis in The Cancer Gene Atlas (TCGA) (50) (n=371) cohort were prepared based upon the level of PCYT2, ETNK2 or PFKFB3 mRNA expression in each HCC sample (Fig. 6).
+
+The expression level for each mRNA was classified as high (or low) if it was above (or below) the median level in the respective cohort.
+
+To confirm this finding, the same analysis was performed using the data obtained from 242 HCC subjects in the Fudan (61) cohort.
+
+Subjects whose HCCs had a higher level of ETNK2 mRNA expression had a significantly longer median survival time than those with a lower level in both cohorts (TCGA p=0.04, Fudan p=3x10-5) (Fig. 6, S9).
+
+Also, HCC with a lower level of PFKFB3 mRNA expression had a significantly longer survival time (TCGA p=0.01, Fudan p=9x10-4).
+
+In contrast, the level of PCYT2 mRNA expression was not associated with a significant survival difference in either cohort (Fig 6).
+
+The fact the ETNK2 and PFKFB3 mRNA expression level predicted survival in both cohorts was somewhat unexpected, especially since prior genome-wide mRNA profile clustering failed to identify TCGA subgroups with different survival periods (53).
+
+However, the fact that subjects with a lower PFKFB3 mRNA expression level had a longer survival is not surprising.
+
+Since PFKB3 enzyme activity generates a metabolite that increases the rate of glycolysis, cancers with a lower level of PFKFB3 enzyme activity will have a lower rate of glycolysis, i.e. they will have less Warburg Effect type of metabolic alterations that are associated with uncontrolled proliferation of cancer cells (68).
+
+Although the basis for the relationship between ETNK2 mRNA levels and survival is less clear, it is possible that HCC with higher ETNK2 mRNA levels retain properties of hepatic cells and are more differentiated than HCC with a low level of ETNK2 mRNA.
+
+The decrease in ENTK2 mRNA and increase in PFKFB3 mRNA levels as the HCC stage increases is consistent with these possibilities (Fig. S9).
+
+Also, HCC with lower PFKFB3 activity will be more dependent upon mitochondrial OXPHOS as an energy source, and thus would be more sensitive to the mitochondrial effect of the elevated P-Etn concentration caused by meclizine-mediated inhibition of PCYT2.
+
+PARAGRAPH
+
+Drug efficacy in a human hepatocellular carcinoma liver xenotransplantation model.
+
+To assess the efficacy of meclizine and PFK158 treatment in vivo, we developed a novel xenotransplantation model in which a well differentiated human hepatocarcinoma cell line (Hep G2) (43, 44) was transplanted into the liver of immunocompromised NOG mice.
+
+The transplanted Hep G2 cells stably expressed a GFP-luciferase fusion protein, which enabled a bioluminescence-based assessment of the human tumor burden within the liver (Fig 7A).
+
+One day after transplantation of 1x106 human cells, mice with similar signal intensities in their livers (p=0.98) were randomly separated into two groups (Fig. S10A).
+
+Each group was then treated for a two-week period (orally) each day with either vehicle, 25-mg/kg meclizine, 25 mg/kg PFK158 or with both drugs.
+
+After two weeks of treatment with either meclizine (p=0.92) or PFK158 alone (p=0.54), the liver tumor burden was not reduced relative to vehicle treated mice (Fig. S10B).
+
+However, the liver tumor burden was substantially reduced in mice that received both meclizine and PFK158 relative to vehicle treated mice (P=0.02) (Fig. 7B).
+
+Of note, five drug-treated mice had no detectable human tumor cells within their livers, while all of the vehicle treated mice had significant levels of human tumor cells in their livers.
+
+Drug combination efficacy in reducing the liver tumor burden was confirmed in an independent experiment (p=0.037) (Fig. 7C).
+
+In the vehicle treated mice, the transplanted human hepatocarcinoma cells formed macroscopic tumors that were visible to the naked eye when the liver tissue was harvested, which infiltrated the livers (Fig. 7D).
+
+Also, the drug-treated mice had a normal appearance, and no liver toxicity was apparent by serologic testing (P=0.8) (Fig. 7E).
+
+Moreover, mice treated with meclizine (25 mg/kg PO qd) and PFK158 (25 mg/kg PO qd) maintained their body weight after 26 days of treatment (p= 0.24) (Fig. S11).
+
+Even when drug treatment was delayed for 3 weeks after human hepatocarcinoma cell transplantation, treatment with the combination of meclizine and PFK158 for one (p=0.14), two (p=0.037) or three weeks (p=0.021) caused a significant reduction in liver tumor burden (Fig. 7F).
+
+These results demonstrate that treatment with meclizine and PFK158 can synergistically reduce the growth of a human hepatocarcinoma cell line in vivo.
+
+PARAGRAPH
+
+Efficacy for Acute Myeloid Leukemia (AML).
+
+We wanted to determine if PEBP pathway activity could play a role in the progression of a broader range of cancers than was previously known, and if the combination therapy would be effective in other types of cancers.
+
+To investigate this, we first examined the effect of meclizine on primary cultures of AML blasts generated from 3 AML patients at the time of their diagnosis (Table S3).
+
+Interestingly, after 96 hrs in culture, AML blasts obtained from 1 subject were somewhat sensitive to meclizine alone (IC50=17.7 μM).
+
+However, addition of 0.9 μM PFK-158 resulted in the elimination of >95% of the blasts in these cultures in the presence of 10 μM meclizine, and the effect of the drug combination was significantly increased relative to that of 10 μM meclizine alone (p=0.005) (Fig. 8A).
+
+The synergistic effect of this drug combination was also observed in AML blast cultures prepared from the two other subjects.
+
+When 0.9 μM PFK158 was combined with 0.5 μM meclizine, >95% of the AML blasts from both subjects were eliminated; and the drug combination effect was significantly increased relative to that of meclizine alone (AML SU582, p=0.0001; AML SU839, p=0.0001) (Fig. 8B).
+
+These results indicate that the combination of meclizine and PFK158 had a synergistic effect on AML blasts.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The ability to form HOs from human iPSC enables the pathways regulating the various stages in liver development to be analyzed in detail.
+
+The early stages are of particular interest, since they are more difficult to analyze in vivo.
+
+The developmental stages for liver lineage cells have been well demarcated, which provides a useful map of the route followed during liver development.
+
+However, we often lack detailed information about the underlying control mechanisms, which limits our ability to develop therapies for human liver diseases that alter (as in genetic diseases) or usurp (as in liver cancer) the early developmental pathways.
+
+Our transcriptomic and metabolomic analysis, along with the results of our PCYT2 gene knockout and meclizine effect studies, indicated that the de novo PEBP is essential for early hepatoblast development.
+
+At this stage, there is a coordinate up-regulation of the enzymes required for hepatic PE biosynthesis, and this is accompanied by massive increase in the abundance of the metabolite consumed by the rate-limiting step of this pathway.
+
+Similarly, after hepatectomy, there is a marked increase in PE synthesis (69), and ethanolamine availability has been shown to be a primary determinant of the rate of PE synthesis in regenerating liver (70).
+
+PARAGRAPH
+
+Why is meclizine selectively cytotoxic for early hepatoblasts?
+
+The inhibitory effect of meclizine on the growth of hepatocellular carcinoma cells (or AML blasts) cannot be mediated through histamine 1 receptor binding.
+
+Analysis of multiple gene expression datasets indicated that the mRNA encoding this receptor is not expressed in Hep G2 cells [(71) and (72)], nor is it expressed in AML blasts (http://firebrowse.org/viewGene.html?gene=hrh1# and (72)).
+
+However, meclizine has been shown to significantly alter cellular energy metabolism in a variety of different types of cells in vitro; meclizine treatment causes the cells to utilize a larger percentage of their mitochondrial respiration for ATP production (13).
+
+Meclizine’s effect on energy metabolism is rapid (it occurs within minutes), and is mediated via an indirect effect on mitochondria.
+
+When isolated mitochondria were treated with meclizine, their respiration, membrane potential and redox potential were not altered (13).
+
+The mechanism for this metabolic effect became clear after it was discovered meclizine inhibits PCYT2, which markedly increased cellular phosphoethanolamine levels.
+
+Moreover, meclizine increased cellular phosphoethanolamine to a level that inhibited mitochondrial respiration (41), and meclizine-induced effects on cellular respiration were potentiated by addition of ethanolamine (13).
+
+The marked increase in the cellular phosphoethanolamine during early HB differentiation renders these cells particularly susceptible to meclizine-induced cell death due to PCYT2 inhibition.
+
+However, it is important to note that the mechanism by which phosphoethanolamine alters mitochondrial respiration has not been fully characterized.
+
+PARAGRAPH
+
+Could a commonly used over the counter medication be used to treat primary liver cancer?
+
+The marked increase in the metabolite consumed by the rate-limiting step and of the enzymes required for PE biosynthesis indicates that early hepatoblasts in HO cultures have a need for PE biosynthesis.
+
+The similarities in the transcriptome profiles of cells in HO cultures and HCC tissue enabled us to identify an ‘Achilles heel’ for treating certain types of cancers.
+
+Of importance, cancer cell susceptibility to meclizine is not directly due to inhibition of PE biosynthesis.
+
+In contrast, it results from interrupting the pathway at the level of the rate-limiting enzyme with an inhibitor; this increases the cellular level of phosphoethanolamine, which has damaging effects on mitochondrial function, albeit with an as-yet undefined mechanism.
+
+PARAGRAPH
+
+Alterations in cell metabolism are critical for cancer cell growth (54, 73-76).
+
+In addition, fatty acid biosynthesis, which provides the precursors required for PE biosynthesis, is notably the pathway that was identified as most consistently up regulated in primary liver cancer (77).
+
+It has also been shown that PCYT2 mRNA and protein levels are increased in a breast cancer cell line in vitro in response to metabolic stress (78).
+
+The effect of the combination of meclizine and PFK158 is consistent with the known mechanism of action for each of these drugs.
+
+PFK158 reduces the amount of energy produced by glycolysis; this renders cancer cells more dependent upon the energy generated by OXPHOS, which makes them more susceptible to the toxicity caused by the meclizine-induced increase in phosphoethanolamine.
+
+A direct inhibitory effect on the cancer cell growth represents a new way in which PFKFB3 inhibitors could be used for cancer treatment.
+
+Because glycolysis is the predominant bioenergitic pathway in endothelial cells (where it generates 85% of cellular ATP), it regulates blood vessel sprouting (56).
+
+Although PKFB3 inhibitors were originally developed to inhibit metastasis by altering metabolism within the blood vessels supplying the tumor (79), our data demonstrates that PKFB3 inhibitors can be combined with meclizine to synergistically inhibit the growth of the cancer itself.
+
+In this novel approach, a glycolysis inhibitor is used to reprogram cancer cell metabolism to make it susceptible to the cytotoxic effect of meclizine.
+
+Combining anti-cancer therapies with metabolic alterations is a recently discovered method for increasing their effectiveness.
+
+As examples, cancer cell sensitivity to treatment with methotrexate or phosphotidylinositol-3 kinase inhibitors is enhanced by dietary interventions that increase histidine metabolism (80) or reduce hyperglyemia-induced insulin sectretion (81), respectively.
+
+Similarly, administration of tetrahydrobioperin (BH4), a metabolite that is an enzyme cofactor, augments anti-cancer immunity (82).
+
+PARAGRAPH
+
+A major factor affecting survival after treatment of HCC is tumor recurrence; the 5-year recurrence rate ranges from 60-70% (83).
+
+Most recurrences are limited to the liver and develop within 1-year after resection (84).
+
+Even if an HCC is resected at an early stage (size < 2 cm and no evidence of vascular invasion), the 5-year recurrence rate is ∼60% (85).
+
+Of note, the peak plasma concentration (∼0.2 μM) measured after a standard 25 mg oral dose of meclizine in humans (86) is 20-fold below that required for meclizine-induced cell death in early HB cultures.
+
+The intrinsic potency of meclizine as an inhibitor of PCYT2 enzyme activity is relatively weak, since it is an off target effect of a drug that was developed as a histamine receptor antagonist.
+
+It is likely that a drug with increased potency for PCYT2 inhibition could be quickly identified.
+
+Nevertheless, our in vivo xenotransplantation model results demonstrate that meclizine can have a therapeutic effect within the liver.
+
+After an oral dose, the liver is exposed to a higher level of meclizine than is found in plasma.
+
+Also, post-marketing surveillance data on the use of non-prescription strength meclizine in humans, and published animal studies indicate that higher doses of meclizine can be tolerated (50, 87).
+
+Since the meclizine and a glycolysis inhibitor combination was also highly active against acute myeloid leukemic cells, our data indicates that phosphatidyl-ethanolamine biosynthesis is a targetable pathway for cancer treatment, and that meclizine may have clinical efficacy as a repurposed drug for the treatment of HCC and other cancers.

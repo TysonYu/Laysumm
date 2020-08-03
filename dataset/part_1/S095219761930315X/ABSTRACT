@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.103399
+
+ABSTRACT
+
+TITLE
+
+A segmentation-based approach for polyp counting in the wild
+
+PARAGRAPH
+
+We address the problem of jellyfish polyp counting in underwater images.
+
+Modern methods utilize convolutional neural networks for feature extraction and work in two stages.
+
+First, hypothetical regions are proposed at potential locations, the features of the regions are extracted and classified according to the contained object.
+
+Such methods typically require a dense grid for region proposals, explicitly test various scales and are prone to failure in densely populated regions.
+
+We propose a segmentation-based polyp counter — SegCo.
+
+A convolutional neural network is trained to produce locally-circular segmentation masks on the polyps, which are then detected by localizing circularly symmetric areas in the segmented image.
+
+Detection stage is efficient and avoids a greedy search over position and scales.
+
+SegCo outperforms the current state-of-the-art object detector RetinaNet (Lin et al., 2017) and the recent specialized polyp detection method PoCo (Vodopivec et al., 2018) by 2% and 24% in F-score, respectively, and sets a new state-of-the-art in polyp detection.

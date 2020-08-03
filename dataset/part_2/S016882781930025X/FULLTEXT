@@ -1,0 +1,475 @@
+10.1016/j.jhep.2019.01.013
+
+FULLTEXT
+
+TITLE
+
+Development of a prognostic score for recommended TACE candidates with hepatocellular carcinoma: A multicentre observational study
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+According to the guidelines of the American Association for the Study of Liver Disease (AASLD) and the European Association for the Study of Liver (EASL), transarterial chemoembolization (TACE) is currently the only recommended treatment option for patients with intermediate stage hepatocellular carcinoma (HCC),1–3 with well-preserved liver function and performance status.4–6
+
+These patients, as well as those at early stage but considered unresectable due to tumour size, location, patient age, and suggestions of stage migration are considered “recommended” or “ideal” TACE candidates, i.e., the best target population for TACE, and have frequently been set as the target population in pivotal studies (Table S1A-1B).7–12
+
+However, this population is rather heterogeneous with a variable median overall survival of 13–43 months,13 rendering it crucial to develop a risk stratification tool.14
+
+Indeed, the necessity of stratifying risk in these patients has also been underlined by the most recent guidelines.14
+
+More importantly, a pre-procedure prognostic model providing survival estimates after TACE as a reference may enable outcome comparisons with other treatments and thus could aid clinical decision making.15
+
+PARAGRAPH
+
+Nevertheless, existing models such as hepatoma arterial-embolization prognostic (HAP) score are mostly derived from patients receiving TACE in a broader setting beyond guideline recommendations rather than the best target population for TACE (Table S1C)16 and although their performance and discrimination have been validated in other settings, it remains unknown whether a consistent result could be observed, especially in these recommended TACE candidates.
+
+A model established especially for this population is therefore urgently needed and validation of previous models is crucial.
+
+PARAGRAPH
+
+Fundamental and informative prognostic indicators for developing a model specific to patients with HCC include tumour burden profiles, liver function, performance status, and biomarkers such as alpha-fetoprotein (AFP).
+
+Among these parameters, tumour burden profiles seemed particularly important, not only due to their well-perceived negative correlation with survival17,18 and response rates,19,20 but also because of the disparate tumour load varying from a solitary tumour to multiple tumours with different diameters in these ideal TACE candidates,21–23 which might contribute significantly to the heterogeneity of the population.
+
+Meanwhile, liver function and performance status have also been established as significant predictors in prognostic models for patients with HCC.24
+
+PARAGRAPH
+
+On the other hand, individualized prediction has been perceived as another requisite for an optimal prognostic model.
+
+Well-recognized categorized scores and models such as “four-and-seven” criteria, HAP score, and Barcelona Clinical Liver Cancer (BCLC) intermediate stage sub-classification can be useful for stratifying the level of risk but may not be sufficiently informative for individual outcome evaluation, calling for an individualized model displaying continuous data.
+
+PARAGRAPH
+
+Therefore, the aim of this study was to develop a specific model that presents continuous data and can be used to predict individual survival and stratify patient risk in ideal candidates of TACE.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Study population
+
+PARAGRAPH
+
+Between January 2010 and May 2016, a total of 3,819 consecutive patients with unresectable HCC receiving conventional TACE from 24 tertiary Chinese centres were retrospectively screened.
+
+HCC was diagnosed by either imaging or histological evaluation according to the AASLD or EASL guidelines.
+
+The target population is “recommended” or “ideal” candidates of TACE, defined by unresectable BCLC-A patients identified by comprehensive assessment and BCLC-B patients.
+
+On the basis of preserved liver function, good performance status, and no vascular invasion or extrahepatic spread, the former, according to the criteria of BCLC staging systems, mainly includes single nodule >2 cm or up to 3 nodules ≤3 cm whereas the latter refers to multinodular HCC beyond BCLC-A.25
+
+Notably, although TACE procedure has been performed in patients with performance status score 1 and impaired liver function, these patients belong to BCLC C stage where TACE is not recommended as first-line therapy, and thus were not considered “ideal candidates”.
+
+Specifically, the inclusion criteria included: i) treatment-naïve patients with unresectable HCC receiving TACE; ii) Child-Pugh score A5-B7; and iii) at least 1 measurable lesion >1 cm.
+
+Patients were excluded based on the following criteria: i) vascular invasion or extrahepatic spread; ii) spontaneous tumour rupture; iii) comorbidity with other malignancies; iv) decompensated liver cirrhosis (gastrointestinal bleeding, ascites, jaundice, or encephalopathy); v) performance status score >0; vi) treatment with any systemic or loco-regional therapies; and vii) absence of baseline imaging information.
+
+Patients within each centre were randomly assigned to training or validation datasets by computer-generated randomized number.
+
+Diameter of the largest nodule (tumour size, hereinafter measured in centimetres) and tumour number were evaluated by 2 independent investigators (Bai W. and Xia D.) using either multiphasic computer tomography (CT) or dynamic contrast-enhanced magnetic resonance imaging (MRI).
+
+SECTION
+
+Treatment procedures
+
+PARAGRAPH
+
+During TACE procedure, an emulsion of mixtures of lipiodol (3–30 ml) and chemotherapeutic drugs was injected.
+
+Doxorubicin (10–50 mg), cisplatin (10–110 mg), epirubicin (10–50 mg), or oxaliplatin (100–200 mg) were selected according to the practice of each centre.
+
+Afterwards, either gelatine sponge or polyvinyl alcohol foam (PVA) particles were introduced, and the embolization was monitored until the tumour arterial flow was reduced as observed on angiography.
+
+Tumour-feeding vessels were embolized either selectively or super-selectively,26 and “on demand” TACE procedures are scheduled at an interval of 6 to 12 weeks upon the demonstration of viable tumours or intrahepatic recurrences by CT/MRI in patients with favourable clinical and laboratory findings (performance status, liver function, etc.), as well as the absence of extrahepatic spread or vascular invasion.
+
+All procedures were performed by investigators with at least 8 years of experience.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Quantitative variables were presented as median with interquartile range (IQR) and compared by Student’s t test or non-parametric Mann-Whitney U test, whereas categorical variables were presented as counts with percentages and compared by Chi-squared test or Fisher’s exact test.
+
+Overall Survival (OS) was defined as the time interval between initial TACE and all-cause death.
+
+Patients who survived at last follow-up date (December 15th, 2017) or lost to follow-up were censored.
+
+Survival curves were estimated using the Kaplan-Meier method and compared by log-rank test.
+
+Univariate and multivariate Cox regression analyses were applied to the training cohort to identify prognostic factors after multiple imputation had been performed with 5 independent draws for missing values.
+
+PARAGRAPH
+
+Continuous variables identified as predictors of survival were analysed with 5-knot restricted cubic splines to evaluate their correlations with the relative hazard of death and to test non-linearity.
+
+A contour plot was used to depict survival estimates according to tumour burden.
+
+The interactions between predictors were also tested.
+
+Possible models for risk stratification were then developed based on the above analyses, and discrimination, performance, and calibration were measured by C-index, likelihood ratio Chi-square, area under time-dependent receiving operator characteristic curve, and calibration curves, respectively.
+
+Akaike information criterion (AIC) was also calculated to compare the loss of information for different models.
+
+Bootstrapping with 1,000 samples was used for model validation in subgroups with sample sizes less than 500.
+
+The final model was compared with prognostic models including up-to-seven criteria,27 four-and-seven criteria,28 HAP score,16 modified HAP-II (mHAP-II) score,29 modified HAP-III (mHAP-III) score,15 intermediate HCC (BCLC-B) sub-classification,21 and albumin-bilirubin (ALBI) score,30 and with prognostic systems including BCLC staging system,25 Hong Kong Liver Cancer Staging System (HKLC),31 TNM staging system by Liver Cancer Study Group of Japan (TNM-LCSGJ),32 the 8th edition of American Joint Committee on Cancer TNM staging (AJCC TNM-8),33 Japan Integrated Staging (JIS),32 Tokyo score,34 and the most recent Italian Liver Cancer (ITA.LI.CA) prognostic system35 in both training and validation sets, as well as in different subgroups.
+
+PARAGRAPH
+
+It was difficult to calculate sample size beforehand due to scarce evidence in developing a risk stratification model for recommended TACE candidates.
+
+However, the total number of events (all-cause death) reached 811, and a ratio of 10 events per variable36 was exceeded given that the expected number of candidate variables was no more than 20, indicating sufficient accuracy of estimation.
+
+PARAGRAPH
+
+Differences were considered statistically significant when corresponding p values were less than 0.05.
+
+All statistical analyses were performed using R version 3.3.2 with packages mice,37 rms,38 timeROC,39 and boot.40
+
+All authors had access to the study data and reviewed and approved the final manuscript.
+
+SECTION
+
+Ethics
+
+PARAGRAPH
+
+The study protocol was approved by each participating centre’s ethics committee.
+
+Permission to use the corresponding data was obtained from all patients by written consent.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+Baseline characteristics
+
+PARAGRAPH
+
+A total of 1,604 patients were finally included and randomly divided into the training (N1 = 807) and validation (N2 = 797) datasets (Fig. 1).
+
+Baseline characteristics were comparable between the 2 datasets (Table 1).
+
+Hepatitis B virus (HBV) was the main aetiology of HCC (85.2%).
+
+Among all the patients, 1,493 had detectable HBV-DNA or hepatitis C virus (HCV)-RNA and received antiviral treatment, and virologic response (as defined by recent guidelines41,42) was achieved in 1,374 (92.0%) patients during the study period (681 in training set and 693 in validations set).
+
+SECTION
+
+Overall survival
+
+PARAGRAPH
+
+The median follow-up was 22.0 months (IQR 11.9–34.1 months) and 22.3 months (IQR 12.3–34.2 months) in training and validation sets, respectively.
+
+A total of 183 (11.4%) patients were lost to follow-up (84 in the training cohort; 99 in the validation cohort).
+
+The median survival of the entire cohort was 32.9 (95% CI 30.4–35.4) months, with 1-year, 2-year, and 3-year survival being 81.2%, 60.9%, and 46.5%, respectively.
+
+No significant difference was observed between training and validation sets (median OS 32.6 [95% CI 28.6–37.0] months vs. 32.9 [95% CI 30.1–36.7] months, p = 0.537), (Fig. 2A-B).
+
+SECTION
+
+Univariate and multivariate analysis
+
+PARAGRAPH
+
+Percentages and patterns of missing values are shown in Fig. S1.
+
+The multivariate Cox regression analysis after multiple imputation suggested that largest tumour diameter (tumour size), tumour number, and AFP were independent prognostic factors (Table S2) that will be considered for model development.
+
+SECTION
+
+Development of the prognostic model
+
+PARAGRAPH
+
+AFP (≤400 ng/ml vs. >400 ng/ml) was encoded as a categorical factor, whereas tumour size and number were treated as continuous variables.
+
+Restrictive cubic spline functions of tumour size and number in training and validation sets showed that both prognostic factors presented a linear profile (non-linearity p values were 0.08 and 0.15 for tumour number and size in training set, respectively; and 0.39 and 0.43 in validation set, respectively, Fig. 3A–D).
+
+When validated in patients with HBV, other aetiologies and in patients who underwent CT and MRI evaluation, the results were similar: non-linearity p values were 0.06 and 0.06 for tumour size and number in patients with HBV, respectively; 0.41 and 0.78 in patients with other aetiology, respectively (Fig. S2); 0.44 and 0.91 in MRI evaluation group, respectively; and 0.06 and 0.44 in CT evaluation group, respectively (Fig. S3).
+
+These results suggested that tumour size and number could be modelled as continuous linear variables.
+
+The relationship between tumour size, tumour number and 3-year survival probability were depicted in a contour plot (Fig. 3E).
+
+Interaction tests between variables suggested no interaction terms.
+
+Two possible models were thus developed: model 1, only tumour burden profiles were included (tumour size and number); model 2, tumour burden and AFP were included.
+
+PARAGRAPH
+
+The coefficients of variables derived from Cox regression analyses in each model were multiplied by 10 and rounded to one decimal for clinical use, resulting in the following 2 models:
+
+Model 1: linear predictor (LP) = tumour size + tumour number
+
+Model 2: LP = 1.1 × tumour size + 1.1 × tumour number + 3.4 × AFP
+
+PARAGRAPH
+
+(Where “AFP” is a binary variable with a value of 0 for AFP ≤400 ng/ml and 1 for AFP >400 ng/ml, and tumour size and number are continuous variables).
+
+PARAGRAPH
+
+The time-dependent AUROC value, likelihood ratio (LR) χ2, C-index and AIC of the possible models are shown in Table 2.
+
+Compared with model 1, model 2 (with the addition of AFP levels) showed only slight improvement regarding time-dependent AUROC values and C-indices, with insignificant statistical differences.
+
+PARAGRAPH
+
+Since different aetiology indicates different outcome, and MRI can be more accurate in detecting viable HCC nodules under 2 cm and in treatment response evaluation, the entire cohort was further divided into subgroups according to aetiology (HBV and other aetiology) and image assessment modality (MRI and CT).
+
+In these subgroups, the difference in performance and discrimination between the 2 candidate models was also insignificant (Table S3).
+
+PARAGRAPH
+
+Given this situation and the purpose of developing an easy-to-use bedside stratification tool, model 1 was selected as the final model.
+
+Optimism-corrected calibration slopes were 0.97 (standard error: 0.02) in the training set and 0.98 (standard error: 0.01) in the validation set (Fig. S4).
+
+Calibration curves were also performed in patients with HBV and other aetiologies (Fig. S5), as well as in patients who underwent MRI and CT assessment (Fig. S6), with consistent findings.
+
+PARAGRAPH
+
+Based on these findings, a nomogram for individual patient risk stratification was created (Fig. 4).
+
+The 1-year, 2-year, and 3-year survival probability and estimated median survival of individual patients could be predicted before the TACE procedure with the sum of tumour size and number.
+
+SECTION
+
+Assessment and comparison of the performance and discrimination of the current model and other models and prognostic systems
+
+PARAGRAPH
+
+The performance and discrimination of the selected model and other tumour-burden-based models (up-to-seven criteria and four-and-seven criteria), as well as models involving other parameters (HAP score, mHAP score, mHAP-II score, mHAP-III score, BCLC-B sub-classification and ALBI score) were compared (Table 3).
+
+The 1-year, 2-year, and 3-year AUROC values and C-indices of current model were higher than other models (Fig. 5), suggesting a favourable performance and discrimination, which remained consistent in different subgroups with different age, gender, AFP levels, liver function, aetiology and imaging assessment modality (Table S4–7).
+
+In the comparison with currently available prognostic systems, the current score remained favourable for risk stratification in the current target population (Table S8).
+
+SECTION
+
+Cut-off value for risk stratification
+
+PARAGRAPH
+
+Apart from individual level outcome prediction, quick evaluation of prognosis levels with cut-off values is also relevant to routine clinical practice.
+
+By examining the C-indices and AUROC values for different percentiles and quartiles of the selected LP, cut-off values at the thirtieth percentile and the third quartile (6.1 and 12.0) were identified for the sum of tumour size and tumour number, and were then rounded as 6 and 12, respectively.
+
+The current model was named as the six-and-twelve score accordingly.
+
+Consequently, patients were divided into 3 strata: stratum 1, the sum of tumour size and number ≤6; stratum 2, the sum >6 but ≤12; stratum 3, the sum >12.
+
+PARAGRAPH
+
+In the entire cohort, the median OS of the 3 strata from the lowest tumour burden stratum to the highest were 49.1 (95% CI 43.7–59.4), 32.0 (95% CI 29.9–37.5), and 15.8 (95% CI 14.1–17.7) months, respectively.
+
+With stratum 1 as reference, the hazard ratios (HRs) for strata 2 and 3 were 1.76 (95% CI 1.47–2.11; p <0.001) and 3.69 (95% CI 3.03–4.50; p <0.001), respectively.
+
+The median OS of strata 1, 2, and 3 in the training cohort were 44.3 (95% CI 41.1–57.3), 32.6 (95% CI 27.8–38.5), and 16.8 (95% CI 15.1–19.7) months, respectively.
+
+With stratum 1 as reference, the HRs for strata 2 and 3 were 1.64 (95% CI 1.28–2.10; p <0.001) and 3.20 (95% CI 2.46–4.17; p <0.001), respectively.
+
+In the validation cohort, the median OS of these 3 strata were 51.9 (95% CI 46.3–NA), 31.8 (95% CI 29.8–39.6), and 14.8 (95% CI 12.3–17.9) months, respectively.
+
+With stratum 1 being the reference, the HRs for strata 2 and 3 were 1.92 (95% CI 1.46–2.51; p <0.001) and 4.37 (95% CI 3.25–5.90; p <0.001), respectively.
+
+Survival curves were significantly different among the 3 strata in training and validation sets (both with log-rank p <0.001, Fig. 2C-D).
+
+Rates of BCLC stage A and B within each stratum were listed in Table S9.
+
+SECTION
+
+Subgroup analysis
+
+PARAGRAPH
+
+The current model could stratify patients into the aforementioned 3 strata across subgroups including in patients with different AFP levels (≤400 ng/ml and >400 ng/ml), ALBI grades (1 and 2), and aetiologies (HBV and other aetiologies), and image modalities for evaluation (MRI and CT), suggesting a consistent performance in these populations (Fig. S7).
+
+The median survival and HRs with 95% CIs of the 3 strata in different subgroups are listed (Table S10).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Based on a multicentre, nationwide cohort comprising 1,604 recommended TACE candidates (BCLC-A/B), we developed the six-and-twelve score that can predict individual outcome with favourable performance and discrimination, and with the sum of tumour size and number ≤6, >6 but ≤12, and >12, the score identified 3 prognostic strata presenting significantly different median survival of 49.1 months, 32.0 months, and 15.8 months, respectively.
+
+The strength and novelty of the current study lies in: i) conducting the study based on a consecutive multicentre cohort with a large sample size; ii) developing the first prognostic model specifically for ideal TACE candidates rather than all patients undergoing TACE; iii) finding that tumour burden alone can be used for outcome prediction in recommended TACE candidates; iv) adopting a continuous instead of categorized model presentation to provide individualized and stratified survival estimates for clinical practice and clinical trials.
+
+PARAGRAPH
+
+The median OS of 32.9 months in the current cohort was obviously longer than the 19.8 month median OS reported by Lencioni et al. in a recent systematic review on TACE,43 probably because the current study identified ideal TACE candidates as the target population.
+
+On the contrary, the 2018 EASL guidelines mentioned a median survival of 40 months in well-selected candidates,14 which was much more similar to the current study.
+
+Indeed, the studies used to draw this conclusion in the guidelines17,44,45 shared similar study population staging characteristics as the current study.
+
+In these studies, 22–41% patients were at stage A under the previous version of BCLC staging criteria according to the information provided by the authors, and in the current study, about 25% patients belong to stage A under the previous BCLC criteria (Table 1).
+
+The median survival of the 3 strata identified by the six-and-twelve score varies approximately within a range of 13–43 months, consistent with previous reports.13,43,46
+
+Patients within the best outcome strata had similar median survival to untreated patients with early stage HCC, whereas the stratum with the highest tumour burden had a median survival close to the 16 months reported for untreated patients with intermediate stage HCC.47-49
+
+This further demonstrates that this population includes patients with different prognoses even when liver function and performance status are preserved, supporting the importance of risk stratification of these patients in clinical practice and trials.
+
+PARAGRAPH
+
+The target population is the core issue of prognostic models, since the characteristics and heterogeneity of the population determine the parameters, presentation, and performance of the final model.
+
+The best target population for TACE has been identified as the study population in pivotal randomized controlled trials and cohort studies of TACE, yet investigations regarding its internal homogeneity are lacking.
+
+This may introduce unrecognized confounding which could influence the results of these studies, thus a risk stratification score for identifying and reducing heterogeneity is needed.
+
+Particularly, as is shown in Table S8, the constituent ratio of BCLC stage A and B within strata 2 and 3 identified by current prognostic model were similar, yet patient outcomes were significantly different, suggesting that the current score can further stratify patients on the basis of the BCLC staging system.
+
+Previous scores such as four-and-seven score and HAP score targeted all patients treated by TACE, with the inclusion of cases beyond recommendation potentially influencing patient characteristics and heterogeneity profiles.
+
+The current study, however, fixed on this population for the first time, which is characterized by unresectable HCC, preserved liver function (mainly Child-Pugh A grade) and acceptable performance status due to the inclusion criteria set by these trials and studies, with no exclusion criteria on tumour size or number as in previous pivotal studies (Table S1A–1C).
+
+PARAGRAPH
+
+In this population, tumour burden is a fundamental prognostic factor of HCC among all candidate predictors regardless of systemic or loco-regional treatment.17,27,50,51
+
+Intriguingly, although the predictive value of tumour burden seems obvious, the cut-off values for risk stratification have long been controversial, and most of the models featuring tumour burden adopted arbitrary or empirical cut-offs,16,21,28,29,52–57 except for the “up-to-seven” and “four-and-seven” criteria.
+
+However, the former was originally derived from liver transplantation candidates, rendering its application in recommended TACE candidates an open issue,27 whereas the latter criteria stemmed from a cohort with limited sample size, calling for further investigations in large cohorts.56
+
+In light of this situation, the six-and-twelve score was advantageous in being developed specifically for ideal TACE candidates and adopting evidence-based cut-off values on the basis of a large multicentre cohort, thus providing more precise criteria for stratification.
+
+PARAGRAPH
+
+During the model development process, performance status was good in all patients, therefore was not included as a variable.
+
+However, liver function and biological features still might be crucial determinants of prognosis23 and were primarily considered for model development.
+
+Interestingly, unlike in previous scores where bilirubin and albumin are major components, these liver function parameters were not identified as independent prognostic factors according to Cox regression analysis, whereas the addition of the biomarker AFP on the basis of tumour burden (model 2) only provided marginal improvement compared to the tumour-burden-based model, without statistically significant difference (Table 2) regarding model performance.
+
+This is probably due to the difference in the degree of heterogeneity regarding these parameters within the current population.
+
+While tumour burden varies in a relatively wide range, liver function parameters were at a relatively well-preserved level, therefore, tumour burden profiles may play a major role in prediction, while other parameters contribute less to model performance.
+
+This disparity of homogeneity in different parameters may also explain the findings that the six-and-twelve score exhibited better performance and discriminative capability than models including more non-tumour-burden parameters but fewer tumour characteristics (HAP score, BCLC-B sub-classification and ALBI score).
+
+Understandably, mHAP-II score performed better than HAP score but the advantage was marginal, probably because the former added tumour number but encoded it as a categorized variable.
+
+However, it should be acknowledged that models such as HAP score and ALBI score have been validated in other settings, and the absence of their superiority over the six-and-twelve score in this population does not necessarily devalue these scores, especially in populations other than ideal candidates of TACE, due to the increased heterogeneity regarding liver function and performance status.
+
+For the same reason, the six-and-twelve score should be further validated in other patients, but still, it appears to be a favourable solution for risk stratification of the best target population for TACE.
+
+PARAGRAPH
+
+An ideal prognostic model for risk stratification should not only be developed with appropriate methods, but also be concise for clinical application.23
+
+A continuous prognostic tool might better meet the demand.
+
+For one thing, loss of information can be reduced with the maintenance of continuity, as was supported in comparison between different models (Table 3).
+
+As the only continuous prognostic tool among all previous models, mHAP-III score presented the highest AUROC values among them, approaching that of the six-and-twelve score.
+
+Nevertheless, the six-and-twelve score is simpler for quick bedside assessment of patient outcome regardless of AFP level, liver function, or aetiology according to subgroup analysis.
+
+Additionally, individualized prediction can be achieved with a continuous prognostic score.
+
+Using a nomogram, the current score can be more informative by providing survival probability prediction at different time points for ideal candidates awaiting the TACE procedure, compared to models and scores with categorized presentation.
+
+Last but not least, another strength of this study is the clinical usefulness of the model.
+
+The current prognostic score, not including radiological response despite its predictive value, reserved the feature of being applied at baseline.
+
+When the TACE procedure is considered for a candidate with unresectable HCC, the six-and-twelve model can return an estimated survival probability and median survival as a referential for comparison with expected survival under other treatments.15
+
+For instance, the current score identifies that patients with a sum of tumour size and number exceeding 12 have a median survival of about 15 months, shorter than that of intermediate stage patients who receive sorafenib for being unfit for or unresponsive to loco-regional treatment.58,59
+
+This suggests that although all the best target population is supposed to benefit from TACE, the survival improvement for patients in the highest tumour burden stratum may be moderate, and the decision of performing exclusive TACE should be scrutinized, calling for further investigations on strategy refinement in this stratum.
+
+In a broader sense, the current model may provide risk stratification criteria to control heterogeneity in future clinical trials that continue to target ideal candidates of TACE.
+
+PARAGRAPH
+
+There are some limitations to our study.
+
+Firstly, the risk of selection bias is unavoidable in observational studies.
+
+However, this risk has been minimized by the inclusion of all consecutive patients and a large cohort of unresectable HCC candidates of TACE to date.
+
+Secondly, HCC in Chinese patients is mainly HBV-related, and might present different tumour characteristics from those in patients from other regions where HCC is characterized by less tumour burden and by other aetiologies such as HCV or alcohol use.18
+
+Moreover, although liver function parameters were not identified as significant predictors in the current cohort, their prognostic value may still be crucial in patients at a later stage, especially in patients with other aetiologies who might be more prone to liver function impairment after TACE.6
+
+However, the subgroup analysis regarding aetiology with bootstrapping suggested that our model could be effectively applied in patients with aetiologies other than HBV.
+
+Still, it should be admitted that further large-scale external validation in different regions is necessary.
+
+Thirdly, treatment response was not considered a candidate parameter.
+
+Nevertheless, models including this parameter can only be applied when response can be evaluated after the procedure, leading to a delay in the timing of stratification.
+
+Given this limitation, as well as other aforementioned points, the application of our model as a vital prognostic tool in other settings should be further validated.
+
+PARAGRAPH
+
+In conclusion, stemming from a large multicentre cohort of 1,604 patients, the six-and-twelve score is the first prognostic model for stratifying recommended TACE candidates.
+
+With an easy-to-use presentation consisting of tumour burden characters, the model exhibited adequate performance with individualized prediction and can stratify patients into 3 strata with significantly different median survival.
+
+Therefore, the six-and-twelve score may be helpful for assessing outcomes in clinical practice and for designing clinical trials with comparable criteria and stratified risk.
+
+Further validations in patients with different aetiologies from both Eastern and Western cohorts remain highly warranted.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This study was supported by the National Natural Science Foundation of China (81172145 and 81420108020) and National Key Technology R&D Program (2015BAI13B07).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+All authors have nothing to disclose.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors contributions
+
+PARAGRAPH
+
+Qiuhe Wang: acquisition of data, analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript for important intellectual content, statistical analysis, and administrative, technical, or material support.
+
+Dongdong Xia: study concept and design, acquisition of data, analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript for important intellectual content, statistical analysis, and administrative, technical, or material support.
+
+Wei Bai: study concept and design, acquisition of data, analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript for important intellectual content, statistical analysis, and administrative, technical, or material support.
+
+Enxin Wang: study concept and design, acquisition of data, analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript for important intellectual content, statistical analysis, and administrative, technical, or material support.
+
+Ming Huang, Junhui Sun, Hailiang Li, Jing Li, Hui Zhao, Xingnan Pan, Guowen Yin, Weidong Gong, Xiaoli Zhu, Guoliang Shao, Wei Mu, Zhengyu Lin, Jianbing Wu, Jueshi Liu, Jiaping Li, Chunqing Zhang, Haibin Shi, Zixiang Li, Jinlong Song, Shufa Yang, Wenhui Wang, Yanbo Zheng, Jian Xu, Rong Ding, Yuelin Zhang, Lin Zheng, Nan You, Weiwei Gu, Tao Xu, Hui Yu, Peng Zhang, Shuai Zhang, Hui Zeng, Hui Zhang, Jian Chen, Long Feng, Yongjin Zhang, Lin Liu, Guangchuan Wang, Weizhong Zhou, Xueda Li, Wenbo Shao, Wukui Huang, Lei Li, Wenjin Jiang, Wen Zhang, Jing Niu, Jie Yuan, Xiaomei Li, Hui Chen, Yong Lv, Kai Li, Zhanxin Yin, and Daiming Fan: acquisition of data, critical revision of the manuscript for important intellectual content, and administrative, technical, or material support.
+
+Jielai Xia: analysis and interpretation of data, critical revision of the manuscript for important intellectual content, statistical analysis, and administrative, technical, or material support.
+
+Guohong Han: study concept and design, acquisition of data, analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript for important intellectual content, statistical analysis, and administrative, technical, or material support.

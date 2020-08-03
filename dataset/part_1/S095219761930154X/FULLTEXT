@@ -1,0 +1,1529 @@
+10.1016/j.engappai.2019.06.015
+
+FULLTEXT
+
+TITLE
+
+A MEMCIF-IN method for safety risk assessment in oil and gas industry based on interval numbers and risk attitudes
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+To prevent safety accidents from happening, effective safety risk assessment is required in oil and gas industry (Markowski and Mannan, 2008).
+
+In general, quantitative way (Haldar and Mahadevan, 2000; Azizsoltani and Sadeghi, 2018; Azizsoltani and Haldar, 2018; Roy et al., 2019), semi-quantitative way (Ni et al., 2010; Mahamid, 2011; Ruan et al., 2015; Duan et al., 2016; Tian et al., 2018) and qualitative way (Goetz et al., 2017; Kelly et al., 2018) are three ways to implement risk assessment.
+
+The semi-quantitative way which has the advantages of both quantitative and qualitative ways is often used in risk assessment problems.
+
+Risk matrix approach, a semi-quantitative way, is used for risk assessment in this paper.
+
+PARAGRAPH
+
+There are only two indicators(Frequency and Consequence) needed in risk matrix (Markowski and Mannan, 2008; Ruan et al., 2015).
+
+When the crisp scores of the two indicators are derived and depicted in risk matrix, the rank of risk and the result of risk assessment can be derived.
+
+On many occasions, there are often multiple assessment experts and multiple criteria involved in risk assessment problems.
+
+Moreover, because of the uncertainty of risk occurrence and the limitation of experts’ knowledge, risk assessment data are often given in the form of interval numbers which cannot be directly used in risk matrix and need to be fused into crisp values.
+
+Therefore, safety risk assessment in oil and gas industry is often a multi-expert and multi-criterion information fusion(MEMCIF-IN) problem based on interval numbers.
+
+How to implement the risk assessment work based on the MEMCIF-IN problem with using the risk matrix approach is the main task in this paper.
+
+PARAGRAPH
+
+There are many scholars have devoted a lot of efforts to establish an effective risk matrix in recent years (Markowski and Mannan, 2008; Ni et al., 2010; Mahamid, 2011; Ruan et al., 2015; Tian et al., 2018).
+
+In 2008, Markowski and Mannan developed the fuzzification of frequency and severity of an incident scenario and proposed the fuzzy rules to construct a fuzzy risk matrix with crisp values (Markowski and Mannan, 2008).
+
+In 2000, Ni et al. made some extensions on risk matrix approach and incorporated interval numbers which were transformed to crisp values to deal with uncertainty in risk matrix (Ni et al., 2010).
+
+Ruan et al. incorporated risk attitudes of decision makers in the establishment of risk matrix with the use of utility indifference curves (Ruan et al., 2015).
+
+Tian et al. established a method to construct risk matrix integrating risk attitudes with multiple indicators which are described with crisp values (Tian et al., 2018).
+
+PARAGRAPH
+
+Although many scholars have improved the establishment of risk matrix, it still needs to be improved when it is used to assess safety risks in oil and gas industry, for the following reasons:
+
+PARAGRAPH
+
+(1) Uncertainty is inevitable in the process of safety risk assessment (Jr, 2010; Duijm, 2015).
+
+On many occasions, assessment experts cannot give precise values of risk because of uncertainty.
+
+The forms of assessment data in the existing literatures are usually crisp values (Tian et al., 2018), linguistic terms (Li and Zeng, 2017), interval numbers (Ni et al., 2010) and so on.
+
+Interval number which can reflect uncertainty is a feasible data form instead of crisp value in the process of safety risk assessment, but few literatures studies how to establish a risk matrix with interval numbers.
+
+For example, Ni et al. (Ni et al., 2010) just made a simple transformation from interval numbers to crisp values and the information loss occurred and the nature of safety risk was not reflected well.
+
+So it is necessary to propose an appropriate method to establish risk matrix for safety risk assessment in oil and gas industry with interval numbers integrating the nature of safety risk.
+
+PARAGRAPH
+
+(2) On many occasions, there are often multiple indicators used to describe the consequence of risk from several aspects in risk assessment (Brito et al., 2010; Zhao et al., 2018; Ruan et al., 2015; Tian et al., 2018), but only one index of risk consequence is needed in risk matrix construction.
+
+So combining individual index scores into a comprehensive score is one of the important tasks in the construction of risk matrix (Xu, 2004; Liu et al., 2015; Liu and Li, 2015; Taylan et al., 2016).
+
+The attitudes of decision makers to these indicators are possibly different.
+
+Decision maker may think the maximum value or the minimum value or the average value of these indicators should be the risk consequence scores regardless of the information source.
+
+Different attitudes lead to different consequence scores.
+
+So the combination process should be flexible to adjust this kind of attitude.
+
+When fusing data from multiple indicators, the attitudes of decision makers to each individual index should be considered.
+
+But in the existing literatures, few papers consider this problem to derive a reasonable assessment result in risk matrix construction.
+
+PARAGRAPH
+
+(3) When the assessment data are given in the form of interval number in the construction of risk matrix, an aggregation model which aggregates an interval number into a crisp value is needed.
+
+There are many literatures study this problem (Cao and Wu, 2011; Yager and Alajlan, 2016; Yager and Xu, 2006; Jin and Qian, 2016; Sayadi et al., 2009; Jiang and Liang, 2017; Yue, 2011), most methods transform an interval number into a specific value.
+
+In the process of transformation, the weight function is very important and most scholars consider the probability density function of an interval number being the weight function.
+
+But in risk assessment problems, it is not enough to consider only the probability density function.
+
+The determination of weight generating function also need to consider the nature of risk assessment.
+
+In the assessment process, assessment experts possibly show different risk attitudes and the risk attitudes would affect the values of their assessment data.
+
+So it is necessary to propose a novel method generating the weight function when an interval number is aggregated into a crisp value.
+
+PARAGRAPH
+
+In a word, a novel method which cannot only deal with the multi-expert and multi-index information fusion problem based on interval numbers but also integrate an interval number into a crisp value with considering the risk attitudes of assessment experts and the importance of the points themselves in interval number simultaneously is needed in this paper.
+
+The nature of risk mainly performs in the uncertainty of risk occurrence.
+
+Faced with the uncertainty of risk, decision makers have different risk attitudes (Ruan et al., 2015; Tian et al., 2018).
+
+The assessment data which are given by different experts with different risk attitudes have different effects on assessment results.
+
+Therefore, there will be a deviation between the assessment result and the true level.
+
+To derive a real and fair risk assessment result, the influence of experts’ risk attitudes should be corrected.
+
+To the authors’ knowledge, there is no existing literature studying this kind of problem.
+
+PARAGRAPH
+
+Therefore, the purpose of this paper is to construct a MEMCIF-IN model.
+
+In the context of current literatures, there is no published literature regarding the MEMCIF-IN problem in the construction of risk matrix.
+
+A two-stage safety risk assessment method is proposed to solve this problem in this paper.
+
+The remainder of the paper is organized as follows: Section 2 introduces some related concepts, a multi-expert and multi-criterion fusion model is constructed in Section 3; Section 4 proposes an interval number aggregation model integrating a risk attitude correction function; a summary of MEMCIF-IN problem is presented in Section 5; an application in certain oil and gas industry is demonstrated in Section 6; Section 7 provides some conclusions.
+
+SECTION
+
+Preliminary
+
+SECTION
+
+Risk matrix
+
+PARAGRAPH
+
+An example of traditional risk assessment matrix with 25 cells is shown in Fig. 1(Ruge, 2004).
+
+There are two input variables: Frequency and Consequence.
+
+The two input variables are divided into five levels respectively.
+
+Cells are categorized into three different levels: High(H), Medium(M), Low(L) based on the zone colors of their locations.
+
+Within a risk matrix, the green zone stands for the low risk level.
+
+The risk which locates in the green zone has a low assessment result and is an acceptable risk.
+
+The risk which locates in the red zone has a high assessment result, that means it is an unacceptable risk and needs some measures immediately.
+
+The yellow zone stands for the medium risk level.
+
+PARAGRAPH
+
+There are mainly four steps to construct a traditional risk matrix with 25 cells (Markowski and Mannan, 2008; Ni et al., 2010).
+
+Firstly, the ranks of the frequency and the consequence need to be divided into five categories respectively.
+
+Secondly, the 25 cells need to be categorized into three different levels.
+
+Thirdly, the crisp scores of the frequency and the consequence need to be derived.
+
+Fourthly, the risk assessment result is derived based on the location zone of risk score point.
+
+Apparently, the location zone is mainly determined by the scores of the frequency and the consequence of risk itself, that is, the assessment scores are very important in risk assessment problems.
+
+SECTION
+
+Interval number with distribution function and utility function
+
+PARAGRAPH
+
+It is very difficult for evaluators to give crisp values when they assess safety risks.
+
+On many occasions, they usually give interval numbers instead of crisp values.
+
+Therefore, fusing interval numbers is a key issue in risk assessment problems.
+
+Firstly, individual scores need to be fused into collective scores.
+
+Considering the nature of risk assessment, the definition of interval number with utility function and distribution function is introduced in this subsection.
+
+PARAGRAPH
+
+Moore, 1979
+
+PARAGRAPH
+
+I is called an interval number if I=[a,b]={x|a≤x≤b,x∈R}, where a,b are the left and right endpoints of I in turn.
+
+PARAGRAPH
+
+Let I1=[a1,b1] and I2=[a2,b2], where λ is a positive real number, then the following two arithmetic operations of I1 and I2 are established (Moore, 1979):
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+In risk assessment problems, the assessment scores which are given by assessment experts are inevitably influenced by assessment experts’ risk attitudes.
+
+Integrating risk attitudes in risk assessment problems is imperative (Ruan et al., 2015).
+
+In recent years, the utility theory is introduced in risk assessment problems to describe the decision makers’ risk attitudes (Brito et al., 2010; Tian et al., 2018).
+
+In addition, an interval number needs to be integrated into a crisp value in the process of risk matrix construction.
+
+The points in an interval number are likely to have different importance (Wu et al., 2016), that is, the assessment expert is more confident about some points than other points.
+
+As a result, the importance of the points themselves in an interval number should be considered in the integration process of an interval number.
+
+Based on the above considerations, we propose the following Definition.
+
+PARAGRAPH
+
+PARAGRAPH
+
+I is named an interval number with distribution function and utility function if I=([a,b],f(x);u(x)), where a,b denote the left and right endpoints of I respectively and they are real numbers, f(x) is a probability density function and defined as the follows: ∫abf(x)dx=1 and f(x)=0 for x<a or x>b, u(x) is an utility function and 0≤u(x)≤1 for a≤x≤b.
+
+PARAGRAPH
+
+f(x) in Definition 2 is used to describe the importance associated with the point x∈[a,b].
+
+For example, if f(x)=1b−a for all x∈[a,b], all elements in [a,b] have the same importance; if f(x)=e−(x−a+b2)22∫abe−(x−a+b2)22dx, then ∫abf(x)dx=1 and the importance of a+b2 is biggest in the interval number [a,b]. u(x)
+
+in Definition 2 denotes the risk attitude associated with the point x∈[a,b] of the corresponding assessment expert.
+
+PARAGRAPH
+
+Let I1=([a1,b1],f1(x);u1(x)) and I2=([a2,b2],f2(x);u2(x)), λ is a positive real number, the following two arithmetic operations between I1 and I2 are defined in this paper: λ⋅I1=([λ⋅a1,λ⋅b1],1λ⋅f1(yλ);u1(yλ),y=λx);I1⊕I2=([min(a1,a2),max(b1,b2)],f⊕(x);u⊕(x)), where f⊕(x)=α⋅f1(x)+β⋅f2(x) and u⊕(x)=α⋅u1(x)+β⋅u2(x), α,β∈[0,1] are the weights of I1 and I2, with α+β=1.
+
+PARAGRAPH
+
+It is easy to verify the following properties: (1) ∫λaλb1λf1(yλ)dy=∫ab1λf1(x)λdx=∫abf1(x)dx=1 and 0≤u1(yλ)≤1; (2)∫min(a1,a2)max(b1,b2)f⊕(x)dx=∫min(a1,a2)max(b1,b2)αf1(x)dx+∫min(a1,a2)max(b1,b2)βf2(x)dx=α+β=1 and 0≤α⋅u1(x)+β⋅u2(x)≤1.
+
+PARAGRAPH
+
+When the interval numbers of multiple experts are fused, the result of the arithmetic operation I1⊕I2 retains an interval number which includes all the experts’ opinions avoiding information loss as much as possible.
+
+Meanwhile, the points in [min(a1,a2),max(b1,b2)] have different importance and different utilities according to f⊕(y) and u⊕(y).
+
+SECTION
+
+Aggregation operators
+
+PARAGRAPH
+
+On many occasions, the assessment scores are expressed by the form of interval number in risk assessment problems, but crisp values of risk are needed in the construction of risk matrix.
+
+Therefore, the aggregation operator for an interval number is introduced in this subsection.
+
+PARAGRAPH
+
+Yager, 1988
+
+PARAGRAPH
+
+Assume that a1,a2,…,an are n real numbers, the ordered weighted average operator(OWA) is defined as: FOWA(a1,a2,…,an)=w1b1+w2b2+⋯+wnbn,where bi is the ith largest value of a1,a2,…,an, W=(w1,w2,…,wn) is the weight vector, such that (1)wi∈(0,1),(2)∑iwi=1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let a=(2,3,4,1) is the four-dimensional vector to be aggregated, and W=(0.2,0.4,0.3,0.1) is the pre-determined weight vector.
+
+Thus, FOWA(a)=[0.2,0.4,0.3,0.1]4321=0.2×4+0.4×3+0.3×2+0.1×1=2.7.
+
+PARAGRAPH
+
+From Definition 3 and Example 1, we can see that the OWA operator weights n discrete values from large to small to derive the average value.
+
+In 2004, Yager extended this operation to the case where all the values were expressed by an interval number.
+
+PARAGRAPH
+
+Yager, 2004
+
+PARAGRAPH
+
+Assume that I=[a,b], the continuous ordered weighted average operator(C-OWA) is defined as: FC−OWA([a,b])=∫01dQ(y)dy(b−y(b−a))dy,where Q(y) is a basic unit-interval monotonic(BUM) function Q:[0,1]→[0,1], such that (1)Q(0)=0,(2)Q(1)=1,(3)Q(x)≥Q(y)ifx>y.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let I=[2,4] is an interval number to be aggregated, and Q(y)=y2 is a BUM function.
+
+Thus, FC−OWA([2,4])=∫01dy2dy(4−y(4−2))dy=∫01(8y−4y2)dy=2.67.
+
+PARAGRAPH
+
+In Definition 4, Q(y) is essentially a weight generating function, the value of (b−y(b−a)) is from b to a, and the value of dQ(y)dy is corresponding to the weight of (b−y(b−a)).
+
+Apparently, the value of ∫01dQ(y)dy(b−y(b−a))dy is a weighted mean of [a,b], and the expression of Q(y) is a key issue when the C-OWA operator is used.
+
+The weighted mean of [a,b] depends on the expression of Q(y).
+
+Consideration of the nature of risk assessment problems, Utility function which is used to construct Q(y) in this paper is introduced in Section 4.
+
+SECTION
+
+A multi-expert and multi-index fusion model
+
+PARAGRAPH
+
+In safety risk assessment problems, there are often multiple experts and multiple indicators involved.
+
+Due to the uncertainty of risk and the limited cognition of assessment expert, it is very difficult for assessment experts to give accurate assessment scores when they assess risks.
+
+On many occasions, experts’ evaluation scores are given in the form of interval number.
+
+PARAGRAPH
+
+Assume that R={r1,r2,…,rq} is a finite set of q risks to be assessed, E={e1,e2,…,em} is a finite set of m experts, and C={c1,c2,…,cn} is a finite set of n indicators.
+
+Experts score the indicators basing on their experiences and some predefined scoring rules.
+
+Experts’ assessment scores constitute assessment matrices.
+
+The assessment matrix of the ith(i=1,2,…,m) expert can be expressed as given in Box I,
+
+PARAGRAPH
+
+where [xijk−,xijk+](j=1,2,…,q,k=1,2,…,n) denotes the assessment interval number of the ith expert about the kth index of the jth risk, xijk− and xijk+ denote the left point and the right point of the interval number respectively, fijk(x) is the probability distribution function of [xijk−,xijk+] and uijk(x) is the utility function of the ith expert about the kth criterion of the jth risk, then there are m assessment matrices: D1,D2,…,Dm.
+
+These matrices have q rows and n columns, q rows denote q risks and n columns denote n indicators.
+
+PARAGRAPH
+
+Since experts have different cognitive information, their scores are inevitably different and need to be fused.
+
+Moreover, multiple indicators that describe the consequence of risk form different aspects need to be aggregated into a comprehensive index when a risk matrix(shown in Fig. 1) is constructed.
+
+Combining individual interval numbers into a collective interval number and aggregating multiple indicators into a comprehensive index are the important tasks in this paper.
+
+A multi-expert and multi-index fusion model is introduced in this section.
+
+SECTION
+
+Combining individual interval numbers into a collective interval number
+
+PARAGRAPH
+
+Assume that there are m experts in a safety risk assessment problem, and m assessment matrices D1,D2,…,Dm are derived.
+
+The collective assessment matrix D̄=(([xcij−,xcij+],fc(x);uc(x)))q×n will be derived by combining individual interval numbers into a collective interval number.
+
+The formula (2) is used to combine individual interval numbers for avoiding the loss of information, obviously, the weights in formula (2) are crucial and need to be calculated reasonably.
+
+PARAGRAPH
+
+Because experts have different experiences, educationalbackgrounds and knowledge, their weights should be different.
+
+In the existing literatures (Xu, 2004; Liu et al., 2015; Liu and Li, 2015), the experts’ weights are mainly determined by objective weight approaches or subjective weight approaches.
+
+Subjective weights approaches only consider some subjective information(such as before abilities, knowledge, seniorities), objective weights approaches only consider the credibilities of assessment data.
+
+Obviously, it is more reasonable to combine subjective weight approach and objective weight approach to calculate the experts’ weights.
+
+PARAGRAPH
+
+Step 1: The subjective weight θ1,θ2,…,θm are determined. θi
+
+which is determined by decision makers has strong subjectivity, because θi is given based on the ith expert’s before knowledge, experience etc. about the decision problem and ∑i=1mθi=1,0≤θi≤1.
+
+PARAGRAPH
+
+Step2: The objective weight μ1,μ2,…,μm are determined.
+
+PARAGRAPH
+
+Because of the limitation of the evaluator’s knowledge structure, the reliability of the evaluation interval numbers is not invariable for different risks.
+
+The evaluator’s objective weight should be determined based on the reliability of his(or her) assessment data.
+
+PARAGRAPH
+
+Let Ī.jk=[1m∑i=1mxijk−,1m∑i=1mxijk+], then Ī.jk denotes the simple average of m experts about the kth index of the jth risk.
+
+The assessment deviation of the ith expert is defined as follows: dijk=(xijk−−1m∑i=1mxijk−)2+(xijk+−1m∑i=1mxijk+)2, then we can calculate the proportion of the deviation d̃ijk=dijk∑i=1mdijk.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Weight coefficients μ1j,μ2j,…,μmj(j=1,2,…,q) are named the experts’ objective weights when these coefficients reflect the credibilities of the assessment interval numbers of the ith expert on the jth risk, and ∑i=1mμij=1,0≤μij≤1, with μij=1n∑k=1nμ̃ijk∑i=1m1n∑k=1nμ̃ijk,where μ̃jki=bjki∑i=1mbjki denotes the proportion of the objective credibility of the ith expert on the jth risk about the kth criterion and bjki=1−d̃ijk.
+
+PARAGRAPH
+
+PARAGRAPH
+
+There are 4 experts in a safety risk assessment problem, they assess a risk from 3 indicators in turn and their assessment data are shown in Table 1.
+
+PARAGRAPH
+
+Firstly, Ī.k=[14∑i=14xik−,14∑i=14xik+](k=1,2,3) are calculated.
+
+Ī.1=[1.625,2.875], Ī.2=[1.875,3.125] and Ī.3=[2.25,3.2].
+
+Then the deviation matrix is derived as follows: D=0.1770.1771.0011.2870.7291.1790.6370.8840.5060.1770.1770.375.
+
+PARAGRAPH
+
+Secondly, the proportions of the deviations are calculated and construct a deviation proportion matrix D̃: D̃=0.0830.0900.3590.6070.3710.4200.3000.4500.1800.0830.0900.134.
+
+PARAGRAPH
+
+Finally, the objective weights of four experts are calculated by using the formula in Definition 5 and μ1=0.279, μ2=0.181, μ3=0.234, μ4=0.305.
+
+PARAGRAPH
+
+Step3: Determine the integrated weights λ1,λ2,…,λm.
+
+PARAGRAPH
+
+Tian et al., 2018
+
+PARAGRAPH
+
+Weight coefficients λ1,λ2,…,λm are named integrated weights of m assessment experts when these coefficients integrate the subjective weights and the objective weights at the same time, and subject to ∑j=1mλj=1,0≤λj≤1, with λj=λ̃j∑j=1mλ̃j,where λ̃j=θjα(μj)1−α(0≤α≤1), θj is the subjective weight and μj is the objective weight.
+
+PARAGRAPH
+
+PARAGRAPH
+
+There are 4 assessment experts in Example 3, their objective weights are 0.279, 0.181, 0.234, 0.305 in turn.
+
+Now their subjective weights are 0.3, 0.2, 0.2, 0.3 respectively based on the opinions of decision makers, the integrated weights can be calculated based on Definition 6 with α=0.5 and λ1=0.290,λ2=0.191,λ3=0.217,λ4=0.303.
+
+PARAGRAPH
+
+After the weight coefficients in formula (2) are determined, the individual interval numbers can be combined into a collective interval number based on formula (2), that is to say, D1,D2,…,Dm can be combined to D̄ given in Box II.
+
+PARAGRAPH
+
+Where x̄cjk−,x̄cjk+ denote the endpoints of the collective interval number about the kth index of the jth risk, fcjk(x) and uc(x) are the probability distribution function and utility function of the corresponding collective interval number respectively.
+
+PARAGRAPH
+
+PARAGRAPH
+
+In Example 3, there are four experts assess a risk from three indicators and their assessment scores are shown in Table 1.
+
+The integrated weights of these four experts are calculated in Example 4 with α=0.5 and λ1=0.290,λ2=0.190,λ3=0.217,λ4=0.303.
+
+For calculating simplicity, we assume the probability distribution functions are all uniform distributions and the utility functions of four experts are all linear functions(That means these four experts are all risk neutral).
+
+The interval numbers with probability function and utility function are shown in Table 2.
+
+PARAGRAPH
+
+By using formula (2), the collective interval numbers of c1,c2,c3 can be calculated.
+
+For example, the individual interval numbers of four experts about c1 are I1=([1.5,2.5],1;x), I2=([2,3.5],11.5;x), I3=([1.5,3],11.5;x) and I4=([1.5,2.5],1;x) respectively.
+
+Then the minimum value of the left end points of these four intervals is 1.5, the maximum value of the right end points of these four intervals is 3.5.
+
+If 1.5≤x≤2, fc=0.290×1+0.190×0+0.217×11.5+0.303×1=0.738; if 2<x≤2.5, fc=0.290×1+0.190×11.5+0.217×11.5+0.303×1=0.864; if 2.5<x≤3, fc=0.290×0+0.190×11.5+0.217×11.5+0.303×0=0.271; if 3<x≤3.5, fc=0.290×0+0.190×11.5+0.217×0+0.303×0=0.127.
+
+Because the attitudes of four experts are all risk neutral, the utility function of the collective interval number is linear function too.
+
+PARAGRAPH
+
+Finally, the collective interval number with distribution function and utility function of c1 is derived: Ic1=([1.5,3.5],fc1;x), where fc1(x)=0.738,if 1.5≤x≤2,0.864,if 2<x≤2.5,0.271,if 2.5<x≤3,0.127,if 3<x≤3.5.It is easy to verify ∫1.53.5f(x)dx=1.
+
+The value range of c1 is from 1.5 to 3.5, this range covers all possible values given by the four experts.
+
+When 2<x≤2.5, the value of the probability density function f(x) is the largest, then [2,2.5] is the most important value range of c1.
+
+PARAGRAPH
+
+The collective interval numbers of c2,c3 can be derived in the same way.
+
+Then the assessment interval numbers of four experts are combined into three collective interval numbers, and
+
+PARAGRAPH
+
+PARAGRAPH
+
+SECTION
+
+Aggregating multiple indicators into a comprehensive index
+
+PARAGRAPH
+
+In risk assessment problems, there are often multiple indicators involved and multi-index fusion model is needed.
+
+In the existing literature, there are many multi-index fusion models (Wu et al., 2016).
+
+The selection of fusion model should consider the nature of risk assessment.
+
+The risk attitudes of assessment experts are likely different.
+
+The assessment experts with different risk attitudes have different preferences to the bigger scores or the smaller scores.
+
+The conservative expert likely prefers to the bigger scores, the situation is contrary for the optimistic expert.
+
+PARAGRAPH
+
+It is imperative to incorporate risk attitudes in risk assessment problems (Brito et al., 2010; Ruan et al., 2015).
+
+How to implement this work is an import issue.
+
+If assessment data are sorted from large to small, and data from different positions are given different weights which are determined according to the attitudes of decision makers, this approach could reflect the risk attitudes of decision makers to a certain extent (Tian et al., 2018).
+
+When multiple indicators are aggregated based on the sorted data and the sorted data are given different weights according to their positions, then risk attitudes could be incorporated in risk assessment.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose that I1=([a1,b1],f1(x);u1(x)) and I2=([a2,b2],f2(x);u2(x)), then I1≥I2 if E(I1)≥E(I2), where E(I1)=∫a1b1xf1(x)dx and E(I2)=∫a2b2xf2(x)dx.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume that I1,I2,…,In are n interval numbers with distribution function and utility function and Ii=([ai−,ai+],fi(x);ui(x))(i=1,2,…,n), the multi-interval numbers ordered weighted average(MI-OWA) operator is defined as: FMI−OWA(I1,I2,…,In)=([min(a1−,a2−,…,an−),max(a1+,a2+,…,an+)],f(x);u(x)), where f(x)=w1fσ(1)(x)+w2fσ(2)(x)+⋯+wnfσ(n)(x), u(x)=w1uσ(1)(x)+w2uσ(2)(x)+⋯+wnuσ(n)(x), with {σ(1),σ(2),…,σ(n)} being a permutation of {1,2,…,n}, and W=(w1,w2,…,wn) being the weight vector, such that (1)wi∈(0,1),(2)∑iwi=1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose that there are four indicators denotedby c1,c2,c3,c4 respectively in a risk assessment problem, the probability density functions are all uniform functions and the risk attitude of assessment expert is risk neutral.
+
+The assessment interval numbers of a risk from these four indicators are given as follows: I1=([2,3],1;x),I2=([3,5],12;x),I3=([1,2],1;x),I4=([2.5,3.5],1;x).
+
+PARAGRAPH
+
+Firstly, E(I1)=∫23x⋅1dx=52, E(I2)=4, E(I3)=32 and E(I4)=3.
+
+Then the sequence of these four interval numbers can be derived: I2>I4>I1>I3.
+
+PARAGRAPH
+
+Secondly, the weights in the MI-OWA operator are 0.4, 0.3, 0.2, 0.1 in turn according to the opinions of decision makers.
+
+Then, FMI−OWA can be calculated and FMI−OWA(I1,I2,I3,I4)=([1,5],f(x);u(x)), where f(x)=0.4f2(x)+0.3f4(x)+0.2f1(x)+0.1f3(x),u(x)=0.4u2(x)+0.3u4(x)+0.2u1(x)+0.1u3(x)=x, then,
+
+PARAGRAPH
+
+PARAGRAPH
+
+In Example 6, FMI−OWA(I1,I2,I3,I4)=([1,5],f(x);u(x)), the interval [1,5] covers all the values of I1,I2,I3,I4.
+
+This denotes that the value information for these four intervals is all preserved.
+
+But the points in [1,5] have different importance, the value of f(x) reaches the maximum when X falls in [2.5,3.5] and reaches the minimum when X falls in [1,2].
+
+According to Example 6, there are three steps when the MI-OWA operator is used.
+
+Firstly, ranking interval numbers from large to small.
+
+Secondly, determining the weight vector in MI-OWA operator.
+
+Thirdly, calculating the result of the MI-OWA operator by using Definition 8.
+
+PARAGRAPH
+
+In fact, the MI-OWA operator in Definition 8 is an average operator and the probability density functions and the utility functions are averaged.
+
+This type of average is mainly determined by the weighting vector W, some examples are as follows:
+
+PARAGRAPH
+
+(1) w1=1,w2=0,…,wn=0, except for the largest interval, the weights of the probability density functions of other intervals are all defined zero.
+
+In fact, only the largest interval is considered in the operator.
+
+PARAGRAPH
+
+(2) w1=0,w2=0,…,wn=1, except for the smallest interval, the weights of the probability density functions of other intervals are all defined zero.
+
+In fact, only the smallest interval is considered in the operator.
+
+PARAGRAPH
+
+(3) w1=1n,w2=1n,…,wn=1n, the probability density functions of all intervals are considered equally.
+
+Finally, the points in the result of MI-OWA operator are more important when the number of intervals they belonging to is more bigger.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume that FMI−OWA is a multi-interval numbers ordered weighted average operator.
+
+ThenFMI−OWA(I1,I2,…,In)=FMI−OWA(I1′,I2′,…,In′), whereI1′,I2′,…,In′ is any permutation of the intervals I1,I2,…,In.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Because I1′,I2′,…,In′ is a permutation of I1,I2,…,In, suppose that B and B′ are the ordered vectors of (I1,I2,…,In) and (I1′,I2′,…,In′) respectively, so B=B′.
+
+Therefore FMI−OWA(I1,I2,…,In)=FMI−OWA(I1′,I2′,…,In′).
+
+PARAGRAPH
+
+PARAGRAPH
+
+All multi-interval numbers ordered weighted average operators are all idempotent for the case whereIi=I for alli=1,2,…,n, thenFMI−OWA(I1,I2,…,In)=I.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Assume FMI−OWA is a MI-OWA operator.
+
+Let A=(I1,I2,…,In) and B=(I1′,I2′,…,In′) are two interval numbers with distribution function and utility function vectors such that for eachi:Ii≥Ii′, thenFMI−OWA(A)⩾FMI−OWA(B).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose that Ii=([ai−,ai+],fi(x);ui(x))(i=1,2,…,n) and Ii′=([ai−′,ai+′],fi′(x);ui′(x))(i=1,2,…,n).
+
+Because Ii≥Ii′, then EIi≥EIi′.
+
+PARAGRAPH
+
+Since [ai−,ai+]⊂[min(a1−,a2−,…,an−),max(a1+,a2+,…,an+)] and fi(x) takes 0 when x locates the outside of [ai−,ai+], so ∫min(a1−,a2−,…,an−)max(a1+,a2+,…,an+)xfi(x)dx=∫ai−ai+xfi(x)dx=EIi.
+
+In the same way, for the interval number Ii′, ∫min(a1−′,a2−′,…,an−′)max(a1+′,a2+′,…,an+′)xfi′(x)dx=∫ai−′ai+′xfi′(x)dx=EIi′.
+
+PARAGRAPH
+
+Since FMI−OWA(A)=([min(a1−,a2−,…,an−),max(a1+,a2+,…,an+)],f(x);u(x)), where f(x)=w1fσ(1)(x)+w2fσ(2)(x)+⋯+wnfσ(n)(x), u(x)=w1uσ(1)(x)+w2uσ(2)(x)+⋯+wnuσ(n)(x).
+
+FMI−OWA(B)=([min(a1−′,a2−′,…,an−′),max(a1+′,a2+′,…,an+′)],f′(x);u′(x)), where f′(x)=w1fσ(1)′(x)+w2fσ(2)′(x)+⋯+wnfσ(n)′(x), u′(x)=w1uσ(1)′(x)+w2uσ(2)′(x)+⋯+wnuσ(n)′(x).
+
+PARAGRAPH
+
+Then E(FMI−OWA(A))=∫min(a1−,a2−,…,an−)max(a1+,a2+,…,an+)xf(x)dx=w1E(Iσ(1))+w2E(Iσ(2))+⋯+wnE(Iσ(n)), and E(FMI−OWA(B))=∫min(a1−′,a2−′,…,an−′)max(a1+′,a2+′,…,an+′)xf′(x)dx=w1E(Iσ(1)′)+w2E(Iσ(2)′)+⋯+wnE(Iσ(n)′).
+
+Because E(Ii)≥E(Ii′) for each i, then E(FMI−OWA(A))≥E(FMI−OWA(B)), hence FMI−OWA(A)≥FMI−OWA(B).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let W∗=(0,0,…,1),W∗=(1,0,…,0) be two weighting vectors and A any input interval numbers vector, then FW∗(A)≤FW(A)≤FW∗(A), where FW∗,FW,FW∗ are all MI-OWA operators and W is any weighting vector.
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+FW∗(A)=([min(a1−,a2−,…,an−),max(a1+,a2+,…,an+)],fW∗(x);uW∗(x)), where fW∗(x)=0⋅fσ(1)(x)+0⋅fσ(2)(x)+⋯+1⋅fσ(n)(x), uW∗(x)=uσ(n)(x).
+
+According to fW∗(x), only Iσ(n) is considered and the importance of Iσ(1),Iσ(2),…,Iσ(n−1) is all 0 in FW∗(A).
+
+Then, FW∗(A)=Iσ(n).
+
+PARAGRAPH
+
+FW∗(A)=([min(a1−,a2−,…,an−),max(a1+,a2+,…,an+)],fW∗(x);uW∗(x)), where fW∗(x)=1⋅fσ(1)(x), and uW∗(x)=uσ(1)(x).
+
+Then, FW∗(A)=Iσ(1).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Then, E(FW∗(A))=E(Iσ(n)), E(FW∗(A))=E(Iσ(1)), E(FW(A))=w1E(Iσ(1))+w2E(Iσ(2))+⋯+wnE(Iσ(n)).
+
+PARAGRAPH
+
+Because w1E(Iσ(n))+w2E(Iσ(n))+⋯+wnE(Iσ(n))≤w1E(Iσ(1))+w2E(Iσ(2))+⋯+wnE(Iσ(n))≤w1E(Iσ(1))+w2E(Iσ(1))+⋯+wnE(Iσ(1)), so FW∗(A)≤FW(A)≤FW∗(A).
+
+PARAGRAPH
+
+In a risk assessment problem where there are multiple experts and multiple indicators, the assessment scores of several experts can be combined into collective scores by using the method in Section 3.1 and the collective scores of several indicators can be aggregated into a comprehensive index by using Definition 8 in Section 3.2
+
+PARAGRAPH
+
+Finally, we can get the collective scores of the indicators used to establish risk matrix and the scores are expressed by interval numbers with probability density function and utility function.
+
+But the crisp scores of risk are needed in the construction of risk matrix.
+
+Therefore, an interval number integration model is introduced in Section 4.
+
+SECTION
+
+An interval number integration model
+
+PARAGRAPH
+
+The C-OWA operator in Definition 4 is essentially a weighted average function, the value of the operator is an average of [a,b].
+
+In formula (4), when y=0, b−y(b−a)=b and when y=1, b−y(b−a)=a.
+
+The values of b−y(b−a) form b to a with the value of y from 0 to 1.
+
+Q(y) is essentially a weight generating function and reflects the position weight of corresponding y.
+
+PARAGRAPH
+
+In risk assessment problems, it is not enough to only consider the position weight and considering the importance weight of point itself is another important issue because assessment expert is likely more confident about some points than other points in an interval number.
+
+So it is necessary to define an appropriate operator which can consider the position weight and the importance weight simultaneously for risk assessment problems.
+
+Basing on the contents in the literatures (Yager and Xu, 2006; Cao and Wu, 2011; Jin and Qian, 2016), we give the following Definition 9.
+
+PARAGRAPH
+
+PARAGRAPH
+
+A mapping FC−WOWA from [a,b]→Ris called a Continuous Weighted Ordered Weighted Aggregation(C-WOWA) operator if there are a BUM function Q(y)(0≤y≤1) and an importance weight generating function f(x)(a≤x≤b), such that (1)Q(0)=0,Q(1)=1;(2)Q(x)≥Q(y),ifx≥y;(3)∫abf(x)dx=1, and FC−WOWA([a,b])=∫01dQ(y)dyF−1(y)dy,where F−1(y) is the inverse function of y=F(x)=∫xbf(z)dz.
+
+PARAGRAPH
+
+The C-WOWA operator is still a weighted average function, the value of the operator is also an average of [a,b].
+
+The range of F−1(y) is [a,b], unlike Definition 4, the calculation of the points in [a,b] in Definition 9 integrates the importance of points themselves.
+
+The C-WOWA operator considers the position weight and the importance weight at the same time.
+
+PARAGRAPH
+
+When f(x)=1b−a, that is, all elements in [a,b] have the same importance, F(x)=b−xb−a and F−1(y)=b−y(b−a), then the C-WOWA operator is the C-OWA operator in fact, in this situation, only the position weight is considered.
+
+PARAGRAPH
+
+When Q(y)=y, then dQ(y)dy=1, that means the position weights are same and FC−WOWA([a,b])=∫01dQ(y)dyF−1(y)dy=∫01F−1(y)dy.
+
+Let y=F(x), then x=F−1(y) and ∫01F−1(y)dy=∫baxF′(x)dx, then the C-WOWA operator deforms to ∫abxf(x)dx, in this situation, only the importance weight is considered.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose that [a,b]=[2,4], the BUM function Q(y)=y13 and the importance weight generating function f(x)=4−x2(2≤x≤4).
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+In Example 7, 3.2 is an average of [2,4] based on integrating the position weight and the importance weight simultaneously.
+
+If the position weight is only considered, FC−WOWA([a,b])=∫0113y23(4−2y)dy=3.5.
+
+If the importance weight is only considered, FC−WOWA([a,b])=∫24xf(x)dx=∫24(2x−x22)dx=2.67.
+
+PARAGRAPH
+
+There are three steps need to be implemented when the C-WOWA operator is used.
+
+Firstly, the BUM function and the importance weight generating function need to be determined.
+
+Secondly, the points in [a,b] integrating the probability density function need to be calculated.
+
+Thirdly, the average of [a,b] is derived by using (8).
+
+Among these 3 steps, the first step is the most critical step.
+
+When the BUM function and the importance weight generating function are determined, in risk assessment problems, the nature of risk should be considered.
+
+PARAGRAPH
+
+The importance weights of the points themselves can be reflected by the probability density function f(x) in Definition 2.
+
+For example, if f(x)=1b−a for all x∈[a,b], all elements in [a,b] have the same importance; if f(x)=e−(x−a+b2)22∫abe−(x−a+b2)22dx, then ∫abf(x)dx=1 and the importance of a+b2 is biggest in [a,b].
+
+PARAGRAPH
+
+The position weights of the points in [a,b] can be generated by the BUM function Q(y).
+
+In 2004, Yager listed some common expressions of Q(y) (Yager, 2004).
+
+However, there is no explanation on how to determine Q(y) in the existing literatures.
+
+In risk assessment problems, it is necessary that the assessment experts’ risk attitudes are considered.
+
+Therefore, the determination of Q(y) considering assessment experts’ risk attitudes is introduced in the following subsections.
+
+SECTION
+
+BUM function Q(y)
+
+PARAGRAPH
+
+Yager, 2004
+
+PARAGRAPH
+
+A real-valued function Q:[0,1]→[0,1] is called a BUM function if the following properties hold: (1)Q(x)≥Q(y)ifx>y; (2)Q(0)=0,Q(1)=1.
+
+PARAGRAPH
+
+There are many forms of BUM functions in Yager (2004), Yager and Xu (2006), Cao and Wu (2011).
+
+For example Q(y)=y, Q(y)=yr, Q(y)=(sin((π2)y))r, Q(y)=1−e−ay1−e−a etc.
+
+These functions can be used to obtain the position weights in a C-WOWA operator.
+
+The differences among the obtained weights can be expressed by A−C(Q).
+
+The concept of attitudinal character which is denoted by A−C(Q) is constructed by Yager (Yager, 2004), as follows: A−C(Q)=∫01Q(y)dy.
+
+PARAGRAPH
+
+It is obvious that the value of A−C(Q) is the area under Q(y) and A−C(Q)∈[0,1].
+
+If A−C(Q)=0.5, the attitude of the used C-WOWA operator to the bigger or smaller values is neutral and the BUM function is a symmetric one.
+
+If A−C(Q)>0.5, the preference of the used C-WOWA operator to the bigger values is more than to the smaller values and the shape of the BUM function is concave.
+
+If A−C(Q)<0.5, the preference of the used C-WOWA operator to the smaller values is more than to the bigger values and the shape of the BUM function is convex.
+
+By adjusting the value of A−C(Q), the C-WOWA operator can adjust the preference to the larger values or the smaller values flexibly.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Suppose that [a,b]=[2,4] and the importance weight generating function f(x)=12(2≤x≤4).
+
+When the BUM function Q(y)=y13, A−C(Q)=∫01y13dy=0.75>0.5, then, FC−WOWA([2,4])=3.5 as shown in example 7.
+
+When the BUM function Q(y)=y3, A−C(Q)=∫01y3dy=0.25<0.5, then, FC−WOWA([2,4])=∫013y2(4−2y)dy=2.5.
+
+When the BUM function Q(y)=y, A−C(Q)=∫01ydy=0.5, then, FC−WOWA([2,4])=∫011⋅(4−2y)dy=3.
+
+Obviously, the bigger the value of A−C(Q), the bigger the value of FC−WOWA([2,4]).
+
+PARAGRAPH
+
+In many literatures (Yager and Xu, 2006; Jin and Qian, 2016; Xu and Gou, 2017; Beliakov et al., 2018), the expressions of Q(y) are often preassigned without taking into account the characteristics of interval numbers themselves.
+
+In safety risk assessment problems, assessment experts’ risk attitudes possibly affect their assessment scores (Ruan et al., 2015; Tian et al., 2018).
+
+The loss-based risk averse assessors tend to score more severely when evaluating indicators describing risk severity.
+
+The loss-based risk prone assessors tend to be opposite because of their optimistic psychologies.
+
+The loss-based risk neutral assessors tend to be more rational and objective when evaluating risk indicators.
+
+PARAGRAPH
+
+In some papers (Donati et al., 1983; Tian et al., 2018), the scholars point out that the data with the influence of assessors’ attitudes should be corrected before being used.
+
+How to correct the influence is an important issue.
+
+When an assessment expert is loss-based risk averse and scores the consequence of safety risk, their assessment scores often tend to be higher than the true levels and the assessment scores should be corrected to smaller values.
+
+The influence of expert’s risk attitude can be corrected in some extent by using an appropriate Q(y) with A−C(Q)<0.5 because the used C-WOWA operator gives more weights to the smaller scores.
+
+When an assessment expert is loss-based risk prone and scores the consequence of safety risk, their assessment scores often tend to be smaller than true levels and the assessment scores should be corrected to bigger values.
+
+The influence of expert’s risk attitude can be corrected in some extent by using an appropriate Q(y) with A−C(Q)>0.5 because the used C-WOWA operator gives more weights to the bigger scores.
+
+PARAGRAPH
+
+Through giving more weights to bigger values, a relative bigger average of [a,b] can be derived.
+
+When the smaller values are given more weights, a relative smaller average of [a,b] can be derived.
+
+That is to say, the preference to the bigger or smaller values in C-WOWA operator affects the average of [a,b].
+
+The preference to the bigger or smaller values can be characterized by A−C(Q).
+
+SECTION
+
+Loss-based utility function(LBUF)
+
+PARAGRAPH
+
+In safety risk assessment problems, assessment experts need to assess different risks.
+
+Because a person’s risk attitude would possibly influence his(or her) risky behaviors (Rólczyński et al., 2017), assessment scores are likely to be influenced by assessment experts’ risk attitudes.
+
+It is necessary to consider experts’ risk attitudes which can be expressed by utility function in risk assessment process (Ruan et al., 2015).
+
+PARAGRAPH
+
+Utility is one’s subjective feeling and can be used to quantify the preference relation.
+
+Utility theory is widely used in decision problems and applied to quantify decision makers’ preference relations (Ben-Asher, 2008; Brito et al., 2010; Holt et al., 2014).
+
+It is great necessary that individual differences in attitudes towards risk are considered (Weber et al., 2010).
+
+Utility function can be used to quantify decision makers’ risk attitudes under various circumstances.
+
+PARAGRAPH
+
+Utility function is usually expressed by U(x).
+
+If X in U(x) denotes the value of gains, the holder’s utility satisfies the following characters: (1)U̇(x)>0, the utility function is a monotonic increasing function, utility increases with wealth increasing; (2)Ü(x)>0, Ü(x)=0, and Ü(x)<0 denote the risk-prone attitude, the risk-neutral attitude and the risk-averse attitude respectively.
+
+PARAGRAPH
+
+But risk attitudes in case of losses are different from the ones in case of gains (Rólczyński et al., 2017; Harrison and Rutström, 2008; Köbberling and Wakker, 2005).
+
+In safety risk assessment problems, decision makers face possible losses that could bring a greater threat to life and property security.
+
+The constant relative risk averse utility functions which are commonly used in finance and macroeconomics, encounter difficulties when modeling loss-based risk attitudes (Köbberling and Wakker, 2005).
+
+The occurrence of safety risk is usually accompanied by huge economic loss and bad social effects.
+
+Based on the characteristics of safety risk, the loss-based utility function that can be used to quantify risk attitudes in safety risk assessment problems is given in the following.
+
+PARAGRAPH
+
+PARAGRAPH
+
+A real-valued function U:[0,1]→[0,1] is called a LBUF if the following properties hold: (1)U̇(x)>0; (2)U(0)=0,U(1)=1, where x denotes the degree of loss, and U denotes the degree of dissatisfaction.
+
+PARAGRAPH
+
+X denotes the degree of loss and U denotes the degree of dissatisfaction in Definition 11, according to people’s habits, the LBUF function meets U̇(x)>0 and U(0)=0,U(1)=1. (1)U̇(x)>0,
+
+the people’s dissatisfaction (the extent of loss effect) increases with the increasing of loss; (2)U(0)=0,U(1)=1, the dissatisfaction is zero when there is no loss and the dissatisfaction reaches 1 when the loss reaches maximum.
+
+PARAGRAPH
+
+The risk attitudes in case of loss can be reflected by the second derivative of U(x).
+
+When Ü(x)>0, the increase of dissatisfaction speeds up with the degree of loss increasing, this is called loss-based risk aversion.
+
+When Ü(x)<0, the increase of dissatisfaction decreases with the degree of loss increasing, this is called loss-based risk proneness.
+
+When Ü(x)=0, the increase of dissatisfaction is constant with the degree of loss increasing, this is called loss-based risk neutrality.
+
+Based on the ahead analysis, the judgment of the loss-based utility function is contrary to the utility function in which X denotes gains, but the basis(i.e. U̇(x) and Ü(x)) for judgment is similar.
+
+The description of the loss-based utility function needs to be constructed, and its equation is expressed according to utility function U(x) in this paper.
+
+PARAGRAPH
+
+The descriptions of U(x) are different under different conditions.
+
+Logarithmic functions, exponential functions and power functions are common forms when representing utility functions (Köbberling and Wakker, 2005; Bhat, 2008; Christensen et al., 1975).
+
+Exponential function and power function are best fits for utility function in risk assessment problems (Brito et al., 2010; Ruan et al., 2015) and they are selected to depict the LBUF in this paper.
+
+Three example graphs of LBUF are shown in Fig. 2.
+
+Based on Definition 9, LBUF can be used as a BUM function in a C-WOWA operator.
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+The LBUF of an assessment expert is U(x) and U(x)=1−e−2x1−e−2,0≤x≤1.
+
+The figure of U(x) is shown in Fig. 3, the loss-based risk attitude of the expert is apparently loss-based risk proneness.
+
+When U(x) is used as Q(x), A−C(Q)=∫011−e−2x1−e−2dx=0.6565>0.5.
+
+PARAGRAPH
+
+The expert’s risk attitude in Example 9 is loss-based risk proneness.
+
+When facing with losses, the expert with such a risk attitude always has the mentality of fluke and feels that the risk is not so serious and his(or her) risk scores are relatively lower than the actual levels (Rólczyński et al., 2017).
+
+To derive a more objective and real assessment results, the influence of the expert’s risk attitude should be corrected and the preference to the bigger scores should be raised (Ruan et al., 2015; Tian et al., 2018; Nebelecky, 2004).
+
+When U(x) is used as Q(y), then A−C(Q)>0.5 and the used C-WOWA operator gives more weights to the bigger scores and the influence of expert’s risk attitude can be corrected.
+
+PARAGRAPH
+
+In Example 9, the expert’s risk attitude is loss-based risk proneness and the LBUF is expressed by the exponential function.
+
+On the other hand, the LBUF is expressed by the logarithmic function when one’s risk attitude is loss-based risk aversion in this paper.
+
+SECTION
+
+PARAGRAPH
+
+The proposed MEMCIF-IN model
+
+PARAGRAPH
+
+In this section, a MEMCIF-IN model which fuses multi-expert and multi-criterion information based on interval numbers and considers the correction of the influence of assessment experts’ risk attitudes is presented.
+
+The six steps of MEMCIF-IN method are briefly described as follows:
+
+PARAGRAPH
+
+Step 1: Derivation of loss-based utility functions.
+
+PARAGRAPH
+
+To derive the loss-based utility functions reflecting the risk attitudes of evaluation experts, questionnaire survey(QS) method and least square(LS) method are often used.
+
+In this step, the collective loss-based utility function Uc(x) is derived.
+
+PARAGRAPH
+
+Step 2: Assessment data collection.
+
+PARAGRAPH
+
+According to the standards which are predefined, experts can score the risks that need to be assessed.
+
+Because of the uncertainty of risk and the limitation of cognition, the assessment data given by assessors are often interval numbers.
+
+Suppose that there are m experts, then m assessment matrices: D1,D2,…,Dm are derived.
+
+PARAGRAPH
+
+Step 3: Individual scores integration.
+
+PARAGRAPH
+
+By using formula (5) and formula (6) in Section 3, the integrated weights of assessment experts can be derived.
+
+Then, the collective interval numbers with distribution function and utility function are derived based on Definition 2 and formula (2) in Section 2.
+
+PARAGRAPH
+
+Step 4: Overall consequence calculation.
+
+PARAGRAPH
+
+The indicators depicting the consequence of risk from several aspects can be aggregated into an overall consequence by using the formula (7) in Definition 8.
+
+In this step, the two indicators(the frequency and the overall consequence) expressed by interval numbers with collective distribution function and collective utility function are derived.
+
+PARAGRAPH
+
+Step 5: Interval number aggregation.
+
+PARAGRAPH
+
+The crisp values that is needed in risk matrix are derived by using the C-WOWA operator in Definition 9 where Q(y) is the collective utility function Uc(x) and it is same for each risk.
+
+In this step, the influence of the risk attitudes of assessment experts are corrected to some extent.
+
+PARAGRAPH
+
+Step 6: Risk matrix Construction.
+
+PARAGRAPH
+
+Risks with crisp values(the frequency and the overall consequence) are drawn in a TRM matrix with 25 cells, the assessment outputs of risks are derived based on the location zones of risks.
+
+PARAGRAPH
+
+The assessment data are given in form of interval numbers with distribution function and utility function and derived by using Expert Scoring method in some safety risk assessment problems.
+
+To assess safety risks, the crisp values which are used to construct a risk matrix are needed.
+
+The risk assessment task can be implemented after the above six steps, main methods used and main conclusions are listed in Table 3 and an application is demonstrated in Section 6.
+
+SECTION
+
+Application
+
+PARAGRAPH
+
+Oil and gas industry has become a high-risk industry.
+
+Inflammability, high pressure, toxicant, high temperature, easy corrosion etc. are all the causes that lead to safety risks.
+
+Safety risks are often serious threats to the surrounding community residents’ lives and health and entire prise.
+
+Consequently, risk management is an important work.
+
+Safety risk management is mainly to control safety risks and make them acceptable.
+
+Before managing safety risks, the first task is to assess them.
+
+PARAGRAPH
+
+Most scholars agree with that risk is a combination of consequence and frequency (Ni et al., 2010).
+
+Safety risk assessment is carried out based on the two indicators.
+
+The frequency denotes the time required for a safety risk happening once.
+
+The consequence of safety risk in oil and gas industry denotes the losses because of a safety accident and is often described from four aspects: accident level, economic loss, environmental pollution and reputation loss (Tian et al., 2018).
+
+In general, accident level is defined based on the injuries in a risk accident, economic loss is the direct economic loss in a risk accident and measured in RMB in this paper, reputation loss refers to the size of the criticized scope because of a risk accident, environmental pollution refers to the size of the polluted scope because of a risk accident.
+
+The four aspects are all consequences of safety risk and not all of them are easily expressed by money.
+
+PARAGRAPH
+
+In many oil and gas industries, the records of the above criteria are missing especially for the risk which performs as a low frequency.
+
+To assess safety risk, the Expert Scoring method is usually adopted as the collecting data method.
+
+Therefore the risk matrix approach which is a semi-quantitative assessment method is adopted to carry out the safety risk assessment in this paper.
+
+PARAGRAPH
+
+Suppose there are four safety risks in some oil and gas industry and these four risks are denoted by r1,r2,r3,r4 respectively.
+
+A department head who is in charge of the safety in the process of production, a team leader who has rich work experience and an operating employee who works at the first line are selected to score the four risks.
+
+They are denoted by e1,e2,e3 in turn and their subjective weights are 0.4,0.3,0.3 respectively based on the decision makers’ opinions.
+
+PARAGRAPH
+
+Five criteria(frequency, accident level, economic loss, environmental pollution and reputation loss) are used to depict safety risk and they are denoted c1,c2,c3,c4,c5 in turn. c1
+
+denotes the frequency, c2,c3,c4,c5 all describe the consequence of safety risk from four aspects and they need to be aggregated into an overall consequence.
+
+These five criteria are all divided into five levels respectively according to the rules in the industry which is involved in the application, and the specific classifications are shown in Table 4.
+
+The assessment experts can give more reasonable scores about these four safety risks according to Table 4.
+
+SECTION
+
+PARAGRAPH
+
+LBUF derivation
+
+PARAGRAPH
+
+To derive the LBUFs reflecting the risk attitudes of three assessment experts, an investigation of how much dissatisfaction the assessment experts would have under prescribed losses is carried out.
+
+A questionnaire is designed to implement the investigation based on Table 4.
+
+Assessment experts are notified that their opinions delivered in the investigation will be used to derive their loss-based utility functions.
+
+PARAGRAPH
+
+In the oil and gas industry which is involved in this application, more than 5000000 RMB economics loss cannot be tolerated and -5000000 RMB is considered the greatest economic loss with the loss degree being 1.
+
+When there is no loss, the loss degree is 0.
+
+The set of loss in thousands RMB consists of 16 values: -5000, -4500, -4000, -3500, -3000, -2500, -2000, -1500, -1000, -500, -400, -300, -200, -100, -50, and 0, and the loss degrees of this set are shown is Table 5.
+
+PARAGRAPH
+
+Quantitative dissatisfaction degrees are adopted to describe experts’ actual attitudes regarding certain loss amounts.
+
+Corresponding to the set of loss, dissatisfaction degree takes the range from 0 to 1.
+
+The value of 0 represents the dissatisfaction with a loss value of 0 RMB, while the value of 1 represents the most dissatisfaction with the most loss.
+
+Dissatisfaction degree values corresponding to each assigned loss value associated with e1,e2,e3 are shown in Table 5 and illustrated in Fig. 4.
+
+Judging from the loss-dissatisfaction points of e1, it can be inferred that the loss-based utility function is convex, which means that e1 is loss-based risk prone. e2, e3
+
+are all loss-based risk averse contrary to e1.
+
+PARAGRAPH
+
+In Table 5, the final investigated dissatisfaction degree is the weighted average of e1,e2,e3 and the weights of e1,e2,e3 are 0.4, 0.3, 0.3 in turn.
+
+Judging from the loss-dissatisfaction points of the final, it can be inferred that the loss-based utility function is concave, which means that the final is loss-based risk averse.
+
+According to this inference, bln(1−ax) is adopted for a better fitting result.
+
+Least square method is adopted for the derivation corresponding to the final(or collective) LBUF, which is shown in Fig. 4 and its expression is as follows: Uc(x)=−1.428ln(1−0.497x),in which the range of loss degree x is [0,1], and the corresponding range of loss-based dissatisfaction degree value U is [0,1] too.
+
+PARAGRAPH
+
+The purpose of the safety risk assessment in the paper is to distinguish which safety risk is unacceptable and need to be added some measures immediately.
+
+The risk matrix approach, which is a semi-quantitative assessment method, is selected to realize the purpose.
+
+Only two input indicators(the frequency and the overall consequence) are required in matrix construction process.
+
+The crisp values of each safety risk on the two indicators will be depicted in risk matrix and the region where the values locates in will show the risk level.
+
+PARAGRAPH
+
+Three evaluation experts are selected to implement the questionnaire survey and score r1,r2,r3,r4 basing on Table 4.
+
+They give the assessment scores on c1 to c5 of the four safety risks as shown in Tables 6–9.
+
+In Tables 6–9, the experts’ scores are expressed in form of interval number with distribution function and utility function.
+
+The score distributions of e1,e2,e3 are all assumed to be uniform distribution and the utility functions of three experts are denoted by u1(x),u2(x) and u3(x) respectively. c1
+
+denotes the frequency of safety risk, c2 to c5 describe the consequence of safety risk from four aspects.
+
+Obviously, c2 to c5 need to be aggregated to derive the overall consequence.
+
+To derive the crisp scores of the frequency and the overall consequence of each safety risk, the MEMCIF-IN model is needed.
+
+PARAGRAPH
+
+SECTION
+
+Combining experts’ scores
+
+PARAGRAPH
+
+Firstly, the subjective weights θj(j=1,2,3) of e1,e2,e3 is 0.4, 0.3, 0.3 in turn according to the decision makers’ opinions.
+
+PARAGRAPH
+
+Secondly, the objective weights μj(j=1,2,3) of e1,e2,e3 as shown in Table 10 are derived based on the credibilities of the assessment interval numbers by using formula (5).
+
+PARAGRAPH
+
+Thirdly, the integrated weights λj(j=1,2,3) of e1,e2,e3 as shown in Table 10 can be calculated by using formula (6) with α=0.5, and Table 10 shows that the values of θj(j=1,2,3) about four safety risks are different.
+
+PARAGRAPH
+
+Finally, the collective interval numbers with distribution function and utility function of c1,c2,c3,c4,c5 are derived by using formula (2).
+
+The results of r1 (as an example) are shown as follows:
+
+PARAGRAPH
+
+Ic1r1=([1,3],fc1(x);uc(x)), where fc1(x)=0.31,if 1≤x≤1.5,1.03,if 1.5<x≤2,0.33,if 2<x≤3,0,others.and uc(x) is the collective utility function.
+
+PARAGRAPH
+
+Ic2r1=([1.5,3],fc2(x);uc(x)), where fc2(x)=0.98,if 1.5≤x≤2,0.69,if 2<x≤2.5,0.33,if 2.5<x≤3,0,others.and uc(x) is the collective utility function.
+
+PARAGRAPH
+
+Ic3r1=([1.5,3],fc3(x);uc(x)), where fc3(x)=0.36,if 1.5≤x≤2,1.31,if 2<x≤2.5,0.33,if 2.5<x≤3,0,others.and uc(x) is the collective utility function.
+
+PARAGRAPH
+
+Ic4r1=([1.5,2.5],fc4(x);uc(x)), where fc4(x)=1.67,if 1.5≤x≤2,0.33,if 2<x≤2.5,0,others.and uc(x) is the collective utility function.
+
+PARAGRAPH
+
+Ic5r1=([3,5],fc5;uc(x)), where fc5(x)=0.33,if 3≤x≤3.5,0.69,if 3.5<x≤4,0.67,if 4<x≤4.5,0.31,if 4.5<x≤5,0,others.and uc(x) is the collective utility function.
+
+SECTION
+
+Calculation the overall consequence
+
+PARAGRAPH
+
+There are four criteria c2 to c4 depicting the consequence of safety risk and they need to be aggregated into the overall consequence.
+
+The overall consequence can be derived by using the formula (7) in Definition 8 with w1=0.35,w2=0.30,w3=0.20,w4=0.15 determined by decision makers.
+
+The calculation processes about r1,r2,r3,r4 are same, the calculation steps of r1 (as an example) are shown as follows:
+
+PARAGRAPH
+
+Step 1: Calculate E(I2r1), E(I3r1), E(I4r1) and E(I5r1) by using Definition 7.
+
+E(I2r1)=∫1.520.98xdx+∫22.50.69xdx+∫2.530.33xdx=2.0875, E(I3r1)=2.2425, E(I4r1)=1.8325, and E(I5r1)=3.9900.
+
+Then, I5r1>I3r1>I2r1>I4r1.
+
+PARAGRAPH
+
+Step 2: Calculate the collective interval number with distribution function and utility function Icr1=([a,b],fc(x);uc(x)) by using Definition 8.
+
+PARAGRAPH
+
+According to Definition 8, a is the minimum of the left endpoints of I2r1,I3r1,I4r1,I5r1 and b is the maximum of the right endpoints. fc(x)=0.35fc5(x)+0.30fc3(x)+0.20fc2(x)+0.15fc4(x), uc(x)
+
+does not need to be calculated because it is same in each interval number.
+
+PARAGRAPH
+
+Icr1=([1.5,5],fc(x);uc(x)), where fc(x)=0.5545,if 1.5≤x≤2,0.5805,if2<x≤2.5,0.1650,if2.5<x≤3,0.1155,if3<x≤3.5,0.2420,if3.5<x≤4,0.2345,if4<x≤4.5,0.1085,if4.5<x≤5.and uc(x) is the collective utility function.
+
+PARAGRAPH
+
+For r1, the two indicators which are used to constructed a risk matrix are derived, and they are Ic1r1, Icr1 respectively.
+
+But the two indicators are expressed by interval number and they need to be integrated into crisp values.
+
+SECTION
+
+Interval number integration
+
+PARAGRAPH
+
+By using the C-WOWA operator in Definition 9, the interval numbers of r1,r2,r3,r4,r5 can be integrated into crisp values.
+
+Q(y) in Definition 9 is the collective utility function Uc(x) and it is same for r1,r2,r3,r4,r5.
+
+The expression of Uc(x) is derived in Section 6.1 and Uc(x)=−1.428ln(1−0.497x)(0≤x≤1).
+
+So Q(y)=−1.428ln(1−0.497y)(0≤y≤1).
+
+PARAGRAPH
+
+F−1(y) in Definition 9 is the inverse function of y=F(x)=∫xbf(z)dz.
+
+F−1(y) needs to be calculated for each risk and each index.
+
+For Ic1r1, fc1(x)=0.31,if 1≤x≤1.5,1.03,if 1.5<x≤2,0.33,if 2<x≤3,0,others. Then,F(x)=∫x3f(z)dz=1.31−0.31x,if 1≤x≤1.5,2.39−1.03x,if 1.5<x≤2,0.99−0.33x,if 2<x≤3. Finally, F−1(y)=3−3.030y,if 0≤y≤0.330,2.320−0.971y,if 0.330<y≤0.845,4.226−2.226y,if 0.845<y≤1.
+
+PARAGRAPH
+
+The crisp value Fr1 of Ic1r1 is calculated and Fr1=∫01dQ(y)dyF−1(y)dy=1.9703.
+
+In the same way, the crisp value Cr1 of Icr1 is calculated too and Cr1=2.5374.
+
+The crisp values of the Frequency and the Consequence of r2,r3,r4 are derived in the same way and shown in Table 11.
+
+PARAGRAPH
+
+As shown in Fig. 5, r2 and r4 are two high risks, they are unacceptable and need to be added some measure immediately.
+
+The outputs of r1,r3 are medium, their scores of consequence and frequency are not very high, but some measures should be considered to control them.
+
+On the other hand, risk matrix can present the risk(such as r4) which is of low-frequency and high-consequence and the output of such risk would not always be high and could be ignored, but this kind of risks should be added great attention in practice.
+
+SECTION
+
+Comparative analysis
+
+PARAGRAPH
+
+The safety risk assessment in this paper is accomplished mainly by three processes: combining individual scores to collective scores and aggregating four criteria to overall consequence and integrating interval numbers with distribution function and utility function into crisp values.
+
+Two models are used: a multi-expert and multi-criteria fusion model and an interval number integration model.
+
+The first model is powerful to avoid information loss, the second one can adjust flexibly the influence of experts’ risk attitudes.
+
+PARAGRAPH
+
+(1) Effectiveness of avoiding information loss.
+
+PARAGRAPH
+
+Multiple experts and multiple criteria are often needed in semi-quantitative safety risk assessment problems, but crisp values of risks are needed in the construction process of risk matrix, then combining experts’ scores and multiple indicators is a necessary work and avoiding information loss is an important issue in the combination process.
+
+PARAGRAPH
+
+In 2016(Wu et al., 2016), Wu et al. propose three interval number with probability distribution(INPD) weighted operators, let ãi=([ail,aiu],fi(x)),i=1,2,…,n be a collection of INPD, the three INPD weighted operators as follows:
+
+PARAGRAPH
+
+(a) INPDWCPω(ã1,ã2,…,ãn)=(∑i=1nωiail,∑i=1nωiaiu,f(x)), where ω=(ω1,ω2,…,ωn)T is the weight vector and f(x)=∫…∑i=1nωixi=x∫∏i=1nfi(xi)dx1dx2⋯dxn.
+
+PARAGRAPH
+
+(b) INPDWCSω(ã1,ã2,…,ãn)=(⋂i=1n[ail,aiu],f(x)), where ω=(ω1,ω2,…,ωn)T is the weight vector, εi(i=1,2,…,n) is the conversion coefficient and f(x)=∑i=1nfi(xi)⋅ωi⋅εi,∩i=1n[ail,aiu]≠0̸,0,∩i=1n[ail,aiu]=0̸.
+
+PARAGRAPH
+
+(c) INPDWAω(ã1,ã2,…,ãn)=(⋃i=1n[ail,aiu],f(x)), where ω=(ω1,ω2,…,ωn)T is the weight vector and f(x)=∑i=1nfi(xi)⋅ωi.
+
+PARAGRAPH
+
+When the three INPD weighted operators are used in a multi-expert and multi-criteria fusion problem, there will occur information loss and the details are shown in Table 12.
+
+In INPDWCP operator, the left and right endpoints of the output are ∑i=1nωiail and ∑i=1nωiaiu respectively.
+
+Some experts’ opinions(such as [min(a1l,a2l,…,anl),∑i=1nωiail]) are missing.
+
+The situation of INPDWCS operator is similar to INPDWCP operator.
+
+PARAGRAPH
+
+When INPDWA operator is used to combine multiple criteria, the attitude to the bigger values or the smaller values cannot be considered.
+
+In risk assessment problems, the assessment experts with different risk attitudes have different preferences to the bigger scores or the smaller scores without considering their sources.
+
+The conservative expert likely prefers to the bigger scores, the situation is contrary for the optimistic expert.
+
+In the proposed MEMCIF-IN model in this paper, the indicators depicting the consequence of risk from several aspects can be aggregated into an overall consequence by using the MI-OWA operator in Definition 8.
+
+The MI-OWA operator can not only flexibly adjust the weights of the bigger or smaller interval numbers but also conserve all the information that assessment experts give.
+
+So it is more effective to use the proposed MEMCIF-IN model.
+
+PARAGRAPH
+
+(2) Rationality of calculation results.
+
+PARAGRAPH
+
+After the assessment scores of three experts are combined into collective scores and the four indicators are aggregated into an overall consequence, we can get the scores which are expressed by interval numbers with distribution function and utility function.
+
+Then, the interval number integration model is needed.
+
+PARAGRAPH
+
+The C-OWA operator is proposed in Yager (2004), and FC−OWA([a,b])=∫01dQ(y)dy(b−y(b−a))dy, where dQ(y)dy is used to reflect the position weight of y and (b−y(b−a)) shows the weights of the points in [a,b] are all same.
+
+So the C-OWA operator cannot reflect the importance of the points themselves.
+
+Let Q(y)=Uc(y), the results of risk assessment by using the operator in the application are shown in Table 13.
+
+PARAGRAPH
+
+The INPDWA operator is proposed in Wu et al. (2016), and INPDWAω(ã1,ã2,…,ãn)=(⋃i=1n[ail,aiu],f(x)), where f(x) is the probability function and used to reflect the importance of the points in ⋃i=1n[ail,aiu].
+
+The INPDWA operator cannot reflect the position weights(The attitudes of decision makers to the bigger or smaller values).
+
+Let f(x)=fc(x), the results of risk assessment by using the operator in this application are shown in Table 13.
+
+PARAGRAPH
+
+In Ni et al. (2010), an mapping operator(MO) which can map an interval number A to a real number is proposed and Mα=m(A)+αW(A), where m(A) is the midpoint of A, W(A) is the width of A and α∈[−0.5,0.5].
+
+This operator cannot reflect the importance of the points themselves and uses less interval information and the attitudes of decision makers to the bigger or smaller values are reflected simply.
+
+Let α=0, the results of risk assessment by using the operator in this application are shown in Table 13.
+
+PARAGRAPH
+
+From the results shown in Table 13, we can conclude that the method developed in Wu et al. (2016) and the method proposed in this paper generate the same ranks of r1 to r4.
+
+The ranks of r1 and r3 are all same for the four methods.
+
+The ranks of r2 and r4 cannot be determined when the MO is used.
+
+This reflects the validity of the proposed model in this method.
+
+PARAGRAPH
+
+Based on Section 6.1, the risk attitude of the expert group is loss-based risk averse and the collective scores should be corrected to smaller ones.
+
+The C-OWA operator, the MO and the method proposed in this paper can integrate risk attitudes into the calculation process.
+
+But for the MO, the parameter α roughly reflects risk attitudes.
+
+The C-OWA operator can reflect risk attitudes like the method proposed in this paper, but it is obviously unreasonable that each point in an interval number has the same importance when there are multiple assessment experts.
+
+PARAGRAPH
+
+For r1, the probability function f(x) of F reaches maximum when the points fall into [1.5,2] and the values of f(x) are bigger when x falls into [2,3] than [1,1.5].
+
+So the final average of F is smaller than the midpoint of [1,3].
+
+The situation of C is similar to F and the final average of C is smaller than the midpoint of [1.5,5].
+
+PARAGRAPH
+
+For r2, the probability function f(x) of F reaches maximum when the points fall into [3.5,4], so the final average of F is bigger than the midpoint of [2,4].
+
+The situation of C is contrary to F and the final average of C is smaller than the midpoint of [1.5,5].
+
+On the other hand, the probability function f(x) is different to r1 and the two scores of C of r1 and r2 are easy to be distinguished.
+
+PARAGRAPH
+
+For r3, the probability function f(x) of F reaches maximum when the points fall into [1,1.5], so the final average of F is smaller than the midpoint of [1,2].
+
+The situation of C is contrary to F and the final average of C is bigger than the midpoint of [1.5,5].
+
+PARAGRAPH
+
+For r4, the probability function f(x) of F reaches maximum when the points fall into [1,1.5], so the final average of F is bigger than the midpoint of [0,2].
+
+The situation of C is similar to F and the final average of C is bigger than the midpoint of [3.5,5].
+
+PARAGRAPH
+
+Considering the value characteristics of the probability density function and the collective utility function synthetically, the results of the method proposed in this paper are more reasonable.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions
+
+PARAGRAPH
+
+Multiple experts and multiple criteria are often involved in semi-quantitative safety risk assessment problems, and assessment data are often expressed by interval numbers.
+
+Considering the nature of risk, interval number with distribution function and utility function is defined in this paper.
+
+To construct risk matrix, only two crisp values(the frequency and the consequence) of risk are needed.
+
+Then a multi-expert and multi-criterion information fusion model and an interval number with distribution function and utility function integration model are constructed in this paper.
+
+PARAGRAPH
+
+Firstly, the interval numbers of three assessment experts are combined into collective interval numbers.
+
+Secondly, the collective interval numbers that depict the consequence of risk from four aspects are aggregated to derive the overall consequence which is used to account for the consequence of risk.
+
+Thirdly, the interval numbers of the frequency and the overall consequence are integrated into crisp values.
+
+Finally, a risk matrix with 25 cells is established based on the crisp values.
+
+Compared with the existing models which are used to construct risk matrix, the proposed method in the paper possesses the following new practical advantages:
+
+PARAGRAPH
+
+(1) In the paper, the assessment data are expressed by interval numbers with distribution function and utility function, the distribution function and utility function can describe the importance of the points themselves in an interval number and the risk attitudes of assessment expert respectively.
+
+When the assessment data are fused, the calculation of the integrated weights of evaluation experts considers not only the subjective weights given by the decision makers but also the objective weights derived by the credibilities of the assessment data.
+
+Moreover, the value range of collective interval number covers all possible values given by individual experts and the collective probability density function is determined by all individual distribution functions, then the loss of information is avoided.
+
+PARAGRAPH
+
+(2) The consequence of risk in oil and gas industry mainly performs in four aspects and they cannot always be measured with money, however, the comprehensive consequence of risk is needed in the process of risk matrix construction.
+
+The comprehensive consequence is derived by combining the multiple criteria, and its calculation is implemented by the proposed MI-OWA operator in this paper.
+
+The MI-OWA operator cannot only incorporate the attitudes of decision makers to the bigger or smaller scores, but also preserve all the information from individual criterion.
+
+PARAGRAPH
+
+(3) To derive a real and fair risk assessment result, the LBUF is proposed as a BUM function to generate the position weights in the C-WOWA operator.
+
+This can reduce the influence to the assessment data of experts’ risk attitudes.
+
+The proposed C-WOWA operator which is used to integrate an interval number with distribution function and utility function into a crisp value considers the importance weights and the position weights simultaneously.
+
+PARAGRAPH
+
+Therefore, the MEMCIF-IN model is very practical and effective and more suitable for the risk assessment problems where there are few experts.
+
+Meanwhile, there are still some disadvantages to be improved in the future.
+
+PARAGRAPH
+
+(1) The assessment data of experts are expressed by interval number with distribution function and utility function, but the individual distribution functions are all supposed uniform functions in this paper.
+
+Sometimes, the distribution function of an interval number may be in other forms which would cause computational difficulties.
+
+PARAGRAPH
+
+(2) The loss-based utility function of a same assessment expert about five criteria are assumed to be same.
+
+In fact, the attitudes to frequency, accident level, economic loss, environmental pollution and reputation loss of a same person are likely different.
+
+In the future, we will try to construct reasonable utility function.
+
+PARAGRAPH
+
+(3) In the data fusion process of the proposed method in this paper, the calculation of this method is more complicated for large-scale group decision-making problems because this method considers more factors and all the opinions of evaluators.
+
+In the future, we will try to construct the information fusion model based on interval numbers with distribution function and utility function for large-scale group safety risk assessment problems.

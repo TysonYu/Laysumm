@@ -1,0 +1,491 @@
+10.1016/j.jhep.2019.04.001
+
+FULLTEXT
+
+TITLE
+
+Ursodeoxycholic acid therapy and liver transplant-free survival in patients with primary biliary cholangitis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Primary biliary cholangitis (PBC) is a chronic and usually slowly progressive liver disease with autoimmune features, histologically characterized by destruction of the small intrahepatic bile ducts.1,2
+
+The disease is primarily diagnosed based on an otherwise unexplained chronic elevation of serum alkaline phosphatase levels and the presence of anti-mitochondrial antibodies.
+
+Early identification of individuals with PBC is clinically challenging as symptoms are frequently absent.
+
+Identifying and managing patients with PBC is important, however, as the disease may silently progress towards cirrhosis and the survival of affected patients is substantially impaired.3
+
+PARAGRAPH
+
+Ursodeoxycholic acid (UDCA) is a choleretic and hydrophilic endogenous bile acid that is considered a safe and well-tolerated drug.4–6
+
+Based on the cumulative experience obtained with this drug over the past decades, UDCA is recommended as the standard treatment for PBC.4,6
+
+Long-term cohort studies have suggested an association between UDCA and improved liver transplant (LT)-free survival, but this was only based on the comparison of observed versus predicted LT-free survival according to the Mayo Risk Score, which estimates the prognosis when patients are left untreated.7–9
+
+Numerous randomized controlled trials (RCTs) have been performed as well, but all failed to show a difference in LT-free survival between placebo and UDCA-treated groups.10–19
+
+As did other more extensive meta-analyses, the Cochrane hepatobiliary group recently concluded once again that there is no demonstrated benefit of UDCA on LT and/or mortality.17–20
+
+Such positioning statements, in absence of definitive trials, have fueled the ongoing discussion about the therapeutic potential of UDCA.21–24
+
+This might explain the observation in a well-executed national PBC registry that, until recently, as many as 20% of patients remained untreated.25
+
+In another recent US-based cohort study the percentage of UDCA untreated patients was even as high as 30%.26
+
+However, the meta-analyses are based on inadequate RCTs that were limited by a small number of patients, insufficient dosages of UDCA, and short follow-up.
+
+Therefore, the evaluation of the clinical efficacy of UDCA in PBC should not be based on these RCTs alone.
+
+Nonetheless, there is an understandable reluctance to initiate new long-term, placebo-controlled RCTs in which many patients would be denied UDCA therapy, because of minimal safety concerns of UDCA and practical implications.
+
+PARAGRAPH
+
+To support current practice, alternative study designs are thus needed to assess the potential benefit of treatment with UDCA in PBC.
+
+This would be relevant both to increase awareness for timely diagnosis and referral by physicians working in other fields, and to optimize future patient management by PBC-treating physicians.
+
+A contemporary causal inference method – used to emulate a randomized controlled trial in observational data – is inverse probability of treatment weighting (IPTW).
+
+The Global PBC Study Group cohort, which includes long-term follow-up data of both UDCA-treated and untreated patients, provides the opportunity to apply this method.
+
+In our first publication, we substantiated alkaline phosphatase (ALP) and bilirubin as surrogate markers for clinical outcome in our cohort of 4,845 patients with PBC.27
+
+In the second publication, in which only the 4,119 UDCA-treated patients were included, we developed the GLOBE score, a model that accurately predicts long-term outcome.28
+
+In the current study performed in this cohort, we aimed to assess the effect of UDCA therapy on LT-free survival.
+
+The second objective was to evaluate the difference in LT-free survival between patients who do not meet biochemical criteria for response after 1 year of UDCA therapy and patients who remained untreated.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Study population and design
+
+PARAGRAPH
+
+Patients were derived from the Global PBC Study Group database.
+
+This study group is an international collaboration between 15 liver units across 8 countries in Europe and Northern America.
+
+The database contains individual patient data from long-term follow-up cohorts.
+
+Both UDCA-treated and untreated patients with an established diagnosis of PBC in accordance with internationally accepted guidelines4–6 were eligible for inclusion in this study.
+
+In order to be eligible, we required the absence of confirmed chronic hepatitis B virus or chronic hepatitis C virus infection, Wilson’ disease, alpha-1 antitrypsin deficiency, hereditary haemochromatosis, alcoholic liver disease, or overt overlapping features with autoimmune hepatitis.
+
+We then excluded patients from analysis in case of insufficient follow-up data (<6 months follow-up or <2 visits recorded, also in case of an endpoint within 6 months of follow-up), and when dates of starting treatment or clinical events were unknown.
+
+The centers involved in the current study followed their patients according to international guidelines, which includes a clinical assessment at least annually in the absence of cirrhosis and at least 6-monthly in case of advanced disease.4,6
+
+Cirrhosis was defined histologically as described by Ludwig.29,30
+
+Methodology of data collection has previously been described in further detail.27
+
+For the current study, 3,902 of the 4,845 patients included in the original cohort were assessed.27
+
+Eighty-six patients were excluded because it was not known whether these patients were or were not treated with UDCA.
+
+In addition, 1 center is currently withdrawn from the Global PBC Study Group.
+
+PARAGRAPH
+
+This study was conducted in accordance with the Declaration of Helsinki.
+
+The protocol was approved by the institutional research board of the corresponding center and at each participating center, in accordance with their local regulations.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+The primary endpoint was defined as a composite endpoint of LT and all-cause mortality.
+
+Liver-related morbidity was assessed as a secondary endpoint, defined by the composite of specific liver-related events (ascites, variceal bleeding, hepatic encephalopathy, hepatocellular carcinoma) or a clinical condition resulting in the need for LT, whichever came first.
+
+Baseline was defined as the first center visit for untreated patients.
+
+For UDCA-treated patients, the start date of UDCA therapy was considered baseline.
+
+In PBC, treatment is lifelong and is initiated prompt after diagnosis (in this study: median 2.9 months, interquartile range [IQR] 0–29 months).
+
+Because PBC is a relatively slowly progressing disease, this treatment is commonly initiated long before endpoints occur.
+
+Therefore, UDCA was not analyzed as a time-dependent covariate.
+
+When no events occurred during follow-up, patients were censored at time of their last center visit.
+
+PARAGRAPH
+
+Because treatment was not assigned randomly in our study population and baseline variables could influence both the chance of mortality or LT, as well as the chance of receiving treatment (i.e. time-dependent confounding), inverse probability treatment weighting (IPTW) was used to estimate the outcomes.31
+
+Weights were assigned to each individual patient.
+
+In order to create the weights, a logistic regression model was created that included independently significant baseline characteristics and laboratory parameters (age, gender, calendar year of diagnosis, total bilirubin, ALP, aspartate aminotransferase (AST), alanine aminotransferase (ALT), platelet count, and albumin), in which UDCA therapy was the dependent variable.
+
+The model’s predictive values were saved.
+
+Weights were subsequently estimated as per (1/predicted value) for UDCA-treated patients and (1/(1-predicted value)) for untreated patients.
+
+Subsequently, the weights were stabilized.32
+
+Balance assessment was then performed by evaluating differences between the treated and untreated patient groups after weighting33 (Fig. S1).
+
+The hazard ratio (HR) of UDCA therapy was calculated by Cox proportional hazard regression analyses.
+
+In observational data, immortal time (person-time accumulated between date of diagnosis and date of treatment initiation) bias can potentially lead to overestimation of treatment effect.34
+
+For this reason, a sensitivity analysis was performed exclusively in patients diagnosed in or after 1990, when UDCA was universally available and usually initiated promptly after diagnosis.
+
+PARAGRAPH
+
+The association between UDCA and LT-free survival was also explored in patients classified as non-responder35 or inadequate responder4 to UDCA.
+
+The recently developed GLOBE score, calculated after 12 months, was used as primary measure of response to UDCA.28
+
+We applied the score’s age-specific thresholds, that categorize patients into either having an estimated prognosis similar to an age and sex matched general population, or an impaired estimated survival.
+
+Sensitivity analyses using other response criteria were performed.
+
+To ensure comparable follow-up time, we adjusted the starting point of follow-up of untreated patients according to the moment of assessing biochemical response.
+
+The Cox proportional hazard regression models used for these analyses were adjusted for patient demographics and biochemistry to correct baseline differences between the groups classified as responder, non-responder, and untreated population, respectively.
+
+Giving the power of our dataset, we constructed a conservative model with extensive adjustment for baseline factors in order to estimate the association between UDCA and LT-free survival, adjusting for sex, age, year of diagnosis, serum total bilirubin, platelet count, albumin, ALP, AST, and ALT.
+
+PARAGRAPH
+
+Interactions between UDCA and patient characteristics and baseline laboratory values were explored for significance.
+
+Where indicated, continuous variables were transformed to their natural logarithm to correct for non-linearity.
+
+To correct for missing laboratory values, 10 databases generated by means of multiple imputations (SAS Proc MI, MCMC method), were used for analyses.36,37
+
+We assumed missing data occurred at random.
+
+Rubin’s rules were used for estimation of the parameters and the standard error.38,39
+
+The imputation model variables included both those potentially predicting outcome and outcomes themselves.
+
+The (continuous) biochemical values were imputed at baseline, after 1 year, and after 2 years of follow-up.
+
+The biochemical values included for imputation were: ALP, AST, ALT, total bilirubin, albumin, and platelet count.
+
+In case of non-normality, the natural logarithm of these variables was used.
+
+No categorical or binary variables were imputed.
+
+PARAGRAPH
+
+All statistical tests were 2-sided, and a p value <0.05 was considered statistically significant.
+
+The significance level for interactions was set at p = 0.01 to correct for multiple testing.
+
+Statistical analyses were performed in SPSS Statistics V.21.0 (Armonk, NY: IBM Corp.) and SAS version 9.4 (SAS Institute Inc., Cary, NC).
+
+SECTION
+
+Role of funding sources
+
+PARAGRAPH
+
+Study sponsors had no influence on study design, data collection, analyses, interpretation of the data, writing of the manuscript, and the decision to submit the paper for publication.
+
+SECTION
+
+Results
+
+SECTION
+
+Study population
+
+PARAGRAPH
+
+In total, 3,902 patients with PBC were included.
+
+At baseline, the mean (SD) age was 54.3 (11.9) and the vast majority of patients were female (n = 3,552, 91.0%).
+
+A total of 3,529 patients (90.4%) were treated with UDCA and 373 patients (9.6%) were not treated with UDCA.
+
+Table 1 shows the baseline characteristics according to treatment with UDCA.
+
+Patients treated with UDCA were younger and had higher circulating serum liver tests, while in the subgroup of patients with available baseline histology, on average, patients not treated with UDCA had more advanced stages of disease.
+
+Although statistically significant, these numerical differences were small.
+
+Coinciding with the gradual more widespread introduction of UDCA treatment since the early nineties, the median year of diagnosis was earlier in untreated patients (1992, IQR 1982–2000) compared to UDCA-treated patients (1997, IQR 1990–2003).
+
+Balance assessment showed no remaining statistically significant differences regarding baseline patient characteristics between the untreated and the UDCA-treated population after adjustment with IPTW (Fig. S1).
+
+SECTION
+
+Liver transplantation-free survival according to UDCA therapy
+
+PARAGRAPH
+
+During a median follow-up duration of 7.8 (IQR 4.1–12.1) years, 299 patients underwent LT and 567 patients died.
+
+LT or death (as a combined endpoint) was reached by 721 UDCA-treated patients and 145 untreated patients.
+
+The incidence rate of LT or death was 23.21 per 1,000 person-years (95% CI 21.52–24.91) in patients treated with UDCA and 58.81 per 1,000 person-years (95% CI 49.24–68.38) in patients not treated with UDCA (p <0.001).
+
+After IPTW adjustment, the 5-year cumulative LT-free survival was 90.8% (95% CI 90.0–91.7) among UDCA-treated patients and 81.0% (95% CI 79.3–82.7) among untreated patients (Fig. 1).
+
+At 10 years of follow-up, the cumulative LT-free survival rates were 79.7% (95% CI 78.1–81.2) and 60.7% (95% CI 58.2–63.4), respectively (Table 2).
+
+Weight-adjusted Cox proportional hazard regression analyses showed that UDCA therapy was associated with a statistically significant reduction in the hazard of LT or death (HR 0.46; 95% CI 0.40–0.52; p <0.001).
+
+Out of 3,902 patients, 1,958 (50%) could be included in analyses regarding the dosage of UDCA.
+
+The association between UDCA therapy and improved LT-free survival remained statistically significant among those treated with <13 mg/kg (n = 914) of UDCA (HR 0.50; 95% CI 0.43–0.57; p <0.001), but was stronger for patients treated with ≥13 mg/kg of UDCA (n = 671) (HR 0.29; 95% CI 0.21–0.39; p <0.001).
+
+In the study cohort of 3,902 patients, data on liver-related morbidity was available for 2,982 (76.4%) patients, of whom 266 were untreated and 2,716 were UDCA-treated.
+
+In total, 381 events were recorded.
+
+After 10 years of follow-up, the weight-adjusted cumulative incidence of liver-related morbidity was 27.6% (95% CI 24.4–30.6) among the patients not treated with UDCA and 13.5% (95% CI 11.8–15.1) among those treated with UDCA (p <0.001).
+
+In weight-adjusted Cox regression analyses, UDCA therapy was associated with a statistically significant reduction in the hazard of liver-related morbidity (HR 0.45; 95% CI 0.36–0.55; p <0.001).
+
+In a sensitivity analysis in the subcohort diagnosed in or after 1990, in which the median interval between diagnosis and initiation of UDCA treatment was 0.096 years (IQR 0.000–0.586), we found a similar association between UDCA and LT-free survival (HR 0.38; 95% CI 0.32–0.46).
+
+SECTION
+
+Association between UDCA and liver transplant or death in subgroups
+
+PARAGRAPH
+
+In order to assess the stability of the association between UDCA therapy and improved LT-free survival, the IPTW-adjusted survival analyses were stratified according to various categorized baseline characteristics.
+
+The association between UDCA and improved LT-free survival was statistically significant in both males and females, younger and older patients, patients with early disease and patients with more advanced disease, as well as patients with a favorable and an unfavorable biochemical profile (Table 3, Fig. S2).
+
+The HRs of UDCA with respect to LT or death were statistically significant among all subgroups of patients (Table 3).
+
+The estimated HRs differed according to baseline age, ALP, and albumin (Fig. 2).
+
+The interaction terms with UDCA were statistically significant for age and albumin.
+
+SECTION
+
+Liver transplant-free survival according to biochemical response to UDCA
+
+PARAGRAPH
+
+Among the 3,529 UDCA-treated patients, 3,433 had a follow-up of at least 12 months.
+
+Of these 3,433 patients, 733 patients (21.4%) were classified as inadequate responders according to the GLOBE score 1 year after the start of UDCA therapy.
+
+After these initial 12 months, the adjusted cumulative 5-year LT-free survival was 95.3% (95% CI 94.8–95.9) in UDCA responders and 91.2% (95% CI 90.2–95.9) in patients with an inadequate response to UDCA, as opposed to 84.7% (95% CI 83.1–86.4) in the untreated patients (Fig. 3).
+
+Multivariate Cox regression analysis showed that patients with inadequate response to UDCA had a statistically significant lower LT or death rate than untreated patients (adjusted HR 0.56; 95% CI 0.45–0.69; p <0.001), but the favorable LT-free survival rate compared to untreated patients was stronger in UDCA responders (adjusted HR 0.25; 95% CI 0.20–0.30; p <0.001).
+
+These results were similar when response was assessed after 24 months (adjusted HR 0.62; 95% CI 0.52–0.74; p <0.001 and adjusted HR 0.27; 95% CI 0.22–0.33; p <0.001) and when applying other response criteria (Paris I, Paris II, Rotterdam, Toronto or Barcelona) (Table S1).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this large, international follow-up study including both UDCA-treated and untreated patients, we report that UDCA therapy improves LT-free survival in PBC, with a dose-response relationship.
+
+Importantly, a statistically significant association between UDCA therapy and reduced all-cause mortality or LT was found in all stages of disease.
+
+These findings imply a strong recommendation for all patients with PBC to use UDCA.
+
+Even in UDCA-treated patients classified as inadequately responding to UDCA according to accepted criteria, an improved LT-free survival was found in comparison to untreated patients.
+
+This indicates that UDCA should not be stopped in these inadequate responders and that future therapeutic options for this patient group should initially be considered as add-on medication.
+
+Additionally, our results underline the importance of adequate dosing of UDCA of at least 13 mg/kg.
+
+PARAGRAPH
+
+The 2.2-fold risk reduction associated with UDCA treatment that we report is more pronounced than in the previous (meta-)analyses that quantified the benefit of UDCA with relative risk reductions of approximately 1.5.40–42
+
+This may be explained by the longer follow-up and subsequent higher incidence of clinical endpoints in our study cohort, but also by the use of more adequate dosages of UDCA over time and the subsequent larger associated risk reduction.
+
+While most previous studies did not establish evidence for a clinical benefit of UDCA at all, 1 combined analysis of 3 of the available RCTs did report a significantly improved survival in patients with advanced disease.40
+
+Irrespective of disease severity, a clear understanding about the potential impact of UDCA is relevant for all patients, for patient counseling and therapeutic compliance, but also for cost justification.
+
+An important novelty of the current study is thus the encouraging demonstration of a statistically significant association between UDCA therapy and prolonged LT-free survival throughout all subgroups of patients with PBC, including those with and without cirrhosis, and irrespective of biochemical disease stage or other baseline biochemistry.
+
+This finding opposes the widely held belief that UDCA may be particularly useful in early stage disease.
+
+Although the aforementioned combined analysis suggested a therapeutic benefit in advanced disease,40 a clear beneficial effect of UDCA in late stage PBC has often been considered doubtful or even unlikely.24,43
+
+We did not identify any subgroup of patients without an improved LT-free survival associated with UDCA therapy, even when subgroups were further stratified into more extreme values of biochemistry and age (data not shown).
+
+These analyses were possible due to the large number of patients and long follow-up duration in this study.
+
+Prior studies, and especially prior RCTs, were lacking such power and this has indeed been the major criticism of studies that have failed to show a clinical benefit for UDCA therapy in PBC to date.
+
+Yet, these prior studies may have contributed to the fact that still not all patients with PBC are receiving UDCA treatment today, despite the recommendations in current international guidelines.4,6
+
+A recent real-life American cohort study revealed that 30% of patients remained untreated,44 and a similar percentage of untreated patients is reported in a yet unpublished German study which included patients diagnosed after 2015.
+
+PARAGRAPH
+
+Our analyses showed that in younger patients with PBC, there is a stronger LT-free survival benefit of UDCA than in older patients.
+
+In the elderly, survival is also driven by extrahepatic factors which are unlikely to be influenced by UDCA, attenuating the HR.
+
+We are lacking detailed data on cause of death for further clarification.
+
+This result might seem counterintuitive as previous studies showed that young patients with PBC are less likely to meet the criteria for response to UDCA after 1 year of treatment, that are mainly based on liver blood tests after 12 months of treatment.9,25,45–50
+
+However, it should be noted that the biochemistry of young patients is often worse than that of older patients (confirmed in our cohort, data not shown) and that achievement of crude dichotomous biochemical response criteria is related to the baseline level of these laboratory parameters.51
+
+The frequently applied response criteria evaluate neither absolute nor relative improvements within the individual.
+
+Patients with high levels of ALP are therefore likely to realize major improvements of their biochemistry, with considerable clinical benefit, while still being classified as non-responders or, at least, inadequate responders.
+
+Indeed, here we show that the relative risk reduction of LT or death associated with UDCA therapy is greater among those patients with higher baseline ALP.
+
+PARAGRAPH
+
+Another finding of importance is that among patients classified as inadequate responders according to the different international response criteria, when adjusted for relevant baseline predictors of both biochemical response and long-term outcome, the risk of LT or death with UDCA treatment was still 1.8-fold lower than in patients that were left untreated.
+
+Nonetheless, this effect was more pronounced in patients classified as responders, who have been shown to have a survival comparable to the general population.28
+
+While response criteria are clearly well able to identify patients in need of second-line treatment, not meeting these criteria should not be interpreted as an absence of treatment effect.
+
+Denomination of either ‘non-response’ or ‘inadequate response’ to UDCA may therefore be inappropriate, as these terms do not capture the remaining therapeutic benefit in these patients.
+
+Incomplete response may be a more suitable alternative.
+
+While various second-line treatment options are currently emerging for PBC, our result stresses the importance of not withholding UDCA therapy from patients.
+
+UDCA has been extensively studied on long-term effects and a causal benefit of UDCA on survival seems likely, even more so because of the results of the IPTW analyses in our study, including the dose-response association.
+
+Furthermore, UDCA has proven to be very safe when adequately dosed and is inexpensive.4,6,52
+
+At present, the novel therapies for PBC should thus be primarily considered as add-on treatment.
+
+Further studies should assess whether monotherapy with these new drugs has the potential to result in a similar or superior clinical benefit.
+
+PARAGRAPH
+
+Our study comprises both strengths and limitations.
+
+Although our study is not an RCT, we make use of a large real-life cohort of both treated and untreated patients.
+
+This previously enabled the in-depth assessment of biochemical surrogate markers in PBC, which led to the development and validation of the GLOBE score.27,28
+
+The novelty of the study we present here is that we assessed the association between UDCA and LT-free survival by applying IPTW estimates, so that the power of the entire cohort was preserved.
+
+IPTW is a causal inference method, developed to emulate RCTs in observational data.53
+
+The long-term RCT that would be required to ultimately prove that the relation between UDCA therapy and improved prognosis is causal would be both hugely difficult in terms of practicality, and would generally be considered as unethical based on the need to withhold UDCA treatment for many years.
+
+While the limitations of existing RCTs were extensively discussed, the current study is not free from limitations either.
+
+Residual confounding can never be ruled out in our cohort study in which the reasons for non-treatment are also unknown.
+
+However, it would be misleading to refrain from causal language since it is clearly the aim of this study to contribute to the body of evidence for the therapeutic effect of UDCA.54
+
+Moreover, because of the favorable safety profile, there are no evident contra-indications for the use of UDCA.
+
+Thus, it is difficult to imagine which unmeasured and unevenly distributed patient characteristic would completely diminish the strong association between UDCA and a prolonged LT-free survival.
+
+Secondly, time-dependent bias such as immortal time could potentially have led to overestimation of the association between UDCA and LT-free survival.
+
+However, in our sensitivity analyses among patients included from 1990 onwards, in which the time between diagnosis and start of UDCA was generally very short, the HR was similar.
+
+In order to ensure sufficient power for subgroup analyses, we preserved the entire cohort for all primary analyses.
+
+Moreover, our overall estimate might be considered conservative as we found a stronger HR in patients receiving an adequate dose of UDCA (>13 mg/kg), which is the regular dosage used today.
+
+Thirdly, we were not able to analyze all-cause mortality as a solitary endpoint, because we lack follow-up data after an event of LT. However, LT-free survival is currently considered the most clinically relevant endpoint in PBC and has thus been used as primary endpoint in recent studies and by regulatory authorities.
+
+Furthermore, because of the nature of this study and the fact that liver biopsy is no longer required for the diagnosis of PBC, our histology data were incomplete.
+
+Data on fibrate therapy, which was recently shown to have a beneficial effect on surrogate endpoints in PBC,55 is not available in our study.
+
+However, this is unlikely to have had a major influence on our results as only a minority of the more recent patients in our large cohort may have received off-label treatment with fibrates.
+
+PARAGRAPH
+
+In conclusion, this large multicenter study indicates that UDCA therapy improves LT-free survival in all patients with PBC, both in those with early and advanced disease, as well as in patients not meeting accepted criteria for response to UDCA.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This investigator-initiated study was supported by an unrestricted grant from Intercept Pharmaceuticals, and was funded by the Foundation for Liver and Gastrointestinal Research (a not-for-profit foundation) in Rotterdam, the Netherlands.
+
+The supporting parties had no influence on the study design, data collection and analyses, writing of the manuscript, or on the decision to submit the manuscript for publication.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The following authors declared that they have no conflicts of interest: P.M. Battezzati, F. Nevens, M.J. Mayo.
+
+M.H. Harms reports a speaker fee from Zambon Nederland B.V. H.R. van Buuren is a consultant for Intercept Pharma Benelux and received unrestricted research grants from Intercept Pharmaceuticals and from Zambon Nederland B.V. C. Corpechot is consultant for Intercept Pharmaceuticals France.
+
+D. Thorburn reports consulting activities for Intercept Pharmaceuticals.
+
+K.D. Lindor reports that he is an unpaid advisor for Intercept Pharmaceuticals and Shire.
+
+H.L.A. Janssen reports grants from and consulting work for AbbVie Pharmaceuticals, Bristol-Myers Squibb, Gilead Sciences, Innogenetics, Merck, Novartis, Roche, Intercept Pharmaceuticals and Janssen.
+
+G.M. Hirschfield reports advisory services for Intercept Pharmaceuticals, Novartis and GlaxoSmithKline Pharmaceuticals.
+
+A. Parés reports consulting services for Intercept Pharmaceuticals and Novartis Pharma.
+
+A. Floreani reports consulting activities for Intercept Pharmaceuticals.
+
+P. Invernizzi reports personal fees from Intercept and non-financial support from Bruschettini and Menarini Diagnostics.
+
+C.Y. Ponsioen has received grant support form Takeda, speaker’s fees from Abbvie, Takeda, and Dr Falk Pharma, and served as consultant for Takeda.
+
+A.L. Mason reports advisory services for Intercept Pharmaceuticals, AbbVie and Novartis; and research funding resources from the Canadian Institutes of Health Research, Canadian Liver Foundation, American Kennel Club, Intercept Pharmaceuticals Inc., AbbVie and Gilead Sciences.
+
+K.V. Kowdley reports personal fees from Gilead Sciences, Intercept Pharmaceuticals and Novartis; and grants from Gilead Sciences and Intercept Pharmaceuticals.
+
+W.J. Lammers reports consulting services for Intercept Pharmaceuticals.
+
+B.E. Hansen reports grants from Intercept Pharmaceuticals and Zambon Nederland B.V. and consulting work for Intercept Pharmaceuticals and Novartis.
+
+A.J. van der Meer reports speakers fees from MSD, Gilead Sciences, AbbVie Pharmaceuticals and Zambon Nederland B.V., received an unrestricted grant from Gilead Sciences, and report travel expenses covered by Dr. Falk Pharma.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Maren H. Harms, Bettina E. Hansen and Adriaan J. van der Meer had full access to all data in the study and take responsibility for the integrity of the data and the accuracy of data analyses.
+
+Study concept and design: Maren H. Harms; Henk R. van Buuren; Christophe Corpechot; Douglas Thorburn; Harry L.A. Janssen; Keith D. Lindor; Gideon M. Hirschfield; Albert Parés; Annarosa Floreani; Marlyn J. Mayo; Pietro Invernizzi; Pier M. Battezzati; Frederik Nevens; Cyriel Y. Ponsioen; Andrew L. Mason; Kris V. Kowdley; Willem J. Lammers; Bettina E. Hansen; Adriaan J. van der Meer.
+
+PARAGRAPH
+
+Acquisition of data: Maren H. Harms; Henk R. van Buuren; Christophe Corpechot; Douglas Thorburn; Harry L.A. Janssen; Keith D. Lindor; Gideon M. Hirschfield; Albert Parés; Annarosa Floreani; Marlyn J. Mayo; Pietro Invernizzi; Pier M. Battezzati; Frederik Nevens; Cyriel Y. Ponsioen; Andrew L. Mason; Kris V. Kowdley; Willem J. Lammers; Bettina E. Hansen; Adriaan J. van der Meer.
+
+Analysis and interpretation of data: Maren H. Harms; Bettina E. Hansen; Adriaan J. van der Meer.
+
+Drafting of the manuscript: Maren H. Harms, Henk R. van Buuren, Christophe Corpechot, Douglas Thorburn, Bettina E. Hansen, Adriaan J. van der Meer.
+
+Critical revision of the manuscript for important intellectual content: Maren H. Harms; Henk R. van Buuren; Christophe Corpechot; Douglas Thorburn; Harry L.A. Janssen; Keith D. Lindor; Gideon M. Hirschfield; Albert Parés; Annarosa Floreani; Marlyn J. Mayo; Pietro Invernizzi; Pier M. Battezzati; Frederik Nevens; Cyriel Y. Ponsioen; Andrew L. Mason; Kris V. Kowdley; Willem J. Lammers; Bettina E. Hansen; Adriaan J. van der Meer.
+
+Statistical analysis: Maren H. Harms; Bettina E. Hansen; Adriaan J. van der Meer.
+
+Obtained funding: Bettina E. Hansen; Henk R. van Buuren.
+
+Study supervision: Maren H. Harms; Henk R. van Buuren; Christophe Corpechot; Douglas Thorburn; Harry L.A. Janssen; Keith D. Lindor; Gideon M. Hirschfield; Albert Parés; Annarosa Floreani; Marlyn J. Mayo; Pietro Invernizzi; Pier M. Battezzati; Frederik Nevens; Cyriel Y. Ponsioen; Andrew L. Mason; Kris V. Kowdley; Willem J. Lammers; Bettina E. Hansen; Adriaan J. van der Meer.

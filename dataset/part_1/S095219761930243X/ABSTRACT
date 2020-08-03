@@ -1,0 +1,41 @@
+10.1016/j.engappai.2019.103279
+
+ABSTRACT
+
+TITLE
+
+Extracting and tracking hot topics of micro-blogs based on improved Latent Dirichlet Allocation
+
+PARAGRAPH
+
+Micro-blog has changed people’s life, study, and work styles.
+
+Every day, we want to know what public opinion news happens and how it evolves.
+
+Extracting and tracking these topics correctly help us better understand the latest public opinions and pay attention to their evolution.
+
+To extract topics from Microblog posts accurately, we adopt five unique features of micro-blogs to drive the joint probability distributions of all words and topics, and improve LDA into our topic extraction model(named MF-LDA).
+
+To track evolution trend of the topic, we propose a hot topic life cycle model (named HTLCM).
+
+We divide the HTLCM into five stages, namely, birth, growth, maturity, decline, and disappearance.
+
+The HTLCM determines whether a topic is the candidate hot topic or not and estimates hot topic evolution stages.
+
+On the other hand, we propose a hot topic tracking (shorten for HTT) algorithm which integrates MF-LDA and HTLCM.
+
+First, the HTT assigns candidate hot topics, which are labeled by HTLCM, to the corresponding time window according to the release time.
+
+Second, to obtain the hot topic in each time window, we input Micro-blog posts of each time window into MF-LDA in order.
+
+By analyzing changes in these hot topics, we track the changes in their contents.
+
+The experiment results show that MF-LDA has a lower perplexity and higher coverage rate than LDA under the same conditions.
+
+We conclude parameters of the Transition regions of our proposed HTLCM model.
+
+The MR, FR of our proposed HTLCM model are lower than 18%.
+
+The average P, R, F of the HTT algorithm are 85.64%, 84.97%, 85.66%, respectively.
+
+A practical application on topicFemale driver beats male driver in chengdu shows an excellent effect and practical significance of HTLCM model and HTT algorithm in extracting and tracking hot topics.

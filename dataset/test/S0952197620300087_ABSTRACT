@@ -1,0 +1,29 @@
+10.1016/j.engappai.2020.103487
+
+ABSTRACT
+
+TITLE
+
+A generalized matrix profile framework with support for contextual series analysis
+
+PARAGRAPH
+
+The Matrix Profile is a state-of-the-art time series analysis technique that can be used for motif discovery, anomaly detection, segmentation and others, in various domains such as healthcare, robotics, and audio.
+
+Where recent techniques use the Matrix Profile as a preprocessing or modeling step, we believe there is unexplored potential in generalizing the approach.
+
+We derived a framework that focuses on the implicit distance matrix calculation.
+
+We present this framework as the Series Distance Matrix (SDM).
+
+In this framework, distance measures (SDM-generators) and distance processors (SDM-consumers) can be freely combined, allowing for more flexibility and easier experimentation.
+
+In SDM, the Matrix Profile is but one specific configuration.
+
+We also introduce the Contextual Matrix Profile (CMP) as a new SDM-consumer capable of discovering repeating patterns.
+
+The CMP provides intuitive visualizations for data analysis and can find anomalies that are not discords.
+
+We demonstrate this using two real world cases.
+
+The CMP is the first of a wide variety of new techniques for series analysis that fits within SDM and can complement the Matrix Profile.

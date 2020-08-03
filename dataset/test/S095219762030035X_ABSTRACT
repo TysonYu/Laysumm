@@ -1,0 +1,31 @@
+10.1016/j.engappai.2020.103531
+
+ABSTRACT
+
+TITLE
+
+The Fast Maximum Distance to Average Vector (F-MDAV): An algorithm for k-anonymous microaggregation in big data
+
+PARAGRAPH
+
+The massive exploitation of tons of data is currently guiding critical decisions in domains such as economics or health.
+
+But serious privacy risks arise since personal data is commonly involved. k-
+
+Anonymous microaggregation is a well-known method that guarantees individuals’ privacy while preserving much of data utility.
+
+Unfortunately, methods like this are computationally expensive in big data settings, whereas the application domain of data might require an immediate response to make “life or death” decisions.
+
+PARAGRAPH
+
+Accordingly, this paper proposes five strategies to simplify the internal operations (such as distance calculations and element sorting) of the maximum distance to average vector algorithm, the de facto microaggregation standard.
+
+For the sake of its usability in large-scale databases, they, e.g., reduce the number of operations necessary to compute distances from 3m to 2m, where m is the number of attributes of the data set.
+
+Also, the complexity of sorting operations gets reduced from O(nlogn) to O(n) where n is the number of records.
+
+Through extensive experimentation over multiple data sets, we show that the new algorithm gets significantly faster.
+
+Interestingly, the speedup factor by each technique is not greater than 2, but the multiplicative effect of combining them all turns the algorithm four times faster than the original microaggregation mechanism.
+
+This remarkable speedup factor is achieved, literally, with no additional cost in terms of data utility, i.e., it does not incur greater information loss.

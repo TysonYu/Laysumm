@@ -1,0 +1,585 @@
+10.1016/j.engappai.2019.08.024
+
+FULLTEXT
+
+TITLE
+
+A review of soft techniques for SMS spam classification: Methods, approaches and applications
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The continuous escalation of mobile devices over the years has given users an unbeatable communication experience which has increased users’ performance efficiently (Tully and Mohanraj, 2017).
+
+The positive impact of mobile devices on users has made information literally in the palm of everyone (Davidow, 2011).
+
+However; users are yet to move with the changes associated with understanding and managing these devices.
+
+The most popular and widely used service of the Global System for Mobile communication (GSM) is the Short Message Services known as SMS.
+
+This fast and ever-growing service has reached more than 6 billion users globally with approximately 9.5 trillion SMS sent globally in 2009 (Fernandes et al., 2015; Ezpeleta et al., 2016).
+
+Thus, SMS service has shown its uniqueness and proven its reliability as it remains one of the most primary communication tools among mobile users based on its ease of use, cheap, compatible and real-time services.
+
+PARAGRAPH
+
+The growth of mobile users has increased the use of SMS service which has sustained great profits with global SMS revenue close to 117.2 billion dollars forecasted for 2017 (PortioResearch, 2014).
+
+There exist other short message applications such as WhatsApp, Hangout, Viber, WeChat, etc. with other functionalities namely calls, multimedia, etc.
+
+However, SMS differs from all the aforementioned messaging application due to its independence on internet services, no constant need for updates, unlike other applications.
+
+This tremendous growth in mobile devices has made SMS a very attractive area to malicious organizations for carrying out illegal activities and influencing security risks such as SMS spam, Phishing, License to kill Spyware, Malware, and privacy issues to mobile data.
+
+Pew Research Centre reported that over 69% of mobile users have received SMS spam (Boyles and Rainie, 2012).
+
+PARAGRAPH
+
+Spam can be considered as any unsolicited, commercial, bulk electronic message (Graham, 2002) which may sometimes convey un-demanded adverts, viruses, malware or other annoying contents targeted at consumers, businesses or government organizations.
+
+Spam comes in different medium like email, SMS, Instant message (SPIM), Usenet newsgroup, social network, search engines, Internet Telephony, etc. (Abayomi-Alli, 2009).
+
+However, differentiating all these spam media is technically cumbersome for a review (Blanzieri and Bryl, 2008).
+
+Skudlark (2014) reports SMS spam as not only offensive to users, but also incurs unnecessary cost on both MNOs and customers.
+
+The effects of SMS spam on users cut across different area of life, including financial, security/ privacy, education, career, health, social networking, etc.
+
+PARAGRAPH
+
+The bulk of SMS received by mobile users is very disturbing (Androulidakis, 2016) with trends majorly in promotional offers, fake lottery notifications, new tariffs from Mobile Network Operators (MNOs), bank credit offers, and a bunch of unwanted advertisements (Nagwani and Sharaff, 2017).
+
+These SMS spam intrude into users’ mobile devices, consume device memory and making users extremely irritated (Chen et al., 2014) through their countless fraudulent websites for other illegal pursuits such as stealing private information or spreading malicious Apps aimed at causing users financial loss (Jiang et al., 2013).
+
+The ease of opening SMS immediately and the convenience of dialing numbers or opening embedded links, definitely makes phishers and fraudsters tasks easier (Eshmawi and Nair, 2014).
+
+However, with the advent of more resource enabled smartphones, mobile fraud will be on the rise, hence MNOs must aggressively take steps to shield their customers (Tajuddin et al., 2014) from such attacks.
+
+PARAGRAPH
+
+Recently, mobile security has become a major concern, as commercial activities are drifting from the traditional PC-based platform to the mobile phone platform (Lau, 2017).
+
+Spamming challenges in email has been showing significant growth and improvement over the years, unlike the SMS spam which is still counting its growth (Androulidakis et al., 2013).
+
+The application of Artificial Intelligence (AI) in automatic text classification is quite encouraging mostly in the areas of email classification but there is still need to explore more algorithms for effective short text classification especially in the areas of SMS and microblog (Huang et al., 2018) Thus, the motivation for this systematic literature review (SLR) is based on the continuous and annoying growth of short text messages in mobile devices.
+
+Additionally, existing survey papers on SMS spam have not been able to justify the different existing measures adopted by researchers in solving the SMS spam challenge.
+
+Thus, this study aims at identifying all possible measures (methods/techniques, approaches, architecture) adopted by researchers in SMS spam classification, thus enabling future researchers the opportunity exploits unused or underutilized methodology with the aim of improving accuracy and overall system performance.
+
+PARAGRAPH
+
+In summary, the essence of this survey is to shorten and simplify the available proofs regarding (1) the existing studies in the area of SMS spam classification, (2) shortfalls (3) taxonomies.
+
+Thus, providing intuition for researchers and experts in the academia and industries in their pursuit to develop and improve existing methods for effectively and accurately classifying short text messages.
+
+The remaining paper is structured as follows: Section 2 outlined the steps, search strategies and other methodologies employed in this research.
+
+Section 3 presents and discusses the result obtained while the research findings, threats to validity and comparison to other studies was done in Section 4.
+
+Section 5 discusses the research findings, limitations, and presents a taxonomy of SMS spam state of the art methodology.
+
+Finally, the study is concluded with recommended future directions.
+
+SECTION
+
+Research method
+
+PARAGRAPH
+
+The research protocol for this study was based on several search strategies such as sources, studies selection, and selection execution.
+
+The systematic review started with preliminary searches aimed at identifying existing systematic reviews and assessing the volume of potentially relevant studies, which was included as sources.
+
+The search process in Brocke et al. (2009) and Kitchenham (2004) was adopted and modified for this study with our specific objective of this study is to understand and outline the state-of-the-art-methodology used in SMS spam classification.
+
+In addition, identifying gray areas for future research endeavors to improve the performance of SMS spam classifiers.
+
+In order to achieve the stated objectives, research questions were prepared as shown below:
+
+PARAGRAPH
+
+These above-stated research questions, which forms the foundation for embarking on this survey are entwined and concurrently explored.
+
+SECTION
+
+Search strings
+
+PARAGRAPH
+
+The search for relevant papers in this review was done based on the following to:
+
+PARAGRAPH
+
+The outcome of the search term used for searching relevant papers is as follows: (SMS OR Text Message) AND (detection 〈OR〉 classification 〈OR〉 filtering) AND (machine learning 〈OR〉 evolutionary 〈OR〉 classifier) 〈OR〉 (feature extraction 〈OR〉 selection).
+
+SECTION
+
+PARAGRAPH
+
+Search selection procedure
+
+PARAGRAPH
+
+The primary search for the systematic review was targeted at research sources or databases search such as IEEE, ACM, DBLP, Springer digital libraries, Stanford University (SU) digital library, Science Direct/ Elsevier, Google Scholar, Emerald, Wiley, Sage Journal, Taylor & Francis, etc. using the search string for highlighted in this section for advanced search.
+
+The systematic review process and selection of the relevant articles at different stages is illustrated in the PRISMA flow chart as shown in Fig. 1.
+
+PARAGRAPH
+
+After defining the sources, process, and criteria for studies selection, a quantitative evaluation was further demonstrated with the aim of identifying new contributions, measures, methods or techniques, applications presented by researchers in this domain within the last decade.
+
+SECTION
+
+Search strategy (SS)
+
+PARAGRAPH
+
+This section presents and discusses the various search strategy adopted for this study using 83 relevant papers identified.
+
+The 83 relevant papers were published as follows: 42 papers from journals, 31 appears in conference proceedings, 3 from workshops, 1 paper from book chapters, 2 from symposiums, and 4 from Master’s thesis as shown in Fig. 2.
+
+In this study, we divided our search strategy into seven classes in order to explore all contributions made by previous researchers in this area.
+
+The seven search strategies used in this study are Source, Method/Techniques, Approaches, Architecture, Status, Dataset/Corpus and Top SMS spam filtering App on Android OS.
+
+SECTION
+
+PARAGRAPH
+
+Sources
+
+PARAGRAPH
+
+Eleven (11) digital databases were used for data extraction in this study.
+
+These digital libraries include the following: Springer, Science direct, Wiley, ACM, IEEE, Emerald, DBLP, Stanford University e-library, Sage Journal, Taylor & Francis, and Google Scholar.
+
+Titles, abstracts, and index terms were used to carry out a search for published journal papers, book chapters, conference proceedings, IEEE bulletins, symposium and workshops.
+
+SECTION
+
+Method/techniques
+
+PARAGRAPH
+
+This subsection classified the methods or techniques used in the selected publications as:
+
+SECTION
+
+Approaches
+
+PARAGRAPH
+
+In this study, the existing approaches identified in the 83 selected papers were grouped into 3 which are as follows: content-based, non-content based and hybrid.
+
+The content-based approach involves the uses of words or character frequency mostly called bag of words (BoWs) for document representation.
+
+Here, the frequencies of words are used as features within a classification method for detecting spamicity.
+
+Spamicity is the factor of the frequency of occurrence of the same words in the token database (BoWs) with assigned values to each word between the range 0.0 to 1.0 (Longe et al., 2009).
+
+In BoW-based approaches, the sequence of words and their semantic relations are not considered (Badawi and Altınçay, 2014).
+
+On the contrary, non-content based approaches utilize certain message characteristics or signature patterns as features for detecting anomalies within a network.
+
+These features could be based on a static measure (total number of messages sent per time); the size of the message and time stamp.
+
+Hybrid approaches combine features from content and non-content based approaches for classification purposes.
+
+SECTION
+
+Architecture
+
+PARAGRAPH
+
+Based on the 83 selected studies, existing SMS spam filter architecture is based on three main layers which are: Client-based (solution resides on the mobile device), Server-based (solutions reside at the network provider’s side, SMSC) and collaborative-based (solutions reside on both the client and the server layer).
+
+Quite a number of the selected studies solutions were based at the client side as described in Section 3.
+
+SECTION
+
+Status
+
+PARAGRAPH
+
+The selected papers were divided into five categories based on their deployed status.
+
+The status of each selected paper is determined based on the description given in Table 2.
+
+SECTION
+
+PARAGRAPH
+
+Dataset/corpus
+
+PARAGRAPH
+
+A quantitative analysis of the dataset or corpus used by the 83 selected papers is depicted in this subsection.
+
+A general notion by researchers in this domain states that one of the major problems faced in this research domain is the challenges of accessible and limited SMS databases.
+
+It was observed from the selected papers that the majority of the English SMS corpus was based on eight (8) publicly available datasets as shown in Table 3.
+
+PARAGRAPH
+
+The issue of ensuring user’s privacy is a major factor affecting SMS data collection globally.
+
+Most of the existing English SMS corpus is based on reusability and compilation of smaller SMS databases to build more robust databases, examples of some databases formed from smaller ones include UCI corpus (comprises of NUS corpus, Caroline Tagg and Grumbletext), British English Corpus (comprises of Caroline Tagg and Grumbletext corpus).
+
+SECTION
+
+Acceptance model for SMS anti-spam applications
+
+PARAGRAPH
+
+For a more comprehensive review, there is a need to establish the acceptance of the existing SMS anti-spam applications.
+
+In this paper, measuring the acceptance of SMS anti-spam solutions were placed on the Android operating system due to its popularity among mobile phone users.
+
+The top ten SMS anti-spam applications for Android users include applications such as TruCaller: SMS Blocker, Mr. Number Block calls and SMS, AntiNuisance call Blocker and SMS, The Call anti-spam, Text blocker, Anti-spam SMS, SMS Anti-spam droid security, Anti-spam SMS, Silent Anti-spam, SpamBlocker as at May 2018.
+
+We modified the framework by (Davis, 1989) for analyzing the acceptance model of SMS anti-spam applications on Android mobile devices as shown in Fig. 3.
+
+SECTION
+
+PARAGRAPH
+
+Results obtained
+
+PARAGRAPH
+
+This section discussed the findings of this study and the result of the seven search strategies were analyzed in detailed.
+
+A detailed discussion of our findings with respect to the outline research questions was stated in different subsections with a concise interpretation of our findings.
+
+A word cloud analysis was done using the titles of the selected papers on Orange ML tools and the result obtained is depicted in Fig. 4 with ‘Spam’ having the most frequent occurrence followed by ‘SMS’ and ‘Filtering.
+
+SECTION
+
+Search strategy 1: Source
+
+PARAGRAPH
+
+The first search exercise was carried out using a hierarchical search strategy to identify related publications on SMS spam using the paper titles and relevant and keywords before a final search strategy was developed.
+
+The search for closely related literature was conducted for articles between 2007 and 2017 from the following sources: IEEE Explore, Springer, Elsevier, ACM and Others.
+
+The answer to RQ1 can be expressed in Fig. 5 which shows the returned results for relevant article sources while Fig. 6 shows the numbers of relevant publications in the last decade.
+
+PARAGRAPH
+
+Fig. 5 shows that from the final 83 selected publications where IEEE had the highest publications of 19 relevant articles followed by Elsevier with 14 publications, Springer had 11 relevant articles, ACM had 7, while other publishers had 32 relevant publications, respectively.
+
+Fig. 6 shows that in the last decade, the highest number of relevant publications was in 2016 with 17 publications while 2008 had the least publication of 1.
+
+The threat of SMS spam remains on the rise in the last decade as research efforts to combat this common threat still remains active.
+
+SECTION
+
+Search strategy 2: Method/techniques
+
+PARAGRAPH
+
+The result obtained in this section is divided into two categories which are classification algorithms and feature selection methods.
+
+PARAGRAPH
+
+Quite a large number of the selected papers used machine learning techniques in classifying SMS spam and the result is depicted in Fig. 7.
+
+The different types of existing techniques and their number of citations within the selected publications are highlighted in Fig. 8.
+
+PARAGRAPH
+
+The summary of the analysis of various feature selection techniques used by the selected paper is clearly represented in Fig. 9 where the document frequency (DF) has the highest number of usage followed by n-gram and term frequency when compared with other sixteen techniques used in literature.
+
+PARAGRAPH
+
+To further extend the study, different performance metrics was analyzed in the selected articles and the result obtained is depicted in Fig. 10.
+
+In addition, a comparative analysis of performance metrics of experimental results for the selected papers based on UCI and NUS dataset is shown in Figs. 11 and 12.
+
+PARAGRAPH
+
+Fig. 10 shows the different performance metrics used by researchers in the selected papers.
+
+In addition, we further analyzed the performance metrics with selected articles based on the most used SMS dataset.
+
+The performance results using UCI SMS dataset and NUS corpus are shown in Figs. 11 and 12, respectively.
+
+This study compared different author’s result using the following metrics: precision, recall, accuracy, F-score, MCC, and AUC_ROC.
+
+SECTION
+
+Search strategy 3 (Approach)
+
+PARAGRAPH
+
+Existing studies have shown that the various approaches implemented in classifying SMS spam have been categorized as content-based, non-content and collaborative approach.
+
+This study was conducted on 83 existing SMS spam literature and the result of the analysis showed that 83%, 5% and 12% of the literature employed content, non-content based, and hybrid approaches, respectively as shown in Fig. 13.
+
+SECTION
+
+Search strategy 4: Architecture
+
+PARAGRAPH
+
+The solution to RQ3 is represented in this subsection with a statistical analysis of the four categories of existing SMS spam filtering architecture.
+
+Based on the selected publications, the result of the existing studies architecture includes the SMS anti-spam solutions depicted on the client side, server side, collaborative and unspecified.
+
+The quantitative analysis of existing solution on SMS spam architecture was analyzed as 25% client side, 19% server-side, 6% collaborative and 50% unspecified architecture.
+
+Fig. 14 shows the different architectures of existing SMS spam filtering solutions.
+
+PARAGRAPH
+
+SECTION
+
+Search strategy 5 (Status)
+
+PARAGRAPH
+
+The status of existing SMS spam filters was analyzed based on five categories and the result of the analysis for the selected papers is presented in Fig. 15.
+
+PARAGRAPH
+
+As shown in Fig. 15, the analysis result for the 83 articles considered in this study based on existing Anti-spam status is 20% of existing solutions are proposed only, 29% of existing solutions are evaluated only, 6% are implemented, 10% are proposed and implemented and 35% of existing solutions are proposed and evaluated.
+
+Therefore, based on the status analysis it can de deduce that the majority of the existing SMS spam filtering solutions are based on proposed and evaluation using existing algorithms rather than real-time deployment.
+
+SECTION
+
+Search strategy 6 (English SMS Corpus)
+
+PARAGRAPH
+
+Our analysis is done based on the eight (8) most popularly used SMS corpus in the 83 selected papers.
+
+Outside the eight popularly used SMS corpus in the selected studies, there were some data that was collected by the authors for this primary purpose and such databases were categorized as “Others” in this study.
+
+The percentage of the selected papers based on the Corpus type is presented in Fig. 16.
+
+PARAGRAPH
+
+It can be deduced from the result in Fig. 16, that out of the 83 selected studies, UCI corpus has 23.8% usage, NUS corpus has 17.8%, Jon Stevenson, BEC, Grumbletext, DIT, Caroline Tag, others has a percentage usage of 7.1%, 6.0%, 7.1%, 6.0%, 6.0%, and 26.2%, respectively.
+
+SECTION
+
+Search strategy 7: Acceptance model for SMS anti-spam applications
+
+PARAGRAPH
+
+In this context, the focus was placed on the numbers of research effort in terms of existing applications on the Android app store.
+
+In order to answer the RQ4, an analysis of acceptance of top ten existing anti-spam solutions was conducted on Android app store using the framework in Fig. 3.
+
+The research findings based on SMS anti-spam usage is quite alarming when comparing the number of downloads against the number of active users for the top ten Android anti-spam solutions for detecting SMS spam.
+
+The result of the number of downloads against the anti-spam user is depicted in Table 5.
+
+PARAGRAPH
+
+For easy understanding of the percentage usage of this anti-spam solution, we derived an Eq. (5) to calculate for the percentage of mobile users using the listed top ten anti-spam solutions as shown in Table 5.
+
+SMSantispamusage%=Totalno.ofantispamusersTotal no.of antispam downloads×100SMSantispamusage%=11,274,206137,061,000×100=8.23% Results above show a considerable huge difference between the number of anti-spam users and the total number of downloads with a ratio of 1:12.
+
+Although users downloading different anti-spam applications or making multiple downloads of particular apps could contribute to this disparity, it is unlikely for a potential user to download 12 different apps or download an app 12 times before actual usage.
+
+Thus, user acceptability of existing anti-spam applications is still far low compared to the numbers of application downloads.
+
+SECTION
+
+Research findings, threat to validity and comparison with other survey
+
+PARAGRAPH
+
+SMS spam solutions have hardly been exploited on mobile devices or by mobile network operators (server) due to a significant number of challenges faced in real-life implementation.
+
+The introduction of other messaging applications on mobile devices seems to have been catchy to users but however, the role of SMS in terms of reliability, cost-efficient, internet independent, etc. cannot be overemphasized.
+
+Since all messaging applications either SMS or IM is based on text, therefore understanding the pattern of spammers and the ability to predict or classify such text will ensure user’s security on their mobile devices.
+
+From the selected publications, the following findings were uncovered as the major pitfalls to answer RQ5:
+
+PARAGRAPH
+
+Therefore, there is a need for an effective and collaborative SMS spam filtering method that will provide easy and effective spamming measures through the adoption of meta-heuristic algorithms to counter the increasing threat posed by spammers.
+
+SECTION
+
+Comparison with other surveys
+
+PARAGRAPH
+
+There are a few numbers of reviews in this research area.
+
+Shafi’I et al. (2017) conducted an SMS spam review which focused on methods and their limitations.
+
+Conclusions for further study recommend that evolutionary method was a better classifier.
+
+Lota and Hossain (2017) reported in their review that there are no existing studies for regional contents/ shortcut words.
+
+The problems of traditional Machine Learning (ML) algorithms were further highlighted for future researchers.
+
+Chaudhari et al. (2016) presented a survey on data mining techniques for SMS spam while Zainal and Jali (2015) further reviewed various feature extraction in SMS spam classification with a wider perspective of measuring spam risk level.
+
+Similarly, Kazi and Dharmadhikari (2014) reported the recent development in reducing SMS spam with a recommendation based on SVM as a better classifier.
+
+Finally, Delany et al. (2012) presented a review of existing methods and data in SMS spam filtering systems.
+
+The study concludes with some benchmark results analyzed on a large SMS spam corpus.
+
+However, despite previous efforts on SMS spam filtering systems, this study concentrates on qualitative and quantitative analyses of existing state-of-the-art-methodology using various search strategies.
+
+This review to the best of our knowledge is the first to give a detailed overview and classification of research trends in SMS spam classification representing them in various categories namely: existing approaches, methods and architectures.
+
+PARAGRAPH
+
+This survey expanded on the review from Shafi’I et al. (2017) whose focus was majorly on existing performance metrics and architecture of existing study as either access layer (client-side) or service provider layer (server side).
+
+A detailed overview of the contributions of previous research effort is further expatiated in this study and the focus include a comprehensive highlight on the most exploited methodology/techniques used in feature selection and classification process.
+
+Secondly, a vivid analysis of existing research solutions status in SMS spam, and also the measure user’s acceptability of existing SMS spam applications on the Android App store.
+
+Further comparison of this survey with existing survey articles is represented in Table 6 while Table A.1 depicts the overall summary of relevant articles used in this review.
+
+SECTION
+
+PARAGRAPH
+
+Threats to validity
+
+PARAGRAPH
+
+Considering the main threats associated with review protocol which includes publication bias and the inaccurate extraction of data.
+
+The selected papers used for this review were chosen based on the search selection procedure described previously.
+
+The key terms used in this study for detecting our selected publications were related to the specified research questions.
+
+Although great effort has been put into the selection of the relevant studies, the possibility of missing some important articles is acknowledged because not all publications can be extracted with the terms in the titles, abstracts or keywords.
+
+A reference check was conducted on all selected studies in order to prevent oversight of any prominent studies during the initial search.
+
+The relevant studies were selected carefully for some criteria such as quality assessment, removing studies with unclear or ambiguous methodology.
+
+The threat of publication biases from selected papers was anticipated, therefore, to avoid this, a large number of selected publications were based on papers with comparison results evaluating various existing techniques and a conscious effort was done to scrutinize selected publications to avoid overestimation of performance as claimed by authors.
+
+SECTION
+
+PARAGRAPH
+
+Discussion, limitations and taxonomy
+
+PARAGRAPH
+
+This survey emphasizes the overall research contributions on SMS spam detection and classification while also presenting a summary of existing studies based on their state-of-the-art-methodologies, approaches, architectures, status, SMS databases and existing anti-spam solutions.
+
+Classification of short messages is vital in ensuring that the users’ security is preserved since mobile devices are important tools for daily activities.
+
+The significance of SMS spam classification is numerous.
+
+Based on the selected publications reviewed in this study, a lot of work has been done to solve the SMS spam problem using machine learning.
+
+However, some methods are yet to be fully explored such as Deep learning.
+
+This method is being maximized in areas like text mining, image processing, pattern recognition, etc.
+
+Based on the selected publication, this survey presents an overall summary of the pros and cons of the different areas involved in SMS spam classification as shown in Table 7.
+
+PARAGRAPH
+
+Very few evolutionary methods have been utilized by researchers in SMS spam classification.
+
+Shafi’I et al. (2017) outlined some bio-inspired algorithms such as cuckoo search, particle swarm optimization, etc.
+
+These algorithms have been utilized in other research domain but their relevance is majorly for solving the optimization problem in location search.
+
+However, there is a need for future researchers to investigate the use of combining deep learning with other optimization methods for a better spam classification in SMS and other short messages domain.
+
+SECTION
+
+Limitations
+
+PARAGRAPH
+
+Within our formulated research questions, we thoroughly reviewed publications on SMS spam classification.
+
+Therefore, 83 relevant studies were finally identified and selected to have the ability to sufficiently address the formulated research questions.
+
+Majority of the selected papers were published between 2007 and the recent ones were published in 2017.
+
+Considering the changing nature of spam classification in short messages, we cannot fully guarantee that we have addressed all the available studies in this research area.
+
+We are also concerned that some important non-English publications must have been bypassed since only English publications were considered in this study.
+
+SECTION
+
+PARAGRAPH
+
+Specific intervention
+
+PARAGRAPH
+
+Based on future recommendations to create a more robust and standard dataset, an English SMS corpus was collected from 20 users within a university environment with the aim to boost the output of future SMS spam research activities.
+
+The corpus consists of 5240 SMS with 2890 Ham and 2350 Spam messages.
+
+This dataset is available publicly at www.abayomiallioo.com.ng and is released as collected (contains phone numbers and other user’s financial information) This newly collected SMS dataset will not only aid future research in SMS spam but it can also contribute immensely to research based on SMS marketing, customer relationship management, etc.
+
+PARAGRAPH
+
+Taxonomy of existing state-of-the-art-methodology was developed based on our research findings.
+
+This taxonomy divided the contributions of the selected publications into three different categories: Feature selection, methods/techniques and lastly performance metrics.
+
+Fig. 17 gave a detailed description of the taxonomy.
+
+SECTION
+
+Conclusion and future direction
+
+PARAGRAPH
+
+Despite research effort in combating SMS spam, there are still lots of work to be done in improving existing classifier for better classification of obfuscated short messages.
+
+This study presents a systematic review for SMS spam classification with the aim of identifying and examining the state-of-the-art-methodologies involved in classifying SMS spam.
+
+A total number of 1198 of papers were discovered from the initial search and after a thorough screening process, 83 relevant articles were finally selected for further study.
+
+This study analyzed existing progress on SMS spam based on different search strategies and answers to research questions to aid future research efforts were presented.
+
+PARAGRAPH
+
+The analysis result obtained for each search strategies are as follows: Existing methods on SMS spam shows that Machine learning (ML), Statistical analysis and evolutionary methods are 49%, 39%, and 12%, respectively.
+
+Result based on existing approaches shows that 83% is based on a content approach, 5% based on non-content and 12% based on the hybrid.
+
+In addition, out of the 83 articles reviewed, result based on existing deployed area shows that client based, server-based, collaborative architecture is 25%, 19%, 6%, and 50% was unspecified.
+
+Result analysis for existing anti-spam solutions status shows that Evaluated (E), Implemented (I), Proposed (P), Proposed and Evaluated (PE) and Proposed and Implemented (PI), was 29%, 6%, 20%, 35%, and 10%, respectively.
+
+Some AI methods such as Random Forest, Dendritic Cell Algorithm, SVM, Naive Bayes, Artificial Immune system (AIS), etc. shows optimal performance result with higher accuracy.
+
+PARAGRAPH
+
+Further analysis on the performance metrics of selected articles was presented for the most used SMS corpus i.e. the UCI and NUS dataset.
+
+The performances of the methods presented by authors were accessed based on their experimental results using the following metrics: MCC, precision, recall, accuracy, F-Measure, Area under curve ROC respectively.
+
+The study, however, concludes that the majority of existing SMS spam filtering solutions are still between the “Proposed” status or “Proposed and Evaluated” status.
+
+Result analysis of top ten existing SMS anti-spam solutions were obtained for Android users up until May 2019.
+
+The result showed that 8.23% of Android users that downloaded existing anti-spam Apps on the Google play store actually utilize them.
+
+In conclusion, there is a need for researchers to exploit all security methods and algorithm to secure SMS thus enhancing further classification in other short message platforms.
+
+The future recommendation will be to increase available data as much as possible to reduce minimally the problem of data imbalance, hence improving the performance of classifiers.
+
+In addition, future study is to explore applications of deep learning with better optimization algorithms for improving accuracy, reduce computational complexity with respect to memory consumption and speed thus minimizing completely false positive rate.

@@ -1,0 +1,23 @@
+10.1016/j.engappai.2019.06.011
+
+ABSTRACT
+
+TITLE
+
+Online learning control with Echo State Networks of an oil production platform
+
+PARAGRAPH
+
+The design of a control algorithm is difficult when models are unavailable, the physics are varying in time, or structural uncertainties are involved.
+
+One such case is an oil production platform in which reservoir conditions and the composition of the multiphase flow are not precisely known.
+
+Today, with streams of data generated from sensors, black-box adaptive control emerged as an alternative to control such systems.
+
+In this work, we employed an online adaptive controller based on Echo State Networks (ESNs) in diverse scenarios of controlling an oil production platform.
+
+The ESN learns an inverse model of the plant from which a control law is derived to attain set-point tracking of a simulated model.
+
+The analysis considers high steady-state gains, potentially unstable conditions, and a multi-variate control structure.
+
+All in all, this work contributes to the literature by demonstrating that online-learning control can be effective in highly complex dynamic systems (oil production platforms) devoid of suitable models, and with multiple inputs and outputs.

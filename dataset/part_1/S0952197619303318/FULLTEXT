@@ -1,0 +1,1927 @@
+10.1016/j.engappai.2019.103432
+
+FULLTEXT
+
+TITLE
+
+A soft set based VIKOR approach for some decision-making problems under complex neutrosophic environment
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+One of the important and challenging issues in our day-to-day life is the presence of uncertainty to be addressed.
+
+Neutrosophic set theory (Smarandache, 2003, 2005) is one of the innovative generalization of a bunch of theories, including, fuzzy set theory (Zadeh, 1965), intuitionistic fuzzy set theory (Atanassov, 1986), vague set theory (Gau and Buehrer, 1993) etc., through three independent membership grades (truth membership (T(x)), indeterminate membership (I(x)) and false membership (F(x)) where, T(x),I(x),F(x)∈[0,1] and 0≤T(x)+I(x)+F(x)≤3).
+
+In the last few decades, neutrosophic set has been improved very quickly and has been successfully used to solve various types of real-life problems.
+
+For instance, Ye (2015) used the cosine similarity measure of neutrosophic sets in medical diagnosis problem, Zhang et al. (2015) utilized the advantages of correlation coefficient of neutrosophic sets in solving multi-criteria decision-making problems, Wu et al. (2018) developed multi attribute group decision-making by using single-valued neutrosophic 2-tuple linguistic sets etc.
+
+PARAGRAPH
+
+All the above-aforementioned discussions are based on real-valued membership magnitudes like membership, non membership, indeterminate membership, which are limited in the closed interval [0,1].
+
+Then, Romot et al. (2002) extended a real-valued membership degree of a fuzzy set to a complex-valued membership degree (μC(x)) by adding a second dimension u(x) as, μC(x)=r(x)eiu(x) and introduced the concept of complex fuzzy set, where, r(x)∈[0,1] is the amplitude term and u(x), a real number, is the phase term.
+
+So, complex fuzzy set can be applied to the problems where adding a second decision information of an object over an attribute is needed to get a better and accurate result.
+
+For instance, in medical science, during disease diagnosis of a patient, the decision information about a symptom in a patient is perfect if the doctor will consider the two information ‘belongingness of a symptom’ and ‘time duration of the symptom’ together.
+
+In the earlier section, Romot et al. (2002) developed some basic set theoretic operations and properties of complex fuzzy sets along with some of its application fields.
+
+Then, Zhang et al. (2009) worked on complex fuzzy set theory, when the range of the phase term is limited to [0,2π].
+
+They also introduced δ-equalities of complex fuzzy sets.
+
+After that, a systematic review of complex fuzzy sets was presented by the researchers Yazdanbakhsh and Disk (2018).
+
+Latter, Alkouri and Salleh (2012) proposed complex intuitionistic fuzzy set by using complex sense in the both of membership degree and non membership degree.
+
+Then, Rani and Garg (2017) developed some distance measures to complex intuitionistic fuzzy sets such as Hamming distance, Hausdorff distance etc.
+
+Furthermore, Ali and Smarandache (2017) introduced complex neutrosophic set by using complex-valued truth membership, complex-valued indeterminate membership and complex-valued false membership.
+
+Then, Dat et al. (2019) solved some decision-making problems by using interval complex neutrosophic sets.
+
+PARAGRAPH
+
+Even though, probability theory, fuzzy set theory, vague set theory etc. can be effectively employed to cover up uncertain situations, Molodsov (1999) said that, due to the lack of parameterization, the above theories are not sufficient to solve all types of problems.
+
+Then, as a solution, he (Molodsov, 1999) proposed the idea soft set theory by utilizing the notion of parameterization.
+
+Then, several types of theoretical developments of soft set theory have been done by the researchers.
+
+For instance, Ali et al. (2009) developed some set-theoretic operations on soft sets, Babitha and Sunil (2010) introduced soft relations and soft functions, Majumdar and Samanta (2010) offered the notion of soft mappings, Cagman and Enginoglu (2010) introduced soft matrices associated with soft sets, etc.
+
+PARAGRAPH
+
+Besides, researchers have extended soft set theory to different environments.
+
+Fuzzy soft set theory (Basu et al., 2012; Paik and Mondal, 2019; Manna et al., 2017), intuitionistic fuzzy soft set theory (Manna et al., 2019), neutrosophic soft set theory (Basu and Mondal, 2015), trapezoidal interval type-2 fuzzy soft set theory (Manna et al., 2018) etc. are some important extensions of soft set theory.
+
+Then, several types of decision-making have been disposed by using soft set theory.
+
+For example, Basu et al. (2012) developed a balanced solution by using fuzzy soft set and used it in medical science, Manna et al. (2019) proposed an algorithm through generalized trapezoidal intuitionistic fuzzy soft sets and applied it in diabetes disease diagnosis problem, Karaaslan (2017) used single-valued neutrosophic redefined soft sets in clustering analysis system, etc.
+
+PARAGRAPH
+
+On the other hand, complex-valued generalization of soft set theory have also been developed by the researchers.
+
+For instance, Thirunavukarasu et al. (2017) introduced the concept of complex fuzzy soft set theory by taking all the parameters in a soft set in complex fuzzy sense, Selvachandran et al. (2016a) initiated complex vague soft set theory by taking all the parameters in a vague soft set in complex fuzzy sense, Broumi et al. (2017) introduced complex neutrosophic soft set theory by taking all the parameters in a soft set in complex neutrosophic sense, etc.
+
+Then, Kumar and Bajaj (2014) defined some distance measures and entropies on complex intuitionistic fuzzy soft sets and applied it in solving multi-criteria decision-making, Selvachandran et al. (2016a) solved pattern recognition problems by using some different types of distance measures of complex vague soft sets.
+
+Furthermore, the relations between complex vague soft sets have been thrived by Selvachandran et al. (2016b).
+
+PARAGRAPH
+
+After surveying the above literature, complex neutrosophic set theory, introduced by Ali and Smarandache (2017), first motivates us to use this concept in soft set theory, developed by Molodsov (1999), to solve some real-life based decision making problems.
+
+Then, we have studied complex neutrosophic soft set in decision-making, proposed by Broumi et al. (2017), from which some shortcomings have been raised in our mind such as,
+
+PARAGRAPH
+
+Therefore, to fulfill these research gaps, we are motivated to develop some decision-making methods in soft set theory under complex neutrosophic environment to take a quality of decision from several types of real-life related problems.
+
+Moreover, aggregation operator is a very significant tool to take a decision from a group of evaluations.
+
+But till now, no aggregation operator exists on the basis of complex neutrosophic sets.
+
+Therefore, the introduction of aggregation operator on complex neutrosophic sets is required.
+
+However, to avoid complexity in solving real-life data based problems, transformation from an uncertain value into a real value by using a score function is very useful to handle complicated problems.
+
+But there is no definition of score function of a complex neutrosophic number.
+
+Besides, VIKOR method (Park et al., 2013) is a popular multi-criteria decision-making methodology which provides a compromise optimal solution of a decision-making problem.
+
+So, if this familiar optimization method is used in solving complex neutrosophic soft set based decision-making problems, then compromise optimal solution would be obtained as a solution instead of a general optimal solution.
+
+PARAGRAPH
+
+From the above aforementioned analysis, our main contributions can be highlighted as following:
+
+PARAGRAPH
+
+The outline of this article is as follows.
+
+In Section 2, some basic terminologies have been recalled.
+
+In Sections 3 and 5, we have introduced some set-theoretic operations of complex neutrosophic sets and complex neutrosophic soft sets.
+
+In Section 4, a new definition of score function of a complex neutrosophic number has been proposed.
+
+After that, we have provided two algorithms for complex neutrosophic soft set based decision-making problems as given in Section 6.
+
+Then, some applications of our proposed approaches including company’s manager selection problem, sustainable manufacturing material selection problem and medical diagnosis problem etc. have been discussed and solved in Section 7.
+
+Finally in Section 8, the sensitivity analysis, validity and effectiveness of our proposed approach have been discussed.
+
+Section 9 contains the conclusion of this paper.
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+In this section, we have given some basic definitions and properties which have been exploited in our forthcoming discussions.
+
+In the whole paper, U and E have been taken as the universal set and the parameter set respectively.
+
+SECTION
+
+Complex neutrosophic set
+
+PARAGRAPH
+
+Ali and Smarandache, 2017
+
+PARAGRAPH
+
+Complex neutrosophic set is a generalization of neutrosophic set by taking complex-valued neutrosophic membership grade instead of neutrosophic membership grade in a neutrosophic set.
+
+Mathematically, a complex neutrosophic set over the universe U can be denoted by C̃N and is defined as follows: C̃N={(x,(T(x),I(x),F(x)))|x∈U}where T(x), I(x) and F(x) are the complex-valued truth membership degree, complex-valued indeterminate membership degree and complex-valued false membership degree of x∈U such that, T(x)=p(x)eiu(x),I(x)=q(x)eiv(x),F(x)=r(x)eiw(x). p(x),q(x),r(x) are the amplitude terms and u(x),v(x),w(x) are the phase terms of T(x), I(x) and F(x) respectively with p(x),q(x),r(x)∈[0,1] such that 0≤p(x)+q(x)+r(x)≤3 and u(x),v(x),w(x) are real-valued.
+
+PARAGRAPH
+
+Now, to reduce the complexity in calculation, in this article, we have taken the range of the phase term as [0,2π], followed by the article Zhang et al. (2009).
+
+PARAGRAPH
+
+Ali and Smarandache, 2017; Zhang et al., 2009
+
+PARAGRAPH
+
+The complement of a complex neutrosophic set C̃N={(x,(p(x)eiu(x),q(x)eiv(x),r(x)eiw(x)))|x∈U} over the universal set U, as defined in the above definition, is denoted by C̃Nc and is defined as follows: C̃Nc=(r(x)ei(2π−u(x)),(1−q(x))ei(2π−v(x)),p(x)ei(2π−w(x))).
+
+PARAGRAPH
+
+Ali and Smarandache, 2017
+
+PARAGRAPH
+
+Let C̃A and C̃B be two complex neutrosophic sets over the universal set U where, C̃A=(pA(x)eiuA(x),qA(x)eivA(x),rA(x)eiwA(x)) and C̃B=(pB(x)eiuB(x),qB(x)eivB(x),rB(x)eiwB(x)), ∀x∈U.
+
+PARAGRAPH
+
+Then, the distance measure between C̃A and C̃B is denoted by, d̃CN(C̃A,C̃B) and is defined as follows: d̃CN(C̃A,C̃B)=max(max(supx∈U|pA(x)−pB(x)|,supx∈U|qA(x)−qB(x)|,supx∈U|rA(x)−rB(x)|),max(12πsupx∈U|uA(x)−uB(x)|,12πsupx∈U|vA(x)−vB(x)|,12πsupx∈U|wA(x)−wB(x)|))
+
+SECTION
+
+Complex neutrosophic soft set
+
+PARAGRAPH
+
+Broumi et al., 2017
+
+PARAGRAPH
+
+A pair (fC̃N,E) is said to be a complex neutrosophic soft set (CNS-set) over the universal set U if and only if fC̃N a function from the parameter set E to the set of all complex neutrosophic subsets of the set U. i.e., fC̃N:E→PCÑ(U), where PCÑ(U) is the set of all complex neutrosophic subsets of the set U.
+
+PARAGRAPH
+
+Mathematical framework of the complex neutrosophic soft set(fC̃N,E) is as follows, (fC̃N,E)={(e,fC̃N(e))|∀e∈E},where, fC̃N(e) is the set of all complex neutrosophic e-approximate elements of the set U such that, fC̃N(e)={(xs,(Tf(e)(xs),If(e)(xs),Ff(e)(xs)))|∀xs∈U}={(xs,(pf(e)(xs)eiuf(e)(xs),qf(e)(xs)eivf(e)(xs),rf(e)(xs)eiwf(e)(xs)))}.
+
+PARAGRAPH
+
+Here, all the amplitude terms pf(e)(xs),qf(e)(xs),rf(e)(xs) are limited in the closed interval [0,1] with 0≤pf(e)(xs)+qf(e)(xs)+rf(e)(xs)≤3 and all the phase terms uf(e)(xs),vf(e)(xs),wf(e)(xs) are limited in the closed interval [0,2π].
+
+PARAGRAPH
+
+PARAGRAPH
+
+Now, we have considered a problem from medical science.
+
+In medical science, various diseases may have a common symptom.
+
+For example, the symptoms fever, headache, body pain, cough, weight loss, chill etc. may be the caused of the diseases pneumonia, viral fever, dengue etc.
+
+Now, to describe the ‘effect of a symptom’ over a disease in a patient, if a doctor gives his/her concentration on the information about the ‘time duration of a symptom’ together with the information about the ‘availability of a symptom’ over a disease, then this combined information (‘availability of a symptom’ and ’time duration of a symptom’) is more appropriate to detect the exact disease of the patient.
+
+In that case, to deal with this medical problem, we can use complex neutrosophic soft set, since, in this soft set, two information of a symptom over a disease can be considered together through amplitude term and phase term.
+
+PARAGRAPH
+
+Now consider, U={pneumonia(d1),viralfever(d2),dengue(d3)} be the set of three diseases (universal set) and E={fever(s1),headache(s2),bodypain(s3),cough(s4),weightloss(s5),chill(s6)} be the corresponding symptoms over the above diseases (parameter set).
+
+Now, the ‘effects of the symptoms over these diseases’ has been expressed by a complex neutrosophic soft set (fC̃N,E) as given in Table 1.
+
+Here, ‘the availability of a symptom’ in a patient has been expressed through the amplitude term and ‘time duration of the said symptom’ has been expressed through the phase term.
+
+All the data has been collected based on the 10 consecutive days.
+
+To express the data in terms of complex neutrosophic numbers, the value 2π has been taken in the phase term instead of 10 days.
+
+SECTION
+
+PARAGRAPH
+
+Normalization process. (Ploskas and Papathanasiou, 2019)
+
+PARAGRAPH
+
+A multi-criteria decision-making (MCDM) problem contains a set of alternatives ({A1,A2,…,AM}) and a set of corresponding parameters ({E1,E2,…,EN}).
+
+The rating of the alternatives are evaluated based on the associated parameters.
+
+Let, Fsj be the rating of an alternative As;s=1,2,…,M over a parameter Ej;j=1,2,…,N.
+
+Now, in a decision-making problem, not all the parameters may be based on the same environment, therefore, they may not be commensurable to one another.
+
+Then, to handle these parameters, normalization process can be used by which, all the parameters become dimension less.
+
+Some popular normalization techniques are as follows:
+
+PARAGRAPH
+
+(1) Linear sum normalization.
+
+Rsj=Fsj∑s=1MFsj;j=1,2,…,N; s=1,2,…,M.
+
+PARAGRAPH
+
+(2) Linear max normalization.
+
+Rsj=FsjFj+;where,Fj+ is the ideal evaluation over ej.
+
+SECTION
+
+VIKOR method. (Park et al., 2013)
+
+PARAGRAPH
+
+VIKOR method is a well-known optimization technique which provides a compromise optimal solution by testing ‘acceptable advantage’ and ‘acceptable stability’ in decision-making.
+
+This method contains the following steps:
+
+PARAGRAPH
+
+Step 1.
+
+Define the ideal solution A+={F1+,F2+,…,FN+}, where, Fj+=maxs{Fsj}.
+
+PARAGRAPH
+
+Step 2.
+
+Obtain the group of utility (utility measure) Ss and individual regret (regret measure) Rs of each of the alternatives as, Ss=∑j=1Nwjd(Fsj,Fj+);Rs=maxj=1Nwjd(Fsj,Fj+). w={w1,w2,…,wn} be the weights of the parameters such that, wj≥0 and ∑j=1nwj=1.
+
+PARAGRAPH
+
+Step 3.
+
+Then, determine the VIKOR index Qs of an alternative As is defined as follows, Qs=θ(Ss−minsSsmaxsSs−minsSs)+(1−θ)(Rs−minsRsmaxsRs−minsRs)where, θ∈[0,1] is the weight of strategy of the maximum group of utility.
+
+PARAGRAPH
+
+Step 4.
+
+Rank the alternatives based on the decreasing order of Ss, Rs and Qs; s=1,2,…,m.
+
+PARAGRAPH
+
+Step 5.
+
+Now, suppose The alternative A1 is the best alternative based on the VIKOR index Q. Then, it will be a compromise optimal solution if the following two conditions are satisfied:
+
+PARAGRAPH
+
+(C1)     Acceptable advantage: Q(A2)−Q(A1)≥DQ(athresholdvalue)=1M−1, where, A2 is the second best alternative based on Q.
+
+PARAGRAPH
+
+(C2)     Acceptable stability: The alternative A1 is also the best for the both S and R.
+
+PARAGRAPH
+
+If any one of C1 and C2 is fail, then a set of compromise optimal solutions will be obtained as a optimal solution as follows:
+
+PARAGRAPH
+
+⇒ If the condition C1 is dissatisfied, then a set of M′ number of alternatives {A1,A2,…,AM′} will be the compromise optimal solutions, where, AM′ is obtained from Q(AM′)−Q(A1)<DQ for the maximum value of M′.
+
+PARAGRAPH
+
+⇒ If the condition C2 is not satisfied then, A1 and A2 both will be the optimal solutions.
+
+SECTION
+
+Some set-theoretic operations of complex neutrosophic sets
+
+PARAGRAPH
+
+Basic set-theoretic operations are very useful to deal with real-life problems.
+
+For example, suppose, three experts have given their opinions individually about an alternative over a parameter.
+
+Then, to get a single information about the alternative over that parameter, aggregation operator is needed.
+
+PARAGRAPH
+
+In 2009, Zhang et al. (Appendix B) defined some set-theoretic operations for complex fuzzy sets.
+
+Now, we have extended these ideas to complex neutrosophic sets.
+
+Here, we have used Smarandache’s 2003, 2005 neutrosophic operations (given in Appendix A) as follows:
+
+PARAGRAPH
+
+Let, C̃A and C̃B be two complex neutrosophic sets over the universal set U, where, C̃A=(TC̃A,IC̃A,FC̃A)=(pAeiuA,qAeivA,rAeiwA) and C̃B=(TC̃B,IC̃B,FC̃B)=(pBeiuB,qBeivB,rBeiwB).
+
+PARAGRAPH
+
+Complex Neutrosophic Intersection
+
+PARAGRAPH
+
+Then, complex neutrosophic intersection of C̃A and C̃B is denoted by, C̃A∩̃NC̃B and is defined as, C̃A∩̃NC̃B=(TC̃A∩̃FC̃B,IC̃A∩̃FC̃B,FC̃A∩̃FC̃B), where, ∩̃F is the complex fuzzy intersection.
+
+Now,
+
+Complex neutrosophic standard intersection.
+
+If, complex fuzzy intersection (∩̃F) is complex fuzzy standard intersection (∩̃Fmin) then, complex neutrosophic intersection of C̃A and C̃B called complex neutrosophic standard intersection, which can be denoted by, C̃A∩̃NminC̃B=(TC̃A∩̃FminC̃B,IC̃A∩̃FminC̃B,FC̃A∩̃FminC̃B) and is defined as, C̃A∩̃NminC̃B=(min(pA,pB)eimin(uA,uB),min(qA,qB)eimin(vA,vB),min(rA,rB)eimin(wA,wB)).
+
+Complex neutrosophic product.
+
+If, ∩̃F is complex fuzzy product (∘̃F), then complex neutrosophic intersection of C̃A and C̃B is called complex neutrosophic product which is defined as, C̃A∘̃NC̃B=(pA.pBei2π(uA2π.uB2π),qA.qBei2π(vA2π.vB2π),rA.rBei2π(wA2π.wB2π)).
+
+Complex neutrosophic bold intersection.
+
+If, ∩̃F is complex fuzzy bold intersection (⋒̃F), then complex neutrosophic intersection of C̃A and C̃B is called complex neutrosophic bold intersection which is defined as, C̃A⋒̃NC̃B=(max(0,pA+pB−1)eimax(0,uA+uB−2π),max(0,qA+qB−1)eimax(0,vA+vB−2π),max(0,rA+rB−1)eimax(0,wA+wB−2π)).
+
+PARAGRAPH
+
+Complex Neutrosophic Union
+
+PARAGRAPH
+
+Complex neutrosophic union of C̃A and C̃B is denoted by, C̃A∪̃NC̃B and is defined as, C̃A∪̃NC̃B=(TC̃A∪̃FC̃B,IC̃A∪̃FC̃B,FC̃A∪̃FC̃B), where, ∪̃F is the complex fuzzy union.
+
+PARAGRAPH
+
+Complex Neutrosophic Bounded Difference
+
+Complex Neutrosophic Bounded Difference
+
+PARAGRAPH
+
+Complex neutrosophic bounded difference of C̃A and C̃B is denoted by, C̃A⊖̃NC̃B and is defined as,
+
+PARAGRAPH
+
+PARAGRAPH
+
+Aggregation of m Complex Neutrosophic Sets
+
+Aggregation of m Complex Neutrosophic Sets
+
+PARAGRAPH
+
+Let, C̃s=(pseius,qseivs,rseiws);s=1,2,…,m be m complex neutrosophic sets over the universe U. Then, different types of aggregations of m complex neutrosophic sets are defined as follows:
+
+Complex neutrosophic arithmetic mean aggregation of m complex neutrosophic sets C̃1,C̃2,…,C̃m is denoted by, C̃1⊕̃NAMC̃2⊕̃NAM⋯⊕̃NAMC̃m and is defined as follows, C̃1⊕̃NAMC̃2⊕̃NAM⋯⊕̃NAMC̃m=(1m(p1+p2+⋯+pm)ei1m(u1+u2+⋯+um),1m(q1+q2+⋯+qm)ei1m(v1+v2+⋯+vm),1m(r1+r2+⋯+rm)ei1m(w1+w2+⋯+wm)).
+
+Complex neutrosophic geometric mean aggregation of m complex neutrosophic sets C̃1,C̃2,…,C̃m is denoted by, C̃1⊕̃NGMC̃2⊕̃NGM⋯⊕̃NGMC̃m and is defined as follows, C̃1⊕̃NGMC̃2⊕̃NGM..⊕̃NGMC̃m=((p1.p2,…,pm)1∕2ei2π(u12π.u22π,…,um2π)1∕2,(q1.q2,…,qm)1∕2ei2π(v12π.v22π,…,vm2π)1∕2,(r1.r2,…,rm)1∕2ei2π(w12π.w22π,…,wm2π)1∕2)
+
+Complex neutrosophic harmonic mean aggregation of m complex neutrosophic sets C̃1,C̃2,…,C̃m is denoted by, C̃1⊕̃NHMC̃2⊕̃NHM⋅⊕̃NHMC̃m and is defined as follows, C̃1⊕̃NHMC̃2⊕̃NHM..⊕̃NHMC̃m=((m1p1+1p2+⋯+1pm)ei2π(m2πu1+2πu2+⋯+2πum),(m1q1+1q2+⋯+1qm)ei2π(m2πv1+2πv2+⋯+2πvm),(m1r1+1r2+⋯+1rm)ei2π(m2πw1+2πw2+⋯+2πwm)).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let, U={x1,x2,x3} and C̃A={x1∕(0.6ei2π,0.4eiπ,0.5ei2π),x2∕(0.8eiπ,0.3eiπ,0.2ei2π),x3∕(0.3eiπ∕2,0.5ei2π,0.1eiπ)}, C̃B={x1∕(0.4eiπ,0.6eiπ,0.8ei2π),x2∕(0.7eiπ,0.3eiπ,0.4ei2π),x3∕(0.1eiπ,0.5ei2π,0.7eiπ∕2)} be two complex neutrosophic sets over U. Then,
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+SECTION
+
+A new definition of score function of a complex neutrosophic number (CNN)
+
+PARAGRAPH
+
+Some times in real-life decision-making problems, comparing uncertain evaluations such as fuzzy evaluations, intuitionistic fuzzy evaluations, neutrosophic evaluations, etc. is very necessary.
+
+In such cases, if we transform these uncertain values into some real values, then it will be easy to compare.
+
+Therefore, in this section, we have introduced a new definition of score function of a complex neutrosophic number to convert the uncertain number into some real number in the closed interval [0,1].
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let, C̃N=(T,I,F)=(p(x)eiu(x),q(x)eiv(x),r(x)eiw(x)) be a complex neutrosophic number where, p(x),q(x),r(x) are the amplitude parts and u(x),v(x),w(x) are the phase parts of truth membership (T), indeterminate membership (I) and false membership (F) of C̃N, p(x),q(x),r(x)∈[0,1] with 0≤p(x)+q(x)+r(x)≤3 and u(x),v(x),w(x)∈[0,2π].
+
+PARAGRAPH
+
+The Venn diagram of a complex neutrosophic number C̃N has been given in Fig. 1.
+
+PARAGRAPH
+
+Then, the score function of C̃N is denoted by, Sˆcr(C̃N) and is defined as follows: Sˆcr(C̃N)=16{[p(x)+(2−(q(x)+r(x)))]+12π[u(x)+(4π−(v(x)+w(x)))]}The score function of a complex neutrosophic number measures the accuracy of the number C̃N in favor of truth degree.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let C̃A=(pAeiuA,qAeivA,rAeiwA) andC̃B=(pBeiuB,qBeivB,rBeiwB) be two complex neutrosophic numbers over the universal set U where, pA,qA,rA,pB,qB,rB∈[0,1] with 0≤pA+qA+rA≤3,0≤pB+qB+rB≤3 anduA,vA,wA,uB,vB,wB∈[0,2π].
+
+PARAGRAPH
+
+Then, the proposed score function (Sˆcr) satisfies the following properties.
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+(i) From the Ali and Smarandache (2017) we have, C̃A≤C̃B⇔pA≤pB,qA≥qB,rA≥rB;uA≤uB,vA≥vB,wA≥wB⇔pA≤pB,(1−qA)≤(1−qB),(1−rA)≤(1−rB);uA≤uB,(2π−vA)≤(2π−vB),(2π−wA)≤(2π−wB). ⇔Sˆcr(C̃A)=16[(pA+(1−qA)+(1−rA))+12π(uA+(2π−vA)+(2π−wA))]≤16[(pB+(1−qB)+(1−rB))+12π(uB+(2π−vB)+(2π−wB))]=Sˆcr(C̃B) (ii) If C̃A=(1ei2π,0,0) then, from Eq. (1) it is obvious that, Sˆcr(C̃A)=1.
+
+PARAGRAPH
+
+(iii) If C̃A=(0,1ei2π,1ei2π) then, from Eq. (1) it is obvious that, Sˆcr(C̃A)=0.
+
+PARAGRAPH
+
+(iv) Since, each of pA,qA,rA∈[0,1] and each of uA,vA,wA∈[0,2π], then from Eq. (1) it is obvious that, Sˆcr(C̃A)∈[0,1].
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let, C̃A=(0.7ei2π,0.4eiπ,0.3ei2π) be a complex neutrosophic number over U.
+
+PARAGRAPH
+
+Then, by using Eq. (1), its score value is,
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let, C̃B=(0.2eiπ,0.5ei2π,0.7ei2π) be another complex neutrosophic number over U.
+
+PARAGRAPH
+
+Then, by using Eq. (1), its score value is,
+
+PARAGRAPH
+
+SECTION
+
+Some necessary notions on complex neutrosophic soft sets
+
+PARAGRAPH
+
+Let, U={x1,x2,…,xm} be an universal set and E={e1,e2,…,en} be a set of parameters.
+
+Now, consider two complex neutrosophic soft sets (fC̃N,A) and (gC̃N,B) over U where, A,B⊆E.
+
+Then, union operation and intersection operation of (fC̃N,A) and (gC̃N,B) can be defined as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Complex neutrosophic soft union (CNS-union) of two complex neutrosophic soft sets (fC̃N,A) and (gC̃N,B) is denoted by (fC̃N,A)∪̃N(gC̃N,B)=(hC̃N,D) where, A∪B=D and ∀a∈D, hC̃N(a)=fC̃N(a)if a∈A−BgC̃N(a)if a∈B−AfC̃N(a)∪̃NgC̃N(a)if a∈A∩B ∪̃N represents complex neutrosophic union of fC̃N(a) and gC̃N(a) as defined in Definition 6.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Complex neutrosophic soft intersection (CNS-intersection) of (fC̃N,A) and (gC̃N,B) is denoted by, (fC̃N,A)∩̃N(gC̃N,B)=(HC̃N,D) where, A∩B=D and ∀a∈D, HC̃N(a)=fC̃N(a)∩̃NgC̃N(a).
+
+PARAGRAPH
+
+∩̃N represents complex neutrosophic intersection of fC̃N(a) and gC̃N(a) as defined in Definition 5.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let U={x1,x2,x3} and E={e1,e2,e3}.
+
+Now assume that, (fC̃N,A) and (gC̃N,B) be two complex neutrosophic soft sets over U where, A={e1,e2} and B={e1,e3} such that,
+
+PARAGRAPH
+
+PARAGRAPH
+
+Complex neutrosophic soft ideal solution.
+
+PARAGRAPH
+
+Let, U={x1,x2,…,xm} be an universal set and E={e1,e2,…,en} be a corresponding parameter set.
+
+Now, consider (fC̃N,E) be a complex neutrosophic soft set over U such that, (fC̃N,E)={(e1,fC̃N(e1)),(e2,fC̃N(e2)),…,(en,fC̃N(en))}={(e1,{(x1,x11),(x2,x21),…,(xm,xm1)}),(e2,{(x1,x12),(x2,x22),…,(xm,xm2)}),…,(en,{(x1,x1n),(x2,x2n),…,(xm,xmn)})} where, xsj is the complex neutrosophic valued evaluation of an alternative xs over a parameter ej.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Then, complex neutrosophic soft ideal solution (CNS-ideal solution) of a CNS-set (fC̃N,E) is the best reference solution (as given in Fig. 2) which can be defined by taking complex neutrosophic standard union among the evaluations of all the alternatives with respect to each of the parameters.
+
+Mathematically, it can be denoted by x+ and is defined as, x+={fC̃N+(e1),fC̃N+(e2),…,fC̃N+(en)}where, fC̃N+(ej)=x1j∪̃Nmaxx2j∪̃Nmax..∪̃Nmaxxmj;j=1,2,…,n. fC̃N+(ej) is called the complex neutrosophic soft ideal evaluation of a parameter ej and ∪̃Nmax is the complex neutrosophic standard union as defined in Definition 6.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Let us consider the complex neutrosophic soft set (fC̃N,E) of Example 1 (Table 1).
+
+Then, complex neutrosophic soft ideal solution (x+) of (fC̃N,E) is defined as follows, x+={(s1,(1ei2π,0.2eiπ∕3,0.2eiπ∕3)),(s2,(0.3eiπ∕4,0.6eiπ∕5,0.4ei5π∕6)),(s3,(0.5eiπ,0.8eiπ∕5,0.4ei7π∕9)),(s4,(0.1ei2π,0.8eiπ∕3,0.7eiπ∕3)),(s5,(0.7eiπ∕4,0.8eiπ∕5,0.9eiπ∕6)),(s6,(0.8eiπ,0.6eiπ∕5,0.7eiπ))}.
+
+SECTION
+
+PARAGRAPH
+
+Decision-making problems based on soft set theory under complex neutrosophic environment
+
+PARAGRAPH
+
+Decision-making problems based on soft set theory have been studied by the researchers under different environments like, crisp environment (Cagman and Enginoglu, 2010), fuzzy environment (Basu et al., 2012) intuitionistic fuzzy environment (Manna et al., 2019), neutrosophic environment (Basu and Mondal, 2015), etc.
+
+However, in many real-life related decision-making problems, one dimensional membership magnitudes (fuzzy membership degree, intuitionistic fuzzy membership degree, neutrosophic membership degree, etc.), which represent only one information of an alternative over a parameter, are not sufficient.
+
+For example, to know whether a patient is suffered by a disease ‘viral fever’ or not, it is necessary to know both the information ‘temperature level’ and ‘time duration’ of a related symptom ‘fever’ in the patient.
+
+So in that case, these two information should be considered together to express the belongingness of the symptom ‘fever’ over the disease ‘viral fever’ in the patient.
+
+Though, neutrosophic environment is the most powerful uncertain controlling tool, but cannot handle our above discussed medical problem.
+
+In this situation, complex neutrosophic environment can be used to handle this problem through its amplitude term and phase term.
+
+Therefore, in this section, we have proposed two methodologies to solve decision-making problems by using complex neutrosophic soft set theory.
+
+SECTION
+
+Complex neutrosophic soft decision-making for single decision maker based problems
+
+SECTION
+
+Problem description
+
+PARAGRAPH
+
+Consider, a set of m alternatives as, U={x1,x2,…,xm} and a set of n corresponding parameters as, E={e1,e2,…,en} (which are in complex neutrosophic sense).
+
+Now assume that, (fC̃N,E) be a complex neutrosophic soft set (CNS-set) over U such that, (fC̃N,E)={(e1,fC̃N(e1)),(e2,fC̃N(e2)),…,(en,fC̃N(en))}where, fC̃N(ej)={x1∕x1j,x2∕x2j,…,xm∕xmj}.
+
+Here, xsj=(Tsj,Isj,Fsj);s=1,2,…,m,j=1,2,…,n be a complex neutrosophic valued evaluation of an alternative xs over a parameter ej where, Tsj, Isj and Fsj are the complex-valued truth membership degree, complex-valued indeterminate membership degree and complex-valued false membership degree such that, Tsj=psjeiusj, Isj=qsjeivsj, Fsj=rsjeiwsj; psj,qsj,rsj∈[0,1] with 0≤psj+qsj+rsj≤3 and usj,vsj,wsj∈[0,2π].
+
+PARAGRAPH
+
+The tabular representation of the complex neutrosophic soft set (fC̃N,E) has been given in Table 2.
+
+PARAGRAPH
+
+In Fig. 3, graphical representation of a complex neutrosophic number (xsj) has been given.
+
+PARAGRAPH
+
+Molodtsov’s soft set is a parameterized family of subsets of the universal set U.
+
+In this set, any parameterization can be considered to handle real-life problems.
+
+For instance, we can take the parameters with the help of words, sentences, functions, real numbers, etc.
+
+But, since, in a soft set based decision-making problem, not all the parameters come from same environment, therefore, conflicting criteria may exist in the parameter set.
+
+i.e., some of the parameters may be benefit criteria and some of the parameters may be cost criteria.
+
+For example, to select the best manufacturing company, the parameter ‘investment cost’ is a cost parameter (negative sense) because, with respect to this parameter, smallest evaluation of a company is best whereas, the parameter ‘availability of skilled workers’ is a benefit parameter (positive sense) because, with respect to this parameter, highest evaluation of a company is best.
+
+PARAGRAPH
+
+So, in a complex neutrosophic soft set based decision-making problem, there may exist conflicting criteria in the considered parameter set.
+
+Then, to deal with the conflicting criteria, firstly, we have equalized the sense of all the parameters i.e., we have converted the sense of all the parameters into either cost or benefit, by using complement operator.
+
+PARAGRAPH
+
+In this paper, we have converted the evaluations of all the alternatives with respect to each of the cost parameters into benefit sense by taking their complex neutrosophic complement.
+
+PARAGRAPH
+
+Weights of the parameters play an important role in a decision-making problem.
+
+But, in a decision-making problem, weights of the parameters may or may not be given at the initial stage.
+
+Moreover, an incomplete information about the weights of the parameters may be given in the decision-making problem.
+
+Then, to solve the problems, where, no information is given about the weights of the parameters or where, an incomplete information is given about the weights of the parameters, we will derive the exact weights of the parameters.
+
+PARAGRAPH
+
+If, W={W1,W2,…,Wn}; Wj∈[0,1] be the associated weights of parameters, then they should satisfy the condition, ∑j=1nWj=1.
+
+PARAGRAPH
+
+So, based on these above discussions, our targets are as follows:
+
+PARAGRAPH
+
+(i) Equalize the sense of all the considered parameters associated with the CNS-set(fC̃N,E) to deal with the conflicting criteria.
+
+PARAGRAPH
+
+(ii) Use a normalization process for handling non commensurable parameters.
+
+PARAGRAPH
+
+(iii) Derive the exact weights of the parameters, if the weights of the parameters are not given or an incomplete information about the weights of the parameters is given in the decision-making problem.
+
+PARAGRAPH
+
+(iv) Rank the alternatives based on the complex neutrosophic soft set(fC̃N,E).
+
+SECTION
+
+Complex neutrosophic soft VIKOR approach for single decision maker (CNSVISDM-approach) based problems
+
+PARAGRAPH
+
+To fulfill the above targets, now we have proposed an algorithm in complex neutrosophic soft set framework.
+
+In this algorithm we have used VIKOR approach (Park et al., 2013) to obtain a compromise optimal solution by testing ‘acceptable advantage’ and ‘acceptable stability’ in this decision-making problem.
+
+This compromise optimal solution would be closest to the ideal solution.
+
+Our proposed approach contains the following steps.
+
+PARAGRAPH
+
+CNSVISDM-approach
+
+PARAGRAPH
+
+Step 1.
+
+Input the necessary substance.
+
+PARAGRAPH
+
+Input the selected m alternatives (U={x1,x2,…,xm}) and n corresponding parameters (E={e1,e2,…,en}).
+
+Input the evaluations of all the alternatives with respect to n parameters through a complex neutrosophic soft set (fC̃N,E) as given in Table 2.
+
+If the weights of the parameters are given in a problem then, input them (W={W1,W2,…,Wn}) also.
+
+PARAGRAPH
+
+Step 2.
+
+Equalization of the sense of all the parameters for dealing with conflicting criteria.
+
+PARAGRAPH
+
+To deal with the conflicting parameters in a complex neutrosophic soft set based decision-making problem, we have transformed the evaluations of all the alternatives over each of the cost parameters into benefit sense to uniform the sense of all the parameters.
+
+In this regard,
+
+PARAGRAPH
+
+(i) First, identify the benefit parameters (with respect to these parameters, large evaluation of an alternative is better) and cost parameters (with respect to these parameters, small evaluation of an alternative is better).
+
+Let A be the set of benefit parameters and B be the set of cost parameters such that, A∪B=E and A∩B=ϕ.
+
+PARAGRAPH
+
+(ii) Transform the evaluations of all the alternatives with respect to each of the parameters of the set B into benefit sense by taking their complement.
+
+Mathematically, it can be defined as follows, ∀ej∈B, (fC̃N(ej))c={x1∕x1jc,x2∕x2jc,…,xm∕xmjc} c-denotes the complement of a complex neutrosophic evaluation xsj as given in Definition 2.
+
+PARAGRAPH
+
+Step 3.
+
+Derivation of complex neutrosophic soft ideal evaluation of each of the parameters.
+
+PARAGRAPH
+
+Since our goal is, select the alternative which satisfies all the parameters with maximum evaluation level therefore, by using Definition 12, we have derived the complex neutrosophic soft ideal evaluation of each of the parameters, denoted by fC̃N+(ej);j=1,2,…,n, over the complex neutrosophic soft set (fC̃N,E) as follows: fC̃N+(ej)=x1j∪̃Nmaxx2j∪̃Nmax..∪̃NmaxxmjThen, from Definition 6 it is concluded that, fC̃N+(ej)=x1j∪̃Nmaxx2j∪̃Nmax..∪̃Nmaxxmj=(max{p1j,p2j,…,pmj}eimax{u1j,u2j,…,umj},max{q1j,q2j,…,qmj}eimax{v1j,v2j,…,vmj},max{r1j,r2j,…,rmj}eimax{w1j,w2j,…,wmj})=(pj+eiuj+,qj+eivj+,rj+eiwj+);j=1,2,…,n Step 4.
+
+Determination of the bounded difference betweenfC̃N+(ej) andxsj.
+
+PARAGRAPH
+
+By using Definition 7, we have obtained the complex neutrosophic bounded difference of the evaluation xsj of an alternative xs with respect to a parameter ej from the corresponding complex neutrosophic soft ideal evaluation fC̃N+(ej).
+
+PARAGRAPH
+
+Mathematically, the resultant value is denoted by, dsj⊖ and is defined as, dsj⊖=(fC̃N+(ej)⊖̃Nxsj) such that, dsj⊖=(fC̃N+(ej)⊖̃Nxsj)=(max(0,pj+−psj)eimax(0,uj+−usj),max(0,qj+−qsj)eimax(0,vj+−vsj),max(0,rj+−rsj)eimax(0,wj+−wsj))=(pˇsjeiuˇsj,qˇsjeivˇsj,rˇsjeiwˇsj) The resultant soft set is called complex neutrosophic bounded difference soft set.
+
+It is denoted by, (fC̃N⊖,E) and its tabular form has been given in Table 3.
+
+PARAGRAPH
+
+Step 5.
+
+Derivation of score value of each of the entries of the soft set(fC̃N⊖,E) (given in Table 3).
+
+PARAGRAPH
+
+Now, by using our proposed score function of a complex neutrosophic number (Definition 9), we have deduced the score value (Sˆcr) of each of the entries dsj⊖=(pˇsjeiuˇsj,qˇsjeivˇsj,rˇsjeiwˇsj) in the complex neutrosophic bounded difference soft set (fC̃N⊖,E) as follows: Sˆcr(dsj⊖)=16{[pˇsj+(2−(qˇsj+rˇsj))]+12π[uˇsj+(4π−(vˇsj+wˇsj))]}These score values have been presented in Table 4 which is named as score valued matrix.
+
+PARAGRAPH
+
+Step 6.
+
+Normalization process to deal with non commensurable parameters.
+
+PARAGRAPH
+
+In a complex neutrosophic soft set based decision-making problem, there may exist non commensurable criterion in the parameter set.
+
+Then, to deal with the non commensurable data, we have used the linear max normalization technique (given in the preliminary Section 2.3) to make all the parameters unit less.
+
+PARAGRAPH
+
+6.1 Firstly, we have derived the maximum score value over all the alternatives with respect to a parameter ej.
+
+Mathematically it is denoted by, Sˆcr+(dj⊖) and is defined as follows: Sˆcr+(dj⊖)=maxs=1mSˆcr(dsj⊖)
+
+PARAGRAPH
+
+6.2 Then, we have applied the linear max normalization technique to normalize an entry Sˆcr(dsj⊖) associated with Table 4 as follows: ϕsj=Sˆcr(dsj⊖)Sˆcr+(dj⊖)So, by using the above equation, each of the evaluations ϕsj;s=1,2,…,m;j=1,2,…,n over each of the parameters now become unit less.
+
+PARAGRAPH
+
+Step 7.
+
+Determination of the group utility value of an alternativexs (Utility measure).
+
+PARAGRAPH
+
+The group utility value of an alternative xs is denoted by, SˆcrW(xs) and is derived by adding the weighted values ϕs1,ϕs2,…,ϕsn.
+
+Mathematically, it is defined as follows, SˆcrW(xs)=∑j=1nWjϕsj;s=1,2,…,m;j=1,2,…,nwhere, Wj is the weight of the parameter ej and ϕsj the normalized bounded difference of an evaluation xsj from the corresponding ideal evaluation fC̃N+(ej) in terms of score value.
+
+If the weights of the parameters are not given or an incomplete information about the weights of the parameters is given then, we have to determine the exact weights of the parameters by using Section 6.2.
+
+PARAGRAPH
+
+So, from Eq. (3) it is concluded that, the alternative xs which has smallest value of SˆcrW is best.
+
+PARAGRAPH
+
+Step 8.
+
+Determination of the individual regret value of an alternativexs (Regret measure).
+
+PARAGRAPH
+
+The individual regret of an alternative xs is denoted by, Sˆcrmax and is derived by taking the maximum weighted value over all the weighted values of ϕs1,ϕs2,…,ϕsn.
+
+Mathematically, it is defined as follows, Sˆcrmax(xs)=maxj{Wjϕsj};s=1,2,…,m;j=1,2,…,n
+
+PARAGRAPH
+
+Step 9.
+
+Derivation of the compromising index Cˆ(xs) of an alternative xs.
+
+PARAGRAPH
+
+The compromising index of an alternative xs over all the parameters can be defined by the following equation: Cˆ(xs)=θSˆcrW(xs)−SˆcrW¯(xs)SˆcrW̲(xs)−SˆcrW¯(xs)+(1−θ)Sˆcrmax(xs)−Sˆcrmax¯(xs)Sˆcrmax̲(xs)−Sˆcrmax¯(xs)where, SˆcrW¯(xs)=minsSˆcrW(xs), SˆcrW̲(xs)=maxsSˆcrW(xs), Sˆcrmax¯(xs)=minsSˆcrmax(xs), Sˆcrmax̲(xs)=maxsSˆcrmax(xs).
+
+PARAGRAPH
+
+Here, the parameter θ∈[0,1] indicates the weight of the strategy of maximum group of utility and (1−θ) indicates the weight of the strategy of minimum individual regret.
+
+PARAGRAPH
+
+Step 10.
+
+Ranking of the alternatives based on the compromising index
+
+PARAGRAPH
+
+Construct the ranking order of m alternatives based on the descending order of their utility measure (SˆcrW), regret measure (Sˆcrmax) and compromising index (Cˆ).
+
+Therefore, we will get three ranking results.
+
+PARAGRAPH
+
+Assume that, the alternative xL has minimum compromising index value among m alternatives.
+
+Then, the alternative xL will be a compromise optimal solution if the following two conditions are satisfied:
+
+Condition 1.
+
+Acceptable advantage: Cˆ(xL′)−Cˆ(xL)≥DQ(athresholdvalue)=1m−1, where, xL′ is the alternative placed at the second position in ranking order of the alternatives based on compromising index and m is the number of alternatives.
+
+Condition 2.
+
+Acceptable stability: The alternative xL is the best solution based on the ranking order of utility measure (SˆcrW) and regret measure (Sˆcrmax).
+
+PARAGRAPH
+
+Now, if any one of the above two conditions is not satisfied then, we will get a set of compromise optimal solutions as follows:
+
+If, Condition 1 is not satisfied then, we will take the first m′ alternatives as a compromise optimal solutions for this decision problem for maximum number of m′, where the number m′ will be derived by the following equation: Cˆ(xm′)−Cˆ(xL)<1m−1
+
+If, Condition 2 is not satisfied then, xL and xL′ both will be the compromise optimal solutions for this decision-making problem.
+
+SECTION
+
+Determination of the weights of the parameters
+
+PARAGRAPH
+
+Weights of the parameters play an important role in a decision-making problem.
+
+However in a problem, weights of the parameters may or may not be given.
+
+Moreover, an incomplete information about the weights of the parameters may be given in the problem.
+
+So, when exact weights of the parameters are not given in a problem initially, then we have to determine the exact weights of the parameters.
+
+PARAGRAPH
+
+Let, W={W1,W2,…,Wn} be the weighs parameters where, Wj∈[0,1];j=1,2,…,n and ∑j=1nWj=1.
+
+PARAGRAPH
+
+PARAGRAPH
+
+The mean potentiality of a parameter ej associated with the complex neutrosophic soft set (fC̃N,E) (Table 2) (after equalization) is derived by taking arithmetic mean aggregation (as given in Definition 8) of the evaluations of all the alternatives with respect to the parameter ej.
+
+Mathematically, it is denoted by mej and is defined as follows: mej=(x1j⊕̃NAMx2j⊕̃NAM..⊕̃NAMxmj)
+
+PARAGRAPH
+
+Then, from Definition 8 it is obtained that, mej=(x1j⊕̃NAMx2j⊕̃NAM..⊕̃NAMxmj)=(1m(p1j+p2j+⋯+pmj)ei1m(u1j+u2j+⋯+umj),1m(q1j+q2j+⋯+qmj)ei1m(v1j+v2j+⋯+vmj),1m(r1j+r2j+⋯+rmj)ei1m(w1j+w2j+⋯+wmj)) Now to evaluate the exact weights of the parameters, we have followed the following steps.
+
+PARAGRAPH
+
+6.2.1 After equalization of all the parameters (by using Step 2 of Algorithm I) associated with the CNS-set (fC̃N,E), determine the mean potentiality of each of the parameters by using Eq. (6).
+
+PARAGRAPH
+
+6.2.2 Evaluate the complex neutrosophic distance measure (dsj) between the evaluation xsj of an alternative xs;s=1,2,…,m with respect to the parameter ej and the mean potentiality (mej) of the parameter ej as follows, dsj=d̃CN(mej,xsj)where, d̃CN is the complex neutrosophic distance measure as given in Definition 3.
+
+PARAGRAPH
+
+6.2.3 After that, derive the total complex neutrosophic distance of all the alternatives with respect to the parameter ej.
+
+Mathematically, it is denoted by, d̃ej and is defined as, d̃ej=∑s=1mdsj=∑s=1md̃CN(mej,xsj)
+
+PARAGRAPH
+
+6.2.4 Then, the weighted complex neutrosophic distance function of this complex neutrosophic soft set based decision-making problem is denoted by, D̃(W) and is constructed as follows.
+
+D̃(W)=∑j=1nd̃ejWj=∑j=1n∑s=1mdsjWj=∑j=1n∑s=1md̃CN(mej,xsj)WjCase-I.
+
+Weights of the parameters are incompletely known:
+
+PARAGRAPH
+
+Based on the Xue et al. (2016), the possible types of incomplete information about the weights of the parameters are as follows.
+
+For j≠j′,
+
+PARAGRAPH
+
+(i) Weak ranking: P1={Wj≥Wj′};
+
+PARAGRAPH
+
+(ii) Strict ranking: P2={Wj−Wj′≥βj′,βj′≥0};
+
+PARAGRAPH
+
+(iii) Ranking of differences: P3={Wj−Wj′≥Wk−Wk′,j′≠k≠k′};
+
+PARAGRAPH
+
+(iv) Ranking with multiples: P4={Wj≥βj′Wj′,(0≤βj′≤1)};
+
+PARAGRAPH
+
+(v) Interval forms: P5={βj≤Wj≤βj+εj,(0≤βj≤βj+εj≤1)}.
+
+PARAGRAPH
+
+Let P be the set of these five possible categories of information about the weights of the parameters such that, P=P1∪P2∪P3∪P4∪P5.
+
+PARAGRAPH
+
+Now, we have established an optimization model to derive the exact weights of the parameters as following: maxD̃(W)=∑j=1n∑s=1md̃CN(mej,xsj)Wjs.t.,W∈P;0≤Wj≤1and∑j=1nWj=1By solving the above equation, we will obtain the exact weights of the parameters.
+
+PARAGRAPH
+
+Case-II.
+
+Weights of the parameters are completely unknown:
+
+PARAGRAPH
+
+If, the weights are completely unknown in a decision-making problem, then the weights of the parameters can be derived by using Eq. (6) as follows: Wj=d̃ej∑j=1nd̃ej=∑s=1md̃CN(mej,xsj)∑j=1n∑s=1md̃CN(mej,xsj)
+
+SECTION
+
+Complex neutrosophic soft decision-making for multiple decision maker based problems
+
+SECTION
+
+Problem description
+
+PARAGRAPH
+
+Let us consider that, U={x1,x2,…,xm} be a set of m alternatives and E={e1,e2,…,en} be a set of n corresponding parameters.
+
+Now assume that, k decision makers, D={d1,d2,…,dk}, have been assigned to select the best alternative from m alternatives over n parameters.
+
+It is considered that, all the decision makers have given their opinions about the alternatives in terms of complex neutrosophic valued evaluations.
+
+So, we get k complex neutrosophic soft sets, (fC̃N1,E),(fC̃N2,E),…,(fC̃Nk,E), where,
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Here, x(sj,l)=(p(sj,l)eiu(sj,l),q(sj,l)eiv(sj,l),r(sj,l)eiw(sj,l)) represents the complex neutrosophic valued evaluation of an alternative xs;s=1,2,…,m over a parameter ej;j=1,2,…,n given by the decision maker dl;l=1,2,…,k.
+
+Tabular form of k CNS-sets has been given in Table 5.
+
+PARAGRAPH
+
+In a complex neutrosophic soft set based group decision-making problem, conflicting parameter may exist in the considered parameter set E. Therefore, we will equalize the sense of all the parameters by transforming the evaluations of all the alternatives over each of the cost parameter into benefit sense by using complex neutrosophic complement.
+
+PARAGRAPH
+
+In this group decision-making problem, weights of the parameters may or may not be given initially in the problem.
+
+Even sometimes, the information about the weights of the parameters may be incomplete.
+
+So, when the weights of the parameters are completely unknown or incompletely known in a problem, then we will derive the weights of the parameters.
+
+PARAGRAPH
+
+If, W={W1,W2,…,Wn};0≤Wj≤1 be the weights of the parameters, then, ∑j=1nWj=1.
+
+PARAGRAPH
+
+Now, based on the above discussion, our goals are as follows:
+
+PARAGRAPH
+
+(i) Equalize the sense of the all considered parameters for handling the conflicting criteria.
+
+PARAGRAPH
+
+(ii) Construct a resultant CNS-set (FC̃N,E) from k CNS-sets (fC̃Nl,E);l=1,2,…,k.
+
+PARAGRAPH
+
+(iii) Use a normalization process for handling non commensurable parameters.
+
+PARAGRAPH
+
+(iv) Derive the exact weights of the parameters if they are completely unknown or incompletely known.
+
+PARAGRAPH
+
+(v) Ranking the alternatives based on the opinions of all the k decision makers.
+
+SECTION
+
+Complex neutrosophic soft VIKOR approach for multiple decision maker (CNSVIMDM-approach) based problems
+
+PARAGRAPH
+
+In this section, we have provided a decision-making approach to get a synchronized solution from this complex neutrosophic soft set based group decision-making problem by using VIKOR method.
+
+PARAGRAPH
+
+CNSVIMDM-approach
+
+PARAGRAPH
+
+Step 1.
+
+Input the necessary substance.
+
+PARAGRAPH
+
+Input m alternatives (U={x1,x2,…,xm}), n parameters (E={e1,e2,…,en}) and k complex neutrosophic soft sets (fC̃N1,E),(fC̃N2,E),…,(fC̃Nk,E) as given in Table 5.
+
+If, the weights of the parameters are given initially in the problem then input them (W={W1,W2,..Wn}) also.
+
+PARAGRAPH
+
+Step 2.
+
+Equalization of the sense of all the parameters for handling conflicting criteria.
+
+PARAGRAPH
+
+Firstly, we have recognized the benefit parameters and cost parameters in the parameter set E. Suppose, A is the set of benefit parameters and B be the set cost parameters such that, A∪B=E and A∩B=ϕ.
+
+Then, we have transformed the evaluations of all the alternatives with respect to each of the cost parameters into benefit sense by using complex neutrosophic complement as follows: ∀l=1,2,…,k,fC̃Nl(ej)={x1∕x(1j,l)c,x2∕x(2j,l)c,…,xm∕x(mj,l)c};∀ej∈B
+
+PARAGRAPH
+
+Step 3.
+
+Construction a resultant complex neutrosophic soft set(FC̃N,E).
+
+PARAGRAPH
+
+Since in this problem, our aim is, select the best alternative based on the opinions of all the decision makers, therefore to take a common decision from k decision makers, we have used complex neutrosophic soft intersection operator (given in Definition 11).
+
+PARAGRAPH
+
+Therefore, we have constructed a resultant complex neutrosophic soft set (FC̃N,E) from k complex neutrosophic soft sets (fC̃N1,E),(fC̃N2,E),…,(fC̃Nk,E) by using complex neutrosophic soft intersection as follows, (FC̃N,E)=(fC̃N1,E)∩̃N(fC̃N2,E)∩̃N..∩̃N(fC̃Nk,E)Then, from Definition 11, it is concluded that, ∀j=1,2,…,n FC̃N(ej)=fC̃N1(ej)∩̃NfC̃N2(ej)∩̃N..∩̃NfC̃Nk(ej)={x1∕(x(1j,1)∩̃Nx(1j,2)∩̃N..∩̃Nx(1j,k)),x2∕(x(2j,1)∩̃Nx(2j,2)∩̃N..∩̃Nx(2j,k)),…,xm∕(x(mj,1)∩̃Nx(mj,2)∩̃N..∩̃Nx(mj,k))}={x1∕u1j,x2∕u2j,…,xm∕umj} where, ∩̃N is the complex neutrosophic intersection and usj=(P̄sjeiŪsj,Q̄sjeiV̄sj,R̄sjeiW̄sj);s=1,2,…,m.
+
+PARAGRAPH
+
+Step 4.
+
+Derivation of the complex neutrosophic soft ideal evaluation of each of the parameters.
+
+PARAGRAPH
+
+Complex neutrosophic soft ideal evaluation FC̃N+(ej) of a parameter ej over the resultant complex neutrosophic soft set (FC̃N,E) has been defined as follows: FC̃N+(ej)=u1j∪̃Nmaxu2j∪̃Nmax..∪̃Nmaxumj=(max(P̄1j,P̄2j,…,P̄mj)eimax(Ū1j,Ū2j,…,Ūmj),max(Q̄1j,Q̄2j,…,Q̄mj)eimax(V̄1j,V̄2j,…,V̄mj),max(R̄1j,R̄2j,…,R̄mj)eimax(W̄1j,W̄2j,…,W̄mj))=(Pj+eiUj+,Qj+eiVj+,Rj+eiWj+)
+
+PARAGRAPH
+
+Step 5.
+
+Determination of the bounded difference ofusj formFC̃N+(ej).
+
+PARAGRAPH
+
+We have evaluated the complex neutrosophic bounded difference (d̄sj⊖) of the evaluation usj of an alternative xs over the parameter ej from the associated ideal evaluation FC̃N+(ej) over the soft set (FC̃N,E) as follows: d̄sj⊖=FC̃N+(ej)⊖̃Nusj=(max(0,Pj+−P̄sj)eimax(0,Uj+−Ūsj),max(0,Qj+−Q̄sj)eimax(0,Vj+−V̄sj),max(0,Rj+−R̄sj)eimax(0,Wj+−W̄sj))=(PˇsjeiUˇsj,QˇsjeiVˇsj,RˇsjeiWˇsj) The resultant Complex neutrosophic bounded difference soft set is denoted by, (FC̃N⊖,E)=(d̄sj⊖)m×n.
+
+PARAGRAPH
+
+Step 6.
+
+Evaluation of the score value of each of the entries in the soft set(FC̃N⊖,E).
+
+PARAGRAPH
+
+We have derived the score value (Sˆcr) of each of the entries d̄sj⊖ in the soft set (FC̃N⊖,E).
+
+The score values are presented in the score valued matrix (Sˆcr(d̄sj⊖))m×n.
+
+PARAGRAPH
+
+Step 7.
+
+Normalization process to deal with non commensurable parameters.
+
+PARAGRAPH
+
+Firstly, we have determined the maximum score value (Sˆcr+(d̄j⊖)) over all the alternatives with respect to a parameter ej associated with the matrix (Sˆcr(d̄sj⊖))m×n as, Sˆcr+(d̄j⊖)=maxs=1mSˆcr(d̄sj⊖).
+
+PARAGRAPH
+
+Then, we have normalized the entry Sˆcr(d̄sj⊖) in this matrix by the following: ϕ̄sj=Sˆcr(d̄sj⊖)Sˆcr+(d̄j⊖)
+
+PARAGRAPH
+
+Step 8.
+
+Evaluation of the group utility value of an alternativexs (Utility measure).
+
+PARAGRAPH
+
+The group utility value (SˆcrW(xs)) of an alternative xs is derived by adding the weighted values of ϕ̄s1, ϕ̄s2,.., ϕ̄sn
+
+over all the parameters as follows: SˆcrW(xs)=∑j=1nWjϕ̄sjwhere, Wj is the weight of the parameter ej.
+
+If Wj is not given in the problem, then determine it by using Section 6.2 on the resultant complex neutrosophic soft set (FC̃N,E).
+
+PARAGRAPH
+
+Step 9.
+
+Evaluation of the individual regret score of an alternativexs (Regret measure).
+
+PARAGRAPH
+
+The individual regret (Sˆcrmax(xs)) of an alternative xs is derived as follows: Sˆcrmax(xs)=maxj{Wjϕ̄sj}
+
+PARAGRAPH
+
+Step 10.
+
+Derivation of the compromising index Cˆ(xs) of an alternative xs.
+
+PARAGRAPH
+
+The compromising index of an alternative over all the parameters is evaluated by the following equation, Cˆ(xs)=θSˆcrW(xs)−SˆcrW¯(xs)SˆcrW̲(xs)−SˆcrW¯(xs)+(1−θ)Sˆcrmax(xs)−Sˆcrmax¯(xs)Sˆcrmax̲(xs)−Sˆcrmax¯(xs) SˆcrW¯(xs)=minsSˆcrW(xs), SˆcrW̲(xs)=maxsSˆcrW(xs), Sˆcrmax¯(xs)=minsSˆcrmax(xs), Sˆcrmax̲(xs)=maxsSˆcrmax(xs) where, the parameter θ∈[0,1] indicates the weight of the strategy of maximum group of utility.
+
+PARAGRAPH
+
+Step 11.
+
+Determination of a compromise optimal solution.
+
+PARAGRAPH
+
+Now, we have obtained a compromise optimal alternative by using Step 10 of Algorithm I.
+
+(CNSVISDM-approach).
+
+PARAGRAPH
+
+Flowchart of our proposed algorithm has been given in Fig. 4.
+
+SECTION
+
+PARAGRAPH
+
+Case study
+
+SECTION
+
+An application of our approach in manager selection of a company
+
+PARAGRAPH
+
+At the present era, the number of competitors of a company is increasing rapidly in global market.
+
+Therefore, to preserve its position in global market and to increase its economic environment, proper manager selection is an important task to a company.
+
+Therefore, in this section, we have illustrated a manager selection problem of a company with the help of our proposed Algorithm I.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Now consider that, four candidates have come to give an interview in the manager post of a company.
+
+The corresponding parameters over these four candidates are, {engineeringbackgroundknowledge,abilityinbudgemanaging,abilitytolisteningandunderstandingthecustomer′scomment,realiability}.
+
+PARAGRAPH
+
+Now if a decision maker evaluates the satisfaction of the parameter ‘engineering background knowledge’ over a candidate, then, the only information about the engineering result of the candidate may not be sufficient for best manager selection.
+
+Because, in that case, additionally, the information about the ‘technical knowledge’ of the candidate is also necessary and should be known to the decision maker.
+
+So, these two information ‘engineering background knowledge’ and ‘technical knowledge’ should be considered together.
+
+Now, if we will use complex neutrosophic environment, then we can handle this problem by taking ‘engineering background knowledge’ as the amplitude term and ‘technical knowledge’ as the phase term in the evaluation of a candidate over the parameter ‘engineering background knowledge’.
+
+Again, for the parameter ‘ability in budget managing’, the information about the ‘supervising responsibility’ of a candidate is a necessary information.
+
+Therefore, here we have taken ‘ability in budget managing’ as the amplitude term and ‘supervising responsibility’ as the phase term in the evaluation of a candidate over the parameter ‘ability in budget managing’.
+
+Similarly, for the parameter ‘ability to listening and understanding the customer’s comment’, we have taken the information ‘good behaving ability to the others’ additionally.
+
+Then, ‘ability to listening and understanding the customer’s comment’ has been considered as the amplitude term and ’good behaving ability to the others’ has been considered as the phase term.
+
+Lastly, for the parameter ‘reliability’, the information about the ‘political sensitivity’ has been considered as the phase term where, the information about the ‘reliability’ of a candidate has been considered as the amplitude term.
+
+PARAGRAPH
+
+Now, assume that, U={C1,C2,C3,C4} be the set of four candidates as the initial universal set and E={Engineeringbackgroundknowledge(e1),AbilityinBudgemanaging(e2),Abilitytolisteningandunderstandingcustomer′scomment(e3),Realiability(e4)} be the set of corresponding parameters of the elements of U.
+
+The evaluations of the four candidates over these four parameters have been given in a CNS-set (fC̃N,E) (Table 6).
+
+PARAGRAPH
+
+Now the problem is ‘select the best candidate for the manager post who satisfies all the considered parameters with maximum evaluation level’.
+
+PARAGRAPH
+
+In Fig. 5, the graphical framework of this case study has been expressed.
+
+PARAGRAPH
+
+Solution.
+
+We have solved this manager selection problem by using our proposed Algorithm I.
+
+PARAGRAPH
+
+Step 1,2.
+
+The corresponding CNS-set (fC̃N,E) has been given in Table 6.
+
+PARAGRAPH
+
+In this decision problem, all the considering parameters are benefited parameters.
+
+Therefore, equalization process is not needed.
+
+PARAGRAPH
+
+Step 3.
+
+Complex neutrosophic soft ideal evaluation of each of the parameters over the CNS-set (fC̃N,E) is as follows: fC̃N+(e1)=(0.9eiπ,0.6eiπ,0.8eiπ); fC̃N+(e2)=(0.8ei3π∕4,0.4ei3π∕4,0.9ei3π∕4); fC̃N+(e3)=(0.4ei2π∕3,0.5ei2π∕3,0.9ei2π∕3); fC̃N+(e4)=(0.8ei2π,0.6ei2π,0.7ei2π).
+
+PARAGRAPH
+
+Step 4.
+
+The bounded difference (dsj⊖) of each of the evaluations of the alternatives with respect to a parameter ej from the associated complex neutrosophic soft ideal evaluation fC̃N+(ej) is given in the complex neutrosophic bounded difference soft set (fC̃N⊖,E) (Table 7).
+
+PARAGRAPH
+
+Step 5.
+
+By using Definition 9, the score value of each of the entries in the complex neutrosophic bounded difference soft set (fC̃N⊖,E) (given in Table 7) has been given in Table 8.
+
+PARAGRAPH
+
+Step 6.
+
+Normalization process.
+
+PARAGRAPH
+
+The maximum score value with respect to each of the parameters is s follows:
+
+PARAGRAPH
+
+Sˆcr+(d1⊖)=0.74; Sˆcr+(d2⊖)=0.72; Sˆcr+(d3⊖)=0.66; Sˆcr+(d4⊖)=0.77.
+
+PARAGRAPH
+
+Then, by using Eq. (2), the normalized value of each of the entries in the score valued matrix has been given in Table 9.
+
+PARAGRAPH
+
+Step 7.
+
+Determination of the weights of the parameters.
+
+PARAGRAPH
+
+Since, in this problem, weights of the parameters are completely unknown, therefore, we have obtained the exact weights of the parameters by using Section 6.2.
+
+PARAGRAPH
+
+7.1 By using Definition 13, the mean potentiality of each of the parameters is as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+7.2 Then the complex neutrosophic distance (dsj) of the evaluation xsj of an alternative with respect to the parameter ej and its corresponding mean potentiality mej has given in Table 10.
+
+PARAGRAPH
+
+7.3 Now, the total complex neutrosophic distance of all the alternatives from the corresponding mean potentiality mej associated with the parameter ej is as follows:
+
+PARAGRAPH
+
+d̃e1=1.02; d̃e2=1.2; d̃e3=0.75; d̃e4=1.4.
+
+PARAGRAPH
+
+7.4 Now, By using Eq. (9), the weights of the parameters are as following,
+
+PARAGRAPH
+
+W1=0.2; W2=0.3; W3=0.2; W4=0.3.
+
+PARAGRAPH
+
+Step 8.
+
+Then, by using Eq. (3), group utility values of the alternatives are as follows:
+
+PARAGRAPH
+
+SˆcrW(C1)=0.716; SˆcrW(C2)=0.88; SˆcrW(C3)=0.933; SˆcrW(C4)=0.85.
+
+PARAGRAPH
+
+Step 8.
+
+Then, By using Eq. (4), individual regret values of the alternatives are as follows:
+
+PARAGRAPH
+
+Sˆcrmax(C1)=0.225; Sˆcrmax(C2)=0.3; Sˆcrmax(C3)=0.3; Sˆcrmax(C4)=0.258.
+
+PARAGRAPH
+
+Step 9.
+
+Then, by utilizing Eq. (5), the compromising index of the alternatives are,
+
+PARAGRAPH
+
+Cˆ(C1)=0; Cˆ(C2)=0.88; Cˆ(C3)=1; Cˆ(C4)=0.53.
+
+Here, we have taken θ=0.5
+
+PARAGRAPH
+
+Step 10.
+
+Ranking of the alternatives:
+
+PARAGRAPH
+
+Now, based on SˆcrW, the ranking order is, C1>C4>C2>C3, based on Sˆcrmax, the ranking order is, C1>C4>C2=C3 and based on Cˆ, the order is, C1>C4>C2>C3.
+
+PARAGRAPH
+
+Condition 1.
+
+Again, Condition 1 satisfies truly since, Cˆ(C1)−Cˆ(C4)=0.53−0=0.53>14−1=0.33.
+
+PARAGRAPH
+
+Condition 2.
+
+Condition 2 also satisfies truly since, C1 is the best each of the Cˆ, SˆcrW and Sˆcrmax.
+
+PARAGRAPH
+
+Therefore according to our algorithm it is concluded that, the alternative C1 is a compromise optimal solution for this decision problem.
+
+PARAGRAPH
+
+Hence, the candidate C1 is best for the manager post of this company.
+
+PARAGRAPH
+
+SECTION
+
+Application of our approach in selecting sustainable manufacturing material of an automotive industry (Stoycheva et al., 2018)
+
+PARAGRAPH
+
+In today’s life, sustainable manufacturing in an automotive industry gains more attention because of the essentiality of balancing social, environmental and economic impacts so that, the development of the industry does not harmful to the society or environment.
+
+Now, we have used our proposed complex neutrosophic soft VIKOR approach to select the best sustainable automobile manufacturing material alternative in an automotive industry.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Based on the Stoycheva et al. (2018), we have considered four automobile manufacturing material alternatives such as, {ferrousmetal(ironorsteel),organiccomposite,plastics,aluminum} and three corresponding parameters including, {environmentalimpact,economicimpact,socialimpact}.
+
+Now, if the decision maker gives his/her concentration only on the ‘greenhouse gas emission’ of a manufacturing material alternative over the parameter ‘environmental impact’, then this information is not sufficient to select the best sustainable manufacturing material alternative, because additionally, the information about the ‘energy consumption level’ associated with the parameter ‘environmental impact’ is also necessary for selecting the best sustainable manufacturing material.
+
+Therefore, by using complex neutrosophic environment, we have taken these two information ‘greenhouse gas emission’ and ‘energy consumption level’ together to evaluate the four manufacturing materials over this parameter ‘environmental impact’ where,‘greenhouse gas emission’ has been considered as the amplitude term and ‘energy consumption level’ has been considered as the phase term.
+
+Similarly, for the parameter ‘economic impact’, we have taken two information together such as, ‘product cost’ and ‘maintenance cost’ where, ‘product cost’ has been considered as the amplitude term and ‘maintenance cost’ has been considered as the phase term.
+
+Lastly, for the parameter ‘social impact’, we have taken two information together such as, ‘health status of adjacent people’ and ‘safety of the adjacent people’, where, ‘health status of adjacent people’ has been taken as amplitude term and ‘safety of adjacent people’ has been taken as the phase term.
+
+PARAGRAPH
+
+Now let, U={M1(ferrousmetal),M2(organiccomposite),M3(plastics),M4(aluminum)} be the initial universal set and E={e1(environmentalimpact),e2(economicimpact),e3(socialimpact)} be the set of parameters.
+
+The associated complex neutrosophic soft set, which represents the evaluations of the four alternatives over the three parameters, has been given in Table 11.
+
+PARAGRAPH
+
+Now, consider that, the information about the weights of the parameters is incompletely known.
+
+PARAGRAPH
+
+If, W={W1,W2,W3} be the weights of the three parameters, then the information is, P={W1≥0.4;0.1≤W2≤0.9;W2−W3<0.3;W3≥0.2}.
+
+PARAGRAPH
+
+Now, our problem is, select the best sustainable manufacturing material alternative over the three considered parameters.
+
+PARAGRAPH
+
+Solution: Now, we have solved this problem by using our proposed Algorithm I.
+
+PARAGRAPH
+
+Step 1.
+
+The corresponding complex neutrosophic soft set has been given in Table 11.
+
+PARAGRAPH
+
+Step 2.
+
+Here, ‘environmental impact’ and ‘economic impact’ are two cost parameters, because over these two parameters, small evaluation indicates the goodness of a manufacturing material.
+
+Therefore, we have taken complex neutrosophic complement of all the evaluations over these two parameters.
+
+Results are given in Table 12.
+
+PARAGRAPH
+
+Step 3.
+
+The complex neutrosophic soft ideal evaluation of each of the parameters is as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Step 4.
+
+The bounded difference of each of the evaluations of the alternatives with respect to a parameter ej from the corresponding fC̃N+(ej) are given in Table 13.
+
+PARAGRAPH
+
+Step 5.
+
+The score value of each of the entries in Table 13 has been given in Table 14.
+
+PARAGRAPH
+
+Step 6.
+
+Now by using linear max normalization process, the normalized evaluation of each of the entries of Table 14 has been provided in Table 15.
+
+PARAGRAPH
+
+Step 7.
+
+Now, we have determined the exact weights of the parameters by using Section 6.2.
+
+PARAGRAPH
+
+The given incomplete information about the weights of the parameters is, P={W1≥0.4;0.1≤W2≤0.9;W2−W3<0.3;W3≥0.2}.
+
+PARAGRAPH
+
+Then, the mean potentiality of each of the parameters is as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Then the total complex neutrosophic distance of all the alternatives from the corresponding mean potentiality mej associated with a parameter ej is, d̃e1=1.02; d̃e2=1.2; d̃e3=0.75.
+
+PARAGRAPH
+
+Now, to obtain the weights of the parameters, we have constructed a optimization model by using the given incomplete information as follows: maxD̃(W)=1.02W1+1.2W2+0.75W3s.t.,W∈P;0≤Wj≤1;j=1,2,…,n;∑j=1nWj=1Solving the above optimization model, the weights of the parameters are,
+
+PARAGRAPH
+
+PARAGRAPH
+
+Step 8.
+
+The group utility values of the alternatives are,
+
+PARAGRAPH
+
+SˆcrW(M1)=0.822; SˆcrW(M2)=0.88; SˆcrW(M3)=0.884; SˆcrW(M4)=0.926.
+
+PARAGRAPH
+
+Step 9.
+
+The individual regret values of the alternatives are,
+
+PARAGRAPH
+
+Sˆcrmax(M1)=0.344; Sˆcrmax(M2)=0.4; Sˆcrmax(M3)=0.372; Sˆcrmax(M4)=0.4.
+
+PARAGRAPH
+
+Step 10.
+
+Then the compromising index of the alternatives are,
+
+PARAGRAPH
+
+Cˆ(M1)=0; Cˆ(M2)=0.78; Cˆ(M3)=0.55; Cˆ(M4)=1.
+
+Here, we have considered θ=0.5.
+
+PARAGRAPH
+
+Step 11.
+
+Ranking the alternatives.
+
+PARAGRAPH
+
+The ranking order of the alternatives based on SˆcrW is, M1>M2>M3>M4, the ranking order of the alternatives based on Sˆcrmax is, M1>M3>M2=M4 and the ranking order of the alternatives based on Cˆ is, M1>M3>M2>M4.
+
+PARAGRAPH
+
+Condition 1.
+
+Now we have seen that, condition 1 is satisfied as, Cˆ(M3)−Cˆ(M1)=0.55>14−1=0.33.
+
+PARAGRAPH
+
+Condition 2.
+
+Again, M1 is best for both the cases of SˆcrW and Sˆcrmax.
+
+PARAGRAPH
+
+Hence, M1 is a compromise optimal solution for this decision-making problem.
+
+PARAGRAPH
+
+Therefore, the manufacturing material alternative M1 can be selected in the automobile industry.
+
+SECTION
+
+An application of CNSVIMDM-approach in medical science
+
+PARAGRAPH
+
+Proper disease diagnosis of a patient is a significant task in medical science.
+
+Several researchers have proposed different mathematical models by using soft set theory to deal with disease diagnosis problems.
+
+For instance, Basu et al. (2012) proposed a fuzzy soft set based balanced solution to detect the exact disease of a patient.
+
+Then, Das and Kar (2014) proposed a group decision-making approach by using intuitionistic fuzzy soft set theory where, a set of four experts have been selected to detect the exact disease of a patient.
+
+But, in these soft set based models, they have only considered the information about the ‘degree of belongingness of a symptom’ for disease diagnosis.
+
+But, the information about the ‘time duration of a symptom’ to a patient is also emergent here and to be considered for proper diagnosis of the patient.
+
+Therefore, to solve these types of medical diagnosis problems, we have used our proposed complex neutrosophic soft set based approach by considering two information ‘belongingness of a symptom’ and ‘time duration of a symptom’ together.
+
+PARAGRAPH
+
+Basu et al., 2012; Das and Kar, 2014
+
+PARAGRAPH
+
+Consider that, a patient has four symptoms such as, {abdominalpain,fever,headache,weightloss} and the corresponding diseases related to these four symptoms are {typhoid,pepticulcer,foodpoisoning,acuteviralhepatitis}.
+
+Now assume that, a set of three experts have been selected to make a common decision about ‘which disease is more likely to appear in a patient’.
+
+PARAGRAPH
+
+Now, consider that, U={typhoid(x1),pepticulcer(x2),foodpoisoning(x3),acuteviralhepatitis(x4)} be the universal set and E={abdominalpain(e1),fever(e2),headache(e3),weightloss(e4)} be the set of corresponding parameters.
+
+The weights of the three parameters have been given initially in this group decision-making as, W1=0.27,W2=0.22,W3=0.17,W4=0.34.
+
+PARAGRAPH
+
+The three experts are, D={d1,d2,d3}.
+
+Now, three CNS-sets (fC̃N1,E),(fC̃N2,E),(fC̃N3,E) provided by three experts has been given in Table 16, 17, 18 respectively.
+
+In each of the membership magnitudes, amplitude term indicates the ‘belongingness of a symptom’ and phase term indicates the ‘time duration of the said symptom’.
+
+All the data has been collected based on 10 consecutive days.
+
+The value 2π has been taken in the phase term instead of 10 days.
+
+PARAGRAPH
+
+In Fig. 6, the graphical framework of this decision-making problem has been given.
+
+PARAGRAPH
+
+Solution.
+
+We have solved this group decision-making problem by using our proposed Algorithm II (CNSVIMDM-approach).
+
+PARAGRAPH
+
+Step 1.
+
+Here, all the parameters are benefit parameters.
+
+Therefore, we do not need to equalize the sense of all the parameters.
+
+PARAGRAPH
+
+Step 2.
+
+Now, we have constructed a resultant complex neutrosophic soft set (fC̃N,E) form these three CNS-sets (fC̃N1,E),(fC̃N2,E) and (fC̃N3,E) by using complex neutrosophic soft intersection operator.
+
+PARAGRAPH
+
+By using complex neutrosophic soft standard intersection, the resultant has been given in Table 19.
+
+PARAGRAPH
+
+Step 3.
+
+Then, the complex neutrosophic soft ideal evaluation of each of the parameters is as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Step 4.
+
+The bounded difference of each of the evaluations of the alternatives with respect to a parameter ej from the corresponding fC̃N+(ej) is given in Table 20.
+
+PARAGRAPH
+
+Step 5.
+
+Now, the score values of the entries in Table 20 have been given in Table 21.
+
+The normalize score values of Table 21 have been provided in Table 22.
+
+PARAGRAPH
+
+Step 6.
+
+The group utility values of the alternatives over all the parameters are as follows:
+
+PARAGRAPH
+
+SˆcrW(x1)=0.818; SˆcrW(x2)=0.708; SˆcrW(x3)=0.957; SˆcrW(x4)=0.875.
+
+PARAGRAPH
+
+Step 7.
+
+The individual regret values of the alternatives over all the parameters are as follows:
+
+PARAGRAPH
+
+Sˆcrmax(x1)=0.267; Sˆcrmax(x2)=0.205; Sˆcrmax(x3)=0.34; Sˆcrmax(x4)=0.270.
+
+PARAGRAPH
+
+Step 8.
+
+The compromising index of the alternatives over all the parameters are as follows,
+
+PARAGRAPH
+
+Cˆ(x1)=0.45; Cˆ(x2)=0; Cˆ(x3)=1; Cˆ(x4)=0.56.
+
+Here, we have considered θ=0.5
+
+PARAGRAPH
+
+Step 9.
+
+The ranking of the alternatives based on SˆcrW, Sˆcrmax and Cˆ is same as, x2>x1>x4>x3.
+
+PARAGRAPH
+
+Condition 1.
+
+Since, Cˆ(x1)−Cˆ(x2)=0.45>14−1=0.33.
+
+So, Condition 1 is truly satisfied.
+
+PARAGRAPH
+
+Condition 2.
+
+Again, x2 is best for both the cases SˆcrW and Sˆcrmax.
+
+So, Condition 2 is also satisfied here.
+
+PARAGRAPH
+
+Thus, the alternative x2 is a compromise optimal solution for this decision-making problem.
+
+PARAGRAPH
+
+Hence, we can conclude that, the patient is suffered by the disease peptic ulcer (x2).
+
+SECTION
+
+Comparative study and discussion
+
+PARAGRAPH
+
+In this article, we have proposed a new approach to evaluate the best alternative from a complex neutrosophic soft set based decision-making problem by using VIKOR approach.
+
+In this section, we have examined the stability of the ranking results of our proposed approach through a sensitivity analysis and a comparative analysis.
+
+In sensitivity analysis part, we have examined the robustness of our approach for different values of the parameter θ which is employed in our algorithm and in comparative analysis part, we have compared our results with some well known exiting methodologies to verify the validity of our proposed approach.
+
+SECTION
+
+Sensitivity analysis based on the parameter θ
+
+PARAGRAPH
+
+In our methodology, the parameter θ has been assigned as a weight of the strategy of maximum group of utility and (1−θ) has been assigned as a weight of the strategy of minimum individual regret to evaluate the compromising index of an alternative, as defined in Eq. (5).
+
+Here, θ can adopt any value from 0 to 1.
+
+Throughout the paper, all the results have been taken by keeping the value of θ as 0.5 i.e., by giving equal importance on the both of maximum group of utility and minimum individual regret.
+
+But since, θ can take any value from 0 to 1, so, we have to verify the stability of the ranking results for different values of θ.
+
+Therefore, we have given a sensitivity analysis based on the parameter θ.
+
+The previous illustrated examples (Examples 6, 7, 8) have been used here to conduct this process.
+
+In Figs. 7, 8, 9, the variation of compromising index values of different alternatives for different values of θ have been provided based on Example 6, Example 7 and Example 8 respectively.
+
+PARAGRAPH
+
+Now, from Fig. 7 it is observed that, for any value of θ from 0.1 to 1, the ranking order of the four candidates is same as, C1>C4>C2>C3 and when θ=0, the ranking order of the four candidates is, C1>C4>C2=C3.
+
+So we can conclude that, the parameter θ did not affect on the ranking order of the alternatives in the interval [0.1,1].
+
+But when θ=0, i.e., when, one focuses only on the individual evaluations of the parameters (minimum individual regret) of the candidates, then, we cannot say which one is at the third position and which one is at the fourth position between C2 and C3.
+
+PARAGRAPH
+
+From Fig. 8 we have seen that, the ranking order of the material alternatives is same for any value of the parameter θ from 0.1 to 0.9.
+
+But, when θ is tending to 1, then the ranking order of M2 has been increased and the ranking order of M3 has been decreased.
+
+i.e., when one focuses only on the group utility score (utility measure) of the material alternatives over all the parameters, then the risk level is high for being that, M2 is best than M3 and when θ=0, the ranking order of the alternatives has been slightly changed as, M1>M3>M2=M4 i.e., when, one focuses only on the minimum individual regret (regret measure) of the material alternatives over all the parameters then, we cannot say which one is placed at third position and which one is placed at the fourth position between M2 and M4.
+
+PARAGRAPH
+
+Again, from Fig. 9 we have seen that, different values of θ do not effect on the ranking order of the alternatives x1, x2, x3, x4.
+
+PARAGRAPH
+
+So, from this discussion it is observed that, different values of the parameter θ may make an effect on the final ranking order of the alternatives in a problem.
+
+Since, in our method, decision-maker can give the importance to the strategy of maximum group of utility (utility measure) and minimum individual regret (regret measure) as he/she likes, so when, he/she changes his/her importance to the maximum group of utility and minimum individual regret, then obviously there may exist a different ranking result of the associated alternatives.
+
+So, changing of the parameter θ indicates the changing of the ranking order of the alternatives, which supports the results of the sensitivity analysis with respect to the parameter θ.
+
+Therefore, from this sensitivity analysis it is concluded that, our approach is more realistic.
+
+PARAGRAPH
+
+SECTION
+
+Comparative analysis of our proposed approach
+
+PARAGRAPH
+
+Validation or confirmation of a new approach can be tested by comparing its resulting values with the existing methods.
+
+Now, it is seen that, complex neutrosophic framework is a super set with respect to fuzzy valued framework.
+
+But since, to solve our considered soft set based decision-making problems under the complex neutrosophic framework, there exists no method in literature till now.
+
+However, in fuzzy valued framework, some methodologies such as TOPSIS method (Eraslan and Karaaslan, 2015), Kong et al. (2009) method etc. have been saved in literature.
+
+So, to compare the results obtain from our method with the results using TOPSIS and Kong et al. (2009) method, we would transform all the complex neutrosophic values of a complex neutrosophic soft set into some real values (fuzzy soft set) by using score function (Definition 9).
+
+Because, the score value of a complex neutrosophic number by using score function is a reflection of the complex neutrosophic number in favor of truth degree.
+
+The schematically diagram of this discussion has been given in Fig. 10.
+
+Now, in the following, we have discussed a comparative study by using some existing fuzzy valued (truth membership) methods to verify the validity of our proposed approach.
+
+PARAGRAPH
+
+The solution of Example 6 through our proposed approach has been illustrated in Section 7.1.
+
+Then, after transforming all the given complex neutrosophic values (Table 6) into real values by using score function, the resultant score values are given in Table 23.
+
+So, Table 23 is the reflection of Table 6.
+
+Since, in this example, the final ranking result has been taken by using the weights of the parameters as, W1=0.2; W2=0.3; W3=0.2; W4=0.3, therefore, before applying any fuzzy valued methodology, we have constructed a weighted score matrix (Table 24) (weighted fuzzy soft set) by multiplying the score values (Table 23) of each of the alternatives over a parameter ej with its associated parameter weight Wj.
+
+PARAGRAPH
+
+Now, we have applied different decision-making methods to evaluate the best alternative from Table 24.
+
+The ranking results are given in Table 25.
+
+PARAGRAPH
+
+Since, for each of the methods, the ranking of the alternatives is, C1>C4>C2>C3, therefore, this ranking order has been considered as the ideal ranking of this problem.
+
+Thus we have seen that, by using our proposed approach, the ranking result of Example 6 is consistent.
+
+PARAGRAPH
+
+The solution of Example 7 by using our approach has been illustrated in Section 7.2.
+
+Now, after transforming all the complex neutrosophic values (Table 12) into score values by using score function, the resultants are given in Table 26.
+
+So, Table 26 is the reflection of Table 12.
+
+In this problem, the weights of the parameters are, W1=0.4; W2=0.4; W3=0.2.
+
+Therefore, we have constructed weighted score matrix, by multiplying the score values of each of the alternatives over a parameter ej with the associated parameter weight Wj, as given in Table 27.
+
+PARAGRAPH
+
+Now, by applying different fuzzy valued decision-making methods on Table 27, the ranking results are given in Table 28.
+
+PARAGRAPH
+
+From Table 28 we have seen that, by using our proposed approach, when, θ=0.5, i.e., when one gives equal importance on the both of maximum total group of utility and minimum individual regret, then the rank is, M1>M3>M2>M4 and when, θ=1, i.e., when one gives importance only on the maximum total group of utility then, the rank as, M1>M2>M3>M4.
+
+Moreover, we have seen that, TOPSIS and Kong et al. (2009) method have given the same ranking order as, M1>M2>M3>M4.
+
+Now, the background of TOPSIS method is, distance of an alternative from ideal solution and anti ideal solution over all the parameters and the background of Kong et al. (2009) method is, the sum of the total evaluations over all the parameters (fuzzy choice value) of an alternative.
+
+So, the key idea of both the TOPSIS method and Kong et al. (2009) method is same (give the importance only on the total satisfaction over all the parameters not on the individual satisfaction of a parameter).
+
+This situation can also be controlled through our algorithm by taking θ=1.
+
+From Table 28 it is observed that, the ranking result of our method is same with TOPSIS and Kong et al. (2009) method when θ=1.
+
+So, in this situation, the ranking result of our method is consistent.
+
+But when, in a decision-making problem, the satisfaction of an individual parameter is important not the total satisfaction of all the parameters, then TOPSIS method and Kong et al. (2009) method is unsuitable whereas, in that situation, our method can solve this problem by taking θ=0.
+
+So, by taking different values of the parameter θ we can get more accurate results of a decision-making problem.
+
+Therefore we can conclude that, the ranking result of our method is valid in this example.
+
+PARAGRAPH
+
+Example 8 has been solved by our proposed approach at Section 7.3.
+
+PARAGRAPH
+
+Now, by apply score function on Tables 16, 17, 18, the score values are given in Tables 29.
+
+PARAGRAPH
+
+Then, by using fuzzy AND product the resultant score matrix from the three score matrices (Tables 29, 30 and 31) has been given in Table 32.
+
+Then by using the weights of the parameters (W1=0.27; W2=0.22; W3=0.17; W4=0.34), the resultant weighted score values are given in Table 33.
+
+PARAGRAPH
+
+Now, the ranking of the alternatives by using different methods has been given Table 34.
+
+PARAGRAPH
+
+From Table 34 we have seen that, the ranking order of the alternatives through every method is same.
+
+so we can conclude that, the ranking result of our proposed approach is consistent in this example.
+
+PARAGRAPH
+
+So, from the above illustration, what is the status of our method?
+
+PARAGRAPH
+
+The answer of this question is that, our proposed approach is very effective because of the following reasons.
+
+PARAGRAPH
+
+Hence, from the above analysis it is concluded that, our proposed approach is valid and is very effective to solve decision-making problems involving a second dimension.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This study presents a complex neutrosophic soft set based decision-making by using VIKOR method.
+
+To reach this goal, few necessary operations and properties of complex neutrosophic sets and complex neutrosophic soft sets have been introduced.
+
+PARAGRAPH
+
+The contributions of this article can be summarized as follows:
+
+PARAGRAPH
+
+As further research, one can develop some algebraic structures of complex neutrosophic soft sets such as complex neutrosophic soft groups, complex neutrosophic soft rings etc.
+
+Moreover, distance measure is a useful tool that can solve many decision-making problems.
+
+So, one can propose several types of distance measures or similarity measures of complex neutrosophic soft sets.
+
+Further, single-valued neutrosophic 2-tuple linguistic environment (Wu et al., 2018), trapezoidal fuzzy environment (Wu et al., 2017, 2019a), hesitant fuzzy linguistic environment (Wu et al., 2019b,c) etc. are very effective tools to solve real-life related decision-making problems.
+
+So, one can develop our proposed approach to these effective frameworks.

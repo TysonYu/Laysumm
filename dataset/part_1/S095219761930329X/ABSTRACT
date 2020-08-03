@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.103427
+
+ABSTRACT
+
+TITLE
+
+Stochastic parallel extreme artificial hydrocarbon networks: An implementation for fast and robust supervised machine learning in high-dimensional data
+
+PARAGRAPH
+
+Artificial hydrocarbon networks (AHN) – a supervised learning method inspired on organic chemical structures and mechanisms – have shown improvements in predictive power and interpretability in comparison with other well-known machine learning models.
+
+However, AHN are very time-consuming that are not able to deal with large data until now.
+
+In this paper, we introduce the stochastic parallel extreme artificial hydrocarbon networks (SPE-AHN), an algorithm for fast and robust training of supervised AHN models in high-dimensional data.
+
+This training method comprises a population-based meta-heuristic optimization with defined individual encoding and objective function related to the AHN-model, an implementation in parallel-computing, and a stochastic learning approach for consuming large data.
+
+We conducted three experiments with synthetic and real data sets to validate the training execution time and performance of the proposed algorithm.
+
+Experimental results demonstrated that the proposed SPE-AHN outperforms the original-AHN method, increasing the speed of training more than 10,000x times in the worst case scenario.
+
+Additionally, we present two case studies in real data sets for solar-panel deployment prediction (regression problem), and human falls and daily activities classification in healthcare monitoring systems (classification problem).
+
+These case studies showed that SPE-AHN improves the state-of-the-art machine learning models in both engineering problems.
+
+We anticipate our new training algorithm to be useful in many applications of AHN like robotics, finance, medical engineering, aerospace, and others, in which large amounts of data (e.g. big data) is essential.

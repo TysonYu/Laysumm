@@ -1,0 +1,515 @@
+10.1016/j.jhep.2019.06.012
+
+FULLTEXT
+
+TITLE
+
+Validation, clinical utility and limitations of the Amsterdam-Oxford model for primary sclerosing cholangitis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Primary sclerosing cholangitis (PSC) is a chronic, variably progressive cholestatic liver disease characterized by inflammation of the intrahepatic and extrahepatic bile ducts, sclerosis and destruction of the biliary tract.1–4
+
+This leads to chronic cholestasis, biliary fibrosis and (decompensated) cirrhosis, which may eventually culminate into liver failure requiring liver transplantation; the only potential curative treatment for PSC.2,3
+
+Following a PSC diagnosis a median transplant-free survival of 13 years has been reported in studies from tertiary referral centres, although this may be longer in a population-based setting.5
+
+PARAGRAPH
+
+One of the major challenges in the management of PSC is the lack of therapies that halt disease progression.
+
+Despite the biochemical improvement reported with ursodeoxycholic acid (UDCA) treatment in PSC, a survival benefit has never been reported.6–11
+
+Another challenge concerns reliable estimation of prognosis in PSC, largely because of the heterogeneity in clinical course progression and the variety of outcomes ranging from end-stage liver disease to development of hepatobiliary and colorectal malignancies.12–14
+
+In this setting, risk prediction models that quantify the risk of future events for individual patients with PSC are of critical importance for patient counselling, timely diagnostic procedures and subsequent therapeutic interventions for disease-related complications.
+
+Also, reliable risk stratification is important for the selection of patients in future drug development trials.
+
+PARAGRAPH
+
+The Mayo risk score (MRS) is the most frequently used score to assess the short-term (4-year) mortality risk of patients with PSC.
+
+However, this score was mainly derived from a cohort of patients with end-stage disease in a liver transplant centre.
+
+This may limit its applicability in early stages of disease.15
+
+Recently the Amsterdam-Oxford model (AOM) was introduced; a prognostic model developed in a population-based cohort to predict the long-term risk of PSC-related death and/or liver transplantation.16
+
+The AOM incorporates PSC subtype, age at PSC diagnosis, aspartate aminotransferase (AST), alkaline phosphatase (ALP), total bilirubin, albumin and platelet count.
+
+This score, based on these 7 readily available variables, showed an adequate discriminative power and satisfactory calibration in a derivation and validation cohort.
+
+However, further validation of this population-based model is necessary to justify its application in other cohorts and centres and to extend its use at other timepoints during follow-up.
+
+In addition, the performance of this newly developed score has not been compared to the MRS. Therefore, we aimed to further validate the AOM and assess its utility in a large cohort of patients with PSC from 3 tertiary centres in Europe.
+
+A secondary aim was to compare the performance of the AOM with that of the MRS.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Population and study design
+
+PARAGRAPH
+
+This retrospective cohort study included patients with PSC from 3 tertiary centres in Europe: University of Padua, Italy, Ghent University Hospital, Belgium, and Erasmus University Medical Center, Rotterdam, The Netherlands.
+
+Data were collected from 1984 up to June 2016 for University of Padua, from 1977 up to June 2016 for the Rotterdam University Medical Center, and from 1993 up to June 2018 for Ghent University Hospital.
+
+Complete follow-up was defined as liver transplantation or death or clinical follow-up beyond 1 January 2016 for Padua and Rotterdam, and beyond 1 January 2018 for Ghent.
+
+Patients who were diagnosed with PSC at age ≥18 years and in accordance with the European Association for the Study of the Liver guidelines were included.17
+
+Patients with less than 6 months follow-up, with or without an event, were excluded to ensure exclusion of patients that were referred because of liver failure and that were consequently diagnosed with PSC in the process of being waitlisted for LT. In addition, patients were excluded if the date of diagnosis was unknown or in the case of concomitant liver disease.
+
+Clinical and laboratory data were collected from the start of follow-up until the last visit or clinical event at 6-monthly or 1-yearly intervals according to the intervals between visits at each centre.
+
+Biochemical parameters collected included AST, prothrombin time, international normalized ratio, alanine aminotransferase, ALP, gamma-glutamyl transferase, total bilirubin, albumin and platelets.
+
+Clinical data included sex, age, date of PSC diagnosis, liver histology, UDCA treatment, concomitant inflammatory bowel disease (IBD), last follow-up date, or the date of clinical outcomes.
+
+Patients with a diagnosis of IBD within the first year following a diagnosis of PSC were considered to have IBD at baseline.
+
+The primary endpoint of the current study was a combined endpoint of liver transplantation or death.
+
+For patients with a diagnosis of untreatable cholangiocarcinoma (CCA) and unknown clinical outcome we considered the last follow-up as the date of death.
+
+PARAGRAPH
+
+This study was conducted in accordance with the protocol and the principles of the Declaration of Helsinki.
+
+The protocol was approved by the Institutional Research Board of the corresponding centre, and at each participating centre, in accordance with local regulations.
+
+SECTION
+
+Statistical analyses
+
+PARAGRAPH
+
+Normally distributed data are presented as mean ± SD and skewed distributed data as median and interquartile range.
+
+Statistical analyses were performed with IBM SPSS Statistics 22.0 (SPSS Inc, Chicago, IL) and SAS 9.4 (SAS institute Inc., Cary, NC) (Supplementary CTAT Table).
+
+To account for missing values SAS (SAS Proc MI, MCMC method) was used to generate 10 imputed datasets of laboratory results at yearly timepoints for up to 5  years following PSC diagnosis.
+
+Missing data were considered to be missing at random.
+
+Rubin’s rules were used for estimation of the parameters and the standard error.18–20
+
+The imputation model included baseline variables that were potentially predictive for outcomes in PSC (e.g. year of diagnosis, age) as well as the outcomes themselves.
+
+Only continuous biochemical variables were imputed.
+
+All analyses were performed in the original database as well as in the imputed dataset.
+
+PARAGRAPH
+
+The start of follow-up was set at PSC diagnosis defined by the first pathological imaging result (magnetic resonance cholangiography or endoscopic retrograde cholangiography) or liver biopsy.
+
+The AOM score was calculated at yearly intervals, starting at diagnosis and continuing for up to 5 years (laboratory values used ± 3 months around time point of calculation).
+
+The AOM score was calculated using the following formula: AOM score = 0.323*PSC subtype (1 = large duct PSC; 0 = small-duct PSC) + 0.018*age at diagnosis – 2.485*log(albumin*lower limit of normal [LLN]) + 2.451*abs(log[platelets-0.5] + 0.347*log[AST*upper limit of normal (ULN)] + 0.393*log[ALP*ULN]) + 0.337*log[total bilirubin*ULN]).
+
+For calculation of AOM values between 1 year and 5 years following a PSC diagnosis we used the actual age at the time of laboratory assessment instead of the age at diagnosis.
+
+The association of the AOM scores with the primary endpoint was assessed in Cox-regression analyses at diagnosis and at each year up to 5 years thereafter.
+
+Discriminatory performance of the model was assessed at various timepoints by calculation of the C-statistic.
+
+As a next validation step, we estimated the hazard ratio of the AOM score for the combined endpoint, to assess the fit of the model (i.e. whether a model overestimates or underestimates risk).21
+
+In case the log hazard ratio is equal to 1 the model has a perfect fit.
+
+A lower value indicates the model underestimates risk, while higher values suggest an overestimation of risk.
+
+In addition, the fit/potential misspecification of the AOM in our cohort at PSC diagnosis was assessed by running a Cox-regression analysis including the separate variables comprising the AOM as well as the AOM score itself.22
+
+In this regression model the coefficient score of the AOM was constrained to equal 1 (i.e. offsetting the score of the AOM).22
+
+If the β values of the separate variables of the model are not significantly different from 0 in these analyses, the AOM gives a perfect fit.
+
+If on the other hand a β is significantly different from 0, there is misclassification and the AOM can be improved by adjusting the βs of these variables.
+
+Finally, prediction accuracy (i.e. calibration) was assessed by comparing the predicted versus the observed Kaplan-Meier survival curves to assess calibration.23
+
+To assess prediction accuracy across different AOM score intervals, we divided patients into 3 risk groups based on their AOM score, using threshold points at the 20th and 80th percentiles.
+
+PARAGRAPH
+
+A repeated linear model with a random intercept and slope per patient using an unstructured covariance matrix was performed to analyse the evolution of AOM scores over time in those with and without an endpoint at the end of follow-up.
+
+To determine an AOM threshold with the highest power to discriminate patients achieving the primary endpoint from those not achieving the primary endpoint, we performed a grid search with calculation of C-statistic between an AOM score of 0.8 and 4.0 in steps of 0.1 at each year of follow-up.
+
+The optimal threshold was subsequently included in Cox-proportional hazards analyses in order to estimate the strength of association with the liver transplantation-free survival, as a baseline variable and time-dependent variable separately.
+
+PARAGRAPH
+
+The value of ALP alone in making absolute risk predictions of transplant-free survival was assessed.
+
+Cox-proportional hazard regression analyses were used to assess the association between baseline log(ALP) and time to event.
+
+From this Cox model the baseline linear prediction equation of ALP (prognostic index), along with the baseline survival estimate S0(t), t = time, were derived.
+
+The prediction accuracy of ALP was assessed by comparing the observed versus the predicted transplant-free survival rate, for the total cohort as well as for different percentiles of risk (<20th, 20th-80th, >80th).”
+
+Finally, to compare the AOM with the MRS, the MRS was calculated with the formula: 0.0295*age in years + 0.5373*ln(total bilirubin in mg/dl) – 0.8389*serum albumin in g/dl + 0.5380*ln(AST in IU/L) + 1.2426*(points for variceal bleeding [0 = not present or 1 = present]).
+
+SECTION
+
+Results
+
+SECTION
+
+Baseline cohort characteristics
+
+PARAGRAPH
+
+Data were obtained from 601 patients with PSC of whom 534 patients met the inclusion criteria.
+
+A total of 48 patients were excluded because we were unable to obtain a date of diagnosis and 19 patients had a follow-up <6 months (Fig. S1).”
+
+A total of 13,344 patient visits and a mean of 25 visits per patient were reported across the entire cohort.
+
+PARAGRAPH
+
+The mean (SD) age was 39.2 (13.1), 66% were male, and 93% were UDCA-treated.
+
+The baseline patient characteristics are summarized in Table 1.
+
+The diagnosis was large duct PSC in 466 (87%), 52 (10%) had PSC with features of autoimmune hepatitis and 16 (3%) had small-duct PSC.
+
+The year of PSC diagnosis ranged from 1977 to 2017.
+
+At baseline, 268 (60%) patients had IBD: 77% had ulcerative colitis and 20% had Crohn’s disease.
+
+In total, 427 (80%) patients had complete follow-up.
+
+During the median follow-up period of 7.8 years (interquartile range, 4.0–12.6 years) a total of 232 (43%) patients reached a clinical endpoint: liver transplantation was performed in 167 patients and 65 patients died.
+
+The transplant-free survival rates were 98.3% at 1 year, 84.4% at 5 years, and 65.9% at 10 years of follow-up, as shown in Fig. 1.
+
+The median transplant-free survival was 13.2 (11.8–14.7) years.
+
+PARAGRAPH
+
+For the 65 patients who died in our cohort, the cause of death was variceal bleeding in 5 patients, spontaneous bacterial peritonitis in 4, hepatorenal syndrome in 2, liver failure (unspecified) in 6, hepatocellular carcinoma in 2, signet ring cell carcinoma metastasized to the ductus choledochus in 1, pancreatic cancer in 1, colorectal cancer in 4, lung cancer in 2, renal insufficiency in 1, sepsis in 5, and surgical complications in 3.
+
+For 4 patients we could not determine the cause of death.
+
+A total of 25 patients died from CCA.
+
+Six of these patients had untreatable CCA and unknown clinical outcome.
+
+For these patients we considered the last follow-up as the date of death.
+
+SECTION
+
+Discriminatory performance of the Amsterdam-Oxford model and misspecification/fit
+
+PARAGRAPH
+
+The overall discriminatory performance for death or liver transplantation of the AOM score at diagnosis calculated with C-statistic was 0.67 (95% CI 0.64–0.70) and ranged to 0.75 (95% CI 0.71–0.78) at 5 years following diagnosis (Table 2).
+
+The AOM had a good fit, by univariable Cox-regression analyses, at baseline and at most timepoints during follow-up, with a hazard ratio for clinical events ranging from 2.18 (95% CI 1.77–2.68) at diagnosis to 2.94 (95% CI 2.42–3.57) at 5 years of follow-up.
+
+Detailed assessment of the AOM fit/misspecification at PSC diagnosis indicated that only the βs for platelet count and age were significant predictors when offsetting the score of the AOM equal to 1.
+
+When adding these variables to the AOM score at baseline in the calculation of C-statistic, the C-statistic was 0.682 (95% CI 0.644–0.719).
+
+SECTION
+
+Prediction accuracy (calibration) of the Amsterdam-Oxford model
+
+PARAGRAPH
+
+For the total cohort, the difference between the calculated mean survival based on AOM values at PSC diagnosis and the observed Kaplan-Meier survival ranged from −1.6% (96.7% predicted vs. 98.3% observed) at 1 year to 3.9% at 5 years of follow-up (88.3% predicted vs. 84.4% observed).
+
+Fig. 2 shows further assessment of AOM calibration in different risk groups stratified by AOM score percentiles (<20th, 20-80th and >80th percentile).
+
+Similar prediction accuracy was observed when the score was recalculated at 1 year, 3 years and 5 years after diagnosis for the 5 years following calculation, with the most accurate predictions being made in the lower-percentile and mid-percentile groups of the AOM score (Fig. S2A-C).
+
+Underestimation of the risk of death or LT was greater in the highest percentile (Fig. S2A-C).
+
+SECTION
+
+Utility of the Amsterdam-Oxford model and evolution over time
+
+PARAGRAPH
+
+Visualization of AOM scores over time by a repeated linear model revealed that patients who were alive at the end of follow-up had consistently low AOM scores during follow-up (Fig. 3).
+
+A subsequent grid search of AOM scores based on the C-statistic revealed that the most discriminatory threshold for death or liver transplantation ranged between 1.8 and 2.1, if calculated at baseline and during the first 5 years of follow-up (C-statistic 0.61–0.69; Fig. 4 and Fig. S3A-E).
+
+In Cox-regression analyses AOM scores above 2.0 were significantly associated with clinical events (hazard ratio ranging between 2.30 [95% CI 1.75–2.95] at diagnosis and 4.46 [95% CI 3.19–6.24] at 5 years following diagnosis, Fig. 4).
+
+At baseline, a total of 174 (32.6%) patients had AOM values above 2.0.
+
+During the first 5 years following PSC diagnosis an additional 8.4% within 1 year, 13.9% within 3 years, and 25.4% within 5 years developed AOM values above the threshold of 2.0.
+
+Patients that reached an AOM score of 2.0 in the first 5 years of follow-up patients were at significant risk of death or liver transplantation (time-dependent HR 4.09; 95% CI 2.99–5.61).
+
+SECTION
+
+ALP in isolation as a predictor of transplant-free survival
+
+PARAGRAPH
+
+In the first 5 years following a PSC diagnosis, the C-statistic for ALP alone as a predictor of transplant-free survival ranged between 0.52 and 0.63 (Table S1).
+
+For the total cohort the difference between observed and predicted survival increased from −0.2% at 1 year after PSC diagnosis to −4.9% at 10 years.
+
+Further assessment of ALP calibration in different risk groups stratified according to percentiles (<20th, 20-80th and >80th percentile), revealed that the difference between observed and predicted survival between 1 year and 10 years following a PSC diagnosis ranged from −1.8% to −7.6% for the <20th percentile, from −0.5% to −2.9% for the 20th-80th percentile, and from −0.1% to −12.4% for the >20th percentile (Fig. S4).
+
+SECTION
+
+Comparison of the Mayo risk score and Amsterdam-Oxford model
+
+PARAGRAPH
+
+The MRS could be calculated for a sub-cohort of 498 patients at baseline.
+
+At diagnosis, a total of 311 (62.4%) of the patients had an MRS value below or equal to 0 (low-risk group); 161 (32.3%) had scores above 0 but less than 2 (‘intermediate risk group’) and 26 (5.3%) were considered at high risk of events (MRS greater than 2).
+
+The transplant-free survival rates were significantly different between the low, intermediate and high-risk group: 99.4%, 98.1% and 92.3% at 1 year, 95.5%, 88.4% and 65.4% at 3 years, and 91.5%, 77.3% and 47.4% at 5 years of follow-up (log-rank <0.001, Fig. 5).
+
+The discriminatory performance of the MRS calculated by C-statistic ranged from 0.73 (95% CI 0.73–0.76) at diagnosis to 0.79 (95% CI 0.76–0.82) at 5 years following PSC diagnosis.
+
+Direct comparison of discriminatory performance in patients for whom both the MRS and AOM score could be calculated at PSC diagnosis (n = 498) and 1 year following diagnosis (n = 482) showed higher C-statistics for the MRS than the AOM score (0.73 vs. 0.68 at diagnosis and 0.75 vs. 0.70 at 1 year following diagnosis, respectively; Table 3).
+
+PARAGRAPH
+
+In terms of prediction accuracy (calibration) the MRS overestimated transplant-free survival with a difference between the calculated mean survival based on MRS scores and actual survival as observed by Kaplan-Meier estimates of 5.1% at 1 year, 6.9% at 2 years, 8.9% at 3 years, and 9.6% at 4 years of follow-up.
+
+Detailed analyses of prediction accuracy in different risk groups revealed that the difference between predicted and observed survival was most pronounced in the high-risk group (Fig. 5).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This long-term study of a well-characterized large cohort of patients with PSC allowed us to assess the performance and utility of the AOM, a prognostic model to estimate survival for patients with PSC.
+
+We confirm that the AOM has adequate discriminatory performance and satisfactory prediction accuracy when applied at PSC diagnosis.
+
+In addition, we show that the performance and accurate 5-year prediction of the AOM score remained if recalculated at different timepoints during follow-up, thereby extending its utility in daily clinical practice.
+
+If dichotomized, an AOM score of 2.0 had the highest discriminative power to risk stratify patients during follow-up.
+
+In patients who remained alive without liver transplantation during the observation period in our study, the AOM stayed, on average, below this threshold.
+
+Although the MRS had a higher C-statistic than the AOM, the utility of this traditional prognostic tool for the individual patient may be limited due to the suboptimal prediction accuracy.
+
+The results confirm that the AOM is a valuable prognostic tool in patients with PSC.
+
+PARAGRAPH
+
+While our study was performed in tertiary referral centres, the baseline characteristics in our cohort are similar to those presented in the original AOM derivation and validation study.16
+
+In this population-based cohort, including patients from general hospitals and academic centres without transplant facilities, De Vries et al. reported 10-year transplant-free survival rates between 75–80% and a median survival of 22 years.
+
+In comparison, in our cohort the 10-year transplant-free survival was 66% and the median survival was 13 years.
+
+The lower event-rate in the AOM development study may explain the AOMs slight underestimation of clinical events beyond 5 years of follow-up in the total cohort as well as in the subgroup with intermediate AOM scores (20th-80th percentile).
+
+As expected, the difference between predicted and observed survival was most pronounced in the subgroup of patients with highest AOM scores (>80th percentile).
+
+Nonetheless, the C-statistic we found is comparable to that reported in the AOM development study (0.68).
+
+PARAGRAPH
+
+In terms of discriminative performance, the MRS outperformed the AOM in our cohort, meaning that with the MRS more patients who experienced an event had a higher risk score and more patients without an event had a lower risk score than with the use of the AOM.
+
+However, prediction accuracy of the MRS was unsatisfactory as the score substantially overestimated the risk of liver transplantation or death.
+
+A potential explanation for the limited prediction accuracy may be the indirect clinical endpoint that was used in the development cohort of the MRS. Patients who underwent liver transplantation were considered to have died with time to death based on the expected survival in absence of transplantation.
+
+This is probably no longer accurate today.
+
+An alternative explanation may be the use of time of referral in the derivation of the MRS, which may be long after the date of diagnosis as used in our cohort.
+
+Also, the MRS was developed in specific expert centres in which it is likely that patients present with more advanced disease, especially at the time of referral.
+
+The higher event-rate in the MRS development cohort (the 5-year transplant-free survival was 65% in the MRS development cohort vs. 84% in our cohort) could thus contribute to the overestimation of events by the MRS in the current study, as well as in many centres managing PSC.
+
+PARAGRAPH
+
+As the AOM and MRS have different prognostic qualities, it is difficult to determine which score should be used in clinical practice and how and when a score should be applied.
+
+From a clinical point of view, it is difficult to derive certainty from a single long-term estimate of risk, especially in PSC.
+
+Rather clinicians as well as patients are likely to want to re-evaluate the risk of adverse events during follow-up.
+
+As such, accurate short-term or intermediate-term calculations of risk may be better suited.
+
+We show the AOM can be used to make such repeated estimates for patients in different categories of risk.
+
+With the inclusion of variceal bleeding – a direct clinical complication of end-stage liver disease – the MRS has a high discriminative performance across different cohorts.
+
+With a current 30-day mortality of 15–20%, variceal bleeding is a strong predictor of death.24,25
+
+In our cohort, the MRS provides a more discriminative short-term mortality risk assessment as opposed to the AOM, albeit less accurate.
+
+This score may thus be more appropriate to estimate whether patients are at high risk of progressive disease necessitating LT on a group level.
+
+In daily practice, however, clinicians may prefer the accurate estimates of prognosis as provided by the AOM at various timepoints in order to optimize the management of individual patients.
+
+PARAGRAPH
+
+Important to consider is that the AOM was developed in an early disease stage population and that it includes ALP.
+
+ALP is elevated early during the course of disease,26,27 has often been used in drug development trials as a primary endpoint, and lower ALP levels have been correlated with a favourable course of disease.28–33
+
+In fact, a previous study in 366 patients with PSC showed that a more simplistic approach using ALP in isolation had a near identical c-statistic to that of the AOM, challenging the necessity of a complicated risk prediction model.33
+
+However, absolute predictions of transplant-free survival in our cohort using ALP in isolation, revealed that using ALP alone may grossly overestimate survival in different risk groups at diagnosis and when reapplied during follow-up.
+
+Moreover, the C-statistic varied between 0.52 and 0.63 during follow-up, which is clearly lower than that observed for the AOM.
+
+Therefore, the use of a prognostic score that includes more biochemical variables than ALP, especially when reapplied during follow-up and/or in a tertiary cohort, seems more appropriate.
+
+PARAGRAPH
+
+A strength of our study is the inclusion of a well-characterized study population from multiple centres with complete follow-up in 80% of the patients.
+
+Second, we assessed a combined endpoint of LT and all-cause mortality rather than PSC-related mortality specifically.
+
+In clinical practice it is difficult to distinguish true liver-related or PSC-related death from other causes of death.
+
+In addition, one may argue that the separation between the two has limited relevance for patients and clinicians.
+
+Inherit to the retrospective nature of our study some laboratory values were missing.
+
+To overcome this problem multiple imputation techniques were used.19
+
+Importantly, analyses in our raw dataset revealed similar results (data not shown).
+
+While our results further validate and justify the clinical use of the AOM, the validation mainly pertains to Caucasian patients treated in tertiary centres.
+
+Further validation in a population-based setting, in particular in other ethnicities or countries, is thus warranted.
+
+Finally, the threshold of 2.0 found for the AOM should be interpreted with caution.
+
+The use of thresholds in clinical practice is widespread but has several limitations.
+
+Categorization results in loss of predictive information and thresholds are difficult to generalize to other populations.34,35
+
+This study shows that with dichotomous application of the AOM, patients may switch in risk category during follow-up.
+
+This is actually a limitation of dichotomous criteria/risk group thresholds in general.
+
+However, the AOM was not derived to be used as a dichotomous score but rather as a continuous measure of risk.
+
+The analyses in our manuscript therefore only visualize that 2 risk groups can be readily obtained by using the threshold of 2.0, akin to the thresholds used in the MRS.
+
+PARAGRAPH
+
+In general, as models with a C-statistic >0.8 are considered good prognostic models, further optimization of the risk stratification in PSC remains warranted.22
+
+In PSC, utility of prediction models is hampered due to heterogeneity in disease progression and outcomes, as well as the lack of effective therapies.
+
+Still, reliable estimates of survival are important for patient counselling, optimization of follow-up regimens, and selection and timing of listing for LT. Once effective therapies become available, repositioning of prediction models in clinical management of patients with PSC may be necessary.
+
+Cox-regression analyses, with the variables comprising the AOM while offsetting the AOM score (i.e. keeping its value equal to 1), revealed a satisfactory fit at PSC diagnosis.
+
+Only the βs for age and platelet count were suboptimal for our cohort, but adjustments of these βs only yielded a minor increase in terms of C-statistic (0.67 vs. 0.68).
+
+Therefore, other approaches, with for example, the addition of measures of liver fibrosis could be of value.
+
+A potentially important addition to existing risk stratification models in PSC may be the inclusion of liver stiffness measurement (LSM).
+
+LSM reflects severity of fibrosis and absolute LSM values as well as longitudinal changes are strongly linked with clinical events in PSC.36
+
+Enhanced liver fibrosis (ELF™) score, a serological measure of liver fibrosis consisting of a combination of serum concentrations of hyaluronic acid, procollagen III peptide and tissue inhibitor of metalloproteinase 1, could provide another addition to existing risk prediction models.
+
+The ELF score has been shown to correlate well with LSM values and to have incremental prognostic utility alongside the Mayo risk score.37
+
+In order to better assess the additive value of such measures of liver fibrosis to existing risk prediction models, large prospective multicentre collaborations with extensive datasets are necessary.
+
+New statistical techniques could further aid in the derivation of more accurate models as well.
+
+A recently introduced model by Eaton et al., using a different statistical approach with machine learning, showed an impressive accuracy (C-statistic >0.9) for the prediction of endpoints.38
+
+This score is, however, limited by the prediction of hepatic decompensation rather than solid clinical endpoints such as LT, death or CCA.
+
+Furthermore, further validation of this score as well as the statistical technique should be awaited.
+
+Still, PSC remains a disease with a highly variable course that may not be easily captured by static prognostic scores.
+
+PARAGRAPH
+
+In conclusion, we confirm the AOM has adequate discriminatory performance and good predictive accuracy for LT-free survival, both at PSC diagnosis and other timepoints during the course of disease.
+
+Hereby we demonstrate the validity and extended utility of the AOM as a prognostic tool in PSC.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This investigator-initiated study was funded by the Foundation for Liver and Gastrointestinal Research (a not-for-profit foundation) in Rotterdam, the Netherlands.
+
+The supporting parties had no influence on the study design, data collection and analyses, writing of the manuscript, or on the decision to submit the manuscript for publication.
+
+SECTION
+
+Conflicts of interest
+
+PARAGRAPH
+
+Jorn C. Goet has nothing to declare.
+
+Annarosa Floreani has acted as advisor in the PBC Committee sponsored by Intercept.
+
+Xavier Verhelst served as a consultant for Intercept Pharmaceuticals, Gilead, MSD and Abbvie and received speaker’s fees from Gilead, Bayer, MSD and Abbvie.
+
+Nora Cazzagon is consultant for Intercept Pharmaceuticals.
+
+Lisa Perini has nothing to declare.
+
+Willem J. Lammers is consultant for Intercept Pharmaceuticals.
+
+Annemarie C. de Vries received unrestricted grants from De Maag Lever Darm Stichting (MLDS) and Tramedico, and is consultant for Janssen Pharmaceutica, Takeda and Abbvie.
+
+Adriaan J. van der Meer received unrestricted grant from Gilead, speakers fee from Gilead, Zambon and AbbVie.
+
+Henk R. van Buuren received unrestricted grants from Intercept Pharmaceuticals.
+
+Bettina E. Hansen received unrestricted grants from and is consultant for Intercept Pharmaceuticals and is a consultant for Cymabay, Albireo and Janssen Pharma.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Jorn C. Goet and Bettina E. Hansen had full access to all data in the study and take responsibility for the integrity of the data and the accuracy of data analyses.
+
+Study concept and design: Jorn C. Goet, Annarosa Floreani, Xavier Verhelst, Nora Cazzagon, Lisa Perini, Willem J. Lammers, A.J. van der Meer, Annemarie C. de Vries, Henk R. van Buuren, Bettina E Hansen.
+
+Acquisition of data: Jorn C. Goet, Annarosa Floreani, Xavier Verhelst, Nora Cazzagon, Lisa Perini.
+
+Analysis and interpretation of data: Jorn C. Goet, Bettina E. Hansen and Henk R. van Buuren.
+
+Drafting of the manuscript: Jorn C. Goet, Henk R. van Buuren, Bettina E Hansen.
+
+Critical revision of the manuscript: Jorn C. Goet, A.J. van der Meer, Annarosa Floreani, Xavier Verhelst, Nora Cazzagon, Lisa Perini, Willem J. Lammers, Annemarie C. de Vries, Henk R. van Buuren, Bettina E Hansen.
+
+Statistical analysis: Jorn C. Goet, Bettina E. Hansen.
+
+Obtained funding: Bettina E. Hansen, Henk R. van Buuren.
+
+Study supervision: Jorn C. Goet, A.J. van der Meer, Henk R. van Buuren, Bettina E Hansen

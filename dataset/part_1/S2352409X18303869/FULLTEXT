@@ -1,0 +1,513 @@
+10.1016/j.jasrep.2018.10.002
+
+FULLTEXT
+
+TITLE
+
+Settlement patterns during the Magdalenian in the south-eastern Pyrenees, Iberian Peninsula. A territorial study based on GIS
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The Magdalenian is one of the most documented and well-known Palaeolithic chrono-cultural phases in western Europe, characterized by the diversity of symbolic art, fauna and lithic remains in the archaeological record (Fullola et al., 2012; Vega et al., 2013).
+
+These records have allowed the study of changes in strategies for procuring biotic and abiotic resources and in social and symbolic behaviour, and reflect the variability and development of technical systems of lithic knapping and production of bone tools (Benito-Calvo et al., 2009; Calvo et al., 2009, 2008; Esteve, 2009; Fullola, 2001; Fullola et al., 2006; García-Diez and Vaquero, 2015; Langlais, 2010; Maluquer de Motes, 1983–1984; Mangado et al., 2014, 2013, 2010, 2009; Martínez-Moreno et al., 2007; Mithen, 1988; Montes, 2005; Mora et al., 2011; Morales and Verges, 2014; Peña and Cruz, 2014; Roman, 2016; Sánchez de la Torre, 2015; Sánchez de la Torre and Mangado, 2013; Tejero, 2009; Tejero et al., 2013; Utrilla et al., 2013, 2010; Utrilla and Mazo, 2014; Utrilla and Montes, 2009).
+
+These studies have used a variety of approaches, but spatial analyses have not been applied to date in the Magdalenian sites of north-eastern Iberia.
+
+The spatial analysis of prehistoric sites provides interesting insights into the study of settlement dynamics and mobility strategies.
+
+Moreover, the conservation and excavation of the Magdalenian sites in north-eastern Iberia has allowed paleoenvironmental reconstructions of the southern Pyrenees at the end of the Last Glacial period, coinciding with the deglaciation of the Pyrenees around 20 kyr BP (Alcolea, 2017; Allué, 2009; Allué et al., 2012a, 2012b, 2018; Aura et al., 2011; Bergadà, 1991; Burjachs, 2009; Fullola et al., 2012; Fumanal and Ferrer, 2014; Soler et al., 2009).
+
+During the Magdalenian, the climatic sequence underwent a transition between the colder episode GS-2a and the GI-1 interstadial.
+
+The interstadial GI-1 began with a rapid increase in temperatures, similar to current temperatures.
+
+Favourable temperatures were interrupted by two colder oscillations, the sub-stadials GI-1d and GI-1b (sensu Walker et al., 1999).
+
+The warm pulsation after GI-1a oscillation gradually decreased until the beginning of stadial GS-1, with very cold temperatures in a large part of Europe until the beginning of the Holocene.
+
+PARAGRAPH
+
+Models of the differences in the forms of territorial occupation and exploitation can help to define the adaptation and survival strategies used by palaeolithic human groups (Binford, 1980, 1982; Brück and Goodman, 1999; Cleland, 1966; Gamble, 1986; Kelly, 1983).
+
+Interpreting the possible interactions between these groups and their immediate environment is essential to an explanation of the influence of the different strategies used for land management and natural resource catchment (Allen et al., 1990; Butzer, 1989; Chatters, 1987; Clark, 1972; Clarke, 1977; Eriksen, 1997).
+
+The choice of the site for a settlement depends on the season in which it is to be occupied, the pattern of territorial mobility and the procedures involved in the decisions made by human groups (Binford, 1980; Clark, 1972; Kelly, 1983; Saaty, 1972: 1061).
+
+A variety of factors of the landscape must be taken into consideration when deciding on its exploitation, for example its topography (location, riverbeds, vegetation), resource availability (proximity and accessibility), and conditions of liveability (dimensions, visibility and thermal comfort).
+
+PARAGRAPH
+
+Quantitative and qualitative information on the territorial and environmental characteristics of archaeological sites allows the description of settlement patterns and mobility strategies of hunter-gatherer groups (Grove, 2009; Jochim, 1976).
+
+Using Geographical Information Systems (GIS) it is possible to obtain, quantify, and analyse the territorial factors that are observed qualitatively in the immediate environment of an archaeological site (Allen et al., 1990; Conolly and Lake, 2006; Eriksen, 1997; Hodder and Orton, 1990).
+
+PARAGRAPH
+
+Site location preferences play a role in social organization.
+
+There are a range of landscape factors, such as proximity to specifics resources (like rivers or forests), terrain conditions (like slope or accessibility) or habitability conditions that could affect these preferences.
+
+Subsistence in the southern Pyrenees during the Magdalenian is not determined exclusively by the climatic conditions, cultural behaviour or by technological adaptations (Fullola et al., 2012).
+
+There are certain territorial variables that define different landscapes, like latitude, altitude and topography.
+
+In many cases, these preferences have been intuitively related, but they have been seldom analysed in a systematic way.
+
+The objective of this study is to define the settlement patterns and territorial characteristics in the Magdalenian sites located in the southern Pyrenees.
+
+Studies of the spatial characteristics around the Magdalenian sites have never been analysed jointly in the south-eastern Pyrenees.
+
+However, the settlement patterns of Magdalenian sites in the adjoining area of Cantabrian region have been carried out (see García, 2013; García-Moreno, 2013, 2015).
+
+In order to evaluate how the changes in settlement patterns could have been related the landscape conditions, the territorial characteristics are analysed.
+
+Using GIS, sites orientation, solar radiation, visibility and energy mobility cost from a set of Magdalenian sites are analysed and evolution in preferences are defined.
+
+The spatial analysis performed should broaden our understanding of the changes in the territorial management strategies and site location preference by human groups, during the Lower Magdalenian to the Upper Magdalenian in south-eastern Pyrenees.
+
+SECTION
+
+Material and methods
+
+PARAGRAPH
+
+The area of study comprises the modern-day regions of Aragon and Catalonia, north-eastern Iberian Peninsula, on the southern slope of the Pre-Pyrenees.
+
+This slope is situated between the structure or apex of the Segre river, and between the Mesozoic and Cenozoic outcrops that constitute the eastern boundary from the Mediterranean Sea and, to the west, the Cinca river valley and his tributaries (Vera, 2004) (Fig. 1).
+
+PARAGRAPH
+
+Table 1 presents the reoccupations and the presence/absence of humans at the sites analysed, according to the different chrono-cultural phases of the Magdalenian (Fullola, 2001; Mangado et al., 2010, 2014; Montes, 2005; Mora et al., 2011; Tejero et al., 2013; Utrilla and Mazo, 2014; Utrilla et al., 2010, 2012).
+
+For the analysis of the settlement patterns, three chrono-cultural groups have been established according to the spatial characteristics of sites with evidence of occupation, also including archaeological sites with more than one occupation phase: the Lower Magdalenian group, comprising Montlleó, Cova Alonsé, Forcas I and Cova Gran; the Middle Magdalenian group, comprising Cova del Parco, Fuente del Trucho and Cova Gran; and the Upper Magdalenian group, including Cova del Parco, Cueva de Chaves, Bora Gran d'en Carreras, Forcas I, Legunova, Peña 14 and Cova Gran.
+
+SECTION
+
+Radiocarbon dating
+
+PARAGRAPH
+
+Human presence or absence was established based on radiocarbon dating reported in other studies, from different Magdalenian archaeological sites (Table 2).
+
+We perform the calibration because we believe it is necessary to join the set of Magdalenian sites dates, currently isolated, and put them in a territorial context.
+
+PARAGRAPH
+
+The calibration was carried out using the online tool OxCal v.4.3.2 (Ramsey, 2017), with a deviation range lower than 101.
+
+We used IntCal-13 curve (Reimer et al., 2013) and NGRIP ice core (Rasmussen et al., 2014).
+
+SECTION
+
+GIS analysis
+
+PARAGRAPH
+
+GIS was used to generate a hypothetical reality model for a specific territory.
+
+This allows the interpretation of the relationship between human behaviour and the environment by selecting precise territorial variables.
+
+The territorial variables are discussed below.
+
+SECTION
+
+Vector and raster data: DEM and rivers layers
+
+PARAGRAPH
+
+Data were spatially analysed and referenced from a GIS project through free software program QGIS, and its application GRASS version 10.12.3.
+
+Digital cartographic base maps were generated from the topographic maps in raster (Digital Elevation Models), vector and metadata layers (rivers) downloaded for the provinces of Lleida, Huesca, Zaragoza and Girona, obtained from the Institut Cartogràfic de Catalunya (ICC) and the Instituto Geográfico Nacional (IGN).
+
+To undertake the macrospace analysis, we downloaded the Digital Elevation Models (DEM) (mdt25) and rivers layers of the municipalities where the Magdalenian sites are located… The rivers vectors have been necessary for the distances measurements, between the exact location points of the archaeological sites up to the nearest river course.
+
+SECTION
+
+Analysis of settlement patterns
+
+PARAGRAPH
+
+The term “spatial model” refers to the use of spatial data to simulate a process, to understand a complex relationship, to predict a result, or to analyse a problem (Conolly and Lake, 2006: 73).
+
+Spatial models are applied to establish the relationship between the location of archaeological sites and territorial variables such as slope and orientation, classification of archaeological sites according to site type (i.e., cave, open air and rock shelter), visible area and distance from settlements to rivers.
+
+SECTION
+
+The orientation of archaeological sites and site types: solar radiation analysis
+
+PARAGRAPH
+
+Sunlight and sun heating are usually considered desirable factors for good habitability conditions (Fano, 1998; García-Moreno, 2015).
+
+In our study, we include the Palaeolithic habitat in the caves, since certain domestic activities were carried out outside the cave or near the entrance (Mangado et al., 2014).
+
+The QGIS-GRASS's solar radiation analysis computes direct, diffuse and reflected solar radiation raster maps for a given day, the latitude, the surface and the atmospheric conditions.
+
+The latitude used in the calculation of the potential insolation was 42° 30′, since it constitutes the approximate average latitude of the entire study area, and in any case a variation of several minutes of degree in the latitude used did not modify the calculation of potential insolation (sensu Hesse, 2013).
+
+Also, the position of the Earth with respect to the Sun is different from the current one with respect to the existing at the end of the Pleistocene.
+
+This is due to variations in the obliquity of the ecliptic, that is, the angle between the axis of Earth rotation with respect to the plane of the ecliptic.
+
+This angle varies with a periodicity of about 41.000 years between 21.5° and 24.5°, being currently 23.5° (Uriarte-Cantolla, 2000).
+
+In order to carry out this calculation, it is not necessary to take into account the length of the point on which the insolation is to be calculated, since the solar incidence will be similar along the parallel.
+
+PARAGRAPH
+
+In our case, solar parameters are calculated in every cell in the raster map (e.g., sunrise, sunset times, declination, extraterrestrial irradiance, daylight length), and are saved in the map history file.
+
+We followed the methodology proposed by García (2013).
+
+The calculation involved the preparation of twelve models for each archaeological site, equivalent to one day for twelve months per year.
+
+The hours of sunlight were also calculated, using three mapping inputs: A) elevation, B) slope and C) orientation (Fig. 2).
+
+PARAGRAPH
+
+The hours of sunlight received were extracted from the values of the raster map output cells, in the geographical coordinates where each archaeological site is located.
+
+The optimum mean hours were extracted for an area of 3 km2.
+
+Furthermore, the sunlight hours lost or not used were calculated by subtracting the optimal value from the obtained value.
+
+SECTION
+
+From mean slope: viewshed analysis and mobility energy cost
+
+PARAGRAPH
+
+Viewshed analysis is based on the idea of the visual basin that an observer can perceive from a certain place.
+
+In south-eastern Pyrenees, visual characteristics of sites have merely been mentioned in ambiguous way, such as “great visibility” or “strategic location”.
+
+Likewise, usually related to the visual control of the territory or specific resources, like the control of routes of large herbivores (e.g. Mangado et al., 2013).
+
+However, visual characteristics of sites have never been quantified in systematic analysis.
+
+In this study we also considered that the topography of the land near the sites would condition the variables for the choice as well as the visibility, in order to control the surrounding area from the settlement.
+
+The visibility analysis was carried out with the free software QGIS-GRASS, establishing a series of parameters that have helped to create a greater proximity when mapping the present-day model of visibility (García-Moreno, 2013; Wheatley and Gillings, 2002).
+
+The variables were established in relation to the height of the observer (1.70 m) and the maximum visibility range (10 km).
+
+This process calculated the hectares observed from the archaeological sites, as well as their mapping.
+
+PARAGRAPH
+
+For the slope analysis, a categorical classification according to the degree of inclination of the slopes was assigned, delimiting a radius of 3 km from the location of the Magdalenian sites.
+
+The following separation of the groups by degrees of inclination was proposed by García (2013): Flat: 0–5°; Moderate: 5–15°; Abrupt: 15–30°; Steep: > 30°.
+
+PARAGRAPH
+
+Accessibility to the archaeological sites (the mobility energy value) was analysed applying the principle of William W. Naismith (1856–1935), according to which an adult in good physical condition walks, on flat ground, 10 km in 2 h, which is 1 km every 12 min.
+
+We emphasize that walking on foot is a physical activity, and so the individual physiological limitations of each person should not be underestimated.
+
+As the study area contains uneven reliefs and varied slopes, a variable regarding the effort depending on the degree of inclination of the slopes was added.
+
+Slope is a key factor in recognizing accessibility to a territory, in addition to conditioning both the walker's effort and speed.
+
+For the analysis, we have reclassified a cost surface based on an input dataset and a cost function, where cost is measured in time.
+
+The cumulative pixel values of the cells of the DEM maps containing information on the degrees of the slopes were reclassified with the geoanalytical tool Reclass, by GIS, integrating a reclassifies layer with ranges of colours from Naismith's time scale (12 min), and the Effort + 1 (friction).
+
+Subsequently, cost of movement was classified with a range of colours in the cell map (Fig. 3).
+
+PARAGRAPH
+
+According to Optimal Foraging Theory, that presumes in certain arenas human decisions are made to maximize net rate of energy gain (Clark and Mangel, 1986; Charnov, 1976; MacArthur and Pianka, 1966), regarding the settlement patterns and mobility of hunter-gatherer human groups (Binford, 1977, 1980, 1982), and considering the idea of Site Catchment Analysis method (Bailey and Davidson, 1983; Vita-Finzi and Higgs, 1970), we assume three different types of catchment areas around settlements: 1) the immediate area, around 3 km2, in which resources are quickly absorbed (wood, plants and small prey); 2) the area of harvesting and smaller hunting, between 3 and 7.5 km2; 3) the largest hunting area, related to the maximum distance that can be covered in solar hours per day (between 20 and 40 km2).
+
+The GIS calculation model bases their analysis on the calculation of cumulative values of the different cells or pixels in raster layer.
+
+The cell values are reclassified from 0 to 9, representing the difficulty or cost of displacement in a certain territory and distinguishing the gradients of the slopes according to their steepness.
+
+Areas of about 3 km2 around the archaeological sites were analysed and the values extracted for each raster cell.
+
+SECTION
+
+Results
+
+SECTION
+
+Radiocarbon data
+
+PARAGRAPH
+
+In the first period in which there are radiocarbon records attributable to anthropic activity during the Lower Magdalenian, the dating ranges between 20,000 and 18,900 cal.
+
+BP (Fig. 4).
+
+PARAGRAPH
+
+A second period of non-occupation is observed during the transition from the GS-2b stadial episode to GS-2a.
+
+The climatic phase of the GS-2a turned out to be colder than the previous one (GS-2b); however, it was during this transition that the greatest drop in temperatures in both periods was recorded.
+
+This cold period coincided with the end of the Lower Magdalenian in this area, at a time without radiocarbon dating presence.
+
+The third absence of documented dating in the graph occurred during the Upper Magdalenian and coincided with the interstadial episode GI-1e and the onset of GI-1d, more temperate than the previous episodes.
+
+On the calibration, this appears as a lack of anthropic occupation at a time during which the temperatures are the best of the Magdalenian period.
+
+SECTION
+
+Macrospatial analysis
+
+PARAGRAPH
+
+The data extracted from the DEM analysis with GIS and site type information according to other studies are included in Table 3.
+
+SECTION
+
+Orographic characteristics
+
+PARAGRAPH
+
+The classification of the Magdalenian sites according to their chronology shows large changes in the settlement sites according to the data extracted from Table 3.
+
+Among these sites we observe a preference for rock shelters; only three are in caves and only one is an open-air site.
+
+However, it is important to point out that no cave settlements were documented during the Lower Magdalenian; in contrast, during the Middle Magdalenian cave occupation was the preferred type of settlement (Fig. 5).
+
+PARAGRAPH
+
+Analysing the distance from the settlement to the nearest water point, a trend towards shorter distances is observed over time.
+
+From a general perspective, Fig. 6 shows that during the Lower Magdalenian settlements were located at a considerable distance from the rivers, but much closer in the subsequent chrono-cultural phases.
+
+SECTION
+
+Solar radiation analysis
+
+PARAGRAPH
+
+Solar radiation in the sites is an important variable for the establishment of settlements.
+
+The median of sunlight hours at the Lower Magdalenian sites was 11.02 h/day, in the Middle Magdalenian 11.22 h/day and in the Upper Magdalenian is 11.33 h/day (Fig. 7).
+
+PARAGRAPH
+
+However, seasonal values show variability in potential sunlight.
+
+Very high values are obtained between May and August, with 14 and 15 h/day, in the Bora Gran d'en Carreras, Legunova and Peña 14, and much lower values in the months of December and January at sites Forcas I and Fuente del Trucho, with 5 and 6 h/day respectively.
+
+The rest of the sites remain more or less stable throughout the year.
+
+PARAGRAPH
+
+The GIS analysis calculating the optimal hours within a perimeter of 3 km around the archaeological sites, displayed in Table 4.
+
+An analysis of K-means for two clusters can differentiate between those sites with low insolation.
+
+Thus, Forcas I, Fuente del Trucho and Cueva de Chaves sites are in locations with fewer hours of sunlight than the other sites analysed, losing 27, 24 and 16 h/year respectively.
+
+Cova Alonsé, Cova Gran, Peña 14 and Cova del Parco are more favourably located with respect to hours of sunlight, while Legunova and Bora Gran d'en Carreras have the best locations of all, with maximum hours of sunlight.
+
+Also, the sites that receive less sunlight are oriented in the West and Southeast directions.
+
+Thus, the most favourable orientations are East, South and Northeast (Table 5).
+
+SECTION
+
+Viewshed analysis
+
+PARAGRAPH
+
+The results for the visibility analysis, based on the number of hectares visible from the sites, showed three distinct groups.
+
+Group A comprises sites with >1000 ha of visibility, group B sites with visibility between 1000 and 350 ha, and finally, group C with a visual basin of <350 ha (Fig. 8).
+
+PARAGRAPH
+
+The analysis of the visibility superimposed on the DEM-LIDAR map shows that nine of the ten sites have direct visual contact with the river.
+
+Cova Gran is the only one where the river is not visible.
+
+PARAGRAPH
+
+To establish these dynamics according to the chrono-cultural phases, sites occupied during the Lower Magdalenian might be ascribed to any of the three groups: A, B and C. Sites from the Middle Magdalenian, however, corresponded only to group C, with a radius of visibility no higher than 200 ha.
+
+This reduction in visibility was also observed in Upper Magdalenian sites, where 72% of the sites responded to group C and comprised between 81 and 169 ha, while 28% belonged to group B, controlling between 364 and 422 ha of visibility.
+
+SECTION
+
+Energy value of mobility
+
+PARAGRAPH
+
+Overlaying the location of each archaeological site on the colour map created according to the displacement cost, the result of the accessibility analysis shows three different areas or territories (Fig. 9).
+
+PARAGRAPH
+
+In the areas around the Montlleó and Bora Gran d'en Carreras sites, a low displacement cost (with values between 1 and 3) prevailed in the optimal area.
+
+The second territorial model was made up of the sites of Forcas I, Cova Alonsé and Cova Gran, with values between 2 and 4.
+
+The third and last territorial group comprised Cova del Parco, Legunova, Peña 14, Cueva de Chaves and Fuente del Trucho sites.
+
+The territories within the immediate area of the settlement were closed and difficult to access, with cost values between 4 and 9 (Fig. 10).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+After the analysis carried out, it was possible to contrast the relationship between the surrounding territories to 10 Magdalenian sites in the south-eastern Pyrenees.
+
+This is the first time that this fact has been empirically contrasted, so it can be affirmed that there was an orographic specialization of settlements.
+
+The results of the radiocarbon dating calibration suggest certain intervals duration in territory occupation, but these suggestions should be contrasted with relevant archaeological information.
+
+Like this, the agreement between the most benign and the coldest phases with the presence/absence of human occupation in the territory.
+
+According to Burjachs (2009: 152), between 16,600 and 15,600 cal.
+
+BP, the cold phase that characterized the state episode GS-2a was interrupted by a more benign phase, which coincided with a significant increase in Pinus in the territory.
+
+This is in agreement with the anthracological records from the area that show continued high values of Pinus sylvestris type, the dominant arboreal component throughout most of the territory (Alcolea, 2017; Allué et al., 2018, 2012a, 2012b).
+
+The availability of wood in the landscape favoured its use as fuel, an essential resource for human settlement patterns in cold environments (Allué et al., 2018; Picornell-Gelabert et al., 2017).
+
+This milder period coincided with the radiocarbon dating and with the start of the Middle Magdalenian occupations.
+
+Likewise, the paleoclimatic context was typical of the generalization of melting in the Pyrenees.
+
+This environmental situation might have allowed the communication of the Cinca and Segre rivers with the northern slope of the French Pyrenees, and the opening of new routes and ways of passage (Björck et al., 1998; Mangado et al., 2006; Utrilla and Montes, 2007; Utrilla et al., 2010).
+
+The third period without radiocarbon dating coincides with the GI-1e interepisode and the beginning of the GI-1d interepisode, more temperate than the previous ones.
+
+So it may be that humans were absent in a period during which the temperatures were most optimal throughout the Magdalenian.
+
+PARAGRAPH
+
+The analysis of south-eastern Pyrenees Late Palaeolithic sites showed several significant differences between sites already being used during the Lower Magdalenian and those occupied for the first time during the Late Magdalenian.
+
+Our data suggest changes in the choice of habitats.
+
+The visibility analysis shows a consistency between the distances from the rivers regarding the visual area controlled from the sites.
+
+In general, when the water resource is closer, the area of visibility is smaller and vice versa.
+
+According to Llobera (2007), visibility is an important factor when choosing an area for occupation.
+
+PARAGRAPH
+
+During the Lower Magdalenian the preferred settlements were rock shelters, in areas with steep slopes and in locations >2 km from rivers, in a strategic position to reach both the upper and the lower parts of the valleys.
+
+Those sites tend to have a great visibility, and the priority seems to be prioritized the visual control of water resources.
+
+The displacement costs suggest a high mobility between the optimal resource gathering areas (3 km2), although the difficulty is reduced as the area of gathering and hunting of smaller prey increases (7 km2).
+
+This is not the case of Montlleó, located in a more accessible and open-air site where the displacement cost is lower.
+
+These data are consistent with other proxy records, which suggest an occupation specialized in Equidae hunting (Mangado et al., 2006, 2009, 2010, 2013).
+
+PARAGRAPH
+
+Then, in the Middle Magdalenian sites on steep slopes but closer to the rivers were more common.
+
+The territories acquired higher travel costs around the optimal resource catchment area; settlements from this period were located in territories with relatively high displacement cost values (effort 3 to 5).
+
+However, beyond the immediate area (3 km2), the landscape rewarded displacement, as the territory was more open and accessible and had cost values of effort 1 and 2.
+
+The results suggest more difficult access to the settlement, although mobility in the surrounding territory was easy.
+
+PARAGRAPH
+
+Likewise, during the last phases of the Magdalenian, many of the settlements inhabited for the first time, the choice of rocky type territories prevailed; settlements in rock shelters became more widespread with water available in the immediate vicinity.
+
+The settlements distribution in the territories is more diversified, with very high displacement costs to the optimal catchment area.
+
+Mobility in these areas was not as easy as in previous stages, with cost values of very high physical effort.
+
+Thus, the location of these sites was characterized by strong slopes and high displacement costs.
+
+Those sites tend to have a short visibility, offering a better visual control of adjoining territory.
+
+The occupation of sites close to the rivers is a widespread feature of the Upper Magdalenian and appears to have coincided with the period of scarce rainfall during the GI-1e interepisode (Burjachs, 2009).
+
+Nevertheless, Cova Gran represented a different settlement strategy or pattern from the rest of the archaeological sites as regards the control of water resources, which are not visible today – a strategy in which the visual control of the rivers may not have a key consideration.
+
+In the same way, current arboreal coverage does not allow the high degree of visibility we have obtained.
+
+This is due to the high definition of the LIDAR raster files, which do not contain information on plant cover.
+
+Also, currently and as at Cova Alonsé, there is a seasonal watercourse near both sites: the Sant Miquel and the Fuente Maroz streams respectively (Montes and Domingo, 2013; Roy et al., 2013).
+
+However, we lack sufficient data to be able to confirm the existence of these water catchment locations in the last stages of the Upper Palaeolithic.
+
+Bora Gran d'en Carreras, where hunting instruments have been documented, predominantly weapon tips (spear point and some harpoons) (Fullola et al., 2012) is the only Upper Magdalenian site that does not follow this general pattern in its location.
+
+In the same way that Montlleó, is located in an open territory, and the displacement costs through the territory are low and easily accessible.
+
+PARAGRAPH
+
+GIS data both from the Cantabrian region (García, 2013) and on the supply of lithic raw materials in the area analysed (Sánchez de la Torre, 2015, 2014; Sánchez de la Torre and Mangado, 2013), suggest high mobility during the Lower Magdalenian.
+
+Cova Alonsé is the only one of the four archaeological sites included in the Lower Magdalenian group where a catchment of local raw materials was observed (Sánchez de la Torre and Mangado, 2013).
+
+In contrast, during the Upper Magdalenian, in general, the mobility patterns are reduced; of the seven Upper Magdalenian sites, exogenous raw materials have been documented only in Cova del Parco (Sánchez de la Torre, 2015).
+
+From a linear and diachronic point of view, the abandonment of the Lower and Middle Magdalenian sites Cova Alonsé, Montlleó and Fuente del Trucho should be mentioned.
+
+During the Upper Magdalenian, the occupation of new spaces and a larger number of sites are documented (Cueva de Chaves, Legunova, Peña 14 and Bora Gran d'en Carreras).
+
+However, recurrent occupations are observed at the sites Cova Gran, Cova del Parco and Forcas I.
+
+PARAGRAPH
+
+The solar radiation analysis suggests that the inhabitants had a thorough knowledge of the territory in the south-eastern Pyrenean area throughout the Magdalenian, because the sites are in locations with optimal sunlight conditions.
+
+The number of hours of sunlight lost in the sites of Forcas I and Fuente del Trucho sites is a striking finding.
+
+The evidences of Gravettian rock art found inside and outside the cave of Fuente del Trucho are particularly interesting (Utrilla et al., 2013); their presence suggests that, like the use of symbolic space and the repeated occupations during the Upper Palaeolithic, the settlement patterns may be corresponding to other cultural factors.
+
+This difference in settlement patterns is also observed at Forcas I, with occupations during the Lower and Upper Magdalenian.
+
+Exceptionally, inside the general pattern of reduced mobility during the Upper Magdalenian, this site was supplied with exogenous raw materials in both periods (Sánchez de la Torre, 2014).
+
+In both cases, the settlement patterns could be differentiated by cultural behaviours, which may respond to symbolic uses of two sites.
+
+PARAGRAPH
+
+Our study presents some obvious limitations related, above all, to the data extracted from modern topography and present-day environmental features.
+
+Given the impossibility of recreating the orography as it was during the Magdalenian, the results of the spatial analysis nevertheless agree to a large extent with the archaeological evidence.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+Our results suggest that changes in settlement patterns, resource gathering and the organization of the territory were closely linked to changes in the landscape.
+
+Consequently, the availability of resources and the capacity to adopt efficient survival strategies were important factors when choosing a settlement.
+
+In the same way, knowledge of the territory and the ability to adapt to these changes would have been essential for hunter-gatherer groups in order to guarantee their survival.
+
+PARAGRAPH
+
+Macro-spatial analysis using GIS tools has provided us with information on the change in settlement patterns for the Magdalenian occupations in the south-eastern Pyrenees.
+
+Both the accessibility conditions and the orography of the territory near the sites and their areas suggest an increase in the level of specialization.
+
+Diachronic changes are also observable in the reduction of mobility and the visualization of the basin, which favoured control of the nearest resources.
+
+The calibration of radiocarbon dating and its correlation with paleoenvironmental factors suggest that these last hunter-gatherer human groups would have exploited the territory in cold conditions, applying efficient strategies that reflected their knowledge of the optimal solar irradiation of the territory.
+
+Hence, the management of the territory was based on the available biotic and abiotic resources in response to specific needs.
+
+In the same way, the presence of pine mountain forests and the availability of wood for use as fuel could also be an important factor in making the decision to establish a settlement.
+
+The choice of a particular settlement site probably responded to the adaptation of new survival and organizational strategies.
+
+These new data correlate with the archaeological data provided by the sites, and the use of new approaches can help to expand on previous studies and interpretations.

@@ -1,0 +1,773 @@
+10.1016/j.engappai.2020.103485
+
+FULLTEXT
+
+TITLE
+
+A new insight into implementing Mamdani fuzzy inference system for dynamic process modeling: Application on flash separator fuzzy dynamic modeling
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The fuzzy inference system (FIS), the two types of which are Mamdani (Mamdani and Assilian, 1975) and Takagi–Sugeno (TS) (Takagi and Sugeno, 1985) has been increasingly used for dynamic modeling purposes in different areas of chemical engineering.
+
+The application of fuzzy models, which are actually recognized as gray box modeling methods, does not require the detailed knowledge of the process under study.
+
+In addition, fuzzy model bypasses the complexity of solving various types of mathematical equations describing the system model, and can thus overcome the drawbacks encountered in the white-box (mechanistic) approach.
+
+PARAGRAPH
+
+Among recent works of applying the fuzzy approach for modeling, some examples are nonlinear dynamic modeling of the reactive distillation process (Araromi et al., 2014), prediction of diffusion coefficients in the caffeine release from hydrogel colloidosomes (Turkdogan-Aydinol and Yetilmezsoy, 2010), prediction of the local heat transfer in heat exchangers (Krzywanski and Nowak, 2016), modeling the behavior of co-current heat exchangers (Habbi et al., 2011), modeling virus removal from water using microfiltration membrane (Madaeni and Kurdian, 2011), estimation of the minimum miscible pressure on gas injection process (Ahmadi and Ebadi, 2014), thermal modeling of power transformers (Souza et al., 2012), and modeling biological processes (Horiuchi, 2002).
+
+PARAGRAPH
+
+TS approach is the most frequently used one in the area of fuzzy modeling comparing to Mamdani approach (Adoko et al., 2013).
+
+However, the application of TS FIS like other types of data-driven intelligent based approach has some major drawbacks in the modeling which must be resolved.
+
+First, there are always some cases suffering from limited data due to measurement expenses.
+
+This gives rise to a serious problem since the existence of accurate enough data is crucial to initialize the parameters of the TS-type fuzzy model.
+
+Moreover, any TS-type model is actually a local approximator and the predictability of the model is valid for the specific operating conditions for which the model has been developed (Habbi et al., 2003).
+
+Accordingly, it can be hardly applied for process behavior analysis, and is therefore less useful for industrial practice.
+
+In addition, due to the presence of mathematical equations in the consequence part, the interpretation of TS-type fuzzy model rules is very difficult and some of the rules may not properly describe the physical problem under investigation (Horiuchi, 2002).
+
+PARAGRAPH
+
+On the other hand, Mamdani approach is different in the way the rules are presented and thus does not suffer from the mentioned shortcoming in TS fuzzy models.
+
+The pivotal point of the Mamdani Fuzzy model is the fact that it is based on the qualitative experience and the knowledge of human experts dealing with the process.
+
+Therefore, it is more intuitive, transparent and interpretable (Sala et al., 2005).
+
+In addition, no data is required to build the model.
+
+Nevertheless, if the data is available, the Mamdani fuzzy model can be optimized to increase the accuracy of the model prediction in a semi-quantitative way (Cordón, 2011).
+
+It should be noted that despite these capabilities, one of the major problems to adopt Mamdani approach for modeling purposes is that the number of rules increases exponentially as the number of the input variables and the fuzzy sets, on which the fuzzy rules are based, increase (Adoko et al., 2013).
+
+PARAGRAPH
+
+The main contribution of the present study is to develop a novel Mamdani fuzzy dynamic modeling approach for a certain processes, in this case, flash separation, the only required information to develop such a model is the heuristics of the process behavior, which is always available, thanks to the knowledge of the experts dealing with the process.
+
+In other words, the proposed approach bypasses solving a couple of mathematical equations governing the dynamic model.
+
+Moreover, there is no need to calculate phase equilibrium properties such as fugacity coefficients, activity coefficients, chemical potentials and so on, which in some cases are difficult if not impossible; for instance, where there is not a suitable property package due to the complexity of the mixture or where the critical properties of some components (like the mixture of sulfur species (S2 to S8)) are unknown (Russell et al., 2004).
+
+This approach is very simple and intuitive.
+
+It can be easily tuned and adjusted in order to obtain the desired target variables based on the values of the variables affecting them without dealing with the sophisticated solution strategies, when dealing with highly non-linear mathematical models requiring tailor made or computationally demanding solution methods.
+
+PARAGRAPH
+
+In developing the fuzzy model, it is shown that the effective analysis of the process under study with regard to capabilities of Mamdani approach can help to break the overall model into a set of sub-models, leading to modeling in a hierarchical manner as opposed to a single large model.
+
+As a result of that, the problem of a large number of rules when using Mamdani approach (Adoko et al., 2013) does not come into the picture.
+
+In addition, a new fuzzy concept, named “Linguistic Composition Variable” (LCV) is introduced in the present work, which tries to present all the component molar/mass fractions of the model in one variable through merging the molar/mass fractions of the material streams in the model, which in turn significantly reduces the number of rules.
+
+LCV can be applied where the molar/mass fractions of the components are among the effective variables in the model such as separator or reactor modeling.
+
+PARAGRAPH
+
+In order to show the potentials of the proposed modeling approach, it has been used to develop a model facing dynamic behavior of a flash separator as a main building block of all stage-wise operations which involve non-reacting mixtures.
+
+One of the flash separators of the of crude oil production process in the surface facilities is selected as the benchmark.
+
+PARAGRAPH
+
+It is worth underlying that dynamic modeling of the flash process for different mixtures has been reported by numerous researchers using mechanistically approach, in which the complexity of the mixture and the complexity of mathematical problems were addressed (Pichardo and Delgado, 2003; Buchelli et al., 2004; Bansal et al., 2000).
+
+PARAGRAPH
+
+The data used for evaluating the developed fuzzy model are generated with the aid of a commercial dynamic simulator and the results are compared for various typical dynamic scenarios in the process under study.
+
+PARAGRAPH
+
+The rest of the paper is organized as follows.
+
+In the next section, Mamdani fuzzy inference is briefly described, focusing on the details of the order reduction of the fuzzy model.
+
+In Section 3, the new fuzzy concept of LCV, which can significantly reduce the input variables of the model is defined and various aspects of its implementation are elaborated.
+
+The principles of the proposed Mamdani fuzzy dynamic modeling approach is described in Section 4, while is then followed by the fuzzy modeling of the dynamic behavior of the selected case study which is the crude oil flash separator.
+
+The performance of the proposed fuzzy model for the flash separator is evaluated through comparing its results against their corresponding counterparts obtained from a commercial dynamic simulator.
+
+The analysis and discussion about the various aspects of the proposed fuzzy modeling approach conclude the paper in Section 6.
+
+SECTION
+
+Mamdani fuzzy inference
+
+PARAGRAPH
+
+The process of Mamdani fuzzy inference is shown in Fig. 1 (Zimmermann, 2010).
+
+PARAGRAPH
+
+Theoretically, the number of rules in the inference system is calculated as follows: R=∏i=1nFSiwhere R is the number of rules, n is the number of input variables, and FSi denotes the number of fuzzy sets assigned to the i’th input variable.
+
+As implied by Eq. (1), the number of the rules directly depends on the number of input variables and fuzzy sets in the system.
+
+PARAGRAPH
+
+Increasing the number of inputs and fuzzy sets leads to significant increase in the number of rules, which may cause the system to lose the capability of being interpretable for human beings.
+
+In addition, the construction of a large number of rules does not seem reasonable and manageable and increase the risk of making mistakes in the inference and obtaining of the linguistic values of the outputs.
+
+Besides, this requires a high computational cost which would be limits the applicability of the model for systems with fast dynamics.
+
+It should be noted that regarding the nature of the process under investigation, there are certain cases, for which all the combinations of various operating conditions of the input variables are not possible to happen, leading to inapplicable rules.
+
+However, the number of these inapplicable rules is often small and all possible rules should be involved in the inference engine to develop a complete Mamdani fuzzy model capable of predicting all possible aspects of the process under study.
+
+PARAGRAPH
+
+Mathematically speaking, according to Eq. (1), the number of rules reduces as the number of input variables or fuzzy sets are reduced.
+
+Reducing the number of fuzzy sets will come at the expense of losing the accuracy, where the degree of the model accuracy usually depends on the user’s needs for a specific problem.
+
+However, two other things can be carried out instead, to reduce the number of rules without significant loss of the model accuracy.
+
+The first approach is to find a way to merge some of the input variables as one variable.
+
+This is done by introducing a new fuzzy concept named “Linguistic Composition Variable - LCV”, by which, the molar (or mass) fraction variables of the components in the material streams of the model can be fuzzily merged into one fuzzy variable so that the number of rules are significantly reduced.
+
+This concept is useful for cases where molar fractions of the components in the streams are among the input variables of the model (such as reactor or separator models).
+
+The concept of LCV is explained in detail in Section 3.
+
+PARAGRAPH
+
+As Mamdani fuzzy approach can efficiently exploit the analysis of knowledge about the process under study, the second approach is to break the model into a set of sub-models by hierarchical analysis of the phenomena involved in the system whose model is to be obtained.
+
+Each sub-model has a subset of input variables.
+
+These sub-models can present the process behavior in an integrated manner which results in a significantly smaller number of rules and permits a simpler analysis of the fuzzy model.
+
+PARAGRAPH
+
+After complete definition of LCV and describing the steps of constructing the proposed Mamdani fuzzy model, a typical case study of flash separation is modeled based on both approaches exist in using LCV and breaking the overall model into sub-models, ensuring that the dynamic behavior of the model is captured and the number of rules is efficiently cut down.
+
+SECTION
+
+Definition of Linguistic Composition Variable (LCV)
+
+PARAGRAPH
+
+In this section, the concept of LCV is introduced.
+
+By applying this variable in the model, molar fraction variables of every material stream can be merged fuzzily and as a result, the number of rules is significantly reduced.
+
+PARAGRAPH
+
+When developing a fuzzy model for a given system, commonly, each variable (say temperature) is defined by fuzzy linguistic terms like low, medium, and high, etc.
+
+The value of each crisp variable is fuzzified whose result is the fuzzy values of the fuzzy variable.
+
+These fuzzy values are in general couple of pairs whose first elements are linguistic values and their corresponding second elements are the degree of memberships of each linguistic value (which is usually between 0 and 1).
+
+Likewise, the molar (or mass) fraction value of each component of a stream in the process to be modeled, may be presented by a single fuzzy variable.
+
+However, in cases where the number of components is large, and the molar fractions of the components are involved in the model, it may result in a high number of input variables, which in turn, leads to a large number of rules.
+
+The unique feature of the molar fraction variable compared with other variables is its sum being constant (equal to one) for a material stream.
+
+Accordingly, if the composition value of volatile components in a material stream is high, the composition value of heavier components is inevitably low.
+
+This feature inspired us to define a new fuzzy concept called “Linguistic Composition Variable-LCV”, in which the molar fractions of all components in a material stream are represented by one fuzzy variable.
+
+The maximum number of fuzzy sets of an LCV is the number of components involved in the material stream.
+
+The degree of membership of the fuzzy sets is the fuzzy representation of molar fraction value.
+
+The fuzzy sets have such names as “Rich in A”, “Rich in B” and “Rich in C” for a material stream consisting of A, B and C components.
+
+Fig. 2 depicts a typical LCV for the mentioned three-component material stream using singleton membership functions.
+
+PARAGRAPH
+
+In fact, the use of LCV in the fuzzy model of a process leads to the concept of fuzzy compositions (fuzzy fraction) to act as fuzzy variables take part in the rule table of the fuzzy model either in the premise or consequence of various rules.
+
+For example, consider a certain model with two input variables including temperature and LCV of the inlet stream (Fig. 2).
+
+Following rule can be written for this model:
+
+PARAGRAPH
+
+If inlet fuzzy stream is “Rich in A” and its temperature is “High”, then the output variable is “Low”.
+
+PARAGRAPH
+
+This rule is written for the case where the inlet stream has high temperature and majorly contains component A, while components B and C are negligible.
+
+Other combinations of input variables construct all fuzzy rules of this model.
+
+PARAGRAPH
+
+Having applied the concept of LCV in the design of a Mamdani fuzzy model, the number of rules is significantly decreased.
+
+Despite the fact that this reduction is at the expense of the accuracy, the performance of the obtained model is quite satisfactory, particularly based on the fact that all the information that is used to model the system is the intuitive and qualitative rules that are quite obvious for all chemical engineers.
+
+PARAGRAPH
+
+The implementation issues of LCV in a fuzzy model are described in the following sub-sections.
+
+SECTION
+
+Defuzzification methods for LCV
+
+PARAGRAPH
+
+According to the shape of the assigned membership functions for LCV, two different methods can be applied for defuzzification to obtain the crisp molar fraction values of each component involved in the LCV.
+
+The first method is proposed to apply when singleton membership functions are assigned in defining linguistic terms of LCV.
+
+In this case, the crisp molar fraction values of each component is the normalized membership value of the corresponding fuzzy set for the component, so that various elements of the defuzzified members sum up to one Eq. (2). zi=μi∑i=1nμi
+
+where zi is the crisp value of molar fraction of component i (which is dimensionless), μi is the degree of membership value of i’th component (with the name of “Rich in i”), and ‘n’ denotes the number of components involved in the LCV.
+
+The second method in defuzzification of LCV is proposed to apply wherever other types of membership functions with overlapping regions like triangular, trapezoidal, piecewise linear, gaussian (Pedrycz, 1994) and similar types are defined for fuzzy sets.
+
+In these cases, common methods of defuzzification such as the center of area can be applied.
+
+If two components (like A and B) are involved in the LCV with two fuzzy sets, the first being “Rich in A” and the second being “Rich in B”, the crisp value obtained from defuzzification is the composition of the component A (xA) and the composition of B is readily obtained as (1−xA).
+
+An illustrative example is shown in Fig. 3 for the second method.
+
+PARAGRAPH
+
+Both approaches of using singleton or other typical shapes of membership functions in defining the fuzzy sets of LCV have their specific advantages and disadvantages.
+
+Singleton membership functions are not as flexible as other types like triangular and trapezoidal in which the parameters of the fuzzy sets characterizing the membership functions can be adjusted by an optimization algorithm to enhance the performance of the model.
+
+However, in the cases where the number of the components is large, the singleton membership functions are recommended.
+
+In these cases, the second method of defuzzification is not suitable.
+
+Because, only a single inconclusive crisp value is calculated for an LCV which must be assigned to the composition values of a mixture of components.
+
+It should be noted that lumping mapping may be applied as a solution in these cases that is described in the next sub-section.
+
+SECTION
+
+Lumping mapping
+
+PARAGRAPH
+
+The similar approach that is used in lumping oil cuts or defining water-free compositions in the mechanistic modeling approach can be used for cases where the number of the components is large.
+
+Lumping mapping may be exploited to merge different pure components with similar behaviors, representing as one lumped component to reduce the number of the fuzzy sets, and in turn the number of rules.
+
+Using lumping mapping for a fuzzy stream, n components are mapped into ‘m’ lumped components (where m < n) and the number of the fuzzy sets for the lumped LCV becomes m.
+
+The degree of the membership function of each lumped fuzzy set is the normalized summation of the degree of membership of all fuzzy sets corresponding to pure components involved in the lumped components Eq. (3). μj−lumped=∑i=1lμi∑i=1nμij=1to number of lumped components
+
+where μj−lumped is the lumped membership value, μi is the membership value of i’th component (with the name of “rich in i”), ‘n’ denotes the number of components, and l is the number of components involved in the j’th lumped fuzzy set.
+
+PARAGRAPH
+
+Lumping mapping reduces the number of rules, yet at the expense of the accuracy.
+
+It should be noted that the lumping strategy depends upon the phenomenon to be modeled.
+
+When the main objective is modeling of the separation process in which the separation depends on the volatility of the components, it could be a good assumption to consider for example light, relatively heavy and heavy lumped components each containing some of the pure components.
+
+This is due to the fact that the components with similar boiling points have almost the same volatility comparing to the other components that exist in the mixture.
+
+This rationale could not be used in the case of single-phase reactor modeling, in which each pure component has a specific behavior in the reactions and considering the light pure components in one lumped cut and the heavier ones in the others does not work.
+
+In this case, lumping the reactants in one lumped variable, and likewise, the products of the reaction may be recommended.
+
+SECTION
+
+Splitting mapping
+
+PARAGRAPH
+
+Using lumping mapping in defining LCV, the output result of the fuzzy model is the fuzzy composition of the lumped components.
+
+To obtain the fuzzy composition of each component involved in a defined lumped LCV, another model is required to de-lump or split the lumps to their constituting components.
+
+This called splitting mapping, which is the fuzzy mapping of a lumped to single composition value.
+
+Putting it into mathematical terms, splitting mapping is the inverse of lumping mapping.
+
+The input variables of the splitting mapping are defined according to the phenomenon to be modeled.
+
+For example, if one wants to implement the splitting mapping on the gas or liquid fuzzy stream leaving the flash separator, three input variables should be defined for mapping.
+
+The first is each of the m’ calculated degree of the membership function of ‘m’ lumped fuzzy sets in the lumped LCV, the second and third are the vapor pressure and separator feed molar flow rate of the consisting pure components in the corresponding lumped fuzzy set, respectively.
+
+This is due to the fact that the feed components are distributed in outlet gas and liquid streams according to their vapor pressure calculated at the separator temperature, for a flash separator.
+
+SECTION
+
+Mixing of fuzzy streams
+
+PARAGRAPH
+
+In the mechanistic modeling approach, when two or more streams (or mixtures) are mixed, the molar fractions of the mixed stream are based on their corresponding molar flow rates.
+
+Exploiting the fuzzy set theory, with the aid of union operators, the fuzzy composition of the final mixed fuzzy stream is calculated by bounded sum operators (Zimmermann, 2010) for two (or n, n ≥ 2) fuzzy streams.
+
+Bounded sum operator (S) is defined by Eq. (4) for fuzzy sets A and A′ of fuzzy variables x1 and x2 as follows: S(μA(x1),μA′(x1))=min{1,μA(x1)+μA′(x1)}It should be noted that, if the fuzzy streams to be mixed have different molar flows, the degree of membership functions of each stream (μA(x1),μA′(x1)) should be normalized according to its molar flow and then used in Eq. (4).
+
+The proposed method to mix ‘n’ fuzzy streams (or mixtures) is indeed a promising chemical engineering application of the operators of fuzzy set theory.
+
+PARAGRAPH
+
+All these concepts and methods are further illustrated in the selected benchmark described in the next sections.
+
+Besides, a simple illustrative example is presented in the Appendix to elaborate the proposed features of the LCV.
+
+SECTION
+
+Developing the proposed dynamic Mamdani-type fuzzy model
+
+PARAGRAPH
+
+The first step of constructing the proposed Mamdani fuzzy model is to define the input and output variables.
+
+The outputs of the fuzzy model are those by which the user can identify the dynamic behavior of the process such that it can fulfill the user requirements.
+
+On the other hand, the input variables are those which are required to uniquely identify the system behavior.
+
+It should be noted that as the number of outputs increases the number of required input variables should also be increased.
+
+Hence, there is a tradeoff between the number of outputs (and therefore, required number of inputs) and the ease of fuzzy modeling.
+
+PARAGRAPH
+
+In general a Multi-Input Multi-Output (MIMO) dynamic model in its discrete form can be described by Eq. (5): Yk+1=F(Yk,Yk−1,….Yk−n+1,Uk−1,…,U(k−m+1)) where F is a function which is defined according to the process to be modeled. n
+
+and m are positive integers that show the order of the system.
+
+In addition, Y and U denote the vectors of inputs and outputs of the model, respectively.
+
+Given the initial conditions and the input sequences (U(k)), the output sequence (Y(k)) can be obtained.
+
+PARAGRAPH
+
+Using the proposed Mamdani fuzzy approach to model the system, Eq. (5) is fuzzily translated into following equation.
+
+Yk+1=ϕ(X(k))where ϕ is now the Mamdani fuzzy mapping the past inputs and outputs to the future outputs of the system.
+
+The X vector is antecedent variables and Y vector becomes the consequent variables of the fuzzy model.
+
+X(k) consists of previous inputs and outputs defined as follow: Xk=[Yk,Yk−1,…,Yk−n+1,Uk,Uk−1,…,U(k−m+1)] With regard to Eq. (7), the output variables at previous sampling times should also be considered among input variables, leading to a recurrent fuzzy model whose general form is shown in Fig. 4.
+
+PARAGRAPH
+
+The next step is to identify the unknown function ϕ based on the Mamdani fuzzy system.
+
+In this step, by effectively exploiting the analyses and heuristics derived from the knowledge of the expert dealing with the process, the mapping of inputs to outputs is broken into sub-models in a hierarchical manner, whose main incentive is to reduce the number of rules and make the whole model as intuitive and simple as possible.
+
+The division of the model into sub-models is done such that each sub-model has minimum number of inputs and leads to the outputs which captures the effects of certain phenomena that exist in the system either in a crisp space (as long as the governing equations are well known simple explicit equations) or fuzzy for those parts which are uncertain, complicated or not well known.
+
+PARAGRAPH
+
+All the process streams in the developed fuzzy model should be viewed as fuzzy streams that flow throughout the process (between sub-models) signal-wisely.
+
+The properties of fuzzy streams (like temperature, pressure and, etc.) are presented by the common fuzzy linguistic terms, while their molar/mass fractions are presented by LCV.
+
+PARAGRAPH
+
+The proposed method has been used to obtain the dynamic behavior of a well-known process of flash separation.
+
+Flash separation is the main phenomenon involved in many chemical equipment such as distillation columns, Stripping column, knock-out drums, etc. (Nelson, 1958).
+
+It is worth underlying that the proposed method of modeling can be utilized in any process to be modeled while in this study is implemented to the process of dynamic flash separation.
+
+SECTION
+
+Mamdani-type fuzzy model for dynamic flash separation
+
+PARAGRAPH
+
+The main properties characterizing the conditions of a dynamic flash separator which are selected as the model outputs in the current work are the temperature, pressure, molar fractions of gas/liquid phases as well as the liquid level.
+
+PARAGRAPH
+
+For a flash separator, the properties of outlet gas/liquid streams are almost the same as those in the gas/liquid holdup.
+
+The current values of the selected output variables of gas/liquid holdups are affected by several phenomena.
+
+From the mathematical viewpoint, it is mainly the function of past condition of liquid and gas holdups, the inlet stream condition, which is mixed with the gas/liquid holdup and surrounding conditions (Fig. 5), if the opening percent of the valves on all streams were fixed.
+
+PARAGRAPH
+
+The intermediate-pressure flash separator of crude oil with a typical feed stream condition (Fig. 6) is selected as the case study.
+
+The intermediate-pressure flash separator of crude oil is used in surface facilities to recover the crude oil from its mixture once the oil reaches the surface at the well head (Devold, 2013).
+
+PARAGRAPH
+
+Since the number of input variables is large, the inference engine of the fuzzy model has a large number of rules.
+
+However, the number of rules is expected to be significantly reduced by merging the molar fraction variables using the concept of LCV and breaking the model into sub-model, which are completely described in the next sub-sections.
+
+SECTION
+
+Defining LCV for the model
+
+PARAGRAPH
+
+In general, the number of the components in the feed of a flash separation unit of crude oil is large (Fig. 6).
+
+In our case, C5+ fraction of the assay is split into four hypo components with 223, 456, 650 and 901 °C normal boiling points, and consequently, the number of the components in the feed reduces to 15.
+
+It seems crucial to go through lumping mapping and use LCV as a main variable in the fuzzy model.
+
+Using a lumped LCV in the fuzzy model results in the drastic reduction of the number of rules.
+
+It also simplifies the fuzzy description and analysis of the dynamic behavior of the flash separator.
+
+The components with close normal boiling points are lumped with each other.
+
+The more the number of components considered to be lumped in one fuzzy set, the less is the accuracy of the model.
+
+It should be noted that some components are commonly very low in content and thus have marginal effects on the separator behavior.
+
+It seems a relatively good assumption to lump components in the gas phase in such a way that first lumped fuzzy set includes light gas components and the other includes heavy gas components.
+
+In addition, each oil cut is inherently a fraction of components in the crude oil and there are significant gaps between the values of normal boiling points of the four defined oil cuts.
+
+Therefore, six lumped fuzzy sets are considered for LCV, labeled as “Rich in light gas”, “Rich in heavy gas”, “Rich in light oil”, “Rich in relatively heavy oil”, “Rich in heavy oil” and “Rich in very heavy oil” as shown in Fig. 7.
+
+The mixture of CH4 and N2; mixture of C2H6, C3H8, i-C4H10, n-C4H10, i-C5H12, n-C5H12, n-C6H14, H2S, and CO2; oil cut 1; oil cut 2; oil cut 3; and oil cut 4 are considered as light gas, heavy gas, light oil, relatively heavy oil, heavy oil and very heavy oil components, respectively.
+
+The degrees of membership values of the defined lumped fuzzy sets are obtained using Eq. (3).
+
+Singleton membership functions are used due to the high number of fuzzy sets for LCV.
+
+The fuzzy stream with the defined LCV is presented wherever the compositions of the components are considered as input or output variables in the fuzzy model.
+
+SECTION
+
+Breaking the model into sub-models
+
+PARAGRAPH
+
+The dynamic fuzzy model of the flash separator with the defined feed can be divided into two sub-models including the phase equilibrium and mixing parts.
+
+In the first sub-model, hereinafter called Equilibrium sub-model, only steady state phase equilibrium calculations are considered and the gas and liquid phases are assumed to reach equilibrium.
+
+The hypothetical gas and liquid streams, drawn from the first sub-model mix with the holdup material ignoring any phase equilibrium consideration in the second sub-model, hereinafter called Mixing sub-model.
+
+In each sampling time, the holdup material has known conditions including the values of temperature, pressure, liquid level and the molar fractions of all phases at previous sampling times.
+
+PARAGRAPH
+
+A box named property estimator model is also defined, which consists of simple fuzzy sub-models or crisp functions responsible for estimation of some required properties like density, the molar content of the gas/liquid hypothetical stream or gas/liquid holdup.
+
+PARAGRAPH
+
+Fig. 8 depicts the schematic of the proposed set of sub-models for dynamic fuzzy model of the intermediate pressure flash separation of crude oil.
+
+PARAGRAPH
+
+The complete description of the proposed set of the sub-models is presented in the following sub-sections (Gani et al., 1986; Cameron et al., 1986).
+
+SECTION
+
+Equilibrium sub-model
+
+PARAGRAPH
+
+The feed stream content is separated into its constituent hypothetical gas and liquid phases in equilibrium sub-model as shown in Fig. 8.
+
+Fuzzy equilibrium flash calculation is performed to determine the product conditions.
+
+The output variables which are aimed to be calculated are hypothetical outlet gas and liquid molar fraction (y* and x*), phase fraction in molar basis (LFratio), the outlet temperature (T*) and the outlet pressure (P*).
+
+Accordingly, the input variables of this sub-model are the feed molar fraction (zfeed), pressure (Pfeed) and temperature (Tfeed), and the heat duty exchanged (Q) using utility stream (being zero for adiabatic flash).
+
+In cases of non-adiabatic flash operation, in which the heat duty exchanged with the separator using utility stream is spent for evaporation or condensation of the mixture, it is recommended to substitute the temperature variable with enthalpy (H*) one.
+
+In these cases, while the inlet and hypothetical outlet temperature may be the same, the enthalpy of the hypothetical outlet stream is significantly different from that of the inlet, which has to be taken into account in the model.
+
+Indeed, substituting the temperature variable with enthalpy increases the generality of the model capable of better predicting the behavior of non-adiabatic flash operations.
+
+SECTION
+
+Mixing sub-model
+
+PARAGRAPH
+
+The hypothetical streams drawn from the Equilibrium sub-model are going to be mixed with the holdup material in the Mixing sub-model.
+
+It should be noted that the values of the temperature and pressure of separator at the last two sampling times are used as the inputs of the mixing sub-model while only the values of the liquid and gas molar fractions (in the LCV form) at previous sampling time is used as the input of the mixing sub-model.
+
+This is due to the fact that temperature and pressure tend to change faster than the molar fractions.
+
+The conservation equations are used in the fuzzy space to calculate the current condition of the flash separator.
+
+For instance, the following rule is one of the rules exist in the fuzzy inference table of the fuzzy model to calculate the outlet temperature;
+
+PARAGRAPH
+
+If “Inlet Stream LCV is similar to Holdup LCV & Inlet Stream Temperature is low and Holdup Temperature(k) is high and Holdup Temperature(k-1) is high and Inlet Stream Molar Content is low and Holdup Molar Content is high” Then “Holdup Temperature(k+1) is high”.
+
+PARAGRAPH
+
+Mixing sub-model is divided into different smaller sub-models, each responsible for estimating a certain variable, like temperature, pressure or gas/liquid molar fractions.
+
+PARAGRAPH
+
+As the compositions of the components are presented by LCV, the resulting mixed molar fractions of the hypothetical inlet gas/liquid streams with the past gas/liquid holdups are calculated according to Eq. (4) with regard to their molar contents.
+
+A typical example is shown in Fig. 9.
+
+PARAGRAPH
+
+The crisp molar fraction values of the resulting mixed lumped fuzzy sets will then be calculated using Eq. (2) through defuzzification procedure.
+
+An example is illustrated in Fig. 10 for certain values of a calculated mixed fuzzy stream with lumped fuzzy sets.
+
+PARAGRAPH
+
+There is one assumption in development of the Mixing sub-model.
+
+The molar fraction tends to change more gradually than the pressure, flow, or energy in a system, and thus, fuzzy variations in composition can be considered less frequently (Gani et al., 1986; Cameron et al., 1986).
+
+When the hypothetical stream has a temperature different from that of the holdup material, the molar composition of the gas/liquid phases will change due to the evaporation or condensation after the mixing.
+
+However, these changes in the compositions are ignored (with a tolerable error) which result in simplified analysis and a fewer number of rules.
+
+SECTION
+
+Property estimator model
+
+PARAGRAPH
+
+Fig. 11 illustrates the outline of the property estimator model, which consists of numerous simple crisp functions and fuzzy sub-models for estimation of some required properties.
+
+PARAGRAPH
+
+In calculations demonstrated in Fig. 11, there are some variables, the values of which at each sampling time cannot be directly calculated.
+
+Because, they are taken as the outputs of the previous sub-model, which in turn needs the output of the subsequent sub-model.
+
+In these cases, it is a reasonable assumption to perform the calculations according to the values obtained from the previous sampling time.
+
+SECTION
+
+Other properties of the developed model
+
+PARAGRAPH
+
+For the sake of simplicity and capability of generalization of the model, of highly applied membership functions (Pedrycz, 1994) the equally spaced triangular functions are selected to represent the fuzzy sets of input and output variables (excluding LCV) with five levels of classification including “very low”, “Low”, “Medium”, “High” and “very high” as depicted in Fig. 12.
+
+Using equally spaced membership functions reduces the adjustable parameters, leading to straightforward application of the model.
+
+PARAGRAPH
+
+The complete properties of developed fuzzy inference systems for each sub-model are presented in Table 1.
+
+As demonstrated in Table 1, the number of rules would be so large, if we did not implement two proposed methods of using LCV and model breaking into sub-models for developing the dynamic flash separator model.
+
+SECTION
+
+Knowledge-based fuzzy rules of the model
+
+PARAGRAPH
+
+The final step of developing the model is defining the knowledge-based fuzzy rules according to the phenomena, which govern each fuzzy sub-model.
+
+The overall model was broken into a set of sub-models and it becomes easier to analyze each sub-model, and in turn, fuzzy rules are defined more easily.
+
+For instance, in the Equilibrium sub-model, considering only the thermodynamic knowledge, the properties of the outlet streams are estimated fuzzily.
+
+In the Mixing sub-model, only a simple fuzzy energy or mass balance is required to determine the current value of the output variables.
+
+Likewise, only fuzzy PVT behavior of the liquid or gas phase is required to determine the molar density in the property estimator fuzzy model.
+
+Therefore, the heuristic derived from chemical engineering knowledge constructs the rules of all fuzzy sub-models, without any need to consider the complexities of differential equations presenting the behavior of the dynamic flash.
+
+Some sample fuzzy rules in the fuzzy inference of developed sub-models are presented in Table 2.
+
+It should be noted that for increasing the accuracy of the model, modifier operator (Zimmermann, 2010) is used labeled as “Almost”, “Normally” and “Slightly” in defining the rules.
+
+PARAGRAPH
+
+Using the developed simple fuzzy sub-models which are connected through a network along with the help of some basic simple equations as well as implementing the concept of LCV in the defined model, the dynamic behavior of the intermediate-pressure separation stage of the production separation of crude oil in the surface facilities is presented using Mamdani approach with simple calculations and manageable number of rules.
+
+SECTION
+
+Dynamic simulation
+
+PARAGRAPH
+
+The dynamic simulation of the process is provided via a commercial simulator to generate data for comparison purposes.
+
+The flash separator is simulated using the pre-built two-phase separator in the simulator.
+
+The calculations included in the holdup model of the flash in the simulator is material and energy accumulation regarding the accurate representation of the vapor–liquid equilibria.
+
+Mass and heat transfer occur between feeds to the holdup and material already in the holdup as well as between phases in the holdup.
+
+Perfect mixing of the liquid and vapor phases have been considered in the dynamic model.
+
+In addition, the placement of feed and products nozzles is considered in the flow behavior of the flash (Ogunnaike and Ray, 1994; Seborg et al., 2010; Bansal et al., 2000).
+
+PARAGRAPH
+
+Pressure drop is neglected along the separator.
+
+In addition, linear valves are used and sized with 50% opening at nominal conditions.
+
+PARAGRAPH
+
+The information of the initial conditions of the process and volume of the flash drum are obtained from the field data of a typical multi-stage production separation units located in Iran.
+
+SECTION
+
+Result and discussion
+
+PARAGRAPH
+
+Open-loop responses to the various random changing scenarios which are bounded in their corresponding valid range are defined and implemented in temperature, pressure, and composition of the separator feed stream (Fig. 13) to evaluate the performance of the developed fuzzy model.
+
+In order to simulate almost all the dynamical modes of the system, so that the capabilities of the developed dynamic model are well evaluated, three inputs to the model are stimulated completely randomly and independently, based on different linear and stepwise functions.
+
+According to the excitations in Fig. 13, at any time when the simulation proceeds, it is possible that at the next time, there will be a variation or simultaneous variations in the inputs, and the developed fuzzy model must be able to predict it.
+
+The results are for the 2.5 h of process operations.
+
+PARAGRAPH
+
+The objective is to see whether the fuzzy model could cope with the resulting process responses at this simultaneous excitation scenario.
+
+PARAGRAPH
+
+Fig. 14 shows the fuzzy model predictions versus process data during these changes.
+
+The dash-lines represent the fuzzy model predictions while the dots correspond to process data.
+
+PARAGRAPH
+
+The simulation output variables respond with acceptable speed to the input random changes.
+
+In the early times of the simulation, the feed temperature and composition were constant, while the feed pressure was decreasing linearly.
+
+As a result of this change, the flash pressure is expected to decrease.
+
+In addition, the decrease in the feed pressure results in a decrease in the liquid fraction of the feed stream which, in turn, leads to a decrease in the liquid level of the separator when other manipulated variables are not stimulated.
+
+PARAGRAPH
+
+These changes can be seen at the early times of the simulation in the figure associated with the simulator liquid level changes.
+
+After the first time interval of simulation, linear changes in temperature, as well as random step changes in the feed composition, were added to feed pressure changes, and flash temperature, pressure, and outlet composition were influenced by three simultaneous changes in the feed properties.
+
+Note that the rate of changes in output variables is high, particularly for output liquid and vapor composition, at times when feed properties have been stimulated more severely (as an example one can refer to the region around t = 3600 s).
+
+PARAGRAPH
+
+Thermodynamically speaking, the gas phase is supposed to be rich in light components as opposed to heavier ones.
+
+As the feed pressure rises (or the temperature decreases), the more volatile components in the feed are being concentrated more in the liquid phase compared to lower pressure, while the less volatile or high boiling components have an opposite behavior.
+
+The increase in the feed pressure also results in an increase in the liquid fraction of the feed stream which leads to increase in the liquid level of the separator when other manipulated variables are not stimulated.
+
+PARAGRAPH
+
+As shown in Fig. 14, the comparison of the fuzzy model outputs with their corresponding counterparts in the process data shows that the developed fuzzy model captures this dynamic behavior of the flash separator.
+
+PARAGRAPH
+
+An important feature of any dynamic model is its speed.
+
+In other words, a robust dynamic model should be able to respond to abrupt variations of input variables with good speed without significant delay.
+
+In other words, it should have a small time constant.
+
+This feature is well seen in the developed model.
+
+As shown in the results, as soon as the actual data goes up and down, the output of the fuzzy model also goes up and down with the least possible delay.
+
+This feature can be useful in many control applications for the developed fuzzy model.
+
+PARAGRAPH
+
+It should be noted that by increasing the number of fuzzy sets allocated to the variables, using a hybrid optimization method or applying another lumping definition for LCV of the model (which all are beyond the objective of this work), the developed model would be more sensitive to very small changes in feed properties.
+
+In addition, some overestimated or underestimated predictions which are seen in Fig. 14 (as a result of suddenly drop or rise in feed properties) can also be treated.
+
+PARAGRAPH
+
+Classical measures of model accuracy given by Mean Absolute Percentage Error (MAPE) is used to evaluate the accuracy of the fuzzy model using Eq. (8) and the results are presented in Table 3.
+
+MAPE=100n∑i=1n|yip−yi(f)yip|where n is the number of data, and yp and y(f) denote the vector of the process and the fuzzy model data, respectively.
+
+PARAGRAPH
+
+Fuzzy modeling of various systems through Mamdani approach suffers from low accuracy in some complex problems (Cordón, 2011; Casillas et al., 2013; Eghbal Ahmadi et al., 2018).
+
+However, an overall MAPE value of 7.17% for the gas molar fractions, 3.06% for liquid molar fractions, 10.16% for the temperature, 0.63% for the pressure and 16.44% for the liquid level of the separator indicate that the prediction errors for the outputs of the developed fuzzy model are relatively small.
+
+In addition, the results show that the proposed fuzzy model captures general trends of process data in all conditions.
+
+As shown graphically in Fig. 14, fuzzy and process data very closely coincide in some ranges of sampling periods.
+
+This means the developed fuzzy Mamdani approach can characterize the dynamic behavior of the intermediate-pressure flash separator in crude oil production unit with an acceptable level of accuracy, particularly based on the fact that all the information that is used to model the system is the intuitive and qualitative rules that are quite obvious for all chemical engineers.
+
+Moreover, the superiority of the proposed approach lies in the fact that it is capable of modeling any mixture of the components at any operating temperature and pressure, regardless of the complexity of the model.
+
+In contrast, other modeling approaches such as the white box (mechanistic) may encounter problems if the mixture is complex or the operating conditions are beyond the ranges in which the thermodynamic relations are valid.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This work dealt with a new approach to design Mamdani fuzzy dynamic model for a flash separator for any mixture of the components at any operating temperature and pressure, regardless of the complexity of both mixture and operation.
+
+The design of the model consisted of subsequent steps including; (i) determining the input/output variables of the model, (ii) implementing the new concept of LCV for reducing the number of rules as well as simplifying the rule definition, (iii) breaking the overall model into the number of sub-models by hierarchical analysis of the phenomena under study, and finally (iv) defining the fuzzy inference rules using only the heuristics and intuitive facts that all chemical engineers gather throughout their education and work experience.
+
+PARAGRAPH
+
+The proposed approach has been used to develop a Mamdani fuzzy model to present the dynamic behavior of the typical well-known intermediate-pressure separation process in the surface facilities of crude oil production.
+
+While the startup version of the model had many input variables resulting in a huge number of rules, using the proposed approach, a set of fuzzy Mamdani sub-models with a manageable and significantly lower number of rules presenting the dynamic behavior of the separator has been obtained.
+
+The main objective was to predict the dynamic trends of temperature, pressure, liquid level as well as gas and liquid outlet stream molar fractions of the separator.
+
+In the developed model, lumping mapping has been used for LCV, so that six lumped components have been defined.
+
+PARAGRAPH
+
+The performance of the proposed model was evaluated by comparing its results against their corresponding counterparts obtained from the dynamic simulation of the process using a full-fledged commercial simulator.
+
+The results obtained by the proposed model are close enough to those of the commercial simulator for various scenarios by which the system have been stimulated.
+
+PARAGRAPH
+
+Overall MAPE (mean absolute percentage error) values of 7.17% for the gas molar fractions, 3.06% for liquid molar fractions, 10.16% for the temperature, 0.63% for the pressure and 16.44% for the liquid level of the separator have been achieved.
+
+The overall prediction error of the proposed fuzzy model is less than 10%, showing the capability of the proposed model in capturing the dynamic behavior of the process under study.
+
+It should also be mentioned that such a performance has been obtained despite the fact that the fuzzy model is much simpler, easier to use and faster than the conventional white box (mechanistic) model.
+
+SECTION
+
+CRediT authorship contribution statement
+
+PARAGRAPH
+
+Mohammad Hosein Eghbal Ahmadi: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Writing - original draft, Writing - review & editing, Visualization.
+
+Sayed Javid Royaee: Conceptualization, Methodology, Formal analysis, Writing - review & editing, Supervision, Project administration.
+
+Shokoufe Tayyebi: Conceptualization, Methodology, Software, Formal analysis, Writing - review & editing, Supervision, Project administration.
+
+Ramin Bozorgmehry Boozarjomehry: Conceptualization, Methodology, Formal analysis, Writing - review & editing, Supervision, Project administration.

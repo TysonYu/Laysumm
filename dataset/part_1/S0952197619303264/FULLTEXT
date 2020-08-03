@@ -1,0 +1,545 @@
+10.1016/j.engappai.2019.103421
+
+FULLTEXT
+
+TITLE
+
+A fitting model based intuitionistic fuzzy rough feature selection
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Millions of data is generated in multiple scenarios, including weather, census, health care, government, social networking, production, business, and scientific research.
+
+Such high dimensional data may increase inefficiency of classifiers, as they possess several irrelevant or redundant features.
+
+Therefore, it is necessary to preprocess the dataset before applying any classification algorithm.
+
+Feature selection is a preprocessing step to remove irrelevant and/or redundant features and offers more concise and explicit descriptions of data.
+
+Feature selection has got wide applications in data mining, signal processing, bioinformatics, machine learning, etc. (Iannarilli and Rubin, 2003; Jaeger et al., 2002; Jain et al., 2000; Kohavi and John, 1997; Kwak and Chong-Ho, 2002; Langley, 1994; Webb and Copsey, 2011; Xiong et al., 2001).
+
+PARAGRAPH
+
+Rough set (as introduced by Pawlak, 1982, 2012; Pawlak et al., 1995) based feature selection technique utilizes information present in the data alone and successfully produces the reduct set without using any additional information.
+
+It deals with indiscernibility between attributes.
+
+In this model, the dependency between conditional and decision attribute is determined to evaluate the classification ability of attributes.
+
+However, data need to be discretized in order to apply rough set based feature selection technique, which frequently leads to information loss.
+
+Fuzzy rough set based feature selection overcomes this problem of information loss.
+
+PARAGRAPH
+
+Fuzzy rough set theory (as proposed by Dubois and Prade, 1990, 1992) deals with the concept of vagueness and indiscernibility by combining the concepts of fuzzy set theory (Klir and Yuan, 1995; Zadeh, 1965) and rough set theory (Pawlak, 1982; Pawlak et al., 1995).
+
+In fuzzy rough set theory, a similarity relation is defined between the samples and lower as well as upper approximations are constructed on the basis of this relation.
+
+Union of lower approximations gives the positive region of decision.
+
+The greater is the membership to positive region; more is the possibility of sample belonging to a particular category.
+
+Using dependency function (Chen et al., 2011, 2012a,b; Degang and Suyun, 2010; Hu et al., 2006, 2010; Jensen and Shen, 2004a,b, 2005, 2007, 2008, 2009; Kumar et al., 2011; Suyun et al., 2009; Tsang et al., 2008; Wang et al., 2019a, 2016, 2019b), significance of a subset of features is evaluated.
+
+Also, the conditional entropy measure is used in Wang et al. (2017, 2019) to find reduct set for homogeneous and heterogeneous datasets respectively.
+
+However, it may lead to misclassification of samples when there is a large degree of overlap between different categories of data (Wang et al., 2017b).
+
+Also, it deals only with membership of sample to a set.
+
+Hence, there is a need of different kind of model that can both fit data well and at the same time it can handle uncertainty arising due to non-membership as uncertainty is not found only in judgment but also in the identification.
+
+PARAGRAPH
+
+Intuitionistic fuzzy (IF) set (Atanasov, 1999; Atanassov, 1986, 1989) handles the uncertainty by considering both membership and non-membership of a sample to a set.
+
+In spite of the fact that rough and IF sets both capture specific aspects of the same idea-imprecision, the combination of IF set theory and rough set theory are rarely discussed by the researchers.
+
+Jena et al. (2002) demonstrated that lower and upper approximations concept of IF rough sets are again IF sets.
+
+In the last few years, some of the IF rough set models have been established (Chakrabarty et al., 1998; Cornelis et al., 2003; De et al., 1998; Huang et al., 2013; Jena et al., 2002; Nanda and Majumdar, 1992; Rizvi et al., 2002; Samanta and Mondal, 2001; Zhang et al., 2019, 2012) and applied for various decision making problems.
+
+Çoker (1998) discussed relationship between rough set and IF set and revealed the fact that fuzzy rough set is admittedly an intuitionistic L-fuzzy set.
+
+Huang et al. (2013) established dominance in intuitionistic fuzzy rough set and presented its various applications.
+
+Moreover, some of the recently published research articles have presented intuitionistic fuzzy rough set based feature selection or attribute reduction techniques (Chen and Yang, 2011; Esmail et al., 2013; Huang et al., 2012; Lu et al., 2009; Shreevastava et al., 2018; Tiwari et al., 2018a,b; Zhang, 2016).
+
+Lu et al. (2009) established the genetic algorithm for performing attribute reduction of the intuitionistic fuzzy information system (IFIS).
+
+An intuitionistic fuzzy rough set model was presented by Huang et al. (2012) by using distance function.
+
+Furthermore, they generalized it for attribute reduction.
+
+An approach for attribute reduction based on the discernibility matrix concept was given by Zhang (2016).
+
+Chen and Yang (2011) presented a novel attribute reduction algorithm by combining intuitionistic fuzzy rough set with information entropy.
+
+Esmail et al. (2013) discussed about the structure of the intuitionistic fuzzy rough set model as well as its properties and presented concepts of attribute reduction and rule extraction.
+
+Tan et al. (2018) established an intuitionistic fuzzy rough set model and applied it for attribute subset selection.
+
+Tiwari et al. (2018a, b) and Shreevastava et al. (2019, 2018) established different intuitionistic fuzzy rough set models and developed various feature subset selection techniques for supervised as well as semi-supervised datasets.
+
+Li et al. (2019) proposed a novel intuitionistic fuzzy clustering algorithm using feature selection for tracking multiple objects.
+
+In the recent years, various research articles (Boran et al., 2009; Revanasiddappa and Harish, 2018; Singh et al., 2019; Tiwari et al., 2019) have presented IF rough set models, with its application in feature selection.
+
+However, none of the above studies fit a given dataset well and can ideally illustrate the differences in sample classification (Wang et al., 2017a).
+
+PARAGRAPH
+
+In the current work, a new intuitionistic fuzzy rough set model is proposed.
+
+It fits data well and prevents misclassification of data.
+
+Although a model for feature selection is presented in Sheeja and Kuriakose (2018), that fits data well and prevents misclassification, but fitting model based on intuitionistic fuzzy rough set is not yet considered.
+
+Our proposed model can handle uncertainty, vagueness and imprecision by combining intuitionistic fuzzy set and rough set for feature subset selection.
+
+Intuitionistic fuzzy decision of a sample is defined using neighborhood concept.
+
+Then, we construct intuitionistic fuzzy lower and upper approximations based on intuitionistic fuzzy decision and parameterized intuitionistic fuzzy relation.
+
+Furthermore, dependency function is presented to calculate reduct set.
+
+Moreover, a greedy forward algorithm based on proposed concept is introduced.
+
+Finally, this algorithm of fitting model based intuitionistic fuzzy rough feature selection (FMIFRFS) is applied to the benchmark datasets and the results are compared with the results of existing algorithm.
+
+PARAGRAPH
+
+This paper is organized as follows.
+
+In Section 2, some preliminaries are given to introduce the basic concept of intuitionistic fuzzy rough set theory.
+
+In Section 3, a fitting intuitionistic fuzzy rough set model is developed.
+
+The algorithm for feature selection is presented in Section 4.
+
+Experimental results are shown in Section 5.
+
+Finally, Section 6 concludes the entire work.
+
+PARAGRAPH
+
+SECTION
+
+Preliminaries
+
+PARAGRAPH
+
+Let (U,C,D̈) be an information system, where U is non empty finite collection of objects x1,x2,…,xn, C be the non empty finite set of features and D̈ be the decision attribute.
+
+An intuitionistic fuzzy set A in U is collection of objects represented in the form A={[x,μAx,νAx]|x∈U}where μA:U⇢[0,1] and νA:U⇢[0,1] are called degree of membership and degree of non membership of the element x respectively, satisfying 0≤μAx+νAx≤1,∀x∈UπAx=1−μAx−νA(x) where πAx represents the degree of hesitancy of x to A.
+
+It is obvious from the above discussions that 0≤πAx<1,∀x∈U.
+
+PARAGRAPH
+
+The cardinality of an intuitionistic fuzzy set A is defined by Iancu (2014): |A|=∑xϵU1+μAx−νA(x)2where 1 is added to ensure that |A| is a positive number, divided by 2 so that it varies between 0 and 1.
+
+PARAGRAPH
+
+Let RAx,y=[μRx,y,νRx,y] be intuitionistic fuzzy relation induced on the system.
+
+RAx,y is intuitionistic fuzzy similarity relation if it satisfies
+
+PARAGRAPH
+
+Intuitionistic fuzzy neighborhood of an instance x∈U is intuitionistic fuzzy similarity class xAy=[μxA,νxA] associated with x and RA where: μxAy=μRA(x,y),y∈Uand νxAy=νRA(x,y),y∈U
+
+PARAGRAPH
+
+Let D̈ partitions U into r crisp equivalence classes U∕D̈={D̈1,D̈2,D̈3,…,D̈r}.
+
+Then, intuitionistic fuzzy decision of x is defined as follows: D̈i˜x=|μxA∩Dï||μxA|,|νxA∩Dï||νxA|,i=1,2,3,…,r,x∈U.where D̈i˜x is an intuitionistic fuzzy set and it indicates the degree of membership and non membership of x to decision class Dï.
+
+Each decision class represents IF set given by: Dïx=[x,μDïxνDïx]where [x,μDï(x)νDï(x)]=[1,0],x∈U[0,1],x∉U
+
+PARAGRAPH
+
+Obviously, {D̈1˜x,D̈2˜x,…,D̈r˜x} is a intuitionistic fuzzy partition of U.
+
+The intuitionistic fuzzy lower and upper approximations are defined as follows: R̲AD̈i(y)=minx∈Umax{1−μRAx,y,μD̈i˜x},maxx∈Umin{1−νRAx,y,νD̈i˜x}R¯A(D̈i)y=maxx∈Umin{μRAx,y,μD̈i˜x},minx∈Umax{νRAx,y,νD̈i˜x}
+
+PARAGRAPH
+
+The membership of an object x∈U to intuitionistic fuzzy positive region is given by: PosAy=maxiμR̲A(D̈i)y,miniνR̲A(D̈i)y
+
+PARAGRAPH
+
+Using intuitionistic fuzzy positive region, dependency function can be computed using formula: YA=∑y∈U|PosAy||U|
+
+PARAGRAPH
+
+Dependency function is defined as the ratio of sizes of positive region and overall samples in feature space.
+
+However, this model can result in misclassification of training samples, as illustrated by fuzzy counterpart (Sheeja and Kuriakose, 2018).
+
+SECTION
+
+A fitting model based on intuitionistic fuzzy rough set
+
+PARAGRAPH
+
+The information system is denoted by (U,C,D̈), where C={a1,a2,…,am} is the set of conditional attributes and D̈ is the decision of the system.
+
+U={x1,x2,…,xn} comprises of the set of samples.
+
+Set of samples partitions the decisions into r crisp equivalence classes U/D̈= {D̈1, D̈2, …, D̈r}, and {D̈1˜,D̈2˜,…,D̈r˜} is intuitionistic fuzzy decision of samples induced by D̈ and C. Let Ra be intuitionistic fuzzy similarity class of samples induced by attribute a, then for any set A⊆C, IF relation is given by RAx,y=⋂a∈ARa(x,y),⋃a∈ARax,y.
+
+PARAGRAPH
+
+Different levels of granularity, acquired from every intuitionistic fuzzy similarity, lead to more classification information.
+
+Optimal feature subset is obtained by choosing granularity (Chen et al., 2011; Hu et al., 2007) that leads to optimized accuracy.
+
+The RA(x,y) between sample x and y denotes the similarity between sample based on their membership value and dissimilarity between their non membership value.
+
+To remove the impact of noise, low value of RA can be equated to zero, considering small value to have resulted due to noise.
+
+Parameterized intuitionistic fuzzy granule is constructed to achieve this, by introducing ε∈ [0, 1) to avoid noise as follows: μxAεy=0,μRAx,y<εμRA(x,y),μRA(x,y)≥ε,y∈Uand νxAεy=0,νRAx,y<ενRA(x,y),νRA(x,y)≥ε,y∈U
+
+PARAGRAPH
+
+Clearly, it can be seen that ε impacts the size of intuitionistic fuzzy granule.
+
+Therefore, intuitionistic fuzzy similarity is denoted by RAε.
+
+It can be derived from above that (Wang et al., 2017b):
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+The lower and upper approximation of decision D̈ with respect to attribute A is given by R̲AεD̈i(y)=minx∈Umax{1−μRAεx,y,μD̈i˜x},maxx∈Umin{1−νRAεx,y,νD̈i˜x},y∈D̈i0,1,otherwiseR¯AεD̈iy=maxx∈Umin{μRAεx,y,μD̈i˜x},minx∈Umax{νRAεx,y,νD̈i˜x},y∈D̈i0,1,otherwise
+
+PARAGRAPH
+
+Similar to classical rough sets, R̲AεD̈iy denotes the degree of certainty with which sample y belong to category i and R¯AεD̈iy indicates the possibility of y belonging to category i.
+
+PARAGRAPH
+
+Intuitionistic fuzzy positive region is calculated using above lower approximation, which is given by: PosAεy=maxiμR̲Aε(D̈i)y,miniνR̲Aε(D̈i)y.
+
+PARAGRAPH
+
+Greater is the size of positive region, the more is the dependency of sample y on feature subset A for its classification.
+
+Thereby, dependency degree of attribute A is obtained using formula: YA=∑y∈U|PosAεy||U|
+
+PARAGRAPH
+
+The desire is to find feature subset with maximum dependency degree, as misclassification error is smaller in such case.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Given 〈U,C,D〉 and 0<ε<1,ifA1⊆A2⊆C, then PosA1εD̈⊆PosA2εD̈
+
+PARAGRAPH
+
+PARAGRAPH
+
+From Proposition 1, RA2ε⊆RA1ε, whenever A1⊆A2⟹1−μRA2εx,y≥1−μRA1εx,y and 1−νRA2εx,y≤1−νRA1εx,y,∀x∈U and y∈Dï⇒μR̲A1εD̈y≤μR̲A2εD̈y and νR̲A1εD̈y≥νR̲A2εD̈y, then from definition of lower approximation ⇒R̲A1εD̈(y)≤R̲A2εD̈(y)⇒PosA1εD̈⊆PosA2εD̈.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Given 〈U,C,D〉 and 0<ε<1,ifA1⊆A2⊆⋯⊆Am⊆C, then YA1εD̈⊆YA2εD̈⊆⋯⊆YAmεD̈.
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+The above theorem shows that with increase in size of subset, dependency also increases.
+
+This guarantees that adding attribute to existing feature set will increase dependency of the new subset obtained.
+
+If dependency does not increase on adding an attribute F to feature subset, then that attribute is redundant and can be removed as superfluous attribute, otherwise F is indispensable and cannot be removed.
+
+A feature subset T is a reduct set if it has same dependency as a whole set of attributes and removing an attribute decreases its dependency.
+
+SECTION
+
+Algorithm for reduct computation
+
+PARAGRAPH
+
+A greedy forward algorithm for feature selection is proposed.
+
+The algorithm begins with empty set and iteratively adds attribute to the set with maximum dependency until dependency increases further.
+
+PARAGRAPH
+
+PARAGRAPH
+
+Heuristic algorithm based on FMIFRFS can be given as follows:
+
+Input IF information system
+
+Find the IF decision classes U∕D̈˜=D̈˜1,D̈˜2,…,D̈˜r
+
+Compute IF similarity RT∪aε
+
+Compute lower approximation R̲T∪aεD̈i(y), for each y∈U
+
+Calculate degree of dependency YT∪aD̈
+
+Find attribute a∈C−T with greatest YT∪aD̈ and set T←K∪a
+
+Until YTD̈=1 or YKD̈=YTD̈
+
+PARAGRAPH
+
+PARAGRAPH
+
+The pseudo code for the above algorithm can be given by:
+
+PARAGRAPH
+
+The proposed algorithm is illustrated using following example dataset.
+
+PARAGRAPH
+
+Firstly, dataset is normalized into interval [0, 1], then the normalized values are converted into intuitionistic fuzzy values.
+
+Finally, Intuitionistic fuzzy similarity rij between x and y is obtained using formula. rijx,y=1−1m∑i=1m(μx−μ(y))2,1m∑i=1m(νx−ν(y))2
+
+where μx and νx are membership and non membership degree, respectively of an instance x to the attribute set A and m is the number of attributes in set A.
+
+PARAGRAPH
+
+Hence, Ra1=[1,0][.85,.15][.88,.19][1,0][.93,.09][.81,.41][.63,.30][.42,.37][.85,.15][1,0][.74,.34][.85,.15][.79,.24][.67,.56][.77,.14][.56,.22][.88,.19][.74,.34][1,0][.88,.19][.94,.10][.93,.21][.51,.49][.30,.56][1,0][.85,.15][.88,.19][1,0][.93,.09][.81,.41][.63,.30][.42,.37][.93,.09][.79,.24][.94,.10][.93,.09][1,0][.87,.32][.56,.39][.35,.46][.81,.41][.67,.56][.93,.21][.81,.41][.87,.32][1,0][.44,.71][.23,.78][.63,.30][.77,.14][.51,.49][.63,.30][.56,.39][.44,.71][1,0][.78,.07][.42,.37][.56,.22][.30,.56][.42,.37][.35,.46][.23,.78][.78,.07][1,0]Thereby, using ε=0.7, granularity is obtained as: xa1ε=[1,0][0.85,0][0.88,0][1,0][.93,0][0.81,0][0,0][0,0][0.85,0][1,0][0.74,0][0.85,0][0.79,0][0,0][0.73,0][0,0][0.88,0][0.74,0][1,0][0.88,0][.94,0][.93,0][0,0][0,0][1,0][0.85,0][0.88,0][1,0][.93,0][0.81,0][0,0][0,0][.93,0][0.79,0][.94,0][.93,0][1,0][0.87,0][0,0][0,0][0.81,0][0,0][.93,0][0.81,0][0.87,0][1,0][0,0.71][0,0.78][0,0][0.77,0][0,0][0,0][0,0][0,0.71][1,0][0.78,0][0,0][0,0][0,0][0,0][0,0][0,0.78][0.78,0][1,0]The decision attribute partitions decision class into four sets as: D̈1=x1,0,1,x2,0,1,x3,0,1,x4,0,1,x5,0,1,x6,1,0,x7,0,1,x8,0,1,D̈2=x1,0,1,x2,1,0,x3,0,1,x4,1,0,x5,0,1,x6,0,1,x7,0,1,x8,1,0,D̈3=x1,0,1,x2,0,1,x3,1,0,x4,0,1,x5,1,0,x6,0,1,x7,0,1,x8,0,1,D̈4=x1,1,0,x2,0,1,x3,0,1,x4,0,1,x5,0,1,x6,0,1,x7,1,0,[x8,0,1]
+
+PARAGRAPH
+
+Intuitionistic fuzzy decision matrix is obtained as: D̈ˇ=D̈ˇ1,D̈ˇ2,D̈ˇ3,D̈ˇ4=[0.14,na][0.33,na][0.33,na][0.18,na][0,.37,na][0.36,na][0.30,na][0.32,na][0.17,na][0.30,na][0.36,na][0.16,na][0.14,na][0.33,na][0.33,na][0.18,na][0.15,na][0.31,na][0.35,na][0.17,na][0.22,0][0.18,0.52][0.40,0][0.18,0.47][0,1][0.60,0][0,0][0.39,0][0,1][0.55,0][0,0][0.44,0]Some of non-membership values of decision matrix are ‘na’ as the corresponding non membership value is 0 in xa1ε.
+
+Thereby, lower approximation is obtained as:
+
+PARAGRAPH
+
+Now, degree of dependency of decision attribute over a1 is calculated by proposed concept and we obtain the result as: Ya1=.1441
+
+PARAGRAPH
+
+Similarly, degrees of dependencies of decision attribute over other conditional attributes are: Ya2=.1928Ya3=.1676Ya4=.1751Ya5=.2621
+
+PARAGRAPH
+
+Therefore a4 is selected as the potential reduct set.
+
+Combining with other attributes, this process iterates and after termination of algorithm, we obtain the reduct set as {a1, a4, a5}.
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+In the current study, the performance of the proposed model is evaluated and compared with existing fitting model based on fuzzy-rough feature selection (Wang et al., 2017b) (FMFRFS).
+
+All the algorithms are implemented in Matlab 2018a and classification is done using WEKA (Hall et al., 2009).
+
+Firstly, the dataset is fuzzified using simple algorithm.
+
+Then, fuzzified data is converted to intuitionistic fuzzy dataset.
+
+These algorithms employed forward search to obtain optimal feature subset.
+
+The intuitionistic fuzzy similarity rij between instances x and y is computed by: rijx,y=[1−|μx−μ(y)|,|νx−ν(y)|]where μx and νx are membership and non membership degree, respectively of an instance x to a set.
+
+PARAGRAPH
+
+Further, the choice of ε depends on the amount of noise present in the dataset.
+
+The value of ε is varied from 0.1 to 0.9 in a small interval, and the value of ε giving highest classification accuracy is selected.
+
+PARAGRAPH
+
+The following experimental setup is used to conduct the entire experiments:
+
+SECTION
+
+Dataset
+
+PARAGRAPH
+
+Twelve benchmark datasets from the University of California, Irvine, Machine Learning Repository (Blake and Merz, 1998) is used to represent the performance of our proposed approach.
+
+The details of these datasets are mentioned in Table 1.
+
+The dimension of the datasets indicates that these are small to medium size datasets as number of instances range from 10 to 2126 and attributes range from 4 to 4702.
+
+SECTION
+
+Classifiers
+
+PARAGRAPH
+
+Three different machine learning algorithms, available under rules and trees categories are employed to demonstrate performance on reduced datasets.
+
+PART (Frank and Witten, 1998), JRip (Cohen, 1995) and J48 (Ross Quinlan, 1993) are used for the purpose of evaluating classification accuracy using full dataset.
+
+While kNN (k = 3) and SVM were employed to test performance on dataset using 10-fold cross validation.
+
+Furthermore, we perform a comparative study of proposed model with the existing fitting model for feature selection using fuzzy rough set by observing the change in overall accuracies of different classifiers along with standard deviation for reduced datasets.
+
+SECTION
+
+Dataset split
+
+PARAGRAPH
+
+Using full training set for feature selection, accuracy is evaluated based on 10-fold cross validation, that is, dataset is randomly divided into ten subsets, of which one is used for testing and remaining nine forms training set.
+
+After ten such rounds, average value of accuracy is used as final performance.
+
+While for performing 10-fold cross validation for feature selection, dataset is randomly divided to ten subsets, nine of which are used for feature selection.
+
+Whole reduced dataset is then employed to evaluate classification accuracy.
+
+After ten such iterations, average value of accuracy is used as final performance.
+
+SECTION
+
+PARAGRAPH
+
+Performance evaluation metrics
+
+PARAGRAPH
+
+The prediction performances of the three machine learning algorithms are evaluated using threshold-dependent and threshold-independent parameters.
+
+PARAGRAPH
+
+These parameters are determined using true positive (TP), true negative (TN), false positive (FP) and false negative (FN).
+
+TP is number of correctly classified positive instances; TN is number of correctly classified negative instances.
+
+FN is number of incorrectly classified positive instances while FP is number of incorrectly classified negative instances.
+
+PARAGRAPH
+
+Sensitivity: It provides the percentage of correctly classified positive instances and is represented as: Sensitivity=TPTP+FN×100
+
+PARAGRAPH
+
+Specificity: It provides the percentage of correctly classified negative instances and is represented by: Specificity=TNTN+FP×100
+
+PARAGRAPH
+
+Accuracy: It is the percentage of correctly classified instances (both positive and negative), which can be calculated as: Accuracy=TP+TNTP+FP+TN+FN×100
+
+PARAGRAPH
+
+AUC: It gives the area under the receiver operating characteristic curve (ROC), the closer the value to 1, the more accurate the classifier.
+
+It is robust to heterogeneity of dataset, and is used for evaluating performance (Jensen and Shen, 2004b).
+
+PARAGRAPH
+
+MCC: Mathew’s correlation coefficient is a performance parameter mostly used for binary classification, and is calculated by using the equation as follows: MCC=TP×TN−FP×FNTP+FPTP+FNTN+FPTN+FN
+
+PARAGRAPH
+
+Best performance is considered for MCC value of 1.
+
+PARAGRAPH
+
+All these performance parameters are evaluated using open source Java based machine learning platform WEKA (Hall et al., 2009).
+
+SECTION
+
+Experimental results
+
+PARAGRAPH
+
+In Table 2, we have presented the characteristics of the datasets and the size of the reduct set produced by FMFRFS as well as FMIFRFS using full training set and 10-fold cross validation technique respectively.
+
+Overall classification accuracies with standard deviation are evaluated by using PART, JRip, J48 for both original datasets and reduced datasets as produced by FMFRFS and FMIFRFS on full training sets, as recorded in Table 3.
+
+Moreover, average classification accuracies along with standard deviation are again evaluated by using 3NN, SVM for both original datasets and reduced datasets as produced by FMFRFS and FMIFRFS on 10-fold cross validation, as depicted in Table 4.
+
+From the experimental results, it can be observed that our proposed technique usually provides smaller subset of features than existing method.
+
+For some of the datasets, FMIFRFS is producing larger subsets when compared with FMFRFS but these reduct sets are more accurate as the performance of different learning algorithms (Tables 3–4) for these sets are better when compared with FMFRFS based reduct sets.
+
+From the experiments, it can be observed that the average accuracies of different classifiers for the reduced datasets produced by FMIFRFS is always more than those of reduced datasets produced by FMFRFS and the values of standard deviation are vice-versa.
+
+This established that our proposed model can provide more relevant and less redundant features than all the existing approaches can produce till date.
+
+Therefore, FMIFRFS provides more accurate result when compared to existing FMFRFS.
+
+Wang et al. (2017b) has revealed that FMFRFS is better performing approach than other existing feature selection techniques.
+
+Therefore, our proposed approach outperforms all the existing approach till date.
+
+For better explanation of our justification, we have presented more experimental results in Table 5, where the values of sensitivity, specificity, accuracy, AUC, MCC, which was obtained by using full training set, for PART, JRip and J48 classifiers based on reduced Ionosphere dataset as produced by FMFRFS and FMIFRFS approaches as well as original dataset.
+
+By observing the values of performance evaluation metrics, it is obvious that our approach is not only producing better result in the form of improvement of accuracies of the various learning algorithms but also in the form of values of other performance parameters.
+
+Variation of classification accuracy and reduct size with noise parameter ε is depicted in Fig. 1, which is obtained by using 10-fold cross validation by conducting series of experiments.
+
+Further, for full dataset, a convenient way to observe the overall performance of different classifiers at different decision threshold is the Receiver Operating Characteristic (ROC) curve, which gives a visual representation of the classifiers performance.
+
+The ROC curves by using different classifiers namely PART, JRip, J48 and Random Forest (Breiman, 1996, 2001) for various reduced datasets by FMFRFS and FMIFRFS are depicted in Figs. 2–3.
+
+These figures clearly indicate that our proposed algorithm is superior to the existing algorithm.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Feature selection is an optimization process for selecting the most informative features from various alternatives to facilitate classification or data mining problems.
+
+Feature selection is one of the dimensionality reduction techniques, which offers several benefits in terms of reduced storage cost, reduced data collection effort, lesser model building time as well as execution time and improved model interpretation.
+
+The fuzzy rough set theory has been successfully applied in the field of feature selection by outperforming the insufficiencies of the classical rough set based techniques in various aspects.
+
+However, traditional fuzzy-rough dependency cannot reveal better the learning ability of a subset of attributes or features as it only tries to keep the fuzzy positive region maximal and it cannot suitably fit data.
+
+Wang et al. (2017a) handled this problem by introducing a fitting model for feature selection with fuzzy rough sets.
+
+However, fuzzy set theory has certain limitations and it cannot handle the uncertainty in the case where it is not found only in judgment but also in the identification.
+
+It is anticipated that the human decision-making process and activities require human expertise and knowledge which are inevitability imprecise or not totally reliable and that could be used to simulate by using intuitionistic fuzzy set concept as it considers membership, non-membership and hesitancy functions simultaneously.
+
+In this paper, we introduced a novel intuitionistic fuzzy rough set model in order to cope with above mentioned problems.
+
+This model successfully fitted data well and avoided misclassification properly.
+
+Firstly, Intuitionistic fuzzy decision of an object was established using neighborhood concept.
+
+Then, intuitionistic fuzzy lower and upper approximations were introduced using intuitionistic fuzzy decision along with parameterized intuitionistic fuzzy granule.
+
+Furthermore, an intuitionistic fuzzy dependency function was presented.
+
+Moreover, a heuristic greedy forward algorithm was presented based on proposed model to compute the reduct set.
+
+Finally, our proposed technique was applied (based on 10-fold cross validation and full training set) to the benchmark datasets and a comparative study with existing model was presented.
+
+From the experimental results, we observed that presented algorithm provided more accurate reduct set than existing algorithm especially for those information systems in which various categories have a great degree of overlap.
+
+PARAGRAPH
+
+In the future, we can propose a discernibility matrix based approach to find all possible reduct sets by using our proposed model.
+
+Furthermore, we can extend this concept with some more accurate intuitionistic fuzzy rough set models like variable precision intuitionistic fuzzy rough set model and type-2 intuitionistic fuzzy rough set model which can handle uncertainty in much better way.
+
+Moreover, we intend to explore how the proposed model can be applied to construct rule-based classifiers.

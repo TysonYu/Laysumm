@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.08.008
+
+ABSTRACT
+
+TITLE
+
+Divide-and-conquer framework for image restoration and enhancement
+
+PARAGRAPH
+
+We develop a novel divide-and-conquer framework for image restoration and enhancement based on their task-driven requirements, which takes advantage of visual importance differences of image contents (i.e., noise versus image, edge-based structures versus smoothing areas, high-frequency versus low-frequency components) and sparse prior differences of image contents for performance improvements.
+
+The proposed framework is efficient in implementation of decomposition-processing-integration.
+
+An observed image is first decomposed into different subspaces based on considering visual importance of different subspaces and exploiting their prior differences.
+
+Different models are separately established for image subspace restoration and enhancement, and existing image restoration and enhancement methods are utilized to deal with them effectively.
+
+Then a simple but effective fusion scheme with different weights is used to integrate the post-processed subspaces for the final reconstructed image.
+
+Final experimental results demonstrate that the proposed divide-and-conquer framework outperforms several restoration and enhancement algorithms in both subjective results and objective assessments.
+
+The performance improvements of image restoration and enhancement can be yielded by using the proposed divide-and-conquer strategy, which greatly benefits in terms of mixed Gaussian and salt-and-pepper noise removal, non-blind deconvolution, and image enhancement.
+
+In addition, our divide-and-conquer framework can be simply extensible to other restoration and enhancement algorithms, and can be a new way to promote their performances for image restoration and enhancement.

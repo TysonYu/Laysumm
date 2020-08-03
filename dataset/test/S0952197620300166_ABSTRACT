@@ -1,0 +1,29 @@
+10.1016/j.engappai.2020.103501
+
+ABSTRACT
+
+TITLE
+
+A hybrid meta-heuristic algorithm for scientific workflow scheduling in heterogeneous distributed computing systems
+
+PARAGRAPH
+
+Cloud computing has attracted great attentions in research community because of its ubiquitous, unlimited computing resources, low cost, and flexibility owing to virtualization technology.
+
+This paper presents a hybrid meta-heuristic algorithm to solve parallelizable scientific workflows on elastic cloud platforms since applying a single approach cannot yield optimal solution in such complicated problems.
+
+Scientific workflows are modeled in the form of directed acyclic graph (DAG) in which there exists data dependency between sub-tasks.
+
+In the cloud marketplace, each provider delivers variable virtual machine (VM) configurations which lead different performance.
+
+Generally, parallelizable task scheduling on parallel computing machines to obtain minimum total execution time, makespan, belongs to NP-Hard problem.
+
+To deal with the combinatorial problem, the hybrid discrete particle swarm optimization (HDPSO) algorithm is presented that has three main phases.
+
+At the first phase a random algorithm following by novel theorems is applied to produce swarm members; it is as input of presented new discrete particle swarm optimization (DPSO) algorithm in the second phase.
+
+To avoid getting stuck in sub-optimal trap and to balance between exploration and exploitation, local search improvement is randomly combined in DPSO by calling Hill Climbing technique at the third phase to enhance overall performance.
+
+Second and third phases are iterated till the termination criteria is met.
+
+The average results reported from different executions of intensive settings on 12 scientific datasets proved our hybrid meta-heuristic has the amount of 10.67, 14.48, and 3 percentage dominance in terms of SLR, SpeedUp, and efficiency respectively against other existing meta-heuristics.

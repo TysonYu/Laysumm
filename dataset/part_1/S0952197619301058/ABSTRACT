@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.05.005
+
+ABSTRACT
+
+TITLE
+
+A harmony search variant and a useful constraint handling method for the dynamic economic emission dispatch problems considering transmission loss
+
+PARAGRAPH
+
+This paper proposes a new enhanced harmony search (NEHS) algorithm to solve dynamic economic emission dispatch (DEED) problems.
+
+NEHS is a variant of harmony search (HS) algorithm that is inspired by the music phenomenon.
+
+NEHS introduces two modifications to increase its competitiveness for the DEED problems.
+
+First, three levels of arbitrary distance bandwidths are used to enhance its global search and local search abilities.
+
+Second, both the best and the worst harmony vectors are selected to participate in the harmony memory considering operation in the second half of generations, which reaches a good compromise between improving solution quality and overcoming premature convergence.
+
+In addition, the improvised harmony vector at each generation is almost infeasible, and a repair technique is devised to drive it to the feasible domain efficiently.
+
+The performance of NEHS is evaluated on five DEED instances, and compared with that of the other four state-of-the-art HSs.
+
+Experimental results verify that NEHS is preferable in solving the five DEED instances as it can produce better solutions with less computation burden.

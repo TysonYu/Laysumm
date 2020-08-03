@@ -1,0 +1,25 @@
+10.1016/j.engappai.2019.103374
+
+ABSTRACT
+
+TITLE
+
+A point-of-interest suggestion algorithm in Multi-source geo-social networks
+
+PARAGRAPH
+
+Newly emerging location-based social network (LBSN) services provide us with new platforms to share interests and individual experience based on their activity history.
+
+The problems of data sparsity and user distrust in LBSNs create a severe challenge for traditional recommender systems.
+
+Moreover, users’ behaviors in LBSNs show an obvious spatio-temporal pattern.
+
+Valuable extra information from microblog-based social networks (MBSNs) can be utilized to improve the effectiveness of POI suggestion.
+
+In this study, we propose a latent probabilistic generative model called MTAS, which can accurately capture the underlying information in users’ words extracted from both LBSNs and MBSNs by taking into consideration the decision probability, a latent variable indicating a user’s tendency to publish a review in LBSNs or MBSNs.
+
+Then, the parameters of the MTAS model can be inferred by the Gibbs sampling method in an effective manner.
+
+Based on MTAS, we design an effective framework to fulfill the top-k suggestion.
+
+Extensive experiments on two real geo-social networks show that MTAS achieves better performance than existing state-of-the-art methods.

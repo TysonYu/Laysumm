@@ -1,0 +1,29 @@
+10.1016/j.engappai.2019.103404
+
+ABSTRACT
+
+TITLE
+
+Multi-phase trajectory optimization for an aerial-aquatic vehicle considering the influence of navigation error
+
+PARAGRAPH
+
+The environment-induced multi-phase trajectory optimization problem is studied in this paper, and the underwater target tracking task is focused on.
+
+The task is finished by an aerial-aquatic coaxial eight-rotor vehicle and is divided into two phases, i.e., the diving phase and the underwater navigation phase.
+
+The dynamic model and constraints on angular velocity of rotor in each phase are established to understand the motion characteristic.
+
+Then the model of navigation information and terrain matching are contained in the trajectory optimization model to reflect the influence of underwater navigation error on the quality of trajectory.
+
+Correspondingly, the forms of collision detection and cost function are changed to adapt to the inaccurate navigation information.
+
+To obtain the trajectory with the minimum terminal position error, an improved teach & learn-based optimization (ITLBO) algorithm is developed to strengthen the influence of individual historical optimal solution.
+
+Besides, Chebyshev collocation points are applied to determine the locations of control variables.
+
+Simulation results demonstrate that the established navigation error-based trajectory optimization model can reflect the real situation of multi-phase task.
+
+Especially, it is able to calculate the collision probability between the vehicle and the obstacle when GPS is unavailable underwater, thus ensuring the safety of underwater navigation.
+
+Compare to other common effective algorithms, the proposed ITLBO algorithm is in general more suitable for solving this problem because it is swarm-based and can obtain good solution without worrying about the inappropriate values of user-defined parameters.

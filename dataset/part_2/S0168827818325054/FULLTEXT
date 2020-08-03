@@ -1,0 +1,495 @@
+10.1016/j.jhep.2018.10.021
+
+FULLTEXT
+
+TITLE
+
+A polymorphism in the Irisin-encoding gene (FNDC5) associates with hepatic steatosis by differential miRNA binding to the 3′UTR
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Non-alcoholic fatty liver disease (NAFLD) is a principal liver disorder in Western countries and is on trajectory to become the leading cause of end-stage liver disease and liver transplantation.1–3
+
+Notably, NAFLD is part of a multisystem metabolic disturbance, as its impact is not limited to the liver but also affects extra-hepatic sites such as the cardiovascular system and kidneys.4
+
+In NAFLD, there is pathological hepatic accumulation of fat that over time can lead to inflammation and progress to cirrhosis, end-stage liver disease and hepatocellular carcinoma.
+
+The mechanisms underlying the accumulation of liver fat are complex and gene × environment interactions play a critical role.5–7
+
+PARAGRAPH
+
+The heritable component of hepatic steatosis has been estimated at ∼50% based on a prospective twin study.8
+
+To date, the major inherited determinants of hepatic fat accumulation based on genome wide association studies are the patatin-like phospholipase domain-containing 3 (PNPLA3) I148M and the transmembrane 6 superfamily member 2 (TM6SF2) E167K gene variants.9,10.
+
+However, these polymorphisms explain only 10–20% of the heritability.6,11
+
+Thus, other as yet unidentified genetic and epigenetic variations likely exist to explain the missing heritability.
+
+PARAGRAPH
+
+Adipose-derived hormones, collectively termed adipokines are established drivers/contributors to the pathogenesis of NAFLD.12–14
+
+More recently, the myokine irisin was isolated from muscle by Boström et al. 2012.15
+
+Irisin is a 12 kD, 112 amino acid fragment that is proteolytically processed from the fibronectin type III domain-containing protein 5 (FNDC5) and released into the circulation.16
+
+The functions of irisin and even its existence however have been a matter of debate,16,17 with some reports suggesting that the irisin polypeptide is a “myth”.17
+
+Human FNDC5 has an atypical ATA translation start codon rather than the ATG sequence.
+
+Hence, it has been argued that the human ATA codon represents a null mutation without irisin production and that reports measuring human irisin are an artefact from using an FNDC5 antibody with poor specificity.17
+
+However, recent work using quantitative mass spectrometry has confirmed the existence of circulating irisin.18
+
+The 3 published reports have shown inconsistent associations of NAFLD with irisin levels;19–21 in addition, the role of genetic variants in FNDC5 and the mechanisms involved have not been well defined.
+
+PARAGRAPH
+
+In this work, after single nucleotide polymorphism (SNP) prioritization, we explored the role of the FNDC5 polymorphism rs3480 on hepatic steatosis and other histological features in a cohort of 987 Caucasian patients with NAFLD and investigated the mechanisms underlying the association.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Patient cohort
+
+PARAGRAPH
+
+The study comprised 987 Caucasian patients with biopsy-proven NAFLD.
+
+The details of the cohort and their clinical and laboratory assessment are provided in the supplementary information.
+
+Ethics approval was obtained from the Human Research Ethics Committees of the Western Sydney Local Health District and the University of Sydney.
+
+All other sites had ethics approval from their respective ethics committees.
+
+SECTION
+
+Prioritization of FNDC5 SNPs
+
+PARAGRAPH
+
+To prioritize SNPs for genotyping, we followed the scheme illustrated in Fig. S1.
+
+In brief, common SNPs (minor allele frequency [MAF] >1%) within the FNDC5 gene were tested for their status as expression quantitative trait loci (eQTLs) using the GTEx (Genotype-Tissue Expression) project,22 as well as eQTLs from the MuTHER study using the exSNP database.23
+
+SNPs that were eQTLs for FNDC5 were then investigated for p values for the eQTL.
+
+Following this filter, 2 SNPs (rs3480 and rs10753269) in tight LD (r2 = 0.99) were found; the latter is upstream of FNDC5, while rs3480 is located in the 3′UTR.
+
+From this scheme, rs3480 was determined to be the SNP with the highest priority for genotyping in our cohort.
+
+SECTION
+
+Genotyping
+
+PARAGRAPH
+
+Genotyping for FNDC5 rs3480, PNPLA3 rs738409 and TM6SF2 rs58542926 was undertaken using the TaqMan SNP genotyping allelic discrimination method (Applied Biosystems, Foster City, CA, USA).
+
+All genotyping was blinded to clinical variables.
+
+Some of the PNPLA3 rs738409 and TM6SF2 rs58542926 genotyping data were extracted from a recent report.24
+
+SECTION
+
+Liver histopathology
+
+PARAGRAPH
+
+Liver biopsies were scored by an expert liver pathologist in each participating center who was unaware of clinical or genetic data.
+
+Histological scoring was based on the system proposed by Kleiner et al.25 Steatosis was graded from 0 to 3, lobular inflammation from 0 to 3 and hepatocellular ballooning from 0 to 2.
+
+Fibrosis was staged from 0 to 4 with 4 representing cirrhosis.
+
+The NAFLD activity score (NAS) was calculated to quantify disease activity.25
+
+The inter-observer agreement between pathologists was studied previously and was excellent for steatosis (κ = 0.85) and good for fibrosis (κ = 0.78).26
+
+SECTION
+
+Allele-specific expression
+
+PARAGRAPH
+
+Allelic ratios quantified by pyrosequencing were performed at the Australian Genome Research Facility.
+
+Full details are provided in supplementary methods, Table S1 and Fig. 2.
+
+SECTION
+
+Enzyme-linked immunosorbent assay (ELISA)
+
+PARAGRAPH
+
+Serum irisin level was measured using a recently released irisin kit from Phoenix Pharmaceuticals (EK-067-29)27 in a sub-cohort of 152 patients with available serum samples and with characteristics similar to the entire cohort.
+
+SECTION
+
+Bioinformatics analyses
+
+PARAGRAPH
+
+We queried the online miRdSNP database which is based on TargetScan and PicTar databases28 to determine whether rs3480 (the SNP derived from our prioritization approach) in the 3′UTR of FNDC5 could be in miRNA target sites.
+
+Secondary structures of the mRNA and minimum folding energy (MFE) of FNDC-G and FNDC5-A were extrapolated using the RNAfold online server (Vienna RNA package, version 2.0.0, with option ‘-p’).29
+
+SECTION
+
+Gene set enrichment analysis
+
+PARAGRAPH
+
+The target genes of MiR135a predicted by TargetScan.
+
+Gene set enrichment analysis used the Database for Annotation, Visualization and Integrated Discovery (DAVID)30 to ask which Kyoto Encyclopedia of Genes and Genomes (KEGG) were enriched within the genes that contained binding sites for miR-135a.
+
+SECTION
+
+Luciferase reporter assay
+
+PARAGRAPH
+
+The full-length 3′UTR of human FNDC5, with genetic variation corresponding to A or G (of rs3480) was cloned into the PmeI/SalI restriction site downstream of the gene encoding firefly luciferase in the pmirGLO reporter vector (Promega).
+
+SECTION
+
+Human liver sample miRNA extraction and Droplet Digital™ PCR
+
+PARAGRAPH
+
+RNA was extracted from 5 μm of liver tissue (obtained from resections and stored at −80 °C) using the miRNeasy kit (Qiagen) from 20 individuals (n = 10 controls and n = 10 with NAFLD).
+
+The first-strand complementary synthesis reaction (cDNA) was performed using the TaqMan MicroRNA Reverse Transcription kit (Life Technologies) for miRNAs.
+
+PARAGRAPH
+
+For miRNAs and FNDC5 copy number quantification, droplet digital PCR was performed, as previously described.31,32
+
+SECTION
+
+Statistical methods
+
+PARAGRAPH
+
+Results are expressed as mean ± SD (standard deviation), median and interquartile range or number (percentage) of patients.
+
+All tests were 2-tailed and p values <0.05 were considered significant.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+FNDC5 rs3480 and the degree of hepatic steatosis
+
+PARAGRAPH
+
+Baseline characteristics of the cohort are summarized in Table S2.
+
+After SNP prioritization (described in detail in Fig. S2 and in methods), we found that rs3480 satisfied our criteria.
+
+FNDC5 rs3480 was confirmed to be in Hardy–Weinberg equilibrium and showed a MAF of 0.41; 0.403, 0.41 and 0.404 in Australian, Italian and Spanish samples, respectively, similar to that observed in other European populations (MAF = 0.41), http://browser.1000genomes.org).
+
+No differences in clinical, anthropometric and biochemical indices including aminotransferases were found between the FNDC5 rs3480 genotypes (Table S3).
+
+PARAGRAPH
+
+Fixed-effects meta-analysis of the association of rs3480 with steatosis (S2-S3) was significant (OR 1.20; 95% CI 1.01–1.3; meta-p = 0.0001; Fig. 1A).
+
+In multivariate logistic regression analysis incorporating age, gender, body mass index (BMI), type 2 diabetes mellitus, recruiting center and PNPLA3 rs738409 and TM6SF2 rs58542926 genotype, the FNDC5 rs3480 (G) allele was associated with an increased risk of steatosis (S2-S3) (OR 1.29; 95% CI 1.08–1.55; p = 0.004) (Table S4).
+
+SECTION
+
+PNPLA3, TM6SF2 and FNDC5 polymorphisms have an additive effect
+
+PARAGRAPH
+
+We next examined the proportion of attributable risk conferred by the FNDC5, PNPLA3, and TM6SF2 genetic variants.
+
+As expected, the PNPLA3 I148M variant had the largest impact on steatosis (S2-S3); the estimated population-attributable risk (PAR) was 25.1%.
+
+Of interest, the FNDC5 rs3480 variant had a greater PAR compared to the E167K TM6SF2 variant (10.6% vs. 6.7%, respectively).
+
+PARAGRAPH
+
+We then examined the interaction between the 3 variants but did not observe an impact on hepatic steatosis (p >0.05).
+
+Instead, the 3 variants appeared to have an additive impact with a stepwise increase in odds ratio for steatosis (S2-S3) for each additional risk allele (p <0.0001 for trend) (Fig. 1).
+
+In total, FNDC5 rs3480 is a novel risk variant for steatosis, independent, but additive to the known risk variants, PNPLA3 and TM6SF2.
+
+SECTION
+
+FNDC5 rs3480 and the severity of hepatic inflammation and fibrosis
+
+PARAGRAPH
+
+We tested the association of FNDC5 rs3480 with the severity of lobular inflammation and ballooning.
+
+FNDC5 rs3480 was not associated with more severe lobular inflammation (A2-A3) (OR 1.3; 95% CI 0.9–1.87; p = 0.1) and remained the same after adjustment for age, sex, BMI, diabetes, and severity of steatosis (p = 0.2).
+
+Similarly, no association with fibrosis (F2-F4) was observed (OR 1.05; 95% CI 0.74–1.47; p = 0.7), which remained the same after adjustment for the variables previously mentioned (p = 0.79).
+
+SECTION
+
+Impact of SNP at rs3480 on the 3′UTR of FNDC5
+
+PARAGRAPH
+
+To investigate the mechanisms for the genetic association, we evaluated the influence of the 3′UTR SNP rs3480 on the post-transcriptional regulation and stability of FNDC5 mRNA.
+
+To examine whether mRNA folding of FNDC5 could be altered by rs3480, bioinformatic analysis using the RNAfold web server was used.
+
+This demonstrated that rs3480 SNPs altered mRNA structure, suggesting that it may affect the stability of FNDC5 mRNA, with a marginal variation in the MFE, from ΔG =  −1102.20 to −1102.10 kcal mol−1 (Fig. S2).
+
+PARAGRAPH
+
+To validate these findings, we generated full-length 3′UTRs of FNDC5 containing either the G or the A allele and cloned them into the pmirGLO vector (Fig. 2A), then transfected human hepatoma (Huh-7) cells with the constructs and measured luciferase activity.
+
+The FNDC5-G 3′ UTR conferred significantly lower luciferase activity compared to the FNDC5-A 3′UTR (Fig. S3).
+
+We next assessed the effect of rs3480 on mRNA stability.
+
+Analysis of the luciferase–encoding mRNA that remained in Huh-7 cells after treatment with actinomycin D revealed that mRNA bearing the FNDC5-G 3′UTR decayed significantly faster than that bearing the FNDC5-A 3′UTR (Fig. 2B).
+
+This implies that rs3480 alleles affect the stability of the mRNA transcript.
+
+PARAGRAPH
+
+Next, we performed allele-specific expression analysis using pyrosequencing of gDNA (blood) and cDNA from 10 human liver samples from rs3480 heterozygous individuals.
+
+As demonstrated in Fig. S4, modest but significant allelic differences in gene expression were observed, with lower expression in the G allele (p = 0.003, nonparametric Wilcoxon's paired test).
+
+Together these data demonstrated that rs3480 influences the stability and expression of FNDC5.
+
+SECTION
+
+Regulation of FNDC5 by miRNA
+
+PARAGRAPH
+
+We investigated whether the rs3480 SNP could influence recruitment of miRNAs to the 3′UTR of FNDC5.
+
+Bioinformatics analysis of the 3′UTR sequence around the site of rs3480 identified potential binding sites for miR-135a-5P and miR-135b-5P (Fig. 2C).
+
+To investigate the preferential binding of the miRNAs to the rs3480 alleles, we co-transfected Huh-7 cells with miR-135a-5P and miR-135-5P and negative control mimics with luciferase reporter constructs containing FNDC-A or FNDC5-G.
+
+The luciferase assay shows that miR-135a-5p binds to both A and G alleles, but preferentially to the G allele, demonstrated by significantly lower luciferase activity between G+ miR-135a-5p compared to A+ miR-135a-5p (Fig. 2D).
+
+Notably, the difference between alleles was blunted in the presence of the miR-135a-5P inhibitor (Fig. 2E), suggesting the specificity of decreased luciferase activity by miR-135a-5P.
+
+In contrast, miR-135b-5P binds to both alleles with no preferential binding (Fig. S5).
+
+SECTION
+
+Gene set enrichment analysis
+
+PARAGRAPH
+
+We then undertook pathway analysis of the common predicted targets of miR-135a-5P using KEGG pathway mapping.
+
+Collectively miR-135a-5P targets mapped onto different pathways (Fig. 2F and Table S5).
+
+Notably, they included overrepresentation of insulin signaling and type 2 diabetes pathways.
+
+SECTION
+
+Hepatic miRNA and FNDC5 levels in NAFLD
+
+PARAGRAPH
+
+We next interrogated hepatic levels of miR-135a-5P, miR-135b-5P and FNDC5 in liver from patients with NAFLD and controls by ddPCR.
+
+Compared to controls, patients with NAFLD had significantly higher levels of miR-135a-5P but not miR-135b (p <0.05, Fig. 3A and Fig. S6).
+
+FNDC5 levels tended to be lower in NAFLD, but not significantly (Fig. 3B).
+
+A statistically significant (r2 = 0.80 p ≤0.002) positive correlation was observed between miR-135a-5P and FNDC5 in liver from normal control individuals, while they were negatively correlated in NAFLD (r2 = −0.36) (Fig. S7).
+
+There was no difference in hepatic miR-135a and miR-135b levels according to rs3480 genotype (data not shown).
+
+SECTION
+
+Elevated circulating irisin is associated with reduced steatosis and a favorable metabolic profile
+
+PARAGRAPH
+
+Finally, we examined which clinical parameters were associated with serum irisin level in a sub-cohort of patients with NAFLD (n = 152) having available serum.
+
+Irisin levels correlated positively with high-density lipoprotein cholesterol levels (p <0.001), and negatively with HOMA-IR (p = 0.04).
+
+No correlations were observed with other clinical parameters (Table S6).
+
+Median irisin levels were higher in patients less than 40 years old compared to those ≥40 years old (p <0.01) (Fig. 4A) and in individuals with HOMA-IR <3 compared to those with HOMA-IR ≥3 (p <0.001) (Fig. 4B).
+
+Irisin serum levels were similar between females and males (p = 0.5).
+
+Finally, serum irisin levels (Fig. 4C) were lower in those with greater steatosis compared to those with mild steatosis (p <0.03), but did not differ by other histological features.
+
+Patients with the GG genotype had a trend towards lower median irisin levels compared with individuals carrying at least one A allele, though it was not significant (p = 0.07, Fig. S7).
+
+No difference in irisin level according to PNPLA3 or TM6SF2 genotypes was observed.
+
+Collectively, elevated serum irisin levels are associated with reduced steatosis and an improved metabolic profile.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+In this study, we demonstrate that FNDC5 rs3480 is a novel additional and possibly hitherto overlooked genetic variant affecting the risk of hepatic steatosis in NAFLD.
+
+The influence of the risk genotype was independent of, but additive to PNPLA3 and TM6SF2 in Caucasian patients.
+
+We show a 1.4- to 6.8-fold increase in hepatic steatosis risk based on the cumulative association of the 3 variants among individuals who had at least one copy of the risk allele at each of the 3 regions, compared with individuals without any risk alleles.
+
+The G allele associated with greater FNDC5 mRNA degradation compared to A allele, had a modest but significant effect on liver FNDC5 allele-specific expression and also created a binding site for miR-135a-5P.
+
+Compared with controls, patients with NAFLD had significantly higher levels of hepatic miR-135a-5p and lower FNDC5.
+
+Concomitantly, this miRNA can regulate several pathways linked to liver disease including those for insulin signaling and type 2 diabetes.
+
+Lastly, elevated serum irisin levels were associated with reduced steatosis and with improved indices of the circulating metabolic profile.
+
+Collectively, these data suggest that miRNA binding to an SNP in the 3′UTR, impairs FNDC5 expression and thereby increases the severity of hepatic steatosis (Fig. 5).
+
+PARAGRAPH
+
+While carriage of the FNDC5 rs3480 (G) minor allele was associated with an increased risk of steatosis, it did not impact other histologic features.
+
+The influence on steatosis was also independent of known steatosis risk confounders including age, gender, BMI, type 2 diabetes mellitus and recruitment center.
+
+Since no interaction was observed between FNDC5 rs3480, PNPLA3 rs738409 and TM6SF2 rs58542926 genotypes, our data suggests that the 3 genes regulate different pathways in steatosis pathogenesis.
+
+PARAGRAPH
+
+Serum irisin levels were reduced in individuals with greater hepatic steatosis (S2-S3).
+
+Both in a study of 296 obese Chinese adults in whom hepatic triglyceride content was determined by 1H MRS spectroscopy21 and another of 84 Koreans with NAFLD in whom steatosis was measured by abdominal ultrasonography,19 irisin levels declined with increased liver fat.
+
+However, in another small study (n = 31) of patients with biopsy-proven NAFLD, no difference in serum irisin according to steatosis grade was observed.20
+
+These studies used the same ELISA kit and thus differences are likely due to sample size considerations.
+
+While there has been skepticism on the quality of commercial ELISAs to quantify irisin, in the present work it was measured using the recently released Phoenix Pharmaceuticals (EK-067-29) kit that has been validated by comparison with data from Western blot and MALDI-TOF mass spectrometry.27
+
+PARAGRAPH
+
+The mechanisms for the protective effects of irisin on hepatic steatosis in NAFLD are not clear, but evidence suggests both direct and indirect beneficial effects.
+
+In humans, FNDC5 is expressed in skeletal muscle and adipose tissues serving as both a myokine and adipokine, though the principle source appears to be muscle.33
+
+In the liver, hepatocyte-released irisin functions as a paracrine/autocrine hormone.34
+
+It has been reported that adipose tissue FNDC5 mRNA and circulating irisin levels negatively correlate with hyperglycemia, elevated triglycerides, visceral adiposity and extramyocellular lipid deposition, features that are concordant with the metabolic abnormalities observed in NAFLD.35
+
+Moreover, treating muscle cells in vitro with palmitate and glucose lowered FNDC5 mRNA suggesting peripheral effects on metabolic and glucose homeostasis.35
+
+This data is supported by animal studies that FNDC5 improves hepatic steatosis, protects mice against genetic- and diet-induced obesity, and improves hepatic and peripheral insulin resistance via regulating AMPK signaling in myocytes and hepatocytes.34,36–38
+
+PARAGRAPH
+
+miRNAs are small non-coding RNA transcripts of ∼22 nucleotides that regulate gene expression at the post-transcriptional level.39
+
+They do so by targeting sites of complementarity in the 3′UTR of mRNAs, thereby mediating mRNA decay or translational repression.
+
+miRNAs can repress multiple targets within the same pathway resulting in amplification of their biological effects.
+
+SNPs can create, destroy or modify sites for miRNA binding.
+
+Our results reveal that rs3480 with an A-to-G substitution in the 3′UTR of FNDC5 results in decreased expression of FNDC5 through two post-transcriptional mechanisms.
+
+Firstly, FNDC5-G suffered more degradation than did FNDC5-A; secondly, it also differentially bound mir-135a-5P.
+
+Hepatic levels of mir-135a-5P and FNDC5 as measured by ddPCR were upregulated and downregulated, respectively, in patients with NAFLD compared with controls.
+
+Not surprisingly, a positive correlation was present between mir-135a-5P and FNDC5 in normal individuals, while this correlation was reversed in NAFLD.
+
+This suggests that miRNA modulation of FNDC5 might be a form of “compensatory adaptation“ in normal liver, whereby the miRNAs do not downregulate the expression of FNDC5 and might indicate a signal for transcript downregulation.
+
+When fatty liver develops, the correlation becomes negative as adaptive mechanisms fail.
+
+mir-135a-5P is modulated more than FNDC5 in NAFLD, suggesting that induction of mir-135a-5P might be an early event in NAFLD development.
+
+Consistently, miR-135a levels were elevated in serum, plasma, renal and skeletal muscle in patients with diabetes compared to controls.40–42
+
+Notably, our pathway analysis also suggested that miR-135a maps to different pathways, including an overrepresentation of insulin signaling and type 2 diabetes pathways.
+
+In this regard, mir-135a has been shown to inhibit insulin signaling and glucose uptake by targeting insulin receptor substrate 2 (IRS2).
+
+Of relevance, we demonstrated that serum irisin level was negatively correlated with HOMA-IR.
+
+PARAGRAPH
+
+We found no association between FNDC5 rs3480 genotype or serum irisin levels with histological disease activity or fibrosis, or with liver tests as indices of liver injury.
+
+According to our data, genotypic variation at rs3480 has a modest effect size on steatosis and thus is likely insufficient to influence the transition to steatohepatitis and fibrosis.
+
+Our data however do not exclude the possibility of effects on inflammation and fibrosis in larger cohorts powered to detect such effects.
+
+This is relevant, as we have shown that serum irisin levels demonstrate an inverse correlation with measures of insulin resistance and dyslipidemia that are associated with inflammation and fibrosis.12,43
+
+However, the alternate possibility is that irisin disentangles steatosis from fibrosis.
+
+In this context, we have previously shown that serum leptin correlates with steatosis but not fibrosis in NAFLD,14 suggesting both shared and differential pathways between susceptibility to steatosis and risk of disease progression.
+
+PARAGRAPH
+
+A recent smaller study (n = 593) reported that the rs3480 (G) allele was associated with the severity of hepatic steatosis only in univariate analysis, consistent with our finding, while the association was lost after multiple logistic regression.44
+
+Surprisingly, in that study, the same allele was associated with less severe hepatic fibrosis.
+
+The reasons for this discrepancy are unclear.
+
+PARAGRAPH
+
+In conclusion, in this study we characterized a functional FNDC5 variant as an additional risk variant associated with hepatic steatosis independently of PNPLA3 and TM6SF2.
+
+This polymorphism influenced transcript stability, as well as the binding of miRNAs, suggesting a model whereby rs3480 modulates steatosis by regulating FNDC5 expression.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+ME and JG are supported by the Robert W. Storr Bequest to the Sydney Medical Foundation, University of Sydney; a National Health and Medical Research Council of Australia (NHMRC) Program Grant (APP1053206, APP1149976) and Project grants (APP1107178 and APP1108422).
+
+AB is supported by an Australian Government Research Training Program (RTP) scholarship.
+
+EB is supported by Horizon 2020 under grant 634413 for the project EPoS.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+M.M., M.E. and J.G. conceived the research; patient enrollment, clinical phenotype data collation and sample acquisition/DNA preparation, genotyping was performed; M.M., M.RG., L.A.D, R.A, C.G.M., M.T.A., E.B., L.M., R.G.D., J.F., T.B, C.L., L.Q., M.E, J.G., statistical analysis and interpretation of results was performed by M.M., A.B., M.E. and J.G, ddPCR: M.M., A.B; Tissue culture and luciferase assay: M.M, A.B and M.J, ELISA: K.T, Bioinformatics analysis: X.H., the manuscript was written and revised by M.M, M.E. and J.G. All authors critically reviewed the manuscript and approved the final submitted manuscript.

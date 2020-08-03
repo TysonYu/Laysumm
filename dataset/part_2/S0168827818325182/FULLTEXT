@@ -1,0 +1,571 @@
+10.1016/j.jhep.2018.10.034
+
+FULLTEXT
+
+TITLE
+
+Evaluation of a micro-spectrometer for the real-time assessment of liver graft with mild-to-moderate macrosteatosis: A proof of concept study
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The current organ shortage has led most liver transplant teams to use marginal grafts that modify the benefit-risk ratio for recipients and impose a heavy responsibility on the surgical teams.1
+
+PARAGRAPH
+
+Liver steatosis (LS) remains a major concern in liver transplantation (LT) because non-alcoholic fatty liver disease can affect up to 30% of individuals (potential donors) in western countries, as confirmed by the reported incidence of LS during procurement.2
+
+LS involves 2 types of steatosis: macrosteatosis (MS) characterised by a single, bulky fat vacuole in hepatocytes that displaces the nucleus to the edge of the cell, and microsteatosis when the cytoplasm of hepatocytes contains tiny lipid vesicles without nuclear dislocation.
+
+In almost all reports, only MS has negatively impacted outcomes after LT, while the low or negligible impact of microsteatosis is accepted.3–6
+
+If steatotic (MS) grafts are used, there is general consensus regarding a higher incidence of primary non-function and biliary complications, increased costs and longer stays in hospital, associated with poorer patient and graft survivals.7–11
+
+These grafts are more susceptible to cold ischaemia,12 which explains why there is a growing body of literature on the normothermic preservation of fatty livers in order to limit ischaemia-reperfusion disorders and induce “defatting”.1,13,14
+
+PARAGRAPH
+
+The principal issue regarding LS in the LT setting is the diagnosis and quantification of MS. There is a global agreement that mild MS (<30%) causes little or no graft injury, while a moderate (30–60%) or high (>60%) degree of MS constitutes a significantly higher risk.7,9,15,16
+
+However, the preoperative diagnosis of MS remains a challenge.
+
+Many non-invasive techniques have been described but their accuracy remains a matter of debate:17 i) ultrasonography is able to detect the presence of severe steatosis but remains relatively inaccurate (non-quantitative) and operator-dependent procedure;18 ii) despite many liver attenuation indices published, a diagnosis of mild-to-moderate LS remains insufficient using a CT scan;19,20 iii) the magnetic resonance spectroscopy examinations are accurate but costly and unavailable before organ retrieval;21,22 iv) the use of percutaneous ultrasonic controlled attenuation parameter (CAP) is a promising technique but we are still awaiting cheap machines with reliable and consensual cut-off values for the distinction of moderate/high LS content.23
+
+PARAGRAPH
+
+Practically, the final decision often relies on the macroscopic appearance of the graft, even though it is well known that an evaluation performed by the surgeon is poorly correlated to pathological estimations.24,25
+
+It must also be remembered that the results of frozen sections are not aligned with those of permanent sections, with MS being underestimated in 75% cases.26
+
+Moreover, a frozen section is not always technically feasible (organisational issues) as its accuracy depends on the hospital where the retrieval is performed (often peripheral), and it frequently results in a longer cold ischaemia time if the biopsy needs to be transferred from the hospital where the procurement takes place to the transplant centre.
+
+PARAGRAPH
+
+Recent publications in the LT setting on infrared spectroscopy have produced some very promising results as it enabled an accurate quantification of LS.27–29
+
+Spectroscopy is based on determining the absorption of infrared light due to resonance with vibrational motions of functional molecular groups.
+
+Clinical studies have already demonstrated the feasibility and reliability of this concept.30,31
+
+However, the outstanding issue is that this technique requires expensive and non-transportable equipment.
+
+Until now, clinical experiments required contact between a probe and the liver (introduction of a needle into the organ), this being an invasive technique with theoretical complications.
+
+PARAGRAPH
+
+We aimed to prospectively evaluate the feasibility and accuracy of a new “contact-free” portable pocket spectrometer to quantify MS in liver grafts.
+
+The main goal of this study was to correlate the estimated MS with the one obtained from the pathologists (continuous and categorical correlations).
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Spectrometer
+
+PARAGRAPH
+
+We used a pocket-sized micro-spectrometer (PSM) commercialised by SCIO – Consumer Physics (http://www.consumerphysics.com).
+
+This near infrared (700–1,100 nm) PSM is granted CE and FCC labelling and is sold for both the general public and professionals.
+
+It is provided with an application that can quantify the composition of foods, as well as estimating body fat levels and identifying analgesics.
+
+At present it is mainly used by professionals to test animal feeds, grains or raw materials, in manufacturing and in the pharmaceutical industry.
+
+For these purposes, it requires specific applications and algorithms which can test the desired variable and are developed by the users themselves after the creation of a dataset and models.
+
+To this end, a correlation between the spectra and known quantifications of the studied variable is necessary and obtained by creating a specific algorithm.
+
+PARAGRAPH
+
+The PSM is portable, small (68 × 40 mm), light (35 g), rapid (scan time <4 s) and affordable (Fig. 1).
+
+It delivers real-time results and requires 3 components: i) the SCIO spectrometer itself, ii) a smartphone (iOS or Android) connected by Bluetooth to operate the SCIO application, and iii) a secured internet connection to the SCIO Cloud in order to build a database (stage 1) and then query the pre-established algorithm (stage 2).
+
+SECTION
+
+Rationale for the present study (stage 0)
+
+PARAGRAPH
+
+Before starting this study, our first aim was to determine whether the application supplied (SCIO application – not developed for human organ assessment) could be used to quantify the fat content in human liver.
+
+Between September 2016 and November 2016, we tested several modules of the app (“dairy”, “raw fat”, “raw poultry”, “raw pork”, “raw fish” and “other raw meats”) on 25 livers.
+
+Compared with the definitive pathological results, none of the modules was able to quantify micro-, macro- or total steatosis (data not shown) and the values obtained by the PSM never correlated with the findings of pathological analysis.
+
+We concluded that in order to obtain an accurate PSM, we would have to create our own algorithm, calibrated on human livers.
+
+SECTION
+
+Design of the study (Flow chart, Fig. 2)
+
+PARAGRAPH
+
+This study was performed in a tertiary centre with extensive experience of LT (>150 LT per year).
+
+Because the PSM is a new diagnostic tool requiring specific calibration, this study was therefore carried out in two stages:
+
+PARAGRAPH
+
+Between December 2016 and February 2017, the first stage (S1, training cohort) enabled us to define the optimum conditions of use.
+
+We developed an algorithm that could determine the MS content from the liver scans.
+
+PARAGRAPH
+
+Between March 2017 and August 2018, we tested the algorithm (created during stage 1) on a new cohort of patients (validation cohort), mainly in the LT setting.
+
+This second stage (S2) was necessary to evaluate the accuracy of our algorithm.
+
+SECTION
+
+Study population
+
+PARAGRAPH
+
+During S1, we included different categories of patients and scanned various types of livers, namely grafts during procurement (deceased donors only) or after implantation into recipients, and also organs obtained during elective liver surgery (benign or malignant tumours).
+
+In the LT setting, no specific consent could be obtained because only deceased donor LT procedures were included in this study.
+
+However, livers from donors whose families refused the conduct of research were not scanned (information systematically given by the French agency regulating the transplantations).
+
+In the context of elective liver surgery all patients gave their informed and signed consent for medical research on their liver specimens.
+
+This study was conducted in accordance with the Declaration of Helsinki and the International Conference on Harmonization of Good Clinical Practices.
+
+PARAGRAPH
+
+No clinical decisions were based on the PSM findings in the context of this exploratory study.
+
+PARAGRAPH
+
+Exclusion criteria defined at the end of S1: age <18 years old; liver with underlying pathology: fibrosis ≥F2 Metavir score (definitive pathological assessment); cholestasis; patient having received chemotherapy; livers with malignant lesions.
+
+In fact, cholestasis (yellow colour), sinusoidal obstruction syndrome (blue colour) and fibrosis could have biased the spectral analysis.
+
+These criteria were established in accordance with our ultimate goal of assessing the steatosis of liver grafts (not in an elective surgery setting) and for this purpose we excluded all clearly pathological organs (namely cirrhotic, cholestatic and post-chemotherapy livers).
+
+SECTION
+
+Liver scanning protocol
+
+PARAGRAPH
+
+Surgeons (junior and senior operators) belonging to the Paul-Brousse team performed all the scans.
+
+The median time to scan the livers was less than 2 minutes, and the impact on the surgical procedure (stop of the procedure) was almost negligible.
+
+PARAGRAPH
+
+Operating conditions: the scan was performed at a distance ≤1 cm from the liver capsule, in a well-lit operating room (OR) with the surgical light switched off.
+
+At least 3 scans per liver were performed on the left lobe, near to the site of the surgical biopsy.
+
+All scans were performed during the heart beating phase, at 37 °C.
+
+PARAGRAPH
+
+All the data of this study were anonymized before sending to the secured server.
+
+SECTION
+
+Pathological analysis
+
+PARAGRAPH
+
+All the grafts analysed underwent a surgical biopsy in the left lobe (no needle biopsy), before clamping and/or after revascularisation.
+
+In the non-LT group, the non-tumour parenchyma was scanned and analysed for steatosis while the tumour content was not assessed for this study.
+
+PARAGRAPH
+
+The samples were fixed in alcohol-formalin-acetic acid, embedded in paraffin and stained with standard haematoxylin eosin safran and picrosirius stain.
+
+The samples were blindly analysed by the team of the pathological unit.
+
+Secondarily, a single experienced pathologist (M.S.) reviewed the samples, specifying the microsteatosis and MS content.
+
+In case of discrepancy, we noted the mean values between operators.
+
+SECTION
+
+Spectral analysis
+
+PARAGRAPH
+
+Spectral analysis was performed online using the developer’s website (SCIO®) in order to determine a correlation between known and estimated values.
+
+The only parameters modulated were: i) the pre-processing method: processed, normalised, processed and normalised, or (log(R))” + normalised, and ii) the wavelength filtering.
+
+The analytical algorithm was not communicated but the performance of the models was shown by means of 2 indicators: the coefficient of determination (R2: measuring the degree of replication by the model of observed outcomes) and the root-mean-square deviation (RMSE: sample standard deviation of the differences between predicted values and observed values).
+
+A perfect model would have values of R2 = 1 and RMSE = 0.
+
+In the sections below, the estimation of MS by the algorithm is referred to as the “calculated macrosteatosis”.
+
+SECTION
+
+Sample size calculation
+
+PARAGRAPH
+
+To obtain a correlation (ρc) of at least 0.35 (i.e. at least a fair correlation) between the 2 assessments of macrosteatosis, and based on an alpha risk of 5% and a power of 90%, the calculated sample size was (at least) 80.
+
+We enlarged this required cohort to obtain a higher proportion of steatotic specimens.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Epidemiological, pathological and clinical data were all collected by one operator (N.G.).
+
+Quantitative continuous variables were expressed as mean ± standard deviation (SD), while qualitative variables were expressed as numbers (n) and percentages (%).
+
+PARAGRAPH
+
+Correlations were presented as scatterplots generated using Lin’s concordance correlation coefficient (ρc).
+
+These scatterplots were obtained by averaging 1,000 bootstrap samples (sampling with replacements) from the original population (n = 154).
+
+This method was able to limit the impact of outliers and enable more robust representations.
+
+PARAGRAPH
+
+To provide clearer information, the kappa coefficient (κ) was also calculated to assess the consistency between pathological MS (gold standard) and calculated MS. To achieve this second analysis, the MS values were placed within 2 ranges (<30, ≥30).
+
+PARAGRAPH
+
+Overall uncertainty was presented as accuracy and systematic bias with a 95% confidence interval.
+
+The reproducibility represented the variability between measures obtained from the same sample with the same method; it was an approximation of the R2.
+
+PARAGRAPH
+
+The systematic bias corresponded to the systematic error that was introduced in all calculations, i.e. the precision of the values we obtained.
+
+PARAGRAPH
+
+The results of this series were presented according to the STARD guidelines.
+
+P values ≤0.05 were considered statistically significant.
+
+All statistical analyses were performed using PASW software, version 22 (SPSS Inc., Chicago, Ill).
+
+SECTION
+
+Results
+
+SECTION
+
+Stage 1: Calibration = creation of the algorithm
+
+PARAGRAPH
+
+During the first step of the methodology, we included 67 livers (270 scans) from donors (n = 18), recipients (n = 25) and patients undergoing elective liver surgery (n = 24).
+
+The characteristics of the population are shown in Table 1.
+
+PARAGRAPH
+
+For the whole group, we failed to create a reliable algorithm that could predict LS (Fig. 3A).
+
+Whatever the pre-processing method and wavelength analysed, we were not able to achieve an R2 value >0.4.
+
+PARAGRAPH
+
+We applied selection criteria (proposed after iterative approach) on this cohort and finally analysed only 35 livers (138 scans).
+
+Known MS values ranged from 0% to 60%, while those for microsteatosis were between 0% and 50%.
+
+By filtering the spectral wavelength between 895 nm and 945 nm, we were able to create an algorithm, and this model predicted MS with R2 = 0.811 and RMSE = 5.26 (Figs. 3B and 4).
+
+PARAGRAPH
+
+However, we failed to create an accurate model that could predict microsteatosis or global steatosis.
+
+SECTION
+
+Stage 2: Validation of the pre-established algorithm
+
+PARAGRAPH
+
+The algorithm obtained during stage 1 was then tested on a new prospective cohort of organs (n = 154).
+
+We performed 4.1 ± 1 scans/liver analysed.
+
+Nine livers reached a definitive MS ≥30%.
+
+PARAGRAPH
+
+Lin’s correlation between the estimated MS values (using PSM) and known MS values was 0.78 (0.73–0.83; p <0.0001).
+
+The accuracy of our algorithm was of 0.91% (0.84–0.98); its reproducibility was 86.3% with a systematic bias of 1.12% (0.24–1.99).
+
+PARAGRAPH
+
+After applying the MS ranges (<30%; ≥30%), the kappa agreement index between the PSM and the pathological results was 0.79.
+
+The sensitivity, specificity, positive and negative predictive values for MS ≥30% were 66.7%, 100%, 100% and 98%, respectively.
+
+PARAGRAPH
+
+As shown, none of the potential preoperative predictors of MS available for acceptance decision (body mass index, liver height, liver-to-spleen attenuation ratio) achieved a reliable correlation with the pathological results because the correlation was <0.3 (Table 2 and Fig. 5).
+
+Although statistically significant (p <0.05), graft weight and body mass index (BMI) generated a poor correlation with the MS.
+
+PARAGRAPH
+
+In the validation cohort, 10 patients presented at definitive pathological analysis a microsteatosis ≥30%.
+
+Among these patients, the mean (definitive) MS was of 5.1 ± 4.3% and the maximum MS was of 10%.
+
+All the MS estimations by the PSM were <17%, meaning that the algorithm was able to differentiate the MS from microsteatosis.
+
+PARAGRAPH
+
+During this validation stage, 2 (junior) surgeons refused a graft (n = 2) because of their steatotic gross appearance.
+
+No frozen sections were performed because no pathologist was available during the night and the hospital was too distant from our transplant centre to send a biopsy specimen.
+
+These procurements were stopped.
+
+In both cases, the permanent section analysis contradicted the visual fat estimation, and showed 5% MS only.
+
+The PSM also confirmed the low-fat content of these refused grafts (respectively 3% and 5% MS).
+
+If the surgeons had considered the PSM values into their decision algorithm, these 2 grafts would have been transplanted.
+
+SECTION
+
+Performance of the frozen section analysis vs. PSM estimation
+
+PARAGRAPH
+
+During the study time, a frozen section analysis was only performed on 7 donor grafts for MS and fibrosis assessment.
+
+The Lin’s correlation between the frozen section and pathological definitive assessments was 0.59, whereas it was 0.73 between the PSM and definitive pathological assessment (MS analysis).
+
+The median difference between frozen section and definitive analysis was of 10.8% ± 16, whereas it was of 6.5% ± 9 for the PSM (p = 0.43).
+
+SECTION
+
+Discussion
+
+SECTION
+
+Statement of principal findings
+
+PARAGRAPH
+
+Using a commercial PSM for macrosteatosis quantification, we created our own algorithm that could correlate the liver spectra with the definitive pathological assessment, and we confirmed its accuracy on a second independent cohort.
+
+The good coefficient of correlation (0.78) between the estimated and known MS confirmed the relevance of our algorithm.
+
+The specificity and negative predictive value were particularly high, thus confirming that the actual algorithm is able to determine with a great confidence the low steatotic livers.
+
+Moreover, we did not observe any false positive cases, meaning that the operator should be very vigilant before accepting a graft with a PSM value ≥30%.
+
+The PSM was more accurate than frozen section to estimate MS content.
+
+PARAGRAPH
+
+This non-invasive device, which is both transportable and affordable, could become part of the standard surgical equipment necessary during liver procurement and, with the view of clinical use, the PSM will provide the raw MS percentage and the clinician will be able to accept or not the organ (multiparametric decision).
+
+SECTION
+
+Strengths and weaknesses of the study
+
+PARAGRAPH
+
+The principal strength of this study was its prospective design involving 2 independent cohorts (1 for calibration and 1 for validation).
+
+Thanks to a large sample size, we were able to define the optimum conditions for use, and we obtained a highly accurate algorithm.
+
+Another advantage of this device is the potential upgradability of the algorithm during the coming months/years, when we will have included hundreds of patients.
+
+PARAGRAPH
+
+However, this study had certain limitations.
+
+First, we did not scan any livers with MS over 60%.
+
+This was a surprising finding, mainly explained by the fact that the 2 livers rejected because MS >60% (visual assessment confirmed at definitive pathology) were not scanned due to the absence of a network during procurement.
+
+This limits the scope of our algorithm because we cannot know if such a high fat content might have been assessed correctly by the PSM.
+
+One might argue that such steatotic livers do not present difficulties for macroscopic assessment and the PSM would probably have been of no added-value in such obvious cases.
+
+However, in order to achieve a rigorous evaluation, it will be necessary to study such grafts.
+
+It is worth noting that 3 patients had a BMI over 40 kg/m2 (max: 53 kg/m2) but none of them presented with MS over 15% (range: [5–15%]).
+
+This confirms the lack of correlation between BMI and MS. This low incidence of highly steatotic grafts could be explained because a surgical team is not generally dispatched for procurement when a highly steatotic liver is suspected.
+
+This limitation will be avoided in any future prospective and multicentric study when all grafts will be scanned, whether the organ is transplanted or not.
+
+PARAGRAPH
+
+Because of the high prevalence of livers with low/intermediate fat content, the most reasonable conclusion to be drawn from our study is that the PSM never overestimates the MS of “good livers”, and probably does not underestimate high values for “marginal livers”.
+
+This means that use of the PSM will not cause the incorrect refusal of acceptable grafts.
+
+We have to confirm these promising results.
+
+PARAGRAPH
+
+Secondly, neither microsteatosis nor global steatosis could be predicted by the PSM.
+
+In fact, our algorithm was exclusively calibrated to quantify MS.
+
+PARAGRAPH
+
+Another limitation was the use of pathological assessment when calibrating our PSM.
+
+It would probably have been more accurate to use Fourier-transform infrared spectroscopy (F-TIR) or an automated software,32,33 even though these costly techniques are not yet established as the gold standard and necessitate specific equipment.
+
+More importantly, F-TIR requires preparation of the sample that is not appropriate in routine practice and large data collection.
+
+We are aware of the potential biases of pathological analysis, even for expert pathologists.34
+
+For this reason, all the samples were analysed a second time by a single blinded operator (M.S.) and we reached an excellent inter-observer reproducibility.
+
+PARAGRAPH
+
+The lack of external validation could also appear as a strong limitation of our study.
+
+In that aim, we will soon implement a prospective multicentric study to validate (or improve if required) our algorithm.
+
+The last limitation of this device that has prevailed until now is the need for a GSM network (or WIFI) while scanning the liver in order to access the online algorithm.
+
+For this reason, 40% of the procurements performed during the study were not scanned, thus justifying a scan in the recipients.
+
+With the application that we are currently developing for the future, it will be possible to scan offline and then transmit the data as soon as a network is available.
+
+SECTION
+
+Interpretation with reference to other studies
+
+PARAGRAPH
+
+MS is a major concern in the LT and re-LT settings9,35 and its importance will increase as larger numbers of marginal grafts are used during the decades to come.
+
+To the best of our knowledge, no other tool is validated to quantify MS during procurement and there is unanimous agreement that imaging techniques cannot predict fat content.17
+
+Biochemical data on the donors are also well known to correlate poorly with steatosis,36,37 and complex scores/biomarkers have failed to differentiate moderate vs. severe steatosis.38,39
+
+Some authors recently reported their preliminary experience with diffuse reflectance spectroscopy in the OR30,31 but it is not cost efficient to equip every OR with such expensive devices.
+
+Interestingly, the correlation between pathological results and those of their device was 0.8–0.9, which was as good as ours.
+
+PARAGRAPH
+
+The assessment of MS in liver allograft biopsies using smartphone add-on lenses has recently been reported.40
+
+This device does not appear to be as useful as our PSM because it requires a biopsy and a prepared slide (3 µm tissue section).
+
+Another pilot-study has been published by a French group, assessing the performance of a smartphone camera to quantify the LS.41
+
+Although promising, this work only evaluated 12 livers and the algorithm did not differentiate the microsteatosis from the MS.
+
+PARAGRAPH
+
+When considering the potential advantages (or disadvantages) of PSM vs. a liver biopsy (frozen or permanent section), consideration must be given of the heterogeneity of steatosis within the liver.
+
+For this reason, and particularly in borderline cases, at least 2 biopsies (from 2 sites) need to be performed.42,43
+
+This increases the time required for interpretation and the risk of potential liver injury.
+
+Conversely, it is possible to scan many times both sides of the liver with the PSM and to obtain an MS estimation within just a few seconds.
+
+PARAGRAPH
+
+Opinions vary considerably regarding the assessment and management of graft steatosis across countries and teams.44
+
+No consensus has been reached as to a decision-support algorithm.
+
+We are proposing a new, user-friendly and accurate tool that could homogenise practices and enable systematic testing for MS in the OR.
+
+We believe that this device offers a new surgical technology that meets all requirements and could be adopted rapidly by the surgical community: there is high clinical demand, it is easy to use, inexpensive and compatible with current practices (no need to reorganise procedures).45
+
+Moreover, new policies have just been introduced in France regarding liver retrieval performed by urologists or a local team.
+
+In this case, the PSM could offer a valuable decision-support tool for these “non-HPB” surgeons.
+
+PARAGRAPH
+
+In the near future, the role of PSM will be challenged by transient elastography and the CAP, a tool that can be used at the bedside and that provides estimates of both fibrosis (elastography) and steatosis.23
+
+However, compared to the PSM, the CAP remains operator-dependent and the cut-off points for different grades of steatosis remain ill defined.39
+
+PARAGRAPH
+
+In terms of perspectives regarding new uses for liver spectroscopy, we propose to use the PSM to help the clinician for the selection of marginal graft for normothermic preservation46 and for the follow-up of defatting,13,14 as it has been proved that steatosis decreases rapidly after perfusion.47
+
+This might avoid the need for repeat biopsies and perfusion can be halted as soon as the MS percentage reaches the targeted cut-off value.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+In these preliminary results, we have shown that our algorithm, calibrated and validated on human livers, was well correlated to the pathological assessment for prediction of the MS content of liver grafts.
+
+This is the first tool specifically calibrated to assess graft MS, as other devices only estimate the global steatosis.
+
+Its low cost and the immediacy of its results may offer considerable value-added decision support and avoid the detrimental and prolonged ischaemia required for pathological examination in the event of a (potentially) marginal graft.
+
+However, the PSM algorithm now needs to be evaluated (and upgraded in a more sensitive way) in a larger scale multicentric study to definitively validate its utility and its impact on the organisation of LT.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The authors received no financial support to produce this manuscript.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Golse: Writing paper, design and data collection manager.
+
+Cosse: Statistical analysis.
+
+PARAGRAPH
+
+Golse, Allard, Laurenzi, Tedeschi, Pietrasz, Guglielmo, Fernandez-Sevilla, Robert, Tréchot, Pittau, Ciacio: Data acquisition during procurements.
+
+Reviewed the manuscript.
+
+Sa Cunha, Castaing, Cherqui, Adam: performed surgeries, study supervision.
+
+Sebagh: Pathological analysis.
+
+Samuel: supervision and correction of the manuscript.
+
+Vibert: Supervisor of the work, manuscript correction.

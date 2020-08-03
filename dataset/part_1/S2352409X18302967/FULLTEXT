@@ -1,0 +1,337 @@
+10.1016/j.jasrep.2018.08.026
+
+FULLTEXT
+
+TITLE
+
+Migration or landscape fragmentation in Early Medieval eastern France? A case study from Niedernai
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Human-environmental networks are based not only on physical but also mental concepts of the surrounding landscape on different spatio-temporal levels (Butzer, 1982; Brather, 2017).
+
+Landscapes not only provide resources but also include a system of layered cultural, social, religious and cultic meanings (Brather, 2011; Zimmermann et al., 2005; Fleming, 2006; Bintliff, 2008; Lüning, 1997; Meier, 2009, 2017; Doneus, 2013; Ermischer, 2004).
+
+Cognitive maps (Ingold, 2000; Butzer, 1982) reflect socio-cultural as well as pragmatic and economic interests (Gramsch, 1996), that result in modified land-use methods and local human-environmental interaction.
+
+In Early Medieval archaeology, however, fluent transformation of landscape concepts due to changes in physical conditions, technical enhancements and administrative circumstances in the late 5th and early 6th century AD are traditionally linked to large-scale migration processes after the so-called ‘Fall of Rome’ (e.g. Von Rummel, 2013; Fehr, 2010).
+
+Depending on the scale, permeability and availability of the environment, ‘barbarian invasions’ can rather be replaced by intra-site mobility, fragmentation and social remodelling of small groups displaying various identities in a joint environment (e.g. Halsall, 1999).
+
+In this case, the study site represents a part of the periphery of the former Roman Empire that has been selected to conduct GIS-based spatial analysis of the Early Medieval archaeological record, the surrounding geological and pedological units, as well as the modern landcover deriving from satellite imagery.
+
+Within the broad research area of the Upper Rhine Valley, a 5th and 6th century graveyard with 31 graves and 32 human individuals at Niedernai, France (Brather-Walter, 2015) permitted the assessment of land-use strategies of a small and continuous population at the transition to the Merovingian Period.
+
+The interconnections between graveyards and settlements were evaluated in terms of distance analysis to further estimate a possible modern bias caused by present-day residential coverage.
+
+SECTION
+
+Material and methods
+
+SECTION
+
+Regional settings
+
+PARAGRAPH
+
+The research area in the Upper Rhine valley belongs to an agriculturally intense used region with mild winters, early springs and warm autumns favoring an early phenological phase and long vegetation periods (Stork and Menzel, 2016).
+
+The valley represents a regional section of the northern hemisphere frontal zone at the transition from subtropical warm to subpolar cold air masses (Häckel, 2016; Parlow et al., 2006).
+
+The location of the orographic barrier almost perpendicular to the prevailing western air flow affects the spatial and temporal distribution of precipitation on a regional level (Minářová, 2013; Minářová et al., 2017).
+
+Rainshadow on the leeward side of the Vosges is leading to dry conditions with only up to 550 mm per year in the Upper Rhine low-lands (Minářová, 2013; Parlow et al., 2006) whereas the opposite Black Forest shows a yearly mean amount of precipitation between 1200 and 1900 mm (Bieling and Konold, 2014).
+
+Soil formation in the Alsace is strictly coupled to the dominant geological sequences spreading W-E from intensely weathered granitic and metamorphic bedrock (Baltassat et al., 2003), over a 1000–2000 m thick Mesozoic sediment layer to an up to 3500 m thick Cenozoic sedimentary graben fill (Grimmer et al., 2017; Tatzel et al., 2017) with loess-covered zones between 300 and 500 m a.s.l. (Lehmkuhl et al., 2016).
+
+Former alluvial wetland forests almost entirely disappeared after the channeling of the Rhine between 1817 and 1857 (1876) due to ground-water table lowering and intensified river-bed erosion downstream of Basel (Parlow, 1996; Wetter et al., 2011).
+
+The formation of deep, nutrient-rich soils with high potential root penetration is directly linked to the loess-covered areas along the foothills and secondary accumulated loess-rich alluvial deposits at the transition zone to fluvial sediments of paleochannels or tributary waters of the Rhine (Ehlers et al., 1983; Glinski, 2018).
+
+SECTION
+
+Geological settings
+
+PARAGRAPH
+
+Based on the digital geological map of Germany (GK1000, BGR Hannover 2014/GK300, LGRB Freiburg, 2018) and an analogue soil map of the ARAA (Association pour la Relance Agronomique en Alsace) a GIS background was defined to evaluate the distribution of findings in the Alsatian floodplain and foothill area (Fig. 5c).
+
+Loess-covered zones are interchanging with alluvial sediments and relocated loess along the draining rivulets.
+
+These elongated gully-like channels represent erosional cuttings in the otherwise homogeneous loess areas.
+
+The environment of the Niedernai graveyard shows sequences of rich soils linked to the slightly elevated loessic areas and secondary zones of accumulated soil mosaics formed by alluvial Loess deposits or gravelly and sandy sediments from the distant mountain range.
+
+The terrain is considerably plain with only small outcropping plateaus towards the lower terrace.
+
+However, roughness increases towards the western foothill zone.
+
+A pronounced alluvial deposit between lowland and upland constitutes a separation or transition between flood zone and upland.
+
+The sediment stratigraphy with Rhine-gravel and sandy banks of the floodplain drainage system also marks the shift from a zone with a high groundwater table and periodical flooding of a formerly meandering river towards drier conditions in the western part (e.g. Thierion et al., 2012).
+
+SECTION
+
+Archaeological database
+
+PARAGRAPH
+
+The archaeological information was exported from the database ArkeoGIS (Bernard, 2014; David et al., 2017).
+
+A Roman and an Early Medieval archaeological database were created to further distinguish in settlement structures or settlement ‘noise’ and Early Medieval burial grounds.
+
+The databases were then adjusted and corrected in terms of small flaws.
+
+The files in csv-data format were uploaded to QGIS for spatial analysis (Table 1).
+
+Early Medieval settlement evidence in the research area is extremely rare (Kempf, 2018a, 2018b).
+
+Hence, the interpolation of nearby row-grave cemeteries, single-graves and grave-groups allow the estimation of potential landscape-penetration and thus possible land-use patterns (Zimmermann et al., 2009).
+
+Due to the insufficient settlement data basis, the possible bias of modern residential landcover was estimated using distance analysis of present day villages and Early Medieval burial grounds (Fig. 7).
+
+The hypothetical settlement and land-use continuity in the study area would entail the theory of a static settlement core.
+
+That core would represent the most adequate settlement of each micro-locale and eventually not experience any significant displacement at a later stage.
+
+Consequently, two distinct databases for the German and the French part of the research area were created including modern residential areas and areas sealed with buildings to fill up wherever data gaps occurred.
+
+The centroid of each polygon was calculated and filed as point layer to simulate a hypothetical village centre.
+
+Subsequently, the nearest neighbour distance between the Early Medieval burials and the point layer was calculated to attribute the closest point to each burial ground.
+
+SECTION
+
+Archaeological site of Niedernai
+
+PARAGRAPH
+
+The Necropolis of Niedernai ‘Kirchbuehl’ is located south-east of Strasbourg and stretches approximately 17 km from the river Rhine and only 500 m from the alluvial plain of the tributary l'Ehn (Schnitzler et al., 2009, 341) (Fig. 1).
+
+Rescue excavations took place in 1995 under the direction of Marianne Zehnacker (Zehnacker, 1997).
+
+The site dates to the second half of the 5th and the beginning of the 6th century and represents the very rare case of an almost entirely excavated transformation-period burial ground (Brather-Walter, 2018).
+
+32 individuals were identified among the half of them were female, one quarter male and one quarter children burials, respectively (Fig. 2) (Brather-Walter, 2018).
+
+The burial community, however, might not be representative of the society's composition what is additionally mirrored by the long-term occupancy revealed by radiocarbon dating and the typological analysis of grave goods by Dr. Susanne Brather-Walter, University Freiburg/Tübingen (Brather-Walter, 2018) (Fig. 3).
+
+SECTION
+
+Remote sensing and spatial analyses
+
+PARAGRAPH
+
+Mapping archaeological findings on geological units to assess land-use strategies and opportunities particularly depends on the scale, accessibility and permeability of the research area (e.g. Dincauze, 2000).
+
+Mere illustration of findings might hide the actual provenance of the material and automatically leads to a possible misinterpretation and eventually environmental determinism: ‘archaeological gaps’ in the landscape are not primarily built by lack of evidence but rather by lack of knowledge.
+
+Hence, modern vegetation coverage has an impact on the archaeological density by two possibilities.
+
+First, the former vegetation-cover is controlled by physical parameters such as soil type and drainage systems that furthermore influenced the potential quality of the cultivatable land.
+
+Areas with less fertile soils could therefore preferably be used as grassland and pasture instead of intense cropland in close distance to a settlement.
+
+The primary composition of archaeological findings would consequently be lower – notwithstanding the fact that the landscape experienced cultural exploitation.
+
+Secondly, the modern intensified land-use brought to light a vast number of fragmented archaeological evidence.
+
+However, areas with little earth movement such as woodlands and pastures stay mostly unaffected giving the idea of uninhabited badlands.
+
+For this reason, the critical approach to estimate land-use patterns through the convergence of the archaeological and the environmental record needs to integrate modern vegetation coverage to not slip into circular reasoning and misinterpretation.
+
+PARAGRAPH
+
+Remotely sensed data derived from Satellite imagery that was downloaded from the USGS [LandsatOLI8, (path 196, row 26), recorded 2017-05-22, acquisition date 2018-07-23; spectral bands [micrometers]: Blue (ch2): 0.452-0.512; NIR (NIR Infrared, ch5): 0.851-0.879; SWIR (Shortwave Infrared, ch6): 1.566-1.651 (Barsi et al., 2014)].
+
+The Landsat image was then recalculated to a false colour image with the spectral band combination ch6, ch5, ch2 (RGB) to monitor agricultural crops (Herbei et al., 2015).
+
+Forest-covered areas were additionally identified by applying land-cover datasets provided by the German BKG (German Federal Cartography Office) and the French CIGAL (GéoGrandEst-Coopération pour l'information géographique du Grand Est).
+
+The convergence allowed not only the differentiation into agriculturally utilized areas but also the subdivision into woodland and extensive grassland or pasture (Fig. 4e).
+
+Further, the Early Medieval archaeological record that consists of a burial-database was mapped to visualize potential congruence of density patterns (Fig. 5b) with geological units (Fig. 5c) and land-cover classes (Fig. 5d), respectively.
+
+Finally, the composite of the environmental and archaeological data displays Early Medieval land-use strategies that can further be used to identify potential settlement and land-use continuity in comparison to modern settlement patterns (Figs. 6 and 7).
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+The land-cover vegetation classes are primarily depending on local soil quality and hydrological features thus enabling the classification of ground-water controlled soil formations in contrast to soil types dominated by periodical flooding events.
+
+The ground water table of the central Alsatian plain is close to the soil level (Schnitzler, 1994) what causes groundwater rising in surface channels cut into the gravel (Trémolières et al., 1993).
+
+Although areas directly influenced by water table flooding are less likely to be eroded and show an increase in humus percentage (instead of river flooding), the soil types are less drained and rather permanently moist (Clandillon and de Fraipont, 2000).
+
+The difference in high water storage capacity (Loess), strong drainage capacity (Last glacial fluvial deposits, gravel, river flooding areas) and high waterlogging potential (flood sediments, water table flooding areas) is directly visible in the geographical split of the archaeological record (Fig. 6).
+
+Archaeological records from the Imperial Period are strikingly tied to the transition zones of the loess-covered areas to alluvial deposits indicating paleochannels or small rivulets that are not detectable by modern spatial mapping.
+
+The fluvial sediment layers point towards direct access to running freshwater.
+
+On the other hand, the sandy and gravelly lowlands of the floodplain remain almost empty.
+
+These zones are also represented by broad forest-covered areas that point towards wet soil conditions rather suitable as pasture or grassland cultivation.
+
+The following Merovingian Period is characterised by a broad spreading of archaeological evidence in zones that have formerly not been utilized for agriculture.
+
+Beside the abundance of findings along the loess-covered ridges of the foothill area, a secondary focus lies on the stripe of gravelly last glacial fluvial deposits between the separating sandy and loamy alluvial deposit of the lower floodplain.
+
+This intra-site micro-region shows noticeable orientation along freshwater access and a preferably short-distance availability of rich soil coverage in combination with a lower water-table and hence decreased waterlogging vulnerability.
+
+However, the overall abundance of findings in the lower floodplain is generally located on fluvial deposits in rather long distance from nutrient-rich profound soils with high potential storage capacity (loess).
+
+PARAGRAPH
+
+The shifting in land-use strategies is directly visible in the dispersal of Early Medieval burials in the research area (Figs. 6b and 7b).
+
+The burials on the Alsatian bank of the Rhine are situated in short distance to the modern village centres what might indicate settlement continuity in most of the cases.
+
+In Niedernai there are three burial spots located around the centroid of the village polygon in 800–900 m distance.
+
+A similar distance can be observed in Obernai with two additional burial grounds close to the centroid.
+
+The majority of the burials in the Alsace are situated under 1000 m in distance to the next village centroid.
+
+Only a few show values of larger distances.
+
+The counterpart on the other side of the Rhine not only displays a significant concentration along the lower terrace but also larger distance values between burials and present-day village centre.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The transition from the Imperial Period to the Early Middle Ages is characterised by the formation of a peripheral community with a common environmental surrounding that allowed the creation of local mobility and a local trade network (Kulikowski, 2005).
+
+Wide spread social and cultural changes or migration movements due to political occurrences associated with the so-called ‘Fall of Rome’ (Halsall, 2014) are not automatically apparent.
+
+However, the fragmentation of peripheral communities in a rather scattered environment underlies certain natural factors.
+
+Heavy rainfall and a corresponding high ground water level might have led to periodical flooding of the lower parts of the plain (Redde, 2015), thus creating settlement plateaus in more elevated zones that are nowadays not identifiable due to strong modern rearrangement of the topsoil layer (Schnitzler, 2011).
+
+The increasing number of find spots dating to the Early Medieval Period might indicate a rising number of small-scale self-sufficient dwellings.
+
+The shift in land-use strategies from fertile loess-covered zones to lower areas of the Upper Rhine floodplain could be explained by the advancement of the economic situation and the transition to rye cultivation (Brombacher and Hecker, 2015), but is traditionally linked to extensive population exchange during the so-called ‘Migration Period’ (Frosdick, 2014; Halsall, 2014).
+
+The establishment of the row-grave cemeteries in peripheral transition zones (Fehr, 2010) and hence the composition of the grave furniture reflects the social status, representation needs and internal distinction of individuals and groups (e.g. Curta, 2007).
+
+The grave goods of the Niedernai cemetery underline the assumption of local activity spheres: A folding chair and a characteristic golden fingering with garnet decoration from a well-equipped female grave (grave 33) (Brather-Walter, 2015) point towards the other side of the Rhine.
+
+Similar counterparts were found in the mid 1970's at Mahlberg, Germany - located only 30 km south-east of Niedernai (Brather-Walter, 2015; Fingerlin, 1979).
+
+Another corresponding object was found 100 km upstream in Basel-Kleinhünigen (grave 126) (Brather-Walter, 2015).
+
+Furthermore, at Obernai, in close vicinity to the Niedernai Necropolis, an early Merovingian cemetery with 18 burials has been excavated by the INRAP (Institut national de recherches archéologiques preventives).
+
+One of the individuals showed a particular deformation of the skull (for further information, see: https://www.inrap.fr/un-site-archeologique-d-exception-obernai-bas-rhin-plus-de-6-000-ans-d-5306).
+
+For that very reason, the burial community among the individual is labelled ‘Eastern European’ origin.
+
+The woman with ‘Hunnic’ skull modifications seems to have wandered quite a considerable distance during the so-called ‘Migration Period’ to finally get buried in Obernai among other individuals that do not show any similar deformations.
+
+No isotope analysis were conducted to reconstruct dietary habits and local ranges of crop cultivation parallel to a locally produced and valid Strontium baseline.
+
+However, comparable studies in Germany also linked skull modification with large-scale migration processes of women in the 5th and 6th century (e.g. Hakenbeck, 2011).
+
+According to Robin Fleming, this hypothesis is almost certainly wrong (Fleming, 2016).
+
+Corina Knipper et al. showed that the Strontium isotope ratios as well as the plotted Carbon and Nitrogen samples of the two female individuals with deformed skulls of Obermöllern, Germany (graves 5 and 6) fall into the local range (Knipper et al., 2013).
+
+Matthew Schweissing and Gisela Grupe could also not verify a possible foreign origin for five out of six individuals with skull modifications from Bavaria (Schweissing and Gruppe, 2000).
+
+It is therefore not possible to explain large-scale migration processes through temporary cultural phenomena.
+
+PARAGRAPH
+
+A rather regional composition trend (Brather-Walter, 2015) could have been established in the late 5th century indicated by a circulation area of valuable objects along the Upper Rhine Valley.
+
+The across-river distribution would underline the supposed communication network and mobility of either individuals or objects or influencing spheres of fashion and concepts of material appearance.
+
+The broad meandering river course, apparently, did not hamper the expansion of the influencing sphere but support the negotiation of objects along a south-north running trading route.
+
+PARAGRAPH
+
+The shift from former centralised Roman administrative structures to fragmented dwellings in the transition period of the late 5th century also reflects a shift in production- and dietary-communities (Bakels, 2005; Knipper et al., 2013).
+
+Small-scale human spheres are represented by small-scale housing patterns with local food-production of a continuous population.
+
+It is therefore not necessary to construct narratives of massive migration processes in the so-called ‘Barbarian Migration’ (Montgomery, 2010).
+
+The poor preservation status of wooden remains in Early Medieval settlement archaeology and the misinterpretation of historical sources lead to assumptions of a constructed self-image that is not supported by archaeological findings (e.g. Van Dommelen, 2014).
+
+5th and 6th century settlement distribution analysis does not always allow direct access to the actual settlement development of a site.
+
+In combination with modern intensive land-use and soil erosion processes, the picture of Early Medieval land-use strategies often remains incomplete.
+
+Entirely excavated Merovingian settlements still represent the rare case in Early Medieval archaeology (Schoenenberg, 2014; Kempf, 2018a, 2018b).
+
+The lack of findings might be linked to the poor preservation status of wooden artefacts in the rather dry environments of well-drained soil types with low ground-water tables.
+
+However, the Alsatian flood plain is widely dominated by circulating and uprising groundwater and hence rather humid soil conditions.
+
+Furthermore, before the channeling and regulation of the river Rhine, a higher ground-water table can be assumed that would have been leading to more periodically flooded surfaces and waterlogging processes (Dister et al., 1990; Middelkoop et al., 2001).
+
+So where are the Early Medieval settlements?
+
+Another theoretic approach would propose the congruence of the modern villages and their historical centres around the church with the Early Medieval settlement spot (Bremer, 2016).
+
+That would suggest a static settlement development after the institutionalisation of an early church and the successive abandonment of the row grave cemeteries after 700 CE.
+
+The distribution of the Early Medieval archaeological burial record in the research area would underline the hypothesis of a continuous settlement development in post-Merovingian periods.
+
+The Early Medieval settlement areas were well selected in terms of water accessibility and high quality soil proximity (Faustmann, 2007; Kempf, 2018a, 2018b).
+
+Location factors regarding farmland and pastures did not change significantly before the intensive application of fertilizer in modern times.
+
+Early Merovingian administrative and political structures (e.g. Steuer, 1989), however, are hardly traceable and thus not applicable in the Alsace and south-western Germany.
+
+The constantly populated areas of the Medieval centres would therefore not alter drastically in extension, thus covering the early traces of Merovingian settlements.
+
+PARAGRAPH
+
+The distance relationship between row-grave cemetery, grave groups, single graves and the corresponding settlement(s) is quite unclear (Zadora-Rio, 2003).
+
+The assumption, that Early Medieval shifting settlements (Hamerow, 1991) and the corresponding burial practices phased out after 700 CE with the establishment of a churchyard (Scholkmann and Gut, 2010) has been challenged by recent studies of settlement internal burials in southern Germany dating to the 9th or even 10th century (Müller, 2018).
+
+Although no absolute value for an ‘optimal’ distance between settlement and burial ground can be provided by this study, a pragmatic approach based on both topographical (roughness) and geomorphological (wet/dry) elements could be assumed for the establishment of an initial cemetery complex.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+Conceptual and human spheres neither act on the same scale nor are they usually congruent (Gramsch, 1996).
+
+Human mobility is usually characterised by the exchange of goods - though it is not clear if it is the material which is negotiated or the individual himself is mobile (e.g. Oelze et al., 2012).
+
+It is therefore not always useful to equate individual intra-site mobility with large-scale migration processes but rather estimate the scale of local or regional material horizons, fashion trends and hence mobility patterns.
+
+Local spheres in the so-called ‘Migration Period’ are represented by small-scale interactions of groups in the study area.
+
+The hypothetical settlements would be situated next to each other in a larger framework of an environmental surrounding that includes homogeneously fertile and rather agriculturally unsuitable zones.
+
+However, even areas that are primarily not utilized experienced increased land-use in the Early Medieval Period.
+
+Economical enhancements and innovations could have been triggering developments in land-use strategies (Bakels, 2005) followed by an increasing fragmentation of the settlement dispersal.
+
+Site-internal mobility and the establishment of local activity spheres could also be assumed by the circulation area of certain fashionable objects that are not restricted by natural boundaries like broad river systems (Brather-Walter, 2015).
+
+Communicational networks are rather supported by a gradual advancement through route-channels in a heterogeneous environment.
+
+PARAGRAPH
+
+Possible continuity of the settlement spots after the Early Middle Ages would explain the scarce archaeological settlement evidence that is biased by modern residential coverage, particularly in the Alsace.
+
+The broad record of Early Medieval burials and graveyards, however, would imply a close settlement network in the Upper Rhine Valley and hence underlines the theory of consistent settlement development.
+
+Archaeological information in terms of continuous usage or gaps could derive from dendrochronologically dated wooden remains of settlement-internal substructures like wells or water mills – if they are available (e.g. Muigg et al., 2018).

@@ -1,0 +1,17 @@
+10.1016/j.engappai.2020.103478
+
+ABSTRACT
+
+TITLE
+
+Learning the representation of raw acoustic emission signals by direct generative modelling and its use in chronology-based clusters identification
+
+PARAGRAPH
+
+Acoustic emission (AE) is a passive monitoring technique used for learning about the behaviour of an engineered system.
+
+The streaming obtained by continuously recording AE transient signals is treated by a four steps procedure: 1) The detection of salient AE signals by distinguishing noise against non-noise signals using wavelet denoising, 2) the statistical representation of randomly selected AE signals using Autoregressive Weakly Hidden Markov Models, 3) an inference phase by applying those models to unknown AE signals and generating a set of novelty scores reflecting differences between signals, 4) the clustering of novelty scores using constraint-based consensus clustering.
+
+Compared to the standard way relying on the transformation of all AE signals by manual feature engineering (MFE) before clustering, the main breaktrough proposed in this paper holds in the use of the raw AE signals, with different lengths and various scales, to build high level information and organise the low level streaming data.
+
+Validated first on simulated data, we show the potential of this methodology for interpreting acoustic emission streaming originating from composite materials.

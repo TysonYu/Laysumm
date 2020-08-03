@@ -1,0 +1,551 @@
+10.1016/j.jhep.2018.01.009
+
+FULLTEXT
+
+TITLE
+
+Genomic characterization of biliary tract cancers identifies driver genes and predisposing mutations
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Biliary tract cancer (BTC) or cholangiocarcinoma (CC) is a rare cancer worldwide, but prevalent in some areas, where a specific risk factor of environmental exposure is involved in BTC development, such as chronic cholangitis,1,2 liver fluke infection in Thailand,1,2 viral hepatitis,1,2 aflatoxin exposure in Chile,3 or other chemical exposures.2,4
+
+According to its anatomical location, BTCs are mainly classified as intrahepatic cholangiocarcinoma (ICC), extrahepatic bile duct cancer, or gallbladder cancer.
+
+The extrahepatic form is composed of peri-hilar type cholangiocarcinoma (PHC or Klatskin tumor) and distal cholangiocarcinoma (DCC), while gallbladder cancer (GBC) also includes cystic duct carcinoma (CDC).
+
+There is some debate about the cellular origin of ICC.
+
+BTC cells are presumed to originate from cholangiocytes, but the presence of mixed tumor types in ICC and HCC (hepatocellular carcinoma) with intermediate characteristics between ICC and HCC suggests that a subset of intrahepatic tumors could share a common hepatic progenitor cell origin.5
+
+Regardless of its location or pathology, BTCs are very aggressive with high metastatic and invasive potential and are difficult to completely resect by surgery because of their anatomical location and spread along the bile ducts.
+
+Standard of practice for advanced CC is cisplatin or gemcitabine, but the response to these chemotherapies is poor, and consequently they show poor prognosis with only 5–10% five-year survival.1
+
+PARAGRAPH
+
+Previous studies of the genomic alterations in a variety of BTC types6–10 have found commonalities, such as TP53, KRAS and SMAD4 mutations, with a second tier of less frequently mutated genes including ARID1A, CDKN2A, IDH1, ELF3 and PIK3CA that were not seen in all studies.
+
+Molecular differences between the subtypes have tended to be in the frequency of mutations in certain genes, rather than different sets of genes being mutated.
+
+The genetic features of BTC remain poorly understood and the molecular profiles of BTCs are as heterogeneous as their pathology and biology, making large sample sizes necessary for comprehensive analysis and understanding of its molecular carcinogenesis and clinical associations.
+
+To enable this, we performed large-scale genome sequencing analysis of 412 BTC samples from Japanese and Italian populations with various BTC subtypes.
+
+We also investigated the genetic heterogeneity of somatic and germline events and cell origin of BTCs and the prognostic value of the observed genetic alterations.
+
+These findings indicate that BTCs are quite heterogeneous at the molecular level, but share some distinct genetic features in somatic events and germline predisposition.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Clinical samples
+
+PARAGRAPH
+
+A series of 218 fresh-frozen tumors and normal tissues from patients with BTC in Hokkaido University Hospital and four other Japanese hospitals underwent WES, WGS, and targeted sequencing.
+
+They were obtained between 2003 and 2015 and the median follow-up period was 24 months.
+
+Their clinico-pathological features are shown (Table S1).
+
+DNA was extracted from fresh-frozen tumor specimens and adjacent normal tissues or blood.
+
+All subjects agreed with informed consent to participate in the study following ICGC guidelines.
+
+IRBs at RIKEN (H20-16), Hokkaido University (16-051) and all participating hospitals in this study approved this work.
+
+PARAGRAPH
+
+For Italian samples, a retrospective series (1990–2014) of 194 surgically-resected BTCs were retrieved from the FFPE archives of the ARC-Net Biobank at Verona University Hospital under the local ethics committee approval (n. prog.
+
+1959).
+
+All cases were reclassified by two pathologists (MF and AS) according to WHO 2015 as follows: 70 ICCs, 46 PHCs, 52 DCCs and 26 GBCs.
+
+Staging was according to AJCC/UICC 7th edition.
+
+Matched normal tissue was used to determine the somatic nature of mutations.
+
+SECTION
+
+Library preparation and DNA sequencing
+
+PARAGRAPH
+
+Exome capture was carried out using Nextera Rapid Capture Exomes kits (Illumina).
+
+For WGS, DNA was extracted from cancer and normal tissue and 500–600-bp insert libraries were prepared according to the protocol provided by Illumina.
+
+The exome-captured or WGS libraries were sequenced on HiSeq2000/2500 with paired reads of 100–125 bp.
+
+Targeted sequencing for Japanese samples was performed by Illumina HiSeq2000/2500 after capturing by SureSelect XT Custom kit (Agilent Technologies) for 49 candidate driver genes (Table S2).
+
+For Italian samples, targeted sequencing was performed by Ion Proton (Thermo Fisher).
+
+Four multigene panels were used: the 50-gene Ion AmpliSeq Cancer Hotspot panel v2 (Life Technologies) and three AmpliSeq custom panel targeting 39 genes not included in the commercial panel.
+
+They are listed (Table S2).
+
+A total of 20 ng of DNA were used for each multiplex PCR amplification.
+
+The quality of the obtained libraries was evaluated by Agilent2100 Bioanalyzer (Agilent Technologies).
+
+SECTION
+
+SNV and indel calling
+
+PARAGRAPH
+
+Exome and WGS data were processed as follows.
+
+After alignment of reads using BWA,11 PCR duplicates were removed using Picard (http://picard.sourceforge.net/).
+
+SNVs were called using MuTect.12
+
+Indels were called using Strelka.13
+
+SNVs were further filtered according to the following criteria: Minimum depth ≥10×, supporting reads ≥3 (at least one in either direction), mean mapping quality ≥50, mean base quality ≥25, minimum variant allele frequency (VAF) ≥0.15, no strand bias (via Fisher’s exact test), sequence must be unique (alignability score of 1 using the GEM mappability program14), 8-oxoguanine (C>A|G>T) oxidation artefacts removed,15 only mutations within the exome capture considered.
+
+PARAGRAPH
+
+Targeted sequencing data from Japanese samples were processed in the same way as exome data, except the normal reads from one WGS sample (RK317) were given to MuTect instead of a matched normal.
+
+The candidates of these somatic mutations were filtered out using germline variants which were validated by Sanger sequencing for normal tissue DNAs.
+
+Targeted sequencing data of Italian samples, including alignment to the hg19 human reference genome and variant calling, was done using the Torrent Suite Software v.4.2 (Thermo Fisher).
+
+Filtered variants were annotated using a custom pipeline based on vcflib (https://github.com/ekg/vcflib), SnpSift,16 the Variant Effect Predictor (VEP) software17 and the NCBI RefSeq database.
+
+SECTION
+
+Significantly mutated genes
+
+PARAGRAPH
+
+Significantly mutated genes were identified using MutSigCV.18
+
+This analysis was performed once for the 146 WES/WGS samples and once for the complete set of 412 samples covering a subset of the exome.
+
+Genes with a minimum of three missense mutations at the same position were tested for activation bias using Fisher’s exact test, comparing the number of activating and inactivating mutations.
+
+Similarly, genes with at least three inactivating mutations (small insertions and deletions and nonsense SNVs or those impairing stop or start codons and splice sites) were tested for inactivation bias.
+
+SECTION
+
+Mutational signatures and cell-of-origin analysis
+
+PARAGRAPH
+
+The R package NMF19 was used to perform non-negative matrix factorization on counts of the three-base mutation and context types in all WES and WGS samples.
+
+Similarity to existing COSMIC signatures was determined using cosine similarity.
+
+Cell-of-origin (COO) analysis was performed as previously described.20
+
+Briefly, we compared the genomic distribution of somatic mutations to 424 epigenetic features that were measured by the Epigenome Roadmap consortium, which were derived from 106 different cell types from 45 different tissue types and comprised eight different types of variables, including DNase I hypersensitivity and various histone modifications.
+
+The comparison of individual epigenomic features with local mutation density revealed that the genomic distribution of chromatin features corresponding to the tumor’s cell type of origin is more strongly associated with local mutation density than the distribution of features found in unrelated cell types.
+
+For each cancer type we counted the overall number of mutations in all individual cancer genomes belonging to that cancer type.
+
+We determined the mutation densities for all possible types of mutations in each cancer type by counting different types of mutations in 1-Mb windows and normalizing for the sequence composition of each window.
+
+For each individual cancer genome, we predicted the density of mutations using Random Forest regression with ten-fold cross-validation.
+
+We used the full set of features and determined the top 20 features according to the variable importance measure, before calculating the enrichment of each tissue type among the top 20 features using the hypergeometric test.
+
+We chose the tissue showing the most significant enrichment as the most likely tissue of origin for the individual cancer genome.20
+
+SECTION
+
+DNA arrays and copy number analysis
+
+PARAGRAPH
+
+HumanOmniExpressExome (Illumina) arrays were performed on 95 sets of cancer and noncancer DNAs and their copy number alterations were analyzed using GISTIC2.21
+
+Three arrays were excluded after segmentation using PSCBS R package22 because of quality issues.
+
+SECTION
+
+Germline variant calling
+
+PARAGRAPH
+
+Germline SNVs and indels were called using Genome Analysis Toolkit version 3.6 (http://software.broadinstitute.org/gatk/).
+
+Among the exome and WGS BAM files used for somatic variant calling, those of normal tissues were subjected to base quality score recalibration and HaplotypeCaller.
+
+The called variants were filtered by applying variant quality score recalibration, retaining either splicing variants or exonic variants that are not synonymous, and discarding common variants (allele frequency >1%).
+
+Allele frequencies in the Japanese population were obtained from the human genetic variation database in Kyoto University23 and the integrative Japanese genome variation database in Tohoku Medical Megabank.24
+
+Allele frequencies in the 1000 Genome Project were also used.
+
+The variants are splicing, stop-gain, frameshift, or (likely) pathogenic ones according to the ClinVar database (Table 2).
+
+SECTION
+
+FGFR fusion detection by RNA sequencing
+
+PARAGRAPH
+
+To detect FGFR fusion transcripts, we extracted RNAs from the ICC samples, and RNA-Seq or targeted RNA-Seq was carried out for 63 ICC samples for which high-quality RNA was available.
+
+The high-quality RNA was subject to polyA+ selection and chemical fragmentation, and the 100–200 base RNA fraction was used to construct cDNA libraries according to Illumina’s protocol.
+
+Alternatively, we generated RNA-Seq libraries after capturing the known fusion transcripts (507 genes) including FGFR1/2 according to the protocol of TruSight RNA Fusion Panel (Illumina).
+
+Sequencing was performed on HiSeq2500 using the standard paired-end 125 bp protocol.
+
+RNA-Seq reads were adaptor-trimmed using Cutadapt and mapped to GRCh37 using STAR.
+
+Gene fusions were detected using fusionfusion (https://github.com/Genomon-Project/fusionfusion).
+
+SECTION
+
+Construction of tissue microarray (TMA) and immunohistochemical analysis
+
+PARAGRAPH
+
+A total of 121 surgical specimens of DCCs and PHCs obtained between 1995 and 2006 at the Department of Gastroenterological Surgery II, Hokkaido University Graduate School of Medicine, were used in this study.
+
+The median follow-up period was 26 months (range 0–151 months), and 89 patients (76.1%) died during follow-up.
+
+None of the patients received chemotherapy preoperatively.
+
+Their clinical features are shown (Table S1).
+
+All informed consent processes for this study were conducted in accordance with the guidelines of the Hokkaido University Institutional Review Board.
+
+TMA blocks were constructed using a manual tissue microarrayer (JF-4; Sakura Finetek Japan, Tokyo, Japan) with a 2.0-mm diameter needle from representative tumor areas.
+
+The array blocks were sliced into 4-μm-thick serial sections and mounted on glass slides.
+
+To confirm the histological diagnosis and adequacy of tissue sampling, TMA sections stained with hematoxylin and eosin (H&E) were examined by an experienced pathologist.
+
+TMA sections were deparaffinized in xylene and rehydrated through a graded ethanol series.
+
+Heat-induced antigen retrieval was carried out in high-pH antigen retrieval buffer (Dako, Glostrup, Denmark).
+
+Endogenous peroxidase was blocked by incubation in 3% H2O2 for 5 min.
+
+The primary antibody against MUC17 (polyclonal [HPA031634, 1:100]; Atlas Antibodies, Bromma, Sweden) was applied for 30 minutes.
+
+These sections were visualized by the HRP-labeled polymer method (EnVision FLEX system in human tissues; Dako).
+
+Immunostained sections were counterstained with hematoxylin, dehydrated in ethanol, and cleared in xylene.
+
+In TMA analysis, the immunohistochemistry for MUC17 were evaluated using the H-score system25 by two researchers who were blinded to the patients’ clinical information.
+
+Samples were considered high- expression or low-expression based on the median cut-off, or cut-off value determined by ROC.
+
+SECTION
+
+Survival analysis
+
+PARAGRAPH
+
+Survival analysis was performed using the Surv package in R. Univariate survival was performed using Cox regression and the log rank test.
+
+Multivariate Cox regression used stepwise selection for covariate selection, where covariates were required to have a significance below 0.1 to enter the model and below 0.05 to remain in the model.
+
+PARAGRAPH
+
+For further details regarding the materials used, please refer to the CTAT table.
+
+SECTION
+
+Results
+
+SECTION
+
+Mutation frequency and significantly mutated genes
+
+PARAGRAPH
+
+The analysis workflow is shown (Fig. S1).
+
+A total of 107 WES tumors and matched controls were sequenced to mean depths of 148-fold and 95-fold respectively, while 39 WGS tumors and matched controls were sequenced to mean depths of 38-fold and 26-fold (Table S3).
+
+We detected 11,543 SNVs and 140 indels after stringent filtering.
+
+In the exome, samples contained a mean of 29 SNVs and 0.5 indels (4,125 SNVs and 70 indels total, 0.81 mutations/Mb), with the exception of six samples (4% of WES/WGS samples: HK08, HK15, HK67, HK101, RK308, and RK360) which were classified as hypermutated.
+
+These contained a mean of 1,236 SNVs and 12 indels (7,418 SNVs and 70 indels total, 33.83 mutations/Mb).
+
+A full list of all SNVs and indels is provided (Table S4).
+
+Significantly mutated genes in the WES and WGS samples were identified using MutSigCV.
+
+TP53 (24 samples, 16.4%) and KRAS (8 samples, 5.5%) were found to be significant (q <0.1) in the WES and WGS samples (Table S5).
+
+To search for additional driver genes in BTC and its subtypes, we performed targeted deep sequencing on 49 candidate genes for an additional 72 Japanese BTCs and on 89 genes for 194 Italian BTCs (Table S2) and combined these data (Fig. S1).
+
+Analysis on the entire series of 412 BTCs found 30 significantly mutated genes (Table 1 and Fig. S2).
+
+In addition, KMT2C (also known as MLL3) and KMT2D (also known as MLL2) were mutated in more than 5% of the 412 samples (Table S6), which are also driver candidates in BTCs.
+
+RNA-seq analysis detected FGFR2 fusion transcripts in four cases among the 63 RNA-available Japanese ICCs (Fig. S3).
+
+A summary of the significantly and frequently mutated genes in BTCs is shown (Fig. 1).
+
+SECTION
+
+Pathway analysis and subtype enriched features
+
+PARAGRAPH
+
+A total of 268 samples (65.0%) had a mutation in at least one of the 32 genes listed (Fig. 1), which can be subdivided into three broad functional categories of increasing size; DNA maintenance genes, epigenetic genes and signaling pathways (Fig. S4).
+
+Subtype-specific biases were present in a number of genes and functional groups.
+
+ICC samples typically contained more mutated epigenetic genes, whereas extrahepatic subtypes contained more mutated cell cycle genes.
+
+ICC was significantly enriched for mutations in the chromatin remodeling gene BAP1 and the DNA methylation gene IDH1, which with one exception were in mutually exclusive samples (p <0.005 [Fig. S4]).
+
+IDH1 mutants were also mutually exclusive from TET1 mutants (Fig. 1), which is interesting given that IDH1 mutants have been shown to correlate with high TET1 expression in glioma.8
+
+Gallbladder subtypes were significantly enriched for TP53 mutations and extrahepatic subtypes were significantly enriched for mutations in TP53, KRAS, SMAD4 and ERBB3 (p <0.005).
+
+KRAS showed strong activation bias, with the majority of samples containing missense mutations affecting the G12 residue, a known oncogenic hotspot.
+
+IDH1 had a single site affected in 13/14 samples and multiple hotspots were found in PIK3CA.
+
+Six samples with activating mutations in CTNNB1 were also identified.
+
+This gene is activated by nonsynonymous mutations that fall in a 14-amino acid window toward the N-terminus of the protein.
+
+Activation (Table S7) and inactivation (Table S8) bias are summarized.
+
+SECTION
+
+Copy number analysis
+
+PARAGRAPH
+
+Copy number differences are common aberrations, and we performed SNP array analysis on 95 samples among WES samples using GISTIC2.
+
+Broadly, chromosome 1q and 19q were found to be frequently amplified and 4p, 4q, 9p and 14q frequently deleted (Table S9).
+
+GISTIC2 detected focal changes in copy numbers (Fig. S5 and Table S10).
+
+A 350-kb region at 17q12 was amplified in 30/92 (32.6%) samples (p = 4.61 × 10−7), which contains the cytokine genes CCL3L3 and CCL4L2, as well as four paralogs of the known oncogene TBC1D3, which is amplified in 15% of primary prostate tumors.26
+
+The tumor suppressor gene, CDKN2A, at 9p21.3 was deleted in 46/92 (50%) samples (q = 2.61 × 10−22).
+
+Biallelic inactivation of CDKN2A appeared to be relatively rare,9 with only one sample containing a nonsynonymous CDKN2A mutation and one sample showing a low enough signal value to be a homozygous deletion.
+
+The most frequently altered region was a 100-kb region in 7q22.1 containing the mucin genes MUC12 and MUC17 which was deleted in 59/92 (64.1%) samples (q = 2.29 × 10−13).
+
+Notably, the only focal copy number change to carry a survival effect was this 7q22.1 deletion.
+
+Patients with this deletion suffered a median reduction in disease-free survival of 644 days (p = 8.19 × 10−4) and overall survival of 428 days (p = 0.0133) (Fig. 2).
+
+Patients with lymph node metastases were more likely to have this 7q22.1 deletion (p = 0.014, 81% sensitivity and 40% specificity).
+
+The two candidate genes in this 7q22.1 region are the mucins MUC12 and MUC17 (Fig. S5).
+
+Quantitative PCR analysis of the 92 BTC samples showed that MUC17 expression was significantly decreased in samples with the deletion (p = 5.3 × 10−3), but MUC12 expression was barely detectable in either case (Fig. S6), suggesting that MUC17 is the gene targeted in this recurrent deletion event and may drive the survival differences seen in these samples.
+
+The identified survival trend did not appear to be shared by the nine samples with missense mutations in MUC17, suggesting that complete ablation of this gene is required for the survival effect to occur.
+
+BTCs showing 7q22.1 deletion (MUC17 deletion) were enriched in the samples that had no mutations of the known driver genes detected (Fig. 1), indicating that this deletion might be one of the driver genes in BTCs.
+
+PARAGRAPH
+
+To validate the clinical effect of MUC17 expression, we performed immunohistochemical analysis on TMA where 121 specimens of DCC and PHC were spotted.
+
+Immunohistochemistry and calculation of H-scores25 indicated lower or loss of MUC17 expression in the cell membrane or the cytoplasm of cancer cells (Fig. S7).
+
+We observed a trend that BTCs with lower MUC17 expression showed worse survival (Fig. S4).
+
+There is a trend that loss of MUC17 expression was associated with portal vein invasion or micro-vessel invasion (p <0.05 [Table S11]).
+
+SECTION
+
+Survival effects of mutations and clinical factors
+
+PARAGRAPH
+
+To clarify the clinical significance of these driver candidates, we examined the association of these mutations and prognosis of 412 BTC cases with both univariate and multivariate analysis of overall survival (OS) and disease-free survival (DFS) (Fig. 2 and Table S12).
+
+In univariate analysis, the deletion of 7q22.1 had a significantly negative impact on both DFS (n = 52, p = 3 × 10−4) and OS (n = 47, p = 0.010).
+
+Strong negative effects on OS were observed in patients harboring mutations in ARID1A (n = 22, p = 0.0011) and KRAS (n = 63, p = 0.0042).
+
+Smokers and ex-smokers had significantly worse prognosis, both in DFS (n = 67, p = 3 × 10−3) and OS (n = 57, p = 4 × 10−3).
+
+Multivariate modelling showed TNM and smoking status to be independent variables (Table S12).
+
+SECTION
+
+Mutational signature analysis
+
+PARAGRAPH
+
+The type and context of somatic mutations can be used to generate distinct mutational signatures that may point to the etiology of cancers.27
+
+Non-negative matrix factorization (NMF) extracted three mutational signatures in WES and WGS data of the non-hypermutated cases.
+
+These signatures were compared to the 30 COSMIC signatures, revealing close matches to COSMIC Signatures 1 (5-methylcytosine deamination, linked to ageing), Signature 2 (AID/APOBEC deaminases) and Signature 5 (related with age or nucleotide excision repair deficiency)28 with 0.82, 0.76 and 0.91 cosine similarity, respectively.
+
+The samples clustered according to the proportional contribution of each signature per sample are shown (Fig. 3).
+
+The signature activity data can be divided into three signature clusters, with one signature dominating each.
+
+All signatures occurred in varying proportions, with each signature contributing the majority of mutations in multiple samples.
+
+Overall, signature 1 was the most broadly occurring (40% total contribution), with the remainder split between signatures 2 (31%) and 5 (29%).
+
+Samples in the cluster with a high exposure to signature 5 were significantly more likely to be ICCs infected with HBV or HCV (p = 0.004), suggesting a link between this signature and hepatitis viral infection.
+
+An identical analysis was performed using an external data set of 103 BTC samples9 which produced very similar results (Fig. S8).
+
+SECTION
+
+Cell-of-origin (COO) analysis
+
+PARAGRAPH
+
+The COO of a cancer can be determined by comparing the genomic distribution of mutations to the chromatin organization of specific cell types,20 as mutations are more likely to occur in open, transcriptionally active chromatin.
+
+Positively identifying the COO of a cancer could help classify disease subtypes for further study and treatment.
+
+We predicted the COO of our BTC subtypes and three HCC series from the International Cancer Genome Consortium (ICGC) and The Cancer Genome Atlas (TCGA).
+
+A total of 86 of the 97 (88.7%) HCC samples were classified as originating from hepatocytes (Fig. 4A).
+
+Conversely, the most common classifications of the 39 WGS BTC samples were liver (13/39 33.3%), or epithelial cell types (14/39 35.9%).
+
+Proportionally, it was more common for ICC samples to be classified as originating from hepatocytes than epithelia (43.5% and 17.4% respectively [Fig. 4B]), whereas the reverse was true for DCC samples (0% and 83.3% respectively).
+
+Using the CAGE dataset in FANTOM5 Consortium,29 we validated that epigenetic features of DCC and GBC/CDC were matched with those of gallbladder (Fig. S9), although epigenetic features of some ICCs were still matched with those of hepatocytes.
+
+Liver-COO tumors were enriched with ICCs with hepatitis background (viral infection or fibrosis F3/F4 [Fig. 4C]) and showed significantly more signature 5 than non-liver-COO ICC samples (p = 0.04 by the Wilcoxon rank sum test (Fig. S10).
+
+SECTION
+
+Germline variants in cancer-predisposing genes in BTC patients
+
+PARAGRAPH
+
+Germline DNA mismatch repair deficiency (Lynch syndrome) is related to BTC,30 and carriers of germline mutations in BRCA2 are at high risk of BTC as well as pancreatic cancer.31
+
+We analyzed germline variants of selected cancer-predisposing genes, including BRCA1, BRCA2, RAD51D, MSH2, MLH1, MSH6, and TP53, and annotated their significance.
+
+As a result, eight patients with BTC were found to have deleterious germline mutations of BRCA1, BRCA2, or RAD51D, and six had deleterious germline mutations of MLH1, MSH2, POLD1, or POLE (Table 2).
+
+Two patients with BTC had deleterious germline mutations of TP53 or ATM.
+
+We verified these germline variants by Sanger sequencing.
+
+In total, 11% (16/146) of Japanese patients with BTC had deleterious germline mutations of the cancer-predisposing genes.
+
+Two (HK15 and HK08) out of the six hypermutated BTC cases were found to have deleterious germline mutations of MLH1 or MSH2 and developed gastric and colon cancers (Table 2), indicating typical Lynch syndrome.
+
+An additional 80 variants of uncertain significance (VUS) in these cancer-predisposing genes, some of which may be pathogenic, were found in 75/146 (51.3%) Japanese patients with BTC (Table S13).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This analysis of 412 BTC samples in two populations represents the largest series studied to date.
+
+We identified several novel features which are enriched in certain subtypes and others with impacts on both OS and DFS.
+
+This study identified a variety of targets of biological and therapeutic relevance, some of which vary by disease subtype.
+
+While larger datasets are always beneficial, it appears that the inherent heterogeneity of BTC is beginning to resolve, although 31 samples (7.5%) did not harbor any of the copy number alterations or mutated genes identified, demonstrating that gaps in our knowledge remain and other genetic or epigenetic alterations can drive BTC development.
+
+PARAGRAPH
+
+Of the 32 frequently mutated genes identified (Table 1), 21 are actionable according to the TARGET database by the Broad Institute (http://archive.broadinstitute.org/cancer/cga/target).
+
+A total of 241 samples (58.4%) had one or more actionable lesions and 123 samples (29.8%) had two or more actionable lesions, representing broad opportunities for treatment.
+
+Although the number of hypermutated samples was too small to identify which specific genes were driving the phenotype, all of the hypermutated samples harbored somatic or germline mutations in at least one known DNA mismatch repair gene or DNA polymerase (MLH1, MSH2, MSH6, POLE, or POLQ).
+
+Hypermutated cancers may be excellent candidates for immunotherapy and immune checkpoint inhibitors,32 because of their high immunogenicity by neo-antigen presentation.
+
+There is evidence that ICC is more frequently an epigenetic disease,5,6 whereas extrahepatic and gallbladder subtypes are driven by mutations in TP53 and cell cycle genes.7
+
+For example, the enrichment and mutual exclusivity of IDH1 and BAP1 mutations in ICC, an occurrence that has been previously observed,6,33 which provides an unknown fitness advantage.
+
+BAP1 is a deubiquitinase involved in chromatin modification and DNA damage response33 whereas dysregulation of IDH1 may cause global DNA methylation dysfunction.34,35
+
+Several mutated genes were found to have negative survival effects, and one of the strongest survival effects belonged to the novel recurrent deletion at 7q22.1 which excises MUC17.
+
+MUC17 is a transmembrane glycoprotein of largely unknown function, which has been found to be part of the glycocalyx of enterocytes36 and may have an immune signaling function.
+
+MUC17 was previously found to be significantly mutated in glioblastoma multiforme37 and mucins in general are beginning to be broadly recognized for their roles in cancer.
+
+However, details of its function in BTC are still unclear and should be investigated by further analysis.
+
+PARAGRAPH
+
+Our new findings suggest a link between COO and BTC subtypes, specifically that some ICCs may develop from hepatocytes or their progenitor cells.
+
+Pluripotent progenitor cells in the liver can differentiate into hepatocytes and cholangiocytes during liver regeneration.38
+
+It has also been shown that some ICCs originate from either pluripotent progenitor cells or multiple cell types,39,40 and our COO analyses using whole-genome mutational features and the tissue-specific epigenetic features demonstrated that ICCs that were predicted to be of hepatocyte-origin were associated with virus infection or chronic hepatitis.5,40
+
+PARAGRAPH
+
+Notably, we found at least 11% of BTC cases had deleterious germline mutations in cancer-predisposing genes.
+
+BTC is a tumor related with Lynch syndrome, which has germline mutations of DNA mismatch repair genes,28 and BTC also occurs in carriers of BRCA mutations.31
+
+Universal tumor screening41 for these cancer-predisposing genes in general BTC cases might be beneficial to patients with BTC and their family members, enabling assessment of their cancer development risk and the effectiveness of new anti-cancer drugs, such as immune checkpoint inhibitors and PARP inhibitors.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported partially by RIKEN President’s Fund 2011, Grandin-aid for RIKEN CGM and IMS, JSPS Grants-in-Aid for Scientific Research (KAKENHI) for H.N. (15H04814) and S.M. (15H05912), the Princess Takamatsu Cancer Research Fund, Italian Ministry of Research (Cancer Genome Project FIRB RBAP10AHJB), Associazione Italiana Ricerca Cancro (AIRC n. 12182), and Fondazione Italiana Malattie Pancreas – Ministero Salute (CUP_J33G13000210001).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+C.P.W., M. F., M.S., M.F., P.P., J.K., R.K., M.F., A.F., G.G., and H.N. performed data analyses.
+
+M. S., M.F., K.M., A.O., A.S., K.N., Y.Y., M.K. and H.N. performed sample processing and sequencing.
+
+H.T. and S.M. operated the super-computer system.
+
+T.Y. and Y.H. performed immunohistochemical analysis.
+
+M.S., M.F., R.T.L., Y.N., T.M., Y.H., A.R., S.C., Y.K., H.A., M.U., S.H., K.G., S.A., M.Y., H.Y., K.C., A.S., S.H., and T.N. collected clinical samples and clinical information.
+
+C.P.W., M.F., T.M. T.N. and H.N. wrote the manuscript.
+
+H.N. conceived the study and led the design of the experiments.
+
+H.N. and A.S. contributed to the funding for this study.

@@ -1,0 +1,615 @@
+10.1016/j.jhep.2018.07.024
+
+FULLTEXT
+
+TITLE
+
+Development of models estimating the risk of hepatocellular carcinoma after antiviral treatment for hepatitis C
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Most patients with chronic hepatitis C virus (HCV) infection have either already received antiviral treatment or are expected to receive treatment with direct-acting antivirals (DAAs) in the next 3–5 years in the United States.
+
+With sustained virologic response (SVR) rates well in excess of 90%, the vast majority of treated patients will achieve HCV eradication.
+
+SVR reduces hepatocellular carcinoma (HCC) risk substantially, irrespective of whether it is achieved by interferon (IFN) or DAA-based regimens.1
+
+It follows that HCC risk needs to be estimated specifically for the period following antiviral treatment, incorporating whether SVR was achieved or not, and that previous models predicting HCC risk in untreated HCV-infected patients do not apply to patients who have undergone antiviral treatment.
+
+PARAGRAPH
+
+Current guidelines recommend the same screening strategy for all HCV-infected patients with cirrhosis (ultrasonography every six months ± serum alpha-fetoprotein [AFP] testing) while no screening is recommended for non-cirrhotic patients, regardless of their HCC risk.2
+
+This “one-size-fits-all” strategy raises many questions in the DAA era and leaves room for improvement.
+
+For example, a patient with cirrhosis may have favorable characteristics that, together with HCV eradication, substantially lower the patient’s HCC risk.
+
+Since surveillance is thought to increase survival or become cost-effective in cirrhotic patients only when HCC risk exceeds 1.5% per year,3,4 surveillance may not be warranted in such a patient.
+
+Conversely, in cirrhotic patients who fail antiviral treatments and/or have additional adverse characteristics, HCC risk may be so high that more aggressive surveillance strategies like annual magnetic resonance imaging (MRI), abbreviated MRI5 or computerized tomography (CT) become more efficacious or cost-effective than ultrasound scan (USS).6
+
+Furthermore, patients without established cirrhosis who fail antiviral treatment and have additional adverse characteristics, may have HCC risk sufficiently high to merit screening.
+
+However, no method is currently available to estimate HCC risk in these patients.
+
+PARAGRAPH
+
+Central to these considerations is the concept that surveillance confers harm to patients who do not have HCC (or will not develop HCC in the timeframe of interest) as well as benefits to those who have (or will develop) HCC.
+
+Such harms include unnecessary anxiety, biopsies, imaging studies or even treatments.
+
+Therefore, HCC surveillance should not be recommended for every patient, but instead only for patients whose risk exceeds a predetermined risk threshold.
+
+It can be shown that an appropriate risk threshold depends on the ratio of the harms associated with a missed cancer to the harms associated with unnecessary screening.7,8
+
+For example, if surveillance is recommended for an annual HCC risk >2% it means that we consider the harms of missing a cancer to be approximately 50 (or 98/2) times greater than the harms of unnecessary screening.
+
+The appropriate risk threshold is likely different in different clinically relevant subgroups of patients such as those with/without cirrhosis and with/without SVR.
+
+PARAGRAPH
+
+We aimed to develop and validate models estimating HCC risk in HCV-infected patients following antiviral treatment separately in the following four clinically relevant subgroups: cirrhosis/no SVR; cirrhosis/SVR; no cirrhosis/no SVR; no cirrhosis/SVR.
+
+Additionally, we used decision curves7 to evaluate the net benefit that would be derived by implementing HCC surveillance strategies based on HCC risk as compared to screen-all or screen-none strategies.
+
+Finally, we wanted to develop HCC risk prediction models that would be available to clinicians as web-based tools so that HCC risk can be readily estimated in clinical practice.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Data source
+
+PARAGRAPH
+
+The Veterans Health Administration (VHA) is the largest integrated healthcare system in the US currently serving more than 8.9 million Veterans at 168 VA Medical Centers and 1,053 outpatient clinics throughout the country.9
+
+The VHA uses a single, nationwide, comprehensive electronic healthcare information network (known as the Veterans Information Systems and Technology Architecture or VistA), which consists of nearly 180 applications of clinical, financial, administrative and infrastructure needs integrated into a single, common database of all Veterans’ health information.
+
+We obtained electronic data on all patients who initiated antiviral treatment in the VA system using the VA Corporate Data Warehouse (CDW), a national, continually updated repository of data from VistA developed specifically to facilitate research.10
+
+Data extracted included all patient pharmacy prescriptions, demographics, inpatient and outpatient visits, problem lists, procedures, vital signs, diagnostic tests, and laboratory tests.
+
+PARAGRAPH
+
+The study was approved by the Institutional Review Board of the VA Puget Sound Healthcare System.
+
+SECTION
+
+Study population and study period
+
+PARAGRAPH
+
+We identified all HCV antiviral regimens (n = 58,936 regimens in 50,257 patients) initiated in the VA during seven calendar years from 1/1/2009 to 12/31/2015.
+
+We excluded 1,324 patients who had a diagnosis of HCC (ICD-9 code 155.0 or ICD-10 code C22.0) recorded prior to HCV antiviral treatment.
+
+We additionally excluded 625 patients who either died within 180 days from the start of antiviral treatment or had fewer than 180 days of available follow-up, and 276 patients who were diagnosed with HCC within 180 days from the start of antiviral treatment (including 154 who achieved SVR, 82 who did not, and 40 with missing SVR) since these cases were very unlikely to be incident (new) cases.
+
+We finally excluded 2,222 patients with missing SVR data leaving 45,810 patients in the current analysis, including 1,412 who developed HCC at some point from 180 days after the treatment start-date until the end of follow-up on 6/15/2017.
+
+PARAGRAPH
+
+We excluded antiviral treatments prior to 2009 because multiple studies have documented an increase in HCC incidence over time in HCV-infected patients.11
+
+Since we aimed to predict the absolute HCC risk in current patients, we chose the most recent possible sample (2009–2015) that provided adequate length of follow-up (maximum follow-up of eight years, mean follow-up of 2.52 years) to enable robust estimation of HCC incidence extending up to three years.
+
+We recently demonstrated using the same datasets that HCC risk after antiviral treatment was similar in patients treated with DAA-only regimens from 2014–2015 and in patients treated with interferon-based regimens in 2009–2013,1 thus justifying combining all antiviral treatments for risk modeling.
+
+Sufficient time has not yet accrued since the introduction of DAA-only regimens to enable an analysis limited only to these regimens.
+
+DAA-only regimens had a mean follow-up of only 1.5 years in our dataset.
+
+SECTION
+
+Antiviral treatment regimens
+
+PARAGRAPH
+
+The regimens were divided into:
+
+Interferon only (“IFN-ONLY”) regimens (22.5%): included pegylated interferon (PEG) ± ribavirin but without any DAAs.
+
+“DAA + IFN” regimens (13.5%): included any DAA (NS3/4A, NS5A or NS5B inhibitors) with concomitant PEG ± ribavirin.
+
+The most common was boceprevir + PEG.
+
+“DAA-ONLY” regimens (64%): included only interferon-free, DAA regimens (± ribavirin).
+
+The most common was ledipasvir/sofosbuvir.
+
+PARAGRAPH
+
+All VA pharmacy data are included in the CDW; dispensed drugs (rather than just prescribed drugs) were used to define antiviral treatment regimens, as previously described.12–19
+
+The distribution of all regimens included in the study is shown (Table S1).
+
+SECTION
+
+Sustained virologic response
+
+PARAGRAPH
+
+We defined SVR as a serum HCV RNA viral load below the lower limit of detection performed at least 12 weeks after the end of HCV treatment.20
+
+SECTION
+
+Baseline patient characteristics
+
+PARAGRAPH
+
+We collected baseline data including age, sex, body mass index (BMI), HCV genotype, HCV viral load and receipt of prior antiviral treatment.
+
+We extracted all laboratory tests shown in prior to treatment and recorded the value of each test closest to the treatment starting date within the preceding six months (except serum AFP that was recorded within one year) (Table 1).
+
+PARAGRAPH
+
+We contemplated ascertaining laboratory tests after treatment completion but decided against that because many laboratory tests can change acutely as a result of treatment and, thus, may reflect underlying fibrosis or HCC risk less accurately.
+
+Furthermore, laboratory tests are routinely obtained in most patients in clinical practice at the beginning of treatment but not at any specified time point after treatment.
+
+Therefore, risk prediction models relying on pre-treatment measurements have the greatest potential to be clinically useful.
+
+PARAGRAPH
+
+We defined hepatitis B virus (HBV) coinfection by positive HBV surface antigen or viral load.
+
+We also determined the presence of cirrhosis, decompensated cirrhosis (ascites, encephalopathy, gastroesophageal varices and hepatorenal syndrome), type 2 diabetes mellitus, alcohol use disorders, substance use disorders, HIV infection and liver transplantation based on appropriate ICD-9 or ICD-10 codes recorded at least twice prior to treatment initiation in any inpatient or outpatient encounter (Table S2).
+
+These ICD-based definitions of cirrhosis and other comorbidities11,21–25 have been widely used and validated in studies using VA medical records.
+
+SECTION
+
+Incident hepatocellular carcinoma
+
+PARAGRAPH
+
+We identified incident cases of HCC diagnosed for the first time at least 180 days after initiation of antiviral treatment based on ICD-9 code 155.0 or ICD-10 code C22.0 documented at least twice.
+
+The ICD-9 code-based definition of HCC using VA records has been shown to have a positive predictive value of 84–94% compared to chart extraction24,26,27 and has been widely used by us11,16,28,29 and other investigators.30–32
+
+PARAGRAPH
+
+We also identified all serum AFP tests, abdominal USS, abdominal CT scans with intravenous contrast, and abdominal MRI scans with intravenous contrast performed before and after antiviral treatment to evaluate how frequently screening and diagnostic tests for HCC were being performed.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+We developed four different Cox proportional hazards models estimating HCC risk after antiviral treatment in four patient subgroups: cirrhosis/no SVR; cirrhosis/SVR; no cirrhosis/no SVR; no cirrhosis/SVR.
+
+Cox proportional hazards models were developed based on the first antiviral treatment that each patient received during the study period.
+
+Follow-up time started at 180 days after treatment initiation since cancers diagnosed within 180 days were likely present but undiagnosed at the time of treatment initiation (i.e. not truly “incident” cancers).
+
+We considered using the date treatment ended or the date at which SVR was ascertained as starting points for the time-to-event analysis, but decided against that because of the long and variable duration of the treatment and the interval from treatment end-date to ascertainment of SVR, which could introduce significant bias.
+
+PARAGRAPH
+
+Follow-up for HCC incidence extended until 6/15/2017 so that even the patients treated in 2015 (i.e. the most recent in our cohort) would have a minimum of two years of potential follow-up.
+
+Patients without incident HCC were censored at the time of death or last follow-up in the VA.
+
+Patients who did not achieve SVR were censored at initiation of a subsequent regimen that led to SVR, if applicable.
+
+Analyses were stratified by the VA facility at which the antiviral treatment was administered.
+
+PARAGRAPH
+
+We considered 23 characteristics listed in Table 1 as potential predictors of HCC for inclusion in our models.
+
+As expected, serum AFP was missing in a large proportion (40.7%), since it is not recommended to test for AFP in HCV-infected patients without cirrhosis.
+
+In addition, serum AFP testing for HCC screening in patients with cirrhosis was either not recommended by the European Association for the Study of the Liver (EASL) and American Association for the Study of Liver Diseases (AASLD) guidelines3 or optional2 during the study period.
+
+Therefore, we imputed missing AFP values and developed separate models that included AFP, which we considered exploratory.
+
+We estimated the explained relative risk (ERR) contribution of a subset of predictors to the overall model’s predicted risk.33
+
+The ERR was selected because it is robust to censoring.
+
+SECTION
+
+Model building
+
+PARAGRAPH
+
+We used an iterative process to determine which predictors to include in our final models.
+
+First, we estimated measures of discrimination, calibration, and significance when each predictor was added to the base model and identified the top five predictors with the greatest improvement in these measures.
+
+We chose predictors that were consistently in the top five with preference for p values <0.10 and improvement in the Gönen and Heller’s κ-statistic.
+
+We verified graphically that the added predictor improved the observed vs. predicted risk plot thus allowing assessment over the entire period.
+
+PARAGRAPH
+
+We then updated the base model to include the chosen predictors and removed any predictors with a p value <0.10; removed predictors were added back into the list of potential predictors.
+
+We favored variables for inclusion that were objectively ascertained (e.g. laboratory tests) and those that have been consistently associated with HCC in previous studies (e.g. sex).
+
+PARAGRAPH
+
+The measures that we used to evaluate each predictor were Gönen and Heller’s κ-statistic, Hosmer-Lemeshow’s χ2 goodness-of-fit (GOF), Akaike Information Criterion (AIC) (discrimination and calibration), area under the receiver operating curve (AUROC), Spearman’s correlation (ρ) (raw and categorical), and the p value.
+
+Hosmer-Lemeshow GOF and AUROC measures were derived from a logistic regression of model predictions and a diagnosis of HCC.
+
+For discrimination, the AIC was calculated from the Cox proportional hazards model.
+
+For calibration, the AIC was estimated from a multivariate logistic regression of Kaplan-Meier survival probability and the predicted risk group.
+
+Spearman’s ρ was calculated for Kaplan-Meier survival probability vs. the model prediction (raw) or categorized (low, medium, or high) model predictions.
+
+A graphical comparison of observed vs. predicted risk scores was generated.
+
+A pooled k-fold cross-validation was used to calculate all the above measures and determine inclusion of predictors in the final model.
+
+A k of 10 was chosen to address the bias vs. variability in a database with a large sample size, but relatively few events.
+
+PARAGRAPH
+
+We considered both dummy-categorical as well as continuous (linear or transformed) modeling of laboratory tests.
+
+Interaction terms were explored if there was biological indication.
+
+The distribution of model predictions was checked for normality.
+
+Once a model was determined, the dataset was split in half into derivation and validation datasets balanced on number of events.
+
+Measures of assessment were then calculated for each dataset using model coefficients from the derivation data.
+
+SECTION
+
+Measures of model discrimination and calibration
+
+PARAGRAPH
+
+We evaluated our models’ discrimination (i.e. ability to separate those who will develop HCC from those who will not), calibration (i.e. degree of agreement between model-derived and observed probabilities), and overall predictive accuracy.
+
+The measures of discrimination chosen were Gönen and Heller’s κ-statistic34 (a measure of concordance that is robust to censoring and therefore preferred to the Harrell’s C-index35 for survival data), and Royston and Sauerbrei’s D-statistic36 (the log hazard ratio of risk between low and high risk groups dichotomized at their median values, which has negligible bias when the distribution of model predictions is normal).
+
+For calibration measures, the calibration slope37 and graphical methods were selected.
+
+Calibration slope is robust to censoring and ideally takes a value of 1.
+
+To evaluate calibration graphically, observed Kaplan-Meier estimates of HCC-free survival and lowess-smoothed model predictions of HCC-free survival were plotted after categorizing risk into low, medium, or high groups.
+
+Overall model prediction accuracy was evaluated using the integrated Brier score,38 which is the mean squared difference between the predicted probability and the actual outcome.
+
+SECTION
+
+Use of decision curves to estimate the net benefit of using our risk prediction models
+
+PARAGRAPH
+
+We used decision curves to estimate the net benefit that would be expected in a population if our models are used to estimate HCC risk and patients are screened when their estimated risk exceeds an established risk threshold, as compared to the “screen-all” or “screen-none” approaches.
+
+A risk threshold is defined as that probability of HCC above which screening would be favorable over not screening.
+
+A decision curve is a novel graphical plot of net benefit vs. risk threshold that was proposed for assessing the potential population impact of adopting a risk prediction instrument.8
+
+To avoid over-fitting, decision curves were calculated using repeated 10-fold cross-validation.8
+
+The cross-validation was repeated 50 times.
+
+SECTION
+
+Results
+
+SECTION
+
+Characteristics of study population
+
+PARAGRAPH
+
+Among 45,810 patients who initiated HCV antiviral treatment from 1/1/2009 to 12/31/2015, 10,763 (23%) had cirrhosis and 34,096 (74%) achieved SVR (Table 1).
+
+Most treatments were DAA-only (64%), followed by IFN-only (22.5%) and DAA + IFN (13.5%).
+
+Patients were mostly male (96.6%) and White (55.9%), though other racial/ethnic groups were well-represented.
+
+Mean age was 55.8 years.
+
+Diabetes (27%), alcohol use disorders (43.7%) and substance use disorders (37%) were common.
+
+Genotype 1 HCV infection predominated (79.2%) followed by genotype 2 (10.7%), 3 (6.5%) and 4 (0.8%).
+
+PARAGRAPH
+
+Compared to patients without cirrhosis, those with cirrhosis had lower platelet count and serum albumin, higher aspartate aminotransferase/√alanine aminotransferase (AST/√ALT) ratio, bilirubin, international normalized ratio (INR) and AFP levels and were more likely to be diabetic.
+
+Patients who achieved SVR were more likely to have been treated with DAA-only regimens and less likely to be treatment-experienced than the patients who did not achieve SVR.
+
+PARAGRAPH
+
+Screening/diagnostic tests for HCC such as abdominal USS, CT or MRI with contrast were commonly performed within one year prior to antiviral treatment (ranging from 79.7% of cirrhotic patients with SVR to 49.1% in non-cirrhotic patients without SVR) as was serum AFP testing (ranging from 71.5% to 47.6%) (Table S3).
+
+SECTION
+
+HCC incidence by cirrhosis and SVR status
+
+PARAGRAPH
+
+During a mean follow-up period of 2.52 years (range 1.0–7.5 years), 1,297 out of 45,810 patients (2.8%) developed HCC (Table 2 and Fig. 1).
+
+HCC incidence was highest in the cirrhosis/no SVR subgroup (5.0 per 100 patient-years), followed by cirrhosis/SVR (2.2 per 100 patient-years), no cirrhosis/no SVR (1.1 per 100 patient-years), and no cirrhosis/SVR (0.3 per 100 patient-years).
+
+PARAGRAPH
+
+Screening/diagnostic tests for HCC (abdominal USS, CT, MRI or serum AFP) were being performed commonly during follow-up ranging from 74.5% (in cirrhotic patients with SVR) to 40.7% (in non-cirrhotic patients without SVR) in follow-up year 0–1, 70.4% to 36.4% in year 1–2, and 62% to 31.7% in year 2–3 (Table S4).
+
+SECTION
+
+Development of models predicting HCC
+
+PARAGRAPH
+
+Out of the 23 potential predictors that we considered (Table 1), 11 were included in at least one of the four models that we developed (Table 2).
+
+Of these, four predictors (age, platelet count, serum AST/√ALT ratio and albumin) accounted for most of the prediction.
+
+The proportion of the relative risk explained by these four predictors (explained relative risk33) was 95% for the cirrhosis/no SVR model, 98% for the cirrhosis/SVR model, 87% for no cirrhosis/no SVR model, and 98.5% for no cirrhosis/SVR model.
+
+The following six predictors provided smaller contributions: sex, race/ethnicity, HCV genotype, BMI, hemoglobin, and INR.
+
+For most predictors, associations with HCC were stronger among patients without cirrhosis than patients with cirrhosis.
+
+PARAGRAPH
+
+In exploratory models that included serum AFP or imputed AFP, serum AFP level was a significant predictor of HCC, especially in patients without cirrhosis (Table S5).
+
+Adjusted hazard ratios for other predictors were not significantly affected by the addition of serum AFP into the model.
+
+PARAGRAPH
+
+Predicted vs. observed curves of the probability of being HCC free showed excellent correlation for three of the four models (cirrhosis/SVR; no cirrhosis/no SVR; and no cirrhosis/SVR) and moderate correlation in one model which was based on the highest risk subgroup (cirrhosis/no SVR) (Fig. 2).
+
+PARAGRAPH
+
+Measures of discrimination and calibration were higher for the models developed in patients without cirrhosis than in patients with cirrhosis (Table 3).
+
+Gönen and Heller’s κ-statistic was >0.74 in both the derivation and validation datasets in the models developed for non-cirrhotic patients with or without SVR.
+
+For models developed in patients with cirrhosis the Gönen and Heller’s κ-statistic was around 0.70 for the derivation and validation datasets.
+
+The integrated Brier score, a measure of overall accuracy, was remarkably good for all models.
+
+SECTION
+
+Net benefit of model-based HCC surveillance ascertained by decision curves
+
+PARAGRAPH
+
+The decision curves confirm that for any appropriate risk threshold above which screening is recommended, the net benefit of screening is highest in patients with cirrhotics/no SVR (Fig. 3A), followed by cirrhosis/SVR (Fig. 3B), no cirrhosis/no SVR (Fig. 3C) and finally no cirrhosis/SVR (Fig. 3D).
+
+This is consistent with the progressively lower HCC risk in these groups.
+
+The decision curves also confirm that the net benefit in non-cirrhotics who achieve SVR is so low at all risk thresholds that no screening would be recommended.
+
+PARAGRAPH
+
+Among cirrhotic patients, the risk model-based screening strategy has superior net benefit than the “screen-all” strategy if the screening threshold above which screening is recommended is >2.5% over three years (or ∼0.83% per year) for those without SVR, or >2% over three years (∼0.67% per year) for those with SVR (see dotted lines in Fig. 3A and B).
+
+This result indicates that if the appropriate screening threshold is >1.5% per year, as recommended by AASLD guidelines,4 risk model-based screening would be superior to the “screen-all” strategy.
+
+PARAGRAPH
+
+Among non-cirrhotic patients without SVR, the risk model-based screening strategy has superior net benefit than the “screen-all” strategy for recommended screening thresholds >0.6% per three years (or 0.2% per year).
+
+This means that if screening was found to be beneficial in non-cirrhotic patients with annual HCC risk >0.2%, then risk model-based screening would be superior to a “screen-all” strategy.
+
+SECTION
+
+Web-based HCC risk estimating tools
+
+PARAGRAPH
+
+We implemented the four models shown in Table 2 as web-based tools to allow clinicians to estimate HCC risk in individual patients (available at www.hccrisk.com).
+
+Three-year HCC risk was estimated using our models in six hypothetical patients demonstrating great variability in HCC risk (Table 4).
+
+Patient #1, who has cirrhosis without SVR, has an extremely high predicted three-year HCC risk of 25.9% – such patients may consider screening by CT, MRI or abbreviated MRI.
+
+Patients with cirrhosis who achieve SVR, may have relatively low three-year risk (e.g. 1.6% in patient #2) or high three-year risk (e.g. 11.1% in patient #3) depending on the absence/presence of adverse predictors.
+
+Patients without cirrhosis (who currently are not recommended screening) who do not achieve SVR, may have sufficiently high HCC risk to merit screening (e.g. 7.0% in patient #4) if they have several adverse predictors.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Most HCV-infected patients in the United States will undergo DAA-based antiviral treatment in the next few years and the vast majority of them will achieve SVR.
+
+We developed and internally validated models estimating HCC risk after antiviral treatment in four separate subgroups: cirrhosis/SVR, cirrhosis/no SVR, no cirrhosis/SVR, and no cirrhosis/no SVR.
+
+Categorizing by cirrhosis and SVR was appropriate given that HCC screening is currently recommended only in patients with cirrhosis and that SVR reduces long-term HCC risk.
+
+Our models estimate HCC risk based on simple, readily available, objective and reproducible predictors and thus can be utilized easily in clinical practice.
+
+We demonstrated that screening strategies based on our models’ HCC risk estimates resulted in superior net benefit compared to “screen-all” or “screen-none” strategies.
+
+We hope that our models, which are available as web-based tools (www.hccrisk.com), will be externally validated in other populations and used by clinicians to estimate HCC risk after antiviral treatment and to guide decisions about the most appropriate HCC surveillance strategy in individual patients.
+
+PARAGRAPH
+
+Current AASLD and EASL HCC guidelines recommend screening only HCV-infected patients who have developed cirrhosis with ultrasound ± AFP testing every six months.
+
+This “one-size-fits-all” strategy is problematic for many reasons.
+
+First, our models show that patients without cirrhosis, in whom screening is currently not recommended, can have a very high risk of HCC especially if they do not achieve SVR.
+
+Second, patients with cirrhosis who do not achieve SVR and/or have additional adverse predictors may have alarmingly high HCC risk, such that screening with CT, MRI or abbreviated MRI may be warranted.
+
+Finally, our results demonstrate that SVR, as well as a number of other patient characteristics, dramatically modify HCC risk such that it does not make sense for “presence of cirrhosis” to be the sole criterion upon which surveillance is based.
+
+Instead, we propose that our models can be used to estimate HCC risk and the appropriate surveillance strategy can then be determined based on that risk.
+
+PARAGRAPH
+
+Estimation of HCC risk in individual patients by the models we developed could improve HCC surveillance efforts, increase early detection of HCC and reduce harm related to unnecessary surveillance.
+
+First, patients at high risk of HCC could be targeted for interventions to improve their uptake of HCC surveillance.
+
+It is currently estimated that ≤20% of cirrhotic patients undergo surveillance consistent with guidelines in the United States.39
+
+Second, different surveillance strategies could potentially be proposed for different categories of HCC risk.
+
+For example, more effective strategies that are also more expensive or more invasive/harmful, such as annual MRI, abbreviated MRI5 or CT, would be more cost-effective if they focus on higher risk groups.6
+
+Third, in healthcare systems with limited resources unable to support universal surveillance of all cirrhotic patients, surveillance could be targeted to patients with higher HCC risk.
+
+Fourth, we have demonstrated that screening strategies based on our models’ HCC risk estimates resulted in superior net benefit than “screen-all” or “screen-none” strategies.
+
+Therefore, employing our models and limiting surveillance to patients who exceed a certain HCC risk threshold would be expected to reduce the “harms” of unnecessary screening in patients who will not develop HCC (including costs and harms of unnecessary imaging studies, liver biopsies and other procedures40) and increase the benefits by targeting patients who are more likely to develop HCC.
+
+Finally, estimation of HCC risk enables individualized counseling of patients by their providers, potentially leading to improved compliance with surveillance recommendations and engagement in care.
+
+PARAGRAPH
+
+Decision curves plot the net benefit that would be expected at different “appropriate” HCC risk thresholds for screening.
+
+At a threshold of >1.5% per year (or 4.5% per three years), which is commonly recommended in patients with cirrhosis,3 the net benefit is greater with screening based on our models (i.e. screening only patients with estimated HCC risk >1.5% per year) compared with screening all patients (Fig. 3).
+
+However, if the appropriate risk threshold is much lower (<2.5% per three years in cirrhosis/no SVR and <2% per three years in cirrhosis/SVR) then there is no difference between the screen-all and model-based screening strategies.
+
+It is important to emphasize that decision curves cannot be used to determine the appropriate HCC risk threshold at which screening is deemed to be beneficial.
+
+Instead, this threshold needs to be determined by other means, separately for each of the four patient subgroups.
+
+Decision analytic theory suggests that if the harms of missing a case are x-times greater than the harms of unnecessarily screening a non-case, then the appropriate threshold for screening is a risk exceeding 1/(x + 1).41
+
+Therefore, the greater the harms of missing a case (or the greater the benefits of diagnosing a case) the lower the risk threshold at which screening is beneficial.
+
+Conversely, the greater the harms of screening the higher the risk threshold.
+
+PARAGRAPH
+
+Our study highlights the need to determine appropriate risk thresholds for screening in cirrhotic patients with or without SVR and in non-cirrhotic patients without SVR in the current era.
+
+AASLD guidelines recommend HCC surveillance in HCV-infected patients whose (predicted) HCC incidence exceeds 1.5% per year because older studies estimated a survival benefit of HCC surveillance in such patients.3
+
+However, these studies did not account for two important developments.
+
+First, HCV eradication can lead to long-term survival and, second, HCC treatments have improved dramatically.
+
+Both these developments increase the benefits of HCC surveillance and therefore should reduce the risk threshold above which HCC surveillance is warranted.
+
+Cirrhotic patients who achieve SVR represent a particularly difficult conundrum for providers: although SVR clearly reduces HCC risk, these patients still have a residual absolute HCC risk and therefore merit surveillance.
+
+However, our models show that even among these cirrhotic patients who achieve SVR, there can be dramatic variation in three-year HCC risk, for example as little as 1.6% in patient #2 and as high as 11.1% in patient #3 in Table 4.
+
+The risk threshold above which screening should be recommended in non-cirrhotic patients with HCV is not established.
+
+We suggest that appropriate risk thresholds for HCC screening need to be determined for each of the four important subgroups after antiviral treatment.
+
+PARAGRAPH
+
+We specifically used characteristics ascertained at or immediately before the beginning of antiviral treatment in our models to predict incident HCCs occurring at least six months after treatment initiation.
+
+We believe that this is the most clinically useful scenario since laboratory tests are routinely obtained at the beginning of treatment and since treatment acutely affects many tests.
+
+Although it is obviously not known at the beginning of treatment whether a patient will achieve SVR or not, HCC risk can easily be calculated for both SVR and no SVR possibilities, or calculated after SVR is ascertained using pre-treatment laboratory tests.
+
+PARAGRAPH
+
+Models have been proposed to estimate HCC risk in patients with cirrhosis,42,43 HCV,44,45 or HBV.46–48
+
+Some core predictors are remarkably consistent across these diverse models as well as our model, such as age, platelet count and markers or advanced fibrosis or cirrhosis, corroborating their validity as predictors.
+
+We are not aware of other models that estimated HCC risk after antiviral treatment in recent US cohorts that we can directly compare to ours.
+
+PARAGRAPH
+
+Although our study was based on a national cohort of VA patients, we believe our models apply to non-VA patients because the HCC risk that we reported among cirrhotic VA patients is very similar to what has been reported in non-VA studies, and because any differences are likely to be due to differences in risk factors included in the model (e.g. older age, male sex) and therefore accounted for in the risk calculation.
+
+Although the proportion of women was small, the number of women was high enough to allow modeling of sex as a predictor.
+
+It will be critical to externally validate our models in non-VA populations and also ideally in populations undergoing routine HCC surveillance.
+
+We combined DAA regimens with the most recent interferon regimens (i.e. those administered after 2009) because we recently showed that the type of antiviral regimen did not influence HCC risk.1
+
+We plan to repeat our analysis in two years and update our online models using only DAA regimens.
+
+The ICD-10 code for HCC (C22.0) that replaced the ICD-9 code for HCC (155.0) in October 2015 is not yet validated using VA data.
+
+However, since a single ICD-10 code directly replaced a single ICD-9 code, it is reasonable to expect a similarly high positive predictive value.
+
+The diagnosis of cirrhosis was based on presence of validated ICD-9 and ICD-10 codes recorded by the patients’ providers.
+
+Although patients with “occult”, undiagnosed cirrhosis might have been misclassified in the no cirrhosis group, our models would still be expected to capture their excess HCC risk correctly because they incorporate abnormalities in their platelet count, AST/√ALT ratio, albumin and INR levels.
+
+Substantial strengths of the study include the large sample size, large number of incident cases of HCC and long follow-up time.
+
+Baseline characteristics necessary for modeling were available.
+
+All patients were derived from a single, national healthcare system with fairly uniform practices and guidelines across its facilities.
+
+PARAGRAPH
+
+In conclusion, we developed and validated models predicting HCC risk in HCV-infected patients categorized by the presence or absence of cirrhosis and SVR.
+
+These models, which are available as web-based tools (www.hccrisk.com), can help stratify patients according to HCC risk, and consequently, help determine an appropriate screening strategy based on a patient’s calculated risk.
+
+A screening strategy targeting those who exceed a certain predetermined HCC risk may be more efficacious and cost-effective than the current “screen-all” or “screen-none” strategies which depend solely on cirrhosis status.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The study was funded by a NIH/NCI grant R01CA196692 and VA CSR&D grant I01CX001156 to GNI.
+
+The funding source played no role in study design, collection, analysis or interpretation of data.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+All authors approved the final version of the manuscript.
+
+GI is the guarantor of this paper.
+
+GI: Study concept and design, acquisition of data, statistical analysis and interpretation of data, drafting of the manuscript, critical revision of the manuscript, obtained funding.
+
+PG: Acquisition of data, study design, analysis of data.
+
+KB: Study design, analysis of data, critical revision of manuscript.
+
+KK: Study design, analysis of data, critical revision of manuscript.
+
+LB: Study design, critical revision of manuscript.
+
+EM: Drafting of the manuscript, critical revision of manuscript.
+
+SECTION
+
+Disclaimer
+
+PARAGRAPH
+
+The contents do not represent the views of the U.S. Department of Veterans Affairs or the United States Government.

@@ -1,0 +1,21 @@
+10.1016/j.engappai.2019.103292
+
+ABSTRACT
+
+TITLE
+
+A combined entropy-based approach for a proactive credit scoring
+
+PARAGRAPH
+
+Lenders, such as credit card companies and banks, use credit scores to evaluate the potential risk posed by lending money to consumers and, therefore, mitigating losses due to bad debt.
+
+Within the financial technology domain, an ideal approach should be able to operate proactively, without the need of knowing the behavior of non-reliable users.
+
+Actually, this does not happen because the most used techniques need to train their models with both reliable and non-reliable data in order to classify new samples.
+
+Such a scenario might be affected by the cold-start problem in datasets, where there is a scarcity or total absence of non-reliable examples, which is further worsened by the potential unbalanced distribution of the data that reduces the classification performances.
+
+In this paper, we overcome the aforementioned issues by proposing a proactive approach, composed of a combined entropy-based method that is trained considering only reliable cases and the sample under investigation.
+
+Experiments done in different real-world datasets show competitive performances with several state-of-art approaches that use the entire dataset of reliable and unreliable cases.

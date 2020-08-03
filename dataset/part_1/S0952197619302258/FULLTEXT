@@ -1,0 +1,927 @@
+10.1016/j.engappai.2019.103243
+
+FULLTEXT
+
+TITLE
+
+Multi-agent architecture for information retrieval and intelligent monitoring by UAVs in known environments affected by catastrophes
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+The capacity to react in the moments immediately after a catastrophe, whether this is natural, such as an earthquake, or man-made, such as that caused by a nuclear reactor meltdown, is critical for minimizing the caused human and material damages.
+
+Unfortunately, in situations as extreme as these ones, it is highly complicated to tackle the chaos that usually arises.
+
+On occasions, this is due to the lack of information in such moments.
+
+Taking an earthquake that has affected an urban area as an example, with different types of buildings, and the difficulty associated with obtaining information about what is tracking place and which parts of the environment are in a critical state.
+
+In these situations, solutions based on independent robots which cooperate to obtain information about the environment and to analyze what is happening are especially important.
+
+If these are damaged in the rescue process, losses will only be economic ones.
+
+In recent years, research work linked to the use of independent robots used as a rescue tool in catastrophes and emergency situations has gained great importance, with one outstanding aspect of this being their independence in relation to human intervention and coordination (Murphy, 2004).
+
+Two more illustrative examples are shown by the intervention of independent robots in the collapse of the World Trade Center in the United States (Casper and Murphy, 2003) and in the Fukushima power station meltdown in Japan (Nagatani et al., 2013).
+
+PARAGRAPH
+
+Although traditional robots represent a very good solution for preventing human staff putting themselves in danger when applying rescuing protocols, sometimes they cannot effectively operate due to the nature of the catastrophe.
+
+In this context, the use of unmanned aerial vehicles (UAVs), commonly known as drones, is ideal.
+
+Take, for example, the series of earthquakes which occurred in 2016 in central Italy with a death toll of 299 and substantial material damage.
+
+In similar situations, a mini-fleet of drones could be used as a first line of action to autonomously gather information in an environment with poor accessibility, quickly and accurately, thereby supplementing independent terrestrial robots and the human staff themselves.
+
+This approach could be based on the use of coordination and cooperation mechanisms, reducing the time needed to sweep the affected area and minimizing the damage the catastrophe may cause in the moments after it strikes.
+
+PARAGRAPH
+
+Thanks to the flexibility and the rapid response provided by drones, it is no coincidence that they are currently in use in different domains, such as the military field, maps reconstruction, surveillance or goods transport, providing affordable solutions and a very high response time.
+
+In fact, a drone can be understood as a autonomous device that can collect information by means of a range of sensors (cameras, temperature sensors, presence detectors, etc.) quickly and in situations which it would be really complicated for other mobile devices.
+
+To be precise, designing systems based on independent drones, which can cooperate and coordinate with each other and with other agents, sharing information in order to reach an overall goal and to make decisions poses today a real challenge for the research community.
+
+PARAGRAPH
+
+So, how can we assure that a set of drones work in cooperation with each other to solve the problem of information retrieval and intelligent analysis, quickly and efficiently, in environments affected by natural or man-made catastrophes?
+
+Then, as a supplementary question, how can we make the most of all current research in the field of intelligent surveillance to find out what is taking place in an environment?
+
+PARAGRAPH
+
+Regarding information retrieval in the moments right after a catastrophe has occurred, a fleet of drones which suitably cooperate would provide that initial analysis of the affected area.
+
+In this way, the human agents could evaluate the situation and act in the most effective way possible.
+
+Apart from needing a cooperation layout, the system proposed herein must be scalable and independent from the number of available drones and adaptable to the monitoring needs of each situation.
+
+So, for example, a terrestrial robot may request a drone to act when it is not possible to access a certain point deemed critical from an information retrieval perspective.
+
+PARAGRAPH
+
+From a computational point of view, both physical drones and terrestrial robots could be controlled by software agents (Wooldridge and Jennings, 1995) that intelligently cooperate to provide a solution to the previously stated problem.
+
+These agents would be capable of acting independently, obtaining and analyzing information about the environment, and communicating with each other, to make up a multi-agent system (Weiss, 1999) that acts as a whole in order to approach the posed challenge.
+
+It must be stressed that multi-agent systems adapt very well to problems in which complex situations are tackled where there are a range of heterogeneous information sources (Wooldridge, 2001).
+
+In particular, multi-agent systems have been extensively used in recent years to solve problems in which cooperation, planning, negotiation or distributed decision-making are essential to ensure key characteristics such as robustness, scalability and adaptability (Weiss, 1999).
+
+PARAGRAPH
+
+To make possible the deployment of these multi-agent systems, in this paper a multi-agent architecture composed of different software agents is proposed.
+
+These agents play a series of defined roles to solve the problem of retrieving, analyzing and fusing information in catastrophic situations, and, ultimately, to provide support in the decision-making process.
+
+Outstanding among all the agents put forward are those known as information analysis agents, which are capable of analyzing what is happening in the environment thanks to the expert knowledge defined by means of a formal model of normality analysis (Albusac et al., 2009).
+
+This model, satisfactorily used in the field of intelligent surveillance of urban traffic environments (Albusac et al., 2010), is based on designing surveillance components, which combine both the knowledge base and the inference engine used to carry out this analysis.
+
+Moreover, the architecture considers the use of a series of communication mechanisms, such as the event channels and the blackboard architecture (Jennings et al., 1998), that provide the agents with flexibility when sharing information.
+
+PARAGRAPH
+
+In the article a case study which contemplates monitoring the potential spread of toxic smoke in a scenario made up of an industrial complex and a nearby city is discussed.
+
+This example is used to show how the proposed architecture enables the deployment of a specific multi-agent system that carries out this monitoring task.
+
+Moreover, how to define a surveillance component, used to monitor the spread of toxic smoke, is described.
+
+PARAGRAPH
+
+The remainder of the article is structured as follows.
+
+Section 2 compiles the main research works regarding the state of the art.
+
+Section 3 describes in depth the multi-agent architecture considered in this article, the reasons why it is necessary and its main contributions, stressing the roles of the different software agents designed and the definition of the integrated communication and cooperation mechanisms.
+
+Section 4 shows the main steps to be taken when deploying a multi-agent system from the architecture, regarding a case study in which the spread of toxic smoke is monitored, after a hypothetical earthquake, in a scenario made up of an industrial complex and a city.
+
+In Section 5, there is a definition of a surveillance component, aimed at monitoring the spread of toxic smoke, using the previously mentioned formal model of normality analysis (Albusac et al., 2009).
+
+Finally, Section 6 draws the obtained conclusions and outlines future lines of research.
+
+SECTION
+
+Related work
+
+SECTION
+
+UAVs and disaster management
+
+PARAGRAPH
+
+The UAVs equipped with sensors which can remotely send information about an environment provide a wide range of possibilities in disaster-related situations.
+
+Here, the reader is referred to the study made by Adams and Friedland (2011) to obtain an overall perspective of the associated problem.
+
+PARAGRAPH
+
+One of the situations which best represents a catastrophe is the earthquake.
+
+In this context, some authors such as Xu et al. (2014) consider developing a multi-drone system designed for obtaining information quickly in the moments after an earthquake.
+
+The architecture designed is made up of three items: (i) the multi-drone system itself, (ii) an earth station and (iii) an image processing system.
+
+In particular, the authors have paid special attention to making a very well-defined work flow and focus on obtaining high quality images in order to detect roads, receive information about the damage caused and for making an initial diagnostic of the situation.
+
+In the field of earthquakes, other authors have stressed planning the flights of the drones in order to make a stereoscopic reconstruction of the study area (Baiocchi et al., 2013).
+
+In this research, the tests carried out took place in the historic center of L’Aquila, a region that in 2009 was shaken by an earthquake in which there were hundreds of victims and considerable material damage.
+
+Another related study, albeit in the context of typhoons, is presented in Chou et al. (2010).
+
+PARAGRAPH
+
+There is other interesting research which looks at solving more general problems which can be applied to the area of catastrophes.
+
+A representative example of this can be seen by reconstructing 3D environments from 2D images using drones, which sets two unrelated problems: (i) obtaining images by coverage path planning and (ii) reconstructing the scenario in 3D.
+
+In this setting, Torres et al. focus on obtaining images and design an algorithm in order to calculate a route for a drone which reduces battery consumption, by minimizing the number of turns the drone makes (Torres et al., 2016).
+
+PARAGRAPH
+
+Another highly important area which involves managing catastrophes is the decision-making process (Power et al., 2015).
+
+Obviously, in this area coordination is fundamental.
+
+One possible approach is discussed in Fikar et al. (2016), where the authors put forward a system for backing decisions based on simulation and optimization in order to promote coordination between different rescue teams involved in an emergency.
+
+The layout under consideration makes use of an agent-based simulation, heuristics planning and Tabu searches in order to analyze the decision-making problem.
+
+The results are simulated in two regions close to the Danube river in Austria.
+
+Another interesting work is discussed by Zhao et al. (2019), where the authors address the cooperative decision-making problem for multi-target tracking when using systems composed of UAVs.
+
+An approach based on distributed multi-agent partially observable Markov decision processes, which is used to make tracking decisions.
+
+PARAGRAPH
+
+Detecting the movement of people in situations such as earthquakes or floods is also essential, and, in recent years, a range of researchers have focused their work on using UAVs.
+
+In fact, some authors have directly focused on detecting victims (Andriluka et al., 2010).
+
+At present, a technique which is considerably common is using thermal cameras such as, for example, in Portmann et al. (2014), in which the authors propose a framework based on filtering particles in order to monitor people, using images taken by aerial devices.
+
+In the same context, in Gaszczak et al. (2011) a layout based on a range of Haar classifiers for automatically detecting vehicles is discussed.
+
+PARAGRAPH
+
+Finally, there are publications whose results may be applied to the area under discussion in this research and which deal with more cross aspects of managing and controlling drones.
+
+Some representative examples of this can be seen in the independent control of drones (Kurnaz et al., 2010), the calculation of optimum routes (Sun et al., 2011), avoidance of obstacles and collisions between drones (Arokiasami et al., 2016) or cooperative searches (Beard and McLain, 2003; Ji et al., 2015).
+
+SECTION
+
+Multi-robot systems
+
+PARAGRAPH
+
+Nowadays, the term multi-robot implicitly involves refer systems composed of autonomous robots that are able to understand the environment where they live and act accordingly, maintaining internal models based on learning or inferring the knowledge required to perform tasks and adapt to the context (Ingrand and Ghallab, 2017).
+
+The evolution of this research area covers theoretical, computational and experimental aspects of multi-robot systems.
+
+PARAGRAPH
+
+Multi-robot coordination is a relatively established line of research and one which we can directly make use of in this study, and, although the use of drones has been contemplated especially from an experimental point of view, it can be applied with a global outlook in which terrestrial robots and aerial drones work together (see Dias et al. (2006) and Yan et al. (2013) in order to obtain an overall perspective).
+
+PARAGRAPH
+
+One coordination model that is particularly popular is the so-called emergent cooperation, used in the field of swarm robotics (Fukuda et al., 1988), where cooperative behavior on a group level arises between robots by means of interactions among them and with respect to the world, without them needing to explicitly work together.
+
+Although it is a simple solution, in the field of this research more direct cooperation aimed at trouble-shooting is required thanks to the skills robots and drones have.
+
+In this way a layout based on an intentional cooperation model is more desirable (Parker, 1998).
+
+With this model, robots cooperate explicitly and communicate based on the tasks they need to solve.
+
+It represents a layout closer to the real world in which robots do what humans wish them to do.
+
+PARAGRAPH
+
+As regards the specific field of coordination with physical robots, some works which are based on the ALLIANCE architecture (Parker, 1998), reflect the international cooperation model, in order to manage how the robots which interact in order to complete their tasks behave (Arkin, 1998; Mataric, 1997).
+
+PARAGRAPH
+
+On the other hand, coordinating a large number of robots is also a challenge that some authors explicitly address within the context of robot swarms.
+
+A possible approach consists in making use of a methodology that decomposes robot swarms into multiple groups in order to increase the versatility of the whole community of robots (Haghighi and Cheah, 2012).
+
+Thus, it is possible to deal with multiple levels of coordination in order to reach a common goal but reducing the complexity of coordinating multiple robots.
+
+PARAGRAPH
+
+Multi-robot coordination should ideally deal with constraints that arise when deploying a team of robots in a physical environment where communication is restricted.
+
+Within this context, some authors propose solutions that are based on the use of periodic connectivity (Hollinger and Singh, 2012), which represents an aspect that should be considered in scenarios affected by catastrophes.
+
+PARAGRAPH
+
+Additionally, another problem which merits special attention, and which is related to managing catastrophes and coordination is multi-robot exploration.
+
+In this respect, it is possible to consider a layout based on the premise that the objective of every robot is to minimize overall exploration time (Burgard et al., 2005), whilst simultaneously considering the cost of reaching a point of interest and how useful this is.
+
+Likewise, learning algorithms have also been used in dynamic and unknown environments in order to solve the multi-robot coordination problem.
+
+A representative example of this can be seen in Wang and de Silva (2008), where an approach based on using reinforcement learning and genetic algorithms is discussed in the context of an architecture of agents which take decisions in order to guide the robots to a point, avoiding obstacles.
+
+Moreover, there are approximations based on probability models, such as, for example in Claes et al. (2015), where the problem of coordinating a robot grid is tackled as well as choosing the best option for moving them.
+
+PARAGRAPH
+
+Multi-robot patrolling (Portugal and Rocha, 2013a), usually carried out by a dynamic team of robots, is closely related to multi-robot exploration.
+
+Again, distributed strategies are gaining more and more relevance in order to increase system robustness and flexibility (Portugal and Rocha, 2013b), especially in environments where failures and communication errors might appear as a consequence of natural disasters or man-made catastrophes.
+
+Both exploration and patrolling rely on the data gathered from heterogeneous sensors, usually deployed on mobile robots.
+
+The process of fusing such data can be addressed in a decentralized way to perform cooperative perception (Capitán et al., 2011).
+
+PARAGRAPH
+
+Multi-robot systems are inherently related to multi-agent systems, with the former adding the extra layer of complexity that derives from dealing with physical entities.
+
+The challenges faced are similar in a certain way, since they share the distributed nature of the solutions that are devised.
+
+Generally, centralized solutions are more efficient.
+
+So, why then should we be interested in distributed solutions which, normally, are more complex?
+
+There are a range of answers to this question, but, essentially, sometimes the problem itself is of a distributed nature.
+
+On other occasions, it is impossible to consider a centralized solution if data belong to organizations which need to keep them confidential.
+
+Other times, the necessary information for solving a problem is essentially distributed and lies in different systems which are large and complex and have various dimensions (Weiss, 1999): (i) the information is distributed geographically, (ii) there may be a high number of components, (iii) the number of concepts to be dealt with and the data associated with each of them may be enormous and, (iv) they may be very extensive in scope, covering a significant part of a determined field of work.
+
+From the point of view of standardization, it is worth mentioning the existence of initiatives to promote agent technology and standardization (Foundation for Intelligent Physical Agents FIPA, 2004).
+
+PARAGRAPH
+
+At the same time, coordination becomes an essential aspect of multi-agent systems when facing problems in a distributed way.
+
+In fact, recent advances on distributed multi-agent coordination (Cao et al., 2012) show the impact they have on unmanned vehicles in terms of consensus, formation control, estimation, or optimization.
+
+Although cooperation-based approaches have traditionally drawn more attention, competition-based solutions also represent an alternative that can contribute to improve system performance.
+
+PARAGRAPH
+
+As using independent drones is a recent area of research, there is not a large amount of important work which focuses on multi-agent architectures within the field of tackling catastrophic situations by means of UAVs or combining them with terrestrial robots.
+
+One recent example of this is SOIFRA (Service-Oriented Interoperable Framework for Robot Autonomy) (Arokiasami et al., 2016), considered from a multi-agent perspective for creating algorithms which are independent of the final platform, such as for detecting obstacles and preventing collisions, both for terrestrial robots and for UAVs.
+
+The agents designed maintain a BDI architecture (Rao and Georgeff, 1991) (Belief–Desire–Intention) and make use of JADE as a development and communication platform between agents (Bellifemine et al., 1999).
+
+PARAGRAPH
+
+Another example of the general architecture for controlling UAVs is shown in Doherty et al. (2015), where a distributed architecture designed to provide a set of necessary functions for missions requiring a high level of independence is discussed, such as, for example, in a rescue situation where the drones identify injured people or in a more traditional problem of delivering packages.
+
+The architecture in question is classified as HDRC3 (Hybrid Deliberative/Reactive) with a structure of 3 conceptual layers: the control layer, orientated at managing the UAVs, the reactive layer, for high level coordination by means of behaviors such as fly-to or scan-area and, finally, the deliberative layer, which provides the highest level algorithm, such as, for example, planning tasks.
+
+PARAGRAPH
+
+Some research on a multi-agent architecture level is focused on solving more general problems, such as, for example, avoiding collisions (Sislak et al., 2007), planning routes (Moon et al., 2013) or identifying specific objectives (Dasgupta, 2008).
+
+This last piece of research stands out for setting a multi-agent architecture based on swarm-computing in order to automatically detect objectives by means of UAVs in a decentralized fashion.
+
+PARAGRAPH
+
+Table 1 shows the advantages and disadvantages of the most relevant works cited in this article.
+
+SECTION
+
+PARAGRAPH
+
+Proposed architecture
+
+SECTION
+
+Motivation
+
+PARAGRAPH
+
+Within the context of analyzing and monitoring areas affected by catastrophes, most of the research there is in the literature, linked to designing architectures which support the display of multi-robot systems orientated towards analyzing events, usually focuses on specific functions or solving specific problems, such as those mentioned in the previous section.
+
+This article provides a basis on which to display systems made up of mobile robots which cooperate in order to monitor environments, but greater generality and scalability are required from the perspective of analyzing events of interest.
+
+PARAGRAPH
+
+Our contribution, to be precise, focuses on designing a new multi-agent architecture which, from a general perspective, covers the problem of information analysis and crisis management in these types of scenario.
+
+Therefore, a series of agents and communication mechanisms have been specified which are general enough to cover the monitoring of catastrophe-prone environments.
+
+These agents intervene in the process of physically controlling the UAVs, when processing the information obtained by the sensors of these UAVs, in the intelligent analysis and information fusion in order to understand what is happening around them, and, finally, in supporting the decision-making process for the human workers.
+
+PARAGRAPH
+
+We also intend the architecture put forward herein to be of an integrative nature, so it is relatively simple to incorporate both new physical monitoring devices and new algorithms which are capable of analyzing new situations or environments.
+
+We have based this objective on a clear definition of the roles that different architecture components have and on a formal normality analysis model (Albusac et al., 2009) which is already in use in the field of intelligent surveillance of urban traffic environments.
+
+PARAGRAPH
+
+As regards systematic requirements, our architecture has been designed to have those listed below:
+
+PARAGRAPH
+
+How these systematic requirements are fulfilled will be reflected in Sections 3.2 and 3.4, in which the design of the multi-agent architecture is addressed, and in Section 4, in which a specific case study is discussed in detail.
+
+SECTION
+
+Architecture overview
+
+PARAGRAPH
+
+The multi-agent architecture set out in this paper is shown graphically in Fig. 1.
+
+This architecture enables multi-agent systems to be deployed in order to analyze the information obtained in environments affected by catastrophes and to provide support in the decision-making process.
+
+This architecture is structured in three well defined layers: the information retrieval layer, the cognitive layer and the user layer.
+
+The components of the different layers are communicated through a communications middleware that abstracts the architecture from the programming languages, operating systems and communication networks involved when deploying the architecture.
+
+Below, the main features of each layer are introduced.
+
+PARAGRAPH
+
+The information retrieval layer is that responsible for obtaining information about the physical environment intended to be analyzed.
+
+The mobile robots obtain this information by means of the sensors integrated into them.
+
+Each proxy agent controls a mobile robot, thereby recreating an abstraction layer which enables the hardware part (mobile robot) to be independent from the software part (proxy agent).
+
+Although in this paper the mobile robot is represented by a drone, the abstraction the mobile robot establishes enables terrestrial robots to be used.
+
+PARAGRAPH
+
+The cognitive layer is the most complex layer of the architecture and its aim is to carry out an intelligent analysis of what is taking place in the environment which is being monitored.
+
+Therefore, the intelligent agents of this layer use the information created by the information retrieval layer to interpret situations and events, both from a local and global perspective.
+
+The final output from this layer consists in a set of recommendations or actions the human operator may follow to deal with the catastrophe that has occurred.
+
+PARAGRAPH
+
+The user layer is that which potentially integrates monitoring tools used by human operators, which receive the information created by the remaining layers.
+
+This information may be direct, such as that provided by a drone camera or obtained as a result of intelligent analysis, such as, for example in estimating the risk when a smoke cloud spreads.
+
+Also, recommendations of actions to take given by the artificial system to the human staff are considered in this layer.
+
+PARAGRAPH
+
+The architecture considers the integration of agents responsible for managing the multi-agent system, which provide essential services such as a white pages service, a yellow pages service, and a direct communication service.
+
+These agents comply with the recommendations made by FIPA to promote agent technology and interoperability.
+
+PARAGRAPH
+
+Moreover, and in order to make it easier for the reader to understand how the information is transformed as a result of the intervention of different agents in the architecture, the Fig. 2 shows how this flows.
+
+The different high-level stages are numbered in this figure: (1) information retrieval, (2) hardware abstraction and notification, (3) event detection and analysis, (4) information fusion, and (5) decision support.
+
+PARAGRAPH
+
+Initially, the mobile robots obtain information about the area around them by means of their sensors, such as, for example, a video camera (see step 1 in Fig. 2).
+
+The proxy agents, apart from controlling the mobile robots, encapsulate this information in events which are sent via events channels to the information analysis agents (see step 2 in Fig. 2).
+
+These agents are already capable of analyzing the information in order to infer what is taking place around them and use a knowledge base for this purpose.
+
+In this research work we suggest using a formal model of normality analysis (Albusac et al., 2009) as a tool for defining the previously mentioned knowledge bases (see step 3 in Fig. 2).
+
+PARAGRAPH
+
+The partial visions of the world are reflected in the blackboard architecture, in such a way that the translator agents and the fusion agents can create a global view of the area under analysis, if this is necessary.
+
+In this respect, the fusion management agent is that responsible for deciding if information fusion is required, according to the knowledge put on the blackboard by the previous agents (see step 4 in Fig. 2).
+
+Finally, the decision support agent uses this knowledge to send out alerts and suggest possible decisions to the human staff by means of the user layer (see step 5 in Fig. 2).
+
+PARAGRAPH
+
+All these architecture components, including the communication mechanisms used, are formalized and discussed in the following subsections.
+
+SECTION
+
+Architecture description and formalization
+
+PARAGRAPH
+
+Next, we introduce the formalization of proposed architecture to deploy multi-agent systems in environments affected by catastrophes.
+
+This can be defined as the tuple A=〈E,C,EC,IRL,CL,UL〉where
+
+PARAGRAPH
+
+Next, we go in depth in the formalization of the layers that compose the architecture.
+
+PARAGRAPH
+
+The Information Retrieval Layer (IRL) is defined as the tuple IRL=〈MR,PA,P(MR×PA×EC)〉where
+
+PARAGRAPH
+
+The Cognitive Layer (CL) is defined as the tuple CL=〈IAA,B,GAM,DSM〉where
+
+PARAGRAPH
+
+Finally, the User Layer (UL) is composed of a set of monitoring tools UL={mt1,mt2,…,mtx} that will be used to visually render the information generated by the different agents that are integrated in the architecture.
+
+SECTION
+
+Communication
+
+PARAGRAPH
+
+In the multi-agent architecture under consideration 3 different types of communication, thought up for providing flexibility when sharing information and for supporting cooperation among agents are proposed.
+
+Below, the main features of each communication layout are described:
+
+PARAGRAPH
+
+Since the components of the architecture must interact with one another considering the previously mentioned communication mechanisms, in this work a communication middleware is proposed to connect the different layers (see Fig. 1).
+
+From a practical point of view, ZeroC ICE is recommended (Henning, 2004), which represents a modern object-oriented server–client RPC framework with a number of services that directly support some of these communication types, such as the one based on event channels.
+
+SECTION
+
+Case study: deploying a multi-agent system to monitor an industrial complex and a urban environment
+
+PARAGRAPH
+
+In this section, a case study set in a city which is relatively close to an industrial complex, is discussed.
+
+Fig. 3 shows an aerial view of this scenario, where in the upper part the distance there is between both of these can be seen and in the lower part a hypothetical situation of fires which have broken out at the petrochemical plant and at the refinery in the industrial complex has been recreated.
+
+These fires create toxic smoke clouds which could potentially reach the city.
+
+PARAGRAPH
+
+Therefore, in this section, the steps associated with the deployment, from the proposed architecture, of a system which is capable of obtaining information and assessing the area affected by this catastrophe in the context of spreading toxic smoke are defined.
+
+Additionally, monitoring the sports complex situated in the city has been contemplated, as in times of crisis people may potentially crowd together there.
+
+PARAGRAPH
+
+In the scenario recreated in Fig. 3 it is essential to master two fundamental matters: (i) managing the evacuations on the complex premises (ii) alerting the population in the nearby city.
+
+In both matters time is essential, so a system that is capable of analyzing information about the environment quickly and practically and using it to support a crisis management plan would be of great help.
+
+PARAGRAPH
+
+Below, the general steps are introduced which are considered for deploying the monitoring system, among which the following are mainly noteworthy:
+
+PARAGRAPH
+
+Below, details of these steps will be given within the context of a case study set in this section.
+
+On this matter, a non-specialist person responsible for deploying a system from the proposed architecture could rely on predefined templates that the middleware ZeroC ICE provides for activating processing nodes, servers and services.
+
+The latter wrap the functionality provided by the designed agents.
+
+Scripts can also be given to automatically deploy the system when required, while one default configuration regarding the agents that analyze the environment can be established.
+
+However, this person must define the environment to be monitored through the points of interest, E={p1,p2,…,px}, using and XML editor.
+
+Surveillance components must be designed and developed before deploying the system.
+
+Thanks to the use of fuzzy logic, these are readable by non-experts and can be easily adjusted to improve, if need be, the representation of normal/abnormal situations.
+
+SECTION
+
+Environment characterization
+
+PARAGRAPH
+
+As has already been seen in Section 3.3, the environment to be analyzed has been defined as E={p1,p2,…,pn}, in such a way that each pi represents a specific exit road within the area.
+
+The exit roads will to a large extent depend on their physical features and the type of catastrophe which a priori could occur in this environment.
+
+Due to the information retrieval from the environment which would essentially be carried out by drones (and these are usually planned based on routes defined by a series of points in a 3D space) it seems appropriate for the basic characterization of the environment to be done like this.
+
+PARAGRAPH
+
+In the context of the case study set, Fig. 4 graphically reflects 6 exit roads: p1 and p2 are associated with monitoring points linked to the petrochemical plant and the refinery respectively, while p3, p4, p5 and p6 are linked to the exit routes r1, r2 and r3, used to evacuate the sports complex located in the area closest to the city.
+
+To monitor the first 5 points a mini-fleet of 3 drones has been considered (d1, d2 and d3), in such a way that d1 and d2 are responsible for monitoring PoI1 and PoI2, whilst d3 would be allocated a mission with points PoI3, PoI4 and PoI5.
+
+Points of interest are defined in advance, previously to the occurrence of an emergency.
+
+These points are actually the waypoints that compose the mission that are loaded into the UAV and controlled by the associated proxy agent.
+
+In the current version of the software prototype, points of interest, and their characterization, are specified in XML files.
+
+PARAGRAPH
+
+Furthermore, monitoring a sports complex located in the city has been contemplated by means of another mini-fleet of 3 drones (d4, d5 and d6).
+
+This sports complex can be seen in Fig. 5.
+
+a.
+
+This complex is made up of 3 football fields, with seating for 4500 people, 3 open-air sports tracks, 1 indoor sports hall which can hold up to 500 people, 1 indoor swimming pool and a range of tennis and paddle tennis courts.
+
+In this sub-scenario, the consequences the potential spread of the toxic cloud from the industrial complex has can be hypothetically contemplated.
+
+As the sports complex may be full of people, it is essential to obtain useful information for emergencies.
+
+In this event, and instead of carrying out an exhaustive study of what is taking place in the environment based on the definition of the normality components which encapsulate concepts or events of interest, the goal is to monitor the environment considering all the important exit roads.
+
+PARAGRAPH
+
+As shown in Fig. 5.
+
+c, the exit roads in the defined environment have been allocated a numerical priority, which varies between 1 and 3.
+
+The priority 1 pi are set at the ends of the sports complex, in such a way that in the event of emergency the drones first go to the most distant locations.
+
+In a second and coordinated pass, the drones would start closing their radius of action, linking the priority 2 pj.
+
+Finally, the priority 3 pk reflect a much higher closeness level to the premises than the others.
+
+SECTION
+
+Definition of normality components
+
+PARAGRAPH
+
+The definition of normality components implies specifying or learning the necessary knowledge for the information analysis agents to be capable of understanding what is happening in the environment.
+
+In this case study, a formal model has been chosen (Albusac et al., 2009) which has enabled the c1 concept to be specified.
+
+This concept is linked to the normality analysis in relation to the spread of toxic smoke, discussed further on in Section 5.
+
+PARAGRAPH
+
+This specification is based on the definition of a set of variables Vi, variable definition domains DDVi, knowledge base KBi, and inference engine iei, being all those elements included in the component specified.
+
+It is important to stress that the general definition of the component can be reused in a range of environments.
+
+In other words, it is possible to reuse the set of variables Vi, the knowledge base KBi and the inference engine iei.
+
+However, when instancing the component within a specific scenario, it will be necessary to specify the range of valid values, represented by the variable definition domains DDVi.
+
+PARAGRAPH
+
+In Section 5, the component responsible for monitoring the spread of toxic smoke is not just defined, but is also instanced, that is, its details will be given, with specific values, for the scenario under analysis.
+
+SECTION
+
+Information retrieval layer
+
+PARAGRAPH
+
+As regards obtaining the information about the environment, the proxy agents PA are of note, which are responsible for the mobile robots MR.
+
+Essentially, a proxy agent pai is capable of, from a software point of view, controlling a subset of mobile robots MRi, which are typically drones (a proxy agent could be a Unix process composed of multiple threads, one per mobile robot).
+
+This approach enables a software abstraction layer to be established over the different specific drone or robot models which can be used when retrieving information about the environment by sensors, such as, for example, with video cameras.
+
+In other words, if the model of a drone or a determined sensor changes, then all that is needed will be to implement a new proxy agent pai which can adequately control them.
+
+PARAGRAPH
+
+In this case study, deploying 2 proxy agents will be considered: pa1 and pa2.
+
+The former will be responsible for controlling the 3 drones d1, d2 and d3, deployed in the industrial complex, while the latter will control the other 3 drones d4, d5 and d6, connected to the sports complex in the city.
+
+This decision has been justified on two grounds.
+
+The first is the physical distance there is between the industrial complex and the city makes it necessary for each proxy agent to be deployed in a processing node close to the physical drones.
+
+The second lies in the practicality of maintaining two proxy agents which publish information from different typology in the events channel which connects the information retrieval layer with the cognitive layer.
+
+PARAGRAPH
+
+In terms of operating, a proxy agent pai resolves the problem of guiding the drones by considering a list of exit roads in the 3D space, known as waypoints.
+
+On a basic coordination level, each pai is initially allocated a list of waypoints ordered by priority, called missions, in such a way that the set of drones destined for monitoring a scenario will cover all its exit roads.
+
+If just one physical drone were available to carry out an analysis of the environment, then this would be responsible for all the exit roads in this environment.
+
+The missions may change dynamically according to the monitoring needs of the environment.
+
+Additionally, it is possible to define missions which contain a sole exit road so that this can be continuously monitored.
+
+Algorithm 1 shows the pseudo-code of the proxy agent pai that controls a single robot mrj.
+
+PARAGRAPH
+
+Proxy agents can be replicated using a master–slave approach based on the bully algorithm (Garcia-Molina, 1982).
+
+Thus, a scenario where multiple replicas of one proxy agent actually control one drone, but acting as one and increasing the system robustness in case an unexpected error takes place.
+
+This approach is proposed instead of considering a situation where one drone cannot be controlled by a proxy agent and a different drone must cover the points of interest assigned to the drone whose proxy agent failed.
+
+PARAGRAPH
+
+Finally, in terms of communication, deploying two events channels ec1 and ec2 is considered. ec1
+
+will be used for the proxy agent pa1 for publishing information relating to the images which will subsequently be analyzed in order to detect the potential spread of fire and toxic smoke. ec2
+
+will be used by the proxy agent pa2 in order to publish information linked to the images obtained of the sports complex.
+
+Although the type of event in both situations is associated with images captured by drones, we can make out two different events channels in order to delimit the extent to which the information spreads according to the monitoring needs.
+
+SECTION
+
+Cognitive layer
+
+PARAGRAPH
+
+As regards intelligent processing of the data previously captured on the information retrieval layer IRL, and supplied by the proxy agents PA, the deployment of the information analysis agents IAA is of note.
+
+Essentially, for each exit road pi which the environment characterization is made up of (see Section 4.1) it will be necessary to deploy one or various information analysis agents, depending on which normality components are going to be analyzed.
+
+If both the spread of fire and the toxic smoke are analyzed, then two information analysis agents will have to be deployed for each exit road pi.
+
+PARAGRAPH
+
+In this case study the 6 exit roads contemplated in the Fig. 4 have been considered. p1
+
+and p2 are associated with the petrochemical plant and the refinery respectively.
+
+For these two exits, the analysis of the spread of toxic smoke has been considered, and therefore 2 information analysis agents iaa1 and iaa2 are necessary which instance the concept c1.
+
+In this paper, it is assumed that if the smoke reaches a critical point, then it may be thought that the fire itself may reach this point in the near future.
+
+Moreover, p3, p4 and p5 are associated with the connection routes to the city.
+
+For these three roads the analysis of the spread of toxic smoke has been considered, so the c1 concept must be instanced once per exit road, thereby creating the necessary knowledge for the information analysis agents iaa3, iaa4 and iaa5.
+
+All these agents share one sole blackboard B (Jennings et al., 1998) and are subscribed to the events channels ec1,in which the proxy agent pa1 will publish the information associated with the visual events created from the data obtained by the drones d1, d2 and d3.
+
+Algorithm 2 shows the pseudo-code of one information analysis agent that monitors the normality of a concept ci at a specific location ej, while Algorithm 3 delves into the calculation of the degree of normality regarding the concept ci (toxic smoke propagation), which is defined in Section 5 according to the adopted normality model (Albusac et al., 2009).
+
+PARAGRAPH
+
+Moreover, p6 is associated with the sports complex, but also represents a nearby area in respect to the industrial complex.
+
+In this case study it has been assumed that 3 information analysis agents, iaa0, iaa1 and iaa2 are deployed, which are linked to the sports complex, one for each drone in the second mini-fleet (d4, d5 and d6).
+
+In principle these drones will be associated with instancing a concept which will enable crowds of people at specific physical points to be analyzed.
+
+However, exclusively dedicating an agent to analyzing the potential spread of toxic smoke could be considered, in an identical way to that previously discussed with information analysis agents.
+
+PARAGRAPH
+
+The simulations carried out with the software SITL1  (Software in the Loop), in which the analysis times of the images captured by the 3 drones, respectively, have been disregarded, have in total clocked up a time for going to all exit routes in the mission of 4 min and 30 s.
+
+In other words, considering deploying the drones automatically, it is possible to retrieve information about the environment affected by a hypothetical natural catastrophic in hardly 5 min.
+
+This information may be highly useful for emergency teams arriving on the scene.
+
+PARAGRAPH
+
+As for fusing information, linked to the GAM global analysis model, in this case study only deploying the translator agent tai is contemplated, which is responsible for obtaining a homogeneous representation of the information created by the IAA with respect to a global space of coordinates, and a fusion management agent fma.
+
+By way of example, the hypothetical situation in which the 2 drones d1 and d3 monitor the spread of a cloud of toxic smoke which moves towards the city from p4 and p5, respectively, has been contemplated.
+
+The level of risk calculated by the information analysis agents, which in the last instance are responsible for the analysis, can be added to obtain more accurate knowledge about what is happening.
+
+PARAGRAPH
+
+Thus, the degree of normality obtained by each iaaj can be used to compute the degree of abnormality as follows: ACij=1−Nciwhere A represents the degree of abnormality, j the index of the information analysis agent that carries out the calculation, and ci the normality component related to the analysis.
+
+PARAGRAPH
+
+On the other hand, each iaaj has associated a weight wj that determines the importance of its analysis within the context of the global normality analysis.
+
+Such weight varies dynamically, so that those information analysis agents that detect an anomaly will hold a higher wj when assessing the global normality value.
+
+The variation of this weight depends on the variation of the degree of abnormality regarding the normality definition. △(A−N)cij=Acij−Ncij
+
+PARAGRAPH
+
+A negative difference implies that the degree of normality is greater than the degree of abnormality and, therefore, it is not necessary to increment the weight.
+
+On the contrary, a positive increment means that the anomaly grows above the normality, and the weight wj associated to the iaaj should have a higher relevance when computing the global assessment.
+
+The function that is used to compute the weight increment is as follows: f(△(A−N)cij,wj)=0if (△(A−N)cij,wj)≤0(A−N)cijOtherwise
+
+PARAGRAPH
+
+Therefore, the variation w′j of a weight wj associated to an iaaj is computed as follows: w′j=wj+f(△(A−N)Cij,wj)
+
+PARAGRAPH
+
+Once the new weights have been computed depending on each iaaj regarding the variation of anomalies, a normalization process is carried out so that the global sum of all the weights is equal to 1.0. w′j=w′j∕∑j=1nw′j
+
+being n the total number of information analysis agents.
+
+PARAGRAPH
+
+Finally, the global degree of abnormality is equal to the weighted average of the degrees of abnormality computed by each iaaj multiplied by the computed weights. ∑i=1nACij×w′j
+
+PARAGRAPH
+
+After discussing these concepts, the information fusion to obtain the global degree of abnormality is performed as follows:
+
+SECTION
+
+User layer
+
+PARAGRAPH
+
+The high-level monitoring mechanisms integrated into this layer (UL={m1,m2,…,mn}) would be orientated towards obtaining information on various levels, thereby making a distinction between independent tools which, potentially, could be integrated into a sole control panel:
+
+PARAGRAPH
+
+In the context of using the monitoring and simulation tools, it must be stressed that the tests carried out in the sports complex have been done by the SITL simulator.
+
+Apart from enabling the security code tests and experimental settings to be executed, the purpose of these type of tools is for practicing the use of the earth station from a desktop application.
+
+Essentially, SITL enables helicopters, airplanes or terrestrial vehicles to be simulated without needing any hardware.
+
+Moreover, SITL enables ArduPilot,2  to be executed, and it is possible to access all the development tools available, such as interactive debuggers, static analyzers and tools for dynamic analysis.
+
+PARAGRAPH
+
+As an example, Fig. 6 shows how the information looks that can be obtained directly in the event of using the SITL software.
+
+In particular, the screen shot shown is part of a mission carried out by a real drone (Iris + model) in the outskirts of a city considered in this case study.
+
+Due to legal matters in Spain and considering this drone does not exceed 25 kg, it is necessary to follow a series of rules.
+
+To be specific, the drone must operate away from crowded areas, buildings, people, cities, towns or inhabited places.
+
+Likewise, the drone cannot fly above 120 m, it must be within the visual range of the pilot and must not go more than 500 meters away.
+
+For these reasons, tests with a real drone had to be carried out on a plot of land far from built-up areas and in which there were no people or infrastructures nearby.
+
+This plot of land is shown in Fig. 6, which also includes the exit roads in the assigned mission.
+
+PARAGRAPH
+
+Below, there is a basic definition of the surveillance component for monitoring the spread of toxic smoke considered in the case study of Section 4, using the formal model of normality analysis (Albusac et al., 2009) cited in previous sections.
+
+SECTION
+
+Building a knowledge base to monitor toxic smoke propagation
+
+PARAGRAPH
+
+The intelligent monitoring systems we have designed and developed in previous research works (Albusac et al., 2010) are made up of a set of surveillance components aimed at analyzing urban traffic scenarios.
+
+As a result of this experience, in this paper we have proposed the design of a new component, whose main objective is to analyze how toxic smoke spreads in an area monitored by UAVs, which is prone to undergoing a natural disaster (see Fig. 3 in order to recreate the situation graphically).
+
+The overall goal is to estimate the degree of risk there is in a scenario in which there is a fire with toxic smoke.
+
+PARAGRAPH
+
+Just as presented in Section 3.3 and defined in Albusac et al. (2009), a surveillance component has been constructed which is based on a concept ci (in this case study it is represented by the spread of toxic smoke).
+
+In reality, the surveillance components could be understood as being components of normality analysis (abbreviated as normality components), since their knowledge bases typically represent normal situations.
+
+Generally speaking, the number of normal situations is more restricted, and they are simpler to define than abnormal ones (Albusac et al., 2010).
+
+PARAGRAPH
+
+Defining the concept Ci involves specifying a tuple made up of four elements ci=〈Vi,DDVi,KBi,iei〉.
+
+Here the following aspects must be stressed:
+
+PARAGRAPH
+
+Using this definition model for normality components, the component for analyzing the spread of toxic smoke is made up of four input variables and one output variable.
+
+PARAGRAPH
+
+The defined input variables are as follows:
+
+PARAGRAPH
+
+The only output variable is the following:
+
+PARAGRAPH
+
+The mathematical model used for defining this normality component is fuzzy logic (Zadeh, 1996), so the previously defined variables are fuzzy ones.
+
+Therefore, each domain of definition DDVij will be made up of a set of linguistic labels which are in turn linked to fuzzy sets.
+
+The values of each variable will determine the degree of membership to each fuzzy set.
+
+Fuzzy logic is suitable in this situation, due to the high degree of inaccuracy and vagueness there is in the underlying problem.
+
+In the upper part of Fig. 7 the specific set of linguistic labels for each of the variables is defined.
+
+PARAGRAPH
+
+To give an example, and considering the instancing of this normality component in respect to the case study set out in Section 4 (in the step discussed in Section 4.2 to be specific), specifying the domains of definition of the variables distance and speed is considered for point p6 in this case study.
+
+Specifically speaking, if the distance variable is associated with a domain of definition with the labels very close, close, medium, far and very far, and there is an intention to represent the distance between one point of interest, such as the city and the point at which a cloud of toxic smoke is detected, then the fuzzy sets shown in Fig. 8 could be used.
+
+This instancing must be extrapolated to the other domains of definition associated with the set of concepts or events of interest Ci to be monitored, since the range of values will depend on the environment which is to be analyzed.
+
+PARAGRAPH
+
+When the four input variables have a new value, a fuzzification process begins, in which the degree of membership to the fuzzy sets of the domain of definition DDVi of each variable Vi is studied.
+
+In this way, the numerical values are replaced with linguistic labels and degrees of membership.
+
+As discussed later, the set of restrictions Φi can be defined as a set of rules made up of linguistic labels.
+
+Moreover, these rules come with a fuzzy inference mechanism which determines which rules are activated and to what degree.
+
+The fuzzy inference mechanism is a possible alternative for defining the inference engine iei of a concept ci.
+
+The degree of satisfaction of the rules or restrictions is determined by how much risk there is in a certain situation.
+
+PARAGRAPH
+
+To obtain the value of the four input variables, in this research it has been assumed that the proxy agents PA would have a series of pre-processing modules which would analyze the images with computer vision techniques.
+
+The events generated by the PA are used as input for the information analysis agents IAA, which use the concept ci to carry out the normality analysis.
+
+PARAGRAPH
+
+Additionally, the strategy used for defining normal situations when defining a normality component can be supplemented by adding a minimum set of abnormal situations.
+
+This explicitly enables the most typical abnormal situations to be monitored.
+
+In this context, one of any of the following three situations may arise:
+
+PARAGRAPH
+
+With this strategy in mind, Fig. 7 shows a simplified set of restrictions or rules which define low or moderate risk situations (normality with respect to the potential spread of toxic smoke) and high-risk situations (abnormality).
+
+It must be stressed that in a real deployment carried out by a commercial system, this set of rules would be necessary for completing it both in terms of normality and as regards probable abnormal situations.
+
+PARAGRAPH
+
+Specifically speaking, the set of restrictions Φi of the normality analysis component of the spread of toxic smoke has been designed as a set of IF-THEN type fuzzy rules.
+
+The rules antecedent can be made up of four input variables distance, speed, direction and spreading, whilst the consequent will be associated with the output variable risk.
+
+PARAGRAPH
+
+Just as can be seen in Fig. 7, these types of rules show a high degree of interpretability.
+
+They can easily be defined on the basis of reference situations (see Fig. 9), and they also make it very simple to modify the knowledge base KBi.
+
+Moreover, each of these rules covers a multiple range of values for the input variables; so, it will just be necessary to define a reduced set of rules to cover most situations to be monitored.
+
+SECTION
+
+PARAGRAPH
+
+Conclusions and future work
+
+PARAGRAPH
+
+In this research we have presented multi-agent architecture which is used to deploy multi-agent systems aimed at retrieving and analyzing information by using mobile robots, which are usually UAVs, and for providing support to the decision-making process in environments affected by natural disasters.
+
+The architecture has been structured into layers, provides communication and cooperation mechanisms among agents and envisages defining a set of agents with different roles.
+
+Among these, most noteworthy are the information analysis agents, which are responsible for carrying out any analysis of what is taking place in the environment which is being monitored according to a set of concepts or events of interest.
+
+PARAGRAPH
+
+When formalizing this architecture, there has been a discussion on the steps to take to deploy a multi-agent system which enables environments to be effectively analyzed, that contemplates aspects such as the environment characteristics, the specifications of the mobile robots, the definition of the concepts or events of interest to be analyzed, and the use of information fusion techniques to support decision-making.
+
+In this respect, the full cycle is covered from information retrieval to supporting decision-making.
+
+This discussion has been supplemented with a case study in which there is a hypothetical earthquake which affects an industrial complex situated near to a city.
+
+The environment has been analyzed on the basis of a concept or event of interest from the point of view of monitoring: the spread of clouds of toxic smoke.
+
+In this article, to monitor these potential risks, a normality component has been defined, and for this purpose a formal model has been used for normality analysis (Albusac et al., 2009) based on fuzzy logic which has previously been used for monitoring mobile objects in urban traffic environments (Albusac et al., 2010).
+
+The aim is to generalize this component in order to monitor the spread of fire, an event closely linked to the spread of smoke.
+
+PARAGRAPH
+
+Additionally, the systematic requirements for this type of architecture, and which have been presented in the Section 3.1 have been fulfilled.
+
+As regards availability, the events channels EC makes the information publishers and subscribers independent from each other.
+
+In terms of evolvability, this architecture has been designed to make the hardware components independent from the software.
+
+Therefore, the proxy agents PA provide the abstraction required to enable the remaining architecture agents to operate independently from the hardware devices used to obtain information about the environment.
+
+The integration requirement, which is very directly linked with evolvability, has likewise been justified by the design of the information retrieval layer, which contains the PA which are responsible for controlling the physical robots or drones integrated.
+
+As regards manageability, the architecture envisages using monitoring tools (see Figs. 2 and 6) which are fed from the knowledge created by the different agents of the architecture, especially from those integrated into the cognitive layer.
+
+For scalability, the devices for obtaining information about the environment make it possible to integrate new drones or terrestrial robots, on a communicative level, the architecture envisages defining the events channels EC which make the information publishers independent from the subscribers and the knowledge bases make it possible to include the analysis of new events of interest or threats.
+
+A large amount of the high-level agents incorporate knowledge bases used for analyzing the information obtained about the environment into their definition.
+
+For security requirements, a scene has been considered in which all information is encrypted, particularly that which is wireless.
+
+PARAGRAPH
+
+Finally, as the main line of future research, we envisage improving and adapting the architecture by considering terrorist attack scenarios, which are usually characterized by their unpredictability and the chaos they cause.
+
+In a way, they resemble environments affected by natural disasters.
+
+The general objective would be to provide support in order to minimize the damage caused by the attack and, to once again, use a set of UVAs to gather useful information as fast as possible which could be useful to human staff who are responsible for responding to this situation.
+
+In this context, new agents would need to be included which are independent enough to retrieve information from other interesting data sources, such as, for example, social networks, which usually provide information which is almost in real time when an event with these characteristics occurs.

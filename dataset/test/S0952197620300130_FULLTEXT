@@ -1,0 +1,1015 @@
+10.1016/j.engappai.2020.103495
+
+FULLTEXT
+
+TITLE
+
+A competency question-oriented approach for the transformation of semi-structured bioinformatics data into linked open data
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Bioinformatics data in general and functional genomics data in particular are obtained using different molecular biology techniques (Mantione et al., 2014).
+
+Once (raw) functional genomics data are available, a bioinformatician needs to process these data using different analysis tools in order to discover new biological knowledge (Holzinger et al., 2014; Pevsner, 2016).
+
+However, plain processed data have no explicit semantic value, which hinders a bioinformatician later efforts to extract additional biological knowledge through data exploration (Qiao et al., 2018).
+
+This task could be facilitated in case proper support were available to transform bioinformatics analysis data, most often, stored in ASCII files in a semi-structured format, into Linked Open Data (LOD) (Bizer, 2009; Bizer et al., 2009).
+
+Despite the challenges related to the consumption by end users of information available in LOD datasets (Oliveira et al., 2017; Musto et al., 2017), once bioinformatics analysis data were available as LOD, the bioinformatician would effectively be able to take advantage of the different life science LOD datasets1  (Belleau et al., 2008) to perform data exploration.
+
+PARAGRAPH
+
+Different approaches have been proposed to transform different types of biomedical data into LOD, such as Belleau et al. (2008), Auer et al. (2009), Jupp et al. (2014), Merrill et al. (2014), Legaz-García et al. (2016), Kaalia and Ghosh (2016), Jovanovik and Trajanov (2017) and Sernadela et al. (2017).
+
+Despite their focus on the biomedical domain, these approaches lack the necessary flexibility so they can be easily adapted for the transformation of semi-structured bioinformatics data into LOD.
+
+For example, some approaches do not allow the customization of the transformation process through the use of different (OWL) ontologies (Belleau et al., 2008; Merrill et al., 2014).
+
+Other approaches do not explicitly use a language for the specification of source data to LOD mapping/transformation rules (Belleau et al., 2008; Auer et al., 2009; Jupp et al., 2014; Merrill et al., 2014; Kaalia and Ghosh, 2016; Sernadela et al., 2017; Jovanovik and Trajanov, 2017).
+
+PARAGRAPH
+
+The approach proposed by Legaz-García et al. (2016) can be considered an exception in this regard.
+
+This approach explicitly allows the use of different ontologies in the transformation process, as well as it defines a language for the specification of mapping rules.
+
+However, since this approach was conceived for the transformation of structured data, it cannot be easily adapted for the transformation of semi-structured bioinformatics data into LOD.
+
+PARAGRAPH
+
+We believe that similarly to a design methodology, an approach for the transformation of semi-structured bioinformatics data into LOD should adhere to a number of general quality properties (de Farias, 2002).
+
+Particularly, we believe that such approach should be simple, systematic and flexible.
+
+A simple approach relies on a minimal set of concepts to represent LOD transformation rules, which facilitates its usage as a whole.
+
+A systematic approach provides a step-by-step process to guide the transformation of source data into LOD.
+
+Finally, a flexible approach can be used in a variety of situations, without (major) changes or adaptations.
+
+PARAGRAPH
+
+This paper aims at proposing a stepwise approach for the transformation of semi-structured bioinformatics data into LOD.
+
+To accomplish this objective, we have initially defined a competency question oriented transformation process.
+
+In order to support this transformation process, we have defined a language for the specification of transformation rules and, finally, we have implemented a toolset to support different steps of our transformation approach.
+
+PARAGRAPH
+
+This paper is further organized as follows.
+
+Section 2 provides background and related work information.
+
+Section 3 presents our data transformation approach.
+
+Section 4 details the specification of transformation rules.
+
+Section 5 describes the toolset developed to support our approach.
+
+Section 6 illustrates the application of our approach in the functional genomics domain.
+
+Section 7 discusses core research questions and the limitations of this work.
+
+Finally, Section 8 presents our concluding remarks and future work.
+
+SECTION
+
+Background and related work
+
+SECTION
+
+Bioinformatics data
+
+PARAGRAPH
+
+Structured data are strictly defined and (regularly) organized to ensure consistency and facilitate processing.
+
+In turn, semi-structured data is characterized by having a loose, often incomplete or irregular, typed structure (Abiteboul, 1997).
+
+PARAGRAPH
+
+Bioinformatics data are semi-structured in nature.
+
+Data obtained directly from a molecular biology experiment are called raw data.
+
+Once different sets of raw data are available they must be pre-processed (normalized) in order to make them comparable.
+
+Pre-processed bioinformatics data are typically stored in semi-structured ASCII files, according to a (standard) representation format.
+
+Examples of such formats include Sequence Alignment/Map (SAM) (Li et al., 2009), MicroArray Gene Expression Tabular (MAGE-TAB) (Rayner et al., 2006) and Simple Omnibus Format in Text (SOFT) (Barrett et al., 2007).
+
+PARAGRAPH
+
+SAM is a generic text-based alignment format for storing read alignments against reference genomic sequences.
+
+The SAM format consists of two sections, viz., a header section and an alignment section.
+
+All lines in both sections are tab-separated.
+
+Further, each alignment line has a fixed number of mandatory fields and a variable number of optional fields.
+
+PARAGRAPH
+
+MAGE-TAB is a format designed to store microarray data.
+
+The MAGE-TAB format consists of four different types of files: (i) Investigation Description Format (IDF) file, containing general information about the investigation itself; (ii) Array Design Format (ADF) file, describing the design of the array, i.e., the locations of the sequences; (iii) Sample and Data Relationship Format (SDRF) file, describing the relationships between samples, arrays, data, and other objects used or produced in the investigation; and, finally, (iv) raw and processed data files.
+
+The IDF, ADF and SDRF files are simple, tab-delimited, spreadsheet-based files, containing both mandatory and optional fields.
+
+PARAGRAPH
+
+SOFT is a simple, line-based, plain text format used to store and organize genomic data in a single document.
+
+The SOFT format consist of three sections, viz., (i) a platform section, containing a summary description of the array or sequencer used in a given experiment; (ii) a sample section, containing a summary description of each sample used in the experiment; and (iii) a series section, containing a set of related samples pertaining to the study.
+
+Each section contains both mandatory and optional fields.
+
+PARAGRAPH
+
+Normalized data is further processed (analyzed) in order to extract (new) relevant biological information.
+
+Examples of typical functional genomics analyses include differential analysis, clustering and functional enrichment.
+
+Bioinformatics processed data can also be stored according to a standard representation format, such as MAGE-TAB and SOFT.
+
+However, processed data are also stored in ASCII files according to an explicitly defined, application-dependent, set of tags.
+
+PARAGRAPH
+
+Regardless the semi-structured format used to store bioinformatics data, the data items themselves are arranged according to three different styles: list of values, matrix of values and a combination of list and matrix of values in a single file.
+
+In the list of values data arrangement style, data items are arranged in a list, where each line corresponds to a different type of information.
+
+In case a tag is present, it is used to describe the line content type, followed by the data itself, which may be further structured, using, for example, tabs or any other custom separation format.
+
+PARAGRAPH
+
+In the matrix of values data arrangement style, data items are arranged in a tab-separated table format.
+
+Each column usually corresponds to a different type of information, while each line stores different values for that type of information.
+
+Once again, the first row of the file may contain a tag describing the type of information stored in each column.
+
+Finally, both types of data arrangement may be combined in a single data file forming the third data arrangement style.
+
+The first lines of the file usually contain data arranged in a list format, followed by data arranged in a matrix format.
+
+SECTION
+
+SPARQL endpoints
+
+PARAGRAPH
+
+SPARQL (W3C SPARQL Working Group, 2013) consists of set of specifications to support the query and manipulation of RDF data (Cyganiak et al., 2014).
+
+Particularly, the SPARQL query language was conceived to allow RDF data search, retrieval and manipulation.
+
+This language allows not only the search for an specific value, but also the use of variables to locate information needed in a generic search.
+
+SPARQL query language can be used either locally or remotely through a SPARQL endpoint.
+
+A SPARQL endpoint consists of a URI at which a SPARQL Protocol service listens for requests from its clients.
+
+Thus, a SPARQL endpoint enables the remote query of an RDF knowledge base using the SPARQL query language.
+
+PARAGRAPH
+
+There are a number of publicly available SPARQL endpoints in the biomedical domain, such as UniProt2  (The UniProt Consortium, 2015, 2017), Gene Ontology,3  Bio2RDF4  (Dumontier et al., 2014) and WikiPathways5  (Waagmeester et al., 2016).
+
+PARAGRAPH
+
+The UniProt SPARQL endpoint provides functional information related to proteins and associated annotations, including amino acid sequences, protein descriptions, taxonomic data and citation information.
+
+The Gene Ontology SPARQL endpoint provides information related to the logical structure of biological functions.
+
+Further, this endpoint also provides evidence-based statements relating a specific gene product (e.g, a protein) to a specific ontology term.
+
+The Bio2RDF SPARQL endpoint provides a LOD knowledge base obtained from different biomedical databases, including clinical trials, biomedical literature citations, drugs, biological pathways, genes and diseases.
+
+Finally, WikiPathways SPARQL endpoint provides information related to biological pathways.
+
+SECTION
+
+Related work
+
+PARAGRAPH
+
+Approaches for the transformation of biomedical data into LOD can be classified according to the characteristics of the source data.
+
+While some approaches are targeted at structured data (Auer et al., 2009; Jupp et al., 2014; Legaz-García et al., 2016), other approaches are targeted at semi-structured data (Merrill et al., 2014; Kaalia and Ghosh, 2016; Jovanovik and Trajanov, 2017) or even both types of data, the so-called hybrid approaches (Belleau et al., 2008; Sernadela et al., 2017).
+
+PARAGRAPH
+
+Auer et al. (2009) developed a tool named Triplify capable of transforming relational data into LOD.
+
+Triplify aims at supporting the mapping of URI requests received via HTTP onto relational database queries.
+
+The resulting SQL queries are then transformed into RDF statements, which are finally published on the web in different RDF serialization formats.
+
+The developed tool supports the conversion of database content into RDF triples both on demand or in advance.
+
+In order to transform the contents of a relational database into RDF, Triplify defines mappings of URL patterns to sets of SQL queries, replaces (optional) placeholders in the associated SQL queries with matching parts defined in the HTTP request, issues associated SQL queries and then transforms the returned query results into RDF.
+
+PARAGRAPH
+
+Jupp et al. (2014) propose a platform named EBI RDF for the integration of multiple biological databases.
+
+The development of this platform started with the identification of transformation requirements posed by scientific specialists and other EBI service users.
+
+Next, these requirements were used to identify possible integration points between the databases and to define the necessary infrastructure to deliver a stable and scalable service.
+
+Finally, different OWL ontologies and vocabularies were used to semantically annotate the source data in order to create the target RDF datasets.
+
+PARAGRAPH
+
+Legaz-García et al. (2016) propose an approach for the integration of both XML documents and relational databases.
+
+The approach relies on the use of an OWL ontology shared by the data sources in order to allow the semantic integration.
+
+A language is used to specify the semantic equivalence between ontology terms and input data.
+
+This language contains two types of rules: (i) mapping rules, which define the semantic equivalence between a source data item and a corresponding ontology term; and (ii) identity rules, which define datatype and object properties that are mainly used to avoid the creation of redundant content.
+
+Transformed data are created as class instances of the OWL ontology.
+
+PARAGRAPH
+
+Merrill et al. (2014) developed a platform named eXframe to create a unified repository of biomedical linked assays.
+
+The transformation is based on a predefined ontology of biological experiments.
+
+In order to submit a new assay to the repository, one has to fill a form describing the assay.
+
+Each field of this form is bound to a class of the biological experiment ontology.
+
+Once the assay information is submitted to the platform, the provided form data is transformed into RDF according to the predefined form field to class mappings and the resulting LOD dataset is automatically stored into an RDF triplestore.
+
+PARAGRAPH
+
+Kaalia and Ghosh (2016) developed a tool namedInstanceLoaderDB to transform gene information related to diabetes from multiple source TSV/CSV files into class instances of a Disease Association Ontology, specific to this disease (DAO-db).
+
+This transformation is performed in four steps: (i) the parsing of the semi-structured source data into a well-defined standard data object format, called DBInstance, thus eliminating data heterogeneity; (ii) the parsing of supported and dependent OWL ontology classes and properties; (iii) the execution of a set of logical inferences to identify to which class a DBInstance object belongs; and finally, (iv) the transformation of all DBInstance data objects into corresponding ontology class instances.
+
+PARAGRAPH
+
+Jovanovik and Trajanov (2017) propose an approach for the transformation of drug data contained in HTML pages into LOD.
+
+The proposed approach consists of five steps: (i) domain and data knowledge; (ii) data modeling and alignment; (iii) transformation of source data into linked data; (iv) publishing the linked dataset on the web; and (v) development of LOD use-cases and applications.
+
+The transformation itself was supported by the OpenRefine transformation script (Verborgh and Wilde, 2013).
+
+They have developed a set of specialized web crawlers to extract interest data from a number of designated drug registry websites, which were then cleaned and stored in a predefined CSV file format (source SSD file).
+
+For each designated drug registry website a separate CSV file was created.
+
+Next, an OpenRefine script was developed containing mappings from CSV columns to ontology classes and associated predicates.
+
+Finally, this script was used by a service named BachRefine, which consists of a REST-based wrapper over an OpenRefine instance, to process and transform all source SSD files into RDF datasets.
+
+PARAGRAPH
+
+Belleau et al. (2008) propose an approach to integrate multiple bioinformatics data sources, including relational databases, XML documents, text files and HTML pages, into a unique platform.
+
+The approach is based on three steps: (i) the identification of target integration data sources; (ii) the creation of a single ontology connecting all elements of each data source; and (iii) the development of a separate parser for each type of data source to retrieve and transform the source data into RDF.
+
+PARAGRAPH
+
+Finally, Sernadela et al. (2017) developed a tool named Scaleus for the RDF-based integration of biomedical data information.Scaleus supports the transformation of tabular files and spreadsheets (XLSX, XLS and ODS) into RDF.
+
+This tool does not directly use a complete OWL ontology to support the source data to LOD transformation.
+
+However, Scaleus allows one to explicitly declare predicates to be used during the transformation process.
+
+Further, Scaleus allows the definition of mappings between columns using previously declared predicates.
+
+SECTION
+
+LOD transformation process
+
+PARAGRAPH
+
+In order to transform SSD into LOD we need to specify how pieces of data present in a set of SSD files relate to an ontological set of concepts.
+
+This relationship is established using a set of transformation rules.
+
+Thus, a transformation rule specifies the semantic equivalence between one or more semi-structured data items and a concept defined, for example, in an OWL ontology.
+
+A transformation rule not only binds the meaning with the data but also specifies how the data must be linked to each other in the resulting LOD file.
+
+By the end of the transformation process, a LOD file is primarily obtained as a set of RDF/XML triples.
+
+However, the resulting LOD triples are independent of the syntax used and can also be exported using other syntaxes, such as N3 and Turtle.
+
+PARAGRAPH
+
+The SSD to LOD transformation process consists of the following activities: (i) definition of Competency Questions (CQ); (ii) specification of transformation rules; (iii) data transformation; and (iv) data exploration.
+
+PARAGRAPH
+
+The first activity consists of defining a set of related competency questions to drive the creation of transformation rules.
+
+A competency question represents a technique frequently used during ontology development for the identification of issues that must be answered by an ontology after its construction (Grüninger and Fox, 1995; Fernández-López et al., 1997; Noy and McGuinness, 2001; De Nicola et al., 2005; de Almeida Falbo, 2014).
+
+In the context of this work, competency questions define the scope of the transformation process by identifying target data for the transformation (source SSD).
+
+Thus, the definition of competency questions drives the creation of transformation rules in order to make the data semantically connected and, eventually, to allow the discovery of knowledge through the exploration of semantic relations.
+
+PARAGRAPH
+
+The second activity consists of specifying a set of transformation rules.
+
+A transformation rule defines semantic relations between data items from a SSD file and concepts from one or more OWL ontologies.
+
+A transformation rule typically specifies two types of semantic relations simultaneously.
+
+The first type of semantic relation is established between a set of data items and a concept from an ontology (is_a relation).
+
+This type of relation yields the different (subject) elements in an RDF triple.
+
+The second type of semantic relation is established between a triple subject and triple objects or literals.
+
+The relations established in this type usually represent the properties specified in the OWL ontologies supporting the transformation process or properties being defined across these ontologies.
+
+PARAGRAPH
+
+For each competency question defined, we must create a set of transformation rules establishing the corresponding semantic relations.
+
+In the end, the exploration of the relations will allow a user to explore the links between data to discover the answers to the competency questions.
+
+PARAGRAPH
+
+The third activity consists of performing the SSD to LOD transformation itself.
+
+This step executes the transformation rules associated to each competency question thus yielding a data slice.
+
+A slice consists of a set of linked open data obtained as a result of the execution of at least one transformation rule.
+
+At the very end of the transformation process the union of the different data slices represents the whole LOD set.
+
+The scope of a slice is restricted by the set of competency questions specified during the transformation and the corresponding transformation rules.
+
+PARAGRAPH
+
+Finally, the fourth activity aims at exploring the transformed data against the competency questions in order to obtain the answers to these questions.
+
+The W3C recommends to use the SPARQL to explore and manipulate RDF data.
+
+In this way, for each competency question defined, one or more SPARQL queries should be written to explore, recover and manipulate the produced data slice.
+
+The answers obtained by each query (or in a set of queries) represent the answers to the competency questions themselves.
+
+PARAGRAPH
+
+Fig. 1 provides an overview of our SSD to LOD transformation process.
+
+This figure depicts the transformation process activities, the artifacts produced or consumed by these activities and their relationships.
+
+PARAGRAPH
+
+In general, the different activities of our transformation process are sequentially executed.
+
+However, after the definition of the competency questions, a set of (related) competency questions can be grouped in order to facilitate the development of the remaining transformation activities.
+
+Such grouping represents a compartmentalization of a transformation process, thus yielding the creation of an independent transformation cycle considering only the grouped set of competency questions.
+
+Different criteria can be used to group a set of competency questions into a transformation cycle, such as the use of the same source SSD file(s), the complexity of specification of the transformation rules, performance issues related to the transformation process, etc.
+
+SECTION
+
+Transformation rule specification
+
+PARAGRAPH
+
+In order to specify an SSD to LOD transformation, we assume the SSD are stored in a matrix of values arrangement style, since this style is the most common in the bioinformatics domain.
+
+In case the SSD are stored in a list of values arrangement style or in a hybrid style, these data must be first transformed into the matrix style prior to the transformation.
+
+PARAGRAPH
+
+An SSD to LOD transformation specification contains four different types of elements: (i) a configuration element; (ii) transformation rules; (iii) condition elements; and (iv) search elements.
+
+Except for the configuration element that appears only once in the specification, the other remaining elements can appear multiple times.
+
+PARAGRAPH
+
+A configuration element specifies a number of general parameters to support the transformation process.
+
+Four different types of parameters can be specified, viz., a base Internationalized Resource Identifier (IRI), a header information, an export syntax and a namespace identifier.
+
+The base IRI parameter is a mandatory parameter and defines a default identifier to be used as basis for the creation of a (triple) node IRI.
+
+The header information parameter is optional and specifies whether or not the SSD file contains a non-processable header.
+
+In case of absence, the default value for this parameter is true indicating the presence of a non-processable header.
+
+The export syntax parameter is also optional and defines the LOD set representation syntax.
+
+In case of absence, the default export syntax is RDF/XML.
+
+Examples of supported syntax include RDF/XML, N3 and Turtle.
+
+Finally, the namespace parameter specifies a short name (namespace) to be used as reference to a given ontology.
+
+The namespace parameter is only required whenever multiple ontologies are used to support the specification of the transformation rules.
+
+In case of a single ontology is used in such specification, this parameter becomes optional.
+
+PARAGRAPH
+
+A transformation rule is used to create a set of LOD triples by defining how data items are related to ontology concepts and how these data items relate to each other.
+
+A transformation rule contains a header and a body.
+
+The header specifies a transformation rule type, a unique rule identifier and a subject type.
+
+PARAGRAPH
+
+There are two types of transformation rules: column-based and row-based.
+
+A column-based rule creates a set of LOD triples by associating a single data item (the first element of a source column) to a set of data items provided by a target column, whereas a row-based rule creates a set of LOD triples by associating data items provided by a source column to corresponding data items provided by a target column (one association for each existing row of the source column).
+
+Fig. 2 illustrates the different types of transformation rules.
+
+Fig. 2a depicts the execution of a column-based rule, while Fig. 2b depicts the execution of a row-based rule.
+
+PARAGRAPH
+
+The subject type specifies the equivalence between an SSD column and an ontology class.
+
+The transformation process initially creates a set of triples associating a column data item (triple subject) to an ontology class (triple object) using the rdf:type relationship.
+
+The transformation process produces either a single triple or multiple triples, depending on the type of the transformation rule.
+
+In case of a column-based rule, a single triple is created, while in case of a row-based rule, multiple triples are created (one for each data item present in the source column).
+
+The produced triple subject(s) is(are) then used as a starting point for the creation of additional triples, as specified by the associated rule body.
+
+PARAGRAPH
+
+A rule body contains a number of statements that are used to create these additional triples.
+
+A statement links a triple subject to a triple object using a triple predicate.
+
+Each triple subject produced by either a column-based or row-based rule header is also used as subject for the additional triples.
+
+Triple objects can be directly provided by the data items of a target column or indirectly obtained by referring to another transformation rule.
+
+Finally, the predicate represents either an object property or a datatype property defined in an ontology.
+
+PARAGRAPH
+
+Fig. 3 illustrates the application of a column-based rule to transform a source SSD to a LOD set based on an associated OWL ontology.
+
+The source SSD contains data related to a biomedical experiment, while the source ontology contains a number of concepts and relationships related to the representation of a biomedical experiment.
+
+The rule header produces an initial triple associating the experiment accession number (triple subject) to the Investigation concept (triple object) using the rdf:type relationship (“E-MTAB-5814 rdf:type Investigation”).
+
+Next, for each rule statement, the E-MTAB-5814 RDF node is used as subject for the creation of a set of triples relating this subject, according to a specified predicate, to each element contained in a target column.
+
+Thus, a separated triple E-MTAB-5814 (subject) contributor (predicate) Target_Column (object) is created for each element contained in the SSD People target column.
+
+Analogously, a separated triple E-MTAB-5814 (subject) summary (predicate) Target_Column (object) is created for each element contained in the SSD Protocol Description target column.
+
+PARAGRAPH
+
+Since a triple body statement can refer to RDF nodes produced by another transformation rule (triple subject(s)), it is possible to combine a column-based rule with a row-based rule.
+
+Such combination allows the specification of complex transformations.
+
+Fig. 4 illustrates the application of a column-based rule chained to a row-based rule.
+
+The dynamics of this transformation is similar to the dynamics of the transformation depicted on Fig. 3.
+
+The difference between the two examples appears when the transformation process reaches the third rule statement, which links the experiment Accession Number (triple subject) to rule2 using the has_specified_input predicate.
+
+According to this statement, the transformation process of the rule1 pauses in order to execute the transformation specified by rule2.
+
+Since rule2 is a row-based rule, multiple triples are created (one for each row), linking the experiment Source Name (triple subject) to the associated Genotype (triple object) using the genotype predicate.
+
+All triples created by rule2 will be linked to the triple subject produced by rule1 using the has_specified_input predicate.
+
+PARAGRAPH
+
+A condition element specifies a set of condition statements that must be satisfied in order to trigger the execution of a transformation rule as a whole or the execution of a single rule body statement.
+
+All defined condition statements must be evaluated to true in order to satisfy the condition element.
+
+A condition statement can use six different types of operators to evaluate the condition: < (less than), <= (less than or equal to), > (greater than), >= (greater than or equal to), == (equal to) or !=
+
+(not equal to).
+
+PARAGRAPH
+
+Frequently during a transformation, we need to refer to a node already defined elsewhere, as part of another LOD set.
+
+Such characteristic is intrinsic to the definition of linked open data.
+
+Thus, a search element specifies a query for a triple object that will be executed in a remote dataset (endpoint).
+
+A search element contains a header and a body.
+
+The header specifies the element type (search element), a unique element identifier and a SPARQL endpoint (URL).
+
+The search body defines the SPARQL query that will be remotely executed.
+
+PARAGRAPH
+
+The processing of a search element uses the specified SPARQL query to recover the IRI of the desired triple object.
+
+In order to allow the direct use of an SSD data item being transformed as part of a SPARQL query, we have defined a reserved keyword named ?
+
+tsvData to be used as surrogate for the SSD data item itself.
+
+Hence, this keyword is replaced by the corresponding SSD data item during the remotely execution of a SPARQL query.
+
+PARAGRAPH
+
+A transformation rule can use a number of auxiliary elements, named flags, to specify specials operations to be executed over the SSD, hence allowing more complex transformations.
+
+These flags can be independently applied to a subject type definition or to a rule statement.
+
+We have defined nine different flags: Separator, Datatype, Not Metadata, Default Value, Column, Base IRI, Search Element, Condition Element and Node.
+
+PARAGRAPH
+
+The Separator flag specifies a separation criterion, such as a comma, a dash or semicolon, to be used during the processing of an SSD data item.
+
+The Datatype flag specifies the SSD data item primitive datatype, such as string, boolean and double.
+
+The Not Metadata flag indicates that an SSD column header should be used as a data item.
+
+The Default Value flag specifies a default value for the creation of a node in case the corresponding SSD data item is missing.
+
+The Column flag specifies the number of an SSD column or the column name to be used as a source column for the transformation.
+
+This flag is required whenever an SSD file does not have a column header or have multiple columns with same title.
+
+The Base IRI flag specifies a custom IRI to be used as basis for the creation of the node IRI, instead of using the base IRI specified by the configuration element.
+
+The Search Element flag identifies the search element that must be used to recover the IRI of a node to be used as a triple object.
+
+The Condition Element flag identifies the condition element that must be satisfied to execute the associated rule as a whole or a rule statement.
+
+Finally, the Node flag specifies an RDF node type to be used as triple object.
+
+PARAGRAPH
+
+An SSD to LOD transformation specification is processed as follows.
+
+First, the configuration element is parsed in order to extract any general parameter that should be used during the transformation process.
+
+Then, transformation rules, condition elements and search elements are parsed.
+
+Next, transformation rules are straightforwardly classified as referred or non-referred.
+
+Consider for example the transformation specification contained in Fig. 4c.
+
+According to this specification, rule1 contains a reference to rule2.
+
+Thus, rule2 is considered a referred transformation rule.
+
+Since no transformation rule refers to rule1, this transformation rule is considered non-referred.
+
+PARAGRAPH
+
+Non-referred transformation rules are then sequentially executed.
+
+Whenever a transformation rule R1 contains a reference to another transformation rule R2, the execution of R1 is suspended until R2 were completely executed.
+
+Each transformation rule is executed only once, even if a given rule is referred more than once.
+
+In this case, the transformation tool identifies that a referred rule was already executed and reuses all triples created during its execution.
+
+However, condition elements and search elements can be executed repeatedly, whenever they were flagged.
+
+SECTION
+
+Support tools
+
+SECTION
+
+SSD2LOD tool
+
+PARAGRAPH
+
+In order to support our SSD to LOD transformation process, we have developed a Java-based tool named SSD2LOD,6  with the support provided by a number of Java libraries, including Jena,7  UniVocity,8  OWL API9  (Horridge and Bechhofer, 2011) and Openllet.10
+
+PARAGRAPH
+
+Jena consists of a framework for building semantic web and linked data applications.
+
+In the context of our work, we have used Jena to create RDF nodes/triples during the transformation process and to execute SPARQL queries to validate the competency questions afterwards.
+
+PARAGRAPH
+
+UniVocity consists of a collection of parsers to support the manipulation of different types of semi-structured data files, including comma-separated values (CSV) files, tab-separated values (TSV) files and fixed-width files.
+
+Thus, Univocity was used to parse the SSD input files in order to retrieve the set of relevant data items for a given transformation.
+
+PARAGRAPH
+
+OWL API allows the creation, manipulation and serialization of an OWL 2.0 ontology.
+
+Thus, OWL API was used to parse a source ontology in order to extract classes and properties used for the creation of an RDF triple.
+
+PARAGRAPH
+
+Finally, Openllet consists of an OWL2 DL reasoner that can be used with either Jena or OWL API for, among other things, ontology consistency checking and class hierarchy classification.
+
+Thus, in the context of our work, Openllet was used to check the consistency of the created RDF triples.
+
+SECTION
+
+SSD2LOD web
+
+PARAGRAPH
+
+We have also developed a web version of our transformation tool, called SS2LOD Web,11  to facilitate its use.
+
+First, we have created a RESTful web service that encapsulates SSD2LOD and exposes a number of operations to allow the submission of source SSD file(s), OWL ontology(-ies) and transformation specification file.
+
+Further, these service operations can also be used to execute the transformation process, download the resulting LOD set, run a SPARQL query, download the SPARQL query results, among others.
+
+Then, we have developed SS2LOD Web that provides a step-by-step interface to execute an SSD to LOD transformation.
+
+SECTION
+
+Data transformation case study
+
+PARAGRAPH
+
+In order to illustrate our SSD to LOD transformation process, we have selected a recently published functional genomics study (Spath et al., 2017), containing a set of processed data available at Array Express,12  and we have applied the proposed process and support tools to transform part of the published data into LOD, thus facilitating the discovery and exploration of relevant biological knowledge by an interested biologist.
+
+PARAGRAPH
+
+The work of Spath et al. (2017) aimed at investigating the role of the Granulocyte-Macrophage Colony-Stimulating Factor (GM-CSF) cytokine for the expansion of inflammatory myeloid cells and their effect in the Central Nervous System (CNS).
+
+Thus, as part of their work, the authors have performed a differential analysis of mus musculus RNA-Seq data, obtained from inflammatory myeloid cells isolated from different individual organs, including CNS, kidney, liver, lung and spleen.
+
+PARAGRAPH
+
+The experiment data files include both files containing information about the experiment itself (IDF and SDRF files) and files containing differential analysis results.
+
+The data present in the differential analysis results files and the SDRF file were organized according to the matrix of values arrangement style, whereas the data present in the IDF file was organized according to the list of values arrangement style.
+
+Therefore, the IDF file was preprocessed to transform the arrangement of data into the matrix of values arrangement style.
+
+PARAGRAPH
+
+The differential analysis results files contain a separate file for each different differential analysis performed: CNS over kidney, CNS over liver, CNS over lung and CNS over spleen.
+
+Each of these files contains different types of information associated to each gene, including the results of the differential analysis itself (log2 ratio, p-value, fdr, etc.) and list of associated gene ontology biological processes, molecular functions and cellular components.
+
+Further, there is one additional differential analysis data file containing results from the intersection between CNS versus kidney, liver and lung.
+
+PARAGRAPH
+
+The following activities were performed in this case study: (1) definition of a set of competency questions and their grouping into transformation cycles; (2) definition of a source ontology; (3) specification of transformation rules; (4) data transformation; and (5) data exploration.
+
+SECTION
+
+Definition of competency questions and transformation cycles
+
+PARAGRAPH
+
+The first activity performed in our data transformation case study was the definition of a set of competency questions.
+
+We have specified a total of 13 competency questions, which were subsequently grouped into four transformation cycles to facilitate the specification of the transformation rules and the execution of the transformation itself.
+
+Table 1 shows the resulting set of competency questions (CQ) and their grouping into transformation cycles (TC).
+
+PARAGRAPH
+
+The basic criterion used for grouping competency questions 01 to 05 into transformation cycle 01 and the remaining competency questions into transformation cycles 02 to 04 was the source SSD file(s) used in the transformation process.
+
+Transformation cycle 01 involved the use of a set of source SSD files containing information about the gene expression experiment itself, while transformation cycles 02 to 04 involved the use of source SSD files containing the differential analysis data results.
+
+PARAGRAPH
+
+Further, competency questions 06 to 11 were grouped into the transformation cycle 02 because these questions aimed at extracting biological knowledge directly from the source SSD, while competency questions 12 and 13 involved not only the extraction of biological knowledge from the source SSD, but also its connection to a remote dataset.
+
+Finally, competency question 12 was assigned to transformation cycle 03, while competency question 13 was assigned to transformation cycle 04, because each transformation involves the connection to a different remote dataset, thus improving the performance of the data transformation and exploration.
+
+SECTION
+
+Definition of a source ontology
+
+PARAGRAPH
+
+The second activity performed in our data transformation case study was the definition of a source ontology to be used in the transformation process.
+
+In order to create the LOD sets required for answering the competency questions, we needed to create class instances of different OWL classes, which, understandably, were not defined in a single ontology.
+
+PARAGRAPH
+
+Since the biomedical domain most likely represents the knowledge domain that contains the largest number of ontologies, two or more ontologies in this domain may use (slightly) different terms to represent basically the same concept or may even duplicate an existing concept.
+
+Thus, in order to identify a suitable set of concepts to be used as basis for the semantic transformation in our case study, we have primarily focused on the set of ontologies standardized and maintained by the OBO Foundry13  (Smith et al., 2007).
+
+As a consequence, we have used the web-based ontology browser Ontobee14  to search for concepts from these ontologies.
+
+Only in case we could not find a suitable concept or property using Ontobee to reuse it, we would consider creating a new one.
+
+Evidently, on more than one occasion we could have reused concepts and predicates defined in other ontologies in the domain.
+
+However, for the purpose of this case study, we believe the results of the transformation process would have been essentially the same.
+
+PARAGRAPH
+
+As a result, we have developed a custom ontology by reusing a set of concepts and predicates defined in five different source ontologies, viz., Ontology for Biomedical Investigations (OBI)15  (Bandrowski et al., 2016), Relations Ontology (RO)16  (Smith et al., 2005; Arp et al., 2015), UniProt RDF schema (URDFS),17  NCI Thesaurus (NCIT)18  (Sioutos et al., 2007; Abeysinghe et al., 2018) and Gene Ontology (GO)19  (Ashburner et al., 2000; Dessimoz and Škunca, 2017).
+
+PARAGRAPH
+
+A noteworthy exception in this regard was the reuse of the Gene concept from UniProt, since this ontology is not available at Ontobee.
+
+We have decided to reuse this concept from UniProt, instead of reusing the same concept from the Sequence Ontology (Eilbeck et al., 2005) for example, to facilitate the retrieval of associated information from the Uniprot SPARQL endpoint.
+
+Fig. 5 illustrates an excerpt of the developed source ontology.
+
+SECTION
+
+PARAGRAPH
+
+Specification of transformation rules
+
+PARAGRAPH
+
+The third activity performed in our case study was the definition of the transformation rules.
+
+For each transformation cycle, a separate set of transformation rules was defined.
+
+PARAGRAPH
+
+The specification of the transformation rules for transformation cycle 01 was straightforward since it involved the definition of simple rules related to the IDF and SDRF source SSD files.
+
+The specification of the transformation rules for transformation cycle 02 was also simple because it involved the specification of conditional transformations (upregulated and downregulated) of gene expression data stored in three separate differential analysis results SSD files.
+
+PARAGRAPH
+
+The specification of the transformation rules for transformation cycles 03 and 04 was more challenging because it involved the recovery of data from external datasets.
+
+Thus, the specification of these transformations required an understanding of the overall structure of these external datasets.
+
+Further, since we were not interested in identifying upregulated and downregulated genes separately, but only the pathways/biological processes that the common set of differentially expressed genes (CNS over lung, liver and kidney, in both directions) are associated to/participate in, we directly used the data file containing the results from the intersection between these three different comparisons as source SSD file for the transformation.
+
+PARAGRAPH
+
+Listing 1 presents the transformation rule specified for transformation cycle 04.
+
+In order to identify the main biological processes in which the intersection of differentially expressed genes participate, we simply need to link each differentially expressed gene present in the source SSD file to a number of associated biological processes.
+
+PARAGRAPH
+
+The configuration element (lines 1–7) specifies the LOD dataset base IRI for node creation (http://example.org/onto/individual/), the LOD dataset export syntax (N-Triples) and three ontologies namespaces (ro, uniprot, go) used in the transformation rules.
+
+PARAGRAPH
+
+The transformation rule differentiallyExpressed (lines 9–12) aims at creating, for each gene (extracted from the associated gene_id.Set1 SSD column), an RDF node (as instance of the Gene class) linked to a list of associated biological processes in which this gene participates.
+
+This list is extracted from the associated GO BP.Set1 SSD column and used as input for remotely searching the biological process unique identifier using the searchBP search element.
+
+For each resulting biological process, a corresponding RDF node is created (as instance of the biological_process class) and a predicate is used to link both nodes (predicate participates in).
+
+PARAGRAPH
+
+Finally, the search element searchBP (lines 14–21) defines a SPARQL query aiming at identifying for a given gene (variable tsvData) the list of biological processes in which this gene participates.
+
+This search will be carried out remotely, at the GeneOntology SPARQL endpoint.
+
+SECTION
+
+Data transformation
+
+PARAGRAPH
+
+The fourth activity performed in our case study was the data transformation using the SSD2LOD web tool.
+
+For each transformation cycle, we have submitted the SSD source file(s), source ontology, transformation specification rules and obtained the resulting LOD set afterwards in the specified output format.
+
+The transformation cycle 01 generated a LOD dataset containing 53 triples, the transformation cycle 02 generated a LOD dataset containing 49.536 triples, the transformation cycle 03 generated a LOD dataset containing 5.782 triples and, finally, the transformation cycle 04 generated a LOD dataset containing 21.523 triples.
+
+SECTION
+
+Data exploration
+
+PARAGRAPH
+
+The final activity performed in our case study was the data exploration.
+
+For each transformation cycle, a separate set of SPARQL queries was defined and executed using the SSD2LOD web tool to obtain the answers for the corresponding competency questions.
+
+PARAGRAPH
+
+The definition of the SPARQL queries for transformation cycles 01 and 02 was straightforward since it involved the simple retrieval of information from the LOD dataset produced by the corresponding transformation cycle data transformation activity.
+
+However, the definition of the SPARQL queries for transformation cycles 03 and 04 was more challenging since it involved the retrieval of information from both a LOD dataset produced by the corresponding transformation cycle data transformation activity and a remote SPARQL endpoint.
+
+PARAGRAPH
+
+In order to answer competency question 12, for each pathway, we needed to obtain the ratio between the number of differentially expressed genes that participate in that pathway and the total number of genes associated to that same pathway.
+
+The number of differentially expressed genes involved in a given pathway was obtained by querying the LOD dataset produced by the data transformation, while the total number of genes involved in the pathway was obtained by querying the WikiPathways SPARQL endpoint.
+
+PARAGRAPH
+
+We have followed a rather similar approach in order to answer competency question 13.
+
+For each biological process, we needed to obtain the ratio between the number of differentially expressed genes that participate in that process and the total number of genes from the mus musculus organism that directly and indirectly participate in that same process.
+
+A gene indirectly participates in a biological process in case it participates in one of its sub-processes or participates in a process that is part of one of its (sub-)processes.
+
+PARAGRAPH
+
+The number of differentially expressed genes that participate in a given biological process was obtained by querying the LOD dataset produced by the data transformation, while the total number of genes that participate in the biological process was obtained by querying the Uniprot endpoint.
+
+PARAGRAPH
+
+Listing 2 presents the SPARQL Query defined for competency question 13.
+
+This query contains four parts.
+
+The first part (lines 1–5) defines a number of namespaces.
+
+The second part (lines 10–14) aims at retrieving the identification of all biological processes in which the differentially expressed genes participate and counting the amount of participating genes.
+
+The third part (lines 16–21) aims at remotely retrieving the genes that (recursively) participate in a given biological process.
+
+Finally, the fourth part (lines 7–8) counts the total amount of genes that (recursively) participate in a given biological process and calculates the desired ratio.
+
+PARAGRAPH
+
+The execution of this query in the remote SPARQL endpoint revealed an unexpected performance issue whenever we tried to retrieve the genes associated to a general purpose biological process.
+
+Since we aimed at identifying the genes that directly participates in a given process as well as the genes that indirectly participates in this process, whenever a search for identifying the aggregated genes that participates in a general purpose biological process was performed, we would experience a query timeout.
+
+PARAGRAPH
+
+This problem was solved by identifying and eliminating from the search any biological process that was causing a query timeout (not depicted in Listing 2 for conciseness purposes).
+
+Nevertheless, this elimination does not ultimately influence the outcome of this data exploration activity, since any general purpose biological process would have a high aggregate number of genes that directly or indirectly participates in this process and therefore a low relevance ratio.
+
+PARAGRAPH
+
+As a result of the execution of the SPARQL query defined for the competency question 13, we have obtained a table containing a total of 4.366 records (one for each biological process).
+
+In order to select the main biological processes we have filtered these records by eliminating any biological process containing a small number of differentially expressed participating genes (minimum of 5) and a small number of total participating genes (minimum of 25).
+
+The application of such filtering criteria aims at avoiding invalid or distorted results in the calculated ratio due to possible inconsistencies in the Uniprot RDF dataset.
+
+For example, in case the number of differentially expressed genes that participate in a biological process is higher than the total number of genes associated to this process, we would obtain an invalid ratio (higher than 1).
+
+Further, in biological processes with few total participating genes, an inconsistency in the number of such genes would significantly distort the calculated ratio.
+
+Such inconsistency would have a lesser impact in biological processes with a larger number of total participating genes.
+
+Table 2 presents the 10 main biological processes (higher computed ratio) identified as a response for competency question 13.
+
+PARAGRAPH
+
+The complete data transformation case study documentation is available at Gitbub.20
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+We proposed a stepwise approach for the transformation of semi-structured bioinformatics data into LOD.
+
+This approach rests on an iterative transformation process, in which competency questions drive the definition of transformation rules, the data transformation itself and the data exploration afterwards.
+
+Competency questions can be grouped into transformation cycles, thus allowing a compartmentalization of the whole transformation process.
+
+We also defined a language for the specification of transformation rules and developed a set of support tools to facilitate the SSD to LOD transformation.
+
+PARAGRAPH
+
+We illustrated our approach through the development of a case study involving the transformation of a set of processed data from a recently published functional genomics study into LOD.
+
+By exploring the generated LOD dataset, we were able to identify a set of relevant biological processes.
+
+However, we could not directly compare this set of biological processes with the results of the original study because this study does not explicitly provide a list of the most relevant biological processes they have identified.
+
+Nonetheless, we were able to create a meaningful methodological comparison between our results and the results presented in the original study by identifying if a given biological process in our list directly or indirectly relates to the representative set of GO terms (biological processes) produced by the original study using REVIGO (Supek et al., 2011) (see TreeMap view depicted by Figure S7E from Spath et al. (2017) - Supplemental Information).
+
+A biological process in our list directly relates to a REVIGO clustered term in case they are both the same, while a biological process in our list indirectly relates to a REVIGO clustered term in case the biological process either represents a subprocess of the clustered term, is part of the clustered term or part of one of its subprocesses or somehow regulates (part of) the clustered term or one of its subprocesses.
+
+We have used QuickGO21  to manually identify indirect relations between our list of biological processes and REVIGO clustered terms identified by the original study.
+
+PARAGRAPH
+
+By following this approach we were able to correlate eight out of the ten biological processes presented in Table 2 to the results of the original study.
+
+Only processes Bone resorption and Hair follicle morphogenesis were not directly or indirectly identified in Spath et al. (2017).
+
+The investigation of whether or not these two processes are actually biologically relevant for the study is outside the scope of this research.
+
+These results are particularly meaningful, since in general the identification of relevant pathways and biological processes in functional genomics is obtained through different analysis activities, such as functional enrichment analysis and pathway analysis, quite often performed using proprietary resources.
+
+PARAGRAPH
+
+Different approaches and associated support tools have been proposed in the literature for the transformation of semi-structuredbiomedical data into LOD.
+
+However, these approaches usually lacks the simplicity, the systematicness and flexibility to be used in the bioinformatics domain.
+
+For example, the approach developed by Belleau et al. (2008) allows the RDF-based integration of multiple bioinformatics resources, both structured and semi-structured.
+
+Despite the seeming broad support for the transformation of different types of data, this approach has two main limitations.
+
+First, the approach relies on a single ontology to integrate the different data sources.
+
+Second, the approach requires the creation of a personalized software for each data source to be transformed.
+
+Thus, transformation rules are hard coded into this software.
+
+In turn, our approach supports both the use of different ontologies and the use of a language for the specification of transformation rules.
+
+PARAGRAPH
+
+The eXframe platform developed by Merrill et al. (2014) is targeted at the transformation of biomedical essays using predefined mappings of form fields to classes of a biological experiment ontology.
+
+Since this platform was developed to solve a particular problem, it cannot be easily adapted to other purposes.
+
+In contrast, our general-purpose approach can be used in different scenarios.
+
+PARAGRAPH
+
+The InstanceLoaderDB tool developed by Kaalia and Ghosh (2016) supports the transformation of diabetes-related SSD datasets into class instances of a specific disease association ontology.
+
+However, this tool does not support the explicit definition of mappings between data items and ontology classes instances using a transformation rule language.
+
+Our approach allows the specification of transformation rules that are used as input for the transformation process.
+
+PARAGRAPH
+
+Jovanovik and Trajanov (2017) transformation approach consists of a number of very generic steps, which hinders their concrete application in different scenarios.
+
+Our transformation approach contains a number of well-defined guidelines that concretely supports its stepwise application.
+
+Further, Jovanovik and Trajanov relies on OpenRefine (Verborgh and Wilde, 2013) for actual data transformation.
+
+OpenRefine provides a SPARQL-based mechanism for retrieving information from remote endpoints.
+
+This mechanism allows only the definition of a target endpoint and a number of properties (relationships) associated to a given data item.
+
+Our transformation tool allows the specification and use of a full SPARQL query to retrieve information from a remote endpoint, thus providing a solution capable of defining any type of restriction to properly obtain a desired set of elements.
+
+PARAGRAPH
+
+Sernadela et al. (2017) developed the Scaleus web-based tool to support the transformation of tabular files and spreadsheets into RDF.
+
+On one hand, since Scaleus allows only the direct definition of triple predicates (import of an OWL ontology is not supported), the semantic representation of data transformations is more complex and error prone.
+
+On the other hand, our approach not only supports the import of OWL ontology classes and properties, but also relies on a language that straightforwardly uses these concepts and relationships for the specification of semantic transformations.
+
+PARAGRAPH
+
+Despite the benefits of our approach, we must acknowledge a couple of limitations to our study.
+
+First, our approach was not applied in the transformation of huge datasets.
+
+However, since extremely large (processed) bioinformatics datasets are rather unusual, the developed support tools suffice.
+
+Further, we observed during our data transformation case study that the transformation bottleneck lies on the integration of our transformed data with remote, third-party datasets during the execution of a SPARQL query.
+
+Tackling such limitation is outside the scope of this research.
+
+Finally, the SSD2LOD transformation tool can only process CSV/TSV files whose data items are organized according to the matrix of values arrangement style.
+
+Such limitation can easily be circumvented by the development of a simple data arrangement style conversion software, as needed.
+
+PARAGRAPH
+
+To the best of our knowledge, no single comprehensive approach has been defined to support the transformation of semi-structured bioinformatics data into LOD.
+
+We believe that our approach can be applied to support the transformation of semi-structured data into LOD not only in the bioinformatics domain, but also in any other knowledge domain with similar requirements.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+We proposed a simple, systematic and flexible approach for the transformation of semi-structured bioinformatics data into LOD.
+
+Our stepwise approach helps the identification of target data for transformation via the specification of competency questions, the definition of suitable transformation rules by means of a transformation specification language, the execution of data transformation using the SSD2LOD/SSD2LOD Web transformation toolset, and the assessment of the transformation via data exploration.
+
+PARAGRAPH
+
+Our approach and its support tools facilitate bioinformatics data transformation and exploration, allowing its users to take advantage of semantic information for the discovery of new knowledge in the domain.
+
+The availability of simple and effective solutions for the transformation of different types of data into LOD will foster the usage of semantic technologies, thus contributing to the development of the semantic web.
+
+PARAGRAPH
+
+Future research includes the application of our approach and support infrastructure in other knowledge domains, possibly in the transformation of larger SSD datasets.
+
+In addition, we also plan to develop an editor with syntax highlight in order to assist one in the specification of transformation rules.
+
+This support editor would then be used as basis for the development of a more comprehensive SSD to LOD transformation platform containing additional features, such as transformation previews and improved support for the integration with remote datasets.

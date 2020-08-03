@@ -1,0 +1,517 @@
+10.1016/j.jhep.2018.11.027
+
+FULLTEXT
+
+TITLE
+
+Evaluating the landscape of gene cooperativity with receptor tyrosine kinases in liver tumorigenesis using transposon-mediated mutagenesis
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hepatocellular carcinoma (HCC) is among the most aggressive cancers, with an increasing incidence, and few therapeutic options.1
+
+The exceptional investments on -omics studies over the last decade have unveiled not only an impressive list of alterations, but also a high degree of molecular heterogeneity between patients with HCC.2,3
+
+The uniqueness of HCC in its alterations and heterogeneity may explain how treatments effective in other cancers have largely failed when applied to HCC.4
+
+Such context challenges the interpretation of -omics data, with the necessity to: i) determine which of these alterations are functionally relevant for tumorigenic properties, ii) distinguish sets of alterations with a tumour-boosting efficiency linked to specific patient subtypes or genetic contexts, and iii) elucidate how different combinatorial alterations can lead to equivalent vs. divergent fitness outcomes in cancer cells.
+
+The identification of functionally relevant signals, and of functional synergistic interactions between co-occurring events, is further complicated by the fact that some signals, although rarely mutated in HCC, are frequently activated in a high proportion of patients and are considered key regulators of tumorigenesis.
+
+This is the case, for example, for some receptor tyrosine kinase (RTK) pathway genes.4,5
+
+The implication of deregulated RTK signalling in HCC is well established and RTK targeting agents are actively explored for combined therapies.6
+
+PARAGRAPH
+
+The hepatocyte growth factor (HGF) receptor MET is one of the RTKs highly relevant in HCC.
+
+Although MET mutations are rare in HCC,7 MET is activated in close to 50% of cases,8 which correlates with poor prognosis.9–12
+
+Overall, evidence implicating MET in HCC is sufficiently strong to have warranted several clinical trials of MET inhibitors.11,13,14
+
+We have engineered a unique conditional transgenic mouse model (R26stopMet mice)15–17 in which expression of wild-type (WT) MET can be slightly enhanced above its endogenous level in the liver (Alb-R26Met mice).
+
+We demonstrated that an approximatively 3-fold enhancement of MET levels in Alb-R26Met mice is enough to perturb tissue homeostasis overtime in the liver, consecutively leading to tumour initiation and evolution into HCC.18
+
+The clinical relevance of this liver cancer model is supported by studies showing that Alb-R26Met HCCs: i) express MET levels comparable to those reported in ∼20% of human HCC cases;18 ii) exhibit active, phosphorylated MET, as observed in close to 50% of patients with HCC;8 iii) model the so-called HCC “proliferative-progenitor” patient subclass;18 iv) while resistant to treatment with sorafenib, are sensitive to new synthetic lethal interactions we identified.18
+
+We recently illustrated that Alb-R26Met HCC are strikingly enriched in genes that are simultaneously overexpressed and hypermethylated in gene body CpG islands (CGIs), again similar to the “proliferative-progenitor” patient subclass.19
+
+Such events are predictive of elevated levels of proto-oncogenes, which together act as an “oncogene module”.19
+
+Therefore, the Alb-R26Met mouse model is particularly suitable to identify non-predictable genetic interactions underlying gene cooperativity with RTKs during liver tumour initiation.
+
+PARAGRAPH
+
+In the present study, we combined the Sleeping Beauty (SB) transposon mutagenesis system20 with Alb-R26Met livers, as an approach to accelerate liver tumour formation.
+
+Upon characterisation of transposon insertion sites in the resulting tumours, we report the identification of 275 genes as putative cooperators with RTKs in tumorigenesis and show that most of them are altered in patients with HCC.
+
+We identified co-occurring gene alteration events that are also present in patients with HCC.
+
+Bioinformatic analyses illustrated that the Alb-R26Met-transposon genes exert distinct functions in cells.
+
+We established the tumour-suppressive capability of 15 candidates belonging to distinct cellular mechanisms.
+
+We demonstrated that the context of enhanced RTK levels is essential, as downregulation of these tumour suppressors in WT cells without enhanced RTK levels does not confer tumorigenicity.
+
+Collectively, our results show how subtly increased levels of WT RTKs provide a permissive context allowing multiple deregulated mechanisms to initiate liver cancer.
+
+SECTION
+
+Materials and methods
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Genomic DNA processing, pyrosequencing, and transposon integration data analyses
+
+PARAGRAPH
+
+Ligation-mediated PCR with genomic DNA from 248 tumours, pyrosequencing data and findings processing was performed as previously reported.21
+
+SECTION
+
+Co-occurring events in Alb-R26Met-transposon screen and in patients with HCC
+
+PARAGRAPH
+
+Co-occurrence analysis was performed to identify genes frequently mutated in the Alb-R26Met-transposon screen at a higher frequency than expected by chance.22
+
+A co-occurrence tumour mutation contingency table was built to calculate co-occurrence p values by performing a Fisher’s exact test on each couple of Alb-R26Met genes.
+
+We applied a Benjamini-Hochberg false discovery rate correction and a threshold of significance was established at <0.05, leading to the identification of 119 pairs of co-occurring events (Table S5).
+
+Several genes were also identified as co-occurrences in patients with HCC based on co-concurrent differential expression (Log2 fold change >1 or <−1).
+
+We then built a contingency table, performed Fisher’s exact test on each gene couple, then applied a Benjamini-Hochberg FRD correction using a significance level of <0.05 (Table S5).
+
+SECTION
+
+Western blots
+
+PARAGRAPH
+
+Protein extracts from livers, tumours, immorto-WT and immorto-R26Met hepatocytes were processed for western blots, as previously described.8,16,23
+
+SECTION
+
+Cell cultures
+
+PARAGRAPH
+
+Primary culture of E15.5 WT and R26Met embryonic hepatocytes were established as previously described.24–26
+
+Hepatocytes were immortalized by adapting a procedure previously reported.27
+
+SECTION
+
+Results
+
+SECTION
+
+SB-induced mutagenesis accelerates tumour development triggered by subtle enhancement of WT MET levels
+
+PARAGRAPH
+
+To search for genes whose mutations may accelerate tumorigenicity by slightly enhanced WT MET levels,18 we combined the Alb-R26Met mice with the SB transposon mutagenesis system in which conditional expression of the SB transposase leads to transposon (T2/onc2) mobilization in the liver (Fig. 1A, Fig. S1A,B).
+
+As the SB has the tendency to favour transposon jumping adjacent to the donor concatemers, a phenomenon known as “local hopping”, we performed our screen using T2/onc2-6070 and T2/onc2-6113 lines, which carry transposon concatemers on chromosome 4 and 1, respectively.
+
+The resulting Alb:cre-T2/onc2-R26SB/+ mice are referred to as “Tripletg” (Fig. 1A).
+
+We confirmed that Alb-cre-mediated excision of the stop cassette in the liver simultaneously leads to conditional expression of METtg and SB transposase in Alb:cre-T2/onc2-R26SB/Met livers (referred to as “Quadrupletg”; Fig. 1A-C).
+
+Quadrupletg started to develop tumours around 30 weeks of age, a stage when tumours are still not detected in the Alb-R26Met genetic setting as tumorigenesis starts around 40–48 weeks18 (Quadrupletg with T2/onc2-6070: 51%; Quadrupletg with T2/onc2-6113: 64%; Fig. 1E, F, Table S1).
+
+In contrast, only 1 Tripletg in each T2/onc2 line developed tumours (Fig. 1D-F, Fig. S1C Table S1).
+
+Thus, irrespective of the initial location of the transposon concatemers, the ideal context in which only Quadrupletg develop tumours at 30 weeks of age offered the possibility to unambiguously search for alterations underlying putative genetic interactions with WT RTKs during tumour initiation.
+
+SECTION
+
+Identification of putative cancer-related genes accelerating tumorigenesis by slightly enhanced MET levels
+
+PARAGRAPH
+
+A total of 248 liver tumours were collected from Quadrupletg (with either T2/onc2-6070 or T2/onc2-6113 line) and successfully processed for pyrosequencing analysis.
+
+The procedure involved DNA barcoding of each tumour to pool and process them simultaneously, as previously reported.21
+
+TAPDANCE analysis identified ∼47,000 non-redundant regions of transposon insertion, and defined 312 common insertion sites28 in tumour samples from Quadrupletg.
+
+We then annotated these common insertion sites to the nearest mouse gene, thereby identifying 275 genes (named as Alb-R26Met-transposon genes; defined by the identification of at least 8 insertions in at least 8 libraries; Fig. S1D).
+
+Based on sequencing read counts for each Alb-R26Met-transposon gene, transposon insertions occurred in more than 10% of tumours for 32 genes, suggesting that these genes are among the most frequent regulators of liver tumour initiation (Fig. S1D,E, Fig. S2, Table S2).
+
+We positioned the orientation of transposon integration in each gene and examined orientation biases of SB insertions to predict their effects on genes (Fig. S1F, Table S2).
+
+By integrating these data with the location and the distribution of transposon insertions within the gene locus, we predicted putative effects on the Alb-R26Met-transposon genes.
+
+For 103 genes, insertions were randomly distributed through the gene and occurred in both orientations or with a bias toward antisense, indicating that the contribution of these genes to tumorigenesis likely resulted from loss of gene function.
+
+These genes were thus predicted as putative tumour suppressors.
+
+For 29 genes, transposon insertions were most likely compatible with gain-of-function expression of full length or truncated forms.
+
+Thus, these genes were predicted as putative oncogenes.
+
+For the remaining 143 genes, orientation and position of transposon insertions could predict either gene disruption or generation of truncated forms.
+
+SECTION
+
+Most of the putative cancer-related genes identified in the Alb-R26Met genetic setting are deregulated in a proportion of patients with HCC
+
+PARAGRAPH
+
+We next determined the relevance of Alb-R26Met-transposon genes to human cancer and particularly to HCC pathogenesis.
+
+For comparisons between mouse and human data, the corresponding human orthologues to the Alb-R26Met-transposon genes were determined.
+
+Accordingly, 267 mouse genes were matched to the corresponding human gene (99/103 predicted tumour suppressors, 29/29 predicted oncogenes, 139/143 genes for which the effect of transposon insertions was uncertain; Fig. S3A, Table S3).
+
+By querying the Catalogue of Somatic Mutations in Cancer (COSMIC) databases, we identified 41 genes frequently mutated in human cancer (p = 1.80E−20, 719 Census genes, hypergeometric-test; Fig. 2A, Table S3).
+
+PARAGRAPH
+
+Next, we explored how alterations of Alb-R26Met-transposon genes are associated with HCC pathogenesis using The Cancer Genome Atlas (TCGA) database.
+
+We analysed both expression changes (data available for 371 patients) and the presence of mutations (data available for 363 patients).
+
+Concerning mutations, we found that some of the Alb-R26Met-transposon genes are also mutated in patients with HCC3 (Fig. 2B, Table S3).
+
+Overall, 71 (26%) of Alb-R26Met-transposon genes are mutated in at least 1% of HCC patients and 218 (79%) genes in at least 1 HCC patient (Table S3).
+
+Concerning changes in expression levels, data were available for 251 out of the 267 orthologues human genes (Fig. S3A, Table S3).
+
+All the 251 Alb-R26Met-transposon human orthologue genes are differentially expressed in at least a proportion of the 371 patients with HCC who were analysed (Table S3).
+
+In particular, the 29 predicted oncogenes are upregulated in a proportion of patients with HCC, ranging from 6% to 65% (Fig. 2C, Table S3).
+
+Concerning the 86 predicted tumour suppressors, a large set of patients with HCC had consistently decreased expression levels (Fig. 2D, Table S3).
+
+In particular, 66 predicted tumour suppressors are downregulated in at least 6% of human HCCs, ranging up to 81% for GHR (Fig. 2D).
+
+We also analysed the expression levels of the 136 Alb-R26Met-transposon genes, for which we could not predict whether they acted as tumour suppressors or oncogenes in the Alb-R26Met genetic setting.
+
+Remarkably, a large set of human HCC is characterised by deregulation of these genes, with several of them predominantly either upregulated or downregulated (Fig. 2E, Fig. S3B, Table S3).
+
+PARAGRAPH
+
+We then explored whether altered expression levels of the Alb-R26Met-transposon genes correlate with MET levels in patients with HCC.
+
+Concerning predicted oncogenes, there is a striking positive correlation between their overexpression and high MET expression levels (Fig. 3A,B, Table S3).
+
+For predicted tumour suppressors, we instead found that their downregulation predominantly occurred in patients with HCC and low MET levels (Fig. 3A,C, Table S3).
+
+The same types of correlation characterised those genes for which the effect of transposon insertions was uncertain: whereas a large proportion of them are predominantly overexpressed in patients with HCC and high MET levels, the others are mainly downregulated in patients with low MET levels (Fig. S3, Table S3).
+
+Thus, although our screen in mice shows that MET can trigger tumorigenesis in cooperation with targeted tumour suppressors, in patients with HCC and enhanced MET levels, tumorigenesis can occur even without major deregulation of this tumour suppressor set.
+
+It is tempting to speculate that MET might alleviate the need to lower tumour suppressor levels, for example by increasing oncogene levels.
+
+Furthermore, the intriguing correlation between high levels of predicted oncogenes and MET in patients with HCC is reminiscent of a novel mechanism we recently discovered, in which MET-driven HCC is characterised by high dosage of oncogenes through CGI hypermethylation in the gene body.19
+
+PARAGRAPH
+
+Recent studies using human HCC databases have identified 5 major signalling pathways commonly altered in human HCC: PI3K/Ras signalling (herein termed RTK signalling); WNT/β-catenin, chromatin remodelling, p53/cell cycle, and oxidative/endoplasmic reticulum stress.29,30
+
+To corroborate the relevance of Alb-R26Met-transposon genes in HCC biology, we analysed which of them belong to these 5 major signalling pathways and identified 96 genes.
+
+Intriguingly, the list of Alb-R26Met-transposon genes is enriched in those involved in RTK signalling (48 genes), WNT/β-catenin (27 genes), chromatin remodelling (20 genes), rather than in p53/cell cycle (10 genes) and oxidative/endoplasmic reticulum stress (3 genes; Fig. 2F, Table S4).
+
+Consistently, we found activation of RTK and WNT signalling in a set of transposon tumours carrying insertions in genes acting as regulators of these pathways (Fig. S5).
+
+Thus, tumorigenesis modelled by our transposon strategy appears to occur through genetic alterations of pathways frequently perturbed in human HCC.
+
+SECTION
+
+Co-occurring events discovered in the Alb-R26Met genetic setting arise in a proportion of patients with HCC
+
+PARAGRAPH
+
+We searched for genes co-mutated at a higher frequency than expected by random events and identified 119 events of co-occurrence (Fig. 4, Table S5).
+
+By analysing the frequency linking each of these genes, we reconstituted nodes of interactions, identifying 4 co-occurring subnetworks of associated commonly occurrences (Fig. 4, Table S5).
+
+Beside these, 11 co-occurrences not related to the 4 subnetworks were identified (Fig. 4).
+
+Strikingly, the largest co-occurring subnetwork involves 43 genes, among which the genes are involved in one or multiple types of co-occurrences (for a total of 62 co-occurrences; Fig. 4, Table S5).
+
+This large subnetwork comprises genes belonging to several pathways, including RTK signalling, chromatin remodelling, transcriptional regulation, WNT/β-catenin, ubiquitination.
+
+PARAGRAPH
+
+Intrigued by these findings, we asked whether co-occurring events identified in the Alb-R26Met genetic setting could also be recognized in patients with HCC.
+
+Remarkably, 51 co-occurrences (43%) were identified in at least 10% of HCC patients (Fig. 4, Table S5).
+
+These co-occurrences included those belonging to the large co-occurring network as well as all those composing one of the 3 subnetworks we identified.
+
+Thus, a SB transposon mutagenesis screen in the Alb-R26Met liver cancer mouse model identifies transcriptomic and genetic alterations as well as co-occurring events in patients with HCC.
+
+The co-occurrences may reflect possible synergistic effects between genes, increasing the likelihood that each of them ensures the tumorigenic process.
+
+SECTION
+
+The Alb-R26Met-transposon genes identify multiple enriched pathways with distinct functions in cells
+
+PARAGRAPH
+
+We carried out an analysis of the Alb-R26Met-transposon genes using ReactomePA databases and found that several cancer-related pathways are significantly enriched, such as WNT, B Cell Receptor, RTK signalling (Fig. S6, Table S6).
+
+To define putative biological functions of Alb-R26Met-transposon genes, we applied Database for Annotation, Visualisation, and Integrated Discovery (DAVID).
+
+These analyses allowed us to demonstrate an enrichment in genes related to ubiquitination, signalling pathway, metabolism, transcription, cell motility, and cancer (Table S6).
+
+To get further insights into which molecular and cellular functions the Alb-R26Met-transposon genes belong to, we performed additional enrichment analyses by applying the Enrichr tool.
+
+Concerning signalling pathways, we found an enrichment of the RTK signalling core pathway (e.g. Focal Adhesion-PI3K-mTOR, RTK effectors), TGFβ, WNT, NF-kB, immune signalling (e.g. IL-6, IL-7), Delta-Notch, histone modification, metabolism, RNA processing, proteasome degradation, ubiquitination (Fig. 5A, Table S6).
+
+The Alb-R26Met-transposon genes also identify kinases based on their phosphorylation targets or the set of genes they are coexpressed with (Fig. 5B, Table S6).
+
+Similarly, the Alb-R26Met-transposon genes also identify a number of kinases recognizable by signatures of gene perturbations (upregulation/downregulation) following kinase knockdown (Fig. 5C, Table S6).
+
+Concerning transcription, several transcription factors were enriched for either co-occurring or interacting with sets of Alb-R26Met-transposon genes (Fig. 5D, Table S6).
+
+Concerning human disease, most enriched diseases are different types of cancer (with liver cancer ranked third), fatty liver disease, hyperinsulinism, and hyperglycaemia (Fig. 5E, Table S6).
+
+Several Alb-R26Met-transposon genes are computational predicted target of microRNA (Table S6).
+
+Next, we searched for associations between the Alb-R26Met-transposon genes using STRING, which represents interactions (known or predicted) between genes (265/275 genes were found in the STRING database).
+
+Remarkably, a projection of Alb-R26Met-transposon genes onto the STRING protein-protein interaction network revealed that most of them are part of a network of interactions (179; Fig. 6, Fig. S7,S8, Table S6).
+
+Beside this large network, 4 associations were also identified (1 with 3 genes and 3 with 2 genes; Fig. 6, Fig. S7,S8).
+
+These analyses illustrate how the Alb-R26Met-transposon genes are highly connected.
+
+Deregulation of these genes may propagate throughout the network, thus perturbing multiple processes.
+
+Collectively, the SB transposon mutagenesis in the Alb-R26Met genetic setting highlighted a large spectrum of pathways as potential acting modes for tumorigenicity.
+
+Moreover, these analyses uncovered some genes with a putative implication in cancer, for which a biological function and/or relevance in cancer was largely unknown (Table S2).
+
+SECTION
+
+Comparison to other SB-induced liver cancer models identifies a set of ‘putative RTK-specific genes’
+
+PARAGRAPH
+
+Next, we assessed the level of specificity in gene cooperation with enhanced MET levels by comparing the Alb-R26Met-transposon genes with those identified in other liver SB screens: p53mut,21 Mycover,31 HBVtg,32 chemically induced chronic liver injury,33 hepatic steatosis,34 epithelial-mesenchymal transition.35
+
+Among the 275 Alb-R26Met-transposon genes, 226 (82%) were found in one or more of the SB screen cohorts.
+
+These genes are likely to be relevant to liver cancer, with a competence to cooperate with other sensitizing mutations (Fig. 7A, Table S7).
+
+Consistently, some of them have been functionally validated for their participation as tumorigenic drivers in other settings.
+
+Interestingly however, 49 genes were unique to our Alb-R26Met-transposon cohort (Fig. 7B, Table S7).
+
+We next used bioinformatics to assess whether these genes belong to specific molecular and biological processes by applying the Enrichr tool.
+
+Several kinases are enriched according to their co-expression with sets of ‘putative RTK-specific genes’ (Fig. 7C, Table S7).
+
+These ‘putative RTK-specific genes’ also identify several kinases recognizable by signatures of gene perturbations (upregulation/downregulation) following kinase knockdown (Fig. 7D, Table S7).
+
+Among enriched kinases, are those belonging to signalling pathways such as MAPK, Insulin, and NF-kB.
+
+Concerning transcription, several transcription factors are enriched according to either co-expression or to consensus targets with sets of ‘putative RTK-specific genes’ (Fig. 7E, Table S7).
+
+Among the top enriched transcription factors are those related to WNT/βcatenin and stemness (e.g. CHD1, CHD2, SMAD4, FOXO1, KLF4, TCF3, SOX2).
+
+Enrichments also included methylated/unmethylated CpG binding-transcription factors as well as genes involved in chromatin modifications.
+
+Concerning biological processes, enrichments include post-translational modifications, ubiquitination, regulation of transcription and splicing, chromatin modification, and metabolism (Fig. 7F, Table S71).
+
+Thus, the ‘putative RTK-specific’ Alb-R26Met-transposon genes also exert distinct functions in cells and are part of multiple regulatory networks.
+
+SECTION
+
+Functional validation of a set of tumour suppressors uncovers the promiscuous capability of RTK to cooperate with distinct genes during liver tumour initiation
+
+PARAGRAPH
+
+The broad spectrum of cellular regulators highlighted through bioinformatic analysis may indicate that a context with subtly enhanced RTK levels can cooperate with alterations of different types of mechanisms for liver tumorigenesis.
+
+Therefore, we designed a functional validation screen aimed at assessing whether a context of enhanced WT MET levels permits altered regulators of distinct cellular mechanisms to initiate transformation.
+
+For this screen, we selected 16 predicted tumour suppressor candidates (Fig. S9) acting as regulators of distinct functions: metabolism (Adk), cell cycle (Cacul1), proteasome (Ddi2), mRNA degradation (Ddx6), chromatin remodelling (Kansl1, Kmt2e, Ncor1), signalling (Ppp6r3, Ptprd, Sorbs2), chromatin segregation (Stag2), ubiquitination (Usp34, Usp47), transcription (Zfand3).
+
+We also selected 2 genes whose function is largely unknown: Lrch3 and Wbp1L.
+
+For 11 genes, mutations and downregulation in expression levels were observed in human HCC (Table S3).
+
+PARAGRAPH
+
+First, we generated hepatocytes from E15.5 R26Met livers (as well as from E15.5 WT livers as control) and immortalized them with a SV40 Large T antigen (immorto-R26Met and immorto-WT hepatocytes; Fig. 8A), a strategy employed in previous studies.31
+
+The capacity of both immorto-R26Met and immorto-WT hepatocytes to grow in arginine-free culture conditions confirmed their liver origin.
+
+These immorto-R26Met hepatocytes are not tumorigenic, as they do not form tumours in immune-compromised mice and colonies in anchorage-independent growth assays (Fig. S10A,B).
+
+Thus, in this cellular setting, the enhanced WT MET expression levels, although not sufficient on its own, may prime cells towards tumorigenesis by providing a sensitized genetic background for cooperativity with additional genetic alterations.
+
+Western blot analyses revealed an approximately 3-fold increase in MET expression levels in immorto-R26Met hepatocytes compared to immorto-WT controls (Fig. 8B), as previously reported in E15.5 primary embryonic hepatocytes and in Alb-R26Met HCC.16
+
+Qualitative analysis revealed that in both cellular systems, phosphorylation of MET and downstream signals is conditioned by HGF stimulation (Fig. 8C), coherent with results in E15.5 primary embryonic hepatocytes.16,18
+
+PARAGRAPH
+
+Next, we explored functionality of the 16 putative tumour suppressor candidates by downregulating their mRNA expression levels in immorto-R26Met hepatocytes using the shRNA targeting strategy (Fig. 8A).
+
+For most candidate genes, we tested 2 to 5 different shRNA targeting sequences and chose the most efficient shRNA for functional validation studies (Fig. S10C, Table S8).
+
+Transfected cells were then used to assess whether mRNA downregulation of candidate genes conferred in vitro and in vivo tumorigenicity to immorto-R26Met hepatocytes, thus qualifying them as functional tumour suppressors.
+
+To assess cell tumorigenicity in vitro, we performed anchorage-independent growth assays.
+
+Results show for each tested gene, the relative increase in the capacity of immorto-R26Met hepatocytes to form colonies compared to cells either non-transfected or transfected with an shRNA control sequence (Fig. 8D).
+
+These results were further strengthened by xenograft studies in nude mice.
+
+For 15 of the 16 candidate genes, shRNA-mediated mRNA downregulation conferred in vivo tumorigenicity to immorto-R26Met hepatocytes (Fig. 8E, Fig. S11A).
+
+Outcomes also highlighted differences in ‘fitness’ (tumour size), possibly reflecting varying potential of these tumour suppressors to cooperate with MET when downregulated.
+
+The only exception concerned immorto-R26Met hepatocytes carrying an shRNA sequence targeting Zfand3 as these cells were unable to form tumours (Fig. 8E, Fig. S11A).
+
+PARAGRAPH
+
+Finally, we asked whether these genes were true cooperators, necessitating a primed ‘enhanced RTK’ context, or whether they would act as tumour suppressors on their own.
+
+We therefore transfected these shRNA targeting sequences into immorto-WT hepatocytes, then performed xenografts in nude mice.
+
+Remarkably, shRNA targeting these 16 tumour suppressors failed to confer tumorigenicity to immorto-WT hepatocytes (Fig. 8F).
+
+Thus, our findings support a model according to which a primed context, such as the one resulting from enhanced RTK levels, is mandatory for manifesting the tumour-suppressive action of these genes following shRNA targeting.
+
+As these genes operate in divergent regulatory circuits, our findings illustrate how subtly increased levels of WT RTKs provide a permissive setting to a plethora of deregulated mechanisms for tumorigenesis.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Deregulation of RTK signalling is a frequent event in HCC pathology.6
+
+Here, to model such deregulation, the context of slightly enhanced MET levels has been employed to identify genetic alterations that accelerate the event of liver tumour initiation.
+
+Studies have been done at stages when tumours in Alb-R26Met mice are not present yet (30-weeks old mice) in order to identify the bona fide cooperators of RTKs for liver tumour initiation.
+
+The absence of tumours at this stage in Tripletg (without enhanced MET levels) enabled us to define the Alb-R26Met-transposon genes that acted as cooperators with RTKs rather than as drivers of tumorigenicity.
+
+This is further corroborated by our functional validation studies focusing on 15 tumour suppressor candidates, for which we showed that their downregulation confers tumorigenic properties in cells with enhanced MET levels (immorto-R26Met hepatocytes), but not in immorto-WT hepatocytes.
+
+These validation studies also exemplify an extraordinary promiscuous capacity of an RTK such as MET to cooperate with multiple genes engaged in distinct cellular functions, for liver tumorigenesis.
+
+Such a large spectrum of cooperativity is further illustrated by our bioinformatic studies, which showed enrichments among identified cooperators of distinct kinases and transcription factors operating in different pathways, as well as enrichment of distinct functions in cells.
+
+Thus, once a critical signalling threshold is attained, RTKs such as MET are rather permissive in terms of competence to act together with divergent cooperative inputs in tumorigenesis.
+
+Our findings strengthen the role of HGF/MET in HCC and exemplify how elevated MET activity could play an active role at the root of liver tumorigenesis.
+
+Notably, increased HGF levels have been reported in patients affected by chronic liver disease, also recapitulated in several animal models of chronic liver dysfunction, and MET is required during liver regeneration.36–38
+
+Thus, in a context of chronic liver disease, an enhanced MET input, while ensuring regeneration, may render the liver more vulnerable to additional signals, exposing cells to signalling thresholds competent for tumour initiation.
+
+PARAGRAPH
+
+Having identified and functionally validated a set of Alb-R26Met-transposon genes, an intriguing issue to explore in future is whether and to what extent these genes represent cooperators of the MET RTK specific to the liver context, or whether these cooperators are also operational for tumorigenesis in other tissues.
+
+Our bioinformatic studies show that the Alb-R26Met-transposon genes identify different types of cancer among enriched diseases, beside liver cancer.
+
+Thus, it is likely that a set of Alb-R26Met-transposon genes, when altered, could act as cooperators of RTKs in several types of cancers.
+
+The R26stopMet genetic system offers the possibility of enhancing MET expression in the tissue of choice, according to the tissue-specific Cre employed.
+
+Therefore, such a genetic approach will enable the issue of tissue-specificity for qualitative signalling cooperation with RTKs to be addressed in future.
+
+This may be particularly relevant in the subset of vulnerable tissues in which a subtle increase in WT MET expression levels is poorly tolerated and in tissues where the MET oncogenic action is well established.39
+
+PARAGRAPH
+
+The comparison we performed between the outcomes of SB transposon mutagenesis carried out in the present Alb-R26Met genetic setting and in other settings21,31–35 revealed that among the 275 Alb-R26Met-transposon genes, aside from a large group of common hits, 49 genes were only found in the Alb-R26Met context, which we named ‘putative RTK-specific genes’.
+
+For a proportion of them, it is possible that they could have been missed in previous screens because transposon mutagenesis does not reach saturation levels, particularly with small numbers of analysed tumours.
+
+Additionally, differences in mouse genetic background, SB transposon versions, sequencing and bioinformatic analyses, can also limit comparisons of genes identified through SB screens.33
+
+In spite of these limitations, it is tempting to speculate that when altered, at least some of these ‘putative RTK-specific genes’ may be competent to exert their tumorigenic potential predominantly in a context with enhanced RTK levels (and possibly in few other genetic settings), rather than together with any kind of liver-sensitizing signals.
+
+The possibility of such genetic specificity cooperating towards tumorigenesis has recently been proposed through forward genetic screens in mice.40,41
+
+PARAGRAPH
+
+Altogether, the knowledge of these Alb-R26Met-transposon genes that we identified in a clinically relevant liver cancer genetic model may contribute to the identification of drivers operating in patients with HCC, as well as genetic interactions with altered RTKs in human HCC.
+
+Ultimately, our results will inform the design of new combinatorial therapies for subsets of patients with HCC.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was funded by INCa (Institut National du Cancer; PL06_078 and PLBIO12-057), FdF (Fondation de France; 2014_00051580 and 2016_00067080), ARC (Association pour la Recherche contre le Cancer; SFE2011_1203807), and GEFLUC – Les Entreprises contre le Cancer to F.M. Y.F. was supported by the China Scholarship Council (201206350070).
+
+S.K.B. was supported by the Higher Education Commission (HEC) of Pakistan – France Campus.
+
+M.A. was supported by a FdF fellowship.
+
+D.A.L. was supported by an American Cancer Society Research Professorship.
+
+AY was supported by grant HA 6905/2-1 of the Deutsche Forschungsgemeinschaft (DFG) and an ERASMUS+ fellowship.
+
+The contribution of the Region Provence Alpes Côtes d’Azur and of the Aix-Marseille Université to the IBDM animal facility is also acknowledged.
+
+The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+Y.F.: performed the whole transposon screen and the majority of the experiments; data analysis; provided inputs on the manuscript.
+
+S.K.B.: performed the molecular and functional validation of selected candidates.
+
+F.D.: performed the majority of the computational work, data analysis, and interpretation.
+
+M.A.: performed computational work with human HCC databases and interpretation; provided inputs on studies and on the manuscript.
+
+S.R.: generated and characterised immorto-WT and immorto-R26Met hepatocytes; contributed to functional validation studies of candidate genes.
+
+N.A.T.: performed transposon integration data analysis.
+
+A.Y.: performed DAVID and KEGG analyses and contributed to computational work using the human HCC cohort from TCGA database.
+
+B.H.H.: supervised analyses on DAVID, KEGG, and extraction of human HCC cohort data; provided inputs on the manuscript.
+
+R.D.: contributed to establishing the Alb-R26Met mouse model; provided inputs on studies and on the manuscript.
+
+D.A.L.: provided support for transposon sequencing and computational studies; provided input on writing the paper.
+
+F.M.: designed the study, contributed to experimental work, analysed and interpreted data, ensured financial support, and wrote the paper.

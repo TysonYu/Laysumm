@@ -1,0 +1,29 @@
+10.1016/j.engappai.2020.103517
+
+ABSTRACT
+
+TITLE
+
+Ensemble framework by using nature inspired algorithms for the early-stage forest fire rescue — A case study of dynamic optimization problems
+
+PARAGRAPH
+
+In this paper, we propose rescue ensemble to simulate the dynamic rescue process between forest fire spread and forest fire rescue, while simultaneously formulating this process as a dynamic optimization problem.
+
+However, there is still little research about simulating this kind of the dynamic rescue process, even when many new unmanned monitoring systems and large-scale firefighting aircraft emerge in the forest-fire-rescue field.
+
+Our rescue ensemble that consists of rescue simulator and rescue algorithm is characterized by supporting the offline simulation of the dynamic rescue process between forest fire spread (like offensive forces) and forest fire rescue (like defensive forces).
+
+Based on modifying the cellular automaton model of forest fire spread, rescue simulator is able to simulate forest fire spread and aircraft firefighting, simultaneously.
+
+Besides, the main goal of rescue algorithm is to realize the aircraft task allocation.
+
+Firefighting particle swarm optimization is proposed by us as our rescue algorithm, which is characterized by considering fire edge suppression, the burning-cell continuity, and wind direction.
+
+We construct our test problems based on real forest maps and aircraft firefighting capability.
+
+Comparing with four compared rescue algorithms, we test the different capabilities of firefighting particle swarm optimization, such as searching dynamic optimal solution, shortening the rescue time, controlling the spread speed of fire edge, and minimizing the burned cost.
+
+Experimental results demonstrate that the framework of rescue ensemble is feasible.
+
+Meanwhile, the results of firefighting particle swarm optimization are satisfactory in most cases.

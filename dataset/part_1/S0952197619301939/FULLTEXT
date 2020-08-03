@@ -1,0 +1,571 @@
+10.1016/j.engappai.2019.08.008
+
+FULLTEXT
+
+TITLE
+
+Divide-and-conquer framework for image restoration and enhancement
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Image restoration and enhancement have been significant topics in image processing and computer vision, and a large number of image restoration and enhancement algorithms are widely applied in the fields of medical image restoration (Eldaly et al., 2018; Zhang et al., 2017b), underwater image or video enhancement (Ancuti et al., 2018) and remote sensing fusion (Wang et al., 2019).
+
+The aim of image restoration is to recover an ideal image from a degraded image according to degradation principles, while the target of image enhancement is to enhance an original image by promoting useful characteristics and inhibiting uninteresting information according to specific requirements.
+
+The former is an objective process to restore an ideal image from image degradation model, while the latter is a subjective process of improving image quality by referring to human visual perception.
+
+However, their common purpose is to improve image visual quality based on respective principles.
+
+PARAGRAPH
+
+Significant developments of image restoration and enhancement have been witnessed in recent years.
+
+A comprehensive review of image restoration and enhancement algorithms will be briefly presented as follows:
+
+PARAGRAPH
+
+Image Restoration Numerous image restoration algorithms have been developed, and existing restoration methods can be classified into four categories.
+
+The first class of restoration method is based on spatial domain, including Wiener filtering (Suresh et al., 2018), bilateral filtering (Zhu et al., 2017), guided filtering (GF) (He et al., 2010), nonlocal means (Buades et al., 2005).
+
+They employ image local or nonlocal similarity in spatial domain to recover an ideal image.
+
+However, limited in spatial domain, complex degradation problems are difficult to be addressed without the utility of frequency or other transform domains.
+
+The second class of restoration method is based on transform domain, including wavelet (He et al., 2019), curvelet (Gai, 2018), contourlet transform (Zhang et al., 2017a), and block matching and 3D filtering (BM3D) (Dabov et al., 2007).
+
+They obtain better results by taking helpful image properties in transform domain, but large amount of calculation are taken and mathematical theories are complex.
+
+The third class of restoration method is based on dictionary learning, which exploits data learning and dictionary optimizing to represent an image in adaptive and sparse ways, and the restoration result is better than that of traditional transform domain methods.
+
+The representatives involve K-singular value decomposition (KSVD) (Aharon et al., 2006) and its weighted version (WKSVD) (Liu et al., 2013), beta process factor analysis (BPFA) (Zhou et al., 2012), and centralized sparse representation (CSR) (Dong et al., 2011).
+
+However, they have a high computational complexity due to the fact that dictionary training and optimization requires a lot of computing time.
+
+The last class of restoration method is based on deep neural network, which uses numerous pairs of ideal and degraded images or patches to train network parameters, and a final output is obtained via a trained network model.
+
+Stacked sparse denoising auto-encoders (Zhang et al., 2018b), deconvolutional network (Wan et al., 2018), deep recurrent neural network (Tao et al., 2018; Zhang et al., 2018a) are representatives that have advantages of self-learning, robustness and adaptability.
+
+Unfortunately, they require numerous data samples and much training time, and hardware cost of their implementation is high.
+
+To overcome their disadvantages, a number of recent works (Liu et al., 2016; Zhang et al., 2017d; Dong et al., 2018) are proposed to combine iterative optimization and learning discriminative image priors, tailored to a specific restoration task.
+
+In addition, discriminative transfer learning (Xiao et al., 2018; Badri et al., 2016) and generative adversarial network techniques (Ulyanov et al., 2018) are proposed for effective image restoration, and a convincing tradeoff between restoration quality and computational efficiency is achieved.
+
+PARAGRAPH
+
+Image Enhancement A large number of image enhancement algorithms are proposed, and several types of enhancement methods are reviewed subsequently.
+
+The first type of enhancement method is based on the Retinex theory, which assumes color sensations strongly correlating with reflectance, and the amount of visible light reaching human eyes depending on the product of reflectance and illumination (Land and McCann, 1971; Bertalmio et al., 2009).
+
+It decomposes an image into the illumination and the reflectance, and the two components are computed with different regularization constraints.
+
+Single-scale Retinex (Jobson et al., 1997b), multi-scale Retinex (Jobson et al., 1997a), Retinex based on total variation (Ng and Wang, 2011; Yue et al., 2017; Li et al., 2018), and Bayesian Retinex (Wang et al., 2014; Fu et al., 2015) are representatives.
+
+But they easily produce halo artifacts in salient edges and poorly perform in unnatural images.
+
+The second type of enhancement method based on histogram equalization is widely used for contrast enhancement.
+
+Exact histogram specification (Coltuc et al., 2006; Balado), and gradient histogram preservation (Zuo et al., 2014; Tanaka et al., 2019), naturalness preserved enhancement (Wang et al., 2013; Wang and Luo, 2018), and gradient distribution specification (GDS) (Gong and Sbalzarini, 2014, 2016), adjust uneven gray probability density distributions to ideal uniform distributions, and the gray-scale range is stretched to enhance image contrast.
+
+However, subjective and objective enhancement consistency cannot be achieved without considering imaging mechanism.
+
+The third type of enhancement method based on unsharp masking is effective in sharpness and contrast enhancement.
+
+It first employs an edge-preserving filter to decompose an image into base and detail layers, and then the two components are enhanced respectively.
+
+The edge-preserving filtering methods, including weighted least square framework (WLS) (Farbman et al., 2008; Kou et al., 2018), domain transform (DT) (Gastal and Oliveira, 2011), guided filtering (GF) (He et al., 2010; Guo et al., 2018), and adaptive manifolds filtering (AM) (Gastal and Oliveira, 2012), determine final enhancement effect.
+
+However, they fail in the tradeoff between detail enhancement and naturalness retention.
+
+The last type of enhancement method is based on partial differential equations (PDE), which is effective in improving edge-based structures.
+
+For nonlinear anisotropic diffusion such as the P-M model (Perona and Malik, 1990), image gradient magnitude determines the diffusion of gray values, and the diffusion is stopped across edges.
+
+But it is difficult to determine the stopping time of diffusion to obtain nontrivial results.
+
+The coherence nonlinear diffusion model (Weickert, 1998, 1999) is directional in gradient and contour directions, but the brushstroke effects may be generated in non-structure regions due to the errors of local structure estimation (Wang et al., 2006).
+
+It is worth mentioning that a bio-inspired PDE model (Alaa and Zirhem, 2018) is presented for restoration and enhancement, where a well-established noise estimator is adopted to provide a stopping criterion for diffusion.
+
+Furthermore, the literature (Aarab et al., 2018) provides the existence of a global weak solution to a generic reaction–diffusion system, where the theoretical framework analyzes a class of PDE models for restoration and enhancement.
+
+These PDE-based methods have complete theoretical frameworks (Jin et al., 2012; Aarab et al., 2018), and partial differential equations are taken in the calculation, which demands for high mathematical theories.
+
+Additionally, recent data-driven approaches (Ignatov et al., 2017; Chen et al., 2018b; Hu et al., 2018) are proposed for expressive enhancement results by learning adjustment in terms of color, contrast and saturation, but they are limited in severely underexposed images.
+
+PARAGRAPH
+
+Despite the achievements of aforementioned image restoration and enhancement approaches, the limitation for them can be found below: Task-driven image restoration and enhancement has not been currently taken into account in these restoration and enhancement methods, and an observed image is directly processed through these restoration and enhancement methods which only focus on sparse priors of the whole image.
+
+However, these methods ignore sparse prior differences of image contents (noise versus image, edge-based structures versus smoothing areas, high-frequency versus low-frequency components), and even these differences cannot be effectively utilized.
+
+Fortunately, the divide-and-conquer scheme (He et al., 2014; Lampert, 2010; Yin and Collins, 2006; Gao et al., 2011; Blanes et al., 2012) is based on task-driven requirements of image restoration and enhancement, and can consider visual importance differences of image contents (noise versus image, edge-based structures versus smoothing areas, high-frequency versus low-frequency components) and exploit their prior differences for performance improvements.
+
+To address the above problem, we develop a divide-and-conquer framework based on task-driven requirements of image restoration and enhancement, and the main contributions of the paper are summarized below:
+
+PARAGRAPH
+
+The paper is organized as follows: the motivation of divide-and-conquer framework is illustrated in Section 2, and then the implementation of the divide-and-conquer framework for image restoration and enhancement is detailed in Section 3.
+
+The effectiveness of the proposed framework is validated by numerous experimental results provided in Section 4, and the conclusion is finally presented in Section 5.
+
+SECTION
+
+Divide-and-conquer motivation
+
+PARAGRAPH
+
+Image versus Noise.
+
+Previous literatures Gonzalez and Woods (2007), Suresh et al. (2018), Zhu et al. (2017), He et al. (2010), Buades et al. (2005), He et al. (2019), Gai (2018), Zhang et al. (2017a), Dabov et al. (2007), Aharon et al. (2006), Liu et al. (2013), Zhou et al. (2012), Dong et al. (2011), Zhang et al. (2018b), Wan et al. (2018), Tao et al. (2018), Zhang et al. (2018a), Mitra et al. (2010), Huang et al. (1979), Hwang and Hadda (1995), Zhang et al. (2014) and Zhuang et al. (2016a) have demonstrated that the useful information of edges and details is in an image (Fig. 1(a)), while the irregular and random properties are manifested in noise which contains no useful information (Fig. 1(b) and (c)).
+
+In addition, an image can be generally sparse in Fourier or other transform domains, and an image can be sparsely represented by using an adaptive dictionary and sparse coefficients (Fig. 1(a)).
+
+However, neither Gaussian noise nor salt-and-pepper noise can be sparsely represented in the adaptive dictionary domain, salt-and-pepper noise shows certain sparseness in the spatial domain (Fig. 1(c)), while Gaussian noise has no sparse property (Fig. 1(b)).
+
+It is necessary to adopt different processings on image, Gaussian noise and salt-and-pepper noise.
+
+PARAGRAPH
+
+Edge-based Structures versus Smoothing Areas.
+
+Relevant literatures (Patel et al., 2012; Wang et al., 2004) have revealed that image structures are sensitive to human visual system, and image edges and details are basic features for understanding image contents, and their changes determine basic contents for human perception.
+
+Meanwhile, Fig. 2 displays the variation results of smoothing areas versus edge-based structures (i.e., edges and details) under different Gaussian blurring levels, and it is observed that large changes of edge-based structures are prominent as Gaussian blurring strength increases, while small changes are shown in smoothing areas.
+
+The difference between smoothing areas and edge-based structures is shown, and edge-based structures are more important than smoothing areas for non-blind deconvolution and image enhancement.
+
+Realizing differential processing on edge-based structures and smoothing areas is necessary for image restoration and enhancement.
+
+PARAGRAPH
+
+Low-Frequency versus High-Frequency.
+
+Previous literatures Gong and Sbalzarini (2014), Patel et al. (2012), Krishnan and Fergus (2009), Zhuang et al. (2016b) and Zhuang et al. (2017) have shown the difference of low-frequency and high-frequency components, and low-frequency components contain most of smoothing areas, while high-frequency are mainly composed of edges and details.
+
+Fig. 3 presents low-frequency and high-frequency components of Lena image and their histogram distributions.
+
+It is observed that low-frequency and high-frequency components have different distributions, and sparser properties are shown in high-frequency components.
+
+Meanwhile, the distributions of high-frequency components at different directions are different, and low-frequency portions of different directions are different.
+
+Furthermore, high-frequency components are more importance than low-frequency for non-blind deconvolution and image enhancement.
+
+It is necessarily required to implement different processing on low-frequency and high-frequency components separately.
+
+SECTION
+
+PARAGRAPH
+
+Divide-and-conquer framework for image restoration and enhancement
+
+PARAGRAPH
+
+In this section, we present the implementation of divide-and-conquer framework for image restoration and enhancement as follows:
+
+SECTION
+
+Image decomposition
+
+PARAGRAPH
+
+Inspired by the decomposition models in Fadili et al. (2010) and Starck et al. (2005), we take the visual importance differences of image contents (noise versus image, edge-based structures versus smoothing areas, high-frequency versus low-frequency components) into account, and we divide an observed entire image y into several components called image subspaces {yi}i=1N according to specific restoration and enhancement tasks.
+
+Meanwhile, two basic rules of image decomposition should be satisfied: (1) No information loss of an entire image is ensured during image decomposition.
+
+(2) Image decomposition is simple but effective according to specific restoration and enhancement tasks.
+
+PARAGRAPH
+
+The Gaussian noise is often generated from electron thermal motion in camera sensors and circuits, while the impulse noise is easily produced by malfunctioning pixels in camera sensors or faulty memory locations in hardware.
+
+The mixture of Gaussian noise and impulse noise is commonly encountered in practice due to the multiple sources of noise.
+
+For removing this mixed noise, it is well-known that an ideal image x can be sparsely represented by a adaptive dictionary D and respective sparse coefficients α, meanwhile, the salt-and-pepper noise s is sparse in spatial domain, and it can be sparsely represented in the unit matrix I domain.
+
+However, the incoherence between adaptive dictionary domain and unit matrix domain is a key basis (Wright et al., 2009; Zhang et al., 2011; Fadili et al., 2010; Starck et al., 2005) for distinguishing the ideal image x and the salt-and-pepper noise s.
+
+The Gaussian noise ε is easily distinguished due to its unsparse property in both adaptive dictionary domain and unit matrix domain.
+
+Based on the above properties, and inspired by the literatures (Ding et al., 2011; Mitra et al., 2010), we adopt a simple but effective decomposition method to decompose the observed image y into three components: the ideal image x, the salt-and-pepper noise s and the Gaussian noise ε, and it is formulated as follows: y=y1+y2+y3=x+s+ε=Dα+s+εFurthermore, the recent studies Dabov et al. (2007), Aharon et al. (2006), Liu et al. (2013), Zhou et al. (2012) and Dong et al. (2011) demonstrate that image patch-level reconstruction is an effective method in sparse representation, in addition to reducing both computing time and storage capacity, thus we use the scheme of overlapped image patches to reconstruct the ideal image.
+
+The expression of the jth noisy image patch yj is written: yj=Dαj+sj+εjwhere αj, sj and εj are sparse coefficients, salt-and-pepper noise and Gaussian noise of the jth patch, respectively.
+
+It is noted that this decomposition method for mixed Gaussian and salt-and-pepper noise removal conforms to the two above-stated decomposition rules.
+
+PARAGRAPH
+
+Distinguishing from mixed Gaussian and salt-and-pepper noise removal, non-blind deconvolution and image enhancement are performed under the condition of noise free/weak.
+
+The main focuses are both the difference between edge-based structures and smoothing areas and the difference between high-frequency and low-frequency components.
+
+In addition, most of smoothing areas are in low-frequency components, while edges and details are in high-frequency portions.
+
+Therefore, we divide an observed image y into different low-frequency and high-frequency components through using two groups of linear and completeness filters.
+
+The ith subspace yi is derived by convolving y with a predefined convolutional filter hi: yi=hi⊗y,i=1,2,3,4Four convolution filters are adopted based on their simplicity and effectiveness.
+
+Specifically, using two high frequency filters h3=[1,−1],h4=[1;−1], we extract two subspaces y3 and y4 that contain high-frequency components of y. ⊗
+
+is the 2D convolution operator.
+
+Then we define h1 and h2 to ensure that y is uniquely definable in terms of y1, y2, y3 and y4.
+
+Furthermore, corresponding frequency responses (H1 and H2) of low-frequency filters (h1 and h2) are satisfied: H1=1−H3,H2=1−H4,where H3 and H4 are the Fourier transform of h3 and h4, respectively. 1
+
+is a matrix of each element equaling to one.
+
+As a result, above four filters are simple but effective to ensure no information loss of an entire image during this decomposition.
+
+SECTION
+
+PARAGRAPH
+
+Subspace processing
+
+PARAGRAPH
+
+After accomplishing image subspaces decomposition, we exploit sparse prior differences of image subspaces to model these subspaces differently, and then we use existing restoration and enhancement methods to process them separately.
+
+PARAGRAPH
+
+Mixed Gaussian and Salt-and-Pepper Noise Removal.
+
+Based on the aforementioned differences of an ideal image, salt-and-pepper noise and Gaussian noise, we adopt different modeling on three components respectively.
+
+Firstly, the jth image patch xj is sparse representation by using an adaptive dictionary D and respective sparse coefficients αj, and the sparse spike-slab prior (Mitchell and Beauchamap, 1988; Eduward and McCulloch, 1993) is imposed on sparse coefficients.
+
+Thus the model of ideal patch xj is formulated: dk∼N(0,P−1IP)αj∼∏k=1K[(1−πk)δ+πkN(0,γα−1)]πk∼Beta(a0,b0)γα∼Γ(c0,d0)where dk is the kth column of D, and it is drawn from a zero-mean Gaussian distribution.
+
+The dictionary D is assumed to be identically distributed random variables, which are adaptively learned to fit training patches.
+
+P is the size of image patch, K is the column number of D, and IP is the identity matrix with the size of P×P. δ
+
+is the delta function that enhances the sparsity of spike parts with a high probability. πk
+
+is the probability of dk being used or not to represent image patch, and it is drawn from a beta distribution with two hyper-parameters a0 and b0.
+
+The same πk is shared by all patches.
+
+Secondly, the salt-and-pepper noise sj is assumed to be sparse in the spatial domain I, and it is imposed by the spike-slab prior.
+
+Therefore, the model of salt-and-pepper noise sj is expressed: sj∼∏p=1P[(1−q)δ+qN(0,γs−1)]q∼Beta(m0,n0)γs∼Γ(e0,f0)where q represents the probability of image pixel to be salt-and-pepper noise or not, and it is drawn from a beta distribution with two parameters m0 and n0.
+
+Finally, the Gaussian noise εj is unsparse in both adaptive dictionary domain and unit matrix domain, thus the statistical model of Gaussian noise is formulated: εj∼N(0,γε−1IP)γε∼Γ(g0,h0)where γα, γs and γε are the inverse variance of αj, sj and εj, respectively.
+
+They are typically imposed by all non-informative gamma hyper-priors (Zhou et al., 2012).
+
+The hyper-parameters of Gamma distribution c0, d0, e0, f0, g0 and h0 are set along the lines suggested in Zhou et al. (2012), while the beta distribution hyper-parameters a0, b0, m0 and n0 are same as the lines in Zhuang et al. (2016a).
+
+PARAGRAPH
+
+In order to address the above divide-and-conquer model of mixed noise removal, we derive a Gibbs sampling algorithm of Markov Chain Monte Carlo (Jackman, 2000) to compute the approximation inference of the proposed model.
+
+Due to space limitation, the solving process are detailed in our supplementary file.
+
+PARAGRAPH
+
+Non-blind Deconvolution.
+
+Considering the differences of image contents (edge-based structures versus smoothing areas, low-frequency versus high-frequency components), we adopt the ℓ2 norm data fidelity for low-frequency subspaces x1 and x2, and use the ℓ1 norm to model the data fidelity of high-frequency subspaces x3 and x4.
+
+The total variation (TV) introduced by Rudin, Osher and Fatemi (Osher et al., 1992) has been successfully and widely used for image restoration (Wang et al., 2008; Zhuang et al., 2016b; Almeida and Almeida, 2010; Osher et al., 2005; Wen et al., 2008; Kim and Fessler, 2017), which has been proved to be a simple but effective regularization capable of preserving proper edges and removing noise or artifacts.
+
+The TV regularization enforces homogeneity within contiguous regions of an image while still allowing for sudden high frequency jumps at edges due to the ℓ1 penalty.
+
+And the satisfactory performance can be achieved through an efficient alternating iteration method (Wang et al., 2008) adopted for solving the TV model.
+
+Therefore, the total variation (TV) is employed to enforce the sparsity on each image subspace.
+
+The models of low-frequency and high-frequency subspaces are presented: xi=argminxi‖yi−k⊗xi‖22+λi‖xi‖TV,i=1,2 xi=argminxi‖yi−k⊗xi‖1+λi‖xi‖TV,i=3,4where k is a blur kernel, xi and yi (derived from (3)) are the ith subspace of the ideal image x and the blurry image y, respectively.
+
+The problem (8) can be directly addressed by FTVd (Wang et al., 2008).
+
+However, it is required to introduce auxiliary variables to convert the problem (9) into the convex forms, then it is solved by using the methods of alternating iterative minimization (Wang et al., 2008), least-square integration (Patel et al., 2012) and fast Fourier transform (Patel et al., 2012).
+
+Due to space limitation, the solving process of problem (9) is presented in our supplementary file.
+
+PARAGRAPH
+
+Image Enhancement.
+
+Similar to non-blind deconvolution, we enhance the four subspaces {yi}i=14 independently by employing the above four filters for image decomposition, and this scheme of four separate enhancement can be applicable to other algorithms.
+
+Meanwhile, the enhancement method of linear remapping performs simple scaling on pixel intensities to accelerate enhancement process and to simplify enhancement algorithm.
+
+Therefore, we employ the gradient distribution specification method (Gong and Sbalzarini, 2014) to enhance original subspaces {yi}i=14 separately, and the enhanced subspaces {xi}i=14 are reconstructed: xi=Niyi,i=1,2,3,4 Ni=(1−θ)T1iT1pr+θT2iT2pr,i=1,2,3,4where θ is a balancing weight in the range [0, 1], and it is default setting according to (Gong and Sbalzarini, 2014).
+
+Ni is the naturalness factor of ith subspace.
+
+T1 and T2 are the parameters of cumulative distribution functions of original image y, and these two parameters are explicitly computed in Gong and Sbalzarini (2014).
+
+Similarly, the parameters T1i and T2i of ith subspace are calculated from the original subspace yi.
+
+The parameters T1pr and T2pr are learned from six natural-scene image dataset, and the parameters T1pr and T2pr of four subspaces are computed by averaging the values of six natural-scene subspaces datasets.
+
+(Six natural-scene image dataset, T1pr and T2pr for four subspaces are referred to our supplementary file.)
+
+SECTION
+
+Subspace integration
+
+PARAGRAPH
+
+When obtaining the post-processed subspaces {xi}i=1N, we take the visual importance differences of image contents into consideration, and we employ a simple but effective integration scheme with different weights {Wi}i=1N to fuse these post-processed subspaces, therefore, the final image x is analytically reconstructed: x=∑i=1NWixiwhere {Wi}i=1N are the weights of balancing different subspaces, and they have certain universality to be fixed for all test images.
+
+In the task of mixed Gaussian and salt-and-pepper noise removal, our aim is to remove Gaussian (y3=ε) and salt-and-pepper (y2=s) noises, and to recover the ideal image (y1=x) from the noisy image (y).
+
+And hence we set W1=1 and W2=W3=0 when N=3.
+
+In the task of non-blind deconvolution, an observed image y is divided into two groups of low-frequency (y1 and y2) and high-frequency (y3 and y4) components by using two groups of linear and completeness filters.
+
+And we set {Wi}i=14=1 to ensure the completeness of the whole image (y1+y3=y and y2+y4=y) when N=4.
+
+In image enhancement with N=4, W1 and W2 embody the importance of low-frequency subspaces x1 and x2 to the full reconstruction of x, while W3 and W4 reflect the importance of high-frequency subspaces x3 and x4 for reconstructing x.
+
+And according to the satisfactory result of the final enhanced image, we set the former weights W1=W2=0.5 to be more suitable for image naturalization, and set the values of latter weights W3 and W4 in the range of [1.5,2] for details enhancement.
+
+PARAGRAPH
+
+The overview of proposed framework for image restoration and enhancement is illustrated in Fig. 4, and three main steps of the proposed framework are sketched in Algorithm 1.
+
+SECTION
+
+Experimental validation
+
+PARAGRAPH
+
+In this section, numerous experimental results are provided to demonstrate the effectiveness of the proposed divide-and-conquer framework on mixed Gaussian and salt-and-pepper noise removal, non-blind deconvolution and image enhancement.
+
+All experimental simulations are performed in Matlab R2012a on a PC with Intel Core i7-4790 CPU (3.60 GHz) and 8G RAM.
+
+In mixed Gaussian and salt-and-pepper noise removal, all experiments are implemented in patch-level, and the experimental parameters are along the lines suggested in Zhuang et al. (2016a).
+
+The peak signal to noise ratio (PSNR) (Huynh-Thu and Ghanbari, 2008) will be used as the quantitative measurement, and the visual results of denoised images will be taken as the qualitative evaluation.
+
+In non-blind deconvolution, all experimental parameters are set according to (Zhuang et al., 2016b), and the improvement in signal-to-noise ratio (ISNR) (Almeida and Almeida, 2010) and the structural similarity (SSIM) (Wang et al., 2004) will be measured as the quantitative evaluations, meanwhile, the deblurred results will be taken as the qualitative evaluation.
+
+In image enhancement, each channel of color image is individually processed by all methods, and all experimental parameters are consistent with Zhuang et al. (2017).
+
+The subjective quality of enhanced results will be treated as the main evaluation.
+
+The supplementary file of our paper can be available at the website: http://www.escience.cn/people/zhuangpeixian/index.html.
+
+SECTION
+
+Mixed Gaussian and salt-and-pepper noise removal
+
+PARAGRAPH
+
+In the subsection, we compare the proposed method with five denoising algorithms: BPFA (Zhou et al., 2012),1  GM-TV (Liu et al., 2009), TVAWL1 (Liu et al., 2010), WKSVD (Liu et al., 2013)2  and WESNR (Jiang et al., 2014).3
+
+Fig. 5 shows PSNR results of different denoising methods on Barbara and Lena images under different noise levels.
+
+The test images are corrupted by the ratio of salt-and-pepper noise increasing from 0% to 30% under the standard deviation of Gaussian noise fixed as 10, 20 and 30, respectively.
+
+As the salt-and-pepper noise ratio increases, we observe that the PSNR values of the proposed method are mostly higher than those of BPFA (Zhou et al., 2012), GM-TV (Liu et al., 2009), TVAWL1 (Liu et al., 2010), WKSVD (Liu et al., 2013) and WESNR (Jiang et al., 2014).
+
+Meanwhile, the denoising results of different methods on Barbara image are illustrated in Fig. 6.
+
+Serious noises are remained in the denoised results of BPFA (Zhou et al., 2012) (Fig. 6(a)), and serious artifacts are generated in GM-TV (Liu et al., 2009) (Fig. 6(b)).
+
+TVAWL1 (Liu et al., 2010) and WKSVD (Liu et al., 2013) achieve better denoising results than above two methods, however, a small amount of noise is still in TVAWL1 (Liu et al., 2010) (Fig. 6(c)), and some blurred and over-smoothed structures are produced in WKSVD (Liu et al., 2013) (Fig. 6(d)).
+
+Compared with the denoised result of WESNR (Jiang et al., 2014) (Fig. 6(e)), the proposed method shown in Fig. 6(f) obtains better results of both mixed noise removal and structures preservation.
+
+The performance improvements are mainly attributed to the proposed divide-and-conquer scheme on image and different types of noise.
+
+In addition, Table 1 demonstrates Gaussian noise estimations of different algorithms on Barbara image corrupted by mixed Gaussian and salt-and-pepper noise.
+
+We can see that the worse results are generated in BPFA (Zhou et al., 2012).
+
+WKSVD (Liu et al., 2013) achieves better results of Gaussian noise estimation but strongly depends on the initialization of adaptive median filter (AMF) (Hwang and Hadda, 1995).
+
+However, the proposed method maintains better values of Gaussian noise estimation without any initialization.
+
+We also compare the proposed method with the above-mentioned denoising methods (BPFA (Zhou et al., 2012), TVAWL1 (Liu et al., 2010), WKSVD (Liu et al., 2013) and WESNR (Jiang et al., 2014)) on the real brain MR noisy image.
+
+As is shown in Fig. 7, we note that serious noises are remained in the denoised images of BPFA (Zhou et al., 2012) and TVAWL1 (Liu et al., 2010), and the over-smoothed structures are generated by WKSVD (Liu et al., 2013) and WESNR (Jiang et al., 2014).
+
+Compared with other competitive methods, the proposed method achieves better results of both actual noise removal and image structures protection.
+
+This superiority is derived from the proposed divide-and-conquer framework on image and different types of noise.
+
+SECTION
+
+Non-blind deconvolution
+
+PARAGRAPH
+
+In the subsection, we compare the proposed method with five methods of FTVd (Wang et al., 2008),4  HLP [47],5  JSM (Zhang et al., 2014),6  EPLL (Zoran and Weiss, 2011)7  and CSR (Dong et al., 2011)8  on Levin and Google datasets, respectively.
+
+FTVd (Wang et al., 2008) and HLP (Krishnan and Fergus, 2009) are the representative methods based on different regularization priors of image gradients, EPLL (Zoran and Weiss, 2011) is a generic framework which allows for whole image restoration using patch-based Gaussian mixture prior, JSM (Zhang et al., 2014) and CSR (Dong et al., 2011) are the state-of-the-art methods which employ non-local self-similarity priors of image patches.
+
+The Levin dataset (Levin et al., 2009) contains 4 images (Im05-Im08) and 10 types of blur kernels (Levin et al., 2009; Krishnan and Fergus, 2009).
+
+The Google dataset is composed of 100 images and above 10 types of blur kernels (4 images and 10 types of blur kernels from Levin dataset, 4 representative images from Google dataset are shown in our supplementary file).
+
+All test image are blurred with one type of blur kernel and then noised with the same standard deviation of Gaussian noise.
+
+PARAGRAPH
+
+Fig. 8 shows average ISNR and SSIM results of FTVd (Wang et al., 2008), HLP (Krishnan and Fergus, 2009), JSM (Zhang et al., 2014), EPLL (Zoran and Weiss, 2011), CSR (Dong et al., 2011) and the proposed method on the Levin dataset, and Fig. 9 presents the deblurring results of above competitive methods on Im08 image.
+
+We can see that the proposed method overwhelms FTVd (Wang et al., 2008), HLP (Krishnan and Fergus, 2009), JSM (Zhang et al., 2014), EPLL (Zoran and Weiss, 2011) and CSR (Dong et al., 2011) by large margins of ISNR and SSIM improvements.
+
+As shown in Fig. 9(a)–(e), there are some noises or artifacts remained in the deblurred results of FTVd (Wang et al., 2008), HLP (Krishnan and Fergus, 2009), JSM (Zhang et al., 2014), EPLL (Zoran and Weiss, 2011) and CSR (Dong et al., 2011), however, the proposed method (Fig. 9(f)) yields better results of image structures protection and noise suppression.
+
+The large margins of performance improvement benefits from the proposed divide-and-conquer framework, which models image structures and smoothing areas differently and utilizes different subspaces priors precisely.
+
+The worse result of FTVd (Wang et al., 2008) is derived from the limitations of initialization sensitive and the ℓ2-norm fidelity of high-frequency components, HLP (Krishnan and Fergus, 2009) has less residual noise by employing hyper-laplacian gradient prior, EPLL (Zoran and Weiss, 2011) generates less residual noise due to the helpful patch-based Gaussian mixture prior.
+
+Both JSM (Zhang et al., 2014) and CSR (Dong et al., 2011) produce the less noise results by benefiting from nonlocal self-similarity priors of image patches.
+
+In addition, all above-mentioned methods are also compared on Google dataset, and the effectiveness of proposed model is demonstrated for image universality.
+
+Fig. 10 shows the ISNR and SSIM results of different methods by averaging 100 images from Google dataset.
+
+We observe that the proposed method achieves better average ISNR and SSIM values than FTVd (Wang et al., 2008), HLP (Krishnan and Fergus, 2009), JSM (Zhang et al., 2014), EPLL (Zoran and Weiss, 2011) and CSR (Dong et al., 2011), and the proposed divide-and-conquer framework is effective in noise suppression and image structures preservation.
+
+PARAGRAPH
+
+In the case of noise effect, we compare the proposed method with FTVd (Wang et al., 2008), HLP (Krishnan and Fergus, 2009), JSM (Zhang et al., 2014), EPLL (Zoran and Weiss, 2011) and CSR (Dong et al., 2011) under different intensity levels of Gaussian noise.
+
+The Barbara image is both blurred by the blur kernel 7 and then noised by different intensity levels of Gaussian noise.
+
+As shown in Fig. 11, ISNR and SSIM plots of the proposed method are higher than those of FTVd (Wang et al., 2008), HLP (Krishnan and Fergus, 2009), JSM (Zhang et al., 2014), EPLL (Zoran and Weiss, 2011) and CSR (Dong et al., 2011), and this superiority is more prominent as the standard deviation of Gaussian noise increases.
+
+It is seen that our method obtains better performance of image structures protection and noise suppression in comparison.
+
+In addition, we compare the proposed method with FTVd (Wang et al., 2008) and JSM (Zhang et al., 2014) in the case of mixed Gaussian and salt-and-pepper noise removal during non-blind deconvolution.
+
+Fig. 12 shows the deblurring results of above three methods on Barbara image, which is blurred by the blur kernel 10 and then noised by mixed Gaussian and salt-and-pepper noise.
+
+As illustrated in Fig. 12(b) and (c), FTVd (Wang et al., 2008) and JSM (Zhang et al., 2014) produce serious noises and artifacts in the deblurred results due to the effect of the salt-and-pepper noise, on the contrary, the proposed method (Fig. 12(d)) achieves sharper results than other methods, and this advantage benefits from the effectiveness of the proposed divide-and-conquer framework in removing salt-and-pepper noise.
+
+SECTION
+
+Image enhancement
+
+PARAGRAPH
+
+In the final subsection, we perform numerous experiments to demonstrate the effectiveness of the proposed divide-and-conquer framework in image naturalization and detail promotion.
+
+First, we compare the proposed method against four enhancement methods: AM (Gastal and Oliveira, 2012),9  GF (He et al., 2010),10  WLS (Farbman et al., 2008)11  and GDS (Gong and Sbalzarini, 2014).12
+
+Figs. 13 and 14 present the enhanced results of different methods on Flower and Oil-painting images, respectively.
+
+It is seen that image naturalness are lost in AM (Gastal and Oliveira, 2012), GF (He et al., 2010) and WLS (Farbman et al., 2008).
+
+Serious artifacts around petals edges, green leaves, boat and hill are produced in AM (Gastal and Oliveira, 2012) and GF (He et al., 2010) (Figs. 13(b)–(c) and 14(b)–(c)), the results of clear details but lost naturalness are generated in WLS (Farbman et al., 2008) (Figs. 13(d) and 14(d)).
+
+GDS (Gong and Sbalzarini, 2014) (Figs. 13(e) and 14(e)) obtains pleasing naturalization results but over-smoothes image detail structures.
+
+However, as shown in Figs. 13(f) and 14(f), the proposed method yields more visually pleasing results of naturalness preservation and details enhancement than other competitive methods, which demonstrates the effectiveness of the proposed divide-and-conquer framework in natural image enhancement.
+
+PARAGRAPH
+
+Second, we compare all above enhancement methods on a low-illumination image.
+
+We perform the preprocessing of Gamma correction (Fu et al., 2015) to lighten the original images, and then we employ all enhancement methods on the post-processed images.
+
+Fig. 15 shows the enhanced results of all above-mentioned methods on the Cave image.
+
+Color noise and distortion are produced in the dark regions of AM (Gastal and Oliveira, 2012), GF (He et al., 2010) and WLS (Farbman et al., 2008) (Fig. 15(b)–(d)), and image details are not well enhanced in GDS (Gong and Sbalzarini, 2014) (Fig. 15(e)), however, the proposed method (Fig. 15(f)) outperforms AM (Gastal and Oliveira, 2012), GF (He et al., 2010), WLS (Farbman et al., 2008) and GDS (Gong and Sbalzarini, 2014) in both image naturalization (rock surfaces and dark regions) and detail structures promotion (human queue and stair structures).
+
+It is demonstrated that the proposed divide-and-conquer framework is also effective in low-illumination image enhancement.
+
+PARAGRAPH
+
+Third, we provide the realistic feedback of users and quantify the subjective evaluation of our framework.
+
+We construct an independent user study and use the enhanced results of previous tested images.
+
+For each image, we randomly order the results of above algorithms and display them on a screen.
+
+100 volunteers are separately participated to score each image from 1 to 5 (1 denotes the worst and 5 represents the best).
+
+From these trails, Table 2 shows average scores of user study, and it offers an additional support for the effectiveness of our framework in qualitative evaluation.
+
+PARAGRAPH
+
+In addition, we compare the proposed method against DGS (Gong and Sbalzarini, 2014) and DGS (Gong and Sbalzarini, 2014) with sharpening post-processing in image details enhancement.
+
+In this test, both W3 and W4 are set to 2, and the Matlab function “imsharpen” is implemented on the enhanced results from GDS (Gong and Sbalzarini, 2014).
+
+Fig. 16 shows the results of our method against GDS (Gong and Sbalzarini, 2014) and GDS (Gong and Sbalzarini, 2014) with sharpening.
+
+We observe that the proposed method (Fig. 16(d)) yields better results of details enhancement (petal’s textures and boat’s top) than GDS (Gong and Sbalzarini, 2014) (Fig. 16(b)) and GDS (Gong and Sbalzarini, 2014) with sharpening (Fig. 16(c)).
+
+The effectiveness of proposed framework is manifested in image sharpening.
+
+PARAGRAPH
+
+At last, the variation effect of different weights for image enhancement is investigated in Fig. 17.
+
+The two weights w1 and w2 control the importance of low-frequency subspaces for the reconstruction of the final image, while the weights w3 and w4 reflect the importance of high-frequency subspaces.
+
+Fig. 17(a)–(d) illustrates the enhanced results with the variation of w1 and w2 when both w3 and w4 are fixed to 1.5.
+
+It is noted that the brightness of the enhanced image becomes stronger when the weights w1 and w2 increase, and the large or small values of the weights lead to over-enhancement or excessive darkness, thus the weight values w1=w2=0.5 are selected to be more suitable for image naturalization.
+
+Then Fig. 17(e)–(h) shows the variation effect of the two weights w3 and w4 for image enhancement when both w1 and w2 are set to 0.5.
+
+It is observed that the details of the enhanced image becomes sharper as the weights w3 and w4 increase, however, the over-enhancement result is generated when the value of w3 and w4 reaches 2.5.
+
+Therefore, the values of the weights w3 and w4 are suitably set in the range of [1.5,2] for details enhancement.
+
+SECTION
+
+PARAGRAPH
+
+Conclusion
+
+PARAGRAPH
+
+In this paper, a divide-and-conquer framework has been developed for image restoration and enhancement based on their task-driven requirements, which considers visual importance differences of image contents and exploits sparse prior differences of different contents.
+
+The proposed framework is efficiently implemented in decomposition-processing-integration.
+
+Firstly, an observed image is decomposed into several subspaces, which is based on the consideration of visual importance differences of image contents.
+
+Secondly, different subspace priors are exploited to model these subspaces, and then existing image restoration and enhancement methods are used to deal with them effectively.
+
+Thirdly, a simple but efficient integration scheme of different weights is used to fuse these post-processed subspaces for the final image.
+
+Finally, numerous experiments demonstrate the effectiveness of proposed framework in mixed Gaussian and salt-and-pepper noise removal, non-blind deconvolution, and image enhancement.
+
+Compared with other competitive algorithms, the proposed framework yields better subjective results and objective assessments.
+
+Furthermore, the proposed divide-and-conquer framework is simply extended to other restoration and enhancement algorithms, and it provides a new way to promote their performances for image restoration and enhancement.
+
+PARAGRAPH
+
+For the limitation of the proposed framework, image subspaces restoration and enhancement takes more time than existing methods which only perform on the observed degraded image.
+
+Table 3 illustrates runtime comparisons of different methods for image deblurring and enhancement respectively.
+
+It can be noted that in image deblurring our method runs more time than FTVd (Wang et al., 2008) and HLP (Krishnan and Fergus, 2009) since subspace deconvolution requires higher computational costs, but the proposed method takes shorter time than JSM (Zhang et al., 2014) and CSR (Dong et al., 2011) where their main runtimes are consumed in block matching of nonlocal patches.
+
+During image enhancement, it is seen that our method runs longer time than AM (Gastal and Oliveira, 2012), GF (He et al., 2010), WLS (Farbman et al., 2008) and GDS (Gong and Sbalzarini, 2014) since subspaces enhancement needs more computations.
+
+However, the parallel computation by Graphics Processing Unit (GPU) can be adopted to reduce the computational time of subspaces restoration and enhancement.
+
+Furthermore, although deep learning-based neural network methods have achieved a lot of beneficial results in image processing, the runtimes of deep learning-based approaches for image restoration (Zhang et al., 2017c; Chen and Pock, 2017) and enhancement (Cai et al., 2018; Chen et al., 2018a) take longer, where their training times take about a few hours or dozens of hours and their test times spend few seconds.
+
+PARAGRAPH
+
+In our future study, we will reduce the computational burden of subspaces restoration and enhancement by parallel computation of Graphics Processing Unit (GPU), and will optimize our implementation code for real-time applications of image restoration and enhancement by C programming.
+
+Although the TV regularization has been particularly well-suited to image restoration in some cases, the assumption of TV is that images are considered to be piecewise-constant signals, and undesirable staircase effects are generated in smooth regions of recovered images.
+
+To overcome this weakness, we will adopt high-order TV regularization approaches (Chan et al., 2000; Hu et al., 2016; Yang et al., 2019) to preserve better image edges and details.
+
+In addition, more reasonable schemes for weight fusion (Ancuti et al., 2018, 2012; Zhang et al., 2015; Xu and Lu, 2015) and subspace decomposition (Fadili et al., 2010; Starck et al., 2005) will be employed to promote better performance of the proposed divide-and-conquer framework in image restoration and enhancement.
+
+Furthermore, we will plan to extend our divide-and-conquer framework to address other real image processing problems.

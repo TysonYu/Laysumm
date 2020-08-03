@@ -1,0 +1,427 @@
+10.1016/j.jhep.2018.05.024
+
+FULLTEXT
+
+TITLE
+
+Development of a simple score based on HBeAg and ALT for selecting patients for HBV treatment in Africa
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Viral hepatitis is a major global health problem.
+
+In 2013, an estimated 1.45 million people died from viral hepatitis.1
+
+This is the seventh leading cause of death worldwide, ranked higher than any of the major infectious agents: human immunodeficiency virus (HIV), tuberculosis and malaria.
+
+Of these hepatitis-related deaths, most of them occur in low-income and middle-income countries (LMICs), and about half are attributable to hepatitis B virus (HBV) infection, causing cirrhosis and hepatocellular carcinoma (HCC).1
+
+PARAGRAPH
+
+In 2016, the World Health Organization (WHO) developed an ambitious strategy to eliminate viral hepatitis as a public health threat by 2030, aiming to reduce the incidence of chronic HBV infection by 90%, and its mortality by 65%.2
+
+The WHO also set a global target for treatment coverage in people with chronic HBV infection eligible for antiviral therapy from 8% (2015) to 80% (2030).3
+
+PARAGRAPH
+
+To scale up and decentralize screening, clinical assessment and treatment services in LMICs, it is essential to develop simple and validated diagnostic tests that are feasible and affordable in these contexts.4
+
+HBV screening using inexpensive rapid tests that accurately detect hepatitis B surface antigen (HBsAg) has performed well in community and outreach settings,5,6 and the cost of antiviral treatment should no longer be the main obstacle (<US$ 50 per year).3,7
+
+Nevertheless, the clinical evaluation of treatment eligibility after confirming positive HBsAg remains complex and expensive.
+
+Because the current antiviral treatment is lifelong for most people, and not all chronic HBV infections result in liver-related deaths, the international guidelines require selection of patients who potentially benefit from the antiviral therapy by evaluating three factors: viral replication, liver fibrosis and inflammation.8–10
+
+However, the recommended tools to assess these conditions (nucleic acid test to measure HBV DNA levels, liver biopsy and Fibroscan® to evaluate fibrosis stage) are rarely accessible and affordable in LMICs.11,12
+
+PARAGRAPH
+
+We therefore developed and validated treatment eligibility in Africa for the hepatitis B virus (TREAT-B), a simple score based on basic laboratory tests widely available in peripheral laboratories in LMICs, without relying on HBV DNA, liver histopathology or Fibroscan.
+
+Using a well characterized population-based cohort of treatment-naïve chronic HBV infection in The Gambia, we first developed a diagnostic score using the European Association for the Study of the Liver (EASL) treatment criteria, based on the conventional reference tests (HBV DNA, liver histology, or Fibroscan) as reference standard.8
+
+Then, we assessed its diagnostic accuracy in a large cohort of treatment-naïve African adults chronically infected with HBV living in Senegal, Burkina Faso or European countries.
+
+We finally compared its performance with that of the HBV DNA-free WHO treatment criteria intended to be used in LMICs,13 and the risk estimation for HCC in chronic hepatitis B (REACH-B) score including HBV DNA as one of the variables.14
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Derivation dataset
+
+PARAGRAPH
+
+From December 2011 to January 2014, the Prevention of Liver Fibrosis and Cancer in Africa (PROLIFICA), the first screen-and-treat program for HBV mono-infected people in sub-Saharan Africa, invited all Gambian adults identified as HBsAg carriers, by a rapid test (Determine, Alere, USA; or OnSite Combo Rapid Test, CTK Biotech, USA), for clinical evaluation through community-based and blood bank screening.6,7
+
+In addition, all individuals known to be HBsAg-positive through historical community-based sero-surveys conducted in rural Gambia were invited.15
+
+Most of them were asymptomatic and unaware of their infection.
+
+After informed consent, HBsAg-positive participants underwent a standardized clinical staging, including fasting transient elastography (Fibroscan 402, Echosens, France),16 abdominal ultrasonography, hematology (Medonic SE-12613, Boule Medical AB, Sweden), biochemistry (VITROS 350 analyser, Ortho, USA), hepatitis B e antigen (HBeAg) (ETI-EBK Plus, Diasorin, Italy), and HBV DNA using an in-house real-time PCR (limit of detection: 50 IU/ml).17
+
+A subset of participants underwent liver biopsy and histopathological evaluation was performed by two independent pathologists as described in our previous paper.18
+
+We performed all the examinations on the same day except the biopsy which was done within three months.
+
+We excluded from the analysis participants with: decompensated cirrhosis; HCC; prior or current antiviral treatment for HBV; co-infection with hepatitis C (HCV), D (HDV) or HIV; pregnancy; or missing clinical or virological data.
+
+We also excluded patients whose liver stiffness measurement using Fibroscan was unreliable, defined as a ratio of IQR divided by liver stiffness measurement exceeding 0.3, when the liver stiffness measurement is ≥7.1 kPa.19
+
+SECTION
+
+Candidate predictors selected for model derivation
+
+PARAGRAPH
+
+Of demographic, clinical, hematological, biochemical, and virological variables commonly used to assess the severity of HBV-related liver disease, we selected a priori the following as candidate predictors potentially adapted and accessible in resource-limited settings: age, sex, HBeAg, aspartate aminotransferase (AST), alanine aminotransferase (ALT), alkaline phosphatase (ALP), gamma-glutamyl transpeptidase (GGT), albumin, total bilirubin and platelet count.8,15,20–22
+
+Three biomarker-based fibrosis tests potentially useful in LMICs (AST-to-platelet ratio index [APRI]; fibrosis-4 score [FIB-4] and GGT-to-platelet ratio [GPR])13,18 were not included in the model to avoid the collinearity, because the components of these tests (age, AST, ALT, GGT and platelet count) were all independently assessed in the model.
+
+Alcohol consumption was not selected for a model, because no study subject had excessive alcohol intake >20 g/day in the Gambian cohort using a standardized questionnaire.
+
+Family history of liver cancer was also omitted as only a few individuals reported a positive history, probably related to poor diagnosis of HCC in the country.23
+
+SECTION
+
+International treatment guidelines
+
+PARAGRAPH
+
+The antiviral treatment criteria given by each of the international guidelines are summarized (Table S1).
+
+Those of the EASL,8 American Association for the Study of Liver Diseases (AASLD),9 and Asian Pacific Association for the Study of the Liver (APASL)10 largely depend on viral load measurement and ALT level and/or fibrosis staging by liver histopathology or Fibroscan.
+
+For these criteria, we defined significant fibrosis and cirrhosis as Metavir ≥F2 and F4 in those who undertook liver biopsy, and liver stiffness ≥7.9 kPa and ≥9.5 kPa in those without biopsy based on the previous validation study,18 respectively.
+
+In contrast, the WHO guidelines provide HBV treatment criteria for LMICs without access to HBV DNA measurement: (i) cirrhosis diagnosed by physical examination or APRI >2.0 or (ii) persistently elevated ALT, without measuring HBV DNA.13
+
+Because we primarily used cross-sectional data in this analysis, we considered the eligibility based on a single time point.
+
+In a subset of patients who had 2nd ALT measurement within six months before undergoing nucleos(t)ide analogue therapy, we performed a sensitivity analysis to assess the WHO treatment eligibility based on persistently elevated ALT at two consecutive visits.
+
+We applied the upper limits of normal for ALT as 30 IU/L for men and 19 IU/L for women, as recommended by the AASLD and WHO.9,13
+
+SECTION
+
+External validation set
+
+PARAGRAPH
+
+To validate the new score, we analyzed historical datasets from hospital-based cross-sectional studies of treatment-naïve HBV mono-infected African adults consecutively recruited in six centers in five countries: Dakar, Senegal;24 Ouagadougou, Burkina Faso;25 Berlin, Germany; Paris and Grenoble, France; and London, UK.
+
+We only included the study participants who had complete data on hematology, biochemistry, HBeAg, HBV DNA and Fibroscan, performed on the same day, and applied the same exclusion criteria as the derivation set.
+
+SECTION
+
+Statistical analyses
+
+PARAGRAPH
+
+To identify predictors of the EASL treatment eligibility, univariable logistic regression was computed for each of the pre-selected candidate predictors.
+
+Continuous variables were transformed into logarithmic scale.
+
+A multiple logistic regression model was then fitted by including all the factors associated with the EASL criteria in the univariable analysis (two-sided p <0.2).
+
+The final model was selected using the backward stepwise regression based on Wald test.
+
+The risk score directly derived from the multiple logistic regression model is complex and not practical for daily use.
+
+Therefore, we developed a simple point system without the need for calculator, by converting regression coefficients into integer points, and assigning these points to each level of each predictor.26
+
+From the total point, the probability to meet the EASL criteria was estimated with the equation:11+exp(-∑i=0pβiWi-B(Totalpoint))where βi is the regression coefficient for the ith covariate; Wi is the reference value of the base category for the ith covariate; and B is the constant.26
+
+PARAGRAPH
+
+The performance of the newly developed diagnostic score was assessed in terms of calibration and discrimination in both derivation and validation sets for each of the international guidelines (EASL, AASLD and APASL) as a reference.
+
+The calibration was investigated by plotting the observed proportions of patients eligible for treatment against the predicted probabilities for each total point.27
+
+The correlation between the observed proportions and the predicted probabilities was assessed using Pearson’s correlation coefficient.21
+
+The capability of the score to correctly discriminate between those eligible and non-eligible for antiviral therapy was evaluated by using the receiver operating characteristic (ROC) curve.
+
+The optimal cut-off for the new score was selected to maximize the sum of sensitivity and specificity.
+
+The discrimination capabilities of the new score were compared to those of the WHO criteria13 and the REACH-B score14 using the area under the ROC curve (AUROC) for each of the reference international guidelines.
+
+The agreement between the new score and each of the international guidelines was also estimated using the prevalence-adjusted bias-adjusted kappa (PABAK).28
+
+To assess the need for multiple ALT measurements (as recommended by the WHO),13 we also evaluated the correlation and agreement of ALT levels measured between the first and second visits in a subset of Gambian patients who had a second ALT measurement, using Pearson’s correlation coefficient and Bland-Altman plot, respectively.
+
+Finally, the performance of the new score was also assessed in a subgroup of patients defined by age, HBV genotype, HBeAg, presence of obesity and cirrhosis.
+
+All the analyses were performed using STATA 13.0 (Stata Corporation, USA).
+
+The study was approved by the Gambian Government/MRC Joint Ethics Committee, and reported in accordance with the STARD.29
+
+SECTION
+
+Results
+
+SECTION
+
+Study participants
+
+PARAGRAPH
+
+A total of 950 individuals with chronic HBV infection were enrolled in the PROLIFICA study in The Gambia.
+
+After excluding those co-infected with HCV, HDV or HIV, with unreliable liver stiffness measurement and missing data, 804 were included in the derivation set (Fig. 1).
+
+Mean age was 38 years (SD ± 11) and 64% were men.
+
+For the validation set, 327 African people with chronic HBV infection were finally included in the analysis, and their study center was located as below: Senegal (n = 171), Burkina Faso (n = 36), Berlin (n = 34), Paris (n = 47), Grenoble (n = 23), and London (n = 16).
+
+They were younger (mean age 33 years, SD ± 10) and with more men (76%) than the derivation set.
+
+Because of the difference in sampling methods (population-based in The Gambia vs. hospital-based study in the validation set), the participants in the derivation set tended to have mild liver disease compared to those in the validation set (Table 1): the mean (±SD) HBV DNA level was 2.4 ± 1.3 log10 IU/ml in the derivation and 3.9 ± 1.5 log10 IU/ml in the validation set, and the prevalence of cirrhosis was 3% (24/804) and 12% (40/327), respectively.
+
+The proportion of participants eligible for antiviral therapy in the derivation set was similar across the different criteria (7% for EASL and AASLD, and 10% for APASL), apart from the WHO criteria for LMICs (49%).
+
+A similar difference in the proportion of eligible subjects was observed in the validation set between the WHO criteria without HBV DNA (65%) and the others (18–20%) (Table 1).
+
+SECTION
+
+Development of the new diagnostic score: TREAT-B
+
+PARAGRAPH
+
+In univariable analysis, the following candidate predictors were found to be significantly associated with the treatment eligibility according to the EASL guidelines: male sex, positive HBeAg, AST, ALT, ALP, GGT, and platelet count (Table 2).
+
+Subsequent multivariable analysis using backward stepwise procedures identified positive HBeAg and ALT level as independent predictors of the EASL treatment eligibility, with the following logistic regression model: risk score = −13.0302 + (2.2052 × HBeAg) + (2.8755 × ln[ALT IU/L]), where HBeAg was coded 0 for negative and 1 for positive.
+
+Based on the final regression model, we developed TREAT-B, a simple score by converting regression coefficients of HBeAg and ALT into integer points (Table 3).26
+
+The total point of TREAT-B was obtained by adding HBeAg score, negative (0 point) or positive (1 point), and ALT score, <20 IU/L (0 point), 20–39 (1 point), 40–79 (2 points) or ≥80 (3 points).
+
+TREAT-B ranged from 0 (HBeAg-negative and ALT <20 IU/L) to 4 (HBeAg-positive and ALT ≥80 IU/L).
+
+SECTION
+
+Validation
+
+PARAGRAPH
+
+The proportion of eligible patients according to each of the international guidelines, by the total point of TREAT-B are presented (Fig. 2 and Table S2).
+
+In both the derivation and validation sets, the proportion meeting the treatment criteria increased with increasing total point.
+
+The predicted probability of meeting the treatment criteria increased steadily: 0.4%, 3.0%, 19.6%, 65.2%, and 93.5% for a total point of 0, 1, 2, 3, and 4, respectively (Fig. 3).
+
+The calibration plot (Fig. 3 for EASL, and Fig. S1 for AASLD and APASL) showed that the points fell close to the 45° line (perfect calibration),27 and the correlation coefficients were high: 0.998 for EASL, 0.994 for AASLD and 0.993 for APASL in the validation set.
+
+PARAGRAPH
+
+TREAT-B showed a good discrimination capability for EASL treatment criteria with AUROC of 0.88 (95% CI 0.83–0.93) and 0.85 (0.79–0.91) in the derivation and validation set, respectively (Table 4, Fig. 4).
+
+In addition, TREAT-B also performed well for AASLD and APASL treatment guidelines: AUROC was 0.89 (0.84–0.94) and 0.83 (0.77–0.89) for AASLD, and 0.87 (0.83–0.91) and 0.85 (0.80–0.90) for APASL, in the derivation and validation set, respectively.
+
+The sum of sensitivity and specificity was highest with a cut-off of 2 points; the sensitivity and specificity to indicate EASL, AASLD, and APASL treatment eligibility criteria in the validation set were 85% and 77%, 82% and 78%, 83% and 78%, respectively (Table 4).
+
+The sensitivity and specificity by different cut-off points are presented (Table S3).
+
+SECTION
+
+Comparison with the WHO criteria
+
+PARAGRAPH
+
+The performance of the TREAT-B score was compared with the WHO criteria for LMICs, which rely on ALT and APRI without HBV DNA.
+
+To select African patients infected with HBV for antiviral therapy, the AUROCs of TREAT-B were significantly higher than those of the WHO criteria (Table 4, Fig. 4).
+
+The WHO criteria demonstrated high sensitivities (ranging 86–94%), but inadequately low specificities (40–56%).
+
+PABAK, the measure of agreement between the TREAT-B score and each of the international guidelines, was also high (ranging from 0.57 to 0.76), compared to that of the WHO criteria (ranging from −0.03 to 0.19) (Table 4).
+
+PARAGRAPH
+
+In a subset of Gambian patients who had available data on 2nd ALT measurement (n = 472), a sensitivity analysis was performed by using persistently elevated ALT levels at two consecutive measurements as one of the WHO criteria.
+
+While only 10.4% (49/472) were eligible according to the EASL criteria, a total of 162 patients (34.2%) were categorized as eligible using the WHO treatment criteria, resulting in a false positive rate of 29.6%.
+
+Significantly higher AUROCs of TREAT-B than the WHO criteria were also confirmed in this sensitivity analysis (Table S4).
+
+The correlation and agreement of ALT levels measured between the 1st and 2nd ALT measurement were good in this subgroup (Fig. S2).
+
+SECTION
+
+Comparison with the REACH-B
+
+PARAGRAPH
+
+To investigate whether having HBV DNA significantly improves the performance of the score, we compared the AUROCs of TREAT-B with those of REACH-B, composed of sex, age, ALT, HBeAg and HBV DNA.14
+
+Both demonstrated similar AUROCs without any significant difference (Table 4, Fig. 4).
+
+SECTION
+
+Performance of TREAT-B in subgroup of patients
+
+PARAGRAPH
+
+As presented (Table S5), the performance of TREAT-B did not vary according to the age groups, the different HBV genotypes, the presence of HBeAg, obesity (BMI ≥30 kg/m2), or cirrhosis.
+
+The AUROCs were: 0.86 (95% CI 0.81–0.91) for <40 years and 0.92 (0.87–0.97) for ≥40 years; 0.88 (0.63–1.00) for genotype A and 0.87 (0.81–0.94) for genotype E; 0.83 (0.77–0.88) for HBeAg-negative and 0.83 (0.75–0.90) for HBeAg-positive; 0.86 (0.82–0.91) for BMI <30 kg/m2 and 0.98 (0.96–1.00) for ≥30 kg/m2; and 0.88 (0.82–0.93) for those without cirrhosis and 0.86 (0.71–1.00) with cirrhosis.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This is the first study that developed and validated a diagnostic prediction score for treatment eligibility in African individuals with chronic HBV infection.
+
+Using a unique population-based cohort of Gambian HBV-infected individuals, we developed a score free from HBV DNA (TREAT-B) on the basis of ALT level and HBeAg sero-status.
+
+In a large external cohort of African patients living in West Africa or Europe, we confirmed the high diagnostic accuracy of the new score.
+
+TREAT-B correctly identified 82–85% of patients meeting the international treatment criteria based on the conventional reference tests (serum HBV DNA and liver biopsy or Fibroscan), and 77–78% of patients who do not fulfil these reference criteria.
+
+Moreover, TREAT-B performed well irrespective of the age groups, HBV genotypes, the presence of obesity, or cirrhosis, and better than the WHO treatment criteria.
+
+The score including HBV DNA (i.e., REACH-B) did not perform better than the TREAT-B, supporting the usefulness of TREAT-B even in a context where HBV DNA measurement is accessible.
+
+PARAGRAPH
+
+In HBV-infected people the level of serum HBV DNA has been one of the most important predictors for the development of HBV-related liver diseases, including HCC,20–22 and has been used as a key marker for deciding the eligibility for antiviral therapy.8–10
+
+However, real-time PCR, the current standard assay to measure viral load, is not accessible and affordable for the majority of people living in LMICs; the assay is costly (US$ 60–200 per test), requires sophisticated facilities, equipment and technicians with specialized training, and thus its availability is often limited to reference laboratories in large urban centres.3,4
+
+In Madagascar, for example, there are numerous laboratories equipped with immunoassays for HBV serology, however, no facility performs HBV DNA PCR, and patients’ sera need to be shipped to a commercial laboratory in Europe when HBV DNA measurement is requested by a hepatologist.12
+
+Consequently, on the basis of expert opinion, the WHO recently recommended, in settings where HBV DNA assay is unavailable, to treat individuals with persistently abnormal ALT levels (defined by ALT over the upper limit of normal at three different time points) irrespective of HBeAg status.13
+
+However this recommendation is problematic since it requires several blood tests and medical visits before the treatment decision can be made, which may eventually impede the patients’ retention in care.
+
+In our analysis, we found moderate correlation and agreement of ALT levels measured at two consecutive visits within a six-month period, which may support the clinical evaluation at a single point in time for the treatment eligibility.
+
+Moreover, by applying persistently elevated ALT levels at two consecutive measurements, we found a low specificity of the WHO criteria (70%), which would lead to unnecessary lifelong treatment in 30% of patients who do not meet the reference treatment criteria.
+
+Similar discrepancy between the treatment eligibility criteria based on the WHO guidelines and those based on other international guidelines has been reported from other African countries.30,31
+
+PARAGRAPH
+
+Natural history of chronic HBV infection differs remarkably between Africa and Asia.
+
+In contrast to East Asia where half of children with chronic HBV infection remain positive for HBeAg into their adulthood, spontaneous loss of HBeAg occurs much faster in Africa, where only 10% remain HBeAg-positive in their twenties.15,32
+
+This geographic variation is often explained by the difference in viral genotypes, but also by the difference in the major mode of HBV transmission (mother-to-child transmission in Asia and early horizontal transmission in Africa).15,33
+
+Nevertheless, in both regions HBeAg has been constantly found to be an important predictor of HBV-related liver disease.34,35
+
+In our derivation and validation cohort, 51.1% and 54.3% of HBeAg-positive participants were eligible for the EASL treatment criteria, compared to 4.6% and 13.4% of HBeAg-negative participants, respectively.
+
+PARAGRAPH
+
+Compared to the international treatment criteria,8–10 the TREAT-B score has many advantages and perfectly fits the resource-limited settings for the following reasons.
+
+First, both ALT and HBeAg measurements are widely available in LMICs, and their total cost (<US$ 10) is much lower than the cost of the conventional tests required to indicate treatment eligibility (Fibroscan, real-time PCR and ALT: >US$ 60).3
+
+Indeed, both tests have been included in the recently published WHO’s list of essential in vitro diagnostics.36
+
+Second, unlike the treatment algorithms presented in the international guidelines (Table S1), the TREAT-B score is user-friendly and may enable a task shifting from hepatologists to non-specialist doctors or even nurses where there is a shortage of health-care professionals.
+
+Third, in contrast to the WHO treatment criteria for LMICs which necessitate several medical visits for ALT measurement, TREAT-B only requires one blood sampling.
+
+We are currently evaluating whether those ineligible for antiviral therapy following a clinical evaluation at a single point in time would remain so in the next few years.
+
+Fourth, there are validated point-of-care assays for both HBeAg detection37 and ALT measurement,38 and their use may further facilitate the decentralization of HBV treatment programs.
+
+Finally, the TREAT-B is very flexible for its use; the cut-off value can be adapted to the local context, as presented (Table S3).
+
+Instead of using the cut-off of ≥2 to maximize the sum of sensitivity (82–85%) and specificity (77–78%), applying the score of ≥3 (sensitivity: 48–53%; specificity: 96%) may be justified where the resources are severely limited; this will restrict the number of patients under treatment by minimizing those unnecessarily treated lifelong.
+
+PARAGRAPH
+
+As a public health intervention to reduce HBV-related mortality in Africa, the role of hepatitis B vaccination alone is limited because an estimated 6.1% of African adults who established chronic infection before the introduction of hepatitis B vaccines are at high risk of dying from HBV-related liver diseases in the next few decades.3,6,15
+
+Thus, an additional population-wide “screen-and-treat” may efficiently reduce these deaths, as suggested by a recent modelling study.39
+
+Its feasibility and cost-effectiveness have been demonstrated by the PROLIFICA program in The Gambia.6,7
+
+TREAT-B, a simple and inexpensive treatment eligibility score validated in African patients, may facilitate the scale up and decentralization of HBV treatment programs in sub-Saharan Africa, which may ultimately contribute towards the global HBV elimination.
+
+PARAGRAPH
+
+Our study has some limitations.
+
+First, it is based on cross-sectional data in contrast to the large-scale population-based longitudinal cohort studies in Asia.21
+
+Developing the model to predict the hard endpoints such as HCC or liver-related death could provide more direct evidence to assist physicians in selecting those who would benefit most from antiviral treatment, as has been suggested by Tong et al.40 Obtaining such data, however, requires a long-term observation of African people with chronic HBV infection without giving antiviral therapy, which would not be ethical since the advent of effective antivirals.
+
+Moreover, a historical study conducted in The Gambia demonstrated that the persistence of HBeAg, or persistent elevation of viral load (≥2,000 IU/ml) or ALT (≥40 IU/L) during the 27 years of follow-up were all independently associated with the development of significant fibrosis,15 supporting the applicability of the current international treatment guidelines (that are mostly based on the Asian, European and North American data) to the African context.
+
+Secondly, although our study showed good performance of a diagnostic score without requiring HBV DNA to guide treatment initiation in African patients, HBV DNA may be still important in monitoring treatment response.
+
+Complete viral suppression, defined by undetectable HBV DNA under treatment, is the key indicator of good treatment response.
+
+Although the majority of patients treated with second generation of nucleos(t)ide analogues (entecavir or tenofovir) achieve complete viral suppression,6 viral load assay may still be valuable in assessing adherence to treatment.4
+
+We will assess the adequacy of monitoring the treatment response without HBV DNA through the PROLIFICA cohort.
+
+Thirdly, in this analysis we have excluded patients co-infected with HCV, HDV or HIV.
+
+Therefore, the use of TREAT-B in a setting with a high co-infection rate should be further validated.
+
+Fourthly, in our cohort only a few individuals were obese or had high alcohol consumption.
+
+This limits the generalizability of the score to HBV-infected persons with these additional risk factors, since ALT elevation may be due to a liver process other than that caused by HBV-induced inflammation or fibrosis.
+
+Similarly, in this analysis the patients had either HBV genotype A or E.
+
+The applicability of the TREAT-B to other places where different genotypes circulate (genotypes B and C in Asia and the Pacific Islands; genotypes D in South and East Africa) needs to be examined.
+
+Finally, the number of individuals eligible for treatment was relatively small in the derivation set (n = 58), which might have led to a limited power of the analysis to identify important predictors.
+
+Nevertheless, an increase in power through merging the derivation and validation set leads to a similar model composed of ALT and HBeAg as covariates, and this supported the robustness of our model.
+
+PARAGRAPH
+
+In conclusion, TREAT-B represents a promising simple and low-cost diagnostic score that can assist physicians to easily identify HBV-infected individuals in need of treatment in Africa.
+
+Its use may contribute towards global HBV elimination by facilitating the scale up and decentralization of HBV treatment programs in LMICs.
+
+TREAT-B deserves to be further validated in other African and non-African patients with chronic hepatitis B in LMICs.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+The PROLIFICA study in The Gambia was supported by the Gambian Ministry of Health and Social Affairs, the MRC Unit The Gambia, the National Public Health Laboratory, the European Commission (European Community’s Seventh Framework Program, FP7 grant 265994) and the Gilead Sciences (USA) for providing tenofovir treatment.
+
+The study in Senegal was supported by the Agence National de Recherche sur le Sida et les Hépatites Virales (ANRS).
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+MT has received grants from Gilead Sciences.
+
+The other authors declare no conflict of interest.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+YS and ML designed the study and drafted the manuscript, and all the authors reviewed and approved it.
+
+YS, RN, GN, BS, IB, PS, AC, AJ, HFN, SN, UDA, IC, MM, MT and ML were responsible for the Gambian cohort; MV and PSM for Senegalese cohort; PB and RS for Burkinabé cohort; JN and VL for the cohort in Grenoble; JB for the cohort in Paris; PI and GP for the cohort in Berlin; ML and MT for the cohort in London; and YS for statistical analysis.

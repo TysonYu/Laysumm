@@ -1,0 +1,545 @@
+10.1016/j.engappai.2019.103409
+
+FULLTEXT
+
+TITLE
+
+Photo-voltaic power daily predictions using expanding PDE sum models of polynomial networks based on Operational Calculus
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Daily precise forecasts of solar radiation or produced Photo-Voltaic Power (PVP) are in demand as they allow full integration of PVP plants into the electrical grid.
+
+The daily base poses a challenge due to the chaotic nature of atmospheric processes and fluctuations resulting in specific local conditions (such as temperature, cloud structure and amount, relative humidity, visibility).
+
+The solar radiation variability is caused by many uncertain dynamical factors possible to describe by differential equations.
+
+Weather prediction methods can be broadly classified into 3 approaches:
+
+PARAGRAPH
+
+Stochastic PVP supplies are difficult to predict using only deterministic NWP models which are unable to account for the detailed physical processes at a scale smaller than the grid used in the numerical simulations.
+
+NWP systems simplify the atmospheric circulation, solving sets of primitive physical equations for the ideal gas flow.
+
+Their solutions using actual time-step and parameter changes (of a cell size) only provide approximate estimates, where errors enlarge exponentially in larger time horizons and grid-scales (Vannitsem, 2008).
+
+NWP systems apply downscaling to outputs of their models, using coarse spatial resolution, to recognize detailed sub-grid scale features such as cloud structures and topography at the surface level:
+
+PARAGRAPH
+
+NWP models can combine their outputs with satellite or ground-based sky image methods which analyse and detect particular cloud structures in a given period.
+
+Spatial averaging and temporal interpolation of NWP data can be used with a clear sky model to better account for a typical irradiance diurnal cycle (Inman et al., 2013).
+
+Day-ahead numerical forecasts combined with a clear sky model can be analysed and evaluated to assess the size of training data sets (Leva et al., 2016).
+
+A distribution of forecast errors for different cloud situations can determine a specific prediction interval to represent inhomogeneous cloud situations (Lorenz et al., 2009).
+
+Physical equations can also describe PVP systems capability to convert solar radiation into electrical power, taking into account the specific characteristics e.g. cell temperature, shading characteristics and load resistance.
+
+Higher temperatures of PVP plants lead to lower efficiency in solar radiation conversion (Shi et al., 2012).
+
+PARAGRAPH
+
+Regression or Artificial Intelligence (AI) methods do not attempt to describe the physical processes of atmosphere or PVP systems.
+
+They can process the amount of time-series data to model or analyse local atmospheric phenomena or PV plant particular operations (Liu et al., 2010).
+
+Statistical techniques can use historical observations to predict PVP few-hours’ ahead or combine them with NWP data in daily predictions to specify meso-scale forecasts for local idiosyncratic conditions via post-processing (Leva et al., 2016).
+
+Input solar radiation and output PVP time-series over the last few days can be used to elicit daily prediction models.
+
+These can process 24-h local forecasts of the meso-scale “Aladin” NWP model to calculate PVP at a corresponding time.
+
+However, this conversion of solar radiation forecasts is influenced by the accuracy of the processed NWP data (Zjavka et al., 2017).
+
+Artificial Neural Network (ANN) iterative training may provide slightly different prediction results, and thus the final solution is usually the average of several model runs.
+
+Most of the existing AI methodologies show some drawbacks such as over-fitting or dependence on particular PVP system designs.
+
+AI can use extra information, e.g. cloud motion vectors or spectral parameters, which characterize specific variances and classes of cloud structures in several atmospheric levels, to improve the models’ performance.
+
+Additional statistical properties can be extracted from auto-correlated data to capture periodical cycles (Wan et al., 2015).
+
+PARAGRAPH
+
+Hybrid methods combine several different techniques or models’ unique features to overcome their single negative performance (Diagne et al., 2013).
+
+Multi-step forecasting, which can be direct or iterative (or their combination), usually requires data pre-processing.
+
+In the first the values are forecasted all at once at different times, contrary to the 2nd iterative approach where predicted values at the previous times are the model inputs at the successive time horizons.
+
+A hybrid algorithm can combine LS (Least Square) Support Vector Machine (SVM) with GMDH (Group Method of Data Handling) in multi-step PVP forecasting up to 24 h.
+
+Their statistical models can additionally apply direct, recursive or combined strategies (De Giorgi et al., 2016) and wavelet decomposition of historical PV power series to improve the performance.
+
+A decomposition of the RMSE into 3 contributions (bias, standard deviation, dispersion) and estimation of the skewness (SKEW) and kurtosis (KURT) metrics can provide a better understanding of statistical prediction errors.
+
+SKEW is a measure of the data distribution symmetry, while KURT describes a magnitude of the distribution peak, i.e. they indicate if it is left or right skewed, peaked or flat relative to a normal distribution.
+
+Standard deviation can be decomposed into the sum of two elements: the amplitude and phase errors (De Giorgi et al., 2015).
+
+A hybrid forecasting system can include data pre-processing, optimization and evaluation modules.
+
+Primary characteristics of power time-series are firstly identified by the signal decomposition and reconstruction.
+
+After that, the parameters of individual models are optimized.
+
+Evaluation criteria based on case studies are finally used to test the forecast hypothesis (Du et al., 2018).
+
+Data-driven approaches using ANN, SVM, k-nearest neighbour and multivariate linear regression can be applied to develop multi-step PVP prediction models.
+
+Their assessed input parameters can include or exclude meteorological data.
+
+An importance analysis based on clustering is conducted firstly to evaluate the significance of meteorological parameters and historical states of PVP series according to their natural characteristics at each prediction time (Long et al., 2014).
+
+Wavelet GMDH, wavelet Extreme Learning Machine (ELM) and their hybrid models can be used in power forecasting.
+
+Input and output data are decomposed into sub-time series employing different functions of Maximal Overlap Discrete Wavelet Transform (MODWT) to improve performances of the GMDH and ELM models.
+
+Least squares boosting algorithm can combine the advantages of different wavelets (Barzegar et al., 2017).
+
+Principal Component Analysis can assess meteorological variables used as model inputs for day ahead PVP forecasting (Malvoni et al., 2017).
+
+PARAGRAPH
+
+Self-Organizing Map (SOM) can combine meteorological observations and forecasts of solar radiation, relative humidity and temperature to classify local weather in the prediction day into 4 preliminary types (cloudy, foggy, sunny and rainy).
+
+After the weather classification, ANN (Chen et al., 2011) or SVM uses the same data in the training and testing to do 24-h predictions for the current recognized conditions (Shi et al., 2012).
+
+A hybrid forecast method combines SOM and exponential smoothing in the processing of satellite images to obtain the cloud cover index (Dong et al., 2014).
+
+This parameter can be used together with atmospheric transmission factor, determined according to NWP outputs (Shamim et al., 2015).
+
+Several additional solar parameters can be considered e.g. clearness, type of cloudiness, aerosol and visibility index, turbidity factor, sun duration or azimuth angle (Inman et al., 2013).
+
+Different NWP or soft-computing ensemble models must be weighted in the final forecast in dependence on the prevailing weather conditions or the forecasts reliability (Diagne et al., 2013).
+
+When the member forecasts are quite different, the final forecast is affected by a large uncertainty and on the contrary when the results of ensemble models are similar, the uncertainty in the forecast is lower.
+
+Probabilistic models can specify the forecast uncertainty as a measure of the probabilistic intervals, different initialization time and probability density for all prediction time-steps (Foley et al., 2012).
+
+Initial conditions or physical parameterizations can vary within a member NWP model and significantly influence the forecasts accuracy (Pelland et al., 2013).
+
+Model Output Statistics (MOS), used widely in meteorology, can use AI methods in the post-processing of NWP data to improve local forecasts of solar radiation (Shamim et al., 2015).
+
+PARAGRAPH
+
+The previous D-PNN concept was based on the adapted method of Integral analogues which is a part of Similarity theory (Zjavka, 2011).
+
+It replaces derivative operators and symbols in PDEs by their integral analogues, using proportional signs in equations, to form characteristic groups of variables (Zjavka and Snášel, 2016).
+
+The proposed novel D-PNN develops gradually a multi-layer structure of Polynomial Neural Network (PNN), starting from only one node, to decompose the general linear PDE into a set of 2-variable node converted PDEs.
+
+Resulting pure rational terms represent the Laplace images of unknown node functions, according to Operational Calculus (OC).
+
+The inverse Laplace transformation of selected pure rational terms, based on OC, is necessary to obtain the originals, the sum of which gives the complete PDE model.
+
+D-PNN selects the best-fit 2-inputs in each node, one by one, to produce applicable sub-PDE components (solutions) which can extend, step by step, the sum model towards the optima.
+
+A continual test using External complement allow only those components insertion and their parameters updates which minimize both training and testing errors (Nikolaev and Iba, 2006).
+
+The phase representation of 2-input real data, used by Complex Neural Networks (CNN), is applied in the node inverse L-transformation of pure rational functions, which correspond to Euler’s notation of complex numbers (Section 2).
+
+Conventional or soft-computing techniques usually need to significantly reduce the number of meteorological input variables leading to their model’s over-simplification.
+
+D-PNN allows complex representation of local weather patterns to over-come this problem (Zjavka and Sokol, 2018).
+
+PARAGRAPH
+
+The main contributions above the previous concept, i.e. novelties of the presented D-PNN which:
+
+PARAGRAPH
+
+Additional D-PNN assistant models are initially developed to pre-estimate the optimal numbers of training last days whose data patterns are similar to those in the latest testing hours (Zjavka and Mišák, 2018).
+
+After that D-PNN is trained with historical spatial data samples with 24-h inputs->output PVP time-shift from the estimated daily periods to elicit the daily prediction PDE models (Section 3).
+
+These are applied to the last day input data to predict PV power series in 1-day time-horizon (Section 4).
+
+The presented D-PNN daily predictions better detail the PVP progress than converted cloudiness forecasts of meso-scale NWP models (Sections 5 and 6) (Zjavka et al., 2017).
+
+Sections 2.1 and 2.2 present the proposed novel PDE polynomial substitution based on OC using node by node PNN development to decompose the general PDE and the backward production of composite sum PDE model components.
+
+The proposed methodology for the optimal training data pre-estimation and 24-h PVP prediction is explained and applied to real world data in Sections 3 and 4.
+
+Section 5 analyses data and evaluates the experiments to assess the prediction models accuracy and interpret efficiency of the applied methods.
+
+Sections 6 and 7 discuss problems, shortcomings, possible improvements and summarize the results.
+
+SECTION
+
+A decomposition of the general PDE into node converted PDEs
+
+PARAGRAPH
+
+D-PNN develops the 2-variable node PNN structure to decompose the n-variable PDE into particular 2nd order sub-PDEs.
+
+These are converted using OC into pure rational terms corresponding to the Laplace images of unknown node functions.
+
+The sum of the selected inverse L-transformed rational terms gives a complete PDE model of the searched separable n-variable function (Zjavka and Mišák, 2018).
+
+SECTION
+
+A novel polynomial PDE substitution based on operational calculus
+
+PARAGRAPH
+
+The general linear PDE (1) can describe an unknown separable u function of n-inputs, possible to be expressed in convergent sum series (2) of partial uk function solutions of 2-variable sub-PDEs (3) (Zjavka and Pedrycz, 2016). a+bu+∑i=1nci∂u∂xi+∑i=1n∑j=1ndij∂2u∂xi∂xj+⋯=0u=∑k=1∞uk  u(x)=f(x1,x2,…,xn) - unknownn-variablefunctiona,b,c(c1,c2,…,cn),d(d11,d12,…),… - parametersuk – separablepartialsumfunctionsofu
+
+Fx1,x2,u,∂u∂x1,∂u∂x2,∂2u∂x12,∂2u∂x1∂x2,∂2u∂x22=0whereF(x1,x2,u,p,q,r,s,t)isanunknownfunction
+
+PARAGRAPH
+
+Group Method of Data Handling (GMDH) develops gradually,adding a layer by layer, the PNN structure to decompose the complexity of the Kolmogorov–Gabor general polynomial (4).
+
+Its connections can model non-linear inter-relationships between inputs and output variables of an unknown system.
+
+A simple 2-variable polynomial transfer function is used to calculate the neurons’ outputs in PNN nodes (5), from which the best ones are chosen, in consideration of selection constraints, to be applied in the next layer, etc. (Nikolaev and Iba, 2006).
+
+The D-PNN computing approach is different from GMDH, though it decomposes the general PDE (1) in a similar manner to the GMDH polynomial expansion (4).
+
+The D-PNN total output is the sum of selected node sub-PDE solutions, contrary to GMDH using the best node function output in the last layer.
+
+Y=a0+∑i=1naixi+∑i=1n∑j=1naijxixj+∑i=1n∑j=1n∑k=1naijkxixjxk+⋯n – numberofvariablesA(a1,a2,…,an),… - parametersn – numberofvariablesX(x1,x2,…,xn) - inputvariables  y=a0+a1xi+a2xj+a3xixj+a4xi2+a5xj2xi,xj – 2inputvariablesofneuronnodes
+
+PARAGRAPH
+
+A polynomial OC conversion of the f(t) function nth derivatives in an Ordinary Differential Equation (ODE) is based on the proposition of their Laplace transformation (L-transform) in consideration of the initial conditions (6).
+
+Lfn(t)=pnF(p)−∑k=1npn−if0+(i−1)Lf(t)=F(p)f(t),f′(t),…,fn(t) – originalscontinuousin〈0+,∞〉p,t - complexandrealvariables The OC conversion of an ODE leads to algebraic equations (6), from which the L-transform image F(p) is expressed with the complex number p, is separated in the form of a pure rational function (7).
+
+F(p)=P(p)Q(p)=Bp+Cp2+ap+b=∑k=1nAkp−αkB,C,Ak - coefficientsofelement.fractionsa,b - polynom.parametersα1,α2,…,αk - simplerealrootsofQ(p) The resulting pure rational fraction, which represents the L-transform F(p) of the function f(t), can be reduced to elementary sum fractions (7).
+
+The inverse L-transformation using OC definitions is applied to them to obtain the original function f(t) of a real variable t (8) described by the ODE.
+
+F(p)=P(p)Q(p)=∑k=1nP(αk)Qk(αk)⋅1p−αkf(t)=∑k=1nP(αk)Qk(αk)eαk⋅tp,t - complexandrealvariablesα1,α2,…,αn - simplerealroots
+
+PARAGRAPH
+
+2-variable pure rational terms (8), which represent the Laplace images of unknown uk sum functions (2), are composed from the GMDH polynomials (6) in blocks of PNN nodes (Fig. 1).
+
+They convert specific 2nd order sub-PDEs, analogous to the OC ODE conversion (7).
+
+The derivatives of 2-variable PDEs (3) correspond to the GMDH polynomial members (5).
+
+The inverse L-transformation is applied to the selected rational terms in PNN nodes according to OC (8).
+
+The sum of the originals of 2-variable node uk functions gives a complete separable u model function (2) (Zjavka and Mišák, 2018). yi=b0+∑i=1n−1b1x1+⋯a0+∑i=1naixi+∑i=1n∑j=1naijxixj+⋯yi – rationalsubstitutionPDEterma,b – polynomialparameters
+
+PARAGRAPH
+
+Each node block (Fig. 1) can solve specific sub-PDEs forming simple neurons, e.g. (10), which can be included in the D-PNN total output sum to better approximate the target output. yi=wib0+b1x1+b2sig(x12)+b3x2+b4sig(x22)a0+a1x1+a2x2+a3x1x2+a4sig(x12)+a5sig(x22)⋅eφyi - specific2ndorderPDEsolutionsofsig - sigmoidalnodeunknownukfunctionstransformationφ=arctg(x2∕x1) - phaseofai,bi,wj - polynomialparameters2-inputvariablesx1,x2andtermweights
+
+The block node output (Fig. 1) is calculated using the GMDH polynomials (5).
+
+The designed sigmoidal transformation of squared variables (10) improves the polynomial ability to approximate periodic functions (Zjavka and Pedrycz, 2016). c=x1︸Re+i⋅x2︸Im=x12+x22⋅ei⋅arctanx2x1=r⋅ei⋅φ=r⋅(cosφ+i⋅sinφ)
+
+Eulers’ notation of a complex number c in polar coordinates (11), used in CNN, corresponds to the f(t) expression of OC (8).
+
+The radius r (i.e. amplitude) can represent a rational term while the angle (i.e. phase) φ=arctg(x2∕x1) of 2 real valued input variables x1, x  2 can be used in the inverse L-transformation of F(p).
+
+SECTION
+
+Backward production of composite sum PDE components in D-PNN nodes
+
+PARAGRAPH
+
+D-PNN develops gradually the PNN structure, inserting node by node in the last added layer.
+
+Initially one node block (Fig. 1) searches the most valuable 2-input combinations to produce an applicable neuron, i.e. sub-PDE solution (10), which can be inserted into the empty sum model.
+
+Next blocks are added in PNN nodes, one by one, to extend the sum model by neurons which can minimize gradually the output errors until an improvement is possible.
+
+After that the next layer is added to apply the block node GMDH outputs from the previous one and continue in this iteration procedure (Fig. 2).
+
+The step by step model expansion is based on Goedel’s incompleteness theorem which states if the model complexity is gradually increased, objective functions of problem definition pass into the minima (Anastasakis and Mort, 2001).
+
+The D-PNN structure is dynamically developed in each iteration cycle, allowing changes in the number of layers and the selected nodes.
+
+Some of the node blocks can be inactivated to not produce neurons which can be deleted from or added new ones in the sum model.
+
+PARAGRAPH
+
+Multi-layer PNN forms composite polynomial functions (12).
+
+Node blocks (Fig. 1) in the 2nd and next layers can produce Composite Terms (CT) in addition to the simple neurons (10).
+
+CTs are the products of selected neurons, i.e. node converted sub-PDEs, of back-connected blocks in the actual and previous layers (Fig. 2).
+
+CTs detail sub-PDE solutions of the node unknown uk composite function in the product of the external and internal function images in accordance with the composite functions partial derivation rules (13).
+
+F(x1,x2,…,xn)=f(z1,z2,…,zm)=f(ϕ1(X),ϕ2(X),…,ϕm(X))X=x1,x2,…,xn∂F∂xk=∑i=1m∂f(z1,z2,…,zm)∂zi⋅∂φi(X)∂xkk=1,…,n
+
+PARAGRAPH
+
+Neurons in each next layer can produce more composite partial models, using output functions and PDE converts of the previous ones.
+
+Biological neurons seem to use analogously dynamic pulses to code the composite output functions and transform sub-solutions in the amplitudes and phases.
+
+This production process is terminated in an additive cognitive neuron to sum partial model solutions of some neurons in the complete derivative model. y31=w31⋅b0+b1x21+b2x212+b3x22+b4x222a0+a1x21+a2x22+a3x21x22+a4x212+a5x222y31=⋅b0+b1x12+b2x122a0+a1x11+a2x12+a3x11x12+a4x112+a5x122y31=⋅P12(x1,x2)Q12(x1,x2)⋅eφ31
+
+Qij,Pij=outputandreducedGMDHpolynomialsofnandn−1thdegreeyij=specific2ndordersub-PDEsolutionsusingtheCTproductsofselectedneuronsinblocksofthepreviouslayers The 1st layer blocks can use its own node 2-inputs only to form simple neurons (10), i.e. sub-PDE solutions.
+
+The 2nd and next layer node blocks can form CTs, in addition to the neurons, to detail the particular sub-PDE models in the product of its own and selected neurons of back-connected blocks in the previous layers.
+
+The 3rd layer blocks, for example, can produce CTs using selected neurons of 2 and 4 blocks in the 2nd and 1st layers (14).
+
+CTs are the products of converted sub-PDEs in the starting block (i.e. the external function image) and those in blocks of the previous layers (the internal function images) (14).
+
+The number of possible CTs in blocks doubles with each back-joined layer (Fig. 2).
+
+PARAGRAPH
+
+Recursive algorithms can efficiently perform the backward-production and output calculation of the CTs in the PNN tree-like structure (Fig. 2).
+
+All the D-PNN blocks in each layer form equivalent neurons and CTs, i.e. node sub-PDE components, from which one can be selected to be included in the total output sum.
+
+The D-PNN output Y is divided by the number of active neurons + CTs (15) to simplify optimization of the parameters and weights, using the Gradient method (Zjavka and Snášel, 2014).
+
+Y=1k∑i=1kyik=thenumberofactiveneuronsandCTs(i.e.nodesub-PDEsumsolutions) All input combination couples of a node block are tested in each iteration step to produce an applicable neuron or CT, which can be included in the sum model in order to better approximate the desired output.
+
+This 1-block iteration algorithm skips from the actual to the next (or random) block, one by one, to minimize the training error in consideration of a continual test.
+
+External complement of GMDH allows only selection and parameters updates of those PDE components which decrease also the testing error, calculated on a minor reserved part of the data set (not used in the training).
+
+This approach, using appropriate restriction criteria, usually leads in successive steps to development of the optimal model which can be applied to unseen input data in prediction (Anastasakis and Mort, 2001).
+
+RMSE=1M∑i=1Myid−yi2→minyi=producedoutputfortheithtraining∕testingvectoryid=desiredoutputM=thenumberoftrainingyid=desiredoutputM=ortestingdatasamples
+
+PARAGRAPH
+
+The Root Mean Squared Error (RMSE) is calculated (16) for the actual sum PDE model in each iteration step of the D-PNN training and testing.
+
+The normalized nRMSE (17), normalized Mean Absolute Error (nMAE) (18) and coefficient of determination R2 (19) are calculated to evaluate performance of the prediction models (De Giorgi et al., 2015). nRMSE=1p∑i=1pEN2(i)⋅100[%]nMAE=1p∑i=1p|EN(i)|⋅100[%]
+
+EN=normalizederrorp=thenumberofpredicteddata R2 is the squared Pearson correlation coefficient r (19) which is a statistical measure of how a prediction model fits medial values of the target data.
+
+The value 1.0 indicates that the model fully explains all the data variability around its mean. r≡∑i=1pxi−x¯yi−y¯∑i=1pxi−x¯2∑i=1pyi−y¯2x¯,y¯=mean
+
+where xi are data samples and yi are the predicted values.
+
+PARAGRAPH
+
+SECTION
+
+24-h PV power prediction — methodology
+
+PARAGRAPH
+
+D-PNN was trained with 24-h inputs -> PVP output time-lag of data samples (Fig. 4 left), from the estimated optimal numbers of the last days (Fig. 3).
+
+The resulting PDE models were applied to unseen input data series of the last day to predict daily PV power in the trained day time-horizon (Fig. 4 right).
+
+The last day inputs and prediction output time-stamps are corresponding, i.e. the models process daily data series to predict the PVP output at the same half-hour in the next day.
+
+The 24-h PVP predictions are calculated according to conditions at the same time in the previous last day. kt=PVP(t)PVPclear(t)PVPclear-clearskypowert-time
+
+Clear Sky Index (CSI) kt, the ratio of the actual PV power to the PV power under clear sky conditions at a time t (17), was used as the model output.
+
+PVP and solar radiation data series were normalized using CSI which gives the relative values aside from solar diurnal cycle (Coimbra et al., 2013).
+
+The PVP output was restored from predicted kt values according to the prediction hours (20).
+
+Course of the clear sky cycles (at each time) was estimated from the maxima of seasonal data.
+
+PARAGRAPH
+
+D-PNN assistant test models were initially developed, using data from the last 2, 3, …, x days, to estimate the optimal numbers of training days (Fig. 3).
+
+The output of the assistant model is continually compared with the reserved last 6-h data of the desired CSI to obtain the lowest testing error which indicates the optimal length of a daily training period used to elicit the daily prediction model.
+
+Training using the optimal number of the last days, with data patterns similar to those in the latest testing hours, usually leads to prediction models applicable to the last day unseen input data series (Fig. 4).
+
+Periods of more or less settled weather over several days tend to prevail till they are broken up by an overnight break change.
+
+These conditions allow successful daily PVP predictions.
+
+PARAGRAPH
+
+Principles of External complement of GMDH were used in the D-PNN training.
+
+The latest 6-h data samples were not used to adapt the model parameters but only to calculate the testing RMSE and control the training (Fig. 4).
+
+The test error must be lower than the training error in each iteration step, in regard of an acceptable coefficient, to allow parameters updates.
+
+This continual test usually leads in successive steps to development of the optimal prediction model.
+
+Selection from several models is possible in consideration of the lowest testing error.
+
+SECTION
+
+Daily PV power prediction — data experiments
+
+PARAGRAPH
+
+PV power was predicted for a plant (Table 2), located in Starojícka Lhota, Czech Rep., using its local historical data measurements of temperature, PVP and solar radiation together with spatial data of wind speed and direction from 3 wind farms in Maletín, Drahany and Veselí nad Moravou.
+
+This data set was extended with available meteorological observations (average temperature, relative humidity, see level pressure, wind speed and azimuth, sky conditions) from 2 nearby airport weather-stations in Brno-Turany and Ostrava-Mošnov (Fig. 5).
+
+22 variables (Table 1) with 24-h shift between the data inputs -> CSI power output were used in training to predict the next day PVP series.
+
+Detailed time-series improve the accuracy of daily prediction models although 10 min.
+
+measurements of the PVP plant and wind farms were averaged each 30 min.
+
+to be related to the half-hour series of airport weather observations.1
+
+The selection from 2–3 input time-series (lags) of the applied data variables, including 1 variable to indicate the time, improves the model performance.
+
+PARAGRAPH
+
+The daily average PVP series ratios sr and absolute differences sd (21) indicate the relative complexity of data patterns (Fig. 6) Small changes in their values denote a smooth simple PVP curve in clear weather (Fig. 7), contrary to ramp PVP changes in variable cloudiness (Fig. 8).
+
+The PVP series ratios are dimensionless and characterize daily data patterns regardless of real power values (Fig. 6). sr=PVP(t)PVP(t−1)sd=|PVP(t)−PVP(t−1)|PVP(t),PVP(t−1) - PVpoweratatimetandt−1
+
+Figs. 7–10 compare daily 24-h PVP predictions of the D-PNN, Matlab - Statistics and Machine Learning Tool-box (SMLT) for regression, and persistent models in selected characteristic days of the monitored 2-week period from May 12 to 25, 2011.
+
+The persistent models, average CSI over the optimal number of the last 1,…,x days (Fig. 11) to calculate the best PVP prediction series at the corresponding hours (Marquez and Coimbra, 2013).
+
+They represent the minimal daily error benchmarks.
+
+PARAGRAPH
+
+Matlab SMLT for regression includes these methods2 :
+
+PARAGRAPH
+
+The SMLT daily prediction models were selected according to their minimal testing errors calculated with the last day afternoon data.
+
+The optimal numbers of the last training days were initially pre-estimated using additional test models developed with data from the previous 2, …, x days, analogous to D-PNN (Fig. 3).
+
+The models of GPR, SVM and EBT, using the same inputs -> PVP output data variables (Table 1) to predict the next day CSI, obtained the lowest test RMSEs with only slight differences.
+
+PARAGRAPH
+
+Fig. 11 shows the estimated optimal numbers of the last days used in the training, i.e. daily initialization time of the 24-h prediction models (Fig. 3).
+
+The optimal daily calculation periods of the persistent models, giving the minimal PVP prediction errors, were used to average power CSI.
+
+The differences between the D-PNN and persistent estimated lengths of data periods indicate their different approach, more similarities are evidently in training samples of the SMLT regression and computing methods.
+
+Break changes in PVP patterns with different weather conditions are followed by shorter training periods of only few days, which gradually increase (Fig. 11).
+
+PARAGRAPH
+
+The PVP models represent spatial relationships between the selected data inputs and the desired power CSI output in the applied 24-h horizon used in predictions (Fig. 4).
+
+The D-PNN models development finishes in 2–6 layers each with a limited number of selected 2-input block nodes (equal to the inputs number) producing applicable PDE components included in the sum output (Fig. 2).
+
+SECTION
+
+PVP prediction experiments evaluation
+
+PARAGRAPH
+
+Forecast accuracies depend on local weather conditions and the model temporal and spatial resolution.
+
+They are not comparable site-by-site or hour-by-hour (Marquez and Coimbra, 2013).
+
+Smart persistent forecasts assuming constant CSI can simply average PVP data from the corresponding hours in the previous days (22) (Coimbra et al., 2013).
+
+Persistent benchmarks, calculated with the averaged CSI from the optimal periods of several last days, can be used as the minimal error reference forecast to compare the performance of particular forecast models.
+
+PVPsmart(t)=PVP(t−24)t-time(hour)
+
+PARAGRAPH
+
+Daily PVP prediction errors are roughly correlated to the absolute ratios and differences of PVP series (Fig. 12), which implicitly correspond to the complexity of daily PVP patterns in relation to the average (or maximal) PV power (Fig. 6).
+
+The D-PNN models are less sensitive to estimation of the optimal training periods (Fig. 11), using the assistant models test (Fig. 3), as compared to the persistent benchmarks.
+
+That means different numbers of the last training days can yield similar D-PNN prediction results, in contrast to the CSI averaging of the persistence models which require exact estimations of the last calculation days.
+
+PARAGRAPH
+
+Figs. 13–15 show daily normalized nRMSE, nMAE and R2 of the daily PVP prediction models (De Giorgi et al., 2015).
+
+Table 3 compares the average prediction errors in the monitored 2-week period.
+
+PARAGRAPH
+
+The D-PNN models can correctly predict low PV power values in overcast or cloudy days (Fig. 9) which follow the previous period of clear and catching weather with variable cloudiness and produced PVP close to the peak output (Figs. 7 and 9).
+
+Though the persistent models fail in these days with changeable data patterns, they obtain lower prediction errors (Fig. 12) in days of similar PVP progress with smooth curves in mostly clear weather (May 20 and 25), as they average power CSI in the last few days.
+
+The soft-computing models can be slightly inaccurate in this situation when a shiny period, including a few days, follows the previous variable conditions, which is evident in the 2nd week of the monitored period (Figs. 12–14).
+
+All the prediction errors are lower in these days, which is caused by more settled shine weather (with similar daily patterns).
+
+The D-PNN models can mostly correctly predict the daily PVP fluctuations and ramps (Figs. 7 and 9) in contrast to the simple CSI persistent benchmarks.
+
+The Matlab SMLT methods can also sparsely obtain better prediction accuracy than D-PNN in some days of unchanged conditions with very similar patterns in previous days, which is caused by their model simplicity (May 17 and 20).
+
+Their higher prediction errors in the 1st week correspond to changeable weather with more complex data patterns, in which the D-PNN models succeed.
+
+The presented PDE models can sporadically obtain a better prediction accuracy in afternoon hours than at midday (Figs. 7 and 8), despite of the increased time-shift.
+
+This depends on specific weather conditions and data characteristics in the training and prediction days, i.e. the usability of training data patterns for prediction, which can vary according to the applied inputs->output time-shift.
+
+Training and testing errors can indicate the applicability of the D-PNN models to the unseen last day data series in daily 24-h PVP predictions.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+The estimated optimal daily training periods compensate for rapid dynamical changes and frontal disturbances in local weather.
+
+Another approach to select the optimal training data can determine the last break change in weather to apply the following data interval, instead of the applied assistant model test.
+
+Characteristics of data patterns can be analysed in a longer period (including several months) in order to select exactly applicable training data samples, one by one, giving the minimal testing errors, regardless of their daily time-sequence.
+
+PARAGRAPH
+
+The most problematic are predictions in days following overnight weather changes which usually result in larger prediction errors (Figs. 8 and 9).
+
+The training data patterns and PVP characteristics (Fig. 6) are significantly different as compared to those in the predicted days, whose latest morning data are used as prediction model inputs (Fig. 4).
+
+If it is not possible to obtain an acceptable testing error, then a converted local NWP model forecast of cloudiness3  can be used (Zjavka et al., 2017).
+
+PARAGRAPH
+
+Meteorological spatial data improve the prediction accuracy of statistical models.
+
+Cloud structure variances, which predominantly result from large-scale atmospheric circulation, primarily influence the amount of solar radiation for the generated PV power.
+
+Robust models using more detailed gridded data from a larger area can reduce casual prediction errors.
+
+D-PNN can select from additional 24-h delayed input data which can improve prediction of cyclic quantities as PVP or power load (Zjavka and Snášel, 2016).
+
+24-h daily PVP predictions can use spatial historical data only to obtain a sufficient accuracy.
+
+Middle-term predictions (48 h) require forecasted data from NWP models (see footnote 2) (Zjavka, 2018).
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+D-PNN uses a novel polynomial PDE conversion and substitution based on L-transformation and OC to decompose the general PDE into node specific 2nd order PDE solutions, being able to model the local near-ground atmospheric dynamics.
+
+D-PNN is trained with spatial data inputs -> PVP output with 24-h time-shift over the estimated last few days to model the power CSI output.
+
+The resulting PDE models are applied to unseen input data of the last day to calculate daily PVP prediction series in the trained daily time-horizon.
+
+The optimal lengths of daily training periods, which allow development of the operable prediction models, are initially pre-estimated using the assistant test models.
+
+The presented D-PNN models can accurately predict the daily PVP variability, ramp and peak maxima in most of the monitored days.
+
+Their daily predictions are more accurate than those based on outputs of meso-scale NWP models, though they are less valuable in days of frontal changeovers with different training, testing and prediction patterns.
+
+D-PNN structures are self-organizing, the number of layers and their nodes is dynamically changed through the training cycles, there is no need to be experimentally estimated.
+
+D-PNN develops gradually a multi-layer PNN searching the best-fit node inputs and polynomial types to compose PDE components which can extend step by step the sum model.
+
+Its composite PDE solutions are more complex than those of standard regression or computing techniques and allow to model complicated high non-linear uncertain systems described by dozens of variables.
+
+They mostly outperform simplified statistical models of the SMLT methods, unable to represent complex weather patterns.

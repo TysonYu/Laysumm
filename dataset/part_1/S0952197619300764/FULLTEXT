@@ -1,0 +1,595 @@
+10.1016/j.engappai.2019.03.026
+
+FULLTEXT
+
+TITLE
+
+Magnetic Resonance Imaging, texture analysis and regression techniques to non-destructively predict the quality characteristics of meat pieces
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Hams and loins from Iberian pig, which is an autochthonous porcine breed developed traditionally in the SouthWest of Spain, are one of the most valuable meat products in this country.
+
+This is mainly ascribed to their exceptional sensorial attributes that depend on characteristics of raw material and processing conditions.
+
+Thus, not only characteristics of fresh pieces but also their modifications during the processing are important parameters to control the technological process of dry-cured hams and loins (Pérez-Palacios et al., 2011b).
+
+Temperature and relative humidity conditions during the processing lead to dehydration and, hence, to weight loss and a water activity decrease.
+
+Meat from Iberian pigs should contain plenty of intramuscular fat, which is an important characteristic, due to its positive influence on quality parameters on the final product, such as marbling, juiciness, odor, and aroma (Ruiz et al., 2002).
+
+The determination of salt content is important from a microbiological point of view, but it also influences on the texture and flavor of the final product (Toldrá et al., 1997).
+
+Color is also one of the most interesting characteristics of meat products (Resurrección, 2003), and for dry cured meat products it is the most relevant appearance property (Gandemer, 2002).
+
+It is also important to study the final sensory quality of Iberian meat products, considering their most distinguished sensorial attributes, such as appearance, odor, taste and flavor (García and Carrapiso, 2001).
+
+Scientific studies on these meat products have carried out the sensory analysis objectively, with trained panellists and following standardized conditions.
+
+PARAGRAPH
+
+Techniques usually carried out for determining these parameters related to the quality of meat products are laborious and time consuming, they require the destruction of the pieces and a trained staff panel in the case of the sensory analysis.
+
+In this sense, MRI and computer vision techniques have been proposed as an alternative, since they are non-destructive, non-invasive, non-intrusive, non-ionizing and innocuous.
+
+The majority of works, that used MRI to determine quality characteristics of dry-cured products, are focused on hams, allowing to monitor the ripening process of Iberian (Antequera et al., 2007), Parma (Fantazzini et al., 2009), and S. Daniele hams (Manzocco et al., 2013) and to study Iberian hams as a function of pig feeding background (Pérez-Palacios et al., 2010, 2011a).
+
+To our knowledge, only Cernadas et al. (2005) and Caballero et al. (2017a) analyzed loins by MRI, allowing: (1) an adequate product classification as a function of pig breeding; and (2) the prediction of sensory traits.
+
+PARAGRAPH
+
+The general procedure in most of these studies takes three main steps: image acquisition, image analysis and data analysis.
+
+For image acquisition, high field MRI scanners have been used, which provide high quality images but they are expensive.
+
+A cheaper alternative are low field scanners, whose capability to acquire images of loin with predictive aims in food analysis, despite its low signal to noise ratio, has been demonstrated in recent works (Caballero et al., 2017a, b).
+
+PARAGRAPH
+
+Regarding the image analysis, most works (Caballero et al., 2016, 2017a; Pérez-Palacios et al., 2017; Bajd et al., 2017) have only used classical second order statistics like gray-level cooccurrence, gray-level run-length and neighboring gray-level dependence descriptors to extract texture information from the MRI slices.
+
+In relation to data analysis usual statistical tools, such as Pearson correlation coefficients or principal components analysis, have been used to process data from MRI and to determine quality parameters of products (Fantazzini et al., 2009; Antequera et al., 2007; Manzocco et al., 2013).
+
+Pérez-Palacios et al. (2014), Caballero et al. (2016) and Caballero et al. (2017a) tested common regression techniques such as linear and isotonic regression to predict quality characteristics.
+
+However, these studies evaluated the regression methods following the well-known cross-validation methodology (Kohavi, 1995), including slices belonging to the same meat piece both in the training and testing sets.
+
+This methodology may provide optimistic results because the training set includes data from the same meat piece whose quality characteristics must be predicted.
+
+PARAGRAPH
+
+Taking in mind these considerations, the current work is aimed to test: (i) a wide variety of texture extraction techniques to analyze MRI; (ii) a large amount of regression methods using a realistic evaluation methodology, with the final purpose of predicting different physico-chemical characteristics and sensorial attributes of meat products with high accuracy in a non-destructive way; and (iii) a study focused on minimizing the needed images for a good prediction in order to improve the acquisition time.
+
+PARAGRAPH
+
+The paper is organized as follows: Section 2 describes the materials used to obtain the MRI sequences and to develop the physico-chemical and sensory analysis on the meat pieces; Section 3 briefly explains the texture features extraction techniques and regression methods used; Section 4 shows the experimental setup (datasets and statistical validation) and Section 5 presents and discusses the results; and finally Section 6 summarizes the main conclusions and proposes the future work.
+
+SECTION
+
+Materials
+
+PARAGRAPH
+
+Before describing the image acquisition technology and available data, it is important to emphasize that the physico-chemical and sensory analyses provide only one attribute value per loin/ham piece, although the MRI scanners give several images of each loin/ham piece.
+
+SECTION
+
+MRI acquisition
+
+PARAGRAPH
+
+Images of hams were firstly obtained using a medical purpose MRI scanner (Philips Gyroscan NT Intera 1.5 T) in the Infanta Cristina Hospital in Badajoz (Spain).
+
+This scanner was used with the quadrature whole-body coil, and sequences of T1 were applied with the following parameters: 120 × 85 cm field-of view (FOV), 20 ms for echo time (TE), 500 ms for repetition time (TR), 2 mm thick slices, 90o for flip angle, i.e. a T1-weighted spin echo (SE), and 0.23×0.20mm per pixel resolution.
+
+Sixty slices per ham piece were obtained.
+
+The MRI acquisition was done at a temperature of 20 oC and it tood approximately 28 min for each ham.
+
+All the images have 512 × 512 pixels and 256 gray levels.
+
+Fig. 1 shows examples of Iberian ham at different stages of processing.
+
+PARAGRAPH
+
+In relation to loins, they were scanned by using a low-field MRI scanner (ESAOTE VET-MR E-SCAN XQ 0.18 T) with a hand/wrist coil at the Animal Source Foodstuffs Innovation Services (SiPA) in the Faculty of Veterinary Science at University of Extremadura (Cáceres, Spain).
+
+The Iberian loins images were acquired with the spin echo (SE) T1-weighted sequence using the following default values: FOV, 150 × 150 mm; TE, 26 ms; slice thickness, 4mm; TR, 630 ms; three acquisitions per sample.
+
+Twenty-nine slices per loin with 631 × 631 pixels and 256 gray levels were obtained.
+
+The MRI acquisition approximately took 50 minutes for each loin.
+
+Fig. 2 shows examples of MRI images of loin.
+
+PARAGRAPH
+
+This study has been carried out with four batches of different Iberian meat products: (i) five fresh loins; (ii) five dry-cured loins; (iii) three hams at each stage of the processing: raw hams (0 days), end of post-salting (90 days), end of drying (270 days) and dry-cured hams (660 days); and (iv) ten dry-cured hams.
+
+SECTION
+
+PARAGRAPH
+
+Physico-chemical and sensory data
+
+PARAGRAPH
+
+After the MR scanning, all the meat pieces have been destroyed, in order to calculate the true physico-chemical and sensorial attributes (which represent the ground truth) for each meat piece, which are used to validate the prediction methods.
+
+Fresh and dry cured loins were physico-chemically analyzed by means of 7 attributes whose box plots, labeled as dataset LPC (Loin Physico-Chemical attributes), can be observed in the upper panel of Fig. 3.
+
+The lower and upper ends of the box define the 25% and 75% quantiles, respectively, the red line is the median of the values and the wiskers are the 0% and 100% quantiles.
+
+These 7 attributes are: moisture, water activity, instrumental color (boxes “luminance”, “red color” and “yellow color”, which correspond to L, a* and b* coordinates in the Lab color space) and lipid content (boxes “lipid percentage” and “lipid dryness”).
+
+The moisture was determined at 102 ± 2 oC by the official method (AOAC, 2000; reference 118 935.29).
+
+Water activity was measured in the system Lab Master-aw (NOVASINA AG, Switzerland) after calibration at 20–22 oC. Instrumental colors were measured using a Minolta CR−300 colorimeter (Minolta Camera 125 Corp., Meter Division.
+
+Ramsey, NJ).
+
+The lipid content of loins was determined gravimetrically with chloroform:methanol (2:1, v∕v), according to the method described in Pérez-Palacios et al. (2008).
+
+Lipid content was calculated in wet and dry basis (lipid percentage and lipid dryness in Fig. 3).
+
+PARAGRAPH
+
+In addition, determination of salt content and sensory analysis were also carried out in dry-cured loins.
+
+Salt content was volumetrically analyzed by the official method (AOAC, 2000; reference 971.19).
+
+A quantitative–descriptive analysis was applied for the sensory analysis, using a trained panel of thirteen members.
+
+The box plots with the attribute values, labeled as LSA (Loin Sensorial Attributes), can be observed in the lower panel of Fig. 3, including two chemical attributes (salt moisture and dryness) and 11 sensorial attributes (traits) of Iberian dry-cured loins were assessed in a non-structured scale 0−10: redness, brightness, marbling, hardness and juiciness of lean; odor intensity; salty taste; flavor intensity and persistence; cured and rancid flavor.
+
+Analyses were developed as specified in Caballero et al. (2017a).
+
+PARAGRAPH
+
+The batches of hams at the different stages of processing and the dry-cured hams were analyzed by means of moisture and lipid content, following the methodology previously described for loins (box plots of the values for the hams, labeled as H2, can be observed in the upper panel of Fig. 4).
+
+Besides, a sensory analysis was developed, as described in Caballero et al. (2016), in the batch of dry-cured hams.
+
+In this case, 17 sensorial attributes were analyzed: moisture (divided by 10 in the lower panel of Fig. 4, in order to use the same scale as the other attributes); lipid content; lean redness, luminance (brightness), marbling, hardness, dryness, juiciness and pastiness; odor intensity; salty, sweet and bitter taste; flavor intensity and persistence; cured and rancid flavor.
+
+The box plots of these sensorial attributes for dry-cured hams (labeled as dataset H3) can be observed in the lower panel of Fig. 4.
+
+PARAGRAPH
+
+It is important to emphasize that although the established methods to assess the quality of Iberian meat products are the physico-chemical and sensorial analysis, both methods have an inherent experimental error.
+
+In order to give a true value for a physico-chemical or sensorial attribute, the experts repeat the measurement 3 or 13 times, respectively, and then they average the acquired values.
+
+We quantify this experimental error defining the TSTD (true standard deviation) as the average over the meat pieces of the standard deviation for each physico-chemical and sensorial attribute k: TSTDk=1N∑i=1N1Mk−1∑j=1Mkdijk−dik¯2where N is the number of meat pieces, Mk is the number of true measurements for attribute k, dijk is the jth true measurement of meat piece i and attribute k, while dik¯ is the average over all the measurements for meat piece i and attribute k.
+
+SECTION
+
+Methods
+
+PARAGRAPH
+
+In this Section, we present a brief description of the texture features and regression techniques used in the experimental work.
+
+Many texture extraction methods must be applied to square regions of interest (ROIs), which must be selected from the original images.
+
+In the case of loin, a ROI of 128 × 128 was automatically extracted by thresholding the original image using the Otsu method (Otsu, 1979).
+
+Afterwards, the same combination of mathematical morphological filters are used in order to fill the holes in the segmented region and the ROI is extracted from the centroid of that region.
+
+For ham, the biceps muscle of each piece was extracted using the active contour algorithm proposed by Caro et al. (2012).
+
+Afterwards, for each slice of the biceps a squared 64 × 64 pixels ROI was extracted from the centroid.
+
+The ROIs were analyzed by the different texture feature methods explained in the following subsection.
+
+SECTION
+
+Texture features
+
+PARAGRAPH
+
+We used a collection of 15 texture features included in the comparison developed by Cernadas et al. (2017), which includes statistical techniques, like gray level cooccurrence matrix and sum and difference histograms (both second-order statistical methods), local binary patterns and fractal analysis; and spectral methods, like wavelets and Gabor filters.
+
+In the following, we describe briefly the texture feature vectors used:
+
+SECTION
+
+Regression methods
+
+PARAGRAPH
+
+A collection composed by the best 28 regressors achieved in the comparative study of Sirsat (2017) and Fernández-Delgado et al. (2019) was applied in the present work (see the list below).
+
+The majority of them (24 regressors) are implemented in the R language for statistical computing (R Core Team, 2008), using packages detailed in the list below.
+
+Additionally, we also execute other 4 popular regression methods which are implemented in other platforms: (1) deep learning neural network (which we name dlkeras in the regressor list below), using the library Keras with the Theano interface in the Python programming language; (2) support vector regression, using the LibSVM library accessed via its C++ interface (named svr); (3) generalized regression neural network (named grnn) included in the Matlab neural network toolbox; and (4) extreme learning machine with Gaussian kernels (named kelm), also programmed in Matlab.
+
+PARAGRAPH
+
+Most regressors in our collection have tunable hyper-parameters, i.e., parameters which must be specified previously to training, whose values often have a strong influence on the regressor performance.
+
+In these cases, it is a good practice to try several values for each hyper-parameter in a trial-and-error procedure, and to select the value which provides the best performance on the available data.
+
+In order to optimize this performance for each regressor, its tunable hyper-parameters and the list of values for each hyper-parameter should be known.
+
+For the regressors which are not implemented in R, we directly specify the list of tunable hyper-parameters and the values used for tuning, which are specified by the regressor documentation.
+
+On the other hand, for the regressors implemented in R we used the list of hyper-parameter values provided by the R package “Classification and Regression Training” (caret).
+
+Specifically, this package (Kuhn, 2016) provides the getModelInfo function, which returns for each regressor and dataset a list of recommended values which should be used for tuning each hyper-parameter (a list of the available models and their hyper-parameters can be found in this link7 ).
+
+This utility avoids the need to analyze the documentation of every regressor in order to know proper values to be used for the hyper-parameter tuning.
+
+The values used for each regressor are specified in the following list.
+
+The notation a:b:c means a list of values from a to c with step b (where the step is missing, its value is assumed to be 1).
+
+SECTION
+
+Experimental setup
+
+PARAGRAPH
+
+This Section describes the datasets and the evaluation methodology used in the experimental work.
+
+SECTION
+
+Dataset description
+
+PARAGRAPH
+
+Four datasets were formed depending on the physico-chemical and sensorial attributes available for each meat piece (our ground truth): LPC, LSA, H2 and H3.
+
+Each dataset was constructedwith computational (from MRI), physico-chemical and/or sensory data.
+
+The LPC (Loin Physico-Chemical) dataset contains 5 fresh loins and 5 dry-cured loins of Iberian pigs, specifically values of features from 290 images (29 images per loin) and from the following physico-chemical attributes: moisture; water activity; L, a*, b*; lipid content in wet and dry basis.
+
+There are 30 values for each physico-chemical characteristic (3 values per loin) and 60 values for color components (6 values per loin).
+
+PARAGRAPH
+
+The LSA (Loin Sensorial Attributes) dataset contains the five dry-cured loins included in LPC dataset, including features from 145 images and salt in wet and dry basis (3 values per loin); redness, brightness, marbling, hardness and juiceness of lean; odor intensity; salty taste; flavor intensity and persistence; cured and rancid flavor (12 values per loin).
+
+PARAGRAPH
+
+The H2 (ham during maturation process) dataset contains data from 12 tights of Iberian pigs at four stages of maturation process (three for each stage).
+
+The number of slices for each tight varies with the piece and maturation stage.
+
+In order to form a dataset with the same number of patterns per piece, 16 slices of each piece were considered.
+
+So, this dataset contains data of features from 192 images (12 hams × 16 slices) and from the physico-chemical attributes moisture and lipid content in wet basis (2 values per ham).
+
+PARAGRAPH
+
+The H3 (cured ham) dataset contains data from 10 dry-cured Iberian ham, specifically data from 150 images (15 slices × 10 pieces) and from the following physico-chemical characteristics and sensorial attributes: moisture and lipid content in wet basis (1 value per ham); redness, luminance, marbling, hardness, dryness, juiciness and pastiness of lean; odor intensity; salty, sweet and bitter taste; flavor intensity and persistence, cured and rancid flavor (13 values per ham).
+
+PARAGRAPH
+
+Combinations of the 15 texture feature vectors and the 28 regressors were tested in each dataset in order to predict each quality attribute.
+
+Thus, the number of experiments developed for dataset LPC is 2940, which corresponds to 15 texture vectors times 28 regressors times 7 attributes to be predicted.
+
+For the rest of datasets, we have 15 × 28 × 13 attributes = 5460 experiments for dataset LSA, 840 (=15 × 28 × 2 attributes) for H2 and 7140 (=15 × 28 × 17 attributes) for H3.
+
+SECTION
+
+Evaluation methodology
+
+PARAGRAPH
+
+In order to evaluate the regressor performance for the prediction of physico-chemical and sensorial attributes, a variant of the common cross-validation methodology has been used to develop the tuning of regressor hyper-parameters and to guarantee a realistic evaluation.
+
+The main changes introduced by this experimental methodology are: (1) three data partitions (or sets), for training, validation and test, are used instead of classical cross-validation, which only uses training and test sets; and (2) the dataset is created leaving one meat piece out, instead of the usual random partitioning of the image collection, i.e., the images of one meat piece are used as test set, and the images of the remaining meat pieces are randomly divided into training and validation sets.
+
+The texture feature vector calculated for each image is used as input pattern for the regressors, so there are so many patterns as images.
+
+PARAGRAPH
+
+The validation set is used to fix the tunable hyper-parameters.
+
+If two datasets (training and test) were only used, the test set would be the only available to evaluate: (1) the model performance with each hyper-parameter value in order to select its best value and (2) the performance of the final model with the selected hyper-parameter value.
+
+However, this methodology would optimistically bias the performance evaluation, because it would measure the final performance on the same test set where the model, trained with the selected value of the hyper-parameter, achieved its best performance.
+
+Thus, the performance of the final model for other datasets, different to the test set, would be expected to be lower.
+
+The need to select an “optimal value” for the tunable hyper-parameters requires to evaluate the model, trained for each hyper-parameter value, in a dataset different to the test set, where the performance of the final model, trained with the best hyper-parameter values, will be tested.
+
+Hence the need of validation sets.
+
+PARAGRAPH
+
+To develop experiments, Ni partitions were created, being Ni the number of meat pieces in the dataset i, with i={LPC,LSA,H2,H3}.
+
+Therefore, there are Ni training, validation and test partitions.
+
+For each partition j, with j=1,…,Ni, the patterns Pij belonging to the ith meat piece are used as test set, and the rest of patterns (which belongs to images of meat pieces l≠i) are randomly distributed into the training set (65% of the patterns) and validation set (35%).
+
+All the inputs and attributes are pre-processed (standardized) in order to have zero mean and standard deviation one.
+
+Table 1 summarizes the number of training, validation and test patterns for each dataset.
+
+Each regressor is trained on the Ni training partitions for each combination of its hyper-parameter values (regressors may have zero, one, two or three tunable hyper-parameters), and tested on its corresponding validation partitions.
+
+For each combination of hyper-parameter values, we select for testing the combination with the lowest RMSE (Root Mean Squared Error) defined by: RMSE=1NV∑k=1NV(yk−tk)2where NV is the number of validation patterns, yk is the attribute value predicted by the regressor and tk is the true value (ground truth) of this attribute for the kth validation pattern.
+
+For each combination of hyper-parameter values, the average RMSE over the Ni validation sets is calculated, and the combination with the lowest RMSE is selected for testing.
+
+Finally, the regressor is trained, using this selected combination of its hyper-parameter values, on the Ni training partitions, and the final performance is averaged over the Ni test partitions.
+
+Instead of using the RMSE as the final performance measure, we use the squared correlation coefficient R2 because it provides an absolute measurement of the regressor quality, since its values are bounded between 0 and 1.
+
+The value of R2 is given by: R2=∑k=1NTyk−ȳtk−t̄2∑k=1NTyk−ȳ2∑k=1NTtk−t̄2where NT is the number of test patterns, while ȳ and t̄ are the average values of predicted and true attributes, respectively, over the NT test patterns.
+
+However, since all the patterns of the same test partition share the same output value (because they belong to the same meat piece, which obviously has only one value for each physico-chemical or sensorial attribute), R2 cannot be computed for each test partition separately, because in Eq. (3) we would have tk=t̄, for k=1,…,NT, so that ∑k=1NT(tk−t̄)=0 in the denominator.
+
+In order to avoid this drawback, we calculate R2 considering jointly all the test partitions, so that in Eq. (3) we set NT=Nini, i.e. the number Ni (with i={LPC,LSA,H2,H3}) of test partitions multiplied by the number ni of patterns in each test partition, while yk and tk are the predicted and true attribute values, respectively, for all the test patterns in all the test partitions; and ȳ and t̄ are the averages of yk and tk over all the test partitions.
+
+This is the R2 value calculated considering each image as a pattern, which will be named in the following as “Image R2”.
+
+PARAGRAPH
+
+Additionally, for a practical application we are interested in the prediction of a unique value for each meat piece, and not for each image of the meat piece.
+
+The predicted value for a meat piece might be calculated from the predicted values for their images taking their average value or, even better, their median value, which is a more robust statistical descriptor.
+
+Therefore, we additionally calculate the “Piece R2” as the squared correlation coefficient between the true value for each meat piece and the predicted value, also for each piece, calculated as the median of the predicted values over all the images of the same meat piece.
+
+PARAGRAPH
+
+The MAE (Mean Absolute Error) and WAPE (Weighted Absolute Percentage Error) can also measure the accuracy of a prediction.
+
+The MAE is the average absolute difference between the predicted and true values of the attribute, while WAPE measures the same difference but expressed as a percentage of the attribute mean.
+
+Both measures are defined for each physico-chemical or sensorial attribute k by: MAEk=1N∑i=1N|yik−tik|WAPEk(%)=100∑i=1N|yik−tik|∑i=1Ntikwhere yik and tik are the predicted and true values for attribute k, while N is the number of samples.
+
+As we mentioned, both MAEk and WAPEk can be calculated at the image level, in which case N represents the number ni of RMI slices, with i={LPC,LSA,H2,H3}, or at the meat piece level, in which case N represents the number Ni of meat pieces.
+
+PARAGRAPH
+
+The Wilcoxon signed rank-sum test (Gibbons and Chakraborti, 2011) will be used to check whether predicted values and true measurements of each attribute are different.
+
+This test compares two samples and tests the null hypothesis that both belong to distributions with the same mean.
+
+When the p-value provided by this test is lower than 0.05 the null hypothesis should be rejected, which means that both samples do not belong to distributions with the same mean, i.e., difference between them is statistically significant.
+
+When p≥ 0.05, the null hypothesis cannot be rejected, so the difference is not statistically significant.
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+Tables 2 and 3 show the combination of texture feature vectors and regressors which achieve the highest squared correlation (R2) to predict each quality attribute of loin (LPC and LSA datasets) and ham (H2 y H3 datasets) meat pieces, respectively.
+
+Classical definition (Colton, 1974) for the correlation intervals and their significance considers that a R2 value between 0 and 0.0225 means that the two vectors under comparison (in our case, these vectors are the true and predicted values, tk and yk, for each MRI slice) are not correlated at all; R2 between 0.0225 and 0.25 means bad to moderate correlation between them; R2 between 0.25 and 0.5625 means moderate to good correlation; and R2>0.5625 means very good to excellent correlation.
+
+Taking this criterion in mind and analyzing Tables 2 and 3 (column “Image R2”), the values of R2 are very good to excellent for 22 out to 39 attributes, moderate to good for 15 attributes and bad to moderate for only 2 attributes (juiciness and flavor persistence of dry-cured ham, H3).
+
+Considering meat piece (column “Piece R2”), the R2 values increase in relation to the image R2 being good to excellent for 29 attributes, moderate to good for 8 attributes and only bad to moderate for 2 attributes (juiciness and flavor intensity of H3).
+
+PARAGRAPH
+
+Since the best combination of texture feature and regressor is not the same for all the attributes, we use the Friedman ranking (García et al., 2007) of the squared correlation (R2) values over the physico-chemical and sensorial attributes of loins and hams in a separated way, in order to find the combination of texture feature and regressor which achieves the best R2 over all the loin or ham attributes.
+
+Table 4 shows, in decreasing order, the 30 best combinations of texture features and regressor for all the physico-chemical and sensorial attributes of loin.
+
+PARAGRAPH
+
+The regressor bartMachine combined with the multifractal probability texture feature (vector MFP) is in position 1 with a Friedman rank of 107.55, which means that this regressor is approximately in the position 107 in average over all the combinations of feature vectors and regressors (420 combinations).
+
+The high value (107.55) of this rank means that this combination regressor ＋ feature, which is globally the best, is still far from being the most appropriate combination for most attributes (which would require a much lower rank, e.g. between 1 and 10).
+
+The next seven positions are for wavelet features (vectors Daub4, dtcwt, dtcwtVH and haar) with different regressors: svr (ranks 114.75 and 126.20 with vectors Daub4 and dtcwt, respectively), extraTrees (121.95 with dtcwt), krlsRad (123.10 with dtcwt), rf (123.60 with dtcwt) and Boruta (123.90 with dtcwt).
+
+This conclusion can also be extracted from the upper panel of Fig. 5, which compares the R2 achieved by the best combination of texture feature ＋ regressor for each attribute (in blue), and the R2 achieved by the combination with the lowest Friedman rank (in red).
+
+The best combination for loin (bartMachine ＋ MFP) is near the best R2 (difference below 0.1) for 8 out of 20 attributes, and difference is middle (0.1–0.3) for other 6 attributes, overcoming 0.3 for the remaining 6 attributes.
+
+The deep learning network (dlkeras) achieves the 14th position with MFS feature in this ranking, achieving the best result with MFP feature in the Hardness attribute (see Table 3).
+
+PARAGRAPH
+
+The datasets of ham meat pieces (H2 and H3) are very different: H2 dataset encloses meat pieces during the ripening process, while H3 dataset only includes dry-cured hams.
+
+So, these datasets are not studied together.
+
+For dataset H2, bagEarth (bagging ensemble of MARS base regressors) combined with the textures features Sum and Difference Histograms (vectors SDHC and MSDHC) achieves the best R2 for both physico-chemical attributes (see column “Image R2” in Table 3): 0.88 with MSDHC for moisture (0.87 with SDHC, not included in the table) and 0.80 with SDHC for lipid content (0.77 with MSDHC, not included in the table).
+
+In consequence, bagEarth combined with SDHC is useful to predit both attributes.
+
+PARAGRAPH
+
+Table 5 shows the best combinations of texture features and regressor for all the physico-chemical and sensorial attributes of dry-cured ham (dataset H3) according to the Friedman rank.
+
+The regressor bartMachine combined with wavelet texture features (vectors dtcwtVH and dtcwt) are the best with ranks of 89.4 and 92.9, respectively.
+
+The bartMachine also achieves the third position combined with another frequential texture descriptor, the Gabor texture feature (vector GNI).
+
+The following regressors are different variants of random forest (regressors rf, cforest, RRF and extraTrees) combined with GNI, whose Friedman ranks are 118, 121, 122 and 123, respectively.
+
+In every case, the first positions are for frequency texture descriptors (vectors DTCWT-VH, DTCWT and GNI).
+
+In the lower panel of Fig. 5 the best combination (bartMachine ＋ dtcwt-VH, in red) is below the best R2 (in blue) by less than 0.1 in only 2 of 17 attributes, between 0.1–0.3 for 9 attributes and above 0.3 for the remaining 6 attributes.
+
+PARAGRAPH
+
+Considering jointly the combination regressor-feature which achieves the best R2 for each attribute (Tables 2 and 3) and the best position in the Friedman rankings (Tables 4 and 5) for loin and ham, some regressors outstand: bartMachine (which achieves the best R2 in 3 attributes and positions 1 and 1–3 in loin and ham rankings), svr (3 attributes, positions 2 and 17), extraTrees (2 attributes, positions 3 and 7), krlsRadial (4 attributes, positions 4 and 8) and rf (1 attribute, positions 5 and 4).
+
+Other well-performing regressors are earth and bagEarth (3 attributes each one).
+
+These regressors also achieve very good results in a recent and very extensive comparison of regression methods (Fernández-Delgado et al., 2019), although the globally best regressors in this comparison (cubist and M5) only win in the current paper for 1 attribute each one.
+
+This is not surprising, because we cannot expect that a given method will be the best in all the problems.
+
+Similarly, the deep learning network (dlkeras) only achieves the best R2 in the current study for one attribute (hardness of cured ham, H3) and it is not ranked in the first positions.
+
+This also happens in Fernández-Delgado et al. (2019), where dlkeras achieves the 18th position in a ranking of 77 regressors, despite of the good performance of deep networks in many problems.
+
+PARAGRAPH
+
+Figs. 6 and 7 show the boxplots of R2∕Rmax2 for texture features and regressors.
+
+The upper panels show one box for each texture feature, labeled in the horizontal axis.
+
+For example, the box of feature mfs shows the values of R2∕Rmax2 achieved by this feature for all the attributes: for each attribute, R2 is the best squared correlation achieved by this feature with any regressor, and Rmax2 is the best R2 achieved by any feature and regressor (also for that attribute).
+
+The lower panels show one box for each of the best 15 regressors, labeled by the horizontal axis.
+
+Each box (e.g., for regressor svr) plots the values of R2∕Rmax2 achieved by this regressor over all the attributes.
+
+For each attribute, R2 is the best value achieved by that regressor over all the features, and Rmax2 is the best R2 achieved by any regressor and feature for that attribute.
+
+In both panels, boxes are sorted by decreasing upper end of the box, which identifies the 75% quantile of the distribution.
+
+Considering features and loins (upper panel of Fig. 6), multi-fractal (mfs and mfp) and wavelet (dtcwt) exhibit the highest upper ends, very near to one, while the following four features (msdhc, dtcwtVH, sdhc and gni) are about 0.95 and daub4 and haar are about 0.92.
+
+The remaining features are below 0.9.
+
+With respect to regressors (lower panel of Fig. 6), the best 15 regressors exhibit 75% quantile above 0.9, being the best ones svr, cubist (with the narrowest box), kelm, extraTrees (which has the highest median), rf and RRF.
+
+Considering features and ham (upper panel of Fig. 7), only wavelet (dtcwtVH, which exhibits clearly the highest 75% quantile and the highest median) and Gabor (gni), both frequential features, have upper ends above 0.9, while the following four features (mclbc, dtcwt, mfp and clbc) lie between 0.8 and 0.9, and the remaining ones are below 0.8.
+
+Considering regressors (lower panel of Fig. 7), krlsRadial exhibits the best median, 75% quantile and the narrowest box, followed by gaussprPoly, enet and svr (with upper end above 0.9), while the remaining regressors have upper ends below 0.9.
+
+SECTION
+
+Results validation in meat industry
+
+PARAGRAPH
+
+Table 6 shows the quality measures WAPE, MAE and TSTD for the combination of texture feature vector and regressor which best predicts each physico-chemical and sensorial attribute of all datasets.
+
+Globally, the WAPE is less than 1% for 20 out of 37 attributes, between 1% and 2% for 12 attributes and higher than 2% for only 5 attributes (2.58% for redness, 4.19% for marbling, 2.64% for hardness and 2.99% for rancid flavor in dataset LSA; and 2.12% for rancid flavor in dataset H3).
+
+The MAE evaluates the mean dispersion of the computer prediction values around the attribute, which is the average over the true measurements, and the TSTD evaluates the mean dispersion of the true measurements.
+
+We can see in Table 6 that this dispersion is lower for computer prediction than for true measurements in all sensorial attributes (datasets LSA and H3), except for marbling in dataset LSA.
+
+For most physico-chemical attributes (all the LPC attributes excepting luminance and redness, and the H2 attributes), the dispersions are higher for computer predictions than for true values.
+
+The dispersion in the true values might be influenced by the low number of measurements for physico-chemical and sensorial attributes (3 and 13 values, respectively).
+
+The values in column p-value are provided by a Wilcoxon test whose null hypothesis is that computer predictions and true measurements come from distributions with equal means.
+
+The column Sign shows the statistical significance of difference between predicted and true values: a value of YES means that this difference is significant, so the null hypothesis is rejected (i.e., both values do not come from distributions with equal means), which happens when p<0.05; a value of NO means that the null hypothesis cannot be rejected (i.e., difference is not statistically significant) because p≥0.05.
+
+In order to apply the test, both vectors must be of the same length, but the number of true measurements depends on the attribute and varies from 3 until 13, so we select the same number of predicted values from the slices located in the center of MRI sequences.
+
+The physico-chemical attributes (moisture and lipid content) of dataset H3 are not considered in this analysis because there is only one true measurement of each attribute, so the number of attributes is 39−2=37.
+
+According to these p-values, difference between computer predictions and true values (column Sign.
+
+in Table) is not significant for 28 out of 37 attributes.
+
+For 6 of the remaining 9 attributes (salty taste, cured flavor and rancid flavor in dataset LSA; dryness, sweet taste and bitter taste in dataset H3), difference is statistically significant, but MAE is lower than TSTD, which means that the dispersion of predictions around the true value is lower than the dispersion of the expert’s scores.
+
+PARAGRAPH
+
+Figs. 8 and 9 show the predicted and true values for the best combination of texture vector and regressor for the physico-chemical attributes water activity (for which the best texture feature vector is LBP and the best regressor is brnn) and moisture (mfs vector and RRF regressor) of dataset LPC (Fig. 8) and the sensorial attribute marbling for datasets LSA (dtcwt and extraTrees) and H3 (gni and brnn) in Fig. 9, to illustrate the meaning of the results showed in Table 6.
+
+The blue and red points are respectively the true and predicted values for each attribute.
+
+As mentioned, the blue points are constants within each interval, because they are the mean of values over the expert board for sensorial attributes, and over different trails for physico-chemical attributes.
+
+The vertical limits of each yellow rectangles show the interval of the true measurements for that meat piece.
+
+For the physico-chemical attributes of LPC (water activity and moisture, see Fig. 8), the R2 is very high (0.986 for water activity and 0.973 for moisture, see the panel titles), the WAPE is very low (0.04% and 0.35%, see the first two lines of Table 6) and the predicted and true distributions are not statistically different (p-value > 0.05), so the prediction is very good.
+
+Nevertheless, the MAE is always higher than TSTD for both attributes (0.0038–0.0020 for water activity, and 1.70–0.93 for moisture), which means that the dispersion of predicted values is higher than for the true measurements, so many red points in Fig. 8 are outside the yellow squares.
+
+This situation is repeated in other physico-chemical attributes.
+
+PARAGRAPH
+
+As examples of the opposite case are the sensorial output marbling in datasets LSA and H3 (Fig. 9), with lower image R2 (0.44 and 0.55, respectively, see the panel titles), which means good to moderate correlation.
+
+Nevertheless, the WAPE of marbling is much higher for dataset LSA (4.19%) than for H3 (0.98%), see Table 6, and difference between predicted and true values is statistically significant in LSA, but not in H3.
+
+Consequently, the red points are always inside the yellow squares for dataset H3 (right panel in Fig. 9), while many predictions (red points) fall outside the yellow squares for dataset LSA (left panel in Fig. 9).
+
+The case of marbling in dataset H3 is very frequent for all sensorial attributes, in which there are high variability among experts and then, the predicted value is always within the limits of expert’s scores (i.e., the red points are inside yellow squares for all meat pieces).
+
+So, in spite of the R2 is not so high in some cases (e.g. cured flavor in dataset H3, with R2 = 0.40 and juiciness, with R2 = 0.12), sometimes with p-value < 0.05, the computer prediction is reliable enough.
+
+For the majority of cases, the WAPE is lower than 2% (see Table 6), the MAE is lower than TSTD and difference between predicted and true values is not statistically significant.
+
+The situation of marbling for dataset LSA (low image and piece R2 but MAE < TSTD with p<0.05) only happens for redness in dataset LSA.
+
+PARAGRAPH
+
+In summary, the use of the best combination of texture feature and regression technique for each quality characteristic provides the following quality measures: (i) the R2 is from good to excellent for 29 out of 39 attributes tested, as reported by the last column of Tables 2 and 3; (ii) the WAPE is below 2% for 32 out of 37 attributes, as reported by Table 6; (iii) the dispersions in computer predictions around the true value and the dispersion in true measurements (columns MAE and TSTD in Table 6) are comparable, or even lower, for the majority of attributes; and (iv) according to a Wilcoxon test, the dispersion (MAE) of the computer predictions is statistically lower or equal than the variability of the measurement (TSTD) for 34 out of 37 attributes (see the last two columns in Table 6), being MAE > TSTD for only 3 of 37 attributes.
+
+PARAGRAPH
+
+These results confirm the high reliability of the use of MRI, texture analysis and regressors to predict physico-chemical and sensorial attributes of loins and hams pieces.
+
+Nevertheless, the main drawback in order to develop an automatic quality assessment system to operate in a meat industry is the high scanning time needed to obtain the MRI sequence (about 50 min to scan 30 slices).
+
+So, it would be desirable that the system develops the prediction based on fewer MR images, in order to decrease this prediction time.
+
+Figs. 10 and 11 show: (i) the best R2 calculated at image level (legend “Best image R2”, which corresponds to column Image R2 in Tables 2 and 3); (ii) the R2 calculated at piece level using all slices of MRI sequence, with legend “Piece R2 (all images)”; (iii) the three central slices (legend “Three images R2”); and (iv) the central slice (legend “One image R2”).
+
+The piece R2 (green circle), calculated using all images of its MR sequence, overcomes the best image R2 (cyan diamond) for all datasets and attributes, except for redness in LPC dataset and flavor intensity in H3 dataset with differences less than 0.1.
+
+If we try to predict the attributes of the piece using three images R2 (red triangle) or one image R2 (blue square), they overcome the best image R2 for 31 of 39 attributes, being below the piece R2 (green circle) for half of attributes.
+
+The main conclusion is that the majority of physico-chemical and sensorial attributes of the meat pieces can be predicted with high fiability using only 3 MR slices (or even one for some attributes) of a meat piece, which implies a strong decreasing of scanning time.
+
+This fact makes this technology more feasible to implement in the meat industries.
+
+SECTION
+
+Conclusions and future work
+
+PARAGRAPH
+
+The adquisition of Magnetic Resonance Imaging (MRI) sequences of meat pieces allows to monitor them in a non-destructive and innocuous way, avoiding the use of chemical and sensorial analysis, which is very time consuming, expensive and requires specialized technicians.
+
+We develop an exhaustive comparison of 15 texture feature vectors selected from the statistical and frequency descriptors (including second order statistics, local binary patterns, Gabor and wavelet filters, among others) and 28 regression techniques (including most of the state of art methods as the Gaussian kernel support vector regression and extreme learning machine, deep learning, LASSO, random forest and elastic net, among others) in order to predict 7 physico-chemical and 17 sensorial attributes on four batches (LPC, LSA, H2 and H3) of different Iberian meat pieces (loins and hams).
+
+The physico-chemical attributes predicted are: moisture, water activity, lipid percentage and dryness, and instrumental color (luminance, red color and yellow color).
+
+The sensorial attributes are: lean redness, brightness, marbling, hardness, dryness, juiciness and pastiness; odor intensity; salty, sweet and bitter taste; flavor intensity and persistence; cured and rancid flavor.
+
+We used the squared correlation (R2), to evaluate the quality of the prediction, calculated for each MRI slice (image) and for each meat piece.
+
+There is no single combination of texture feature vector and regressor which provides the best R2 for the 39 attributes tested.
+
+On the contrary, the best combination is different for each attribute.
+
+However, the R2 at meat piece level is from good to excellent (R2> 0.56, which correspond to R> 0.75) for 29 out to 39 attributes, from moderate to good for 8 attributes (0.25<R2<0.56) and only bad to moderate (0.02 <R2< 0.25) for the remaining 2 attributes (juiceness and flavor intensity in dataset H3).
+
+In relation with texture descriptors, the Gabor features (GNI vector) are the best for 5 attributes, the wavelet features (daub4, dtcwtVH, dtcwt and haar vectors) in 11 attributes, the fractal features (mfp and mfs vectors) in 7 attributes, local binary patterns (lbp, mlbp, mlc and mlbc vectors) in 8 attributes and second-order statistics (vector coms, mcoms, sdhc, msdhc) in the remaining 8 attributes.
+
+In relation to regressors, the multivariate adaptive regression splines (earth) and its Bagging ensemble (bagEarth) achieve the best result for 6 attributes; regularized least square regression (krlsRadial) is the best for 5 attributes; the support vector regression (svr), Bayesian regularized neural network (brnn), random forest (rf and RRF) and Bayesian additive regression tree (bartMachine), for 3 attributes each one.
+
+PARAGRAPH
+
+Considering other measurements to evaluate the prediction quality, the WAPE (Weighted Absolute Percent Error) is lower than 2%, which is widely considered as a threshold of reliability, for 32 out of 37 attributes, excepting redness, marbling, hardness and rancid flavor of LSA, and rancid flavor of H3.
+
+Besides, difference between computer predictions and true values is not statistically significant for 28 out of 37 attributes according to a Wilcoxon signed ranksum test, but for 6 of the remaining 9 attributes with significant difference the dispersion of the computer predictions around the true values is lower than the variability of the true measurements over trails or expert’s scores for physico-chemical or sensorial attributes, respectively.
+
+At the same time, the prediction of the majority of physico-chemical and sensorial attributes can be done using only one or three slices of the MRI sequence of the meat piece, instead of all slices of the sequence, which implies a strong reduction time of the scanning process.
+
+After integrating the proposed procedure in a software for the MRI computers, the desired analysis of each meat product could be carried out in real time (no more than 15 min.
+
+using 3 images), automatically and non-destructively, which would suppose an important saving in terms of time and money (one shorter analysis to determine lots of characteristics and the analyzed meat products can be sold).
+
+This fact is very important for the future implementation of an automatic quality assessment system in meat industries.
+
+PARAGRAPH
+
+This analysis leads to the conclusion that the combination of MRI images of meat pieces, image texture features and regression techniques can be an alternative technique to predict, with high reliability and in a non-destructive and innocuous way, the physico-chemical and sensorial attributes of meat.
+
+As well, it can be fast enough to operate as a quality assessment system in the meat industries.
+
+The future work will be to develop a software to automatically analyze MRI of loins and hams, which allows the on-line estimation of their quality characteristics in a non-destructive way.
+
+This software is intended to be included in the production systems of meat industries.

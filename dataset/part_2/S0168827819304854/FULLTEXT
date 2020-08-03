@@ -1,0 +1,453 @@
+10.1016/j.jhep.2019.08.018
+
+FULLTEXT
+
+TITLE
+
+The risk of incident extrahepatic cancers is higher in non-alcoholic fatty liver disease than obesity – A longitudinal cohort study
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Cancer is a major cause of death in the United States and worldwide.1,2
+
+Numerous meta-analyses support the link between the risk of malignancy and excess body weight.3–5
+
+Some associations are flawed because of bias that exaggerates the effect of obesity on cancer incidence, but strong evidence supports this association with 11 cancers, predominantly among digestive organs and hormone-related malignancies in women.4
+
+PARAGRAPH
+
+The prevalence of obesity has more than doubled in the last 4 decades6,7 and as a result, the incidence of non-alcoholic fatty liver disease (NAFLD) has increased substantially.8–10
+
+Large population studies have clearly established that malignancy is among the top 2 causes of death in NAFLD, vastly surpassing liver-related mortality, which occurs in 1–2% of patients.11,12
+
+However, the specific types of cancer that patients with NAFLD are at increased risk for, or the magnitude of risk compared to those without NAFLD is not known.
+
+Moreover, it is not clear whether there are particular characteristics of malignancy risk among those with NAFLD that are distinct from those with obesity alone.
+
+Such data have important implications in patient education, counseling and the application of screening strategies in this high-risk population.
+
+PARAGRAPH
+
+We aimed to analyze the incidence of the most common cancer types in NAFLD in reference to a control population.
+
+Second, we aimed to investigate the association between cancer and NAFLD versus obesity alone.
+
+To answer these questions, we used a medical record-linkage system that includes prospectively acquired information on the healthcare of all residents in a well-defined population with extended longitudinal follow-up.
+
+Population-based research is a major source of evidence to support medical and public health practices.
+
+SECTION
+
+Patients and methods
+
+SECTION
+
+Study population
+
+PARAGRAPH
+
+We constructed a historical cohort of all adults diagnosed with NAFLD in Olmsted County, Minnesota between 1997 and 2016.
+
+Each patient was individually matched by age (±1 year) and sex to 3 individuals who resided in Olmsted County at the time of the index diagnosis date, who did not carry a diagnosis of NAFLD.
+
+To identify these 2 groups, we used the medical record-linkage system of the Rochester Epidemiology Project (REP).
+
+REP is a unique research infrastructure which links and indexes the medical records of virtually all individuals who have resided in Olmsted County, Minnesota, regardless of age, sex, ethnicity, disease status, socio-economic or insurance status.13
+
+The REP links together the medical records of persons from 65 different health care providers, including Mayo Clinic, Olmsted Medical Center, Rochester Family Medicine Clinic and other health care facilities.14
+
+The data available electronically include demographic characteristics, medical diagnostic codes and services, surgical procedure codes, laboratories, drug prescriptions and death information.
+
+In addition, for each resident, the system keeps a complete list of all paper and electronic records and scanned documents that are available in full text for in-depth review and abstraction.15
+
+Each time an Olmsted County resident visits a health care provider, the information from that clinical visit is automatically integrated into the REP research infrastructure.
+
+Of all participants, 93% had at least 1 follow-up visit within 3 years, and only 4% were never seen again after the baseline visit.13,15
+
+This comprehensive medical record-linkage system provides an optimal sampling framework for epidemiologic studies.
+
+PARAGRAPH
+
+NAFLD was ascertained using a code-based algorithm described in previous epidemiologic studies of NAFLD in this community.8
+
+Briefly, we used the NAFLD-specific Hospital International Classification of Diseases Adapted (HICDA) codes, a system developed at Mayo Clinic for research diagnosis coding and adapted by REP in 1976: HICDA 05710421 (fatty liver), 05710431 (non-alcoholic steatohepatitis).
+
+Additionally, the International Classification of Diseases (ICD) codes ICD 9-CM 571.5 (cirrhosis of the liver without mention of alcohol), 571.8 (other chronic non-alcoholic liver disease), 571.9 (unspecified chronic liver disease without mention of alcohol) and ICD10-CM K75.81 (non-alcoholic steatohepatitis) and K76.0 (fatty liver, NOS) were used.
+
+From this initial cohort, we excluded individuals with other etiologies of liver disease identified by codes prior to the index NAFLD diagnosis or during the following year (list of codes in Table S1).
+
+All study participants (among both NAFLD and referent groups) with less than 1-year of follow-up were excluded in order to avoid bias.
+
+In-depth chart review of a random 10% sample of this cohort showed that this algorithm identified NAFLD with a positive and negative predictive value of 85% and 87%, respectively.
+
+SECTION
+
+Outcomes and covariates
+
+PARAGRAPH
+
+The NAFLD and matched referent individuals were followed prospectively until death, last medical visit, end of Olmsted County residency or June 2018.
+
+Primary outcomes were incident cancers documented after the index NAFLD diagnosis or referent matching date.
+
+Cancers documented prior to the diagnosis of NAFLD were not included.
+
+The cancers of interest were the most common solid cancers, which were classified into 3 groups: liver and gastrointestinal (colon, esophageal, gastric and pancreatic) cancers; hormone-sensitive cancers (breast, uterine/endometrial, ovarian and prostate); and lung cancer.
+
+The cancer ascertainment occurred in 2 steps.
+
+First, cancer diagnoses were identified in the medical record-linkage system using the codes shown in Table S2; to minimize spurious diagnoses, for each cancer type, the case was ascertained by the presence of at least 2 codes documented at separate dates, at least 30 days apart.
+
+Subsequently, a physician (AMA) reviewed the complete medical records of each individual with gastrointestinal and liver cancer codes and of a 10% random sample of the remaining cancer types to confirm the validity of the outcome ascertainment algorithm.
+
+To avoid immortal time bias, for analysis any cancer diagnosis was ascertained if it occurred on the day it was confirmed (after the second code).
+
+Only 16 individuals died within 30 days from the first cancer code, in whom a second cancer code was not confirmed due to death, therefore the bias risk is negligible.
+
+PARAGRAPH
+
+Covariates of interest included body mass index (BMI), diabetes mellitus, hypertension, dyslipidemia and smoking status at the time of diagnosis or matching.
+
+Comorbidities were defined based on combinations of ICD 9 and 10 or HICDA codes (Table S3), medications (Table S4) and laboratory values, as follows: diabetes mellitus, diagnostic codes plus medications or laboratory values (fasting glucose ≥126 mg/dl or hemoglobin A1c ≥6.5%); dyslipidemia, diagnostic codes plus medications or laboratory values (low-density lipoprotein cholesterol >100 mg/dl or triglycerides >150 mg/dl); hypertension, diagnostic codes plus medications.
+
+Cirrhosis was defined as the presence of an ICD 9/10 or HICDA code plus Fib-4 score >2.67.
+
+SECTION
+
+Statistical analysis
+
+PARAGRAPH
+
+Baseline characteristics were compared between groups using Kruskal-Wallis and chi-square methods for continuous and categorical variables, respectively.
+
+The incidence of cancer was assessed using Poisson regression.
+
+In order to best capture the dependence of cancer rates on age and sex, the model treated these covariates as multipliers of age/sex specific rates obtained from the Iowa Surveillance, Epidemiology and End Results (SEER) registry, which is in the closest geographic proximity to Olmsted County.
+
+Cancer types were identified in SEER using the codes listed in Table S2.
+
+A primary advantage of this approach is that it allows data analysis across a wide age range without having to recreate the age/sex shape of each underlying incidence curve.
+
+The model fit is equivalent to a Cox model, but with a known baseline hazard.
+
+The coefficients of the model are hazard ratios and can be interpreted in the same way as those from a Cox model.
+
+Formally, the fit uses Poisson regression with the expected number of cases in each age/sex stratum as the reference, where the expected number of cases is the product of the total years of observed follow-up in an age stratum multiplied by the SEER rate for that age stratum.16
+
+We report the absolute incidence rates at the arbitrary age of 65, because it is near the median age at diagnosis for most cancer types.
+
+PARAGRAPH
+
+To study the effect of NAFLD on cancer incidence we used a hierarchical Poisson regression model, treating the NAFLD impact on each cancer type as a random effect.
+
+A primary benefit of this approach is that it allows researchers to study not only the variable impact of NAFLD on different types of cancer, while stabilizing the estimates for the infrequent cancers, but it also provides an average estimate of effect on overall malignancy risk.
+
+The results are reported as incidence rate ratios (IRR), which are interpreted like the hazard ratios of a Cox model, with 95% CIs.
+
+The models are adjusted for age and sex.
+
+Because diabetes mellitus can be a confounder due to its association with both NAFLD and malignancy, a sensitivity analysis adjusting for diabetes mellitus was performed to assess its effect on the association.
+
+A similar secondary analysis was performed to adjust for cirrhosis as a confounder.
+
+The model was fit using the JAGS software package via the rjags interface to R.17 More details are described in the supplementary methods.
+
+PARAGRAPH
+
+Next, we examined the effect of NAFLD on malignancy risk compared to that of obesity irrespective of NAFLD presence (defined by BMI ≥30 kg/m2), by repeating the above analysis in 2 ways.
+
+First, we examined the effect of obesity irrespective of NAFLD status, by splitting the total cohort in 2 groups: non-obese and obese.
+
+The malignancy risk associated with obesity was reported as the IRR of cancer in obese compared to non-obese individuals.
+
+Next, we repeated the analysis using 3 groups: NAFLD, obese without NAFLD and non-obese without NAFLD, using the latter group as a reference.
+
+The results were reported as IRR in NAFLD versus obese without NAFLD, NAFLD versus non-obese without NAFLD and obese versus non-obese.
+
+PARAGRAPH
+
+Statistical analyses were performed in SAS v9.4 (SAS Institute; Cary, NC) and R statistical software, version 3.2.0 (R Foundation for Statistical Computing, Vienna).
+
+The study was approved by the Institutional Review Boards of Mayo Clinic and Olmsted Medical Center.
+
+All study patients provided research authorization.
+
+SECTION
+
+Results
+
+PARAGRAPH
+
+A total of 7,413 individuals met the inclusion criteria for NAFLD diagnosis (study flow chart in Fig. 1).
+
+Of these 2,691 were excluded due to previous or concurrent liver disease diagnoses of other etiology (within 1 year of the NAFLD code), inconclusive Olmsted County residency or less than 1 year of follow-up.
+
+The final NAFLD cohort consisted of 4,722 individuals (median age 54, 46% male).
+
+The prevalence of diagnosed NAFLD over the study period in this population was 8%.
+
+An age- and sex-matched cohort of 14,441 adults from the general population was identified.
+
+Compared to controls, individuals with NAFLD had a higher proportion of obesity (66% vs. 35%), diabetes mellitus (33% vs. 9%), hypertension (46% vs. 26%) and dyslipidemia (59% vs. 33%) (Table 1).
+
+PARAGRAPH
+
+A total of 2,224 incident cancers (656 in NAFLD and 1,568 in controls) were identified after NAFLD diagnosis/matching during a median follow-up of 8 (range 1–21) years.
+
+The top 3 most common types of cancer in NAFLD and controls were breast, prostate and colon (Table 1).
+
+Of all malignancies, the proportion of gastrointestinal/liver cancers was higher in the NAFLD group than the referent group (27% vs. 18% of all cancers).
+
+PARAGRAPH
+
+The incidence of cancers in NAFLD and controls by cancer type at an arbitrary age of 65 is shown in Table 2.
+
+There were no statistically significant differences in the rates of malignancy (overall or by cancer type) between the Olmsted County control population and SEER database (Fig. S1).
+
+PARAGRAPH
+
+The effect of NAFLD on the malignancy risk is shown in Fig. 2A.
+
+In reference to age- and sex-matched controls, NAFLD was associated with 90% higher overall risk of malignancy: IRR = 1.9 (95% CI 1.3–2.7).
+
+Adjustment for cirrhosis status at index or at any point during follow-up did not considerably impact the overall malignancy risk: IRR = 1.8 (95% CI 1.3–2.7).
+
+The highest increase in risk was noted in liver cancer, IRR = 2.8 (95% CI 1.6–5.1), followed by uterine IRR = 2.3 (95% CI 1.4–4.1), stomach IRR = 2.3 (95% CI 1.3–4.1), pancreas IRR = 2.0 (95% CI 1.2–3.3) and colon cancer IRR = 1.8 (95% CI 1.1–2.8).
+
+PARAGRAPH
+
+Fig. 2B illustrates that the effect of NAFLD on malignancy risk varied by sex.
+
+Most of the differences in rate ratios between women or men with NAFLD and their control counterparts were minor and within the margin of random variation.
+
+However, a notable difference in risk was found in colon cancer, which was higher in NAFLD versus referent men IRR = 2.4 (95% CI 1.6–3.9), but not in women IRR = 1.3 (95% CI 0.8–2.1).
+
+PARAGRAPH
+
+Compared to women with NAFLD, men with NAFLD were 90% more likely to develop colon cancer (IRR = 1.9, 95% CI 1.3–2.8).
+
+Therefore, the cancer risk hierarchy in NAFLD varies by sex.
+
+The highest risk in NAFLD men occurs in colon cancer (IRR = 2.4, 95% CI 1.6–3.9), followed by liver (IRR = 2.3, 95% CI 1.4–4.1), stomach (IRR = 2.0, 95% CI 1.2–3.6) and pancreas cancer (IRR = 1.9, 95% CI 1.1–3.3), whereas in women with NAFLD the highest risk increase occurs in liver (IRR = 2.5, 95% CI 1.4– 4.8), stomach (IRR = 2.2, 95% CI 1.3–4.3), uterus (IRR = 2.2, 95% CI 1.4–3.8) and pancreas (IRR = 2.0, 95% CI 1.2–3.4) cancer.
+
+PARAGRAPH
+
+We also examined whether the effect of NAFLD on cancer risk was greater at younger or older ages.
+
+Fig. 3 illustrates the cumulative incidence of cancers in NAFLD versus referent cohort on an age scale.
+
+The most notable differences were in pancreas, colon and ovarian cancer, which occurred more commonly in NAFLD at a young age.
+
+We further analyzed the age effect using the Poisson regression model, which showed that the risk of incident cancer in NAFLD versus controls decreased with age, and was therefore higher at younger ages, in pancreas (IRR = 0.85, 95% CI 0.74–0.98), colon (IRR = 0.93, 95% CI 0.87–1.00) and ovarian (IRR = 0.86, 95% CI 0.75–0.98) cancer (Fig. S2).
+
+SECTION
+
+The effect of NAFLD versus obesity on malignancy risk
+
+PARAGRAPH
+
+To examine the effect of obesity on malignancy risk, we first analyzed the cancer rates in the community among 2 groups: obese referenced to non-obese, defined based on BMI ≥30 and <30 kg/m2, respectively.
+
+The distribution of BMI groups among individuals with NAFLD was 10% normal BMI, 27% overweight and 63% obese.
+
+The distribution of BMI among controls was 30%, 35% and 34%, respectively.
+
+Fig. 4A shows that obesity is associated with a trend towards increased malignancy risk: IRR = 1.2 (95% CI 0.9–1.6).
+
+Next, we selected those with NAFLD from the community (66% of them derived from the obese group, while 34% of them were derived from the non-obese group) and performed the same analysis among 3 groups: NAFLD, obese controls and non-obese controls.
+
+In Fig. 4B, in reference to non-obese controls, NAFLD was associated with a higher risk of incident cancers (overall malignancy IRR = 2.0, 95% CI 1.5–2.9), while obesity alone was not (IRR = 1.0, 95% CI 0.8–1.4).
+
+These data suggest that the increased risk of malignancy associated with obesity is largely attributed to the presence of NAFLD, and when individuals with NAFLD are removed from the obese group the obesity-cancer association diminishes significantly.
+
+In reference to obese controls, those with NAFLD had a 2-fold overall increase in incident malignancies (IRR = 2.0, 95% CI 1.5–2.7).
+
+Among cancer groups, the largest effect of NAFLD in reference to both obese and non-obese controls was highest in liver and gastrointestinal cancers, where the risk increase varied between 2- and 3-fold, while the effect of NAFLD compared to obesity was not as high in uterine and ovarian cancer (individual IRRs by cancer type in Table 3).
+
+PARAGRAPH
+
+Sensitivity analysis adjusting for diabetes mellitus did not change these findings, although the association of NAFLD with malignancy risk was slightly decreased: NAFLD versus non-obese controls IRR = 1.8, 95% CI 1.4–2.5; NAFLD versus obese controls IRR = 1.9, 95% CI 1.4–2.6 (Fig. S3 and Table S5).
+
+Secondary analysis of the effect of overweight status on malignancy risk using normal weight as a reference did not show a significant association IRR = 0.74 (0.32–1.69).
+
+The number of incident cancers by BMI subgroups is shown in Table S6.
+
+We did not adjust for smoking given similar prevalence among NAFLD and controls.
+
+Similarly, we did not perform secondary analysis exploring the potential impact of alcohol use on the increased malignancy risk in NAFLD because a very small proportion of NAFLD individuals (4%) were subsequently diagnosed with alcohol use disorder, at a median of 3.5 years after index date (vs. 10% of referents).
+
+Therefore, disparities in alcohol use among NAFLD and referents are unlikely to explain the increase in malignancy risk.
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+This large community cohort study with 21 years of longitudinal follow-up adds several important observations to our knowledge of the natural history of NAFLD and its association with subsequent malignancies.
+
+First, people with NAFLD had a nearly 2-fold increase in the overall risk of incident cancers when compared to an age- and sex-matched general population cohort.
+
+Second, this study provides a hierarchical overview of the cancer types that are most likely to increase in NAFLD, namely liver and gastrointestinal cancers.
+
+Lastly, we show that NAFLD may be a more important intermediary biomarker of cancer risk.
+
+In this cohort, the obesity-related risk was largely driven by NAFLD, while obesity in the absence of NAFLD had minimal association with malignancy risk.
+
+These findings serve as hypothesis-generators for future studies into the biological mechanisms underpinning this link, which will need to assess whether NAFLD is a predictor by association or a mediator of causal pathways in the development of cancer.
+
+PARAGRAPH
+
+A large volume of epidemiologic data has established that excess adiposity, measured by BMI, is a risk factor for several, but not all, common cancers.4,18
+
+The proposed candidate mechanisms for the adiposity-cancer link include altered sex hormone metabolism, increased insulin levels and bioavailability of insulin-like growth factor 1, adipokine pathophysiology and systemic inflammation.19,20
+
+On the other hand, it has been recognized that excess body fat can have distinct consequences despite similar BMI.21
+
+One such instance has been observed in those with ‘metabolically healthy obesity’, a phenotype which is not associated with cardiovascular, metabolic, or even malignancy risk.22,23
+
+Variations in fat distribution may potentially explain the risk differential.
+
+Visceral adipose tissue and ectopic hepatic fat may contribute to local and systemic inflammation, insulin resistance and metabolic disease.
+
+Emerging translational and epidemiologic data support the importance of local ectopic fat as a paracrine mechanism for cancer development in the liver, pancreas24,25 and breast, where the local adipose tissue microenvironment impacts tumor progression.26
+
+It is therefore biologically plausible that NAFLD is a risk factor for cancer, not only of the liver, but also of close proximity organs, such as the gastrointestinal tract.
+
+PARAGRAPH
+
+Whether non-alcoholic steatohepatitis versus simple steatosis have distinct associations with extrahepatic cancer risk is difficult to establish in a large population, due to the lack of universal non-invasive diagnostic methods and the unreliability of liver enzymes as serum NASH biomarkers.
+
+Nevertheless, it was clear that diabetes mellitus was not an important confounding variable for the NAFLD-malignancy association, which suggests that insulin resistance is not the dominant common link between cancer and NAFLD.
+
+Another potential explanation of these findings is that NAFLD has no direct causality in cancer biology, but is a better predictor than BMI in reflecting an obesity phenotype with higher malignancy potential, as it is closely associated with central adiposity and insulin resistance.
+
+BMI might be too crude a measure of body fatness to accurately quantify the relationship between adiposity and cancer.
+
+Unfortunately, measures such as waist-hip ratio or waist circumference are not routinely collected during medical encounters.
+
+Regardless of the mechanism of association, to the extent that the presence of hepatic fat is indeed relevant to cancer development, the challenging task of applying reliable and cost-effective non-invasive modalities of NAFLD diagnosis to the community becomes even more imperative.
+
+PARAGRAPH
+
+The general knowledge that patients with NAFLD have a higher propensity to develop extrahepatic cancers due to concurrent obesity has had, thus far, limited applicability in clinical practice beyond raising general awareness.
+
+This study offers a more detailed synopsis of the specific high-risk cancers in this population, and the magnitude of risk in reference to an individually matched population free of NAFLD.
+
+Of the extrahepatic cancers, stomach, pancreas and colon have an over 2-fold increase in incidence in those with NAFLD, with a trend towards younger age at diagnosis in the latter 2.
+
+These findings have great applicability in clinical practice, where they can help individualize risk-counseling in NAFLD.
+
+Furthermore, they establish a framework that can be used in future large-scale studies of the effectiveness of screening policies in obesity in general and NAFLD in particular.
+
+PARAGRAPH
+
+We found an important interaction between sex and the risk of colon cancer.
+
+Whereas the overall risk was significantly higher in NAFLD versus controls, stratification by sex showed that the effect was entirely present in men while insignificant in women, and this was confirmed by formal testing of the sex interaction.
+
+The reason remains elusive (although noted in previous studies on obesity-related colorectal cancer20), yet the findings suggest that the counseling on risk should be individualized by sex.
+
+In women, the risk of uterine cancer was considerably higher, while that of breast cancer was not significant.
+
+This is consistent with findings from obesity-related studies, in which the increased risk of breast cancer was inconsistently found.
+
+Also, like previous obesity studies, the risk of lung and prostate cancer was not associated with obesity or NAFLD.
+
+PARAGRAPH
+
+As with any observational epidemiologic studies, it is particularly important to note potential sources of bias.
+
+Studies of populations such as Olmsted County are likely to have lower disease prevalence than those estimated from NHANES data which used ultrasound screening, especially given the lack of symptoms and reliable biomarkers that would prompt screening of everyone at risk.
+
+Therefore, the prevalence of diagnosed NAFLD is expected to be significantly lower than that of hepatic steatosis incidentally noted on imaging.
+
+However, natural history data obtained from patients who were diagnosed with NAFLD remain important and are closest to “real-world” scenarios because they allow longitudinal follow-up with complete ascertainment of outcomes such as malignancy.
+
+In the absence of systematic screening, it is possible that a proportion of controls had undiagnosed NAFLD.
+
+If NAFLD is associated with malignancy risk, this sampling bias would lead to a higher estimated incidence of cancers among controls.
+
+The impact that this bias would have had on the results is a lower relative incidence rate ratio between patients with NAFLD and controls, and underestimation of relative risk due to an artificial increase in denominator.
+
+Thus, it is possible that after careful removal of undiagnosed NAFLD from the reference population, the relative risk of malignancy in NAFLD would be even higher than our estimates.
+
+Survival bias, resulting from the association of NAFLD with mortality from causes unrelated to cancer, would have a less clear impact on the validity of our results.
+
+Shorter lifespan would result in shorter person-year follow-up in NAFLD (denominator) but also a lower cumulative incidence of cancers (numerator), thus an uncertain impact on the incidence rate ratio.
+
+Medical surveillance bias, resulting from more rigorous cancer screening of those with NAFLD during more frequent medical evaluations is possible, but more likely to affect studies of subclinical outcomes or stage at diagnosis rather than the overall diagnosis of cancer in a person’s lifetime, especially given that these cancers are likely to become symptomatic and lead to medical evaluation eventually.
+
+Moreover, the referent individuals with no follow-up or active medical visits represent a very small proportion of the population.
+
+Previous analyses of REP studies showed that 93% of Olmsted County residents have at least 1 medical visit every 3 years and only 4% of the population is never seen again after a baseline visit.
+
+PARAGRAPH
+
+The strengths of this study include the large sample size, the use of a reference population individually matched by age and sex and the historical depth provided by long-term follow-up.
+
+We used routinely collected and linked medical data to provide essential information about the natural history of the disease in the community, which limits the risk of selection bias which registries or referral centers are prone to.
+
+Although disease was defined using electronic indices, we reinforced the ascertainment validity by in-depth chart review using the medical record-linkage system, for both NAFLD and each cancer type.
+
+PARAGRAPH
+
+The size of the Olmsted County population limits robust conclusions on rare cancers.
+
+This may explain why we did not find a higher risk of esophageal cancer in NAFLD or obesity, despite strong evidence that this is one of the several cancers strongly associated with obesity.
+
+The age, sex, ethnic and socio-economic characteristics of the Olmsted County population are similar to other populations in the upper Midwest region of the United States, but some racial and ethnic groups are under-represented; these characteristics should be considered when attempting to generalize to other populations.
+
+However, no single community in the United States is completely representative of the entire country and results from cancer epidemiology studies in Olmsted County have been consistent with national data.27–31
+
+PARAGRAPH
+
+These limitations notwithstanding, these unique epidemiologic observations reframe our understanding of the association between obesity and cancer risk.
+
+There is a continued need for better characterization of excess adiposity, because current measures of obesity, such as BMI, are insufficient and may overlook other potential key contributors to outcomes, based on ectopic fat distribution.
+
+Our findings provide a platform for future mechanistic studies of NAFLD as the concealed driver or intermediary biomarker of cancer risk in obesity.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+Alina M. Allen: National Institute of Diabetes and Digestive and Kidney Diseases (K23DK115594); American College of Gastroenterology Junior Faculty Development Grant.
+
+This study was made possible using the resources of the Rochester Epidemiology Project, which is supported by the National Institute on Aging of the National Institutes of Health under Award Number R01AG034676.
+
+The funding sources did not have any role in the design and conduct of the study; collection, management, analysis, and interpretation of the data; preparation, review, or approval of the manuscript; and decision to submit the manuscript for publication.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Authors’ contributions
+
+PARAGRAPH
+
+AMA: study concept and design; acquisition of data; analysis and interpretation of data; drafting of the manuscript; obtained funding.
+
+SBH: acquisition of data.
+
+KCM: statistical analysis; critical revision of the manuscript for important intellectual content.
+
+JJL: statistical analysis; critical revision of the manuscript for important intellectual content.
+
+TMT: study concept and design; statistical analysis; analysis and interpretation of data; critical revision of the manuscript for important intellectual content.

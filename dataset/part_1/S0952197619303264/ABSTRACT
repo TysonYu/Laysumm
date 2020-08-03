@@ -1,0 +1,39 @@
+10.1016/j.engappai.2019.103421
+
+ABSTRACT
+
+TITLE
+
+A fitting model based intuitionistic fuzzy rough feature selection
+
+PARAGRAPH
+
+Feature subset selection is an essential machine learning approach aimed at the process of dimensionality reduction of the input space.
+
+By removing irrelevant and/or redundant variables, not only it enhances model performance, but also facilitates its improved interpretability.
+
+The fuzzy set and the rough set are two different but complementary theories that apply the fuzzy rough dependency as a criterion for performing feature subset selection.
+
+However, this concept can only maintain a maximal dependency function.
+
+It cannot preferably illustrate the differences in object classification and does not fit a particular dataset well.
+
+This problem was handled by using a fitting model for feature selection with fuzzy rough sets.
+
+However, intuitionistic fuzzy set theory can deal with uncertainty in a much better way when compared to fuzzy set theory as it considers positive, negative and hesitancy degree of an object simultaneously to belong to a particular set.
+
+Therefore, in the current study, a novel intuitionistic fuzzy rough set model is proposed for handling above mentioned problems.
+
+This model fits the data well and prevents misclassification.
+
+Firstly, intuitionistic fuzzy decision of a sample is introduced using neighborhood concept.
+
+Then, intuitionistic fuzzy lower and upper approximations are constructed using intuitionistic fuzzy decision and parameterized intuitionistic fuzzy granule.
+
+Furthermore, a new dependency function is established.
+
+Moreover, a greedy forward algorithm is given using the proposed concept to calculate reduct set.
+
+Finally, this algorithm is applied to the benchmark datasets and a comparative study with the existing algorithm is presented.
+
+From the experimental results, it can be observed that the proposed model provides more accurate reduct set than existing model.

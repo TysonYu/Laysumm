@@ -1,0 +1,423 @@
+10.1016/j.jhep.2019.05.015
+
+FULLTEXT
+
+TITLE
+
+TOX promotes the exhaustion of antitumor CD8+ T cells by preventing PD1 degradation in hepatocellular carcinoma
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Compromised antitumor immunity characterized by the presence of dysfunctional CD8+ T cells in the tumor microenvironment (TME) is a hallmark of cancer.1,2
+
+Long-term persistence of tumor antigens and/or the suppressive TME drive the progression of antitumor effector CD8+ T cells into a functionally impaired state called ‘T cell exhaustion’.3
+
+Exhausted CD8+ T cells possess diminished effector functions and a distinct transcriptional profile relative to those of effector cells.
+
+Exhausted CD8+ T cells also express high amounts of inhibitory receptors, such as programmed cell death-1 (PD1), T-cell immunoglobulin and mucin-domain containing-3 (TIM3), lymphocyte-activation gene 3 (LAG3) and cytotoxic T lymphocyte-associated antigen-4 (CTLA4).
+
+In addition, exhausted CD8+ T cells show decreases in proliferative potential, diminished cytotoxic function, and reduced ability to produce effector cytokines.1,4
+
+T cell exhaustion plays a vital role in the development and progression of cancer, but it also provides a new avenue for cancer treatment.4
+
+It has been well documented that reversing T cell dysfunction can re-establish immune responses against virus or cancer cells.4
+
+This effect is also evident in cancer immunotherapies that target exhausted CD8+ T cells to reinvigorate their anti- tumorigenic function by blocking inhibitory receptors.5–7
+
+PARAGRAPH
+
+There are 2 major varieties of exhausted CD8+ T cells in TME: fully exhausted cells expressing high levels of PD1 on the cell surface, and partially exhausted cells with intermediate levels of PD1 cell surface expression.3
+
+The function of partially exhausted CD8+ T cells could be partially reversed by immune checkpoint blockers, such as anti-PD1 or anti-PDL1 antibodies, which are currently used to treat diverse cancers.3,8
+
+Recent studies have found several key genes that determine CD8+ T cell exhaustion, such as NFAT, BLIMP1, GATA3 and PSGL1,4,9–10 which represent potential targets for inhibiting CD8+ T exhaustion and/or restoring CD8+ T cell functionality in the partial or full exhaustion state.
+
+However, whether other factors are involved in regulating CD8+ T cell exhaustion in the TME remains largely unknown.
+
+PARAGRAPH
+
+Here, we found that thymocyte selection-associated high mobility group box protein (TOX) acted as an important regulator of the antitumor activity of CD8+ T cells in hepatocellular carcinoma (HCC).
+
+TOX was previously studied as a transcription factor in T cell differentiation and the progression of various cancers.11–13
+
+However, the role of TOX in CD8+ T cell antitumor immunity is largely unknown.
+
+During the development of T cells, TOX is transiently upregulated, but in mature T cells its expression declines.14
+
+We show that TOX is upregulated during CD8+ T cell exhaustion and has an important role in establishing the dysfunctional state of CD8+ T cells in HCC.
+
+SECTION
+
+Materials and methods
+
+SECTION
+
+Patients and tissue samples
+
+PARAGRAPH
+
+Fresh tumor tissues and peripheral blood were collected from 40 patients with HCC (Table S1) who underwent hepatectomy at the First Affiliated Hospital of Nanjing Medical University (Nanjing, China) and Nanjing Drum Tower Hospital (Nanjing, China).
+
+Patient samples (n = 4) information used for RNA-sequencing analysis was provided in Table S2.
+
+Peripheral blood was also collected from healthy donors in order to isolate naïve CD8+ T cells.
+
+The study was approved by the Institutional Ethics Committees of the First Affiliated Hospital of Nanjing Medical University and Nanjing Drum Tower Hospital and performed in accordance with the Helsinki Declaration and government policies.
+
+All participants signed a written informed consent form.
+
+PARAGRAPH
+
+For further details regarding the materials and methods used, please refer to the CTAT table and supplementary information.
+
+SECTION
+
+Results
+
+SECTION
+
+TOX is upregulated in exhausted TIL-CD8+ T cells
+
+PARAGRAPH
+
+CD8+ T cells infiltrating in liver cancer tissue exhibit distinct functional phenotypes,9 which can be defined based on expression of coinhibitory receptors.
+
+Previously, we reported that programmed cell death-1 (PD1) and T cell immunoglobulin- and mucin-domain-containing-3 (TIM3) characterize exhausted CD8+ T cells.15
+
+To better study T cell exhaustion, we divided the human tumor-infiltrating lymphocyte (TIL)-CD8+ T cells into 3 groups: full effector function (PD1−TIM3−), partial exhaustion (PD1intTIM3+) and severe exhaustion (PD1hiTIM3+).
+
+As expected, the 3 populations exhibited differential ability to produce effector cytokines (Fig. 1A).
+
+The 3 populations obtained from human HCC were subjected to transcriptome sequencing analysis, and we constructed a list of candidate exhaustion-associated genes (Table S3).
+
+Within this set, TOX expression differed significantly across the 3 types, with low amounts in PD1−TIM3− CD8+ T cells, intermediate amounts in PD1intTIM3+ CD8+ T cells and high amounts in PD1hiTIM3+ CD8+ T cells (Fig. 1B).
+
+TOX was previously reported as an exhaustion-associated gene in other studies (Fig. S1A, B).
+
+The expression of TOX was further defined in full effector, partially exhausted and severely exhausted human TIL-CD8+ T cells by flow cytometry (Fig. 1C).
+
+PARAGRAPH
+
+To determine whether TOX is specifically upregulated in exhausted CD8+ T cells, we compared its expression levels in mouse CD8+ T cells subject to acute and chronic infection.
+
+TOX expression was particularly upregulated in CD8+ T cells after LCMV-13-induced chronic infection but not LCMV-Arm-induced acute infection (Fig. S2A, B).
+
+Additionally, abundant TOX expression was also detected in exhausted CD8+ T cells (PD1+TIM3+) from different mouse tumor models, including models of colon cancer (MC38), melanoma (B16) and liver cancer (Hepa1-6) (Fig. S2C, D and Fig. 1D).
+
+Tumor-infiltrated CD8+ T cells in a diethylnitrosamine (DEN)-induced mouse HCC model also showed high TOX expression (Fig. 1E).
+
+PARAGRAPH
+
+Next, we asked whether the enrichment of TOX in exhausted CD8+ T cells was antigen dependent.
+
+To this end, CD8+ T cells from OT-1 mice (transgenic mice whose CD8+ T cells expressing a T-cell receptor (TCR) specific for ovalbumin (OVA) epitope 257–264) or wild-type (WT) mice were transferred into Cd8−/− mice bearing tumors (Hepa1-6).
+
+WT CD8+ T cells but not OVA-specific OT-1 CD8+ T cells from the tumor-bearing mice showed TOX upregulation (Fig. S2E).
+
+Collectively, these results showed that TOX expression appeared to be specifically enriched in exhausted CD8+ T cells subjected to chronic antigen stimulation.
+
+PARAGRAPH
+
+To investigate the effect of TOX on antigen-specific CD8+ T cell, we knocked down or overexpressed TOX in CD8+ T cells of CD45.1+ OT-I mice, which were then transferred into Cd8−/− mice implanted with B16-OVA cells (Fig. S3A).
+
+We found that TOX knockdown increased the antitumor effect of antigen-specific CD8+ T cells and ameliorated T cell exhaustion, whereas TOX overexpression compromised the antitumor effect of antigen-specific CD8+ T cells and drove T cell exhaustion, indicated by cell proliferation, apoptosis and ability to produce cytokines (Fig. S3B–D).
+
+Thus, the effect of TOX on CD8+ T cell responses are antigen-specific CD8+ T cell-intrinsic.
+
+SECTION
+
+TOX knockdown enhances the antitumor activity of CD8+ T cells
+
+PARAGRAPH
+
+To investigate the role of TOX in CD8+ T cell-mediated antitumor response, CD8+ T cells from TOX homozygous ToxL/LCd4Cre mice (Tox−/− CD8+ T cells), TOX heterozygotic ToxL/+Cd4Cre mice (Tox+/− CD8+ T cells) and control mice (Tox+/+ CD8+ T cells) were transferred into HCC-bearing Cd8−/− mice (Fig. S4A, B).
+
+Compared to mice that received Tox+/+ CD8+ T cells, mice that received Tox+/− CD8+ T cells exhibited an obvious delay in tumor growth, while Tox−/− CD8+ T cells exhibited accelerated tumor growth (Fig. 2A).
+
+Interestingly, we found that Tox+/− CD8+ T cells exhibited lower PD1 expression relative to Tox+/+ CD8+ T cells.
+
+Tox−/− CD8+ T cells had shown a further reduction of PD1 (Fig. 2B and Fig. S4C).
+
+In TOX-deficient cells, increased expression of Eomes and T-bet were observed.
+
+By contrasting components (CD107a, GZMB, IFN-γ and TNF-α), we found that the effector response was upregulated in Tox+/− CD8+ T cells but downregulated in Tox−/− CD8+ T cells (Fig. 2C, D).
+
+PARAGRAPH
+
+Next, we probed the proliferative status of the transferred CD8+ T cells.
+
+Compared to Tox+/+ CD8+ T cells, Tox+/− CD8+ T cells showed increased tumor infiltration, whereas Tox−/− CD8+ cells accumulated to a much smaller extent (Fig. 2E).
+
+And a more proliferative but less apoptotic state existed in Tox+/− CD8+ T cells compared to Tox+/+ or Tox−/− CD8+ T cells (Fig. 2F).
+
+Furthermore, Tox−/−, Tox+/− and Tox+/+ CD44hiCD8+ T cells from the tumors of Cd8−/− mice were isolated and then transferred into naïve C57BL/6J (CD45.1+) mice.
+
+Consistently, we found that Tox+/− CD8+ T showed pronounced number and decreased apoptotic level compared to Tox+/+ or Tox+/− CD8+ T cells (Fig. 2G, H).
+
+These data indicated Tox knockdown reduced the apoptosis of tumor-infiltrating CD8+ T cells, while complete deletion of the TOX gene drives the apoptosis of tumor-infiltrating CD8+ T cells.
+
+SECTION
+
+TOX knockdown alleviates CD8+ T cell exhaustion and improves the response to anti-PD1 therapy in a PDX HCC model
+
+PARAGRAPH
+
+We sought to explore whether the knockdown of TOX could influence the antitumor effect of TIL-CD8+ T cells.
+
+TIL-CD8+ T cells from patients with HCC (n = 5) were pretreated with a control interfering lentivirus (ShRNA-NC) or an interfering lentivirus targeting the TOX gene (ShRNA-TOX) (Fig. S5A, B); the cells were subsequently adoptively transferred into immunocompromised NCG mice harboring HCC PDX with or without anti-PD1 therapy (Fig. 3A, B).
+
+We found that TOX knockdown CD8+ T cells limited the growth of HCC tumors, with anti-PD1 therapy synergistically restricting tumor growth (Fig. 3C).
+
+Additionally, ShRNA-TOX-treated CD8+ T cells presented significantly increased production of the effector cytokines IFN-γ and TNF-α (Fig. 3D) and increased infiltration of CD8+ T cells in tumors; these effects were further enhanced upon anti-PD1 therapy (Fig. 3E).
+
+Additionally, the shRNA-mediated reduction of TOX expression inhibited TIL-CD8+ T cell apoptosis and increased the proliferation (Fig. 3F).
+
+PARAGRAPH
+
+We also overexpressed TOX with a lentivirus (Lv-TOX) in naïve CD8+ T cells isolated from the peripheral blood of healthy donors (n = 5), which were then incubated with HCC antigen-loaded dendritic cells (DCs) to obtain antigen-specific CD8+ T cells (Fig. 4A).
+
+These CD8+ T cells were then transferred into HCC tumor-bearing NOD/SCID mice (Fig. S6A, B and Fig. 4A, B).
+
+We found that the overexpression of TOX in vitro did not change the level of inhibitory receptors or affect proliferation, apoptosis or the production of effector cytokines (Fig. S6C, D).
+
+In vivo experiments showed that control lentivirus (Lv-NC)-treated CD8+ T cells markedly slowed tumor growth; however, this antitumor effect was not observed in mice treated with TOX-overexpressing CD8+ T cells.
+
+Anti-PD1 therapy increased the antitumor effect of Lv-NC-treated CD8+ T cells, while the compromised antitumor effect of Lv-TOX-treated CD8+ T cells was not restored or enhanced (Fig. 4C).
+
+Moreover, the overexpression of TOX significantly reduced the production of the effector cytokines IFN-γ and TNF-α (Fig. 4D).
+
+And Lv-TOX-mediated TOX overexpression increased apoptosis and inhibited proliferation in TIL-CD8+ T cells (Fig. 4E).
+
+SECTION
+
+TOX actively regulates the PD1-related signaling pathway in TIL-CD8+ T cells
+
+PARAGRAPH
+
+To further understand the underlying mechanism of how TOX regulates the function of TIL-CD8+ T cells, Lv-NC- and Lv-TOX-treated CD8+ T cells derived from human peripheral blood were subjected to RNA-sequencing analysis (n = 3) (Fig. 5A).
+
+Gene set enrichment analysis showed that genes associated with T cell development and differentiation were enriched in Lv-TOX-transduced CD8+ T cells, indicating the critical role of TOX in regulating the maturation of T cells (Table S4).
+
+Moreover, CD8+ T cell-related Gene Ontology (GO) terms analysis showed that TOX overexpression affected changes in the expression of some T cell proliferation- and activation-associated genes (Fig. 5B).
+
+Additionally, TOX-enhanced genes showed significant enrichment in gene sets related to PD1 signaling and TOX-inhibited genes were significantly enriched in the PI3K pathway (Fig. 5C).
+
+Also, the Ras signaling pathway and the PI3K-Akt pathway were markedly inhibited in TOX-overexpressing TIL-CD8+ T cells according to KEGG pathway enrichment analysis (Fig. 5D).
+
+The Ras and PI3K-Akt pathways are well recognized downstream mediators of PD1 signaling during T cell proliferation and antiviral and antitumor responses.
+
+Therefore, we evaluated the levels of Ras and PI3K-Akt pathway components in TOX-overexpressing and TOX-knockdown TIL-CD8+ T cells.
+
+Thus, TOX seemed to interrupt the Ras and PI3K-Akt pathways (Fig. 5E).
+
+SECTION
+
+TOX facilitates endocytic recycling of PD1 in TIL-CD8+ T cells
+
+PARAGRAPH
+
+So far, PD1 serves as a promising candidate of molecular underpinnings of TOX-mediated antitumor response.
+
+In this regard, we firstly examined PD1 expression in TOX-knockdown or TOX-overexpressing cells.
+
+To our surprise, both PD1 protein or mRNA level remain intact in TOX-overexpressing human naïve CD8+ T cells (Fig. S7A, B), whereas TOX regulated PD1 expression at the protein level but not mRNA level in human TIL-CD8+ T cells (Fig. 6A and Fig. S7C, D).
+
+These results suggested that TOX may regulate PD1 expression post-transcriptionally.
+
+PARAGRAPH
+
+We next examined whether TOX regulates degradation of PD1 in the proteasome or by lysosomes.
+
+MG132, a specific proteasome inhibitor, did not protect the PD1 protein from degradation in human TIL-CD8+ T cells following TOX knockdown, suggesting a lack of proteasome involvement (Fig. S7E).
+
+However, lysosome inhibitors protected PD1 protein from degradation in human TIL-CD8+ T cells upon TOX knockdown (Fig. 6B–D).
+
+Nonetheless, cell surface PD1 expression was not restored in TOX-depleted human TIL-CD8+ T cells (Fig. 6E).
+
+Additionally, we found TOX knockdown markedly accelerated the degradation of antibody-labeled PD1 on the cell surface (Fig. 6F).
+
+Thus, PD1 may be sequestered in the cytoplasm and could not be transferred to the cell surface in the absence of TOX.
+
+PARAGRAPH
+
+Gene set enrichment analysis showed TOX-associated genes were significantly enriched in the endosome gene set (Fig. S8A), suggesting the involvement of TOX in endosome-related processes.
+
+Besides, we also found that PD1 existed in the recycling endosome (Fig. S8B), suggesting the potential involvement of endocytic recycling in the regulation of PD1 degradation and/or translocation.
+
+When endocytic recycling was inhibited with primaquine, a rapid loss of PD1 on the surface of control human TIL-CD8+ T cells was observed, which suggested that a large portion of PD1 on the cell surface was internalized and recycled.
+
+In TOX-knockdown cells, primaquine did not decrease the recycling of PD1, which implied the absence of TOX reduced PD1 levels by impairing the endocytic recycling of PD1 to the membrane (Fig. 7A).
+
+Additionally, in an established recycling assay, in the absence of TOX, the recycling of PD1 was largely impaired (Fig. 7B).
+
+These results indicated that in TOX-deficient human TIL-CD8+ T cells, PD1 was not efficiently recycled and was instead sorted into lysosomes for degradation.
+
+Additionally, the knockdown of TOX did not change major histocompatibility complex class I on the cell surface, indicating that the recycling of PD1 was specifically regulated by TOX (Fig. S8C).
+
+PARAGRAPH
+
+Western blot analysis showed TOX mainly located in the TIL-CD8+ T cell nucleus and cytoplasm.
+
+In contrast, PD1 was located on the cell membrane and in the cytoplasm (Fig. 7C).
+
+Co-immunoprecipitation assay indicated the binding of TOX and PD1 in cytoplasmic protein extracts, suggesting that TOX may interact with PD1 in the cytoplasm (Fig. 7D).
+
+Additionally, immunofluorescence staining and confocal analysis showed that TOX can co-localize with PD1 and endosome (indicated by RAB11 and TFRC) in cytoplasm (Fig. 7E).
+
+In summary, TOX may bind to PD1 in the cytoplasm and prevent PD1 from being targeted for lysosome-mediated degradation, resulting in a high surface PD1 in TIL-CD8+ T cells.
+
+SECTION
+
+A high TOX level in peripheral CD8+ T cells predicts poor prognosis in patients with HCC
+
+PARAGRAPH
+
+Expression of TOX was further analyzed in 40 patients with HCC that had undergone hepatectomy.
+
+Interestingly, patients with a high TOX expression in TIL-CD8+ T cells also showed high TOX expression in peripheral CD8+ T cells (Peri-CD8) (Fig. 8A, B and Fig. S9A) Also, we found that the percentage of exhausted (PD1+TIM3+) CD8+ T cells was significantly higher in Peri-CD8-TOXhigh group (Fig. 8C and Fig. S9C).
+
+These results suggested that the level of TOX in peripheral CD8+ T cells may reflect the immune condition inside the tumor.
+
+PARAGRAPH
+
+Recently, TCF1+PD1+ CD8+ T cells in tumor tissues were reported to predicted a better anti-PD1 response and related to increased survival rate in cancer patients.16,17
+
+We detected the number and percentage of TCF1+PD1+ CD8+ T cells in tumor-infiltrating Tox+/− and Tox+/+ CD8+ T cells, which showed the Tox+/− CD8+ T cells have a pronounced tumor-infiltrating TCF1+PD1+ CD8+ T cells.
+
+(Fig. S10A).
+
+In human HCC infiltrating CD8+ T cells, consistently, the TOXlow CD8+ T cells were more poised to adopt the TCF1+PD1+ CD8+ T cell fate when compared to TOXhigh CD8+ T cells (Fig. S10B).
+
+Also, in Peri-CD8-TOXlow group, the percentage of tumor-infiltrating TCF1+PD1+ CD8+ T cells is higher (Fig. 8D).
+
+The above results indicated potential correlation of peripheral TOX expression and the clinical response to PD1 blockade therapy in patients with HCC.
+
+PARAGRAPH
+
+We also found that high expression of TOX in peripheral CD8+ T cells was correlated with larger tumor size, poorer differentiation and later TNM stages (Table S1).
+
+Additionally, tumor-infiltrating T cells and CD8+ T cells in tumor tissues were detected by immunohistochemistry.
+
+Compared to Peri-TOXlow group, fewer infiltrated T cells and CD8+ T cells were observed in tumors from the Peri-TOXhigh group (Fig. S10C and Fig. 8E).
+
+SECTION
+
+Discussion
+
+PARAGRAPH
+
+Functional exhaustion of antitumor CD8+ T cells is a major cause of inefficient antitumor immunity.1,2,18
+
+Development of strategies to enhance the function of CD8+ T cells is the core of cancer immunotherapy.
+
+Targeting key exhaustion-associated genes can restore the antitumor function of CD8+ T cells or improve the therapeutic efficiency of immune checkpoint blockade in the treatment of tumors.4,9,10,19–20
+
+Here, we showed that exhausted HCC-infiltrated CD8+ T cells expressed high amounts of TOX.
+
+Although, TOX is primarily a nuclear HMG-related protein, we found that TOX prevented PD1 from being targeted for lysosome-mediated degradation and promoted the endocytic recycling of PD1 to the cell surface.
+
+The knockdown of TOX in CD8+ T cells enhanced the antitumor effect of CD8+ T cells, which showed synergistic effect with PD-1 blockade therapy.
+
+Thus, TOX may serve as a promising target in reversing T cell exhaustion and boosting antitumor immunity.
+
+PARAGRAPH
+
+Abundant expression of PD1 is a core feature of exhausted TIL-CD8+ T cells, and blocking the PD1 signaling improves CD8+ effector T cell function and reduces tumor burden.2,21
+
+In antigen-activated T cells, PD1 expression is primarily regulated by TCR engagement, through a process involving diverse transcription factors, such as NFATC1, FOXO1, T-bet, and BLIMP1.22,23
+
+However, it was also reported that PD1 expression in exhausted T cells can be sustained after antigen withdrawal or clearance, suggesting TCR-independent mechanisms also regulate PD1 during T cell exhaustion.24
+
+Studies using ATAC-seq showed a distinct pattern of accessibility for the Pdcd1 locus in exhausted T cells, suggesting that PD1 is regulated through epigenetic modifications.25,26
+
+A recent study reported that FBXO38 mediates PD-1 ubiquitination and regulates antitumor immunity of T cells, which confirmed the important role of post-transcriptional regulation of PD1 in antitumor immunity.27
+
+Nevertheless, few studies have focused on post-transcriptional and post-translational regulation of PD1 in human cancers.
+
+We now show that in exhausted CD8+ T cells, PD1 internalized by endosomes was recycled back to the cell surface by endocytic recycling rather than delivered to lysosomes for degradation.
+
+Diverse membrane proteins, such as EGFR and PDL1, can be regulated by endocytic recycling.28,29
+
+Increased endocytic recycling of PD1 provided a possible explanation for its high and sustained expression on the TIL-CD8+ T cell surface.
+
+These findings provide new strategies for targeting PD1-mediated T cell dysfunction.
+
+PARAGRAPH
+
+Notably, during T cell development, TOX is transiently upregulated during β-selection and positive thymic selection; however, TOX expression declines upon single-positive T cells (CD4+/CD8+) establishment.14,30
+
+Strikingly, TOX is highly enriched in exhausted CD8+ T cells.
+
+Our data suggest that the upregulation of TOX in exhausted CD8+ T cells may be due to chronic antigen-TCR stimulation.
+
+However, the direct regulation of TOX expression during T cell exhaustion awaits further investigation.
+
+PARAGRAPH
+
+Interestingly, we found that when TOX was completely deleted in CD8+ T cells before maturation, the number of TIL-CD8+ T cells was markedly reduced, accompanied by inhibited proliferation and increased apoptosis; whereas TOX knockdown increased proliferation and reduced apoptosis in TIL-CD8+ T cells.
+
+However, in activated CD8+ T cells, complete or partial deletion of TOX increased proliferation and reduced apoptosis, which led to improved antitumor immunity.
+
+These results also indicated that a baseline level of TOX expression in CD8+ T cells before maturation is essential for its maintenance within the TME, while high TOX expression abrogated antitumor CD8+ T cell immunity.
+
+PARAGRAPH
+
+Though immune checkpoint inhibitors have achieved great results in the treatment of certain cancers (such as melanoma and lung cancer), non-response in these cancers and limited efficacy in other cancer types remain obstacles.31,32
+
+In a recent study,33 the authors found that PD1 expression in tumors cannot predict PD1 blocker response in patients with HCC.
+
+However, another study34 found HCC with a discrete population of PD1hiCD8+ T cells had higher levels of predictive biomarkers of response to anti-PD1 therapy.
+
+These studies suggested that PD1 expression solely was not an accurate biomarker of T cell exhaustion and the response to anti-PD1 therapy.
+
+Therefore, in our study, we used PD1 in combination with TIM3 expression to characterize CD8+ T cell exhaustion, which may better reflect the immune condition inside HCC tissue.
+
+Severely exhausted CD8+ T cells with high levels of PD1 do not respond to anti-PD1 therapy, however, partially exhausted CD8+ T cells with high levels of PD1 on the cell surface are responsive to anti-PD1 therapy.2,8,35
+
+Our findings suggested that the downregulation of TOX in TIL-CD8+ T cells ameliorated the exhaustion state of CD8+ T cells and reduce cell surface PD1 to an intermediate level, thus enhancing the CD8+ T cells response to anti-PD1 therapy.
+
+Therefore, downregulating TOX expression in CD8+ T cells may offer a new strategy to maximize immunotherapeutic efficacy in patients with cancer.
+
+SECTION
+
+Financial support
+
+PARAGRAPH
+
+This work was supported by grants from the National Key Research and Development Program of China (grant number: 2016YFC0905900 to BS); the State Key Program of National Natural Science Foundation (grant number: 81430062 to BS); Innovative Research Groups of National Natural Science Foundation (grant number: 81521004 to BS).
+
+BS is Yangtze River scholars Distinguished Professor.
+
+SECTION
+
+Conflict of interest
+
+PARAGRAPH
+
+The authors declare no conflicts of interest that pertain to this work.
+
+PARAGRAPH
+
+Please refer to the accompanying ICMJE disclosure forms for further details.
+
+SECTION
+
+Author’s contributions
+
+PARAGRAPH
+
+Study concept and design: BS, XW, QH, HS.
+
+Acquisition of data: XW, QH, HS, AX, WT, WY.
+
+Statistical analysis and interpretation of data: XW, QH, HS, AX.
+
+Drafting of the manuscript: XW, QH.
+
+Obtained funding: BS.
+
+Study supervision: BS.

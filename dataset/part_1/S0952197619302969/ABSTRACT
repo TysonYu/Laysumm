@@ -1,0 +1,27 @@
+10.1016/j.engappai.2019.103369
+
+ABSTRACT
+
+TITLE
+
+A population-based iterated greedy algorithm for no-wait job shop scheduling with total flow time criterion
+
+PARAGRAPH
+
+The no-wait job shop where no waiting time is allowed between two successive operations of a job has a strong industrial background, especially in steel-making industry and concrete manufacturing.
+
+This study formulates the no-wait job shop problem with a total flow time criterion based on time difference and decomposes the problem into timetabling and sequencing subproblems.
+
+Several timetabling methods are designed for the total flow time criterion to generate a sequence timetable.
+
+By adopting favourable features of the iterated greedy algorithm, the population-based iterated greedy (PBIG) algorithm for the sequencing subproblem is proposed.
+
+The individuals in the population evolve by means of a destruction and construction perturbator and an insertion-based local search.
+
+In each iteration, a tournament selection is designed to replace a relatively worse solution.
+
+In order to generate starting solutions with a certain quality and diversity, the Nawaz–Enscore–Ham-based heuristics for flow shop scheduling are extended in no-wait job shops.
+
+In computational experiments based on well-known benchmark instances, timetabling methods are investigated, and it is shown that the left timetabling is superior to other timetabling methods for the total flow time minimisation.
+
+Computational results also show that the proposed algorithm significantly outperforms several state-of-the-art metaheuristics, and it could be applicable to practical production environment.

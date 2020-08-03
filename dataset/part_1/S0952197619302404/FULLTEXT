@@ -1,0 +1,661 @@
+10.1016/j.engappai.2019.103273
+
+FULLTEXT
+
+TITLE
+
+General structure of Interval Type-2 fuzzy PI/PD controller of Takagi–Sugeno type
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Over the years fuzzy controllers have gained importance due to their ability to control complex dynamical systems without precise knowledge of the processes.
+
+Initially fuzzy control activity started with type-1 fuzzy sets and then has been extended gradually to deal with IT2 fuzzy sets.
+
+Both type-1 and IT2 fuzzy controllers are capable of handling complex control situations while the problem of uncertainty is addressed only with IT2 fuzzy sets.
+
+IT2 fuzzy sets have a very unique property that allows incorporating the uncertainty in the membership function, which is termed as Footprint of Uncertainty (FoU).
+
+IT2 fuzzy controllers (Wu and Tan, 2006, 2007) have been developed by modifying type-1 fuzzy controllers and their performance has been evaluated.
+
+The IT2 fuzzy controllers were proved to be superior over type-1 fuzzy controllers but this superiority cannot be guaranteed always.
+
+Hence a thorough understanding and rigorous mathematical analysis are required to develop a strong background for IT2 fuzzy controllers.
+
+Also a thorough understanding of FoU is required to analyze the design aspects of IT2 fuzzy controllers.
+
+PARAGRAPH
+
+Mathematical modeling is one of the few effective means to obtain precise and comprehensive understanding of fuzzy controllers.
+
+It provides us ample information about the behavior of fuzzy controllers.
+
+The first few models of Mamdani type fuzzy PI controller were proposed (Ying, 1993) way back in 1993.
+
+Since then the area of mathematical modeling of fuzzy controllers has been an active domain of interest.
+
+With the introduction of TS fuzzy modeling (Takagi and Sugeno, 1985) in 1985, mathematical modeling of fuzzy controllers was extended to the simplest type-1 fuzzy PI (Ying, 1998a) and fuzzy PD (Ying, 1998b) controllers of TS type.
+
+Subsequently, extensive work was done by several researchers in this domain over the years (see for example Mohan and Sinha, 2008; Mohan and Ghosh, 2012; Raj and Mohan, 2018b).
+
+Recently, Raj and Mohan (2019) proposed four new models of the simplest type-1 fuzzy PI/PD controllers with a modified rule base consisting of only two rules with four tuneable parameters.
+
+This resulted in the reduction of number of tuneable parameters of the simplest type-1 fuzzy controllers.
+
+PARAGRAPH
+
+With the introduction to IT2 fuzzy logic systems, there was a quantum shift towards the development of fuzzy control theory.
+
+Researchers came up with several design methodologies for IT2 fuzzy logic controllers.
+
+A design method for IT2 fuzzy PI/PD controllers was developed in Aliasghory et al. (2013) based on the theory of linear PI/PD control.
+
+Robust design methods for IT2 fuzzy controllers were presented (Kumbasar, 2016) by explicitly deriving the fuzzy mapping of IT2 fuzzy logic controllers.
+
+A design methodology for IT2 fuzzy controllers was proposed (Kumbasar et al., 2017) by obtaining the sub-models of IT2 fuzzy models and then finding the inverse of each activated sub-model.
+
+Bee colony optimization algorithm was applied (Castillo and Amador-Angulo, 2018) for designing and stabilizing a generalized type-2 fuzzy controller.
+
+As IT2 fuzzy controllers were gaining popularity, some comparisons (Wu, 2012; Castillo et al., 2016) were made with type-1 fuzzy controllers.
+
+In most cases IT2 fuzzy controllers outperform type-1 fuzzy controllers in handling disturbances and uncertainties.
+
+However, the high computational cost hinders the implementation of IT2 fuzzy controllers.
+
+Hence, a few methods were proposed (Wu, 2013; Melin et al., 2019) to reduce the high computational cost associated with the implementation of IT2 fuzzy controllers.
+
+PARAGRAPH
+
+Earlier IT2 fuzzy controllers were treated as black-boxes since their mathematical models were unavailable.
+
+As a result of this, precise and thorough understanding of IT2 fuzzy controllers became difficult.
+
+Nonetheless, some researchers took initiative and came up with novel models of the simplest IT2 fuzzy controllers of Mamdani type (Du and Ying, 2010; Nei and Tan, 2012).
+
+Later, Zhou and Ying (2013) proposed a method to obtain the structure of a broad class of IT2 Mamdani fuzzy controllers.
+
+Another structure of Mamdani type IT2 fuzzy controllers was also reported in Mendel et al. (2014).
+
+All these fuzzy controllers were developed using four rules, minimum triangular norm, two IT2 input fuzzy sets and four output singletons.
+
+It is noted that using four rules increases the number of tuneable parameters of fuzzy controllers and thereby the computational complexity.
+
+Later a mathematical model of a typical IT2 fuzzy controller of TS type was presented (Zhou and Ying, 2017), and the role of FoU in shaping the structure of the controller was discussed.
+
+Very recently, selecting appropriate shapes of FoU for different control requirements has been presented (Yip et al., 2019).
+
+Further it has been shown in Zhou et al. (2019) that the analytical structure of IT2 fuzzy controllers becomes a constant or piecewise linear when FoU is maximum.
+
+PARAGRAPH
+
+In general, fuzzy controllers of TS type are computationally more attractive than Mamdani type since TS rule base employs linear functions of inputs whereas Mamdani rule base employs fuzzy sets.
+
+Hence inferencing is not required in the case of TS fuzzy systems which makes it computationally attractive.
+
+Analysis and design of IT2 fuzzy PI/PD controllers of TS type are essential.
+
+In this paper we make an attempt to generalize the analytical structure of IT2 fuzzy PI/PD controllers.
+
+A similar kind of study was performed by the authors in Raj and Mohan (2018a) where mathematical models of fuzzy controllers were developed using type-1 fuzzy sets.
+
+Here we extend the mathematical modeling of fuzzy controllers using IT2 fuzzy sets which provide an additional degree of freedom in terms of FoU.
+
+FoU allows incorporating uncertainty in the membership functions, making the controller structure more robust.
+
+We consider multiple IT2 input fuzzy sets with trapezoidal/triangular membership functions.
+
+The analytical structure is general in the sense that the number of fuzzy sets on the input variables and the shape of the membership functions can be varied according to requirement.
+
+Three rules capture the entire control strategy efficiently and reduce the overall number of tuneable parameters of the fuzzy controller.
+
+Min triangular norm and BS triangular co-norm are used for performing logical conjunction and disjunction in the rule base.
+
+We use KM type reducer and WA defuzzifier to obtain the general analytical structure of IT2 fuzzy PI/PD controller.
+
+An analysis of the control surfaces of type-1 fuzzy (Raj and Mohan, 2018a) and IT2 fuzzy controllers is presented which provides insights into the performance of the fuzzy controllers.
+
+A comparative analysis of analytical structures and the associated computational burdens of type-1 and IT2 fuzzy controllers are also discussed.
+
+A relation between type-1 and IT2 fuzzy controllers is established.
+
+It is shown that the controller model in Raj and Mohan (2018a) is a special case of the controller model proposed in this paper.
+
+The simulation study on control of three nonlinear dynamical systems validates the performance of IT2 fuzzy PI/PD controllers.
+
+PARAGRAPH
+
+Rest of this paper is organized as follows: Section 2 deals with the configuration of IT2 fuzzy PI/PD controllers.
+
+The derivation and analysis of the analytical structure of IT2 fuzzy controller are discussed in Section 3.
+
+The comparison of type-1 and IT2 fuzzy controllers is presented in Section 4.
+
+Section 5 presents the simulation studies with the proposed controller.
+
+The last section concludes the paper.
+
+SECTION
+
+Configuration of the IT2 fuzzy PI/PD controller
+
+PARAGRAPH
+
+In this section we briefly present all the components of IT2 fuzzy PI/PD controller.
+
+The basic block diagram of a closed-loop control system is shown in Fig. 1(a).
+
+The digital controller shown in Fig. 1(a) may be a linear controller or type-1/IT2 fuzzy controller.
+
+A typical block diagram of a TS IT2 fuzzy controller is shown in Fig. 1(b).
+
+PARAGRAPH
+
+Error e(k) and change of error Δe(k) are the two inputs to the fuzzy controller and are defined as e(k)=r(k)−y(k),Δe(k)=e(k)−e(k−1)where r(k) is the reference command and y(k) is the process output at kth instant.
+
+In Fig. 1(b), Δus(k) and us(k) represent the scaled outputs of fuzzy PI and PD controllers, respectively.
+
+SPI and SPD are the scaling factors for control outputs of fuzzy PI and PD controllers, respectively.
+
+In general, Δus(k) or us(k) is given by Δus(k)orus(k)=f(e(k),Δe(k))The function f is configured by proper choice of fuzzy sets, membership functions, rule base, defuzzification strategies, and other factors.
+
+These factors are discussed in detail in the following subsections.
+
+SECTION
+
+Fuzzification
+
+PARAGRAPH
+
+Fuzzification of the input variables is presented in this subsection.
+
+The inputs e(k) and Δe(k) are fuzzified with multiple IT2 fuzzy sets having trapezoidal/triangular membership functions.
+
+The multiple IT2 fuzzy sets are shown in Fig. 2.
+
+Each IT2 fuzzy set is represented by a primary type-1 fuzzy set (shown in dotted lines) having lower and upper bounds of any arbitrary value inside its Universe of Discourse (UoD).
+
+The lower and upper bounds define the membership interval for the fuzzy set.
+
+The area inside the bounds is termed as Footprint of Uncertainty (FoU) which is a desirable property of the type-2 fuzzy sets.
+
+PARAGRAPH
+
+Now, e(k) and Δe(k) are respectively fuzzified with N1=2J1+1 and N2=2J2+1 IT2 fuzzy sets (where J1,J2≥1) having trapezoidal membership functions. 2B1, 2B2
+
+and 2A1, 2A2 are, respectively, the lower and upper sides of the type-1 trapezoids for e(k) and Δe(k).
+
+FoU of the IT2 fuzzy sets is defined by θ1 and θ2 where θ1=P1B1−A1 and θ2=P2B2−A2.
+
+The trapezoidal membership functions can be reduced to triangular ones if A1=A2=0.
+
+The central value of the first fuzzy set on e(k) and Δe(k) is given by W1=A1+B1 and W2=A2+B2, respectively.
+
+The fuzzy sets are uniformly distributed over the UoDs of e(k) and Δe(k) i.e [−l1,l1] and [−l2,l2], respectively, where l1=J1W1 and l2=J2W2.
+
+The mathematical description of the ith and jth fuzzy sets on e(k) and Δe(k) is as follows: μiL(e)=e(k)−iW1+B1−P1B1−A1,iW1−B1+P1≤e(k)≤iW1−A11,iW1−A1≤e(k)≤iW1+A1−e(k)+iW1+B1−P1B1−A1,iW1+A1≤e(k)≤iW1+B1−P1μiU(e)=e(k)−iW1+B1+P1B1−A1,iW1−B1−P1≤e(k)≤iW1−A1−P11,iW1−A1−P1≤e(k)≤iW1+A1+P1−e(k)+iW1+B1+P1B1−A1,iW1+A1+P1≤e(k)≤iW1+B1+P1μjL(Δe)=Δe(k)−jW2+B2−P2B2−A2,jW2−B2+P2≤Δe(k)≤jW2−A21,jW2−A2≤Δe(k)≤jW2+A2−Δe(k)+jW2+B2−P2B2−A2,jW2+A2≤Δe(k)≤jW2+B2−P2μjU(Δe)=Δe(k)−jW2+B2+P2B2−A2,jW2−B2−P2≤Δe(k)≤jW2−A2−P21,jW2−A2−P2≤Δe(k)≤jW2+A2+P2−Δe(k)+jW2+B2+P2B2−A2,jW2+A2+P2≤Δe(k)≤jW2+B2+P2
+
+SECTION
+
+Rule base
+
+PARAGRAPH
+
+In this subsection we present the rule base of the proposed IT2 fuzzy controller.
+
+The control strategy is incorporated in the rule base using IF−THEN statements.
+
+A generalized rule base for type-1 fuzzy PI/PD controller was proposed in Raj and Mohan (2018a).
+
+The rule base was considered in a way to reduce the number of tuneable parameters of fuzzy controller.
+
+The control rules for type-1 fuzzy PI controller are as given below:
+
+PARAGRAPH
+
+r1: IF e(k) is Ei AND Δe(k) is ΔEj THEN Δu1s(k)=a|i+j|e(k)+b|i+j|Δe(k)
+
+PARAGRAPH
+
+r2: IF (e(k) is Ei AND Δe(k) is ΔEj+1) OR (e(k) is Ei+1 AND Δe(k) is ΔEj) THEN Δu2s(k)=a|i+j+1|e(k)+b|i+j+1|Δe(k)
+
+PARAGRAPH
+
+r3: IF e(k) is Ei+1 AND Δe(k) is ΔEj+1 THEN Δu3s(k)=a|i+j+2|e(k)+b|i+j+2|Δe(k)
+
+PARAGRAPH
+
+where Ei(ΔEj) and Ei+1(ΔEj+1) are the ith(jth) and (i+1)th((j+1)th) fuzzy sets on e(k)(Δe(k)), i=−J1,…,−1,0,1,…,J1−1 and j=−J2,…,−1,0,1,…,J2−1.
+
+Δu1s(k), Δu2s(k), and Δu3s(k) are the scaled incremental control efforts and ai,j and bi,j are the design parameters of the fuzzy controller.
+
+Now, extending the above rule base to IT2 fuzzy PI controller using Min triangular norm, we have
+
+PARAGRAPH
+
+r1: IF [min(μiL(e),μjL(Δe)), min(μiU(e),μjU(Δe))] THEN Δu1s(k)=a|i+j|e(k)+b|i+j|Δe(k)
+
+PARAGRAPH
+
+r2: IF [min(μiL(e),μj+1L(Δe)), min(μiU(e),μj+1U(Δe))] OR [min(μi+1L(e),μjL(Δe)), min(μi+1U(e),μjU(Δe))] THEN Δu2s(k)=a|i+j+1|e(k)+b|i+j+1|Δe(k)
+
+PARAGRAPH
+
+r3: IF [min(μi+1L(e),μj+1L(Δe)), min(μi+1U(e),μj+1U(Δe))] THEN Δu3s(k)=a|i+j+2|e(k)+b|i+j+2|Δe(k)
+
+PARAGRAPH
+
+The firing intervals [μ1L,μ1U] and [μ3L,μ3U] for rules 1 and 3, respectively, are evaluated using only Min triangular norm.
+
+In rule 2, we apply BS triangular co-norm along with Min triangular norm to evaluate the firing interval [μ2L,μ2U].
+
+Min triangular norm and BS triangular co-norm are defined as follows:
+
+PARAGRAPH
+
+PARAGRAPH
+
+Bounded Sum (BS): s(μA(x),μB(y))=min(1,μA(x)+μB(y))
+
+PARAGRAPH
+
+In the next Section 2.3 we present the input plane formed by the inputs e(k) and Δe(k).
+
+PARAGRAPH
+
+SECTION
+
+Input plane
+
+PARAGRAPH
+
+In this subsection we obtain the input plane which is formed by the inputs e(k) and Δe(k).
+
+At any sampling instant kT the inputs must satisfy iW1≤e(k)≤(i+1)W1 and jW2≤Δe(k)≤(j+1)W2.
+
+A rectangle is configured with the intervals [iW1,(i+1)W1] and [jW2,(j+1)W2] as shown in Fig. 3.
+
+The rectangle is divided into a number of regions.
+
+Mathematical models of the fuzzy controller are obtained in each of these regions.
+
+The application of triangular norm and co-norm to each rule gives rise to a lower subspace and an upper subspace.
+
+These subspaces for all the three rules are depicted in Figs. 3–5.
+
+The regions in these partitioned subspaces have different firing relations based on the input membership functions.
+
+Now merging all the lower (upper) subspaces generated due to each of the rules results in a combined lower (upper) subspace, as shown in Fig. 6.
+
+Finally on merging the combined lower and upper subspaces, we obtain the overall input plane or the input combinations as shown in Fig. 7.
+
+Type reduction and defuzzification use all the elements of firing set simultaneously, thereby causing superimposition of subspaces.
+
+The input plane is obtained under the assumption that θ1=θ2=θ.
+
+In Figs. 3–5, EiL(ΔEjL) and EiU(ΔEjU) are the ith(jth) lower and upper fuzzy sets on e(k)(Δe(k)).
+
+Similarly Ei+1L(ΔEj+1L) and Ei+1U(ΔEj+1U) are the (i+1)th((j+1)th) lower and upper fuzzy sets on e(k)(Δe(k)).
+
+PARAGRAPH
+
+In Fig. 7 the input plane is partitioned into 70 regions based on the input combinations.
+
+Applying the Min triangular norm and BS triangular co-norm, the resultant membership degrees of the antecedent parts of the rule base are evaluated.
+
+The resultant membership functions [μ1L,μ1U] for rule 1, [μ2L,μ2U] for rule 2, and [μ3L,μ3U] for rule 3 are given in Table 1.
+
+Mathematical models of the fuzzy controller are obtained in each of these regions using the results in Table 1.
+
+Derivation of the input–output structure of fuzzy controller is discussed in detail in Section 3.
+
+SECTION
+
+PARAGRAPH
+
+Type reduction and defuzzification
+
+PARAGRAPH
+
+KM type reducer and WA defuzzifier are considered in this paper.
+
+The type reducer produces a pair of output expressions, the lower (uL) and the upper (uU) output expressions.
+
+Since the type reducer utilizes the elements of firing set to produce a scaled output, we get different outputs for different input combinations.
+
+In this paper, we follow a simple approach to obtain uL and uU as given by Δuxs=μ1xΔu1s+μ2xΔu2s+μ3xΔu3sμ1x+μ2x+μ3xwhere x = lower (L) or upper (U).
+
+Eq. (3) is applicable to fuzzy PI controller.
+
+For fuzzy PD controller, Δuxs is replaced by uxs, Δu1s is replaced by u1s, Δu2s is replaced by u2s, and Δu3s is replaced by u3s.
+
+Eq. (3) yields the lower and upper scaled expressions of controller outputs which can be treated as the outcomes of two type-1 systems.
+
+PARAGRAPH
+
+Once the two extremes are obtained using Eq. (3), the overall control output Δus is achieved by averaging the lower and upper output expressions Δus=12∑x=L,UΔuxsThus the WA defuzzification produces 70 different control outputs in 70 different regions of the input plane.
+
+Based on the values of inputs e(k) and Δe(k) one of the 70 output expressions will be activated at kth instant of time.
+
+SECTION
+
+Derivation and analysis of the analytical structures of IT2 fuzzy PI/PD controller
+
+PARAGRAPH
+
+In this section we first derive the analytical structures of IT2 fuzzy PI/PD controller in Section 3.1 and then the properties of the controller structures are presented in Section 3.2.
+
+SECTION
+
+Derivation of analytical structures
+
+PARAGRAPH
+
+In this subsection we derive the explicit mathematical expressions of Δus(k) (for fuzzy PI controller) in 70 different regions of the input plane.
+
+The mathematical model of fuzzy PD controller can be obtained by simply replacing Δus(k) by us(k).
+
+PARAGRAPH
+
+To obtain the analytical expression of Δuxs the firing strengths of the three rules [μ1L,μ1U], [μ2L,μ2U], and [μ3L,μ3U] are required (see Table 1).
+
+We can find that the firing strength changes in each region of the input plane.
+
+Hence the expressions of control effort are different in different regions of the input plane.
+
+On substituting [μ1L,μ1U], [μ2L,μ2U], and [μ3L,μ3U] and Δu1s, Δu2s, and Δu3s into Eq. (3), we obtain the lower incremental control effort (ΔuLs) and the upper incremental control effort (ΔuUs) in all 70 regions.
+
+The general expression of Δuxs (where x = L or U) is given in the form Δuxs=γ1xe(k)+γ2xΔe(k)The explicit expressions of gains γ1x and γ2x are computed and included in Tables 2 and 3.
+
+PARAGRAPH
+
+Now the overall scaled incremental control effort (Δus(k)) in any region of the input plane is given by Eq. (4).
+
+The analytical structure of the IT2 fuzzy PI controller can be written in the form Δus(k)=γ1(ẽ(k),Δẽ(k))e(k)+γ2(ẽ(k),Δẽ(k))Δe(k)where ẽ(k)=e(k)−(i+0.5)W1 and Δẽ(k)=Δe(k)−(j+0.5)W2, and i=−J1,…,−1,0,1,…,J1−1 and j=−J2,…,−1,0,1,…,J2−1.
+
+Eq. (6) is similar to the expression of conventional (linear) PI controller in velocity form.
+
+Hence we can say that γ1(ẽ(k),Δẽ(k)) is variable integral gain and γ2(ẽ(k),Δẽ(k)) is variable proportional gain as they are nonlinear functions of ẽ(k) and Δẽ(k). γ1(ẽ(k),Δẽ(k))
+
+and γ2(ẽ(k),Δẽ(k)) can be obtained by substituting the expressions of ΔuLs and ΔuUs in Eq. (4).
+
+For instance, consider the region 1 in which
+
+PARAGRAPH
+
+PARAGRAPH
+
+Therefore the overall gains γ1(ẽ(k),Δẽ(k)) and γ2(ẽ(k),Δẽ(k)) in the region 1 are given by γ1(ẽ(k),Δẽ(k))=γ1L+γ1U2=a|α+1|,γ2(ẽ(k),Δẽ(k))=γ2L+γ2U2=b|α+1|Consider another example of region 7 where
+
+PARAGRAPH
+
+PARAGRAPH
+
+PARAGRAPH
+
+Therefore the overall gains γ1(ẽ(k),Δẽ(k)) and γ2(ẽ(k),Δẽ(k)) in the region 7 are given by γ1(ẽ(k),Δẽ(k))=γ1L+γ1U2=(a|α+1|+a|α|)ẽ+(B1−A1){(0.5+θ1)a|α+1|+(2.5+θ1)a|α|}2{ẽ+(B1−A1)(1.5+θ1)}γ2(ẽ(k),Δẽ(k))=γ2L+γ2U2=(b|α+1|+b|α|)ẽ+(B1−A1){(0.5+θ1)b|α+1|+(2.5+θ1)b|α|}2{ẽ+(B1−A1)(1.5+θ1)}
+
+PARAGRAPH
+
+In a similar manner the scaled incremental control effort Δus(k) is obtained from the gains in lower and upper subspaces as presented in Tables 2 and 3, respectively.
+
+SECTION
+
+Properties of the IT2 fuzzy controller
+
+PARAGRAPH
+
+Upon investigating the analytical expressions of gains γ1(ẽ(k),Δẽ(k)) and γ2(ẽ(k),Δẽ(k)) the following properties can be stated:
+
+PARAGRAPH
+
+SECTION
+
+Comparison of type-1 and type-2 fuzzy controllers
+
+PARAGRAPH
+
+In this section a comparative study of type-1 fuzzy controller (Raj and Mohan, 2018a) and IT2 fuzzy controller (proposed in this paper) is presented.
+
+Comparative analysis of the controller structure and the computational complexity are discussed next.
+
+SECTION
+
+Analytical structure comparison
+
+PARAGRAPH
+
+In this section, our objective is to establish the relation between type-1 fuzzy controller (Raj and Mohan, 2018a) and the proposed IT2 fuzzy controller.
+
+IT2 fuzzy controller uses IT2 fuzzy sets which capture the uncertainties.
+
+Hence, if the uncertainties in the membership functions of IT2 fuzzy sets are dropped, then they simply behave like type-1 fuzzy sets.
+
+So putting θ1=θ2=0 (i.e P1=P2=0), type-1 fuzzy sets can be obtained from the IT2 fuzzy sets.
+
+This eliminates certain regions of the input plane.
+
+The reduced input plane is shown in Fig. 10.
+
+The expressions of gains γ1 and γ2 in the reduced input plane are easily obtained by substituting θ1=θ2=0 in the general expressions of gains γ1 and γ2.
+
+They have been computed and presented in Table 4.
+
+PARAGRAPH
+
+Here we observe an interesting fact that the regions 9–12 of the input plane of type-1 Class 3 fuzzy controller in Raj and Mohan (2018a) correspond to the regions 63–66 of the reduced input plane of IT2 fuzzy controller.
+
+Similarly the regions 1–4 correspond to regions 1–4, region 5 to region 21, region 6 to region 22, region 7 to region 23 and region 8 to region 24.
+
+Moreover, the expressions of gains of type-1 Class 3 fuzzy controller in Raj and Mohan (2018a) are exactly the same as the expressions of gains of IT2 fuzzy controller in the reduced input plane.
+
+Hence we can state that type-1 Class 3 fuzzy controller in Raj and Mohan (2018a) is a special case of IT2 fuzzy controller proposed in this paper.
+
+SECTION
+
+Analysis of computational burden
+
+PARAGRAPH
+
+It was shown in the previous subsection that type-1 fuzzy controller (Raj and Mohan, 2018a) is a special case of IT2 fuzzy controller (proposed in this paper) if the uncertainties in the membership functions are ignored i.e. P1=P2=0.
+
+As the structure of IT2 fuzzy controller captures the uncertainties present in the membership functions, the computational complexity obviously increases.
+
+This aspect is shown in Table 5 which gives the information on the average time (t-ave) and the standard deviation time (t-std) needed to compute the incremental control effort at kth instant.
+
+Since it takes into account the uncertainties, robustness of IT2 fuzzy controller naturally increases.
+
+PARAGRAPH
+
+SECTION
+
+Simulation studies
+
+PARAGRAPH
+
+Performance of the proposed IT2 fuzzy controller is studied in this section.
+
+We consider three nonlinear dynamical systems (DC series motor, single-link manipulator and coupled-tank system) to validate the controller models.
+
+The mathematical models obtained in this paper are implemented to achieve the desired control objectives in each case.
+
+The incremental scaled control effort is generated using Eq. (6) in which the gains γ1(ẽ(k),Δẽ(k)) and γ2(ẽ(k),Δẽ(k)) are obtained as discussed in Section 3.1.
+
+The gains γ1 and γ2 are tuned using Genetic Algorithm (GA)-based optimization approach.
+
+The tuneable parameters of the controller gains form the string of GA.
+
+Then a search space is formed by defining the lower and upper bounds of each tuneable parameter.
+
+The string takes arbitrary values from the search space to form the initial population of size ′n′.
+
+A fitness function ′f′ is defined as the reciprocal of the cost function ′J′ where J=1n∑k=0n−1[qe2(k)+ru2(k)]which is to be minimized subject to the constraint in Eq. (10).
+
+In Eq. (11) q and r are positive real.
+
+The default values of crossover probability pc and mutation probability pm are taken for the optimization.
+
+If GA fails to converge, then the search space, pc and pm are redefined and the optimization process is continued again.
+
+The detailed steps of GA-based optimization can be found in Raj and Mohan (2018a).
+
+PARAGRAPH
+
+PARAGRAPH
+
+Consider a DC series motor (Mehta and Chiasson, 1998) whose dynamical equations are given by Jdωdt+Dω+τL=KmLfi2Ldidt+Ri+KmLfωi=vwhere ω is the angular speed, i is the current, v is the input voltage, τL is the load torque (disturbance), D is the viscous friction coefficient, J is the moment of inertia of the motor, Km is the motor torque constant, R=Ra+Rf, L=La+Lf, Ra and La are the armature resistance and inductance, respectively, and Rf and Lf are the field resistance and inductance, respectively.
+
+L= 0.0917 H, R= 7.2 Ω, D= 0.0004 Nm∕rad∕s, KmLf= 0.1236 Nm∕Wb−A, and J= 0.000704 kgm2 are the motor parameters used in simulation.
+
+PARAGRAPH
+
+We need to design PI controllers to maintain the speed of the DC series motor at 100 rad∕s.
+
+Also, to study the disturbance rejection property of the controllers we introduce two types of disturbances, namely load disturbance τL=0.5u(t−5) and input disturbance τI=10(u(t−3)−u(t−3.5)) on the system where u(t) is a unit step function.
+
+We design linear PI, type-1 fuzzy PI (Raj and Mohan, 2018a) and IT2 fuzzy PI (proposed in this paper) controllers to achieve the desired control goal.
+
+The parameters of the controller are tuned using GA, the cost function in Eq. (11) and q=r=1.
+
+The optimal parameters of linear PI controller are: KP=0.8 and KI=0.9.
+
+Similarly, the optimal parameters of type-1 fuzzy PI controller are: A1=11.67, A2=1.6, B1=40, B2=8, a0=3.6, a1=1.65, a2=2.04, b0=91.25, b1=187.5, b2=81.25 and SPI−1=0.008.
+
+Moreover, the optimal parameters of IT2 fuzzy PI controller are: A1=23.33, A2=2.89, B1=80, B2=14.49, P1=8, P2=0.96, a0=1.8, a1=0.825, a2=1.02, b0=50.37, b1=103.5, b2=44.85, and SPI−1=0.08.
+
+PARAGRAPH
+
+The speed responses of DC series motor are shown in Fig. 11.
+
+The sampling interval of 1 ms is considered.
+
+The time-domain performance data of linear PI, type-1 fuzzy PI and IT2 fuzzy PI is presented in Table 6.
+
+The Integral Square Error (ISE) and Control Energy (CE) are computed with Tf=1s.
+
+Next, we consider a situation where all the parameters of the DC series motor are changed by 10%.
+
+The simulation is performed again without changing the values of controllers’ parameters.
+
+Fig. 12 shows the robust performance of linear controller, and type-1 and IT2 fuzzy controllers.
+
+PARAGRAPH
+
+PARAGRAPH
+
+We consider two tanks (Wu and Tan, 2007) that are coupled side by side with a baffle to regulate the flow of liquid between them.
+
+Outlets are present at the base of each tank to enable the outflow of liquid.
+
+The dynamic formulation of the plant is given by A1dh1dt+a1h1+a3h1−h2=Q1A2dh2dt+a2h2−a3h1−h2=Q2where hi and Ai are, respectively, the water level and the cross-sectional area of tank i, Qi is the volumetric flow rate of pump i (i=1,2), and a1, a2, and a3 are the proportionality constants of h1, h2, and h1−h2.
+
+Q2 is set to zero to make the system single-input single-output.
+
+The nominal values of the parameters used in simulation are A1=A2=36.52cm2, a1=a2=5.6186cm2∕s, and a3=10cm2∕s.
+
+PARAGRAPH
+
+The control objective is to maintain the water level h2 of tank 2 at a desired value (15 cm up to 120 s and 18 cm onward) by controlling the flow rate Q1 of tank 1.
+
+We design linear PI, type-1 fuzzy PI (Raj and Mohan, 2018a) and IT2 fuzzy PI controllers to achieve the desired control objective.
+
+The parameters of the controllers are tuned using GA, the cost function in Eq. (11) and q=r=1.
+
+The optimal parameters of linear PI controller are: KP=8 and KI=0.5.
+
+Similarly, the optimal parameters of type-1 fuzzy PI controller are: A1=50, A2=3.67, B1=100, B2=5.56, a0=0.12, a1=0.055, a2=0.068, b0=6.57, b1=13.5, b2=5.85 and SPI−1=1.
+
+Moreover, the optimal parameters of IT2 fuzzy PI controller are: A1=50, A2=3.67, B1=100, B2=5.56, P1=25, P2=0.95, a0=0.12, a1=0.055, a2=0.068, b0=6.57, b1=13.5, b2=5.85 and SPI−1=5.
+
+We also apply an input disturbance τI=10{(u(t−70)−u(t−75))+(u(t−160)−u(t−170))} to investigate the disturbance rejection property of the controllers.
+
+The output responses with linear PI, type-1 fuzzy PI (Raj and Mohan, 2018a) and IT2 fuzzy PI controllers in the presence of input disturbance are shown in Fig. 13(a).
+
+It can be seen that the disturbance rejection is the best in the case of IT2 fuzzy controller.
+
+PARAGRAPH
+
+Further, we modify the plant parameters as a1=a2=10.6186cm2∕s and a3=15cm2∕s to investigate the performance of the controllers under parameter variations.
+
+The output responses with linear PI, type-1 fuzzy PI (Raj and Mohan, 2018a) and IT2 fuzzy PI controllers in the presence of input disturbance and parameter variations are shown in Fig. 13(b).
+
+It can be seen that the performance degrades in the case of linear and type-1 fuzzy controllers.
+
+The performance with IT2 fuzzy controller remains unaffected under plant parameter variations and hence IT2 fuzzy controller is capable of handling disturbances and uncertainties efficiently.
+
+PARAGRAPH
+
+PARAGRAPH
+
+We consider the example of a single link manipulator (Craig, 2005).
+
+The differential equation representing the model of the single link robot is given by θ⋅⋅+10θ⋅+10⋅sinθ=uwhere θ is the link position from the vertical, θ⋅ is the link velocity, θ⋅⋅ is the link acceleration, and u is the control effort.
+
+PARAGRAPH
+
+We design a single PD controller (linear, type-1 fuzzy or IT2 fuzzy) to tackle with two different situations: (Case I) r(t)= 0, θ(0)= 0.5 rad and θ⋅(0)= 1 rad∕s; (Case II) r(t)= 0.5 rad, θ(0)= 0 and θ⋅(0)= 1 rad∕s, where θ(0) and θ⋅(0) are the initial conditions.
+
+Further, we introduce an input disturbance τI=0.2(u(t−1.5)−u(t−2)) to the system to study the robustness of the controllers.
+
+Controller are designed using GA where the cost function is selected as in Eq. (11) with q=1 and r=0.1.
+
+The optimal parameters of linear PD controller are: KP=50 and KD=5.
+
+Similarly, the optimal parameters of type-1 fuzzy PD controller are: A1=17.53, A2=235.17, B1=61.94, B2=1146.28, a0=2.01, a1=0.913, a2=1.22, b0=0.685, b1=1.12, b2=0.59 and SPD−1=45.
+
+Moreover, the optimal parameters of IT2 fuzzy PD controller are: A1=12.75, A2=0.847, B1=45.04, B2=4.13, P1=4.78, P2=0.48, a0=2.76, a1=1.26, a2=1.67, b0=190.25, b1=310, b2=164.25, and SPD−1=30.
+
+PARAGRAPH
+
+The output responses (link positions) with linear PD, type-1 fuzzy PD (Raj and Mohan, 2018a) and IT2 fuzzy PD controllers in two different situations are shown in Fig. 14.
+
+Further, the responses in the presence of input disturbance are shown in Fig. 15.
+
+As soon as the input disturbance is applied at 1.5 s the response due to linear PD controller becomes unbounded whereas the fuzzy controller easily rejects the input disturbance.
+
+The simulation results clearly show that the performance of the fuzzy controllers is robust.
+
+PARAGRAPH
+
+From the simulation results, see Fig. 14(b), it can be observed that there is some steady-state error in the plant response since the PD controller does not affect the steady-state response.
+
+PARAGRAPH
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+In this paper we have proposed a general structure for IT2 fuzzy controller.
+
+The structure is general in the sense that we have the liberty to choose the number of fuzzy sets as well as the membership functions (trapezoidal/triangular).
+
+The structure of IT2 fuzzy controller is derived using only three rules which in turn help to reduce the number of tuneable parameters of the fuzzy controller.
+
+IT2 fuzzy controller is a variable gain PI/PD controller where the gains vary with the input variables.
+
+The controller can become linear if and only if a|α|=a|α+1|=a|α+2| and b|α|=b|α+1|=b|α+2|.
+
+The IT2 fuzzy controller becomes linear even when the FoU is nonzero.
+
+It is also shown that the structure of type-1 fuzzy controller in Raj and Mohan (2018a) is a special case of the general IT2 fuzzy controller model developed in this paper.
+
+A comparative performance analysis of linear, type-1 fuzzy and IT2 fuzzy controllers has been carried out through simulation study on three nonlinear dynamical systems.
+
+IT2 fuzzy controller can handle disturbances and uncertainties efficiently as compared to linear or type-1 fuzzy controller.
+
+PARAGRAPH
+
+FoU plays a significant role while designing an IT2 fuzzy controller.
+
+The performance of fuzzy controllers is largely dependent on FoU shapes (Yip et al., 2019).
+
+FoU provides robustness and uncertainty handling capabilities to the controller structure and hence selecting suitable bounds on FoU is essential.
+
+A larger FoU makes the fuzzy controller piecewise linear (Zhou et al., 2019).
+
+Hence, a detailed investigation on the variation of FoU is required to understand its effect on the structure and performance of the IT2 fuzzy controller.

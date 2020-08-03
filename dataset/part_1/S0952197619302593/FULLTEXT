@@ -1,0 +1,1027 @@
+10.1016/j.engappai.2019.103300
+
+FULLTEXT
+
+TITLE
+
+Manta ray foraging optimization: An effective bio-inspired optimizer for engineering applications
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Many real-world optimization problems are increasingly becoming challenging as they often concern a big number of decision variables, complex nonlinear constraints and objective functions.
+
+The global optimization using traditional approaches like numerical methods becomes less powerful especially when objective functions or constraints have multiple peaks.
+
+Metaheuristic algorithms, powerful tools for handling challenging optimization problems, are increasingly becoming popular.
+
+The popularity drives from the following aspects.
+
+PARAGRAPH
+
+First, the most outstanding characteristic of metaheuristic algorithms is their simplicity.
+
+These metaheuristic methods possess basic theories or mathematical models which derive from nature.
+
+These methods are generally simple and easy to implement.
+
+The ease-to-use allows one to apply metaheuristics to solve real-world problems.
+
+Moreover, it is also easy to develop their variants according to existing methods.
+
+Second, these optimization technologies can be viewed as a black box, meaning that it is able to offer a set of outputs for a given problem for a set of inputs.
+
+Furthermore, scholars may easily modify the structures and parameters of these methods in order to obtain satisfactory solutions.
+
+Third, randomness is one the most important characteristics of metaheuristic algorithms.
+
+This allows metaheuristic algorithms to explore the entire search space and prevent them from trapping into local optima effectively.
+
+More specially, it makes many metaheuristics successful to solve problems with unknown search space or multiple local optima.
+
+Finally, these metaheuristics are highly versatile and flexible, implying their practicability to various different types of optimization problems including non-linear problems, non-differentiable problems, or complex numerical problems with plentiful of local minima.
+
+Many metaheuristic algorithms have been presented and successfully applied to different areas.
+
+These algorithms are mainly categorized into three classes (Hare et al., 2013): evolution-based (Mühlenbein et al., 1988), physics-based (Geem et al., 2001), and swarm-based (Krause et al., 2013).
+
+PARAGRAPH
+
+Evolution-based algorithms simulate natural evolution like chemotaxis, reproduction elimination and dispersal, and migration (Passino, 2002; De Falco et al., 2012).
+
+Genetic algorithm (GA), proposed by Holland (1975), is a famous and widely used evolutionary algorithm (EA).
+
+One of the main features of GA is that it does not require derivative in the search space that is existing in mathematical optimization approaches.
+
+GA evolves a population by emulating survival of the fittest in nature, it may provide efficient solutions and avoid local optima.
+
+Since its emergence, a range of variants have been developed to improve GA.
+
+With its popularity, many other evolutionary algorithms, including differential evolution (DE) (Rocca et al., 2011), evolutionary programming (EP) (Juste et al., 1999), evolutionary strategies (ES) (Beyer and Schwefel, 2002), memetic algorithm (MA) (Moscato et al., 2007), and so on, have been proposed.
+
+In addition, scores of novel EAs have been presented recently, including biogeography-based optimization (BBO) (Simon, 2009), bacterial foraging optimization (BFO) (Passino, 2002), artificial algae algorithm (AAA) (Uymaz et al., 2015), bat algorithm (BA) (Yang and Hossein Gandomi, 2012), monkey king evolutionary (MKE) (Meng and Pan, 2016), et al. (Punnathanam and Kotecha, 2016; Pan, 2012; Mehrabian and Lucas, 2006; Civicioglu, 2013).
+
+PARAGRAPH
+
+Physics-based algorithms mimic physical laws in universe.
+
+Simulated annealing (SA) (Kirkpatrick et al., 1983) is one of the most well-known physics-based techniques.
+
+SA is analogy with thermodynamics in physical material.
+
+Annealing is to minimize energy use, specifically with the way that heated metals cool and crystallize.
+
+Recently, multiple new physics-inspired techniques are developed, including gravitational search algorithm (GSA) (Rashedi et al., 2009), electromagnetism-like mechanism (EM) algorithm (Birbil and Fang, 2003), particle collision algorithm (PCA) (Sacco and De Oliveira, 2005), vortex search algorithm (VSA) (Doğan and Ölmez, 2015), water evaporation optimization (WEO) (Kaveh and Bakhshpoori, 2016), atom search optimization (ASO) (Zhao et al., 2019a), big bang–big crunch algorithm (BB-BC) (Genç et al., 2010), et al. (Shah-Hosseini, 2011; Chuang and Jiang, 2007; Shah-Hosseini, 2009; Kaveh and Dadras, 2017; Kaveh and Talatahari, 2010; Zheng et al., 2010; Javidy et al., 2015; Mirjalili and Hashim, 2012; Zheng, 2015; Flores et al., 2011; Tamura and Yasuda, 2011; Rao et al., 2012; Zarand et al., 2002; Shen and Li, 2009; Kripka and Kripka, 2008; Patel and Savsani, 2015; Eskandar et al., 2012; Moghaddam et al., 2012).
+
+PARAGRAPH
+
+Swarm-based algorithms simulate social behaviors of species like self-organization and division of labor (Beni and Wang, 1993; Ab Wahab et al., 2015).
+
+Two outstanding examples are particle swarm optimization (PSO) (Kennedy and Eberhart, 1995) and ant colony optimization (ACO) (Dorigo et al., 1996).
+
+PSO inspired by bird flocking behaviors updates each agent in a population by its best individual agent and the best global agent.
+
+ACO is inspired by the foraging behaviors of ant swarms, ants search for the most effective route from their nest to the food source by the intensity of pheromones which reduces over time.
+
+Other examples of swarm-inspired algorithms include glowworm swarm optimization (GSO) (Krihnanand and Ghose, 2009), grey wolf optimization (GWO) (Mirjalili et al., 2014), artificial ecosystem-based optimization (AEO) (Zhao et al., 2019b), shark smell optimization (SSO) (Abedinia et al., 2014), firefly algorithm (FA) (Yang, 2010), supply–demand-based optimization (SDO) (Zhao et al., 2019c), spotted hyena optimization (SHO) (Gaurav and Vijay, 2017), and so on (Yang and Deb, 2009; Oftadeh et al., 2010; Kiran, 2015; Mohamed et al., 2017; Cuevas et al., 2013; Askarzadeh, 2014; Saremi et al., 2017; Akay and Karaboga, 2012a, b; Mirjalili, 2016; Kaveh and Farhoudi, 2013; Yang, 2010; Mucherino and Seref, 2007; Gandomi and Alavi, 2012).
+
+PARAGRAPH
+
+It is worth mentioning that there are other recently developed metaheuristics motivated from social behaviors and ideology in humans.
+
+Some of the most well-known ones include parliamentary optimization algorithm (POA) (Borji, 2007), artificial human optimization (AHO) (Gajawada, 2016), continuous opinion dynamics optimization (CODO) (Kaur et al., 2013), league championship algorithm (LCA) (Kashan, 2009), social group optimization (SGO) (Satapathy and Naik, 2016), ideology algorithm (IA) (Huan et al., 2016), and so on (Kuo and Lin, 2013; Moosavian and Roodsari, 2014; Kumar et al., 2018; Xu et al., 2010; Ray and Liew, 2003).
+
+PARAGRAPH
+
+Swarm-based algorithms have some unique features.
+
+Some historical information about the swarm is restored to provide a basis for every agent to update individual positions by using interaction rules over subsequent iterations.
+
+In general, swarm-based techniques share two specific behaviors, exploration and exploitation (Alba and Dorronsoro, 2005; Lynn and Suganthan, 2015).
+
+Exploration is to search a wide variable space for promising solutions which are not neighbor to the current solution, and this search should be as extensive and random as possible.
+
+This behavior generally contributes to escaping local optima.
+
+Exploitation is to confine the search to a small region found in the exploration process to refine the solution.
+
+Essentially this behavior implements local search in a promising space.
+
+Based on these two behaviors, swarm-based algorithms have superiority over other two types of algorithms.
+
+PARAGRAPH
+
+Some might question why new optimization algorithms are still developed despite of so many existing algorithms.
+
+The answer can be found in the No Free Lunch Theorem of Optimization (Wolpert and Macready, 1997), which describes that there is no optimizer performing the best for all optimization problems.
+
+So developing an effective swarm-inspired optimizer to solve specific real-world problems motivates this work.
+
+PARAGRAPH
+
+This paper proposes a new metaheuristic algorithm, named manta ray foraging optimization (MRFO), which simulates the foraging behaviors of manta rays.
+
+This algorithm has three foraging operators, including chain foraging, cyclone foraging, and somersault foraging.
+
+The performance of MRFO is tested using 31 test functions and 8 engineering problems.
+
+The test results discover that the proposed method significantly outperforms those well-known metaheuristics.
+
+PARAGRAPH
+
+This study is structured as follows.
+
+Section 2 detailedly introduces MRFO algorithm and the concepts behind it.
+
+31 mathematical optimization problems and 8 real-world engineering problems are employed to check the validity of MRFO in Sections 3 and 4, respectively.
+
+Finally, Section 5 gives some conclusions and suggests future research directions.
+
+SECTION
+
+Manta Ray Foraging Optimization (MRFO)
+
+SECTION
+
+Inspiration
+
+PARAGRAPH
+
+Manta rays are fancy creatures although they appear to be terrible.
+
+They are one of the largest known marine creatures.
+
+Manta rays have a flat body from top to bottom and a pair of pectoral fins, with which they elegantly swim as birds freely fly.
+
+They also have a pair of cephalic lobes that extend in front of their giant, terminal mouths.
+
+Fig. 1(A) provided by Swanson Chan on Unsplash depicts a foraging manta ray, and Fig. 1(B) shows the structure of a manta ray.
+
+Without sharp teeth, manta rays feed on plankton made mostly of microscopic animals from the water.
+
+When foraging, they funnel water and prey into their mouths using horn-shaped cephalic lobes.
+
+Then the prey is filtered from the water by modified gill rakers (Dewar et al., 2008).
+
+Manta rays can be divided into two distinct species.
+
+One is reef manta rays (manta alfredi) living in Indian Ocean and western and south Pacific, which can reach 5.5 m in width.
+
+The other is giant manta rays (manta birostris) found throughout tropical, subtropical and warm temperate oceans, which can reach 7 m in width.
+
+They have existed for about 5 million years.
+
+The average life span is 20 years but many never reach this age because they are hunted by fishers (Miller and Klimovich, 2016).
+
+PARAGRAPH
+
+Manta rays eat a large amount of plankton every day.
+
+An adult manta ray can eat 5 kg of plankton on daily basis.
+
+Oceans are believed to be the richest source of plankton.
+
+However, plankton is not evenly dispersed or regularly concentrated in some specific areas, which are formed with ebb and flow of tides or change of seasons.
+
+Interestingly, manta rays are always good at finding abundant plankton.
+
+The most intriguing thing about manta rays is their foraging behaviors, and they may travel alone or in groups of up to 50 but foraging is often observed in groups.
+
+These creatures have evolved a variety of fantastic and intelligent foraging strategies.
+
+PARAGRAPH
+
+The first foraging strategy is chain foraging (Johnna, 2016).
+
+When 50 or more manta rays start foraging, they line up, one behind another, forming an orderly line.
+
+Smaller male manta rays are piggybacked upon female ones and swim on top of their backs to match the beats of the female’s pectoral fins.
+
+Consequently, the plankton which is missed by previous manta rays will be scooped up by ones behind them.
+
+Cooperating with each other in this way, they can funnel the most amount of plankton into their gills and improve their food rewards.
+
+PARAGRAPH
+
+The second foraging strategy is cyclone foraging (Gene and George, 2014).
+
+When the concentration of plankton is very high, dozens of manta rays gather together.
+
+Their tail ends link up with heads in a spiral to generate a spiraling vertex in the eye of the cyclone and the filtered water moves up towards the surface.
+
+This pulls the plankton into their open mouths.
+
+PARAGRAPH
+
+The final foraging strategy is somersault foraging (Rebecca and Bobbie, 2015).
+
+This is one of the most splendid sceneries in nature.
+
+When manta rays find a food source, they will do a series of backwards somersaults, circling around the plankton to draw it towards manta rays.
+
+Somersault is a random, frequent, local and cyclical movement, which helps manta rays to optimize food intake.
+
+PARAGRAPH
+
+Although these foraging behaviors are rare in nature, they are highly effective.
+
+We mathematically model these foraging behaviors and develop a new metaheuristic algorithm named Manta Ray Foraging Optimization (MRFO) to perform a global optimization.
+
+SECTION
+
+Mathematical model
+
+PARAGRAPH
+
+MRFO is inspired by three foraging behaviors including chain foraging, cyclone foraging and somersault foraging.
+
+The mathematical models are described below.
+
+SECTION
+
+Chain foraging
+
+PARAGRAPH
+
+In MRFO, manta rays can observe the position of plankton and swim towards it.
+
+The higher the concentration of plankton in a position is, the better the position is.
+
+Although the best solution is not known, MRFO assumes the best solution found so far is the plankton with high concentration manta rays want to approach and eat.
+
+Manta rays line up head-to-tail and form a foraging chain.
+
+Individuals except the first move towards not only the food but also the one in front of it.
+
+That is, in every iteration, each individual is updated by the best solution found so far and the solution in front of it.
+
+This mathematical model of chain foraging is represented as follows xid(t+1)=xid(t)+r⋅(xbestd(t)−xid(t))+α⋅(xbestd(t)−xid(t))i=1xid(t)+r⋅(xi−1d(t)−xid(t))+α⋅(xbestd(t)−xid(t))i=2,…,Nα=2⋅r⋅|log(r)| where, xid(t) is the position of ith individual at time t in dth dimension, r is a random vector within the range of [0, 1], a is a weight coefficient, xbestd(t) is the plankton with high concentration.
+
+Fig. 2 depicts this foraging behavior in a 2-D space.
+
+The position update of the ith individual is determined by the position xi−1(t) of the (i-1)th current individual and the position xbest(t) of the food.
+
+SECTION
+
+PARAGRAPH
+
+Cyclone foraging
+
+PARAGRAPH
+
+When a school of manta rays recognize a patch of plankton in deep water, they will form a long foraging chain and swim towards the food by a spiral.
+
+This similar spiral foraging strategy can be found in WOA (Mirjalili and Lewis, 2016).
+
+However, for the cyclone foraging strategy of manta ray swarms, in addition to spirally move towards the food, each manta ray swims towards the one in front of it.
+
+That is, manta ray swarms in line developing a spiral perform foraging.
+
+Fig. 3 illustrates the cyclone foraging behavior in a 2-D space.
+
+An individual not only follows the one in front of it but only moves towards the food along a spiral path.
+
+The mathematical equation modeling the spiral-shaped movement of manta rays in a 2-D space can be defined as Xi(t+1)=Xbest+r⋅(Xi−1(t)−Xi(t))+ebw⋅cos(2πw)⋅(Xbest−Xi(t))Yi(t+1)=Ybest+r⋅(Yi−1(t)−Yi(t))+ebw⋅sin(2πw)⋅(Ybest−Yi(t))where w is a random number in [0, 1].
+
+PARAGRAPH
+
+This motion behavior may be extended to a n-D space.
+
+For simplicity, this mathematical model of cyclone foraging can be defined as xid(t+1)=xbestd+r⋅(xbestd(t)−xid(t))+β⋅(xbestd(t)−xid(t))i=1xbestd+r⋅(xi−1d(t)−xid(t))+β⋅(xbestd(t)−xid(t))i=2,…,Nβ=2er1T−t+1T⋅sin(2πr1) where β is the weight coefficient, T is the maximum number of iterations, and r1 is the rand number in [0, 1].
+
+PARAGRAPH
+
+All individuals randomly perform the search with respect to the food as their reference position, so the cyclone foraging has a good exploitation for the region with the best solution found so far.
+
+This behavior is also used to substantially improve the exploration.
+
+We can force each individual to search for a new position far from the current best one by assigning a new random position in the entire search space as their reference position.
+
+This mechanism focuses mainly on the exploration and enables MRFO to achieve an extensive global search, its mathematical equation is presented below xrandd=Lbd+r⋅(Ubd−Lbd)xid(t+1)=xrandd+r⋅(xrandd−xid(t))+β⋅(xrandd−xid(t))i=1xrandd+r⋅(xi−1d(t)−xid(t))+β⋅(xrandd−xid(t))i=2,…,N where xrandd is a random position randomly produced in the search space, Lbd and Ubd are the lower and upper limits of the dth dimension, respectively.
+
+SECTION
+
+PARAGRAPH
+
+Somersault foraging
+
+PARAGRAPH
+
+In this behavior, the position of the food is viewed as a pivot.
+
+Each individual tends to swim to and fro around the pivot and somersault to a new position.
+
+Therefore, they always update their positions around the best position found so far.
+
+The mathematical model can be created as follows xid(t+1)=xid(t)+S⋅(r2⋅xbestd−r3⋅xid(t)),i=1,…,Nwhere S is the somersault factor that decides the somersault range of manta rays and S=2, r2 and r3 are two random numbers in [0, 1].
+
+PARAGRAPH
+
+As seen from Eq. (8), with definition of the somersault range, it is possible for each individual to move to any position in a new search domain located between the current position and its symmetrical position around the best position found so far.
+
+As the distance between the individual position and the best position found so far reduces, the perturbation on the current position gets reduced, too.
+
+All individuals approximate gradually to the optimal solution in the search space.
+
+Accordingly, the range of somersault foraging is adaptively reduced as iterations increase.
+
+Fig. 4 shows the sketch of somersault foraging behavior in MRFO.
+
+PARAGRAPH
+
+Fig. 5 shows that three individuals evolved 100 times in the search space according to Eq. (8).
+
+The sampled points randomly distribute between the current positions and their symmetrical positions around xbest, and the sampled points become sparse as the distance reduces.
+
+The dense points around xbest can contribute substantially to exploitation and the sparse ones can contribute positively to exploration.
+
+PARAGRAPH
+
+Similar to other metaheuristic optimizers, MRFO starts by generating a random population in the domain of problem.
+
+At each iteration, each individual updates its position with respect to both the one in front of it and the reference position.
+
+The value of t/T decreases from 1/T to 1 to respectively perform exploratory and exploitative search.
+
+The current best solution is chosen as a reference position for the exploitation when t/T< rand, while a random position randomly generated in the search space is chosen as a reference position for the exploration when t/T > rand.
+
+Meanwhile, according to the random number, MRFO can switch between the chain foraging behavior and the cyclone foraging behavior.
+
+Then individuals update their own positions with respect to the best position found so far by somersault foraging.
+
+All the update and calculation are interactively preformed until the stop criterion is met.
+
+Eventually, the position and the fitness value of the best individual are returned.
+
+The pseudocode of MRFO algorithm is given in Fig. 6.
+
+PARAGRAPH
+
+With the description of MRFO algorithm, some remarks are noted.
+
+PARAGRAPH
+
+(a) MRFO is motivated from three foraging strategies of manta rays, including chain foraging, cyclone foraging, and somersault foraging, which can effectively improve the optimization ability of MRFO from different aspects.
+
+PARAGRAPH
+
+(b) The proposed chain foraging strategy makes each individual update its position with respect to the one in front of it and the current global best solution.
+
+PARAGRAPH
+
+(c) The proposed cyclone foraging strategy makes each individual update its position with respect to both the one in front of it and the reference position.
+
+Whether the best position obtained so far or a random position produced in the search space is chosen as the reference position depends on the value of t/T.
+
+The former contributes to exploitation and the latter to exploration.
+
+PARAGRAPH
+
+(d) The gradual increase of the value of t/T encourages MRFO to smoothly transit from exploratory search to exploitative search.
+
+PARAGRAPH
+
+(e) With the value of rand, MRFO can switch between the chain foraging and the cyclone foraging.
+
+PARAGRAPH
+
+(f) The somersault foraging allows individuals to adaptively search in a changing search range.
+
+PARAGRAPH
+
+(g) MRFO is very easy to implement and require few parameters to be adjusted.
+
+SECTION
+
+Time complexity of the MRFO
+
+PARAGRAPH
+
+The time complexity of MRFO depends on the number of variables, the number of individuals, and the maximum of iterations.
+
+Somersault foraging, along with either cyclone foraging or chain foraging is performed in each iteration.
+
+Therefore, the overall time complexity of this algorithm is given as O(MRFO)=O(T(O(cycloneforaging+chainforaging)+O(somersaultforaging)))O(MRFO)=O(T(nd+nd))=O(Tnd) where T is the maximum of iterations, n is the number of individuals, and d is the number of variables.
+
+SECTION
+
+Conceptual comparison of MRFO with other optimizers
+
+PARAGRAPH
+
+Recently, many different evolutionary algorithms inspired by the nature have been developed.
+
+Among them, there are some well-known metaheuristics which simulate the foraging behaviors and characteristics of animals including PSO, SSO, FA, and GWO.
+
+PARAGRAPH
+
+PSO updates the velocities and positions of agents according to the following equations vi(t+1)=ωvi(t)+c1r1(pi−xi(t))+c2r2(pg−xi(t))xi(t+1)=xi(t)+vi(t+1) where ω is the inertia constant, c1 and c2 are respectively cognitive and social coefficients, pi is the personal optimum of xi, and pg is the global optimum.
+
+PARAGRAPH
+
+SSO updates the velocities and positions of sharks according to the following equations Yik+1=Xik+Vik⋅Δtki=1,…,k=1,…,kmaxZik+1,m=Yik+1+R3⋅Yik+1m=1,…,MVik=ηk⋅R1δ(OF)δxjxi,jk+αk⋅R2⋅Vi,jk−1xik+1,m=argmax{OF(Yik+1),OF(Zik+1,i),…,OF(Zik+1,M)} where Δtk is interval of the time k, Vik is the velocity of the ith shark at time k, Yik+1 is the new position of shark due to forward movement, R1 and R2 are the random number in [0,1], R3 is the random number in [−1, 1], ηk is in the interval [0,1], M is number of points in a local search, αk is the momentum rate, and np is the size of population.
+
+PARAGRAPH
+
+In FA, the movement of fireflies is expressed as xi=xi+β0e−γrij2(xj−xi)+αsign[rand−1∕2]⊕LevyLevy∼u=t−λ1<λ≤3 where Levy is Levy distribution function, β0 is the attractiveness at r=0, α is the random parameter, and γ is an absorption coefficient.
+
+The sign ⊕ represents entry-wise multiplication.
+
+PARAGRAPH
+
+In GWO, the positions of wolves that encircle the prey are updated as follows D→=|C→⋅X→p(t)−X→(t)|X→(t+1)=X→p(t)−A→⋅D→ A→=2a→⋅r→1,C→=2⋅r→2where X→p is position vector of the food, a→ is linearly decreased from 2 to 0 over iterations, and r1, r2 are random vectors in [0, 1].
+
+PARAGRAPH
+
+The hunting behavior of wolves can be expressed as D→α=|C→1⋅X→a−X→|,D→β=|C→2⋅X→β−X→|,D→δ=|C→3⋅X→δ−X→|X→1=X→a−A→1⋅D→α,X→2=X→β−A→2⋅D→β,X→3=X→δ−A→3⋅D→δX→(t+1)=X→1+X→2+X→33 When modeling attacking process of wolves, GWO adaptively changes the value of a→ in different iterations to affect the value of A→.
+
+Wolves will search for prey when |A→|≥1 while wolves will attack prey when |A→|<1.
+
+PARAGRAPH
+
+Though some similarities between MRFO and these nature-inspired optimizers exist, MRFO is quite unique in many aspects.
+
+The major difference between MRFO and these optimizers is the biology inspiration.
+
+PSO is inspired by bird flocking in search of food in the sky.
+
+PSO makes use of the population share mechanism about the search space to facilitate searching for the global optimum.
+
+This makes PSO have no strong physical meaning (Bayraktar et al., 2013).
+
+SSO is originated from sharks’ strong smell by which they can hunt for food based on forward movement and rotational movement.
+
+The inspiration of FA comes from the flashing communication information among fireflies, and the movement of a firefly is determined by its attractiveness between each other which is correlated with its brightness.
+
+GWO is inspired by intelligent hunting behaviors of grey wolf swarms, including encircling the prey, attacking the prey, and searching for the prey.
+
+The foraging strategies are based on social hierarchies of grey wolves.
+
+MRFO is inspired by various foraging strategies of manta rays in the ocean, including cyclone foraging, chain foraging, and somersault foraging that do not exist in other creatures.
+
+These special foraging strategies fully reflect different search behavior characteristics of manta rays, which are able to assist the optimizer in facilitating convergence to the global optimum.
+
+PARAGRAPH
+
+The second significant difference is the mathematical equations.
+
+In PSO, in addition to the positions of particles, their velocities also need to be updated at each iteration.
+
+Moreover, each agent updates its position with respect to its velocity, the local best agent and the global best agent by adjusting the values of control parameters.
+
+This single search strategy of PSO often results in the local optima for some high-dimensional problems.
+
+In SSA, a shark updates its position according to either forward movement or rotational movement.
+
+These two movements are based on the current velocity and gradient of the considered problem.
+
+Meanwhile, there are four control parameters in the update equations of SSA and their values need to be fine-tuned.
+
+In FA, a firefly updates its position according to another firefly by adding a Levy flight.
+
+Essentially the movement of a firefly is a random step obeying power-law distribution with a heavy tail.
+
+In GWO, three prey behaviors are based on the same position update method, that is, an individual’s position around the best individual is achieved with respect to the current individual by changing the values of parameters A→ and C→.
+
+In hunting behavior, the social hierarchies of grey wolves are considered including alpha, beta, and delta levels.
+
+In MRFO, for the chain foraging and cyclone foraging, the individual is updated based on the former individual and the food by introducing two weight coefficients, by which the chain motion and spiral motion are simulated.
+
+In somersault foraging, the individual is updated based on the food by using two random numbers.
+
+Additionally, these diverse search strategies contribute significantly to search for the global optimum extensively and intensively.
+
+To the best of our knowledge, these significant differences in the methods and equations between MRFO and the other optimizers show that none of meta-heuristics in the literature can mimic the foraging behaviors of manta rays.
+
+SECTION
+
+Experimental results and discussion
+
+SECTION
+
+Benchmark functions and experimental setup
+
+PARAGRAPH
+
+MRFO algorithm is tested with 31 well-known benchmark functions.
+
+The first 23 functions are classical benchmark functions used in literature (Zhao and Wang, 2016; Digalakis and Margaritis, 2011; Liang et al., 2013).
+
+These benchmark functions have been often employed to compare the performance of metaheuristics.
+
+These functions are summarized in Tables A.1–A.3.
+
+For Table A.1 are unimodal functions each of which has not local optima.
+
+Tables A.2 and A.3 are multimodal and low-dimensional functions that have more than one local optima.
+
+Table A.4 are eight composition benchmark functions compiled in the CEC 2014 special session (Liang et al., 2013).
+
+Because each composition function is composed of basic and hybrid functions, they are well suited to testing the potential performance of algorithms.
+
+The 3-D maps for these different types of 2-D benchmark functions are shown in Figs. 7–10, respectively.
+
+PARAGRAPH
+
+We compare MRFO method with six well-established optimizers, including GA, PSO, DE, CS, ABC, and GSA.
+
+The initial parameter settings of these optimizers are provided in Table 1.
+
+For all considered algorithms, the population size and the maximum number of function evaluations (FEs) are selected as 30 and 50,000, respectively.
+
+Additionally, every algorithm performs 30 runs for each function and the results are based on the average performance of these runs.
+
+SECTION
+
+Analysis of exploitation performance
+
+PARAGRAPH
+
+Fig. 11 provides the bar charts obtained from MRFO and other algorithms on unimodal functions and their convergence curves are shown in Fig. 12.
+
+According to Fig. 11, MRFO shows its strong competitiveness in exploitation, outperforming the other metaheuristic algorithms for each unimodal function.
+
+Although Function f5 is a non-convex quadratic function, MRFO still performs the best in terms of exploitation and convergence ability in Fig. 12.
+
+For exploitation, CS performs the worst for functions f1 and f2, ABC performs the worst for functions f3, f4 and f5, and, PSO and DE perform the worst for functions f6 and f7.
+
+PSO has the slowest convergence rate for functions f3, f4, and f5, and CS converges the slowest for function f2.
+
+The results suggest that MRFO is the most efficient method in tackling unimodal functions.
+
+PARAGRAPH
+
+SECTION
+
+Analysis of exploration performance
+
+PARAGRAPH
+
+Fig. 13 gives the bar charts obtained from MRFO and other algorithms on multimodal functions and their convergence curves are depicted in Fig. 14.
+
+As shown in Fig. 13, MRFO performs better than other heuristic optimizers for all the multimodal functions except function f13. Although MRFO cannot perform the best for function f13, it outperforms ABC, demonstrating its superior exploration.
+
+Though function f11 has many widespread and regularly distributed local minima, MRFO is extremely successful in stepping out of them and the final results are satisfactory.
+
+GSA provides the worst results for functions f8 and f11, ABC performs the worst for functions f12 and f13, and, DE and CS find the worst solutions for functions f9 and f10, respectively.
+
+Similarly, as shown in Fig. 14, MRFO has a better convergence than the other optimizers for all the multimodal functions except function f13.
+
+PARAGRAPH
+
+The bar charts obtained from MRFO and other algorithms on low-dimensional multimodal functions and their convergence curves are depicted in Figs. 15 and 16.
+
+According these results, all the algorithms perform similarly for functions f16, f17, f18, and f19, they also similarly perform well for function f14 except for GA and GSA.
+
+Additionally, MRFO is only inferior to CS and DE on function f15, while it is superior to PSO on functions f20, f21, and f23.
+
+MRFO outperforms its competitors on the majority of the low-dimensional functions.
+
+PARAGRAPH
+
+SECTION
+
+Analysis of local optima avoidance
+
+PARAGRAPH
+
+The composite problems are especially suited to evaluating the balance between exploration and exploitation.
+
+The bar charts obtained from MRFO and other algorithms on composite functions and their convergence curves are depicted in Figs. 17 and 18.
+
+From Fig. 17, MRFO performs the best for functions f24, f25, f26, f28, and f29, it outperforms GA and GSA for functions f27.
+
+In addition, it is superior to GA and PSO for function f30.
+
+Moreover, MRFO is very competitive with other optimizers in terms of convergence ability according to Fig. 18.
+
+All the algorithms except MRFO are trapped into local optima at different levels for functions f24, f25, f26, f28, and f29.
+
+The cyclone foraging of MRFO may contribute to exploration and efficiently avoid local optima.
+
+The results demonstrate that MRFO is effective in balancing exploratory and exploitative search and guaranteeing the global convergence.
+
+PARAGRAPH
+
+SECTION
+
+Analysis of statistical significance
+
+PARAGRAPH
+
+Wilcoxon Signed-Rank Test (WSRT), as a nonparametric test, can effectively assess statistical significance difference between two optimizers.
+
+The statistical results of WSRT on 31 benchmark functions in 30 runs are presented in Tables 2 and 3, where T+ and T− are calculated and their p-values can be obtained.
+
+‘=’ indicates the case in which there is no significance difference between MRFO and its competitor, ‘+’ shows that MRFO possesses better performance than the comparative algorithm at 95% significance level (a=0.05) and ‘−’ vice versa.
+
+The corresponding statistical results of ‘+’, ‘−’ and ‘=’ for each function in 30 runs are listed in Table 4.
+
+As shown in the table, the results highlight the obvious superiority of MRFO to all the other competitors on four different types of benchmark functions.
+
+PARAGRAPH
+
+SECTION
+
+Performance measures
+
+PARAGRAPH
+
+To fully evaluate optimization performance of the proposed algorithm, two performance measures, including average solution cost (ASC) and success ratio (SR), are employed in this experiment.
+
+ASC represents the average costs of an algorithm when finding the global optimum.
+
+SR is the probability of an algorithm that can find the global optimum.
+
+These two measures are defined as (Liu et al., 2005) ASC=∑I=1NrmiNrSR=Nr50×100% where Nr is the number of success runs during N independent runs and mi is the number of function evaluations of the ith success run.
+
+In MRFO algorithm, the maximum evaluation number of functions is set as 50,000 and the algorithm is run 50 times independently.
+
+If the algorithm reaches the global optimum within a gap of 0.001 as used in Karaboga and Akay (2009), its evaluation number in this search run is recorded.
+
+PARAGRAPH
+
+The ASC and SR of all the algorithms are provided in Table 5 when solving the 23 benchmark functions.
+
+From this table, ABC costs less on 3 functions, PSO costs less on 2 functions, GA costs less on 1 function, DE costs less on 2 functions, CS costs less on 1 functions and GSA costs less on 1 function, while MRFO costs less on 11 functions.
+
+Obviously, MRFO is able to cost the least average function evaluation number when finding the global solution with given accuracy.
+
+For the SC, MRFO provides the highest success rate with 100% on 15 functions; ABC provides the highest success rate with 100% on 13 functions; PSO provides the highest success rate on 9 functions; GA provides the highest success rate with 100% on 7 functions; DE provides the highest success rate with 100% on 12 functions; CS provides the highest success rate with 100% on 12 functions; GSA provides the highest success rate with 100% on 11 functions.
+
+These results suggest that MRFO algorithm may locate the global optimum with very high probability for most benchmark functions.
+
+Especially, MRFO can achieve the predetermined solution accuracy with very small computational expense for unimodal functions.
+
+Therefore, the statistical results of these performance measures on the test functions demonstrate the effectiveness and reliability of MRFO algorithm.
+
+PARAGRAPH
+
+In summary, the above results discover different characteristics of MRFO in dealing with different types of benchmark functions.
+
+In earlier iterations, as shown in Eq. (7), the cyclone foraging strategy based on random positions requires each individual to update its position according to a randomly generated position in the entire search space, enjoying an extensive exploration.
+
+As iterations pass, however, an intensive exploitation and a good convergence are gradually highlighted which are implied in Eq. (1), this chain foraging strategy forces individuals to rapidly move to the best position obtained so far.
+
+Each of these two strategies is separately performed and spends almost half of iterations.
+
+Meanwhile, to strengthen exploration and exploitation as well as convergence of MRFO in each iteration, the somersault foraging strategy, as Eq. (8) reveals, can allow individuals to adaptively perform either a local search around the best position obtained so far or a global search between the current position and the best position found so far.
+
+Obviously, the results testing the performance of MRFO compared with its competitors in handling a range of different functions show that, the proposed algorithm can successfully and automatically balance exploration and exploitation, and its convergence performance is improved simultaneously in iterations.
+
+SECTION
+
+PARAGRAPH
+
+MRFO for real engineering problems
+
+PARAGRAPH
+
+In order to further evaluate MRFO, eight classical engineering problems from literature are solved using MRFO.
+
+The other algorithms are also used to address these real engineering problems.
+
+A comprehensive comparison of MRFO and the others algorithms demonstrates the practicability and superiority of MRFO in handling challenging engineering problems.
+
+The eight constrained engineering design problems are employed to evaluate MRFO.
+
+PARAGRAPH
+
+Generally, these constrained engineering optimization problems (in minimization case) can be formulated as Minimizef(x→),x→∈RdSubjecttogi(x→)≤0i=1,…,phj(x→)=0j=1,…,q where gi and hi are the inequality and equality constraints, respectively, and Rd is the n-dimensional field of real numbers.
+
+The task of MRFO is to find the best feasible solution x→={x1,…,xd} which minimizes the objective function f(x→) with constraints.
+
+PARAGRAPH
+
+In this study, the penalty function is employed to deal with these constraints in MRFO.
+
+A considerately large penalty value proportional to the values of the violated constraints is added to the objective function.
+
+Therefore, the optimization of these engineering problems using MRFO in Eq. (27) is defined as MinimizeF(x→)=f(x→)x→∈Sf(x→)+λ(∑i=1pgi(x→)+∑j=1qhj(x→))x→∉Swhere S is the feasible search space.
+
+When using this method, individuals who violate any constraint with any level are assigned a big function fitness value.
+
+Thus, the infeasible solutions will be automatically discarded by the algorithm during the optimization process.
+
+In this way, a constrained problem is converted into an unconstrained problem by introducing a penalty function.
+
+This method is very effective and is easy to implement for MRFO without the need for modification of the algorithm.
+
+PARAGRAPH
+
+In this subsection, the results are compared with those of the optimizers used previously on these engineering problems, to be fair, all the optimizers adopt the same FEs for every engineering problem and are equipped with the same penalty function.
+
+Second, the results are also compared with those of the other widely used approaches in literature, in which different constraint handling strategies are employed.
+
+The optimization formulation of these engineering problems is given in Appendix B.
+
+SECTION
+
+Tension/compression spring design
+
+PARAGRAPH
+
+This problem (Belegundu, 1982), depicted in Fig. 19, requires the minimization of the weight of a tension/compression spring with three constraints.
+
+There are three variables, including wire diameter (d), mean coil diameter (D), and number of active coils (N), to be optimized.
+
+PARAGRAPH
+
+This case is solved using MRFO and the ones mentioned above with 40,000 FEs.
+
+The results in terms of decision variables, constraint values and function values are summarized in Table 6, where MRFO offers better results than the other approaches.
+
+Meanwhile, Table 7 lists the comparisons for this problem using MRFO and those optimization approaches in literature, such as GA2 (Coello, 2000a, b), GA3 (Coello and Montes, 2002), CA (Coello and Becerra, 2004), PSO2 (He and Wang, 2007), CPSO (He and Wang, 2006), HPSO (He and Wang, 2007), QPSO (Dos Santos Coelho, 2010), UPSO (Parsopoulos and Vrahatis, 2005), CDE (Huang et al., 2007), SSB (Ray and Liew, 2003), and (μ+λ)ES (Mezura-Montes and Coello, 2005).
+
+In Table 7, the two sets of results are provided using MRFO for 2000 FEs and 50,000 FEs, respectively.
+
+MRFO method under pre-defined maximum function evaluations is significantly competitive.
+
+Moreover, MRFO has obtained the best results in terms of mean solutions using less number of FEs compared with the other considered competitors.
+
+The function and constraint values versus FEs are illustrated Fig. 20, respectively.
+
+PARAGRAPH
+
+This problem, proposed by Kannan and Kramer (1994), requires the minimization of the fabrication of a cylindrical pressure vessel and meets four constraints.
+
+The decision variables depicted in Fig. 21 consists of thickness of weld (Ts), length of the clamped bar (Th), height of the bar (R), and thickness of the bar (L).
+
+PARAGRAPH
+
+SECTION
+
+Pressure vessel design
+
+PARAGRAPH
+
+Table 8 offers the results of seven algorithms with 50,000 FEs in terms of decision variables, constraint values and function values.
+
+Observing the table, MRFO is the second most efficient approach only after CS.
+
+This problem is also solved using other well-established methods, such as GA2 (Coello, 2000a, b), GA3 (Coello and Montes, 2002), CPSO (He and Wang, 2006), HPSO (He and Wang, 2007), PSO-DE (Liu et al., 2010), PSO2 (He and Wang, 2007), CDE (Huang et al., 2007), QPSO (Dos Santos Coelho, 2010), ABC (Akay and Karaboga, 2012a, b), (μ+λ)ES (Mezura-Montes and Coello, 2005), and CSA (Askarzadeh, 2016).
+
+Table 9 provides the two sets of results, using MRFO for 8000 FEs and 30,000 FEs, respectively.
+
+The results of MRFO are obviously better than those of PSO2 and QPSO for the same number of FEs.
+
+With the same or even less number of FEs, MRFO finds the best results in terms of the worst, mean, best and standard deviation of best-so-far solutions.
+
+The function and constraint values versus FEs are illustrated Fig. 22, respectively.
+
+Though the solutions of MRFO obtained in the early iterations satisfy all the constraints, their function values still remain very high.
+
+With a few iterations, the solutions quickly converge towards the global optimum.
+
+PARAGRAPH
+
+SECTION
+
+Welded beam design
+
+PARAGRAPH
+
+Tthe tension/compression spring design problem is described in Coello (2000a, b).
+
+The fabrication cost of a welded beam is to be minimized subject to seven constraints.
+
+There are four design variables to be optimized as depicted in Fig. 23.
+
+PARAGRAPH
+
+The optimization results with 30,000 FEs in terms of decision variables, constraint values, and function values are compared using seven optimizers in Table 10.
+
+Once more, the results reveal that MRFO significantly outperforms the results of other algorithms.
+
+The results of some competitive optimizers such as GA2 (Coello, 2000a, b), GA3 (Coello and Montes, 2002), CPSO (He and Wang, 2006), HPSO (He and Wang, 2007), PSO-DE (Liu et al., 2010), WOA (Mirjalili and Lewis, 2016), EPSO (Ngo et al., 2016), ABC (Akay and Karaboga, 2012a, b), (μ+λ)ES (Mezura-Montes and Coello, 2005), and SC (Ray and Liew, 2003) are compared with those of MRFO and the comparisons are listed in Table 11.
+
+Observing the results in Table 11, two sets of statistical results found by MRFO for 9900 FEs and 30,000 FEs are provided.
+
+The results of MRFO are obviously better than those of WOA for the same number of FEs.
+
+It also demonstrates that the results found by MRFO for 30,000 FEs are more outstanding than those found by the others for more FEs.
+
+The function and constraint values versus FEs are illustrated in Fig. 24.
+
+SECTION
+
+PARAGRAPH
+
+Speed reducer design
+
+PARAGRAPH
+
+The speed reducer design problem was described in Mezura-Montes and Coello (2005) earlier.
+
+This case needs to achieve a minimum cost subject to eleven constraints and consists of seven design variables, as depicted in Fig. 25.
+
+PARAGRAPH
+
+The results of seven algorithms in terms of decision variables, constraint values and function values for 25,000 FEs are presented in Table 12 for this case.
+
+According to this table, MRFO is superior to the other algorithms for the same number of FEs.
+
+In addition, Table 13 shows the results obtained from MRFO and the other reported metaheuristic optimizers, such as SC (Ray and Liew, 2003), DELC (Wang and Li, 2010), HEAA (Wang et al., 2009), PSO-DE (Liu et al., 2010), DEDS (Zhang et al., 2008), ABC (Akay and Karaboga, 2012a, b), (μ+λ)ES (Mezura-Montes and Coello, 2005), and MDE (Montes et al., 2016).
+
+Two sets of results of MRFO algorithm for 20,000 FEs and 30,000 FEs are provided.
+
+From Table 13, the results of MRFO for 20,000 FEs is substantially better than those of MDE for 24,000 FEs.
+
+Besides, the results of MRFO for 30,000 FEs is not inferior to those of the others for more number of FEs.
+
+The function and each constraint values versus FEs for this case are depicted in Fig. 26.
+
+As shown in the figure, the obtained solutions at the beginning of iterations violate three constraints that greatly increase the function value.
+
+After 200 FEs, the obtained solutions tend to satisfy all the constraints, thus instantly decreasing the function value.
+
+SECTION
+
+PARAGRAPH
+
+Rolling element bearing design
+
+PARAGRAPH
+
+In this case (Rao and Tiwari, 2007; Gupta et al., 2017), we maximize the dynamic load carrying capacity of rolling element bearing.
+
+There are ten design variables and constraints, as depicted in Fig. 27.
+
+PARAGRAPH
+
+Table 14 shows the comparisons of statistical results found by seven algorithms in terms of decision variables, constraint values and function values for 30,000 FEs.
+
+It is to be noted that MRFO provides the best solutions with considerable improvement compared to its competitors.
+
+PARAGRAPH
+
+This case was tackled using some metaheuristic optimizers such as GA4 (Rao and Tiwari, 2007), TLBO (Rao et al., 2011), ABC (Akay and Karaboga, 2012a, b), and MBA (Sadollah et al., 2013).
+
+The results of these approaches and MRFO for two different number of FEs are compared in Table 15.
+
+With the same number of FEs, MRFO outperforms ABC and TLBO in terms of the mean and best of best-so-far solutions.
+
+Moreover, it clearly offers a better best-so-far solution using less number of FEs than MBA and GA4.
+
+The function and each constraint values versus FEs for this case are provided in Fig. 28.
+
+SECTION
+
+PARAGRAPH
+
+Multiple disc clutch brake design
+
+PARAGRAPH
+
+The intent of this problem (Osyczka, 2002) is to minimize the mass of the multiple disc clutch brake.
+
+There are five discrete decision variables which need to be optimized as depicted in Fig. 29, including inner radius (ri=60, 61, 62, …,80), outer radius (ro=90, 91, 92, …, 110), thickness of the disc (t=1, 1.5, 2, 2.5, 3), actuating force (F=600, 610, 620, …, 1000), and number of friction surfaces (Z=2, 3, 4, 5, 6, 7, 8, 9).
+
+PARAGRAPH
+
+For this problem, Table 16 shows the comparisons of seven algorithms in terms of decision variables, constraint values, and function values for 1000 FEs.
+
+Though both MRFO and ABC provide different optimal solutions, they have the same function value which is significantly superior to those of the others.
+
+The optimum solution obtained by MRFO is ri=70 mm, ro=90 mm, t=1 mm, F=933 N, and Z=3.
+
+PARAGRAPH
+
+The comparisons of the reported optimizers including TLBO and ABC (Rao et al., 2011) are illustrated in Table 17.
+
+As the table shows, with less computational efforts, MRFO offers its best results in terms of the mean, best, and standard deviation of best-so-far solutions.
+
+Fig. 30 shows the function values of the two optimizers and MRFO versus FEs.
+
+According to Fig. 30(A), the convergence rate of TLBO is faster than ABC in earlier iterations, but with the increase of iterations, the convergence of both algorithms becomes nearly the same (Rao et al., 2011).
+
+From Fig. 30(B), MRFO obtains faster convergence rate than the two optimizers that provide the optimal solution after about 600 FEs.
+
+However, MRFO can offer the same optimal solution only using 500 FEs.
+
+SECTION
+
+Belleville spring design
+
+PARAGRAPH
+
+This case (Coello, 2000a, b) is minimization of weight while satisfying a number of complex constraints.
+
+There are four decision variables and seven constraints, as depicted in Fig. 31.
+
+PARAGRAPH
+
+This problem is solved by seven optimizers for 50,000 FEs, the comparisons in terms of decision variables, constraint values and function values are shown in Table 18.
+
+As shown in the table, MRFO is again highly competitive with the other heuristic approaches.
+
+PARAGRAPH
+
+This problem was also studied by GA5 (Coello, 2000a, b), ABC (Rao et al., 2011), and TLBO (Rao et al., 2011).
+
+Table 19 represents the comparisons of different optimizers for the best obtained solution.
+
+From Table 19, compared with GA5, with the same number of FEs, the better best-so-far solution is obtained using MRFO with t=0.2042251, h=0.2000150, Di=10.0292262, and Do=12.0099244.
+
+Additionally, compared with TLBO and ABC, MRFO evidently offers its best results in terms of the worst, best and standard deviation of best-so-far solutions with less number of FEs, and the best obtained function value is 1.9796747 with t=0.2041434, h=0.2, Di=10.0304732, and Do=12.0099999.
+
+The function and constraint values versus FEs for this case are demonstrated in Fig. 32, obviously, MRFO tends to approximate the optimal solution in a short period of time.
+
+PARAGRAPH
+
+SECTION
+
+Hydrostatic thrust bearing design
+
+PARAGRAPH
+
+The last utilized engineering case, proposed by Siddall (1982), is the hydrostatic thrust bearing design problem.
+
+This problem, depicted in Fig. 33, is the minimization of power loss of the bearing while satisfying seven constraints.
+
+This case has four continuous decision variables to be optimized.
+
+PARAGRAPH
+
+The statistical results, given by seven algorithms in terms of decision variables, constraint values and function values for 50,000 FEs, are presented in Table 20 for this case.
+
+As observed in the table, MRFO is highly competitive with other heuristic approaches.
+
+This problem was previously handled by IPSO (He et al., 2004), GASO (Coello, 2000a, b), GeneAS (Deb and Goyal, 1997), and BGA (Deb and Goyal, 1997) with varying degrees of success, and the results offered by them are listed in Table 21.
+
+For comparison, this problem is handled using MRFO with 90,000 FEs and 16,000 FEs, respectively.
+
+From Table 21, compared with GASO, MRFO produces better results with the same number of FEs for the best function value f8=1626.4216806 with R=6.0278512, Ro=5.4681520, μ = 5.3662E−06, and Q=2.2755966.
+
+Compared with IPSO, MRFO produces better results with the same number of FEs for the best function value f8=1792.8179135 with R=5.9562696, Ro=5.38955360, μ = 6.6246E−06, and Q=3.5584835.
+
+Obviously, with the same computational efforts, MRFO provides more satisfactory results than its counterparts.
+
+Fig. 34 shows the function and constraint values versus FEs for the hydrostatic thrust bearing design problem.
+
+PARAGRAPH
+
+The convergence curves of seven algorithms, based on the average best-so-far of the 20 runs, are presented in Fig. 35 to evaluate the convergence rate of MRFO for constrained engineering problems.
+
+As illustrated in this figure, in earlier iterations, the individuals in MRFO are inclined to extensively explore the entire search space to position promising areas.
+
+With the increase of iterations, the region with the optimum is intensively exploited.
+
+The most evident difference between MRFO and other optimizers is that MRFO offers a faster convergence rate in the entire optimization process and obtains competitive solutions with less computational efforts for the majority of engineering problems.
+
+SECTION
+
+Conclusions
+
+PARAGRAPH
+
+In terms of the intelligent foraging behaviors of manta rays, a new optimization approach, named Manta Rays Foraging Optimization (MRFO), is proposed in this study.
+
+This algorithm has three foraging operators to mimic manta rays’ hunt for food, including chain foraging, cyclone foraging, and somersault foraging.
+
+This approach, with few adjustable parameters, is easy to implement, which in turn makes it very potential for applications in many engineering fields.
+
+A diverse set of benchmark functions including unimodal, multimodal, low-dimensional and composition functions are used to confirm the performance of MRFO from different aspects.
+
+The comparisons show MRFO is often superior to other well-known competitors.
+
+PARAGRAPH
+
+In order to verify its ability to solve real-world problems, an extensive study is conducted on eight real-world engineering problems such as tension/compression spring design, pressure vessel design, etc.
+
+The comparisons suggest that MRFO is more effective than other well-known optimizers.
+
+The results of benchmark functions and engineering problems also reveal MRFO has powerful global optimization ability not only on unconstrained problems but also on constrained problems.
+
+It is very suitable for handling real-world problems requiring less computational expense with a specified precision for final solutions.
+
+PARAGRAPH
+
+The novelty and contribution of this work are highlighted as follow.
+
+PARAGRAPH
+
+(1) A novel nature-inspired manta ray foraging optimization algorithm is developed in this work.
+
+The foraging behaviors of manta rays are investigated thoroughly and formulated mathematically including every characteristic of their foraging behaviors.
+
+PARAGRAPH
+
+(2) There are three special search strategies which play three different roles in the proposed algorithm.
+
+The chain foraging behavior significantly contributed to the local search ability of the algorithm; the cyclone foraging behavior of manta rays is greatly dedicated to the global search ability of the algorithm; the somersault foraging behavior enhances the local search ability and raises the convergence rate.
+
+PARAGRAPH
+
+(3) The experimental results on complex benchmark problems indicate that MRFO is very effective and reliable.
+
+The optimization results of engineering designs demonstrate that the MRFO optimizer can lead to promising improvement on solution precision with less computation cost compared with other well-established optimizers.
+
+PARAGRAPH
+
+For future work, the binary MRFO may be presented to deal with complex discrete problems.
+
+The extended MRFO could also be tailored to address multi-objective optimization.

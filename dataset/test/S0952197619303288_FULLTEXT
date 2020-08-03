@@ -1,0 +1,593 @@
+10.1016/j.engappai.2019.103425
+
+FULLTEXT
+
+TITLE
+
+Incremental model-based global dual heuristic programming with explicit analytical calculations applied to flight control
+
+SECTION
+
+Introduction
+
+PARAGRAPH
+
+Controller design for aerospace systems, especially airplanes, is challenging for many reasons.
+
+One of the most challenging parts is the difficulty of modeling the dynamics of the system.
+
+Especially for complex, nonlinear vehicles, global plant information may be impossible to obtain.
+
+The aircraft can be susceptible to uncertainties, sudden faults and structural damages, which changes the real plant compared to the previously obtained model (Lungu and Lungu, 2018).
+
+To deal with these problems, one promising solution is to create learning or adaptive controllers.
+
+PARAGRAPH
+
+Reinforcement learning (RL), for instance, which links several bio-inspired artificial intelligence techniques, can make a system learn desired policies without accurate models of its dynamics or environment and can adapt to changing situations (Sutton and Barto, 2018).
+
+For these reasons, there have been a number of RL methods developed to enable model-free flight control in various types of aerospace systems (Hwangbo et al., 2017; Coates et al., 2017; Zhou et al., 2018b, 2016a; Sun and van Kampen, 2020).
+
+However, different from ground robots, it is difficult to employ end-to-end training approaches on aerospace systems because of their special working environments.
+
+Consequently, a combination of RL and traditional control theory is a promising strategy to improve adaptive flight control.
+
+The combination of an actor–critic structure, dynamic programming, and neural networks, results in the adaptive/ approximate dynamic programming (ADP) algorithm, which is regarded as an effective technique to design adaptive optimal controllers and can achieve certain levels of adaptiveness and fault-tolerance (Wang, 2019a; Valadbeigi et al., 2019; Wang et al., 2017; Wang, 2019b).
+
+According to optimal control theory, for a nominal system, given a cost function, the analytical optimal solution can be obtained by solving the Hamilton–Jacobi–Bellman (HJB) equation.
+
+However, for complex or nonlinear systems, analytical solutions to the HJB equation can be difficult or even impossible to get, let alone in real time.
+
+To conquer the difficulty of directly solving the HJB equation online for general nonlinear systems, the adaptive critic framework and artificial neural networks (ANNs) are often involved in order to approximate the HJB solution (Wang et al., 2017; Ferreira et al., 2017; Wang et al., 2019a).
+
+PARAGRAPH
+
+As a class of ADP methods, adaptive critic designs (ACDs), which separate policy evaluation (critic) and policy improvement (actor), have shown great success in optimal adaptive control of nonlinear aerospace systems (Ferrari and Stengel, 2004; Van Kampen et al., 2006; Zhou et al., 2016a, 2018b; Sun and van Kampen, 2020).
+
+ACDs can generally be categorized into several groups (Prokhorov and Wunsch, 1997): heuristic dynamic programming (HDP), dual heuristic programming (DHP) and global dual heuristic programming (GDHP) and their action-dependent (AD) versions.
+
+HDP is the most basic form and most often used structure, which employs the critic to approximate the cost-to-go.
+
+The critic in DHP approximates the derivatives of the cost-to-go with respect to the critic inputs, and in many practical applications it outperforms HDP in success rate and precision (Venayagamoorthy et al., 2002).
+
+GDHP, which approximates both the cost-to-go and its derivatives so as to take advantage of two kinds of information, has several different forms (Prokhorov and Wunsch, 1997).
+
+Among them, the straightforward form, where the critic approximates the cost-to-go and its derivatives simultaneously (Sun and van Kampen, 2020; Yi et al., 2019; Liu et al., 2012), is most commonly used because of its simple structure.
+
+In this architecture, two kinds of outputs share the same inputs and hidden layers, making them strongly coupled.
+
+Although these outputs have explicit mathematical relationships, without analytical calculations, weight update processes can suffer from this coupling due to inconsistent errors, and sometimes it even leads to instability.
+
+In this paper, explicit analytical calculations of the mixed second-order derivatives of the critic network outputs with respect to its input vector and weight matrices are introduced for adaptive flight control.
+
+Prokhorov and Wunsch (1997) and Fairbank et al. (2012) illustrate how to calculate these derivatives in an element-wise way.
+
+However, Magnus and Neudecker (2019) clarifies that vectors and matrices more often appear as a whole in practical applications rather than multi-variable functions, and this holistic view is easier to obtain the chain rule.
+
+Therefore, one contribution of this paper is deriving a direct method based on differential operation (Magnus and Neudecker, 2019) to compute these second-order derivatives in a holistic way so as to tackle the inconsistent errors between approximated cost-to-go function and its derivatives.
+
+PARAGRAPH
+
+ACDs can be model-free if the critic is an AD network, which means the control signals are also introduced as network inputs (Abouheaf et al., 2018; Vamvoudakis and Ferraz, 2018).
+
+Nevertheless, to achieve model free application, an alternative is building a third module to approximate the plant dynamics and ANNs are often regarded as the first choice (Van Kampen et al., 2006; Liu et al., 2012; Bhasin et al., 2013; Lin et al., 2017; Liu et al., 2013; Van Kampen et al., 2006) illustrates how this three-network structure outperforms AD ones if rewards only depend on system states.
+
+Although ANNs can approximate the nonlinear function with arbitrary precision, many samples are required before the weights converge for online identification of complex plants dynamics like aerospace systems, which can be dangerous especially at the start of training because the critic and actor networks are then trained based on the incorrect model.
+
+For these complex systems, offline training is normally involved to obtain a primary model and it often remains constant in applications (Van Kampen et al., 2006; Liu et al., 2012; Bhasin et al., 2013), which, however, cannot achieve adaptive control when facing unforeseen uncertainties and sudden disturbances in realistic application.
+
+PARAGRAPH
+
+The main contribution of this paper is an incremental model-based GDHP (IGDHP) method that enables online model-free flight control based on our latest work (Sun and van Kampen, 2020).
+
+Different from conventional GDHP, an incremental model is involved for adaptive control to deal with the absence of full system information.
+
+Assuming sufficiently high sampling rate for discretization, incremental techniques are able to accurately identify system dynamics online, preventing the controllers from initial failure, and have been successfully applied to design adaptive flight controllers, such as incremental nonlinear dynamic inversion (INDI) (Wang et al., 2019b), incremental back-stepping (IBS) (Wang and van Kampen, 2019), incremental sliding mode control (ISMC) (Wang et al., 2018; Wang and van Kampen, 2019) and IADP (Zhou et al., 2016b, 2018a), IACDs (Zhou et al., 2017, 2018b; Sun and van Kampen, 2020).
+
+However, these existed incremental methods have some limitations.
+
+For instance, INDI, IBS and ISMC cannot deal with optimal control problems, and IADP requires linear quadratic reward and offline training process.
+
+Compared to existed methods, IGDHP develops current IACDs to achieve online adaptive optimal control.
+
+In summary, the primary advantages lie in that the novel algorithm speeds up the online policy learning without knowing system dynamics or offline training a model network, and the analytical calculations make use of the information of cost-to-go function and its derivatives without introducing inconsistent errors.
+
+PARAGRAPH
+
+The remainder of this paper is structured as follows.
+
+Section 2 presents the basic formulation of three-network GDHP with explicit analytical calculations.
+
+Section 3 introduces the incremental method for online identification and uses it to simplify the weight update process of the actor and critic networks.
+
+Then Section 4 provides the necessary information for verification, where an F-16 Fighting Falcon model is built and possible noises, faults and damages during flight are explained.
+
+Section 5 verifies the approaches by applying both GDHP and IGDHP on a longitudinal attitude tracking task in various conditions and analyzing their results.
+
+Finally Section 6 summarizes the paper and puts up possibilities for future research.
+
+SECTION
+
+GDHP implementation
+
+PARAGRAPH
+
+GDHP, which combines the advantages of HDP and DHP, can be implemented as a model free technique with three ANNs, namely model, critic and actor.
+
+The variables or pathways corresponding to these ANNs are denoted by the subscripts m, c and a, respectively.
+
+The architecture of GDHP with explicit analytical calculations is illustrated in Fig. 1.
+
+Based on current states, the actor network generates an action to control both real system and plant model.
+
+The model network estimates the states at the next time step, which are connected to the critic network to approximate cost-to-go, whose derivatives are computed analytically.
+
+All weights of the ANNs are updated in a back-propagation way according to the gradient-descent algorithm (Prokhorov and Wunsch, 1997).
+
+SECTION
+
+PARAGRAPH
+
+Global model
+
+PARAGRAPH
+
+For a full-state feedback system, the inputs of the system model are the current state vector xt∈Rn and current control vector ut∈Rm, while the output is the estimated next state vector xˆt+1∈Rn.
+
+However, because the future true value of state vector xt+1 is unavailable at time step t, the update is implemented with current and previous data, i.e. the network weights are updated by minimizing the difference between the current measured state vector xt and the estimated state vector xˆt: Em(t)=12em(t)TQmem(t)where em(t)=xˆt−xtand Qm∈Rn×n is a positive definite matrix.
+
+For simplicity, Qm is usually defined as a diagonal matrix, i.e. Qm=diag{ζ1,ζ2,…,ζn}, where the elements respectively select and weigh the approximating errors.
+
+PARAGRAPH
+
+The weights are updated by a gradient-descent algorithm: wm(t+1)=wm(t)−ηm⋅∂Em(t)∂wm(t)where ηm is the learning rate, and ∂Em(t)∂wm(t)=∂Em(t)∂xˆt⋅∂xˆt∂wm(t)=emT(t)⋅∂xˆt∂wm(t)
+
+SECTION
+
+The critic
+
+PARAGRAPH
+
+GDHP combines HDP and DHP and requires the information of both the cost-to-go J(x̃t) and its derivatives with respect to the network inputs x̃t, where x̃t=xˆt−xtref stands for tracking error vector.
+
+The critic network only employs Jˆ(x̃t) to approximate the true cost-to-go J(xt,xtref), which is the cumulative sum of future rewards rt from any initial state x̃t: J(xt,xtref)=∑l=t∞γl−trlwhere γ∈(0,1) is discount factor, used to control the extent to which the short-term cost or long-term cost is concerned.
+
+The derivative of the cost-to-go with respect to the input vector λˆ(x̃t) is shown in Appendix.
+
+PARAGRAPH
+
+The goal of the experimental setup is to track the reference states contained in xtref, so a one-step cost function with a quadratic form is designed: rt=r(xt,xtref)=(xt−xtref)TQc(xt−xtref)=x̃tTQcx̃twhere Qc∈Rn×n is a non-negative definite matrix.
+
+PARAGRAPH
+
+Because future rewards are required, a temporal difference (TD) method is introduced to iteratively update the critic network (Sutton and Barto, 2018).
+
+The principle is to minimize the temporal difference error, the error between the current and successive estimates of the state value.
+
+Similar to the model network, the weights of the critic network are updated with current and previous data.
+
+The critic errors are as follows: ec1(t)=Jˆ(x̃t−1)−rˆt−1−γJˆ(x̃t)and ec2(t)=∂[Jˆ(x̃t−1)−rˆt−1−γJˆ(x̃t)]∂x̃t−1=λˆ(x̃t−1)−∂rˆt−1∂x̃t−1−γλˆ(x̃t)∂x̃t∂x̃t−1where ec1(t) is the TD error of the estimated cost-to-go Jˆ(x̃t−1) with current network weights, while ec2(t) is the TD error of the computed derivatives λˆ(x̃t−1) with current network weights. rˆ
+
+denotes the estimated reward, because true states are unavailable to evaluate updated control policy.
+
+GDHP combines both of them in an overall error function Ec(t): Ec(t)=β12ec12(t)+(1−β)12ec2T(t)ec2(t)where β is a scalar indicating the importance within a range of [0,1].
+
+If β=1, then it becomes pure HDP.
+
+If β=0, then the tuning of weights merely depends on the TD error of computed derivatives λˆ(x̃t), and consequently it is equivalent to DHP, which is different from the straight form in Liu et al. (2012), Yi et al. (2019) and Sun and van Kampen (2020), where if β=0, the back-propagation channel of the actor is cut.
+
+PARAGRAPH
+
+The critic weights are updated using a gradient-descent algorithm with a learning rate ηc to minimize the overall error Ec(t): wc(t+1)=wc(t)−ηc⋅∂Ec(t)∂wc(t)where ∂Ec(t)∂wc(t)=∂Ec(t)∂Jˆ(x̃t−1)⋅∂Jˆ(x̃t−1)∂wc(t)+∂Ec(t)∂λˆ(x̃t−1)⋅∂λˆ(x̃t−1)∂wc(t)=βec1(t)⋅∂Jˆ(x̃t−1)∂wc(t)+(1−β)ec2T(t)⋅∂λˆ(x̃t−1)∂wc(t)where ∂λˆ(x̃t−1)∕∂wc(t) represents the second-order mixed gradient of the estimated cost-to-go Jˆ(x̃t−1).
+
+An example of how to obtain it is illustrated in Appendix.
+
+SECTION
+
+The actor
+
+PARAGRAPH
+
+The actor network outputs control action ut, which is an input of the model network, and thus it will affect the critic outputs at the next time-step.
+
+The goal of the actor network is to produce an optimal control policy by minimizing the error between the current approximated cost-to-go Jˆ(x̃t) and the ideal one J∗(t), which depends on the given reward function and is set to be zero in this paper: ut∗=argminutEa(t)where Ea(t) is the overall actor error function and is defined as: Ea(t)=12ea2(t)where ea(t)=Jˆ(x̃t)−J∗(t)
+
+PARAGRAPH
+
+Different from the straight form in Liu et al. (2012), Yi et al. (2019) and Sun and van Kampen (2020) where the actor network can be trained through the pathways either leading from Jˆ(x̃t) or carried out by λˆ(x̃t), there is only one back-propagation way for GDHP with explicit analytical calculations to update the actor weights and the information from both Jˆ(x̃t) and λˆ(x̃t) can be utilized.
+
+As illustrated in Fig. 1, the actor weights are updated along the 4th back-propagation direction with a learning rate ηa: wa(t+1)=wa(t)−ηc⋅∂Ea(t)∂wa(t)where ∂Ea(t)∂wa(t)=∂Ea(t)∂Jˆ(x̃t)⋅∂Jˆ(x̃t)∂xˆt⋅∂xˆt∂ut−1⋅∂ut−1∂wa(t)=Jˆ(x̃t)⋅∂Jˆ(x̃t)∂xˆt⋅∂xˆt∂ut−1⋅∂ut−1∂wa(t)
+
+SECTION
+
+IGDHP implementation
+
+PARAGRAPH
+
+Aerospace systems have complex nonlinear dynamics for which ANNs can fail to achieve accurate online identification fast enough.
+
+In this section, an incremental technique is introduced to ensure a quick and accurate approximation using locally linearized models (Fig. 2).
+
+In addition to online learning and quick adaptation, it also reduces computational burden of the network weight update processes.
+
+SECTION
+
+PARAGRAPH
+
+Incremental model
+
+PARAGRAPH
+
+Although most physical systems are continuous, modern processors work in a discrete way, leading to discrete measurements and computations.
+
+With the assumption of sufficiently high sampling frequency and relatively slow time-varying dynamics, one can represent a continuous nonlinear plant with a discrete incremental model and retain high enough precision.
+
+The derivation (Zhou et al., 2018b) can be generally given as follows:
+
+PARAGRAPH
+
+Consider a nonlinear continuous system described by: ẋ(t)=f[x(t),u(t)]where f[x(t),u(t)]∈Rn provides the dynamics of the state vector over time.
+
+The general form can be used to describe dynamic and kinematic equations of complicated aerospace systems.
+
+PARAGRAPH
+
+By taking the first order Taylor series expansion of (17) around time t0 and omitting higher-order terms, the system is linearized approximately as follows: ẋ(t)≈ẋ(t0)+F[x(t0),u(t0)][x(t)−x(t0)]+G[x(t0),u(t0)][u(t)−u(t0)]where F[x(t0),u(t0)]=∂f[x(t),u(t)]∂x(t)|x(t0),u(t0)  G[x(t0),u(t0)]=∂f[x(t),u(t)]∂u(t)|x(t0),u(t0)  F[x(t0),u(t0)]∈Rn×n is the system matrix and G[x(t0),u(t0)]∈Rn×m is the control effectiveness matrix.
+
+Assuming the states and state derivatives of the system are measurable, i.e. Δẋ(t), Δx(t) and Δu(t) are measurable, an incremental model can be used to describe the above system: Δẋ(t)≃F[x(t0),u(t0)]Δx(t)+G[x(t0),u(t0)]Δu(t)
+
+PARAGRAPH
+
+With a constant, high sampling frequency, i.e. the sampling time Δt is sufficiently small, the plant model can be written approximately in a discrete form: xt+1−xtΔt≈Ft−1⋅(xt−xt−1)+Gt−1⋅(ut−ut−1)where Ft−1=∂f(x,u)∂x|xt−1,ut−1∈Rn×n is the system transition matrix and Gt−1=∂f(x,u)∂u|xt−1,ut−1∈Rn×m is the input distribution matrix at time step t−1 for the discretized systems.
+
+From (22), following incremental form of the new discrete nonlinear system can be obtained: Δxt+1≈Ft−1Δt⋅Δxt+Gt−1⋅Δt⋅Δut
+
+PARAGRAPH
+
+In this way, the continuous nonlinear global plant is simplified into a linear incremental dynamic equation.
+
+The obtained local plant model can be identified online with recursive least squares (RLS) technique, to take advantage of its adaptability to cope with time variations in the regression parameters and fast convergence speed (Ferreira et al., 2017), so as to avoid training a complex ANN.
+
+Although some information is omitted, such as state variation related nonlinear terms and higher-order terms in their Taylor series expansion, with the identified Fˆt−1 and Gˆt−1 matrix, the next system state can be predicted: xˆt+1=xt+Fˆt−1⋅Δt⋅Δxt+Gˆt−1⋅Δt⋅Δut
+
+SECTION
+
+Online identification using RLS
+
+PARAGRAPH
+
+A RLS approach is applied to identify the system transition matrix Ft−1 and the input distribution matrix Gt−1 online with the assumption of full-state feedback.
+
+The incremental form of the states in (23) can be rewritten in a row by row form as follows: Δxt+1≈ΔxtTΔutT⋅Ft−1TGt−1T⋅ΔtSince all increments of the states share the same covariance matrix, the parameters can be identified together as Θt−1=Ft−1TGt−1T∈R(n+m)×n (Zhou et al., 2018b).
+
+Therefore, the state prediction equation (24) can be rewritten as follows: Δxˆt+1=XtT⋅Θˆt−1⋅Δtwhere Xt=ΔxtΔut∈R(n+m)×1 is the input information of the incremental model, and it is assumed to be measured directly.
+
+PARAGRAPH
+
+The main procedure of the RLS approach is presented as follows: ϵt=Δxt+1T−Δxˆt+1T  Θˆt=Θˆt−1+Covt−1XtγRLS+XtTCovt−1XtϵtΔt  Covt=1γRLSCovt−1−Covt−1XtXtTCovt−1γRLS+XtTCovt−1Xtwhere ϵt∈R1×n stands for the prediction error, also called innovation, Covt∈R(n+m)×(n+m) is the estimation covariance matrix and it is symmetric and semi-positive definite, and γRLS is the forgetting factor for this RLS approach.
+
+PARAGRAPH
+
+For most ACD designs, sufficient exploration of the state space guarantees good performance.
+
+Although RLS depends less on the global exploration, it is better to satisfy the persistent excitation (PE) condition (Zhou et al., 2018b) for identifying incremental model.
+
+A 3211 disturbance signal is introduced to excite the system modes at the start of training.
+
+SECTION
+
+Network update simplification
+
+PARAGRAPH
+
+Considering (8), the last term −γλˆ(x̃t)∂x̃t∂x̃t−1 needs to be dealt with carefully, because there are two pathways for x̃t−1 to affect x̃t.
+
+One is through the model network directly (pathway 3.
+
+a), and another one firstly goes through the actor network and then through the model network (pathway 3.
+
+b), as shown in both  Figs. 1 and 2: ∂x̃t∂x̃t−1=∂xt∂xt−1=∂xt∂xt−1|m︸pathway(3.a)+∂xt∂ut−1|m⋅∂ut−1∂xt−1|a︸pathway(3.b)In conventional GDHP, the two system model derivative terms in (30) are calculated back through the global system model, while IGDHP introduces the identified incremental model information directly to approximate them, whose computation burden is decreased compared to GDHP: ∂x̃t∂x̃t−1≈Fˆt−1⋅Δt+Gˆt−1⋅Δt⋅∂ut−1∂xt−1|aSimilarly, the actor weight update process can also be simplified by the incremental information.
+
+Specifically, the term ∂xˆt+1∂ut in (16) can be approximated by the identified input distribution matrix Gˆt−1 directly: ∂xˆt+1∂ut=Gˆt−1⋅Δt
+
+PARAGRAPH
+
+Therefore, with the identified system transition matrix Fˆt−1 and input distribution matrix Gˆt−1, one can simplify the update processes of the critic network and actor network and thus accelerate the learning.
+
+PARAGRAPH
+
+Wang et al. (2018, 2019b) and Wang and van Kampen (2019) demonstrate that under the assumption that the sampling rate is sufficiently high, in other words, Δt is small enough, the errors due to linearization and discretization can be ignored.
+
+In this paper, Δt is set to be 1ms, which is realistic and accurate enough.
+
+The stability analysis of the GDHP method is investigated in Liu et al. (2012) and Yi et al. (2019).
+
+However, to the best of our knowledge, the theoretical assurance for the closed-loop convergence of online model-free control algorithms is still an open problem.
+
+The parameter convergence of control policy requires accurate and stable model information, which in turn depends on the parameter convergence of the control policy, making a circular argument.
+
+SECTION
+
+Numerical experiments setup
+
+PARAGRAPH
+
+The first part in this section introduces a nonlinear longitudinal model of F-16 Fighting Falcon for evaluation of the proposed algorithms.
+
+The second part briefly introduces some potential uncertainties in practical flight.
+
+The third part discusses some related issues of the network structures for implementation of the aforementioned algorithms, including the activation function, the hierarchical actor network, etc.
+
+SECTION
+
+Aerospace system model
+
+PARAGRAPH
+
+IGDHP can be applied to nonlinear aerospace systems, whose dynamic and kinematic state equations can be generally represented as: ẋ(t)=fx(t),u(t),d(t)where d(t) represents the disturbances and noises.
+
+PARAGRAPH
+
+To verify the proposed method and compare the effect of these differences for a practical case, a nonlinear longitudinal model of F-16 Fighting Falcon (Abdullah et al., 2004; Nguyen et al., 1979) is introduced.
+
+The model consists of the longitudinal force and moment equations, and it is a specific example of (33): V̇=gsin(α−θ)+cosαmT+q̄ScosαmCx,v+q̄SsinαmCx,vα̇=gVcos(α−θ)−sinαmVT+(1+q̄Sc̄2mV2Cx,α)q+q̄SmVCz,αq̇=q̄Sc̄2IyyVCx,qq+q̄Sc̄IyyCz,qθ̇=qḣ=Vsin(α−θ)where Cx,v=Cx(α,δe)+c̄2VCxq(α)qCz,v=Cz(α,δe)+c̄2VCzq(α)qCx,α=Czq(α)cosα−Cxq(α)sinαCz,α=Cz(α,δe)cosα−Cx(α,δe)sinαCx,q=c̄Cmq(α)+c̄(Xcgr−Xcg)Czq(α)Cz,q=Cm(α,δe)+(Xcgr−Xcg)Cx(α)q̄=12ρV2where V denotes the velocity, α and θ denote angle of attack and pitch angle, q denotes pitch rate, T denotes engine thrust, δe denotes elevator deflection, m denotes aircraft mass, q̄ denotes dynamic pressure, ρ denotes air density, c̄ denotes mean aerodynamic chord, S denotes wing planform area, Iyy denotes pitch moment of inertia, Xcg and Xcgr denote center of gravity (CG) location and reference CG location, g denotes gravitational constant, Cx, Cz, Cxq, Czq are aerodynamic force coefficients and Cm, Cmq are aerodynamic moment coefficients.
+
+All parameters are determined by simulating this model around a steady wings-level flight condition at an altitude of approximately 15 000 ft with the speed of 600 ft/s based on (Nguyen et al., 1979).
+
+PARAGRAPH
+
+Although the model has multiple states, two main states are selected as identified system states, which are angle of attack, that is to be controlled and pitch rate q, the basic inner state.
+
+In this paper, only one control input, elevator deflection δe, is considered, and engine thrust T is set be constant.
+
+Before elevator deflection is practically adjusted, the control signal that is generated by the actor u, or δec in this attitude tracking problem, has to go through the actuator, which consists of a command saturation and a first-order filter with rate saturation, as shown in Fig. 3. δec
+
+is bounded in the range of [−25°,25°] and changing rate of elevator deflection is limited in the range of [−60°∕s,60°∕s] (Nguyen et al., 1979).
+
+SECTION
+
+PARAGRAPH
+
+Uncertainties
+
+PARAGRAPH
+
+In flight control system design, system uncertainties, such as measurement uncertainties, unexpected changes of system dynamics or even sudden failures, need to be taken into account (Wang et al., 2018; Zhou et al., 2018b).
+
+This section will introduce the uncertainties the system has to deal with.
+
+PARAGRAPH
+
+In practice sensors have measurement uncertainties, and the magnitude of real-world phenomena used in this paper is illustrated in Table 1 (Van’t Veld et al., 2018).
+
+The bias acting on the feedback signals is based on the mean of the disturbances, while the noise acting on the signals is based on the standard deviation of the disturbances.
+
+PARAGRAPH
+
+Sudden partial damages might be encountered during flight.
+
+The effects of the aircraft structural damages have been investigated in Wang et al. (2018).
+
+It has been found that actuators, as moving components, can be affected by unforeseen faults.
+
+The first actuator fault considered in this paper is the sudden decrease of elevator bandwidth, which is initially set to be 20.2 rad/s (Nguyen et al., 1979; Wang and van Kampen, 2019).
+
+The bandwidth, which numerically equals to the reciprocal of the time constant of the first-order filter, denotes the maximum frequency of sinusoidal command that the elevator can follow.
+
+A smaller bandwidth may lead to a high gain control policy, which can results in oscillation or divergence.
+
+Another actuator fault scenario considered is the reduction of control effectiveness, which can be caused directly by actuator damages or indirectly by structural damages that change aerodynamics.
+
+PARAGRAPH
+
+For longitudinal dynamics, damage of the horizontal stabilizer needs to be taken into consideration, which leads to significant loss in both static and dynamic stability on the directional axis with an approximately linear relationship with the scale of tip loss, whose effectiveness is reflected by the changes of the aerodynamic moment coefficients Cm and Cmq.
+
+Besides, these structural damages are usually accompanied with mass loss, instantaneously shifting the CG to a new location.
+
+PARAGRAPH
+
+SECTION
+
+Network structure
+
+PARAGRAPH
+
+ANNs, or more specifically multilayer perceptions (MLPs), are utilized to approximate the actor, critic and global model.
+
+For simplicity, the introduced ANNs are fully connected and consist of only three layers of nodes: an input layer, a hidden layer and an output layer.
+
+The activation function σ in the nodes of the hidden layer is a sigmoid function: ς(o)=1−e−o1+e−oIt is anti-symmetric, zero-center and differentiable, with output bounded between −1 and 1.
+
+Its derivative is continuous, differentiable and positive at every point: ∂ς(o)∂o=121−ς(o)2The actor is implemented as a hierarchical structure, or specifically a cascaded actor network (Van Kampen et al., 2006; Zhou et al., 2018b; Sun and van Kampen, 2020), as shown in Fig. 4.
+
+The first sub-network outputs a virtual reference signal of the pitch rate q, which is one input of the second sub-network, and the second sub-network produces the control command.
+
+Compared to the “flat” actor with only one end-to-end network, the virtual reference signal qref provides a more direct instruction.
+
+This hierarchical structure takes advantage of the physical properties of the system, by putting some prior knowledge into the design of the controller, which in theory will reduce the complexity of the problem.
+
+To improve stability, the output layers of the actor sub-networks adopt a sigmoid function as activation function, to add restrictions to the pitch rate reference and the control action, which is different from the global model and the critic, where linear functions are employed.
+
+The pitch rate and the elevator deflection commands are bounded in the range of [−20°∕s,20°∕s] and [−25°,25°] respectively.
+
+PARAGRAPH
+
+The critic and actor networks in both GDHP and IGDHP have the same settings.
+
+The DHP technique generally surpasses HDP in tracking precision, convergence speed and success rate because the costate function is employed (Wang et al., 2019a; Zhou et al., 2018b).
+
+Therefore, to take advantage of the information of derivatives, β is set to be 0.01.
+
+More neurons will improve approximation precision, but can also increase computational burden or even lead to overfitting, which will decrease the robustness of the controller.
+
+As a trade off, the number of hidden layer neurons in the actor is 15, while in both the critic and the global system it is 25.
+
+Initial weights of the neural networks can have a great influence on the learning.
+
+In this paper, all weights are randomly initialized within a small range of [−0.01,0.01] to reduce the impact of initialization, and bounded within the range of [−20,20] to prevent sudden failure in the learning process.
+
+To guarantee effective learning, learning rates have to be chosen carefully.
+
+A descending method is applied, which means that the initial learning rates are set to be large numbers which gradually decrease as the weights are updated.
+
+PARAGRAPH
+
+SECTION
+
+Results and discussion
+
+PARAGRAPH
+
+Both the GDHP and the IGDHP algorithms are applied to a simulation of controlling the F16 aircraft longitudinal model.
+
+First, the flight controller learns to track a changing reference at different initial conditions.
+
+Then, these two methods are compared in the failure cases where actuator faults and structural damages take place.
+
+All numerical experiments are implemented in the presence of sensor uncertainties.
+
+SECTION
+
+Different initial conditions
+
+PARAGRAPH
+
+Figs. 5–7 compare the performance of the IGDHP and GDHP approaches, when applied to control the F16 aircraft to track a given reference signal online at different initial states.
+
+To be more specific, the controllers are required to control the angle of attack α to track the reference signal αref, which is a sinusoidal wave with the amplitude of 10 degrees and the period of 4π seconds.
+
+The sub-figures on the top present how the angle of attack α tracks the reference signal αref using these two approaches respectively, while the sub-figures on the bottom provide the tracking errors during these tasks.
+
+PARAGRAPH
+
+Take every two degrees as a scale to examine the influence of the initial states.
+
+When the initial state α0 is ±2°, both methods perform similarly to the simulation results with zero initial states, as shown in Figs. 5 and 6.
+
+When the initial state is 4°, although tracking precision decreases for GDHP method, both methods can successfully complete the tracking task, as shown in Fig. 7.
+
+Nevertheless, compared to GDHP, IGDHP spends less time to find a feasible actor, leading to a smaller settling time.
+
+These results imply the incremental techniques can accelerate the learning process of the actor and critic networks.
+
+Furthermore, when the initial state α0 is beyond the range of [−2°,4°], the GDHP method cannot track the reference signal without oscillation.
+
+On the other side, the IGDHP method can deal with a wider range of initial states within [−10°,10°] without the loss of precision.
+
+As presented in Fig. 8, the angle of attack α can follow the given reference signal αref in less than 1 second in all initial conditions using the IGDHP approach, which shows that IGDHP is more robust than GDHP to various initial states.
+
+PARAGRAPH
+
+However, Figs. 5–8 only present the nominal results when the task is successfully performed.
+
+Random factors, including initial weights of the neural networks and sensor noises, can affect the performance and sometimes can even lead to failure.
+
+To compare how robust the proposed algorithms are to these random factors, a concept of success ratio is introduced to indicate their performance, which has been widely used in Zhou et al. (2018b), Van Kampen et al. (2006) and Sun and van Kampen (2020).
+
+The success ratio used in this paper is defined as that the angle of attack α can track the given reference signal αref after one period of αref, 4π seconds, and the tracking errors will not exceed ±2° hereafter.
+
+Without adjustment of parameters, 1000 times of Monte Carlo simulation are implemented to evaluate the performance of algorithms.
+
+PARAGRAPH
+
+The results are illustrated in Table 2.
+
+The reason why the highest success ratio is not 100% lies in the difficulty to achieve optimal PE condition due to the circular argument between PE condition, accurate system information and stable control policy.
+
+Improving several factors can increase success ratio and improve robustness, such as the performance of sensors, exploration noise, parameter initialization and learning rates.
+
+However, the improvement of these factors still remain to be open problems and therefore this paper only concentrates on the comparison of robustness between different methods.
+
+As presented in Table 2, the success ratios of IGDHP are higher than those of GDHP at any initial state.
+
+When applied to non-zero initial states, success ratios decrease dramatically for GDHP, which means that the global model is not robust enough for various initial conditions.
+
+However, the success ratios of both IGDHP and GDHP degrade heavily due to measurement uncertainties, and the impacts on IGDHP are even more severe.
+
+That is because, to achieve the quick and high-precision identified model, the incremental method adapts quickly to locally acquired data.
+
+Nevertheless, IGDHP still shows better performance.
+
+PARAGRAPH
+
+SECTION
+
+Fault-tolerant examination
+
+PARAGRAPH
+
+The capability to adapt is one of the most important advantages for ACDs compared to other traditional control techniques.
+
+It allows the controller to learn sound polices automatically by tuning the weights of the networks and this merit makes ACDs suitable for fault-tolerant control (FTC).
+
+Fault diagnosis is a significant part in FTC area, but will not be discussed in this paper.
+
+It is assumed that when sudden fault occurs, the controller can recognize it immediately.
+
+One challenge of FTC is that the controller is unable to change its policy quickly enough when faced with sudden changes in plant dynamics, while in this situation the originally learned control policy may even increase the instability of the closed loop plant.
+
+Therefore, in this paper, the way the controller adapt to new situation is to reset the actor weights to small random numbers within the range of [−0.01,0.01] and to increase the corresponding learning rate as long as the fault is detected.
+
+PARAGRAPH
+
+Fig. 9 compares the online adaptability of the GDHP method and the IGDHP method in the presence of the sudden decrease of elevator bandwidth to 18 rad/s.
+
+This change is introduced after the convergence of the policy for original system at 4π, 4.5π and 5π seconds, respectively, which corresponds to different values of the reference signal.
+
+As shown in Fig. 9, GDHP shows poor adaptation performance and it results in divergence in sub-figure (c).
+
+Although the GDHP method can adapt in sub-figures (a) and (b), its tracking performance degrades and the adapted controller leads to unexpected oscillations due to a higher gain control policy.
+
+On the contrary, IGDHP is able to adapt to elevator faults, and continues to track the commands precisely.
+
+The adaptation of the actor weights during this online FTC task is presented in Fig. 10.
+
+There are in total 60 weights belonging to two cascaded networks.
+
+Fig. 10 demonstrates how the controller achieves a convergent policy by adapting actor weights and sub-figures (b) and (c) take a closer look at the main learning processes at the beginning and after the elevator fault happens, respectively.
+
+PARAGRAPH
+
+The second fault scenario considered is that the elevator suddenly loses 30% of its effectiveness during flight at 4π, 4.5π and 5π seconds, respectively.
+
+As can be seen from Fig. 11, only when this sudden fault happens at 4π seconds, GDHP can recover from this situation, but it encounters slightly growing oscillations thereafter, making the tracking errors have larger root mean square value.
+
+If the sudden damage occurs at the points where αref has non-zero value, GDHP will suffer from divergence.
+
+On the other hand, IGDHP is able to rapidly adapt to the elevator fault with smaller tracking errors.
+
+PARAGRAPH
+
+The last fault scenario considered is that at the three different times mentioned above, the left stabilator is damaged, while the right stabilator is still working normally.
+
+Accompanying with the left stabilator damage, the CG shifts forwards and to the right, producing both rolling and pitching moment increments.
+
+However, only the effects of pitching moment increments are considered for this longitudinal model and rolling effects are omitted.
+
+The reduced longitudinal damping and stability margin are also influencing the closed-loop system responses.
+
+The results are illustrated in Fig. 12, where at all three times, GDHP fails to adapt to the new dynamics while IGDHP shows satisfying performance.
+
+SECTION
+
+Conclusion
+
+PARAGRAPH
+
+This paper develops a novel approach, called incremental model based global dual heuristic programming (IGDHP), to generate an adaptive model-free flight controller.
+
+Different from traditional global dual heuristic programming (GDHP), which often employs an artificial neural network to approximate the global system dynamics, IGDHP adopts incremental approaches instead to identify the local plant model online and to speed up policy convergence.
+
+Besides, this paper derives a direct method from a holistic viewpoint based on differential operation, to explicitly analytically compute derivatives of cost-to-go function with respect to the critic inputs, rather than utilizes conventional neural network approximation, so as to eliminate the inconsistent errors due to coupling.
+
+PARAGRAPH
+
+Both methods are applied to an online longitudinal attitude tracking task of a nonlinear F-16 Fighting Falcon system, whose dynamics are unknown to the controller.
+
+The numerical experiment results uniformly illustrate that, in comparison to conventional GDHP, IGDHP improves tracking precision, accelerates the online learning process, has advantages in robustness to different initial states and measurement uncertainties, and has increased capability to adapt when faced with unforeseen sudden faults.
+
+PARAGRAPH
+
+This study generalizes the basic form of the IGDHP but still has limitations for realistic applications.
+
+Further research should, therefore, concentrate on the investigation of various types of function approximators, the improvement of stability and success ratio, and expansion to other application scenarios.

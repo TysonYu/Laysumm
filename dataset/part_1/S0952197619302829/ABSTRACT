@@ -1,0 +1,31 @@
+10.1016/j.engappai.2019.103340
+
+ABSTRACT
+
+TITLE
+
+Network-based direction of movement prediction in financial markets
+
+PARAGRAPH
+
+Market prediction has been an important research problem for decades.
+
+Having better predictive models that are both more accurate and faster has been attractive for both researchers and traders.
+
+Among many approaches, semi-supervised graph-based prediction has been used as a solution in recent researches.
+
+Based on this approach, we present two prediction models.
+
+In the first model, a new network structure is introduced that can capture more information about markets’ direction of movements compared to the previous state of the art methods.
+
+Based on this novel network, a new algorithm for semi-supervised label propagation is designed that is able to prediction the direction of movement faster and more accurately.
+
+PARAGRAPH
+
+The second model is a mixture of experts system that decides between supervised or semi-supervised approaches.
+
+Besides this, the model gives us the ability to identify the markets that their data are helpful in constructing the network.
+
+Our models are shown to be both faster regarding computational complexity and running time and more accurate in prediction comparing to best rival models in literature of graph-based semi-supervised prediction.
+
+The results are also tested to be statistically significant.
