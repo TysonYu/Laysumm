@@ -54,8 +54,8 @@ class MultiNewsDataset(Dataset):
             if (raw_src[i] != []) and (raw_tgt[i] != []):
                 src.append(raw_src[i])
                 tgt.append(raw_tgt[i])
-        mask = torch.tensor(get_mask(src, max_len=1024))
-        src_ids = torch.tensor(pad_sents(src, 1, max_len=1024)[0])
+        mask = torch.tensor(get_mask(src, max_len=512))
+        src_ids = torch.tensor(pad_sents(src, 1, max_len=512)[0])
         decoder_ids = [[0]+i for i in tgt]
         label_ids = [i+[2] for i in tgt]
 
@@ -132,5 +132,4 @@ if __name__ == '__main__':
         if not os.path.exists(args.data_path + args.data_name + '/minor_data'):
             os.makedirs(args.data_path + args.data_name + 'minor_data')
     multi_news_builder(args)
-
 
