@@ -5,7 +5,6 @@ import torch
 from transformers import BartForConditionalGeneration
 from others.logging import init_logger, logger
 from others.utils import load, count_parameters, initialize_weights
-from preprocess import MultiNewsDataset, MultiNewsReader
 from others.optimizer import build_optim
 from trainer import train, train_multi
 import random
@@ -97,6 +96,10 @@ if __name__ == '__main__':
     # loading data
     # it's faster to load data from pre_build data
     logger.info('starting to read dataloader')
+    if args.customiza_model:
+        from preprocess_sent_label import MultiNewsDataset, MultiNewsReader
+    else:
+        from preprocess import MultiNewsDataset, MultiNewsReader
     train_loader, valid_loader = load_dataloader(args)
 
     # initial model
