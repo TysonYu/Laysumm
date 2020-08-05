@@ -68,12 +68,14 @@ if __name__ == '__main__':
     
     
     # read data and inference
-    main_path = '../datasets/laysumm/test/'
+    main_path = '../datasets/test/'
     test_list = os.listdir(main_path)
     test_list = [line[:17] for line in test_list]
     test_list = list(set(test_list))
     for i in range(37):
         id = test_list[i]
+        if id[0] == '.':
+            continue
         abstract_path = main_path+id+'_ABSTRACT'
         data = open(abstract_path)
         lines = data.readlines()
