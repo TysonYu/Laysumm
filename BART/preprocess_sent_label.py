@@ -1,3 +1,101 @@
+import numpy as np
+import copy
+from nltk.tokenize import sent_tokenize
+from cal_rouge import test_rouge, rouge_results_to_str
+
+# def calrouge(summary, reference):
+#     final_results = test_rouge([summary], [reference], 1)
+#     R1_F1 = final_results["rouge_1_f_score"] * 100
+#     R2_F1 = final_results["rouge_2_f_score"] * 100
+#     Rl_F1 = final_results["rouge_l_f_score"] * 100
+#     return (R1_F1+R2_F1+Rl_F1)/3
+
+# def rouge_eval(summary, reference):
+#     final_results = test_rouge([summary], [reference], 1)
+#     R1_F1 = final_results["rouge_1_f_score"] * 100
+#     R2_F1 = final_results["rouge_2_f_score"] * 100
+#     Rl_F1 = final_results["rouge_l_f_score"] * 100
+#     return (R1_F1+R2_F1+Rl_F1)/3
+
+def calrouge(summary, reference, rouge):
+    rouge.add(summary, reference)
+    final_results = rouge.compute(rouge_types=["rouge1", "rouge2", "rougeL" ])
+    R1_F1 = final_results["rouge1"].mid.fmeasure * 100
+    R2_F1 = final_results["rouge2"].mid.fmeasure * 100
+    Rl_F1 = final_results["rougeL"].mid.fmeasure * 100
+    return (R1_F1+R2_F1+Rl_F1)/3
+
+def rouge_eval(summary, reference, rouge):
+    rouge.add(summary, reference)
+    final_results = rouge.compute(rouge_types=["rouge1", "rouge2", "rougeL" ])
+    R1_F1 = final_results["rouge1"].mid.fmeasure * 100
+    R2_F1 = final_results["rouge2"].mid.fmeasure * 100
+    Rl_F1 = final_results["rougeL"].mid.fmeasure * 100
+    return (R1_F1+R2_F1+Rl_F1)/3
+
+article = sent_tokenize(' The burden of hepatitis E virus (HEV) infection among patients with haematological malignancy has only been scarcely reported. Therefore, we aimed to describe this burden in patients with haematological malignancies, including those receiving allogeneic haematopoietic stem cell transplantation. We conducted a retrospective, multicentre cohort study across 11 European centres and collected clinical characteristics of 50 patients with haematological malignancy and RNA-positive, clinically overt hepatitis E between April 2014 and March 2017. The primary endpoint was HEV-associated mortality; the secondary endpoint was HEV-associated liver-related morbidity. The most frequent underlying haematological malignancies were aggressive non-Hodgkin lymphoma (NHL) (34%), indolent NHL (iNHL) (24%), and acute leukaemia (36%). Twenty-one (42%) patients had received allogeneic haematopoietic stem cell transplantation (alloHSCT). Death with ongoing hepatitis E occurred in 8 (16%) patients, including 1 patient with iNHL and 1 patient >100 days after alloHSCT in complete remission, and was associated with male sex (p = 0.040), cirrhosis (p = 0.006) and alloHSCT (p = 0.056). Blood-borne transmission of hepatitis E was demonstrated in 5 (10%) patients, and associated with liver-related mortality in 2 patients. Hepatitis E progressed to chronic hepatitis in 17 (34%) patients overall, and in 10 (47.6%) and 6 (50%) alloHSCT and iNHL patients, respectively. Hepatitis E was associated with acute or acute-on-chronic liver failure in 4 (8%) patients with 75% mortality. Ribavirin was administered to 24 (48%) patients, with an HEV clearance rate of 79.2%. Ribavirin treatment was associated with lower mortality (p = 0.037) and by trend with lower rates of chronicity (p = 0.407) when initiated <24 and <12 weeks after diagnosis of hepatitis E, respectively. Immunosuppressive treatment reductions were associated with mortality in 2 patients (28.6%). Hepatitis E is associated with mortality and liver-related morbidity in patients with haematological malignancy. Blood-borne transmission contributes to the burden. Ribavirin should be initiated early, whereas reduction of immunosuppressive treatment requires caution.')
+
+
+abstract = 'Little is known about the burden of hepatitis E among patients with haematological malignancy. We conducted a retrospective European cohort study among 50 patients with haematological malignancy, including haematopoietic stem cell transplant recipients, with clinically significant HEV infection and found that hepatitis E is associated with hepatic and extrahepatic mortality, including among patients with indolent disease or among stem cell transplant recipients in complete remission. Hepatitis E virus infection evolved to chronic hepatitis in 5 (45.5%) patients exposed to a rituximab-containing regimen and 10 (47.6%) stem cell transplant recipients. Reducing immunosuppressive therapy because of hepatitis E was associated with mortality'
+
+def calLabel(article, abstract, rouge):
+    hyps_list = article
+    refer = abstract
+    scores = []
+    for hyps in hyps_list:
+        mean_score = calrouge(hyps, refer, rouge)
+        scores.append(mean_score)
+
+    selected = [int(np.argmax(scores))]
+    selected_sent_cnt = 1
+
+    best_rouge = np.max(scores)
+    while selected_sent_cnt < len(hyps_list):
+        cur_max_rouge = 0.0
+        cur_max_idx = -1
+        for i in range(len(hyps_list)):
+            if i not in selected:
+                temp = copy.deepcopy(selected)
+                temp.append(i)
+                hyps = "\n".join([hyps_list[idx] for idx in np.sort(temp)])
+                cur_rouge = rouge_eval(hyps, refer, rouge)
+                if cur_rouge > cur_max_rouge:
+                    cur_max_rouge = cur_rouge
+                    cur_max_idx = i
+        if cur_max_rouge != 0.0 and cur_max_rouge >= best_rouge:
+            selected.append(cur_max_idx)
+            selected_sent_cnt += 1
+            best_rouge = cur_max_rouge
+        else:
+            break
+    # print(selected, best_rouge)
+    return selected
+
+# select = calLabel(article, abstract)
+# select =[3, 2, 4, 5, 7]
+# print(select)
+
+# new = ' '.join([article[i] for i in select])
+# # s1 = rouge_test(new, abstract)
+# s2 = calrouge(' '.join(article), abstract)
+
+# s3 = calrouge(new, abstract)
+# # print(s1)
+# print(s2)
+# print(s3)
+# import nlp
+# rouge = nlp.load_metric('rouge')
+
+# select = calLabel(article, abstract, rouge)
+# select = [2, 0, 8, 13, 5,3]
+# print(select)
+# new = ' '.join([article[i] for i in select])
+# s1 = rouge_test(new, abstract)
+# s2 = calrouge(new, abstract, rouge)
+# print(s1)
+# print(s2)
+
+# ==============================================================================================================================================
 from tqdm import tqdm
 import torch
 from transformers import BartTokenizer
@@ -31,20 +129,10 @@ class MultiNewsDataset(Dataset):
         self.tgt_ids = []
         self.ext_label = []
         self.sent_ids = []
-        for i in range(len(self.src)):
+        for i in tqdm(range(len(self.src))):
             src_sent = sent_tokenize(self.src[i])
-            tgt_sent = sent_tokenize(self.tgt[i])
             golden_list = []
-            for s in range(len(tgt_sent)):
-                ids = 0
-                counter = 0
-                for j in range(len(src_sent)):
-                    count = self.cal_overlap(tgt_sent[s], src_sent[j])
-                    if count > counter:
-                        ids = j
-                        counter = count
-                golden_list.append(ids)
-            golden_list = list(set(golden_list))
+            golden_list = calLabel(src_sent, self.tgt[i], rouge)
             
             sent_label = []
             source_ids = []
@@ -69,13 +157,6 @@ class MultiNewsDataset(Dataset):
 #         print(self.ext_label[0])
 #         print(self.sent_ids[0])
 #         exit()
-    def cal_overlap(self, src, tgt):
-        src_words = src.split()
-        count = 0
-        for word in src_words:
-            if word in tgt:
-                count += 1
-        return count
     
     def __len__(self):
         return len(self.src)
@@ -114,8 +195,8 @@ class MultiNewsDataset(Dataset):
         decoder_ids = [[0]+i for i in tgt]
         label_ids = [i+[2] for i in tgt]
 
-        decoder_ids = torch.tensor(pad_sents(decoder_ids, 1, max_len=150)[0])
-        label_ids = torch.tensor(pad_sents(label_ids, -100, max_len=150)[0])
+        decoder_ids = torch.tensor(pad_sents(decoder_ids, 1, max_len=256)[0])
+        label_ids = torch.tensor(pad_sents(label_ids, -100, max_len=256)[0])
         return src_ids, decoder_ids, mask, label_ids, torch.tensor(new_ext_label), torch.tensor(new_sent_ids)
 
 class MultiNewsReader(object):
@@ -173,6 +254,8 @@ if __name__ == '__main__':
     parser.add_argument('-percentage', default=100, type=int)
     args = parser.parse_args()
 
+    import nlp
+    rouge = nlp.load_metric('rouge') 
     # set random seed
     random.seed(args.random_seed)
     np.random.seed(args.random_seed)
@@ -186,5 +269,7 @@ if __name__ == '__main__':
         if not os.path.exists(args.data_path + args.data_name + '/minor_data'):
             os.makedirs(args.data_path + args.data_name + 'minor_data')
     multi_news_builder(args)
+
+
 
 

@@ -123,7 +123,7 @@ def train_multi(model, training_data, validation_data, optimizer, checkpoint, ar
                 logger.info("iteration: {} loss_per_word: {:4f} learning rate: {:4f}".format(iteration, total_loss/50, optimizer.learning_rate))
                 total_loss = 0
             # save model
-            if iteration % 100 == 0 and iteration > 2000:
+            if iteration % 100 == 0 and iteration > 3000:
                 temp_F1 = evaluation_multi(model, validation_data, args)
                 if temp_F1 > F1:
                     logger.info("saving model")

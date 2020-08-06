@@ -122,16 +122,15 @@ if __name__ == '__main__':
         except:
             print(full_path,'no conclusion')
             one_conclu = ""
-        ARTICLE_TO_SUMMARIZE = one_abstract
+        ARTICLE_TO_SUMMARIZE = one_abstract + ' ' + one_intro #+ ' ' + one_conclu
         if args.customiza_model:
             from nltk.tokenize import sent_tokenize
             ARTICLE_TO_SUMMARIZE_list = sent_tokenize(ARTICLE_TO_SUMMARIZE)
             ARTICLE_TO_SUMMARIZE = " <s> ".join(ARTICLE_TO_SUMMARIZE_list)
             ARTICLE_TO_SUMMARIZE = " <s> " + ARTICLE_TO_SUMMARIZE
-            
+        print(ARTICLE_TO_SUMMARIZE)
 #         inputs = tokenizer([ARTICLE_TO_SUMMARIZE], max_length=512, return_tensors='pt', add_special_tokens=False, truncation=True)
-        inputs = tokenizer.encode(ARTICLE_TO_SUMMARIZE,  add_special_tokens=False)
-        inputs = inputs[:512]
+        inputs = tokenizer.encode(ARTICLE_TO_SUMMARIZE,  add_special_tokens=False,  max_length=1024, truncation=True)
 #         summary_ids = model.generate(inputs['input_ids'], num_beams=4, max_length=200, early_stopping=True)
         summary_ids = model.generate(torch.tensor([inputs]).cuda(), num_beams=4, max_length=200, early_stopping=True)
         one_summary = [tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=False) for g in summary_ids]
