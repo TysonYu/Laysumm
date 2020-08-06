@@ -43,7 +43,7 @@ def train(model, training_data, validation_data, optimizer, checkpoint, args):
                 logger.info("iteration: {} loss_per_word: {:4f} learning rate: {:4f}".format(iteration, total_loss/20, optimizer.learning_rate))
                 total_loss = 0
             # save model
-            if iteration % 100 == 0 and iteration >= 4000:
+            if iteration % 100 == 0 and iteration >= 3000:
                 temp_F1 = evaluation(model, validation_data, args)
                 if temp_F1 > F1:
                     logger.info("saving model")
