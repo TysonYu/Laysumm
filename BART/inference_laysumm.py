@@ -16,6 +16,160 @@ def tokenize(data, tokenizer):
     tokenized_text = [tokenizer.encode(i) for i in data]
     return tokenized_text
     
+def get_abs(abstract_path):
+    data = open(abstract_path)
+    lines = data.readlines()
+    lines = [i.strip('\n') for i in lines]
+    lines = [i for i in lines if i != '']
+    try:
+        lines = lines[lines.index('PARAGRAPH')+1:]
+        lines = [line for line in lines if line!='PARAGRAPH']
+        one_abstract = " ".join(lines)
+    except:
+        one_abstract = ""
+        print(abstract_path, 'no abstract')
+    return one_abstract
+
+def get_full_intro(full_path):
+    data = open(full_path)
+    lines = data.readlines()
+    lines = [i.strip('\n') for i in lines]
+    lines = [i for i in lines if i != '']
+    try: 
+        lines = lines[lines.index('Introduction')+2:]
+        one_intro_list = []
+        for line in lines:
+            if line == 'SECTION':
+                break
+            one_intro_list.append(line)
+        one_intro_list = [line for line in one_intro_list if line!='PARAGRAPH']
+        one_intro = " ".join(one_intro_list)
+    except:
+        print(full_path,'no introduction')
+        one_intro = ""
+    return one_intro
+
+def get_part_intro(full_path):
+    data = open(full_path)
+    lines = data.readlines()
+    lines = [i.strip('\n') for i in lines]
+    lines = [i for i in lines if i != '']
+    try: 
+        lines = lines[lines.index('Introduction')+2:]
+        one_intro_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+#             if line == 'SECTION':
+#                 break
+            one_intro_list.append(line)
+        one_intro = " ".join(one_intro_list)
+    except:
+        print(full_path,'no introduction')
+        one_intro = ""
+    return one_intro
+
+def get_part_conclu(full_path):
+    data = open(full_path)
+    lines = data.readlines()
+    lines = [i.strip('\n') for i in lines]
+    lines = [i for i in lines if i != '']
+    try: 
+        lines = lines[lines.index('Conclusions')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    except:
+        print(full_path,'no conclusion')
+        one_conclu = ""
+    return one_conclu
+
+def get_full_conclusion(full_path):
+    data = open(full_path)
+    lines = data.readlines()
+    lines = [i.strip('\n') for i in lines]
+    lines = [i for i in lines if i != '']
+    if 'Conclusions' in lines:
+        lines = lines[lines.index('Conclusions')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    elif 'Conclusion' in lines:
+        lines = lines[lines.index('Conclusion')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    elif 'Conclusions and future directions' in lines:
+        lines = lines[lines.index('Conclusions and future directions')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    
+    elif 'Conclusion and further researches' in lines:
+        lines = lines[lines.index('Conclusion and further researches')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    elif 'Discussion and conclusion' in lines:
+        lines = lines[lines.index('Discussion and conclusion')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    elif 'Conclusion and future work' in lines:
+        lines = lines[lines.index('Conclusion and future work')+2:]
+        one_conclu_list = []
+        for line in lines:
+            if line == 'PARAGRAPH':
+                break
+            if line == 'SECTION':
+                break
+            one_conclu_list.append(line)
+        one_conclu = " ".join(one_conclu_list)
+    else:
+        one_conclu = ""
+        flag = 0
+        for line in lines:
+            if 'In conclusion' in line:
+                flag = 1
+            if 'PARAGRAPH' == line:
+                flag = 0
+            if line == 'SECTION':
+                flag = 0
+            if flag == 1:
+                one_conclu += line
+        if one_conclu == "":
+            print(full_path,'no conclusion')
+    return one_conclu
 if __name__ == '__main__':
     # for training
     parser = argparse.ArgumentParser()
@@ -85,44 +239,18 @@ if __name__ == '__main__':
         title = lines[3]
         lines = lines[lines.index('PARAGRAPH')+1:]
         lines = [line for line in lines if line!='PARAGRAPH']
-        one_abstract = " ".join(lines)
+        one_abstract = get_abs(abstract_path)
         
         # 处理introduction
         full_path = main_path+id+'_FULLTEXT'
-        data = open(full_path)
-        lines = data.readlines()
-        lines = [i.strip('\n') for i in lines]
-        lines = [i for i in lines if i != '']
-        try: 
-            lines = lines[lines.index('Introduction')+2:]
-            one_intro_list = []
-            for line in lines:
-                if line == 'PARAGRAPH':
-                    break
-                one_intro_list.append(line)
-            one_intro = " ".join(one_intro_list)
-        except:
-            print(full_path,'no introduction')
-            one_intro = ""
-        
+        one_intro = get_part_intro(full_path)
+        full_intro = get_full_intro(full_path)
         # 处理conclusion
         full_path = main_path+id+'_FULLTEXT'
-        data = open(full_path)
-        lines = data.readlines()
-        lines = [i.strip('\n') for i in lines]
-        lines = [i for i in lines if i != '']
-        try: 
-            lines = lines[lines.index('Conclusions')+2:]
-            one_conclu_list = []
-            for line in lines:
-                if line == 'PARAGRAPH':
-                    break
-                one_conclu_list.append(line)
-            one_conclu = " ".join(one_conclu_list)
-        except:
-            print(full_path,'no conclusion')
-            one_conclu = ""
-        ARTICLE_TO_SUMMARIZE = one_abstract + ' ' + one_intro #+ ' ' + one_conclu
+        one_conclu = get_part_conclu(full_path)
+        full_conclu = get_full_conclusion(full_path)
+        
+        ARTICLE_TO_SUMMARIZE = one_abstract  + ' ' + one_intro + ' ' + full_conclu# full_intro #one_intro + ' ' + one_conclu
         if args.customiza_model:
             from nltk.tokenize import sent_tokenize
             ARTICLE_TO_SUMMARIZE_list = sent_tokenize(ARTICLE_TO_SUMMARIZE)
